@@ -1,0 +1,72 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/session-start-load-index.sh\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/prompt-submit-load-chunks.sh\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/post-write-validate-disclaimer.sh\""
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Bash(mkdir:*)",
+      "Bash(chmod:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(jq:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git rev-parse:*)",
+      "WebFetch(domain:eur-lex.europa.eu)",
+      "WebFetch(domain:gesetze-im-internet.de)",
+      "WebFetch(domain:dsgvo-gesetz.de)",
+      "WebFetch(domain:bfdi.bund.de)",
+      "WebFetch(domain:datenschutzkonferenz-online.de)",
+      "WebFetch(domain:edpb.europa.eu)",
+      "WebFetch(domain:curia.europa.eu)",
+      "WebFetch(domain:rechtsprechung-im-internet.de)",
+      "WebFetch(domain:bundesanzeiger.de)",
+      "WebFetch(domain:bmj.de)",
+      "WebFetch(domain:bmwk.de)",
+      "WebFetch(domain:ec.europa.eu)",
+      "WebFetch(domain:e-recht24.de)",
+      "WebFetch(domain:it-recht-kanzlei.de)",
+      "WebFetch(domain:datenschutz-notizen.de)",
+      "WebFetch(domain:dr-schwenke.de)",
+      "WebFetch(domain:haerting.de)",
+      "WebFetch(domain:openjur.de)",
+      "WebFetch(domain:lda.bayern.de)",
+      "WebFetch(domain:bsi.bund.de)"
+    ]
+  },
+  "description": "legal-audit-de — KI-Rechts-Audit-Workspace (DE/EU). Hook-basiertes On-Demand-KB-Loading."
+}

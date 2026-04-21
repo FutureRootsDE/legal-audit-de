@@ -1,0 +1,114 @@
+{
+  "_comment": "Schlagwort-zu-KB-Chunk-Mapping. Der UserPromptSubmit-Hook matcht jeden Regex gegen den Prompt (case-insensitive). Pro Match werden die zugeordneten KB-Dateien als additionalContext geladen. Alle Pfade relativ zu knowledge/.",
+  "_version": 1,
+  "triggers": [
+    {
+      "pattern": "(?i)\\b(cookie|banner|consent|einwilligung|tcf|cmp)\\b",
+      "files": ["themen/cookie-consent.md", "urteile/bgh-cookie-einwilligung.md"]
+    },
+    {
+      "pattern": "(?i)(impressum|anbieter|§\\s*5\\s*(DDG|TMG))",
+      "files": ["themen/impressum.md", "gesetze/ddg.md"]
+    },
+    {
+      "pattern": "(?i)\\b(agb|allgemeine\\s+gesch[aä]ftsbedingungen|§\\s*30[5-9]|§\\s*310)\\b",
+      "files": ["themen/agb-muster.md", "gesetze/bgb-agb.md"]
+    },
+    {
+      "pattern": "(?i)\\b(tracking|analytics|pixel|google\\s*analytics|meta\\s*pixel|plausible|matomo|hotjar)\\b",
+      "files": ["themen/tracking-analytics.md"]
+    },
+    {
+      "pattern": "(?i)(drittland|schrems|scc|standardvertragsklausel|data\\s*transfer|angemessenheitsbeschluss)",
+      "files": ["themen/drittland-transfer.md", "urteile/eugh-schrems-ii.md"]
+    },
+    {
+      "pattern": "(?i)(ai\\s*act|ki[-\\s]*(vo|verordnung|transparenz)|\\bgpt\\b|\\bclaude\\b|\\bmistral\\b|\\bllm\\b|chatgpt)",
+      "files": ["themen/ki-transparenz.md", "gesetze/ai-act.md"]
+    },
+    {
+      "pattern": "(?i)(widerruf|fernabsatz|§\\s*31[23]|button[-\\s]*l[oö]sung)",
+      "files": ["themen/widerrufsbelehrung.md", "themen/button-loesung.md"]
+    },
+    {
+      "pattern": "(?i)(newsletter|email[-\\s]*marketing|§\\s*7\\s*UWG|double[-\\s]*opt[-\\s]*in|opt[-\\s]*out)",
+      "files": ["themen/email-marketing.md", "gesetze/uwg.md"]
+    },
+    {
+      "pattern": "(?i)(barrierefreiheit|bfsg|wcag|\\ba11y\\b|accessibility)",
+      "files": ["themen/barrierefreiheit.md", "gesetze/bfsg.md"]
+    },
+    {
+      "pattern": "(?i)(urheber|bildrecht|stockfoto|§\\s*44b|text[-\\s]*data[-\\s]*mining|creative\\s*commons)",
+      "files": ["themen/urheber-stockfoto.md", "themen/ki-content.md", "gesetze/urhg.md"]
+    },
+    {
+      "pattern": "(?i)(nis2|kritis|it[-\\s]*sicherheit|\\bbsig\\b)",
+      "files": ["gesetze/nis2-bsig.md"]
+    },
+    {
+      "pattern": "(?i)(avv|art\\.?\\s*28|auftragsverarbeitung|auftragsverarbeiter)",
+      "files": ["themen/avv-muster.md"]
+    },
+    {
+      "pattern": "(?i)(art\\.?\\s*30|verarbeitungsverzeichnis|vvt)",
+      "files": ["themen/verarbeitungsverzeichnis.md"]
+    },
+    {
+      "pattern": "(?i)(art\\.?\\s*32|\\btom\\b|technisch.?organisatorisch)",
+      "files": ["themen/tom.md"]
+    },
+    {
+      "pattern": "(?i)(art\\.?\\s*35|dsfa|datenschutzfolgenabsch[aä]tzung)",
+      "files": ["themen/dsfa.md"]
+    },
+    {
+      "pattern": "(?i)(datenpanne|data\\s*breach|art\\.?\\s*33|meldepflicht)",
+      "files": ["themen/meldepflicht-datenpanne.md"]
+    },
+    {
+      "pattern": "(?i)(preisangabe|pangv|grundpreis)",
+      "files": ["themen/preisangaben.md", "gesetze/pangv.md"]
+    },
+    {
+      "pattern": "(?i)(datenschutzerkl[aä]rung|privacy\\s*policy|\\bdse\\b)",
+      "files": ["themen/datenschutzerklaerung.md"]
+    },
+    {
+      "pattern": "(?i)(werbekennzeichnung|influencer|#werbung|#anzeige)",
+      "files": ["themen/werbekennzeichnung.md"]
+    },
+    {
+      "pattern": "(?i)(marke|markenrecht|§\\s*14\\s*MarkenG|markenverletzung)",
+      "files": ["gesetze/markeng.md"]
+    },
+    {
+      "pattern": "(?i)(dsa|digital\\s*services\\s*act|plattform[-\\s]*pflicht)",
+      "files": ["gesetze/dsa.md"]
+    },
+    {
+      "pattern": "(?i)(dma|digital\\s*markets\\s*act|gatekeeper)",
+      "files": ["gesetze/dma.md"]
+    },
+    {
+      "pattern": "(?i)(social[-\\s]*media|facebook[-\\s]*page|fanpage|instagram[-\\s]*business|tiktok|linkedin[-\\s]*company|fashion[-\\s]*id|shariff|like[-\\s]*button|2[-\\s]*klick[-\\s]*l[oö]sung|joint[-\\s]*controller)",
+      "files": ["themen/social-media-datenschutz.md"]
+    },
+    {
+      "pattern": "(?i)(kug|kunsturhebergesetz|§\\s*22\\s*kug|§\\s*23\\s*kug|persönlichkeitsrecht|bildnis|foto.*dritter|recht.*am.*eigenen.*bild)",
+      "files": ["themen/fotos-dritter-kug.md"]
+    },
+    {
+      "pattern": "(?i)(siegel|auszeichnung|testsiegel|tüv[-\\s]*siegel|trusted[-\\s]*shops|g[uü]tesiegel|zertifikat.*werbung|pr[uü]fsiegel)",
+      "files": ["themen/siegel-werbung.md"]
+    },
+    {
+      "pattern": "(?i)(§\\s*51\\s*urhg|zitatrecht|zitat.*recht|gro[ßs]zitat|kleinzitat|bildzitat)",
+      "files": ["themen/zitatrecht.md"]
+    },
+    {
+      "pattern": "(?i)(tool[-\\s]*katalog|tool[-\\s]*[uü]bersicht|welches[-\\s]*tool|saas[-\\s]*tool.*dsgvo|drittanbieter[-\\s]*tool)",
+      "files": ["themen/tool-katalog.md"]
+    }
+  ]
+}

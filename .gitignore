@@ -1,0 +1,48 @@
+# Lokale Audits (projekt-spezifische Schatten-Archive — nie committen)
+audits/
+!audits/.gitkeep
+!audits/README.md
+
+# Hook-/Audit-Logs (Zitat-Verifikation, etc.)
+.claude/logs/
+*.log
+
+# Python-Caches
+__pycache__/
+*.pyc
+*.pyo
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Obsidian-Workspace-State (persoenliche Layouts, nicht teilen)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+
+# Remember-Skill (lokale Buffer-Memory)
+.remember/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Claude Code local state
+.claude/settings.local.json
+.claude-memory/
+.claude/memory/
