@@ -1,6 +1,6 @@
 {
   "name": "legal-audit-de",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Claude Code plugin for German/EU legal audits (DSGVO, TDDDG, UWG, AI Act, DDG, BGB, BFSG, UrhG, KUG, MarkenG, NIS2). Scans codebases, live URLs, and individual legal documents; produces severity-classified findings + clean corrected versions. NOT legal advice.",
   "author": {
     "name": "FutureRoots DE",
