@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Idee fuer ein neues Feature oder eine Verbesserung
+about: Idee für ein neues Feature oder eine Verbesserung
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
@@ -8,22 +8,22 @@ assignees: ''
 
 ## Problem / Motivation
 
-Welches Problem soll geloest werden? Welche Arbeitsfluss-Luecke schliesst das Feature?
+Welches Problem soll gelöst werden? Welche Arbeitsfluss-Lücke schließt das Feature?
 
-## Vorgeschlagene Loesung
+## Vorgeschlagene Lösung
 
-Wie koennte das Feature funktionieren?
+Wie könnte das Feature funktionieren?
 
 ## Alternativen erwogen
 
-Welche anderen Ansaetze hast du in Betracht gezogen?
+Welche anderen Ansätze hast du in Betracht gezogen?
 
 ## Scope-Check
 
 - [ ] Feature passt in den Scope (DE/EU-Rechts-Audit)
 - [ ] Keine Vermischung mit anderen Rechtsordnungen (US, UK etc.)
 - [ ] Kein Feature, das Rechtsberatung ersetzt
-- [ ] Neue KB-Artikel haben Primaerquellen-Links
+- [ ] Neue KB-Artikel haben Primärquellen-Links
 
 ## Zusatzkontext
 

@@ -1,14 +1,16 @@
 # Contributing to legal-audit-de
 
-Vielen Dank, dass du zur Weiterentwicklung dieses Plugins beitragen moechtest! Rechtsthemen aendern sich staendig, und jede Aktualisierung hilft der gesamten Community.
+Vielen Dank, dass du zur Weiterentwicklung dieses Plugins beitragen möchtest! Rechtsthemen ändern sich ständig, und jede Aktualisierung hilft der gesamten Community.
+
+🇬🇧 [English version](CONTRIBUTING.en.md)
 
 ## Wichtiger Hinweis zu Rechts-Inhalten
 
-**Keine Rechtsberatung.** Dieses Plugin erzeugt technische Vor-Arbeit fuer anwaltliche Pruefungen, keine verbindlichen Rechtsauskuenfte. Wenn du Beitraege einreichst:
+**Keine Rechtsberatung.** Dieses Plugin erzeugt technische Vor-Arbeit für anwaltliche Prüfungen, keine verbindlichen Rechtsauskünfte. Wenn du Beiträge einreichst:
 
-- Alle Zitate gegen **Tier-1-Primaerquellen** pruefen (siehe `CLAUDE.md`, Abschnitt "Quellen-Hierarchie")
+- Alle Zitate gegen **Tier-1-Primärquellen** prüfen (siehe `CLAUDE.md`, Abschnitt „Quellen-Hierarchie")
 - Unsichere oder nicht verifizierbare Aussagen mit `<<VERIFIKATION AUSSTEHEND>>` markieren
-- Sekundaerquellen (Kanzlei-Blogs, eRecht24 etc.) NIEMALS als Zitatbeleg — nur zur Einordnung
+- Sekundärquellen (Kanzlei-Blogs, eRecht24 etc.) NIEMALS als Zitatbeleg — nur zur Einordnung
 
 ## Wie du beitragen kannst
 
@@ -18,8 +20,8 @@ Bitte ein [Issue](https://github.com/FutureRootsDE/legal-audit-de/issues/new) mi
 
 - Genauem Pfad zur betroffenen Datei
 - Zitat der fraglichen Stelle
-- Primaerquelle, die das Gegenteil belegt (mit Link)
-- Gewuenschte Korrektur
+- Primärquelle, die das Gegenteil belegt (mit Link)
+- Gewünschte Korrektur
 
 ### ✨ Neue KB-Artikel
 
@@ -40,16 +42,16 @@ Plus:
 - Disclaimer-Block direkt nach dem Frontmatter (aus `templates/disclaimer-block.md`)
 - Cross-Ref-Block am Ende (`## Siehe auch`) mit Wiki-Links
 - Eintrag in `knowledge/INDEX.md`
-- Trigger-Pattern in `.claude/hooks/triggers.json` (falls Auto-Loading gewuenscht)
+- Trigger-Pattern in `.claude/hooks/triggers.json` (falls Auto-Loading gewünscht)
 
 ### 🔄 KB-Aktualisierung
 
-Wenn ein Gesetz/Urteil/Behoerden-Leitlinie sich geaendert hat:
+Wenn ein Gesetz/Urteil/Behörden-Leitlinie sich geändert hat:
 
 1. Datei bearbeiten
 2. `verifiziert-am:` im Frontmatter aktualisieren
 3. `<<VERIFIKATION AUSSTEHEND>>`-Platzhalter entfernen, wenn nun verifiziert
-4. PR mit Link zur Primaerquelle
+4. PR mit Link zur Primärquelle
 
 ### 🧰 Neue Commands / Agenten / Skills
 
@@ -58,11 +60,11 @@ Format wie bestehende Artefakte in `.claude/commands/`, `.claude/agents/`, `.cla
 - Disclaimer-Referenz im Output-Path
 - Beschreibung der Severity-Klassifikation
 
-### 🌍 Uebersetzungen
+### 🌍 Übersetzungen
 
-Englische Kurzfassungen in `knowledge/en/SUMMARY.md` sind willkommen. Bitte beachten:
-- Deutsch bleibt Primaersprache (Paragraphen-Formulierungen sind bindend)
-- Englisch nur als Uebersicht, keine vollstaendige Uebertragung
+Beiträge zu englischen Wiki-Seiten oder `knowledge/en/SUMMARY.md` sind willkommen. Bitte beachten:
+- Deutsch bleibt Primärsprache für KB-Inhalte (Paragraphen-Formulierungen sind in Originalsprache bindend)
+- Englisch als Einstiegs- und Übersichtsebene, nicht als Ersatz der deutschen Rechtstexte
 
 ## Entwicklungs-Setup
 
@@ -70,7 +72,7 @@ Englische Kurzfassungen in `knowledge/en/SUMMARY.md` sind willkommen. Bitte beac
 git clone https://github.com/FutureRootsDE/legal-audit-de.git
 cd legal-audit-de
 
-# Python-Dependencies fuer Hooks + Skripte
+# Python-Dependencies für Hooks + Skripte
 python -m venv .venv
 source .venv/bin/activate   # oder .venv\Scripts\activate unter Windows
 pip install -r requirements.txt  # falls vorhanden
@@ -105,14 +107,14 @@ Beispiele:
 
 ## Pull-Request-Prozess
 
-1. Fork das Repo + Branch (`feat/xyz`, `fix/xyz`, `kb/xyz`)
-2. Aenderungen committen (siehe Commit-Konvention)
-3. PR eroeffnen mit:
-   - Beschreibung der Aenderung
-   - Falls KB-Aenderung: Link zur Primaerquelle
+1. Fork den Repo + Branch (`feat/xyz`, `fix/xyz`, `kb/xyz`)
+2. Änderungen committen (siehe Commit-Konvention)
+3. PR eröffnen mit:
+   - Beschreibung der Änderung
+   - Falls KB-Änderung: Link zur Primärquelle
    - Checkliste:
      - [ ] Disclaimer im Output-Path validiert
-     - [ ] Zitate gegen Tier-1-Quellen geprueft
+     - [ ] Zitate gegen Tier-1-Quellen geprüft
      - [ ] `aktualisiert:` / `verifiziert-am:` gepflegt
      - [ ] Cross-Refs aktualisiert
 4. Review durch Maintainer
@@ -120,12 +122,12 @@ Beispiele:
 
 ## Code of Conduct
 
-Siehe [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — kurzform: sei freundlich, respektiere diverse Perspektiven, konstruktive Kritik willkommen, Diskriminierung / Belaestigung wird nicht toleriert.
+Siehe [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — Kurzform: sei freundlich, respektiere diverse Perspektiven, konstruktive Kritik willkommen, Diskriminierung und Belästigung werden nicht toleriert.
 
 ## Lizenz
 
-Alle Beitraege fallen unter die [MIT-License](LICENSE) des Projekts.
+Alle Beiträge fallen unter die [MIT-License](LICENSE) des Projekts.
 
 ## Fragen?
 
-[Issue eroeffnen](https://github.com/FutureRootsDE/legal-audit-de/issues/new) oder [Discussion starten](https://github.com/FutureRootsDE/legal-audit-de/discussions).
+[Issue eröffnen](https://github.com/FutureRootsDE/legal-audit-de/issues/new) oder [Discussion starten](https://github.com/FutureRootsDE/legal-audit-de/discussions).

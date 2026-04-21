@@ -1,8 +1,8 @@
 ## Beschreibung
 
-Was aendert dieser PR? Warum?
+Was ändert dieser PR? Warum?
 
-## Typ der Aenderung
+## Typ der Änderung
 
 - [ ] Bug-Fix (nicht-breaking)
 - [ ] Feature (nicht-breaking)
@@ -15,19 +15,19 @@ Was aendert dieser PR? Warum?
 
 - [ ] Ich habe [CONTRIBUTING.md](../CONTRIBUTING.md) gelesen
 - [ ] Commit-Messages folgen der Konvention (`typ(scope): beschreibung`)
-- [ ] Bei KB-Aenderungen: `aktualisiert:` / `verifiziert-am:` im Frontmatter gepflegt
-- [ ] Bei KB-Aenderungen: Zitate gegen Tier-1-Primaerquellen geprueft
+- [ ] Bei KB-Änderungen: `aktualisiert:` / `verifiziert-am:` im Frontmatter gepflegt
+- [ ] Bei KB-Änderungen: Zitate gegen Tier-1-Primärquellen geprüft
 - [ ] Bei neuen KB-Dateien: Eintrag in `knowledge/INDEX.md` + ggf. Trigger in `.claude/hooks/triggers.json`
-- [ ] Bei Command-/Hook-Aenderungen: lokal getestet
+- [ ] Bei Command-/Hook-Änderungen: lokal getestet
 - [ ] Disclaimer-Block in Output-Pfaden intakt
 
 ## Betroffene Dateien
 
-(Liste der zentralen Aenderungen mit Kurzbeschreibung)
+(Liste der zentralen Änderungen mit Kurzbeschreibung)
 
-## Primaerquellen (bei KB-PRs)
+## Primärquellen (bei KB-PRs)
 
-Links zu den Tier-1-Quellen, die die Aenderung belegen:
+Links zu den Tier-1-Quellen, die die Änderung belegen:
 
 - ...
 

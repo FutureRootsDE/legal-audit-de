@@ -1,6 +1,6 @@
 ---
 name: KB-Aktualisierung / Rechts-Korrektur
-about: Ein Gesetz / Urteil / Leitlinie hat sich geaendert, oder eine Aussage ist falsch
+about: Ein Gesetz / Urteil / Leitlinie hat sich geändert, oder eine Aussage ist falsch
 title: '[KB] '
 labels: knowledge-base, legal-update
 assignees: ''
@@ -18,21 +18,21 @@ Pfad: `knowledge/...`
 
 > (neuer Text oder Korrektur)
 
-## Primaerquelle
+## Primärquelle
 
 - [ ] eur-lex.europa.eu — Link: ...
 - [ ] gesetze-im-internet.de — Link: ...
 - [ ] rechtsprechung-im-internet.de — Link: ...
 - [ ] curia.europa.eu — Link: ...
 - [ ] bundesanzeiger.de — Link: ...
-- [ ] Amtliche Sekundaerquelle (BfDI, DSK, EDSA, Landesbeauftragte) — Link: ...
+- [ ] Amtliche Sekundärquelle (BfDI, DSK, EDSA, Landesbeauftragte) — Link: ...
 
-Mindestens eine Primaerquelle (Tier 1) ist Pflicht. Sekundaerquellen dienen nur der Einordnung.
+Mindestens eine Primärquelle (Tier 1) ist Pflicht. Sekundärquellen dienen nur der Einordnung.
 
-## Stand der Primaerquelle
+## Stand der Primärquelle
 
-Datum der Veroeffentlichung / Geltung: `YYYY-MM-DD`
+Datum der Veröffentlichung / Geltung: `YYYY-MM-DD`
 
 ## Zusatzkontext
 
-Wirkt sich die Aenderung auf weitere KB-Dateien aus? Welche Checkliste sollte angepasst werden?
+Wirkt sich die Änderung auf weitere KB-Dateien aus? Welche Checkliste sollte angepasst werden?
