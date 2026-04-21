@@ -34,6 +34,7 @@ Ein Claude-Code-Plugin, das wie ein IT-/Datenschutz-Fachaudit agiert. Es analysi
 | `/legal-kb <slug>` | KB-Artikel gezielt in den Kontext laden |
 | `/legal-verify <thema>` | Fachanwalts- und Tool-Empfehlungen |
 | `/legal-update [--stale-only]` | KB gegen Primärquellen aktualisieren |
+| `/legal-audit-de-update` | **NEU** — Plugin + KB gemeinsam aktualisieren (Marketplace-Refresh + Primärquellen-Verifikation) |
 | `/legal-status` | Plugin-Gesundheit (KB-Alter, Platzhalter, Hook-Status) |
 
 ### 🤖 Agenten
@@ -73,11 +74,18 @@ Damit bleibt dein Kontext schlank und aktuelles Rechtswissen trotzdem parat.
 - Optional: [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) für `/legal-audit-live`
 - Optional: [Obsidian](https://obsidian.md/) für visuelle KB-Navigation (Graph-View, Backlinks)
 
-### Installation als Plugin
+### Installation via Marketplace (empfohlen)
 
 ```bash
-# In Claude Code
-/plugin install FutureRootsDE/legal-audit-de
+# In Claude Code — Marketplace hinzufügen, dann Plugin installieren
+/plugin marketplace add FutureRootsDE/legal-audit-de
+/plugin install legal-audit-de@futureroots-legal
+```
+
+Damit ist das Plugin installiert. Updates später via:
+```bash
+/plugin marketplace update futureroots-legal
+/legal-audit-de-update
 ```
 
 ### Installation als Workspace-Clone

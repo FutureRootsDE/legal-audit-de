@@ -1,0 +1,64 @@
+{
+  "name": "legal-audit-de",
+  "version": "1.0.0",
+  "description": "Claude Code plugin for German/EU legal audits (DSGVO, TDDDG, UWG, AI Act, DDG, BGB, BFSG, UrhG, KUG, MarkenG, NIS2). Scans codebases, live URLs, and individual legal documents; produces severity-classified findings + clean corrected versions. NOT legal advice.",
+  "author": {
+    "name": "FutureRoots DE",
+    "url": "https://github.com/FutureRootsDE"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/FutureRootsDE/legal-audit-de",
+  "repository": "https://github.com/FutureRootsDE/legal-audit-de",
+  "keywords": [
+    "claude-code",
+    "claude-code-plugin",
+    "legal",
+    "dsgvo",
+    "gdpr",
+    "privacy",
+    "compliance",
+    "germany",
+    "eu-law",
+    "audit",
+    "tddg",
+    "uwg",
+    "ai-act",
+    "bdsg",
+    "legal-audit"
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PLUGIN_ROOT}/.claude/hooks/session_start.py\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PLUGIN_ROOT}/.claude/hooks/prompt_submit.py\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PLUGIN_ROOT}/.claude/hooks/post_write.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

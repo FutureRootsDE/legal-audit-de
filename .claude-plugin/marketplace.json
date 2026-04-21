@@ -1,0 +1,51 @@
+{
+  "name": "futureroots-legal",
+  "owner": {
+    "name": "FutureRoots DE",
+    "email": "noreply@futureroots.de"
+  },
+  "metadata": {
+    "description": "Marketplace for German/EU legal audit tooling — Claude Code plugins focused on DSGVO, TDDDG, UWG, AI Act compliance.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "legal-audit-de",
+      "source": "./",
+      "description": "Claude Code plugin for systematic German/EU legal audits (DSGVO, TDDDG, UWG, AI Act, etc.). Scans codebases, live URLs, and individual legal documents. Produces severity-classified findings + clean corrected versions. NOT legal advice.",
+      "version": "1.0.0",
+      "author": {
+        "name": "FutureRoots DE",
+        "url": "https://github.com/FutureRootsDE"
+      },
+      "homepage": "https://github.com/FutureRootsDE/legal-audit-de",
+      "repository": "https://github.com/FutureRootsDE/legal-audit-de",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "claude-code-plugin",
+        "legal",
+        "dsgvo",
+        "gdpr",
+        "privacy",
+        "compliance",
+        "germany",
+        "eu-law",
+        "audit",
+        "tddg",
+        "uwg",
+        "ai-act",
+        "bdsg",
+        "legal-audit"
+      ],
+      "category": "compliance",
+      "tags": [
+        "legal",
+        "gdpr",
+        "dsgvo",
+        "germany",
+        "eu"
+      ]
+    }
+  ]
+}

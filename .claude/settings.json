@@ -1,39 +1,5 @@
 {
-  "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/session-start-load-index.sh\""
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/prompt-submit-load-chunks.sh\""
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/post-write-validate-disclaimer.sh\""
-          }
-        ]
-      }
-    ]
-  },
+  "_comment": "Hooks are now registered via .claude-plugin/plugin.json (Claude Code Plugin API). This settings.json provides permission grants for the plugin's commands and agents.",
   "permissions": {
     "allow": [
       "Read(**)",

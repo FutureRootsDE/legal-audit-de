@@ -45,6 +45,7 @@ Designed for developers, founders, and small teams operating in or targeting the
 | `/legal-kb <slug>` | Load a specific KB article into context |
 | `/legal-verify <topic>` | Attorney and tool recommendations |
 | `/legal-update [--stale-only]` | Refresh KB against primary sources |
+| `/legal-audit-de-update` | **NEW** — Update plugin + KB together (marketplace refresh + primary source verification) |
 | `/legal-status` | Plugin health (KB age, placeholders, hook status) |
 
 ### 🤖 Agents
@@ -84,11 +85,18 @@ This keeps your context window lean while current legal knowledge is always with
 - Optional: [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) for `/legal-audit-live`
 - Optional: [Obsidian](https://obsidian.md/) for visual KB navigation (graph view, backlinks)
 
-### As a plugin
+### Install via marketplace (recommended)
 
 ```bash
-# In Claude Code
-/plugin install FutureRootsDE/legal-audit-de
+# In Claude Code — add marketplace, then install plugin
+/plugin marketplace add FutureRootsDE/legal-audit-de
+/plugin install legal-audit-de@futureroots-legal
+```
+
+That's it. For updates later:
+```bash
+/plugin marketplace update futureroots-legal
+/legal-audit-de-update
 ```
 
 ### As a workspace clone

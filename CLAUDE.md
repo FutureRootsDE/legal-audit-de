@@ -34,6 +34,7 @@ Jede vom Plugin erzeugte Output-Datei trägt diesen Disclaimer am Kopf. Der `Pos
 | `/legal-kb <slug>` | KB-Artikel gezielt in den Kontext laden |
 | `/legal-verify <thema>` | Fachanwalts-/Tool-Empfehlungen |
 | `/legal-update [slug\|--stale-only\|--all\|--fix-pending]` | KB gegen Primärquellen aktualisieren |
+| `/legal-audit-de-update [--plugin-only\|--kb-only\|--dry-run]` | Plugin + KB gemeinsam aktualisieren (Marketplace-Refresh + Primärquellen) |
 | `/legal-status [--verbose\|--json]` | Plugin-Gesundheit: KB-Alter, Platzhalter, Hook-Status, Audit-Historie |
 
 Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
