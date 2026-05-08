@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 quellen-sekundaer:
   - https://artificialintelligenceact.eu/implementation-timeline/
   - https://ai-act-service-desk.ec.europa.eu/
   - https://artificialintelligenceact.eu/article/50/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # KI-Verordnung (EU AI Act) — VO (EU) 2024/1689
 
@@ -31,21 +31,21 @@ Der AI Act verfolgt einen **risikobasierten Ansatz**:
 - **Allgemeine KI-Modelle (GPAI)** (Art. 51–56) — Foundation Models wie Claude, GPT, Gemini
 - **Minimalrisiko** — keine Pflichten
 
-## Stufenplan (Stand 2026-04)
+## Stufenplan (Stand 2026-05)
 
 | Datum | Was gilt |
 |-------|----------|
 | **01.08.2024** | Inkrafttreten |
 | **02.02.2025** | Verbotene Praktiken (Art. 5), KI-Kompetenz-Pflicht (Art. 4) — **gilt** |
 | **02.08.2025** | GPAI-Pflichten (Art. 51–56), Governance (Art. 64–70), Sanktionen (Art. 99–100), notifizierte Stellen — **gilt** |
-| **02.08.2026** | **Vollanwendung**: Hochrisiko-KI nach Anhang III, Transparenz Art. 50, KI-Reallabore — **in < 4 Monaten aktiv** |
+| **02.08.2026** | **Vollanwendung**: Hochrisiko-KI nach Anhang III, Transparenz Art. 50, KI-Reallabore — **in < 3 Monaten aktiv** |
 | **02.08.2027** | Hochrisiko-KI nach Anhang I (Produkte mit CE-Kennzeichnung); GPAI vor 02.08.2025 muss compliant sein |
 | **31.12.2030** | Grosse IT-Systeme der Union (Migration) |
 
-**Aktueller operativer Stand (April 2026):**
+**Aktueller operativer Stand (Mai 2026):**
 - Verbotene Praktiken und KI-Kompetenz: **voll anwendbar**
 - GPAI-Pflichten: **voll anwendbar** (Anbieter muessen Code of Practice oder aequivalente Konformitaetspfade nutzen)
-- Art. 50 Transparenzpflichten: **Anwendung ab 02.08.2026** — Vorbereitung jetzt!
+- Art. 50 Transparenzpflichten: **Anwendung ab 02.08.2026** — endgueltige Vorbereitung jetzt erforderlich!
 - Zweiter Entwurf des **Code of Practice** zur KI-Kennzeichnung wurde am **03.03.2026** veroeffentlicht
 
 ## Schluesselparagraphen / Kernaussagen

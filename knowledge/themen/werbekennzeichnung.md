@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__5a.html
 quellen-sekundaer:
   - https://www.die-medienanstalten.de/themen/werbung
   - https://www.lfm-nrw.de/leitfaeden/influencer
   - https://www.bmj.de/DE/themen/verbraucherrecht/lauterkeitsrecht/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Werbekennzeichnung — Influencer, Sponsored, Native
 
@@ -133,13 +133,15 @@ Mittel vom redaktionellen Inhalt getrennt werden ("Trennungsgebot").
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 90/20** (09.09.2021, "Influencer I" — Pamela Reif):
-  Kennzeichnungspflicht auch ohne Entgelt, wenn starker Werbe-Uebergewicht
-  gegeben.
-- **BGH I ZR 125/20** (09.09.2021, "Influencer II" — Hummels): ohne
-  Gegenleistung keine kommerzielle Kommunikation i.S.v. § 5a UWG (a.F.).
-- **BGH I ZR 126/20** (09.09.2021, "Influencer III" — Leni Hummels):
+- **BGH I ZR 90/20** (09.09.2021, "Influencer I" — Luisa-Maxime Huss):
+  Kennzeichnungspflicht auch ohne Entgelt, wenn Werbe-Uebergewicht gegeben.
+  (Hinweis: Pamela-Reif-Verfahren wurde vor dem BGH zurueckgenommen; OLG
+  Karlsruhe 6 U 38/19 vom 09.09.2020 blieb daher relevant.)
+- **BGH I ZR 125/20 + I ZR 126/20** (09.09.2021, "Influencer II/III"): ohne
+  Gegenleistung keine kommerzielle Kommunikation i.S.v. § 5a UWG (a.F.);
   Wirkung von Tap-Tags.
+- **BGH I ZR 35/21** (13.01.2022, "Influencer III"): weitergehende
+  Kennzeichnungspflichten im Influencer-Marketing.
 - **KG Berlin 5 U 51/18** (08.01.2019): "#ad" am Ende der Caption nicht
   ausreichend.
 - **OLG Frankfurt 6 W 35/19** (24.10.2019): Tap-Tags sind kennzeichnungs-

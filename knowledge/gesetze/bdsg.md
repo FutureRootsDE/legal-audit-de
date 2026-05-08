@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/bdsg_2018/
 quellen-sekundaer:
   - https://www.bfdi.bund.de/
   - https://www.datenschutzkonferenz-online.de/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # BDSG — Bundesdatenschutzgesetz (neu, 2018)
 

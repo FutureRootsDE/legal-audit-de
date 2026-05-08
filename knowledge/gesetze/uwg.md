@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__7.html
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
   - https://www.bmj.de/DE/themen/verbraucherrecht/lauterkeitsrecht/uwg_node.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # UWG — Gesetz gegen den unlauteren Wettbewerb
 
@@ -53,7 +53,9 @@ vorherige ausdrueckliche Einwilligung des Adressaten vorliegt".
 
 Konsequenz: Newsletter-Versand ohne dokumentierte **Double-Opt-In-Einwilligung**
 ist abmahnfaehig. Der Werbende traegt die Darlegungs- und Beweislast fuer die
-Einwilligung (siehe BGH I ZR 218/07 "Payback").
+Einwilligung (siehe BGH I ZR 218/07, Beschluss v. 20.05.2009 "E-Mail-Werbung II";
+zur Klausel-Wirksamkeit bei Kundenbindungsprogrammen siehe auch BGH VIII ZR 348/06,
+16.07.2008 "Payback").
 
 **Abs. 3 — Bestandskundenausnahme:** Abweichend von Abs. 2 Nr. 2 ist eine
 Einwilligung fuer E-Mail-Werbung **nicht erforderlich**, wenn kumulativ:
@@ -68,9 +70,16 @@ Einwilligung fuer E-Mail-Werbung **nicht erforderlich**, wenn kumulativ:
    widersprechen kann, **ohne dass hierfuer andere als die Uebermittlungskosten
    nach den Basistarifen** entstehen.
 
-**Abs. 4:** Bei jeder Werbung unter elektronischer Post muss die Identitaet des
-Absenders, in dessen Auftrag die Nachricht uebermittelt wird, nicht verschleiert
-oder verheimlicht werden und eine gueltige Adresse fuer Widerruf enthalten sein.
+**Abs. 2 Nr. 2 ergaenzend (Identitaet des Absenders, gueltige Widerrufsadresse):**
+Innerhalb der Tatbestaende der Belaestigung verlangt § 7 Abs. 2 Nr. 2 b)/c) UWG,
+dass die Identitaet des Absenders nicht verschleiert wird und eine gueltige Adresse
+fuer Widerspruch vorhanden ist (ohne ueber Basistarif hinausgehende Kosten).
+
+> Verifikations-Hinweis (2026-05-08): Nach gesetze-im-internet.de hat § 7 UWG
+> derzeit nur **drei Absaetze** (Abs. 1 bis Abs. 3). Frueher in eigenstaendigen
+> Absaetzen geregelte Pflichten (insb. Identitaet des Absenders, Widerspruchs-
+> adresse) sind in § 7 Abs. 2 Nr. 2 / Abs. 2 Nr. 3 integriert. Zitate auf einen
+> "§ 7 Abs. 4 UWG" sind veraltet.
 
 ### § 5a Abs. 4 UWG — Kommerzielle Kommunikation kennzeichnen
 
@@ -116,8 +125,9 @@ Enthaelt 32 per se unzulaessige Handlungen, u.a.:
 2. **Pre-ticked Checkboxen:** Bereits angekreuzte Consent-Boxen sind unwirksam
    (EuGH C-673/17 "Planet49", auf § 7 UWG uebertragen).
 3. **Fehlender Abmeldelink:** Jede Werbe-E-Mail muss einen funktionierenden
-   Unsubscribe-Mechanismus enthalten (§ 7 Abs. 2 Nr. 4, Abs. 4 UWG; auch
-   Art. 21 DSGVO).
+   Unsubscribe-Mechanismus enthalten (§ 7 Abs. 2 Nr. 2 UWG: gueltige Adresse
+   fuer Widerspruch ohne ueber Basistarif hinausgehende Kosten; auch Art. 21
+   DSGVO als datenschutzrechtlicher Widerspruch).
 4. **Transaktions-Mails mit Cross-Selling:** "Ihre Bestellung #123 — Vielleicht
    interessiert Sie auch..." ist Werbung i.S.v. § 7 UWG und braucht Einwilligung.
 5. **Influencer-Kooperationen ohne Kennzeichnung:** Automatisch generierte
@@ -154,17 +164,28 @@ Enthaelt 32 per se unzulaessige Handlungen, u.a.:
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 186/17** (13.01.2022, "Inbox-Werbung II", nach EuGH C-102/20):
+- **BGH I ZR 25/19** (13.01.2022, "Inbox-Werbung II", nach EuGH C-102/20):
   Eingeblendete Werbung im E-Mail-Posteingang ist elektronische Post i.S.v.
-  § 7 Abs. 2 Nr. 2 UWG und benoetigt Einwilligung. Siehe
+  § 7 Abs. 2 Nr. 2 UWG (frueher Nr. 3) und benoetigt Einwilligung. Pauschale
+  Einwilligung im Rahmen werbefinanzierter Mail-Dienste reicht nicht. Siehe
   [[urteile/bgh-inbox-werbung]].
-- **BGH I ZR 218/07** (10.02.2011, "Payback"): Einwilligung muss aktiv und
-  bewusst erklaert werden; Opt-Out-Mechanismen reichen nicht.
-- **BGH I ZR 164/09** (14.03.2012, "Double-Opt-In"): Best-Practice-Standard
-  fuer Einwilligungs-Nachweis.
-- **BGH I ZR 90/20** (09.09.2021, "Influencer I/II/III"): Kennzeichnungspflicht
-  fuer kommerzielle Instagram-Posts.
-- **BGH I ZR 186/21** "Cookie-Einwilligung" — verweist auf § 25 TTDSG.
+- **BGH I ZR 218/07** (Beschluss v. 20.05.2009, "E-Mail-Werbung II"):
+  Bereits einmalige Werbe-E-Mail ohne vorherige ausdrueckliche Einwilligung
+  rechtswidriger Eingriff in das Recht am eingerichteten und ausgeuebten
+  Gewerbebetrieb; Beweislast beim Werbenden.
+- **BGH VIII ZR 348/06** (16.07.2008, "Payback"): Unwirksamkeit verschiedener
+  Einwilligungs-Klauseln in AGB eines Kundenbindungs-/Rabattsystems.
+- **BGH I ZR 164/09** (10.02.2011, "Double-Opt-In"): Verfahrensstandard fuer
+  Einwilligungs-Nachweis. (Hinweis: Datum 10.02.2011 — Aktenzeichen-Datum-
+  Kombination beim naechsten Update gegen rechtsprechung-im-internet pruefen.)
+- **BGH I ZR 90/20** (09.09.2021, "Influencer I"): Kennzeichnungspflicht fuer
+  kommerzielle Instagram-Posts (Parallelverfahren I ZR 125/20 "Influencer II"
+  und I ZR 126/20 "Influencer III" am selben Tag).
+- **BGH I ZR 186/17** (27.03.2025, "App-Zentrum II"): Verbraucherverbaende und
+  Mitbewerber sind nach Art. 80 Abs. 2 DSGVO i.V.m. UWG/UKlaG befugt, DSGVO-
+  Verstoesse zivilrechtlich zu verfolgen. (Wichtige Klarstellung — vormals als
+  "Inbox-Werbung II" verlinkt; korrekte Inbox-Werbung-II-Entscheidung ist
+  I ZR 25/19, siehe oben.)
 - **EuGH C-673/17** (01.10.2019, "Planet49"): Vorangekreuzte Consent-Checkbox
   ist unwirksam.
 

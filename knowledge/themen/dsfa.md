@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
   - https://www.datenschutz-hamburg.de/fileadmin/user_upload/HmbBfDI/Datenschutz/Informationen/DSFA_Muss-Liste_fuer_den_nicht-oeffentlicher_Bereich_-_Stand_17.10.2018.pdf
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 

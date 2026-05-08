@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.bfdi.bund.de/
 quellen-sekundaer:
   - https://www.bfdi.bund.de/DE/Fachthemen/Inhalte/fachthemen_node.html
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/Allgemein/FAQ/FAQ_node.html
-verifiziert-am: 2026-04-19
+  - https://www.bfdi.bund.de/SharedDocs/Pressemitteilungen/DE/2026/05_BfDI-R%C3%BCckzug.html
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -15,13 +16,21 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
-# BfDI — Bundesbeauftragter für den Datenschutz und die Informationsfreiheit
+# BfDI — Bundesbeauftragte für den Datenschutz und die Informationsfreiheit
+
+## Aktueller Leitungsstand (2026-05-08)
+
+- Amtsinhaberin: **Prof. Dr. Louisa Specht-Riemenschneider** (Wahl Bundestag 16.05.2024 mit 476 Ja-Stimmen, Amtsantritt 03.09.2024 als Nachfolgerin von Prof. Ulrich Kelber)
+- **Rücktritt angekündigt:** 17.03.2026 aus gesundheitlichen Gründen (BfDI-Pressemitteilung 17.03.2026)
+- Specht-Riemenschneider bleibt im Amt, bis Bundestag eine Nachfolge gewählt hat
+- Stand 2026-05-08: Nachfolge **noch nicht öffentlich bekannt** / nicht gewählt
+- Quelle: https://www.bfdi.bund.de/SharedDocs/Pressemitteilungen/DE/2026/05_BfDI-R%C3%BCckzug.html
 
 ## Kurz-Überblick
 
-Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) ist die unabhängige Bundesaufsichtsbehörde für Datenschutz in Deutschland. Zuständig für: öffentliche Stellen des Bundes, Telekommunikations- und Postunternehmen, Bankenaufsicht (BaFin-Bereich teils), sowie — besonders wichtig für Codebases — die Überwachung von § 25 TDDDG (Cookie-/Tracker-Regeln auf Websites). Die BfDI ist Mitglied der DSK und des EDSA und vertritt Deutschland international.
+Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) ist die unabhängige Bundesaufsichtsbehörde für Datenschutz in Deutschland. Zuständig für: öffentliche Stellen des Bundes, Telekommunikations- und Postunternehmen, Bankenaufsicht (BaFin-Bereich teils), sowie — besonders wichtig für Codebases — die Überwachung von § 29 TDDDG (Aufsicht über § 25 TDDDG = Cookie-/Tracker-Regeln auf Websites, soweit TK-bezogen). Die BfDI ist Mitglied der DSK und des EDSA und vertritt Deutschland international.
 
 ## Rolle und Zuständigkeit
 
@@ -85,6 +94,11 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
 - 32. Tätigkeitsbericht (2023) — Fokus AI / ePA
 - 33. Tätigkeitsbericht (2024) — Fokus DSA / DMA / Daten-Raum
 - 34. Tätigkeitsbericht (2025) — Fokus AI Act / NIS 2
+- **35. Tätigkeitsbericht (Berichtsjahr 2025)** — übergeben an Bundestag in KW 19/2026 (Quelle: bundestag.de/dokumente/textarchiv/2026/kw19-datenschutzbericht-1174220)
+
+## Aktuelle Initiativen 2026
+
+- **ReguLab** — BfDI-Sandbox-Projekt für mehr Klarheit beim Datenschutz; Ausschreibung im April 2026 gestartet (Quelle: bfdi.bund.de Kurzmeldung 04_Ausschreibungsstart_ReguLab)
 
 ## Beschwerde-/Meldewege
 
@@ -108,7 +122,7 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
 | NRW | LDI NRW | ldi.nrw.de |
 | Rheinland-Pfalz | LfDI RLP | datenschutz.rlp.de |
 | Saarland | Unabhängiges Datenschutzzentrum Saarland | datenschutz.saarland.de |
-| Sachsen | SächsDSB | saechsdsb.de |
+| Sachsen | SDTB (Sächsische Datenschutz- und Transparenzbeauftragte) | datenschutz.sachsen.de (Redirect von saechsdsb.de) |
 | Sachsen-Anhalt | LfD LSA | datenschutz.sachsen-anhalt.de |
 | Schleswig-Holstein | ULD | datenschutzzentrum.de |
 | Thüringen | TLfDI | tlfdi.de |

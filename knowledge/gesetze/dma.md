@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32022R1925
 quellen-sekundaer:
   - https://digital-markets-act.ec.europa.eu/gatekeepers-portal_en
   - https://epthinktank.eu/2025/04/24/digital-markets-act-enforcement-state-of-play/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Digital Markets Act (DMA) — VO (EU) 2022/1925
 

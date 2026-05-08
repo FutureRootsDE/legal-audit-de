@@ -7,7 +7,7 @@ quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0476
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0516
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0469
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -18,7 +18,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Zitatrecht — § 51 UrhG, Pastiche, Quellenangabe
 

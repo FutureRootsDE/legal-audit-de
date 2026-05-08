@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62018CJ0311
 quellen-sekundaer:
   - https://curia.europa.eu/juris/liste.jsf?num=C-311/18
   - https://noyb.eu/de/cjeu-schrems-ii
   - https://www.edpb.europa.eu/our-work-tools/our-documents/recommendations/recommendations-012020-measures-supplement-transfer_en
-verifiziert-am: 2026-04-19
+  - https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3721
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # EuGH C-311/18 — „Schrems II"
 
@@ -75,8 +76,8 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
 
 - **2021/914/EU** (neue SCCs vom 04.06.2021) enthält explizite TIA-Pflicht in Klausel 14
 - **EDSA Empfehlungen 01/2020** zu ergänzenden Maßnahmen (finale Version 18.06.2021)
-- **EU-US Data Privacy Framework (10.07.2023)** ersetzt Privacy Shield — aber nur für DPF-zertifizierte Unternehmen
-- **Schrems III** (NOYB) anhängig gegen das DPF
+- **EU-US Data Privacy Framework — Angemessenheitsbeschluss vom 10.07.2023** (Beschluss (EU) 2023/1795) ersetzt Privacy Shield — aber nur für DPF-zertifizierte Unternehmen (siehe https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3721)
+- **Schrems III** (NOYB) anhängig gegen das DPF; erste DPF-Periodenüberprüfung durch EU-Kommission abgeschlossen
 
 ## Anwendung auf Codebases
 

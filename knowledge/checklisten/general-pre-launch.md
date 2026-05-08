@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 gilt-fuer: generische Pre-Launch-Pruefung (jedes Web-Projekt in DE/EU)
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,7 +11,7 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Diese Generalist-Checkliste
 > ersetzt nicht die Pruefung durch einen Fachanwalt vor Launch.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Generische Pre-Launch-Checkliste
 
@@ -73,21 +73,22 @@ Pflichtenkatalog.
 
 ## 4. Vertragstexte
 
-- [ ] **AGB** (falls Leistungsabgabe) mit Einbeziehungs-Mechanismus — [[themen/agb-muster]]
-- [ ] **Widerrufsbelehrung** bei B2C — [[themen/widerrufsbelehrung]]
-- [ ] **Button-Loesung** (§ 312j BGB) bei entgeltlichen Services — [[themen/button-loesung]]
-- [ ] **Preisangaben** transparent (PAngV) — [[themen/preisangaben]]
-- [ ] **ODR- und VSBG-Hinweise** bei Online-Verkauf
+- [ ] **AGB** (falls Leistungsabgabe) mit Einbeziehungs-Mechanismus, AGB-Kontrolle §§ 305-309 BGB — [[themen/agb-muster]]
+- [ ] **Widerrufsbelehrung** bei B2C nach § 355 BGB + Art. 246a EGBGB — [[themen/widerrufsbelehrung]]
+- [ ] **Button-Loesung** (§ 312j Abs. 3 BGB) bei entgeltlichen Services — Pflichtwortlaut auf finalem Button (BGH I ZR 159/24 v. 09.10.2025) — [[themen/button-loesung]]
+- [ ] **Preisangaben** transparent (PAngV; § 11 PAngV: 30-Tage-Tiefstpreis bei Reduzierungen; BGH I ZR 183/22) — [[themen/preisangaben]]
+- [ ] **VSBG-Hinweis** bei Online-Verkauf (§ 36 VSBG) — ODR-Plattform-Pflicht **entfaellt seit 20.07.2025** (VO (EU) 2024/3228 — ODR-Plattform abgeschaltet)
 - [ ] **SLA** bei B2B-Services (optional, aber empfohlen)
 
 ## 5. Marketing / Kommunikation
 
 - [ ] **Newsletter** mit Double-Opt-In — [[themen/email-marketing]]
-- [ ] **Werbemails** nur mit Einwilligung (§ 7 UWG) — [[urteile/bgh-inbox-werbung]]
-- [ ] **Telefon-Werbung** an Verbraucher nur mit schriftlicher Einwilligung
-- [ ] **SMS / Push** als "elektronische Post" - Opt-In noetig
-- [ ] **Kennzeichnung bezahlter Inhalte** (§ 5a UWG) — [[themen/werbekennzeichnung]]
-- [ ] **Influencer-Kooperationen** mit klarer Werbe-Kennzeichnung
+- [ ] **Werbemails** nur mit Einwilligung (§ 7 Abs. 2 Nr. 2 UWG; Bestandskunden-Ausnahme § 7 Abs. 3 UWG) — [[urteile/bgh-inbox-werbung]] (BGH I ZR 25/19 v. 13.01.2022 "Inbox-Werbung II")
+- [ ] **Telefon-Werbung** an Verbraucher nur mit ausdruecklicher (vorheriger) Einwilligung — § 7 Abs. 2 Nr. 1 UWG
+- [ ] **SMS / Push** als "elektronische Post" — Opt-In noetig (§ 7 Abs. 2 Nr. 2 UWG)
+- [ ] **Kennzeichnung bezahlter Inhalte** (§ 5a Abs. 4 UWG) — [[themen/werbekennzeichnung]]
+- [ ] **Influencer-Kooperationen** mit klarer Werbe-Kennzeichnung (BGH I ZR 90/20, 125/20, 126/20 v. 09.09.2021)
+- [ ] **Bewertungen-Echtheit** (§ 5b Abs. 3 UWG) — bei Aggregat-Anzeigen Methode der Verifikation transparent
 
 ## 6. Geistiges Eigentum
 
@@ -110,18 +111,27 @@ Je nach Branche weitere Pflichten:
 - [ ] **Telekommunikation**: TKG, BNetzA-Meldung
 - [ ] **Kritische Infrastruktur (KRITIS)**: BSI-Meldung, NIS2 — [[gesetze/nis2-bsig]]
 
-## 8. KI / AI Act
+## 8. KI / AI Act (Verordnung (EU) 2024/1689)
 
+Anwendbarkeits-Stufung: Verbotene Praktiken (Art. 5) seit **02.02.2025**, **KI-Kompetenz** (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**, High-Risk Anhang II ab 02.08.2027.
+
+- [ ] **Verbotene Praktiken** (Art. 5) ausgeschlossen
+- [ ] **KI-Kompetenz** Mitarbeiter (Art. 4) — Schulung dokumentiert
 - [ ] KI-Komponenten klassifiziert (Verboten / Hoch / Begrenzt / Minimal)
-- [ ] Transparenzpflichten erfuellt (Art. 50 AI Act)
+- [ ] Transparenzpflichten erfuellt (Art. 50 AI Act); ab 02.08.2026 Wasserzeichen-Pflicht
 - [ ] High-Risk: Konformitaetsbewertung eingeleitet
-- [ ] [[gesetze/ai-act]], [[themen/ki-transparenz]]
+- [ ] GPAI-Provider-Compliance bei verwendeten Modellen
+- [ ] [[gesetze/ai-act]], [[themen/ki-transparenz]], [[themen/ki-content]]
 
-## 9. Barrierefreiheit (BFSG ab 2025-06-28)
+## 9. Barrierefreiheit (BFSG — seit 28.06.2025 anwendbar)
 
-- [ ] Pruefen ob BFSG-pflichtig (B2C + > 10 MA / > 2 Mio EUR)
-- [ ] WCAG 2.1 AA eingehalten
-- [ ] Barrierefreiheitserklaerung veroeffentlicht
+BFSG ist **seit 28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Online-Dienstleistungen.
+
+- [ ] Pruefen ob BFSG-pflichtig (B2C-Online-Dienstleistung; Kleinstunternehmen-Ausnahme: < 10 MA UND < 2 Mio EUR)
+- [ ] WCAG 2.1 AA eingehalten (BFSGV § 3 setzt EN 301 549 um)
+- [ ] **Barrierefreiheitserklaerung** veroeffentlicht (§ 14 BFSG)
+- [ ] **Feedback-Kanal** fuer Barrieren
+- [ ] Bussgeldrahmen bis 100.000 EUR (§ 37 BFSG)
 - [ ] [[gesetze/bfsg]], [[themen/barrierefreiheit]]
 
 ## 10. IT-Sicherheit
@@ -200,6 +210,13 @@ das Abmahn-Risiko auf ein beherrschbares Niveau.
 - [[checklisten/audit-ecommerce]]
 - [[checklisten/audit-n8n]]
 - [[checklisten/audit-content-blog]]
+- [[gesetze/ai-act]]
+- [[gesetze/bfsg]]
+- [[gesetze/uwg]]
+- [[gesetze/bgb-agb]]
+- [[urteile/bgh-cookie-einwilligung]]
+- [[urteile/bgh-google-fonts]]
+- [[urteile/bgh-inbox-werbung]]
 - [[anwaelte-tools/fachanwaelte-it-recht]]
 - [[anwaelte-tools/datenschutzbeauftragte]]
 - [[anwaelte-tools/tools-generatoren]]

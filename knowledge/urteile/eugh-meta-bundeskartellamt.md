@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://curia.europa.eu/juris/liste.jsf?num=C-252/21
 quellen-sekundaer:
   - https://curia.europa.eu/jcms/upload/docs/application/pdf/2023-07/cp230113de.pdf
-  - https://www.bundeskartellamt.de/
+  - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:62021CJ0252
+  - https://www.bundeskartellamt.de/SharedDocs/Meldung/DE/Pressemitteilungen/2024/10_10_2024_Facebook.html
   - https://www.datenschutzkonferenz-online.de/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [EU, DE]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [EU, DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # EuGH C-252/21 — Meta Platforms vs. Bundeskartellamt
 
@@ -120,9 +121,11 @@ Der EuGH entschied:
 
 - **BKartA-Entscheidung vom 06.02.2019** wurde durch EuGH-Urteil bestaetigt
   im Rahmen des Rechtsstreits.
-- **OLG Duesseldorf**: Folge-Urteil nach EuGH-Vorabentscheidung
-  (Verfahren fortgefuehrt 2023/2024).
-- **DSGVO-Abaenderungen**: Sowohl DSK-Leitfaeden (2023) als auch EDPB-
+- **Verfahrensende OLG Duesseldorf (10.10.2024):** Meta hat seine Beschwerde
+  gegen die BKartA-Entscheidung **zurueckgenommen**. Das BKartA-Verfahren ist
+  damit bestandskraeftig abgeschlossen. Quelle: BKartA-Pressemitteilung vom
+  10.10.2024 (https://www.bundeskartellamt.de/SharedDocs/Meldung/DE/Pressemitteilungen/2024/10_10_2024_Facebook.html).
+- **DSGVO-Abaenderungen**: Sowohl DSK-Leitfaeden (2023/2024) als auch EDPB-
   Guidelines wurden entsprechend angepasst (Art. 6 Abs. 1 lit. b enge
   Auslegung, Art. 9 sensible Daten online).
 

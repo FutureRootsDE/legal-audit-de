@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/ddg/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/ddg/__5.html
   - https://www.bmj.de/DE/themen/digitales/digitale_dienste/DDG/DDG_node.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # DDG — Digitale-Dienste-Gesetz
 

@@ -1,11 +1,15 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quellen-sekundaer:
   - https://webbkoll.5july.net/
   - https://observatory.mozilla.org/
   - https://privacyscore.org/
   - https://www.ssllabs.com/
-verifiziert-am: 2026-04-19
+  - https://www.deque.com/axe/
+  - https://wave.webaim.org/
+  - https://pa11y.org/
+  - https://www.lda.bayern.de/
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU, weltweit]
 ---
 
@@ -16,7 +20,7 @@ geltungsbereich: [DE, EU, weltweit]
 > nicht DSGVO-Konformitaet; ein "rotes" Ergebnis ist nicht automatisch ein
 > DSGVO-Verstoss.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Scanner- und Audit-Tools
 
@@ -46,9 +50,10 @@ Analyse, PII-Inventar und Vertragspruefung.
 | Feld | Wert |
 |------|------|
 | URL | https://privacyscore.org/ |
-| Betreiber | Forschungs-Community <<VERIFIKATION AUSSTEHEND — Projekt-Status 2026>> |
+| Betreiber | TU Darmstadt / Uni Hamburg (SVS / Privacy & Trust Group); GitHub: github.com/PrivacyScore |
 | Features | Tracker-Erkennung, Security-Header, Server-Fingerprinting |
-| Status | Verfuegbarkeit schwankt, Alternativen: Webbkoll |
+| Status (Stand 2026-05-08) | Das zugehoerige DFG-Graduiertenkolleg 2090 endete Ende 2024. Die Plattform reagierte am 2026-05-08 nicht (ECONNREFUSED). Aktive Nutzung in 2026 unklar — als Backup verstehen, primaer Webbkoll verwenden. <<DAUERHAFTE VERFUEGBARKEIT VERIFIKATION AUSSTEHEND - 2026-05-08>> |
+| Alternativen | Webbkoll (5th of July Foundation) |
 
 ### privacytools.io (Ersatz-Community-Site)
 
@@ -116,12 +121,26 @@ Analyse, PII-Inventar und Vertragspruefung.
 | Was wird geprueft | Visuelle Darstellung der Probleme direkt auf der Seite |
 | Besonderheit | Gut fuer visuelle Review mit Kunden |
 
+### Pa11y
+
+| Feld | Wert |
+|------|------|
+| URL | https://pa11y.org/ |
+| Was ist es | CLI- und CI-orientiertes A11y-Test-Tool (npm), automatisierbar in Build-Pipelines |
+| Was wird geprueft | WCAG 2.1 / 2.2 Konformitaet (per HTML CodeSniffer / axe-core) |
+| Relevanz | BFSG-Pflicht ab 2025-06-28 — automatisierte Regress-Tests in CI moeglich |
+| Pricing | Open-Source, kostenlos (MIT) |
+
 ## Tier 4: DSGVO-Checklisten-Tools
 
-### BayLDA "Pruef Dich selbst" <<UNVERIFIZIERT>>
+### BayLDA "Pruef Dich selbst" / Checklisten
 
-- Die bayerische Aufsichtsbehoerde (BayLDA) bietet intermittierend Online-Selbstcheck-Tools an
-- URL: https://www.lda.bayern.de/ → Bereich "Online-Services"
+- Pruefung am 2026-05-08: Auf der BayLDA-Startseite (lda.bayern.de) wird **kein interaktives "Pruef Dich selbst"-Tool** unter dieser Bezeichnung gelistet.
+- Verfuegbar sind:
+  - **Datenschutz-Checkliste fuer Solo-Selbststaendige und KMU im Handel** (PDF, lda.bayern.de/media/checkliste/baylda_checkliste_handel_solo.pdf)
+  - **Cyberfestung** (Cybersicherheits-Strategie, lda.bayern.de/de/cyberfestung.html)
+  - Online-Formulare fuer Beschwerden, Beratung, Datenpannen-Meldung, DSB-Meldung
+- Frueher diskutierte interaktive Selbstchecks sind aktuell nicht prominent verlinkt; gegebenenfalls direkt bei der BayLDA nachfragen. <<EXISTENZ "Pruef Dich selbst" VERIFIKATION AUSSTEHEND - 2026-05-08>>
 
 ### IT-Recht Kanzlei Website-Scanner
 
@@ -134,6 +153,16 @@ Analyse, PII-Inventar und Vertragspruefung.
 - URL: https://www.cookiebot.com/de/cookie-scanner/
 - Single-URL-Scan als Teaser fuer das Abo
 - Listet erkannte Cookies + Zwecke
+
+### Cookiepedia (OneTrust)
+
+| Feld | Wert |
+|------|------|
+| URL | https://cookiepedia.co.uk/ |
+| Betreiber | OneTrust |
+| Was ist es | Cookie-Datenbank — Nachschlagewerk fuer einzelne Cookies (Anbieter, Zweck, Lebensdauer, Kategorie) |
+| Relevanz fuer Audit | nuetzlich, um nicht-zugeordnete Cookies bei Webbkoll/Cookiebot-Scan einzuordnen |
+| Pricing | kostenlos im Web-Interface (nicht erschoepfend); kommerzielle DB-Anbindung ueber OneTrust |
 
 ## Tier 5: Forensik / Tracker-Analyse
 

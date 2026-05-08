@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.datenschutzkonferenz-online.de/
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
   - https://www.datenschutzkonferenz-online.de/beschluesse-dsk.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Datenschutzkonferenz (DSK) — Beschlüsse & Kurzpapiere
 
@@ -33,28 +33,32 @@ Die Datenschutzkonferenz (DSK) ist die Konferenz der unabhängigen Datenschutzau
 
 ## Top-Kurzpapiere (nichtöffentlicher Bereich)
 
-| Nr. | Titel | Kernaussage |
+> Hinweis (Stand 2026-05-08): Die DSK-Kurzpapiere-Liste auf datenschutzkonferenz-online.de/kurzpapiere.html zaehlt 1-20. Mehrere Papiere sind zum Stand 2026-05-08 mit "in Ueberarbeitung" markiert (insb. Nr. 4, 6, 10, 11, 12, 13, 16, 20). Stets aktuelle Fassung pruefen.
+
+| Nr. | Titel (offiziell laut DSK-Website 2026-05-08) | Kernaussage |
 |-----|-------|-------------|
-| **1** | Verzeichnis von Verarbeitungstätigkeiten | Pflichtinhalte, Template-Vorschlag |
-| **2** | Datenschutz-Folgenabschätzung-Grundlagen (ältere Fassung) | Basis-Einordnung (ergänzt durch Nr. 5) |
-| **3** | Auskunftsrechte Betroffener | Art. 15 DSGVO — Umfang, Fristen |
-| **4** | Datenübertragbarkeit | Art. 20 DSGVO — maschinenlesbares Format |
-| **5** | Datenschutz-Folgenabschätzung nach Art. 35 DSGVO | Vorgehen, DSFA-Muss-Liste |
-| **6** | Auskunftspflicht Verantwortlicher / Informationspflichten | Art. 13/14 DSGVO praxisorientiert |
-| **7** | Marktortprinzip / Vertretung | Art. 27 DSGVO |
-| **8** | Marktortprinzip bei Drittland-Verantwortlichen | Präzisiert Art. 3 DSGVO |
-| **9** | Zertifizierung nach Art. 42 DSGVO | Verhaltensregeln + Siegel |
-| **10** | Informationspflichten bei Direkt- und Dritterhebung | Art. 13/14 im Detail |
-| **11** | Risikobeurteilung (ältere Fassung, abgelöst durch 18) | — |
-| **12** | Löschpflicht | Art. 17 DSGVO und Retention-Konzepte |
-| **13** | Auftragsverarbeitung | Art. 28 DSGVO |
-| **14** | Beschwerderecht Betroffener | Art. 77 DSGVO |
-| **15** | Videoüberwachung | Art. 6 Abs. 1 lit. f, § 4 BDSG |
-| **16** | Gemeinsam für die Verarbeitung Verantwortliche | Art. 26 DSGVO |
-| **17** | Besondere Datenkategorien | Art. 9 DSGVO |
-| **18** | Risiko für Rechte und Freiheiten natürlicher Personen | Risikomodell — Schwere × Eintrittswahrscheinlichkeit |
-| **19** | Unterrichtung / Benachrichtigung bei Datenpannen | Art. 33/34 DSGVO |
-| **20** | Einwilligung nach der DSGVO | Zentrale Anforderungen |
+| **1** | Verzeichnis von Verarbeitungstaetigkeiten – Art. 30 DS-GVO | Pflichtinhalte, Template-Vorschlag |
+| **2** | Aufsichtsbefugnisse / Sanktionen | Befugnisse Art. 58, Bussgelder Art. 83 |
+| **3** | Verarbeitung personenbezogener Daten fuer Werbung | Direktwerbung, Art. 6 Abs. 1 lit. f / Einwilligung |
+| **4** | Datenuebermittlung in Drittlaender (in Ueberarbeitung) | Art. 44 ff. DSGVO; ergaenzende Massnahmen |
+| **5** | Datenschutz-Folgenabschaetzung nach Art. 35 DS-GVO | Vorgehen, DSFA-Muss-Liste |
+| **6** | Auskunftsrecht der betroffenen Person, Art. 15 DS-GVO (in Ueberarbeitung) | Umfang, Fristen, Identifikation |
+| **7** | Marktortprinzip: Regelungen fuer aussereuropaeische Unternehmen | Art. 3 / Art. 27 DSGVO |
+| **8** | Massnahmenplan „DS-GVO" fuer Unternehmen | Praxis-Roadmap zur Umsetzung |
+| **9** | Zertifizierung nach Art. 42 DS-GVO | Verhaltensregeln + Siegel |
+| **10** | Informationspflichten bei Dritt- und Direkterhebung (in Ueberarbeitung) | Art. 13/14 im Detail |
+| **11** | Recht auf Loeschung / „Recht auf Vergessenwerden" (in Ueberarbeitung) | Art. 17 DSGVO |
+| **12** | Datenschutzbeauftragte bei Verantwortlichen und Auftragsverarbeitern (in Ueberarbeitung) | Art. 37-39, § 38 BDSG |
+| **13** | Auftragsverarbeitung, Art. 28 DS-GVO (in Ueberarbeitung) | AVV-Pflichten |
+| **14** | Beschaeftigtendatenschutz | § 26 BDSG + Art. 88 DSGVO |
+| **15** | Videoueberwachung nach der Datenschutz-Grundverordnung | Art. 6 Abs. 1 lit. f, § 4 BDSG |
+| **16** | Gemeinsam fuer die Verarbeitung Verantwortliche, Art. 26 DS-GVO (in Ueberarbeitung) | JCA, Inhalt der Vereinbarung |
+| **17** | Besondere Kategorien personenbezogener Daten | Art. 9 DSGVO |
+| **18** | Risiko fuer die Rechte und Freiheiten natuerlicher Personen | Risikomodell — Schwere × Eintrittswahrscheinlichkeit |
+| **19** | Unterrichtung und Verpflichtung von Beschaeftigten auf Vertraulichkeit / Datengeheimnis | Schulung, Verpflichtungserklaerung |
+| **20** | Einwilligung nach der DS-GVO (in Ueberarbeitung) | Zentrale Anforderungen |
+
+> Korrektur 2026-05-08: Frueher in dieser KB-Datei vermerkter Titel "Kurzpapier 19 = Unterrichtung/Benachrichtigung bei Datenpannen" war falsch. Datenpannen-Pflichten regelt nicht Kurzpapier 19, sondern direkt Art. 33/34 DSGVO bzw. Kurzpapier 18 (Risikomodell). Quelle: datenschutzkonferenz-online.de/kurzpapiere.html (verifiziert 2026-05-08).
 
 ## Wichtige Orientierungshilfen (OH)
 
@@ -98,6 +102,19 @@ Sieben datenschutzrechtliche Anforderungen an KI-Systeme — Vorläufer zum EU A
 ### DSK-Positionsbestimmung Meta Pixel (2022)
 
 Einsatz nur mit wirksamer Einwilligung + JCA + Datenflüsse transparent.
+
+### Neuere DSK-Beschluesse 2024-2025 (Auswahl)
+
+Quelle: datenschutzkonferenz-online.de/beschluesse-dsk.html (verifiziert 2026-05-08)
+
+- **03.05.2024** — Positionspapier zu nationalen Zustaendigkeiten fuer die KI-Verordnung (AI Act)
+- **15.05.2024** — Anforderungen an Sekundaernutzung genetischer Daten zu Forschungszwecken
+- **19.08.2024** — Datenschutzrechtliche Grenzen beim Einsatz von Bezahlkarten zur Leistungsgewaehrung nach AsylbLG
+- **11.09.2024** — Uebermittlungen personenbezogener Daten an Unternehmenserwerbende im Rahmen von Asset-Deals
+- **11.09.2024** — Positionspapier zu wissenschaftlicher Forschung unter der DS-GVO (derzeit unter Ueberpruefung wg. neuer EDSA-Richtlinien 1/2026)
+- **28.05.2025** — Beschluss zur Meldung von Mieter:innendaten an Grundversorger
+- **16.06.2025** — Positionspapier zum Datenschutz bei der Terminverwaltung durch Heilberufspraxen
+- **Dezember 2025** — Standardisierter Pruefprozess zu datenschutzrechtlichen Anforderungen bei EfA-Onlinediensten nach OZG
 
 ## Muss-Liste zur DSFA (Art. 35 Abs. 4 DSGVO)
 

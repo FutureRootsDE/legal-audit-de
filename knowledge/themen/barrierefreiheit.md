@@ -6,7 +6,7 @@ quellen-sekundaer:
   - https://www.w3.org/TR/WCAG22/
   - https://www.etsi.org/deliver/etsi_en/301500_301599/301549/
   - https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Barrierefreiheit — BFSG-Scope, WCAG 2.1/2.2 AA & Pflicht-Elemente
 

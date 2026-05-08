@@ -5,7 +5,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/pangv_2022/__11.html
   - https://www.bmwk.de/Redaktion/DE/Artikel/Wirtschaft/preisangabenverordnung.html
   - https://www.wettbewerbszentrale.de/de/themen/preisangaben/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Preisangaben — PAngV 2022 in der Praxis
 
@@ -146,16 +146,22 @@ Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
 
 ## Zitierbare Urteile
 
+- **BGH I ZR 183/24** (09.10.2025, "Streichpreis-Werbung"): NEU — Werbung
+  mit einer Preisermaessigung ist unlauter, wenn der niedrigste Gesamtpreis
+  der letzten 30 Tage **nicht eindeutig, klar erkennbar und gut lesbar**
+  angegeben wird. (Quelle: bundesgerichtshof.de Pressemitteilung 184/2025).
 - **EuGH C-330/23** (26.09.2024, "Aldi Sued"): Der Referenzpreis nach § 11
   PAngV / Art. 6a UGP-Richtlinie muss sich auch in **Werbemassnahmen**
   (Prospekte, Online-Ads) auf den 30-Tage-Tiefstpreis beziehen, nicht nur am
   Regal.
-- **BGH I ZR 173/16** (31.10.2018): Preisangabe "auf einen Blick" erkennbar.
-- **BGH I ZR 143/19** (05.11.2020): Lieferzeit- und Preisangabe.
+- **BGH I ZR 173/16** `<<VERIFIKATION AUSSTEHEND — Datum/Tenor pruefen>>`:
+  Preisangabe "auf einen Blick" erkennbar.
+- **BGH I ZR 143/19** `<<VERIFIKATION AUSSTEHEND — Datum/Tenor pruefen>>`:
+  Lieferzeit- und Preisangabe.
 - **OLG Hamm 4 U 85/22**: Unzulaessiger Streichpreis ohne 30-Tage-Basis
   `<<VERIFIKATION AUSSTEHEND — Instanz-/Datum-Check empfohlen>>`.
-- **BGH I ZR 85/21** (10.11.2022): Angabe "inkl. MwSt." bei B2B-/Hybrid-
-  Angeboten.
+- **BGH I ZR 85/21** `<<VERIFIKATION AUSSTEHEND — Datum/Tenor pruefen>>`:
+  Angabe "inkl. MwSt." bei B2B-/Hybrid-Angeboten.
 
 ## Siehe auch
 

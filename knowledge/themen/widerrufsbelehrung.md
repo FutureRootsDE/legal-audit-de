@@ -6,7 +6,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__312g.html
   - https://www.gesetze-im-internet.de/bgb/__356.html
   - https://www.gesetze-im-internet.de/bgb/__357.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Widerrufsbelehrung — 14-Tage-Frist, Muster, Ausnahmen
 

@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-04-19
-quelle-primaer: https://www.bundesgerichtshof.de/
+aktualisiert: 2026-05-08
+quelle-primaer: https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=13.01.2022&Aktenzeichen=I+ZR+25/19
 quellen-sekundaer:
   - https://curia.europa.eu/juris/liste.jsf?num=C-102/20
-  - https://www.dr-schwenke.de/
-  - https://dejure.org/
-verifiziert-am: 2026-04-19
+  - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3186
+  - https://gdprhub.eu/index.php?title=BGH_-_I_ZR_25/19
+  - https://www.heise.de/news/Bundesgerichtshof-Unerwuenschte-Inbox-Werbung-ist-genauso-rechtswidrig-wie-Spam-7132364.html
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,26 +17,33 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
-# BGH I ZR 186/17 — "Inbox-Werbung II"
+# BGH I ZR 25/19 — "Inbox-Werbung II"
+
+> **KORREKTUR-HINWEIS (Update 2026-05-08):** Frueher in dieser KB-Datei
+> faelschlich als **I ZR 186/17** bezeichnet. Das richtige Aktenzeichen
+> der BGH-Entscheidung "Inbox-Werbung II" vom 13.01.2022 lautet
+> **I ZR 25/19**. Das Aktenzeichen I ZR 186/17 ("Facebook App-Zentrum",
+> Verbraucherschutzverband-Klagebefugnis) ist ein anderes Verfahren.
 
 ## Kurz-Ueberblick
 
 - **Gericht:** Bundesgerichtshof (1. Zivilsenat)
-- **Aktenzeichen:** I ZR 186/17
+- **Aktenzeichen:** I ZR 25/19
 - **Entscheidungstermin:** **13.01.2022** (Urteil; nach Vorabentscheidung
   des EuGH)
 - **EuGH-Vorlage:** C-102/20, Urteil vom **25.11.2021**
 - **Vorlagebeschluss des BGH:** 30.01.2020 (Aussetzung und EuGH-Vorlage)
-- **Vorinstanz:** OLG Nuernberg, Urteil vom 15.08.2017 — 3 U 805/16
+- **Vorinstanz:** OLG Nuernberg
 - **Parteien:** Klaegerin StWL Staedtische Werke Lauf a. d. Pegnitz GmbH
   (Energieversorger) ./. Beklagte eprimo GmbH (Energieversorger)
 
-`<<VERIFIKATION AUSSTEHEND — Die Parteienzuordnung in Sekundaerquellen ist
-konsistent, aber die oeffentlich zugaenglichen amtlichen Urteils-URLs waren
-zum Verifikationszeitpunkt nicht direkt abrufbar. Querpruefung mit juris oder
-Heymanns-Verlag empfohlen.>>`
+`<<VERIFIKATION AUSSTEHEND — Die exakte OLG-Nuernberg-Aktenzeichen-Nummer
+und das Datum der Vorinstanz-Entscheidung konnten in oeffentlichen
+Tier-1-Quellen nicht zweifelsfrei verifiziert werden; das frueher genannte
+"3 U 805/16, Urteil vom 15.08.2017" wurde entfernt, da nicht reproduzierbar.
+Querpruefung mit juris oder Heymanns-Verlag empfohlen.>>`
 
 ## Sachverhalt
 

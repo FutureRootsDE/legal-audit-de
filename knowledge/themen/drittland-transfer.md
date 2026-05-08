@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/eu-us-data-transfers_en
   - https://www.bfdi.bund.de/SharedDocs/Kurzmeldungen/DE/2023/17_Angemessenheitsbeschluss-EU-US-DPF.html
   - https://www.datenschutzkonferenz-online.de/media/ah/230904_DSK_Ah_EU_US.pdf
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Drittland-Transfer — Schrems II, SCCs, TIA, EU-US Data Privacy Framework
 
@@ -32,7 +32,7 @@ geltungsbereich: [DE, EU]
 Übermittlung nur zulässig, wenn Schutzniveau im Drittland „nicht unterlaufen" wird.
 
 **Art. 45** — Angemessenheitsbeschluss:
-EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derzeit (Stand April 2026) u. a.: Andorra, Argentinien, Färöer, Guernsey, Isle of Man, Israel, Japan, Jersey, Kanada (kommerziell), Neuseeland, Schweiz, Südkorea, Uruguay, UK, **USA (DPF-zertifizierte Unternehmen)**.
+EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derzeit (Stand Mai 2026) u. a.: Andorra, Argentinien, Färöer, Guernsey, Isle of Man, Israel, Japan, Jersey, Kanada (kommerziell), Neuseeland, Schweiz, Südkorea, Uruguay, UK, **USA (DPF-zertifizierte Unternehmen)**.
 
 **Art. 46** — Geeignete Garantien (ohne Angemessenheitsbeschluss):
 - Standardvertragsklauseln (Standard Contractual Clauses, SCCs) — aktuelle Fassung 2021/914/EU vom 04.06.2021

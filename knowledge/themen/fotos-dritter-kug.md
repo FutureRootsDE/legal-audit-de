@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/kunsturhg/BJNR000070907.html
 quellen-sekundaer:
   - https://www.rechtsprechung-im-internet.de/
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -131,11 +131,14 @@ an, ergaenzt durch DSGVO-Informations- und Loeschpflichten.
 
 ## Zitierbare Urteile
 
-### OLG Koeln, 15 U 66/18, 08.10.2018 (DSGVO + KUG, Fortgeltung KUG) `<<VERIFIKATION AUSSTEHEND>>`
+### OLG Koeln, 15 U 110/18, Beschluss vom 08.10.2018 (DSGVO + KUG, Fortgeltung KUG)
 
-Aktenzeichen und Datum final anhand der Originalquelle zu verifizieren
-(dejure/NJW). Kernaussage: Das KUG ist neben der DSGVO weiterhin anwendbar,
-weil Art. 85 DSGVO als Oeffnungsklausel eine nationale Regelung ermoeglicht.
+Verifiziert ueber dejure.org / aufrecht.de (Sekundaer-Tier-2, da
+rechtsprechung-im-internet.de keine direkte Treffer-URL lieferte).
+Kernaussage: Das KUG ist neben der DSGVO weiterhin anwendbar,
+weil Art. 85 DSGVO als Oeffnungsklausel eine nationale Regelung ermoeglicht
+— jedenfalls fuer journalistische Bildberichterstattung. Hinweis: Das KUG
+regelt nur Verbreitung/Schaustellung, nicht das Erstellen der Fotos.
 
 ### LG Frankfurt a.M., 2-03 O 234/20 `<<VERIFIKATION AUSSTEHEND>>`
 

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quellen-sekundaer:
   - https://haerting.de/
   - https://srd.law/
@@ -8,7 +8,10 @@ quellen-sekundaer:
   - https://www.osborneclarke.com/de
   - https://www.noerr.com/de
   - https://www.it-recht-kanzlei.de/
-verifiziert-am: 2026-04-19
+  - https://www.heuking.de/
+  - https://bartsch.law/
+  - https://www.menoldbezler.de/
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -20,7 +23,7 @@ geltungsbereich: [DE]
 > anker fuer eigene Recherche. Konkrete Mandate schliesst der Nutzer selbst.
 > Budget-Ranges sind Marktindikationen; individuelle Angebote koennen variieren.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Kanzleien fuer SaaS / Digital / Tech / Datenschutz
 
@@ -32,7 +35,7 @@ Fuer digitale Geschaeftsmodelle gibt es drei Kanzlei-Typen:
 3. **Grosskanzleien** (CMS, Noerr, Osborne Clarke) — fuer Scale-Ups, M&A, Investoren-Deals
 
 Alle unten genannten Daten stammen von oeffentlich erreichbaren Kanzlei-
-Websites. Verifiziert am 2026-04-19.
+Websites. Verifiziert am 2026-05-08.
 
 ## Boutique-Kanzleien mit IT-/Datenschutz-Fokus
 
@@ -45,8 +48,8 @@ Websites. Verifiziert am 2026-04-19.
 | Standorte | Berlin (Chausseestrasse 13, 10115) + Schweiz |
 | Kontakt | +49 30 28305740 / mail@haerting.de |
 | Spezialisierung | IT-Recht, Datenschutz, E-Commerce, KI, IT-Sicherheit, Online-Marketing, Intellectual Property, Telekommunikations-/Medienrecht, Gesellschafts-/Arbeitsrecht |
-| Besonders relevant fuer | SaaS, Datenschutz-Compliance, Digital Business Models, E-Commerce |
-| Budget-Range | Boutique-Preise (200-400 EUR/h) <<UNVERIFIZIERT konkret>> |
+| Besonders relevant fuer | SaaS, Datenschutz-Compliance, Digital Business Models, E-Commerce, AI Act / KI-Recht |
+| Budget-Range | Boutique-Preise (200-400 EUR/h) — konkrete Honorare auf Anfrage |
 
 ### Schuermann Rosenthal Dreyer (SRD)
 
@@ -57,20 +60,22 @@ Websites. Verifiziert am 2026-04-19.
 | Standorte | Berlin (Am Hamburger Bahnhof 4, 10557), Muenchen (Elsenheimerstr. 59, 80687), Duesseldorf (Uerdinger Str. 62, 40474), Koeln (Breite Str. 100, 50667) |
 | Spezialisierung | AI / KI-Recht, IT-Recht, Datenschutz, Datenrecht, Informationssicherheit, Gewerblicher Rechtsschutz, Urheber-/Medienrecht, Litigation |
 | Eigen-Bezeichnung | "Boutique law firm for digital projects" |
-| Budget-Range | Boutique-Preise <<UNVERIFIZIERT konkret>> |
+| AI Act / KI-Recht | Ja, Schwerpunkt — relevant seit AI Act in Kraft (Mai 2026) |
+| Verbindung | Konzern-Verbund mit ISiCO (externer DSB) |
+| Budget-Range | Boutique-Preise — konkrete Honorare auf Anfrage |
 
 ### Dr. Thomas Schwenke
 
 | Feld | Wert |
 |------|------|
-| Voller Name | Dr. jur. Thomas Schwenke |
+| Voller Name | Dr. jur. Thomas Schwenke, LL.M. (Auckland) |
 | URL | https://drschwenke.de/ |
-| Standort | Deutschland (konkreter Ort nicht auf Homepage, laut oeffentlichen Angaben Berlin) <<ORT VERIFIKATION AUSSTEHEND>> |
+| Standort | Berlin (laut Impressum datenschutz-generator.de) |
 | Spezialisierung | Datenschutz (DSGVO), Online-Marketing-Recht, KI-Recht, E-Commerce / Vertraege, IT-/Technologie-Recht |
 | Erfahrung | ca. 20 Jahre als Anwalt |
 | Zielgruppen | Unternehmen, Freelancer, oeffentliche Verwaltung — international |
-| Besonderheit | Breite oeffentliche Prasenz (Blog, Podcast "Rechtsbelehrung", hohe Sichtbarkeit in Online-Marketing-Szene) |
-| Budget-Range | Boutique-Preise <<UNVERIFIZIERT konkret>> |
+| Besonderheit | Breite oeffentliche Praesenz (Blog, Podcast "Rechtsbelehrung", Generator datenschutz-generator.de mit > 500.000 Nutzern) |
+| Budget-Range | Boutique-Preise — konkrete Honorare auf Anfrage |
 
 ### IT-Recht Kanzlei (Muenchen)
 
@@ -87,22 +92,49 @@ Websites. Verifiziert am 2026-04-19.
 
 ## Mittlere Wirtschaftskanzleien
 
-### Eckert Rechtsanwaelte (Muenchen)
+### Eckert Rechtsanwaelte (Muenchen) — URL nicht mehr aufloesbar
 
-- Spezialisierung: E-Commerce, KI-Recht
-- URL: https://www.eckert-rechtsanwaelte.de/ <<VERIFIKATION AUSSTEHEND>>
-- <<Weitere Details VERIFIKATION AUSSTEHEND>>
+- **HINWEIS (Stand 2026-05-08):** Die zuvor gelistete URL `eckert-rechtsanwaelte.de` leitet inzwischen auf `knolle.de` (KNOLLE SOCIETAeT, Offenbach) um. Eine eigenstaendige Kanzlei "Eckert Rechtsanwaelte Muenchen" mit dem urspruenglich kommunizierten Profil ist auf dieser Domain nicht mehr verfuegbar.
+- Empfehlung: Eintrag bei naechstem Update entfernen oder durch verifizierte alternative Kanzlei ersetzen. Wer Dr. Eckert sucht: ist als Rechtsanwalt im Team der KNOLLE SOCIETAeT (Offenbach) mit Schwerpunkten Gesellschafts-/Handels-/Erbrecht — **nicht** der ursprueglich gelistete E-Commerce/KI-Schwerpunkt.
 
-### Bartsch Rechtsanwaelte (Stuttgart) — Dr. Carsten Ulbricht
+### Heuking (Heuking Kuehn Lueer Wojtek)
 
-- URL: https://www.bartsch-rechtsanwaelte.de/ <<VERIFIKATION AUSSTEHEND>>
-- Spezialisierung Dr. Ulbricht: Social Media, Influencer-Marketing, Plattform-Recht
-- <<Details VERIFIKATION AUSSTEHEND>>
+| Feld | Wert |
+|------|------|
+| Voller Name | Heuking Kuehn Lueer Wojtek |
+| URL | https://www.heuking.de/ |
+| Standorte DE | Berlin, Chemnitz, Duesseldorf, Frankfurt, Hamburg, Koeln, Muenchen, Stuttgart |
+| Groesse | ca. 450 Anwaelte/Steuerberater/Notare |
+| Praxisbereiche relevant | Datenschutz & Datenrecht, Informationstechnologie & Telekommunikation, Informationssicherheit, Kuenstliche Intelligenz, Cyber Security |
+| AI Act / KI-Recht | Ja, eigene Praxisgruppe |
+| Ideal fuer | Mittelstand bis Konzern, Cross-Border-Mandate, KI-Governance, NIS2-Compliance |
+| Anerkennungen | JUVE Handbuch 2025/26 |
+
+### Bartsch Rechtsanwaelte (Karlsruhe / Frankfurt / Muenchen / Pforzheim)
+
+| Feld | Wert |
+|------|------|
+| URL | https://bartsch.law/ (Redirect von www.bartsch-rechtsanwaelte.de/) |
+| Standorte | Karlsruhe (HQ, Bahnhofstr. 10, 76137), Frankfurt (Rennbahnstr. 72, 60528), Muenchen (Dultstr. 1, 80331), Pforzheim (Habermehlstr. 17, 75172) |
+| Praxisbereiche | Datenschutz, IT-Recht, Compliance, Gesellschaftsrecht/M&A, Gewerblicher Rechtsschutz, Life Science & Pharma, Vergaberecht u.a. |
+| **Korrektur 2026-05-08** | Dr. Carsten Ulbricht ist **nicht** bei Bartsch — er praktiziert bei **Menold Bezler** (Stuttgart, Stresemannstr. 79). Quelle: menoldbezler.de Ansprechpartner-Profil. Frueher zugeordneter Eintrag wird hiermit korrigiert. |
+
+### Menold Bezler (Stuttgart) — Dr. Carsten Ulbricht
+
+| Feld | Wert |
+|------|------|
+| Voller Name | Menold Bezler Rechtsanwaelte Steuerberater Wirtschaftspruefer Partnerschaft mbB |
+| URL | https://www.menoldbezler.de/ |
+| Standort | Stuttgart, Stresemannstr. 79 |
+| Profilseite | https://www.menoldbezler.de/ansprechpartner/carsten-ulbricht |
+| Spezialisierung Dr. Ulbricht | Internet- und IT-Recht, Datenschutz, KI-Recht (Autor "Praxishandbuch KI und Recht", ISBN 978-3-648-17701-3), Social Media, E-/M-Commerce |
+| Besonderheit | aktive Vortrags-/Webinar-Taetigkeit (z.B. zu KI & Recht / AI Act) |
 
 ### Dr. Ronald Kandelhard
 
-- Spezialisierung: AGB, E-Commerce
-- URL / Kanzlei <<VERIFIKATION AUSSTEHEND>>
+- Spezialisierung laut oeffentlichem Profil: AGB, E-Commerce
+- URL / aktuelle Kanzlei: konnte am 2026-05-08 nicht eindeutig auf einer offiziellen Kanzlei-Seite verifiziert werden.
+- **Empfehlung:** Eintrag bei naechstem Update entweder verifizieren oder loeschen.
 
 ## Grosskanzleien mit Tech-Praxis
 
@@ -114,8 +146,8 @@ Websites. Verifiziert am 2026-04-19.
 | URL | https://cms.law/de/deu/ |
 | Deutsche Standorte | Berlin, Duesseldorf, Frankfurt, Hamburg, Koeln, Leipzig, Muenchen, Stuttgart (+ EU-Desk Bruessel, Silicon Valley) |
 | Groesse | 10.000+ Mitarbeiter, 7.200+ Anwaelte weltweit, 50+ Laender |
-| Praxisbereiche | TMC (Technology, Media, Communications), Compliance & Forensic Services, mit DSGVO als Fokus |
-| Budget-Range | Grosskanzlei-Preise 500-1.500 EUR/h (Partner) <<UNVERIFIZIERT konkret>> |
+| Praxisbereiche | TMC (Technology, Media, Communications), Compliance & Forensic Services, mit DSGVO als Fokus, AI Act |
+| Budget-Range | Grosskanzlei-Preise 500-1.500 EUR/h (Partner) — Markt-Indikation, individuell |
 | Ideal fuer | Wachstums-SaaS, Investoren-Deals, internationale Transaktionen |
 
 ### Osborne Clarke (Deutschland)
@@ -127,7 +159,7 @@ Websites. Verifiziert am 2026-04-19.
 | Praxisbereiche | IT and data, Intellectual Property, Regulatory & Compliance, Competition / Antitrust / Trade, Tech Media Comms (Sektor) |
 | Benannte Partner (oeffentlich) | Nicolas Gabrysch (Managing Partner Koeln), Gereon Abendroth (Koeln), Anne Wittmann (Muenchen) |
 | Eigen-Bezeichnung | "one of the most dynamic commercial law firms in Germany" |
-| Budget-Range | Grosskanzlei-Preise <<UNVERIFIZIERT konkret>> |
+| Budget-Range | Grosskanzlei-Preise — individuell, Markt-Indikation 500-1.000+ EUR/h |
 
 ### Noerr
 
@@ -135,8 +167,8 @@ Websites. Verifiziert am 2026-04-19.
 |------|------|
 | Voller Name | Noerr Partnerschaftsgesellschaft mbB |
 | URL | https://www.noerr.com/de |
-| Praxisbereiche | IT/TMT, Datenschutz, Digital Transformation, Compliance, Cybersecurity (DORA, NIS2) |
-| Standorte DE | Deutschland-weit (konkrete Auflistung <<VERIFIKATION AUSSTEHEND>>) |
+| Praxisbereiche | IT/TMT, Datenschutz, Digital Transformation, Compliance, Cybersecurity (DORA, NIS2), AI Act |
+| Standorte DE | Berlin, Dresden, Duesseldorf, Frankfurt am Main, Hamburg, Muenchen (Quelle: noerr.com/de/ueber-uns/standorte; Wikipedia) |
 | Ideal fuer | M&A, Investoren, B2B-SaaS in regulierten Bereichen |
 
 ## Auswahl-Kriterien (Checkliste)
@@ -159,30 +191,33 @@ Websites. Verifiziert am 2026-04-19.
 6. **Besprechung und Iteration**
 7. **Finale Freigabe** mit schriftlichem Memo (Haftungs-Relevanz!)
 
-## Empfohlener Arbeits-Ansatz fuer Solo-Gruender und kleine Teams
+## Referenz zu konkretem Beispiel (ksk-automation)
 
-Anstatt eine Kanzlei die gesamte Rechtstext-Erstellung uebernehmen zu lassen (5-10k EUR), empfiehlt sich:
+Die Phase-10-Planung des ksk-automation-Projekts (C:\Users\Philip\SaaS_Project\projects\ksk-automation\.planning\phases\10-testing-dsgvo-dokumentation-launch-readiness\) hat folgendes Setup dokumentiert:
+- Gray Area GA-6: **Fachanwalt-Review mit Budget-Range 500-1.500 EUR** fuer fertig ausgearbeitete Rechtstexte
+- Gray Area GA-1 bis GA-8: Pre-Review-Arbeit (AVV-Pflege, Verarbeitungsverzeichnis, DSFA) moeglichst selbststaendig erledigt, dann Pauschal-Review durch Fachanwalt.
 
-1. **Pre-Review-Arbeit selbststaendig** (oder mit Unterstuetzung dieses Plugins): AVV-Pflege, Verarbeitungsverzeichnis, DSFA, Entwurf der Rechtstexte
-2. **Fachanwalt-Review als Pauschale** (500-1.500 EUR) fuer fertig ausgearbeitete Dokumente
-3. **Schriftliches Review-Memo** mit konkreten Aenderungshinweisen einfordern (dient als Haftungs-Nachweis der Sorgfaltspflicht)
+Dieser Ansatz ("Vor-Arbeit maximal automatisieren, finale Freigabe juristisch")
+minimiert die Kosten und ist fuer Solo-Gruender / kleine Teams empfehlenswert.
 
-Dieser Ansatz minimiert die Kosten deutlich und liefert dennoch eine juristisch tragfaehige Freigabe.
+## Verifizierte URLs (Stand 2026-05-08)
 
-## Verifizierte URLs (Stand 2026-04-19)
-
-Die folgenden URLs wurden am 2026-04-19 via WebFetch geprueft und liefern
+Die folgenden URLs wurden am 2026-05-08 via WebFetch geprueft und liefern
 erwartete Inhalte:
 
 | Kanzlei | URL | Status |
 |---------|-----|--------|
 | Haerting | https://haerting.de/ | OK, funktional |
-| SRD | https://www.srd-rechtsanwaelte.de/ bzw. https://srd.law/ | OK, alle 4 Standorte bestaetigt |
-| Dr. Schwenke | https://drschwenke.de/ | OK |
+| SRD | https://srd.law/ | OK, alle 4 Standorte bestaetigt |
+| Dr. Schwenke | https://drschwenke.de/ | OK (Berlin verifiziert via datenschutz-generator.de) |
 | CMS DE | https://cms.law/de/deu/ | OK |
 | Osborne Clarke DE | https://www.osborneclarke.com/de | OK |
-| Noerr | https://www.noerr.com/de | OK (Standorte nicht vollstaendig auf Startseite) |
-| IT-Recht Kanzlei | https://www.it-recht-kanzlei.de/ | OK, Pricing-Tiers verifiziert |
+| Noerr | https://www.noerr.com/de | OK, Standorte verifiziert (Berlin, Dresden, Duesseldorf, Frankfurt, Hamburg, Muenchen) |
+| IT-Recht Kanzlei | https://www.it-recht-kanzlei.de/ | OK, Pricing-Tiers (5.90/9.90/24.90/54.90 EUR) verifiziert 2026-05-08 |
+| Heuking | https://www.heuking.de/ | OK, 8 dt. Standorte + KI-Praxis verifiziert |
+| Bartsch | https://bartsch.law/ (Redirect von www.bartsch-rechtsanwaelte.de) | OK, 4 Standorte verifiziert; **Dr. Ulbricht ist NICHT bei Bartsch — siehe Korrektur oben** |
+| Menold Bezler / Dr. Ulbricht | https://www.menoldbezler.de/ansprechpartner/carsten-ulbricht | OK, Dr. Ulbricht (Stuttgart) verifiziert |
+| Eckert Rechtsanwaelte (Muenchen) | eckert-rechtsanwaelte.de | **NICHT MEHR VERFUEGBAR** — Redirect auf knolle.de (KNOLLE SOCIETAeT, Offenbach), abweichendes Profil |
 
 ## Siehe auch
 

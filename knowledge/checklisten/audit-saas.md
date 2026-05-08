@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 gilt-fuer: SaaS-Anwendungen (Next.js/React, Node/Python-Backend, PostgreSQL, Cloud-Hosting)
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,21 +11,24 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Eine Pruefung durch einen
 > zugelassenen Rechtsanwalt ist zwingend, bevor ein SaaS-Produkt live geht.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Audit-Checkliste: SaaS-Anwendung (Next.js/React)
 
 ## Kurz-Ueberblick
 
 Diese Checkliste pruefst Du **vor jedem Production-Launch** und wiederholst sie
-mindestens **halbjaehrlich**.
+mindestens **halbjaehrlich**. Sie ist generisch — fuer ein konkretes ausgearbeitetes Beispiel mit Thompson-Sampling-Schwierigkeit siehe:
+
+> **Referenz-Implementierung:** `C:\Users\Philip\SaaS_Project\projects\ksk-automation\.planning\plans\10-kind-quokka.md` — Gray Areas GA-1 bis GA-8 enthalten reichhaltige AVV-, Retention- und DSFA-Beispiele fuer KI-basiertes SaaS mit Stripe/Mistral/Brevo/Vercel/Hetzner.
 
 ### Kurz-Scope
 
 - [ ] Multi-Tenant oder Single-Tenant? (Multi-Tenant = striktere Isolierung)
-- [ ] B2C, B2B oder Mixed? (BFSG gilt nur bei B2C ab 2025-06-28)
+- [ ] B2C, B2B oder Mixed? (BFSG seit 28.06.2025 anwendbar — bei B2C zwingend pruefen)
 - [ ] Welche Drittlaender? (USA/UK/CH/IN — je mehr, desto komplexer)
-- [ ] KI-Komponenten? (AI Act Risk-Class — Limited Risk i.d.R. = Transparenzpflicht)
+- [ ] KI-Komponenten? (AI Act Risk-Class — Limited Risk i.d.R. = Transparenzpflicht; verbotene Praktiken seit 02.02.2025; GPAI-Pflichten seit 02.08.2025; Vollanwendung ab 02.08.2026)
+- [ ] **KI-Kompetenz** Art. 4 AI Act seit 02.02.2025: Mitarbeiter, die KI einsetzen oder betreiben, muessen geschult sein
 
 ## Pass 1: PII-Identifikation
 
@@ -90,33 +93,42 @@ Ziel: § 25 TDDDG + DSGVO sauber umgesetzt.
 - [ ] **Datenschutzerklaerung** nach Art. 13 DSGVO — Verantwortlicher, DSB, Zwecke, Rechtsgrundlagen, Empfaenger, Drittland, Speicherdauer, Betroffenenrechte, Beschwerderecht, automatisierte Entscheidungen — siehe [[themen/datenschutzerklaerung]]
 - [ ] **AGB** (falls vorhanden) mit wirksamer Einbeziehung (§§ 305 ff. BGB), inbesondere AGB-rechtliche Klauselkontrolle
 - [ ] **Widerrufsbelehrung** (bei B2C) — siehe [[themen/widerrufsbelehrung]]
-- [ ] **Button-Loesung** "zahlungspflichtig bestellen" (§ 312j BGB) bei kostenpflichtigen Services — siehe [[themen/button-loesung]]
+- [ ] **Button-Loesung** "zahlungspflichtig bestellen" (§ 312j Abs. 3 BGB) bei kostenpflichtigen Services — Pflicht-Wortlaut (oder gleichbedeutend); BGH I ZR 159/24 (09.10.2025) bestaetigt: bei mehrstufigen Bestell-Flows muss Pflichtwortlaut auf finalem Button stehen — siehe [[themen/button-loesung]]
 - [ ] **Preisangaben-Transparenz** (PAngV — Gesamtpreis inkl. USt, monatlich/jaehrlich)
 - [ ] **Widerrufsrecht bei digitalen Inhalten** — Hinweis auf Verzicht moeglich (§ 356 Abs. 5 BGB)
 
-## Pass 5: KI-Spezifisch (AI Act)
+## Pass 5: KI-Spezifisch (AI Act — Verordnung (EU) 2024/1689)
+
+Anwendbarkeit-Stufung: Verbotene Praktiken (Art. 5) seit **02.02.2025**, KI-Kompetenz (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**, High-Risk-Systeme nach Anhang II ab 02.08.2027.
 
 Falls das SaaS KI-Komponenten enthaelt (LLM-Integration, Klassifikation, Empfehlungen, Generierung):
 
+- [ ] **Verbotene Praktiken** (Art. 5) ausgeschlossen? (Social Scoring, biometrische Echtzeit-Identifizierung, manipulative Subliminal-Techniken, Emotion-Recognition am Arbeitsplatz/Bildung)
+- [ ] **KI-Kompetenz** Art. 4 AI Act: Schulungs-/Sensibilisierungsnachweis fuer alle Mitarbeiter mit KI-Beruehrung
 - [ ] **Risiko-Klasse** bestimmt (Verboten / Hoch / Begrenzt / Minimal)
 - [ ] Bei **Limited Risk** (Chatbot, generative KI-Outputs): **Transparenzpflicht** Art. 50 AI Act
-  - Nutzer-Hinweis "Sie interagieren mit einer KI"
-  - Generierte Bilder/Texte als KI-Output kennzeichnen (Watermark/Label)
-- [ ] Bei **High Risk** (z.B. CV-Screening, Kredit-Scoring): volle Konformitaetsbewertung, Risk Management System, Logs, menschliche Aufsicht
+  - Nutzer-Hinweis "Sie interagieren mit einer KI" (Art. 50 Abs. 1)
+  - Generierte/manipulierte Bilder, Audio, Video als KI-Output kennzeichnen — maschinenlesbares Wasserzeichen ab 02.08.2026 (Art. 50 Abs. 2)
+  - Deepfakes klar als kuenstlich erzeugt kennzeichnen (Art. 50 Abs. 4)
+- [ ] Bei **High Risk** (Anhang III: CV-Screening, Kredit-Scoring, Bildungs-Bewertung, etc.): volle Konformitaetsbewertung, Risk Management System (Art. 9), Logs (Art. 12), menschliche Aufsicht (Art. 14), Daten-Governance (Art. 10)
+- [ ] **GPAI-Modelle** integriert (z.B. Claude, GPT-4): Provider-Compliance-Dokumentation einholen (technische Dokumentation, Trainings-Daten-Summary)
 - [ ] **Training-Daten-Rechtmaessigkeit** falls Fine-Tuning mit Nutzerdaten (explizite Einwilligung noetig)
 - [ ] **Output-Verantwortlichkeit** (Halluzinationen, Bias, Diskriminierung) mit Haftungsausschluss + menschlichem Review
-- [ ] **Datenschutz-Folgenabschaetzung (DSFA)** bei systematischer Bewertung von Personen (Art. 35 Abs. 3 lit. a) — siehe [[themen/dsfa]]
+- [ ] **Datenschutz-Folgenabschaetzung (DSFA)** bei systematischer Bewertung von Personen (Art. 35 Abs. 3 lit. a DSGVO) — siehe [[themen/dsfa]]
 - [ ] Kennzeichnung von KI-generiertem Content — siehe [[themen/ki-transparenz]] und [[themen/ki-content]]
 
-## Pass 6: Barrierefreiheit (BFSG — nur B2C ab 2025-06-28)
+## Pass 6: Barrierefreiheit (BFSG — seit 28.06.2025 anwendbar)
 
-Falls B2C-Angebot mit > 10 MA oder > 2 Mio EUR Umsatz:
+BFSG ist seit **28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Angebote (Online-Dienstleistungen B2C, Banking-Apps, E-Commerce, E-Books, Personenbefoerderungs-Apps, Telefondienste) sofern nicht Kleinstunternehmen-Ausnahme greift (< 10 MA UND < 2 Mio EUR Jahresumsatz/Bilanz).
 
-- [ ] **WCAG 2.1 Level AA** als Minimum
-- [ ] Automatisierter Scan (axe-core, Lighthouse A11y) — kein rotes Issue
-- [ ] Manueller Test: Tastatur-Navigation, Screen-Reader (NVDA/VoiceOver)
-- [ ] **Barrierefreiheitserklaerung** auf der Website (Pflicht nach BFSG)
+- [ ] **Anwendungsbereich** geprueft (§ 1 BFSG): B2C-Online-Dienstleistung? Kleinstunternehmen-Ausnahme dokumentiert?
+- [ ] **WCAG 2.1 Level AA** als Minimum (BFSGV § 3 setzt EN 301 549 um — verweist auf WCAG 2.1 AA)
+- [ ] **Vier Prinzipien** wahrnehmbar / bedienbar / verstaendlich / robust (§ 4 BFSG)
+- [ ] Automatisierter Scan (axe-core, Lighthouse A11y, Pa11y) — kein rotes Issue
+- [ ] Manueller Test: Tastatur-Navigation, Screen-Reader (NVDA/VoiceOver/JAWS)
+- [ ] **Barrierefreiheitserklaerung** auf der Website (§ 14 BFSG i.V.m. BFSGV)
 - [ ] **Feedback-Mechanismus** fuer Barrieren (Kontaktformular / E-Mail)
+- [ ] **Marktueberwachung** durch Bundeslaender — Verstoss kann Bussgelder bis 100.000 EUR bedeuten (§ 37 BFSG)
 - [ ] Siehe [[gesetze/bfsg]] und [[themen/barrierefreiheit]]
 
 ## Pass 7: Urheber / Marken
@@ -137,7 +149,7 @@ Falls B2C-Angebot mit > 10 MA oder > 2 Mio EUR Umsatz:
   - **Anonymisierung** statt Loeschung bei Daten mit Aufbewahrungspflicht
   - **10-Jahres-Retention** fuer Rechnungs-/Handelsdaten nach § 257 HGB + § 147 AO (Rechnungen, Buchungs-Belege, Steuer-relevante Mails)
 - [ ] **Retention-Tabelle** im Verarbeitungsverzeichnis dokumentiert (fuer jede Kategorie)
-- [ ] **Automatisierte Loesch-Jobs** (Cron/Scheduler) mit Fehler-Alert — "stille" Cron-Fehler gefaehrden Art. 5 Abs. 1 lit. f DSGVO (Integritaet) und Art. 17 Abs. 1 (Loeschpflicht)
+- [ ] **Automatisierte Loesch-Jobs** (Cron/Scheduler) mit Fehler-Alert (siehe OPS-01 Anti-Pattern in ksk-automation)
 
 ## Pass 9: Social-Media & Drittinhalte
 
@@ -173,7 +185,7 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 - **API-Keys / Webhooks**: Geheimhaltungspflicht, Rotation, kein Logging im Klartext
 - **Betroffenen-Rechte-Portal**: Self-Service fuer Auskunft (Art. 15), Loeschung (Art. 17), Datenuebertragbarkeit (Art. 20)
 - **Impersonate-Feature** (Admin loggt sich als Kunde ein): Sonder-Log, Einwilligung, Missbrauchs-Sperren
-- **KI-Klassifikation** auf Kunden-Inhalten: **DSFA zwingend** (Art. 35 Abs. 3 lit. a DSGVO), da systematische automatisierte Bewertung personenbezogener Aspekte
+- **KI-Klassifikation** auf Kunden-Inhalten (siehe ksk-automation GA-5): **DSFA zwingend**, da systematische automatisierte Bewertung
 
 ## Typische Findings (Erwartungswerte bei SaaS-Audit)
 
@@ -192,7 +204,7 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 - Datenschutzerklaerung nennt nicht alle Drittanbieter
 - PII im Sentry-Stacktrace (User-E-Mail im Breadcrumb)
 - Keine DSFA bei KI-gestuetzter Nutzer-Klassifikation
-- Keine Fachanwalt-Pruefung vor Launch (empfohlenes Budget 500-1.500 EUR fuer ein Review-Paket)
+- Keine Fachanwalt-Pruefung vor Launch (empfohlenes Budget 500-1.500 EUR, siehe ksk-automation GA-6)
 - Sub-Prozessor-Liste im AVV nicht aktuell
 
 ### MED
@@ -201,7 +213,7 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 - Cookie-Kategorie-Beschreibungen zu generisch ("Marketing-Cookies" statt konkret)
 - Retention-Zeiten nicht dokumentiert (Art. 13 Abs. 2 lit. a DSGVO)
 - DSB nicht benannt obwohl > 20 Personen regelmaessig mit PII arbeiten (§ 38 BDSG)
-- Keine Admin-Benachrichtigung bei Cron-Job-Fehlern ("stille Cron-Fehler" gefaehrden Datenintegritaet + Loeschpflicht)
+- Keine Admin-Benachrichtigung bei Cron-Job-Fehlern (OPS-01 aus ksk-automation)
 
 ### LOW
 
@@ -234,8 +246,14 @@ Siehe [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-sa
 - [[gesetze/bdsg]] — § 38 DSB-Pflicht
 - [[gesetze/tdddg]] — § 25 Cookie-Consent
 - [[gesetze/ai-act]] — Risiko-Klassen
-- [[gesetze/bfsg]] — Barrierefreiheit
+- [[gesetze/bfsg]] — Barrierefreiheit (seit 28.06.2025 anwendbar)
+- [[gesetze/bgb-agb]] — § 312j Button-Loesung
+- [[gesetze/uwg]] — § 7 Direktwerbung, § 5a Werbekennzeichnung
 - [[themen/verarbeitungsverzeichnis]]
+- [[themen/barrierefreiheit]]
+- [[themen/button-loesung]]
+- [[themen/email-marketing]]
+- [[themen/meldepflicht-datenpanne]]
 - [[themen/tom]]
 - [[themen/drittland-transfer]]
 - [[themen/dsfa]]

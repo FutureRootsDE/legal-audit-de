@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/__25.html
 quellen-sekundaer:
   - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Cookie-Consent — § 25 TDDDG + Art. 6 DSGVO
 
@@ -100,6 +100,7 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 - **BGH I ZR 7/16 (Cookie II), 28.05.2020** — Umsetzung Planet49 in deutschem Recht
 - **LG Rostock 3 O 762/19, 15.09.2020** — „Cookie-Einstellungen"-Button gleichwertig zu „Akzeptieren"
 - **EuGH C-252/21 (Meta/Bundeskartellamt), 04.07.2023** — Personalisierte Werbung nicht auf „berechtigtes Interesse" stützbar
+- **EuGH C-604/22 (IAB Europe), 07.03.2024** — TC-String ist personenbezogenes Datum; IAB ist (Mit-)Verantwortlicher fuer TCF
 - **LG München I 3 O 17493/20, 20.01.2022** — Google Fonts als Beispiel für Drittanbieter-Tracking ohne Consent
 
 ## Siehe auch

@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.edpb.europa.eu/
 quellen-sekundaer:
   - https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en
   - https://www.edpb.europa.eu/our-work-tools/our-documents/type/guidelines_en
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [EU]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # EDSA / EDPB — Europäischer Datenschutzausschuss
 
@@ -87,6 +87,26 @@ Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection 
 
 - **Leitlinien 07/2022 zu Zertifizierung als Instrument für Datenübermittlungen**
 - **Leitlinien 04/2021 zu Verhaltensregeln als Garantien für Übermittlungen**
+
+### Neue Leitlinien & Empfehlungen 2024-2026 (Stand 2026-05-08, Quelle: edpb.europa.eu)
+
+**FINAL / ADOPTED:**
+- **Guidelines 2/2023 on Technical Scope of Art. 5(3) ePrivacy Directive** (final 16.10.2024) — Reichweite des Cookie-/Tracker-Begriffs
+- **Guidelines 02/2024 on Article 48 GDPR** (final 05.06.2025) — Drittlandsanordnungen / Behoerdenanfragen aus Drittstaaten
+- **Recommendations 1/2025 on the 2027 WADA World Anti-Doping Code** (final 13.02.2025)
+
+**Public Consultation abgeschlossen, finalisiert/in Finalisierung:**
+- **Guidelines 01/2025 on Pseudonymisation** (17.01.2025)
+- **Guidelines 02/2025 on Blockchain Technologies** (14.04.2025)
+- **Guidelines 3/2025 on DSA-GDPR Interplay** (12.09.2025)
+- **Joint Guidelines on DMA-GDPR Interplay** (09.10.2025)
+- **Recommendations 2/2025 on E-commerce User Accounts** (04.12.2025)
+
+**Laufende Public Consultation (Stand 2026-05-08):**
+- **Recommendations 1/2026 on Processor Binding Corporate Rules** (eroeffnet 19.01.2026)
+- **Guidelines 1/2026 on Scientific Research Data Processing** (eroeffnet 16.04.2026)
+
+> Hinweis: Die in Vorgaengerversion erwaehnte "Stellungnahme 08/2024 zu Consent or Pay" ist eine **Opinion** (nicht Guideline) gemaess Art. 64(2) DSGVO; offizielle EDPB-Bezeichnung: "Opinion 08/2024 on Consent or Pay models implemented by large online platforms" (verabschiedet 17.04.2024).
 
 ## Anwendungsbereich für Entwickler / Unternehmen
 

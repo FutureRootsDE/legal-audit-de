@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 gilt-fuer: Blog, Corporate-Blog, YouTube-Channel, Podcast, Social-Media-Content, Newsletter
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,7 +11,7 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Content-Produktion ist
 > urheberrechts-, wettbewerbs- und werbekennzeichnungsrechtlich anspruchsvoll.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Audit-Checkliste: Content / Blog / YouTube / Podcast
 
@@ -73,31 +73,36 @@ Content-Produktion beruehrt:
 
 ### Werbekennzeichnung
 
-- [ ] **§ 5a UWG** + **§ 22 MStV** — bezahlte Inhalte als **"Werbung"** / **"Anzeige"** / **"bezahlte Partnerschaft"** klar erkennbar
+- [ ] **§ 5a Abs. 4 UWG** + **§ 22 MStV** — bezahlte Inhalte als **"Werbung"** / **"Anzeige"** / **"bezahlte Partnerschaft"** klar erkennbar (BGH I ZR 90/20, I ZR 125/20, I ZR 126/20 v. 09.09.2021 — "Influencer-Trilogie")
 - [ ] Affiliate-Links → Kennzeichnung als solche (auch wenn nicht bezahlt, aber Provisionsbasiert)
 - [ ] Pressemuster / PR-Samples → Offenlegung ("PR-Sample", "kostenlos erhalten")
 - [ ] YouTube: zusaetzlich "Paid Promotion"-Toggle von Google aktivieren (nicht statt, sondern zusaetzlich)
 - [ ] Instagram: "Bezahlte Partnerschaft mit [Marke]" aktivieren + im Post-Text nochmal "Werbung" / "Anzeige"
-- [ ] [[themen/werbekennzeichnung]]
+- [ ] [[themen/werbekennzeichnung]], [[gesetze/uwg]]
 
-## Pass 5: KI-Spezifisch
+## Pass 5: KI-Spezifisch (AI Act-Stufung)
 
+Anwendbarkeit-Stufung: Verbotene Praktiken (Art. 5) und KI-Kompetenz (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, **Vollanwendung Art. 50 (Transparenz) ab 02.08.2026** mit maschinenlesbarem Wasserzeichen.
+
+- [ ] **KI-Kompetenz** Art. 4 AI Act: Schulungs-/Sensibilisierungsnachweis fuer alle Redakteure mit KI-Einsatz
 - [ ] **KI-generierter Text** im Blog → Kennzeichnung empfohlen ("Dieser Artikel wurde mit Unterstuetzung von KI erstellt")
-- [ ] **KI-generierte Bilder** im Artikel → Kennzeichnung Pflicht (Art. 50 AI Act)
+- [ ] **KI-generierte Bilder/Audio/Video** im Artikel → Kennzeichnung Pflicht (Art. 50 Abs. 2 AI Act); Wasserzeichen-Pflicht ab 02.08.2026
 - [ ] **KI-Stimmen** im Podcast → Transparenzpflicht (Hoerer hat Recht zu wissen, dass keine menschliche Stimme)
-- [ ] **Deepfakes** von realen Personen → zwingend als solche kennzeichnen UND Einwilligung der Person noetig
+- [ ] **Deepfakes** von realen Personen → zwingend als kuenstlich erzeugt kennzeichnen (Art. 50 Abs. 4 AI Act) UND Einwilligung der Person noetig (Persoenlichkeitsrecht / KUG)
 - [ ] **Synthetische Avatare** als Sprecher → Kennzeichnung
-- [ ] [[gesetze/ai-act]], [[themen/ki-content]]
+- [ ] **Verbotene Praktiken** Art. 5: keine manipulativen Subliminal-Techniken, kein Social-Scoring-Content
+- [ ] [[gesetze/ai-act]], [[themen/ki-content]], [[themen/ki-transparenz]]
 
-## Pass 6: Barrierefreiheit
+## Pass 6: Barrierefreiheit (BFSG — seit 28.06.2025 anwendbar)
 
-Bei eigener Content-Website + B2C:
+BFSG ist seit **28.06.2025 in Anwendung**. Reine redaktionelle Inhalte sind oft nicht direkter BFSG-Anwendungsbereich (siehe Ausnahmen § 1 Abs. 3 BFSG fuer Medieninhalte), aber **kommerzielle Content-Sites mit Newsletter-Verkauf, Online-Kurs-Verkauf, Webshops** sind erfasst.
 
-- [ ] BFSG-Pruefung (ab 2025-06-28)
+- [ ] **Anwendungsbereich** § 1 BFSG geprueft
 - [ ] YouTube: **Untertitel** (automatisch + korrigiert) fuer alle Videos
-- [ ] Podcast: **Transkripte** als PDF/HTML bereitstellen (wird ab 2025 gefordert fuer BFSG-pflichtige Unternehmen)
-- [ ] Blog: WCAG 2.1 AA — Kontraste, Alt-Texte
-- [ ] [[themen/barrierefreiheit]]
+- [ ] Podcast: **Transkripte** als PDF/HTML bereitstellen
+- [ ] Blog: WCAG 2.1 AA — Kontraste, Alt-Texte, Tastaturnavigation
+- [ ] **Barrierefreiheitserklaerung** wenn BFSG-pflichtig (§ 14 BFSG)
+- [ ] [[gesetze/bfsg]], [[themen/barrierefreiheit]]
 
 ## Pass 7: Urheber / Marken (Hot-Zone!)
 
@@ -187,18 +192,20 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 
 ### Newsletter
 
-- [ ] Double-Opt-In mit Bestaetigungs-Mail
-- [ ] Abmelde-Link in JEDER Mail (§ 7 Abs. 2 UWG)
-- [ ] Impressum in jeder Mail
+- [ ] Double-Opt-In mit Bestaetigungs-Mail (BGH "Double-Opt-In II" I ZR 218/07)
+- [ ] Abmelde-Link in JEDER Mail (§ 7 Abs. 2 Nr. 2 UWG i.V.m. Abs. 3 — bei Bestandskundenausnahme)
+- [ ] Impressum in jeder Mail (§ 5 DDG)
 - [ ] Personalisierung nur nach Einwilligung
-- [ ] [[themen/email-marketing]], [[urteile/bgh-inbox-werbung]]
+- [ ] BGH "Inbox-Werbung II" I ZR 25/19 (13.01.2022) — Inbox-Werbung in E-Mail-Postfaechern bedarf Einwilligung
+- [ ] [[themen/email-marketing]], [[urteile/bgh-inbox-werbung]], [[gesetze/uwg]]
 
 ### Social Media
 
 - [ ] Plattform-AGB einhalten (Meta, TikTok, X)
 - [ ] Keine trademarked Hashtags als Post-Marker
 - [ ] **Jede Plattform** eigenes Impressum / "Link in Bio"
-- [ ] User-Reaktionen moderieren bei beleidigenden Kommentaren (ggf. § 1 NetzDG-Alternative / DSA)
+- [ ] User-Reaktionen moderieren bei beleidigenden Kommentaren — **DSA** Verordnung (EU) 2022/2065 vollanwendbar seit 17.02.2024 (NetzDG aufgehoben durch DDG-Begleitgesetzgebung); Notice-and-Action-Mechanismus fuer Hostingdienste
+- [ ] [[gesetze/dsa]]
 
 ## Typische Findings
 

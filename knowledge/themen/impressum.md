@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/ddg/__5.html
 quellen-sekundaer:
+  - https://www.gesetze-im-internet.de/ddg/__33.html
   - https://www.gesetze-im-internet.de/mstv/
   - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/DSA_node.html
-  - https://www.e-recht24.de/impressum-generator/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -88,8 +88,9 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
 
 ### Erreichbarkeit
 
-- **Zwei-Klick-Regel** (BGH I ZR 151/02): Impressum muss von jeder Seite
-  mit max. 2 Klicks erreichbar sein
+- **Zwei-Klick-Regel** (BGH I ZR 228/03, 20.07.2006): Impressum muss von
+  jeder Seite mit max. 2 Klicks erreichbar sein
+  ([Quelle dejure.org](https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=20.07.2006&Aktenzeichen=I+ZR+228/03))
 - **Bezeichnung:** "Impressum", "Kontakt", "Anbieterkennzeichnung" —
   nicht: versteckt unter "About".
 - **Funktionierender Link** in sichtbarem Footer
@@ -135,22 +136,22 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
   setzung seit 17.02.2024).
 - **Landesmedienanstalten** — Kontrolle bei redaktionellen Inhalten nach MStV.
 - **Gewerbeaufsicht** — gewerberechtliche Flankierung.
-- **Ordnungswidrigkeiten** nach § 13 DDG: Bussgeld bis **50.000 EUR**.
+- **Ordnungswidrigkeiten** nach § 33 DDG (Bussgeldvorschriften, Teil 8 DDG):
+  Verstoss gegen § 5 Abs. 1 DDG (fehlende/falsche Pflichtangaben) — Bussgeld
+  bis **50.000 EUR** (§ 33 Abs. 6 Nr. 3 DDG i.V.m. § 33 Abs. 2 Nr. 1 DDG).
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 151/02** (20.07.2006): "Zwei-Klick-Regel" — Impressum muss
-  innerhalb von zwei Klicks erreichbar sein.
-- **BGH I ZR 228/03** (14.07.2005): Mobiltelefonnummer als Kontakt ausreichend,
-  wenn dauerhaft erreichbar.
+- **BGH I ZR 228/03** (20.07.2006, "Anbieterkennzeichnung"): "Zwei-Klick-Regel"
+  — Anbieterkennzeichnung ueber zwei Links ("Kontakt" und "Impressum") genuegt
+  den Anforderungen an leichte Erkennbarkeit und unmittelbare Erreichbarkeit.
 - **EuGH C-298/07** (16.10.2008, "deutsche internet versicherung AG"):
-  Zweiter Kontaktweg neben E-Mail erforderlich (Telefon oder alternativer
-  Kanal, der ebenso direkt ist).
-- **OLG Duesseldorf I-20 U 17/07** (18.12.2007): Mobilnummer ausreichend.
+  Zweiter Kontaktweg neben E-Mail erforderlich (Telefon ist nicht zwingend;
+  ein Online-Formular mit zeitnaher Reaktion genuegt).
 - **OLG Muenchen 29 U 3698/20** (14.01.2021): Impressumspflicht bei
-  Instagram-Business-Profilen.
-- **OLG Frankfurt 6 U 184/13** (26.06.2014): "About"-Reiter statt "Impressum"
-  unzureichend.
+  Instagram-Business-Profilen `<<VERIFIKATION AUSSTEHEND — Aktenzeichen via
+  WebSearch nicht direkt verifizierbar; OLG-Muenchen-Linie zu Impressums-
+  pflicht auf Instagram-Profilen ist allgemein anerkannt>>`.
 - **BGH I ZR 118/12** (05.12.2013): Abgrenzung B2C / rein privater Web-Auftritt.
 
 ## Siehe auch

@@ -1,12 +1,13 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/__44b.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__60d.html
   - https://www.lto.de/recht/hintergruende/h/kuenstliche-intelligenz-ki-urheberrecht-text-data-mining-lg-hamburg-310o22723
   - https://www.cmshs-bloggt.de/rechtsthemen/kuenstliche-intelligenz/erstes-urteil-deutschlands-zur-urheberrechtlichen-zulaessigkeit-des-ki-trainings-ergangen/
   - https://eur-lex.europa.eu/eli/reg/2024/1689/oj
-verifiziert-am: 2026-04-19
+  - https://www.dr-bahr.com/news/nutzung-von-fotos-durch-ki-urheberrechtlich-erlaubt-laion-fall.html
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +18,12 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
+>
+> **Zeitkritischer Hinweis (Mai 2026):** Der AI Act geht in die volle
+> Anwendungsphase ueber — fuer GPAI-Anbieter gelten Art. 53 (Urheber-Policy +
+> Trainingsdaten-Summary) seit 02.08.2025. Hochrisiko-Pflichten greifen
+> ueberwiegend ab 02.08.2026, also < 3 Monate ab heute.
 
 # KI-Training & Urheberrecht — § 44b UrhG, Opt-Out und kommerzieller TDM
 
@@ -47,7 +53,12 @@ Privilegierte Forschungsorganisationen; **kein Opt-Out** moeglich (zwingende Sch
 - AI Act (Art. 53) wird zur Auslegungshilfe herangezogen.
 - **Grenze**: Die Entscheidung gilt fuer Forschungskontext; kommerzielles Training bleibt an § 44b Abs. 3 Opt-Out gebunden.
 
-**Berufungsinstanz** `<<VERIFIKATION AUSSTEHEND>>` — OLG Hamburg-Urteil sollte beim naechsten Update geprueft werden.
+**Berufungsinstanz**: **OLG Hamburg, Urt. v. 10.12.2025 — 5 U 104/24** —
+Berufung des Klaegers zurueckgewiesen, erstinstanzliches Urteil bestaetigt.
+Das OLG bejaht TDM auch nach **§ 60d UrhG** (Forschungsprivileg, da LAION
+gemeinnuetzig) und § 44b UrhG. **Revision zugelassen**, weil grundsaetzliche
+Bedeutung — BGH-Verfahren wahrscheinlich. (Tier-1-Verifikation: Pressemitteilung
+des Hanseatischen OLG, dejure.org).
 
 ### Art. 53 AI Act (ab 02.08.2025)
 
@@ -142,8 +153,14 @@ KI-generierte Werke ohne menschliche Schoepfungshoehe sind **NICHT urheberrechtl
 ## Zitierbare Urteile
 
 - **LG Hamburg, Urt. v. 27.09.2024 — 310 O 227/23 (LAION/Kneschke)** (siehe oben)
-- **US: Thomson Reuters v. ROSS Intelligence** (Februar 2025) — US-Court: kein Fair Use fuer kommerzielles KI-Training auf Westlaw-Daten (US-Recht, nicht direkt anwendbar, aber Signal)
-- `<<VERIFIKATION AUSSTEHEND>>` — weitere anhaengige Verfahren (Getty Images / Stability AI, New York Times / OpenAI)
+- **OLG Hamburg, Urt. v. 10.12.2025 — 5 U 104/24 (LAION-Berufung)**: bestaetigt
+  Erstinstanz; § 44b und § 60d UrhG anwendbar; Revision zum BGH zugelassen.
+- **US: Thomson Reuters v. ROSS Intelligence** (Februar 2025) — US-Court: kein
+  Fair Use fuer kommerzielles KI-Training auf Westlaw-Daten (US-Recht, nicht
+  direkt anwendbar, aber Signal).
+- **NYT v. OpenAI / Microsoft** (S.D.N.Y., laufend): Verfahren ueber direkte
+  Reproduktion urheberrechtlicher Inhalte; Beschluesse zu Discovery 2025.
+- **Getty Images v. Stability AI** (UK High Court, laufend) — Verhandlung 2025.
 
 ## Siehe auch
 

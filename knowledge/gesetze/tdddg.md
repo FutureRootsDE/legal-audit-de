@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
   - https://www.bfdi.bund.de/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +15,11 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
+>
+> **Hinweis zur URL:** Das Gesetz wurde 2024 in TDDDG umbenannt. Der URL-Pfad
+> auf gesetze-im-internet.de bleibt jedoch `/ttdsg/`; der Pfad `/tdddg/` liefert
+> HTTP 404 (geprueft am 2026-05-08).
 
 # TDDDG — Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz
 

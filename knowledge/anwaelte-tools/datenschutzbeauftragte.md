@@ -1,12 +1,16 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quellen-sekundaer:
   - https://www.bvdnet.de/
   - https://www.udis.de/
   - https://www.gdd.de/
   - https://www.tuev-nord.de/
   - https://www.tuvsud.com/
-verifiziert-am: 2026-04-19
+  - https://www.dekra.de/de/datenschutzbeauftragter/
+  - https://www.activemind.de/
+  - https://www.althammer-kill.de/
+  - https://www.isico.de/
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +20,7 @@ geltungsbereich: [DE]
 > illustrative Beispiele aus oeffentlich zugaenglichen Quellen. Das ist keine
 > Vermittlung. Pruefe Zertifikate und Qualifikation selbststaendig.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Datenschutzbeauftragte (DSB) — Zertifikate und externe Anbieter
 
@@ -70,7 +74,10 @@ Gesetzlich (Art. 37 Abs. 5 DSGVO) sind nur **"berufliche Qualifikation und insbe
 
 - URL: https://www.gdd.de/
 - Einer der aeltesten Datenschutz-Verbaende Deutschlands
-- GDDcert.® mit verschiedenen Spezialisierungen <<UNVERIFIZIERT, bitte GDD-Website aktuell pruefen>>
+- GDDcert.®-Familie (verifiziert 2026-05-08, gdd.de/qualifizierung):
+  - **GDDcert. EU** (Datenschutz-Grundlagen-Zertifikat, mit Prep-Repetitorium)
+  - **GDDcert. Datenschutzauditor/in** (2-Tages-Schulung + Pruefung)
+  - Weitere Spezialisierungen werden saisonal angeboten — aktuelle Liste auf gdd.de.
 - Fortbildungen + GDD-Pruefungs-Zentrum
 
 ### TUEV-Zertifizierungen
@@ -87,7 +94,9 @@ anerkannte Zertifikat — Art. 37 DSGVO nennt kein verbindliches Zertifikat.
 ### DEKRA / Datenschutz-Akademie
 
 - DEKRA bietet DSB-Ausbildungen mit DEKRA-Zertifikat
-- URL: https://www.dekra-akademie.de/ <<VERIFIKATION AUSSTEHEND>>
+- URL: https://www.dekra.de/de/datenschutzbeauftragter/ (verifiziert 2026-05-08)
+- Praesenz- und Online-Seminare mit optionaler Personenzertifizierung
+- Standort: DEKRA Akademie, Handwerkstr. 15, 70565 Stuttgart
 
 ## Externe DSB-Dienstleister (Markt-Beispiele)
 
@@ -95,11 +104,20 @@ anerkannte Zertifikat — Art. 37 DSGVO nennt kein verbindliches Zertifikat.
 
 Diese sind Beispiele fuer externe DSB-Services; es gibt hunderte mehr — die Liste ist nicht vollstaendig und auch nicht ranking-basiert.
 
-- **activeMind AG** — activemind.de (Muenchen, bundesweit) <<URL noch zu verifizieren>>
-- **Althammer & Kill GmbH** — althammer-kill.de <<UNVERIFIZIERT>>
-- **ISiCO Datenschutz GmbH** — isico-datenschutz.de (Berlin, SRD-Schwester-Firma) <<VERIFIKATION AUSSTEHEND>>
-- **Prolinkia / PROLIV** — <<UNVERIFIZIERT>>
-- **externer-datenschutzbeauftragter.com** — verschiedene regionale Anbieter <<UNVERIFIZIERT>>
+- **activeMind AG** — https://www.activemind.de/ (verifiziert 2026-05-08)
+  - Voller Name: activeMind AG Management- und Technologieberatung
+  - Schwerpunkte: Datenschutz, Informationssicherheit, KI-Beratung — bietet ausdruecklich externe DSB-Dienste an
+  - Partnerunternehmen in CH und UK; konkreter dt. HQ-Standort nicht prominent ausgewiesen
+- **Althammer & Kill GmbH & Co. KG** — https://www.althammer-kill.de/ (verifiziert 2026-05-08)
+  - Standorte: Hannover (HQ, Roscherstr. 7, 30161), Duesseldorf, Mannheim
+  - Schwerpunkte: Datenschutz, Informationssicherheit, KI, Compliance
+  - Setzt zertifizierte DSB / Juristen ein; externer-DSB-Mandate ueber Datenschutz-Beratung abdeckbar
+- **ISiCO** — https://www.isico.de/ (verifiziert 2026-05-08; alte URL `isico-datenschutz.de` redirected auf isico.de)
+  - Externer DSB explizit angeboten; Standorte: Berlin, Koeln, Muenchen
+  - Konzern-Verbund mit SRD (Schuermann Rosenthal Dreyer) — Logo im Footer als "Unternehmensverbund"
+  - Schwerpunkte: Datenschutz, Informationssicherheit (ISO 27001, NIS2/DORA), KI-Governance (ISO 42001), Datenstrategie
+- **Prolinkia / PROLIV** — Domains `prolinkia.de` und `proliv.de` waren am 2026-05-08 nicht via WebFetch erreichbar (ECONNREFUSED). Eintrag bei naechstem Update verifizieren oder loeschen. <<URL VERIFIKATION AUSSTEHEND - 2026-05-08>>
+- **externer-datenschutzbeauftragter.com** — Sammel-/Portal-Charakter mit verschiedenen regionalen Anbietern; aufgrund unklarer Anbieter-Struktur als Tier-3-Hinweis behalten. <<ANBIETER-VERIFIKATION AUSSTEHEND - 2026-05-08>>
 
 **Wichtig:** Bei der Auswahl immer pruefen:
 - Referenzen im eigenen Industriezweig

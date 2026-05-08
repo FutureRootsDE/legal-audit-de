@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
-quelle-primaer: https://artificialintelligenceact.eu/article/50/
+aktualisiert: 2026-05-08
+quelle-primaer: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 quellen-sekundaer:
-  - https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+  - https://artificialintelligenceact.eu/article/50/
   - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50
   - https://www.srd-rechtsanwaelte.de/blog/kennzeichnungspflicht-code-of-practice-zur-transparenz-von-ki-generierten-inhalten
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,13 +16,18 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
+>
+> **Zeitkritischer Hinweis (Mai 2026):** Art. 50 AI Act greift ab 02.08.2026
+> — also in **< 3 Monaten**. Anbieter und Betreiber muessen JETZT die
+> Kennzeichnung implementieren. Bussgelder nach Art. 99 AI Act bis 15 Mio. EUR
+> oder 3 % des weltweiten Jahresumsatzes.
 
 # KI-Transparenz (Art. 50 AI Act) — Kennzeichnung und Hinweispflichten
 
 ## Kurz-Ueberblick
 
-**Art. 50 VO (EU) 2024/1689** regelt die Transparenz- und Kennzeichnungspflichten fuer bestimmte KI-Systeme. Die Pflichten sind ab **02.08.2026** anwendbar — d. h. im **April 2026 muessen Anbieter und Betreiber JETZT vorbereiten**.
+**Art. 50 VO (EU) 2024/1689** regelt die Transparenz- und Kennzeichnungspflichten fuer bestimmte KI-Systeme. Die Pflichten sind ab **02.08.2026** anwendbar — Stand Mai 2026 verbleiben **weniger als drei Monate**, um Wasserzeichen, Chatbot-Hinweise und Deepfake-Disclosures vor Inkrafttreten ausgerollt zu haben.
 
 Art. 50 greift auch dann, wenn die KI **nicht** als Hochrisiko-KI klassifiziert ist. Damit ist Art. 50 **der praxisrelevanteste Teil des AI Act fuer typische Webanwendungen und SaaS**.
 

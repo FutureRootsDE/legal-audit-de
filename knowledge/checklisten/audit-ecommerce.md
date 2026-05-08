@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 gilt-fuer: WooCommerce, Shopware 6, Shopify, Magento, PrestaShop, JTL
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -12,7 +12,7 @@ geltungsbereich: [DE, EU]
 > vor Launch zwingend Pruefung durch einen Fachanwalt fuer IT-/E-Commerce-Recht
 > oder ein Schutzpaket (z.B. IT-Recht Kanzlei Muenchen).
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Audit-Checkliste: E-Commerce-Shop
 
@@ -77,14 +77,15 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 
 ## Pass 4: Pflicht-Texte E-Commerce (Abmahn-HOT-Zone!)
 
-### Preisangabenverordnung (PAngV)
+### Preisangabenverordnung (PAngV 2022 — gilt seit 28.05.2022)
 
-- [ ] **Gesamtpreis inkl. USt** sichtbar (§ 1 PAngV)
+- [ ] **Gesamtpreis inkl. USt** sichtbar (§ 3 PAngV n.F.)
 - [ ] **Grundpreis** bei Fertigpackungen (EUR/kg, EUR/Liter) — § 4 PAngV
-- [ ] **"zzgl. Versand"** Hinweis + Link zur Versandkostenuebersicht
-- [ ] **Streichpreis / Reduzierung**: **30-Tage-Tiefstpreis** muss angezeigt werden (§ 11 PAngV neu seit 2022)
+- [ ] **"zzgl. Versand"** Hinweis + Link zur Versandkostenuebersicht (§ 6 Abs. 1 PAngV)
+- [ ] **Streichpreis / Preisermaessigung**: **30-Tage-Tiefstpreis** muss angegeben werden (§ 11 PAngV — Umsetzung Modernisierungs-RL (EU) 2019/2161)
+  - BGH I ZR 183/22 (10.10.2024) "Aldi-Preisangabe" — auch bei Werbung mit prozentualem Rabatt muss der niedrigste Preis der letzten 30 Tage Bezugspunkt sein
 - [ ] **Preis je Masseinheit** bei Getraenken, Lebensmitteln, Kosmetik etc.
-- [ ] Keine Phantasie-Preise (UVP muss echte Hersteller-UVP sein)
+- [ ] Keine Phantasie-Preise (UVP muss echte Hersteller-UVP sein, § 5 UWG)
 - [ ] [[gesetze/pangv]], [[themen/preisangaben]]
 
 ### Widerrufsbelehrung + Widerrufsformular
@@ -96,45 +97,54 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 - [ ] Bestaetigungs-Mail nach Kauf enthaelt Widerrufsbelehrung in **Textform** (nicht nur Link!)
 - [ ] [[themen/widerrufsbelehrung]]
 
-### Button-Loesung (§ 312j BGB)
+### Button-Loesung (§ 312j Abs. 3 BGB)
 
-- [ ] Bestell-Button-Text: **"zahlungspflichtig bestellen"** oder **"jetzt kaufen"** (klar verpflichtender Wortlaut)
-- [ ] Keine kreativen Varianten wie "Bestellung abschicken" oder "Weiter" (abmahnrelevant)
-- [ ] Checkout-Seite: Wesentliche Produktmerkmale, Gesamtpreis, Versand, Laufzeit unmittelbar vor dem Button
+- [ ] Bestell-Button-Text: **"zahlungspflichtig bestellen"** oder gleichbedeutender Wortlaut (z.B. "jetzt kaufen", "kostenpflichtig bestellen")
+- [ ] Keine kreativen Varianten wie "Bestellung abschicken", "Weiter", "Anmelden" (abmahnrelevant; bei Verstoss kommt kein Vertrag zustande, § 312j Abs. 4 BGB)
+- [ ] **BGH I ZR 159/24 (09.10.2025)**: bei mehrstufigen Bestell-Flows muss der Pflichtwortlaut auf dem **finalen** Button stehen, der die Zahlungspflicht ausloest — nicht auf einem vorherigen Schritt
+- [ ] Checkout-Seite: Wesentliche Produktmerkmale, Gesamtpreis, Versand, Laufzeit unmittelbar vor dem Button (§ 312j Abs. 2 BGB)
+- [ ] **Abo-Fallen** (Art. 246 § 1 EGBGB): bei wiederkehrenden Leistungen Mindestlaufzeit + Gesamtkosten transparent
 - [ ] [[themen/button-loesung]]
 
 ### AGB
 
 - [ ] **AGB** mit Einbeziehungsklausel im Checkout ("Ich habe die AGB gelesen und akzeptiere sie")
 - [ ] Pre-Tick VERBOTEN — User muss aktiv bestaetigen
-- [ ] Klauselkontrolle (§§ 305-310 BGB) — keine ueberraschenden oder unklaren Klauseln
-- [ ] **Streitbeilegung-Hinweis** nach Art. 14 ODR-VO (Link zu ec.europa.eu/consumers/odr) — Pflicht fuer alle Online-Haendler
-- [ ] **VSBG-Hinweis** (§ 36 VSBG): Verbraucherschlichtungsstelle-Bereitschaft JA/NEIN
-- [ ] [[themen/agb-muster]]
+- [ ] Klauselkontrolle (§§ 305-309 BGB) — keine ueberraschenden oder unklaren Klauseln
+- [ ] **Streitbeilegung-Hinweis** nach Art. 14 ODR-VO (Link zu ec.europa.eu/consumers/odr) — **ACHTUNG**: ODR-Plattform der EU wurde **20.07.2025 abgeschaltet** (VO (EU) 2024/3228); Pflicht zur Verlinkung **entfaellt** seitdem; alte AGB-Klauseln zu ODR ueberpruefen und entfernen <<VERIFIKATION durch Fachanwalt empfohlen>>
+- [ ] **VSBG-Hinweis** (§ 36 VSBG): Verbraucherschlichtungsstelle-Bereitschaft JA/NEIN — bleibt unveraendert Pflicht
+- [ ] [[themen/agb-muster]], [[gesetze/bgb-agb]]
 
 ### Impressum + Datenschutzerklaerung
 
 - [ ] Impressum nach § 5 DDG mit vollen Angaben — [[themen/impressum]]
 - [ ] DSE nach Art. 13 DSGVO mit allen Shop-spezifischen Drittanbietern — [[themen/datenschutzerklaerung]]
 
-## Pass 5: KI-Spezifisch
+## Pass 5: KI-Spezifisch (AI Act-Stufung)
 
+Anwendbarkeit-Stufung: Verbotene Praktiken (Art. 5) seit **02.02.2025**, KI-Kompetenz (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**.
+
+- [ ] **KI-Kompetenz** Art. 4 AI Act: Schulungsnachweis fuer Mitarbeiter mit KI-Beruehrung
 - [ ] KI-Produktempfehlungs-Engine → Einwilligung + ggf. DSFA
 - [ ] KI-generierte Produktbeschreibungen → Kennzeichnung empfohlen (insb. bei Bewertungen!)
-- [ ] Chatbot mit GPT-Backend → Art. 50 AI Act Transparenzpflicht
-- [ ] **Fake Reviews**: §§ 5, 5a UWG — bei KI-generierten Bewertungen klare Kennzeichnung
-- [ ] [[gesetze/ai-act]], [[themen/ki-content]]
+- [ ] Chatbot mit GPT/Claude-Backend → Art. 50 Abs. 1 AI Act Transparenzpflicht ("Sie interagieren mit einer KI")
+- [ ] KI-generierte Produktbilder → Kennzeichnung Art. 50 Abs. 2 AI Act (Wasserzeichen ab 02.08.2026)
+- [ ] **Fake Reviews**: §§ 5, 5a UWG sowie § 5b Abs. 3 UWG (Pflicht zur Echtheits-Verifikation) — bei KI-generierten Bewertungen klare Kennzeichnung
+- [ ] [[gesetze/ai-act]], [[themen/ki-content]], [[themen/ki-transparenz]]
 
-## Pass 6: Barrierefreiheit (BFSG — gilt fuer E-Commerce B2C zwingend!)
+## Pass 6: Barrierefreiheit (BFSG — seit 28.06.2025 anwendbar — fuer B2C-E-Commerce zwingend!)
 
-BFSG betrifft Online-Shops ab 2025-06-28 **ausnahmslos** (bei B2C und > 10 MA / > 2 Mio EUR Umsatz).
+BFSG ist **seit 28.06.2025 in Anwendung**. Es betrifft B2C-Online-Shops, sofern nicht Kleinstunternehmen-Ausnahme greift (< 10 MA UND < 2 Mio EUR Jahresumsatz/Bilanzsumme).
 
-- [ ] WCAG 2.1 AA
-- [ ] Checkout komplett barrierefrei (Tastatur, Screen-Reader)
+- [ ] **Anwendungsbereich** geprueft (§ 1 BFSG): B2C-Shop? Kleinstunternehmen-Ausnahme dokumentiert?
+- [ ] WCAG 2.1 AA (BFSGV § 3 setzt EN 301 549 um)
+- [ ] Checkout komplett barrierefrei (Tastatur, Screen-Reader, Fehlermeldungen formuliert)
 - [ ] Alt-Texte fuer alle Produktbilder
-- [ ] Farbkontrast bei Produkt-Beschriftungen
-- [ ] Barrierefreiheitserklaerung
-- [ ] [[gesetze/bfsg]]
+- [ ] Farbkontrast bei Produkt-Beschriftungen, Preise, Buttons
+- [ ] **Barrierefreiheitserklaerung** veroeffentlicht (§ 14 BFSG)
+- [ ] **Feedback-Mechanismus** fuer Barrieren
+- [ ] Bussgeldrahmen bis 100.000 EUR (§ 37 BFSG)
+- [ ] [[gesetze/bfsg]], [[themen/barrierefreiheit]]
 
 ## Pass 7: Urheber / Marken / Wettbewerb
 
@@ -163,8 +173,8 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 - [ ] **Stiftung-Warentest-/OEKO-TEST-Logos**: Lizenz-Vertrag, korrektes Heft/Jahr, konkrete Produktbewertung
 - [ ] **"Testsieger 2023"** ohne Monat/Heft: abmahnbar (BGH I ZR 163/19)
 - [ ] **Eigene "Bestseller"-/"Beliebt"-Badges**: Bewertungsgrundlage transparent (keine reinen Marketing-Behauptungen)
-- [ ] **Kundenbewertungen aggregiert** ("4.8 von 5, 1240 Bewertungen"): § 5b UWG — echte Bewertungen, Herkunft klar
-- [ ] **Fake-Reviews / KI-generierte Reviews**: §§ 5, 5a UWG — Abmahn- und Bussgeldrisiko
+- [ ] **Kundenbewertungen aggregiert** ("4.8 von 5, 1240 Bewertungen"): § 5b Abs. 3 UWG (seit Omnibus-RL 2022) — Pflicht zur Sicherstellung der Echtheit; Methode der Verifikation transparent angeben
+- [ ] **Fake-Reviews / KI-generierte Reviews**: §§ 5, 5a UWG, § 5b Abs. 3 UWG — Abmahn- und Bussgeldrisiko (bis 50.000 EUR bei Verbraucherinteressen-Verletzung, § 19 UWG)
 
 ## Pass 10: Social-Media-Verknuepfung
 
@@ -206,19 +216,22 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 
 ### CRIT
 
-- 30-Tage-Tiefstpreis-Anzeige fehlt bei reduzierten Artikeln (PAngV § 11)
-- Button-Text "Weiter" oder "Bestaetigen" statt "zahlungspflichtig bestellen"
+- 30-Tage-Tiefstpreis-Anzeige fehlt bei reduzierten Artikeln (§ 11 PAngV; BGH I ZR 183/22)
+- Button-Text "Weiter" oder "Bestaetigen" statt "zahlungspflichtig bestellen" (§ 312j Abs. 3 BGB; BGH I ZR 159/24)
 - Widerrufsbelehrung nicht in Bestaetigungs-Mail als Textform mitgeschickt
 - Rechnungs-Archivierung loescht nach 1 Jahr (HGB-Verstoss)
 - Meta Pixel ohne Consent + ohne JCA
+- BFSG-Barrierefreiheit komplett fehlend bei B2C > 10 MA (seit 28.06.2025 in Anwendung)
+- KI-/Fake-Reviews ohne Echtheits-Verifikation (§ 5b Abs. 3 UWG)
 
 ### HIGH
 
 - Grundpreisangabe fehlt bei Fertigpackungen
-- ODR-Link / VSBG-Hinweis fehlt
+- VSBG-Hinweis fehlt (ODR-Link nicht mehr Pflicht seit 20.07.2025)
 - Fake UVP / Streichpreis ohne Nachweis
-- BFSG-Barrierefreiheit nicht umgesetzt (bei B2C > 10 MA)
+- BFSG-Anforderungen teilweise nicht umgesetzt (Alt-Texte, Tastaturfokus)
 - Shopify-Hosting ohne erwaehnte SCC-Absicherung
+- AI-Chatbot ohne Art. 50 AI Act Transparenz-Hinweis
 
 ### MED
 
@@ -240,11 +253,12 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 ## Siehe auch
 
 - [[gesetze/pangv]]
-- [[gesetze/uwg]]
-- [[gesetze/bgb-agb]]
+- [[gesetze/uwg]] — § 5b Abs. 3 (Bewertungen), § 7 (Direktwerbung)
+- [[gesetze/bgb-agb]] — § 312j (Button-Loesung), §§ 305-309 (AGB-Kontrolle), § 355 (Widerruf)
 - [[gesetze/dsgvo]]
 - [[gesetze/tdddg]]
-- [[gesetze/bfsg]]
+- [[gesetze/bfsg]] — seit 28.06.2025 anwendbar
+- [[gesetze/ai-act]]
 - [[themen/preisangaben]]
 - [[themen/widerrufsbelehrung]]
 - [[themen/button-loesung]]

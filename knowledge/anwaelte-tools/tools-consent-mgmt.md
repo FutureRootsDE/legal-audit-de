@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quellen-sekundaer:
   - https://usercentrics.com/de/
   - https://www.cookiebot.com/de/
@@ -7,7 +7,7 @@ quellen-sekundaer:
   - https://www.osano.com/
   - https://borlabs.io/borlabs-cookie/
   - https://complianz.io/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -18,7 +18,7 @@ geltungsbereich: [DE, EU]
 > "zertifizierte" CMP kann durch falsche Konfiguration DSGVO-widrig sein
 > (z.B. Dark Patterns, Pre-Tick, fehlender Ablehnen-Button).
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Consent-Management-Platforms (CMP)
 
@@ -44,7 +44,7 @@ von Drittanbietern einsetzt.
 | Zielgruppe | KMUs bis Enterprise; Publisher, E-Commerce, Mobile App, Connected TV |
 | TCF-Unterstuetzung | **IAB TCF 2.3** (verifiziert 2026-04-19) |
 | Reichweite | 2.4 Mio Websites/Apps, 195 Laender, 8.8 Mrd. Consents/Monat |
-| Pricing | abgestuft nach Pageviews/Features, ab ca. 15-30 EUR/Monat Basis <<UNVERIFIZIERT>> — Enterprise verhandelt |
+| Pricing Web CMP (Stand 2026-05-08) | **Free** (bis 1.000 Sitzungen/Monat, 1 Domain) / **Essential** 7 EUR/Monat (bis 1.500 Sessions) / **Plus** 15 EUR/Monat (bis 3.000) / **Pro** 30 EUR/Monat (bis 15.000) / **Business** 50 EUR/Monat (bis 50.000) / **Corporate** auf Anfrage (ab 1 Mio Sessions). App-CMP: ab 50 EUR/Monat. Quelle: usercentrics.com/de/preise/ |
 | Besonderheit | **TCF-v2.2/v2.3-zertifiziert** — Pflicht bei Ausspielung programmatischer Werbung |
 | Google Consent Mode v2 | volle Unterstuetzung |
 | Integrationen | 1000+ vordefinierte Services |
@@ -57,7 +57,7 @@ von Drittanbietern einsetzt.
 | Hersteller | Usercentrics A/S (Cookiebot ist Marke von Usercentrics) |
 | Sitz | Daenemark (HR-Nr. 34624607) |
 | TCF-Unterstuetzung | **IAB TCF 2.3** + **IAB-zertifiziert** (verifiziert 2026-04-19) |
-| Pricing | gestaffelt nach Seiten; kostenloser Tier fuer kleine Websites <<UNVERIFIZIERT exakter Preis>> |
+| Pricing (Cookiebot Core, Stand 2026-05-08) | **Core Free** unbegrenzt nutzbar (bis 50 Unterseiten, 1 Domain) / **Premium Lite** 7 EUR/Monat (bis 50 Subpages, 1 Domain) / **Premium Small** 15 EUR/Monat (bis 350 Subpages, 4+ Domains) / **Premium Medium** 30 EUR/Monat (bis 3.500) / **Premium Large** 50 EUR/Monat (bis 7.000) / **Premium Extra Large** 90 EUR/Monat (> 7.000). Quelle: cookiebot.com/de/pricing/ |
 | Besonderheit | automatischer Cookie-Scan; generiert DSE-Abschnitt |
 | Beliebt bei | Corporate Websites, Publishing |
 
@@ -70,7 +70,7 @@ von Drittanbietern einsetzt.
 | Drittland-Thema | US-Anbieter — DPF-Status pruefen |
 | Zielgruppe | Mid-Market bis Enterprise |
 | Features | CMP + DSAR-Workflow-Automatisierung + Vendor-Risk-Management |
-| Pricing | Enterprise, auf Anfrage |
+| Pricing (Stand 2026-05-08) | Self-Service-Plaene + Enterprise auf Anfrage; 30-Tage-Trial. Konkrete Preisstaffeln werden auf der Pricing-Seite nicht oeffentlich gelistet (osano.com/plans). |
 | Beachten | als US-Anbieter Drittland-Pruefung; alternativ EU-CMP bevorzugen |
 
 ## Tier 2: Open-Source / Kleinere CMPs
@@ -80,13 +80,14 @@ von Drittanbietern einsetzt.
 | Feld | Wert |
 |------|------|
 | URL | https://klaro.org/ |
-| Lizenz | BSD-3 (frei fuer kommerzielle Nutzung) |
+| Lizenz | BSD-3 (frei fuer kommerzielle Nutzung) — verifiziert 2026-05-08 |
 | Hersteller/Maintainer | KIProtect (Unternehmen) |
-| Hosting | Self-Hosted oder als Cloud-Service |
+| Hosting | Self-Hosted (Open-Source) oder als gehosteter Service mit Server-Funktionalitaet, Integrations-Beratung, Priority Support, Continuous Monitoring |
 | Features | Privacy by Design, 23 Sprachen, responsive, ~50 KB komprimiert, unterstuetzt 99.9%+ Browser inkl. IE9-11 |
 | Zielgruppe | Entwickler mit Fokus auf Datenschutz-Design und Flexibilitaet |
 | Besonders gut | eigene Website-/SaaS-Kontrolle, ohne Drittanbieter-Abhaengigkeit |
-| TCF-Unterstuetzung | <<NEIN/BEGRENZT — VERIFIKATION AUSSTEHEND>> — nicht primaer als TCF-Provider ausgerichtet |
+| TCF-Unterstuetzung | Nicht primaer als TCF-Provider ausgerichtet; Klaro unterstuetzt Google Consent Mode v2; eine offizielle IAB-TCF-Zertifizierung ist auf klaro.org nicht ausgewiesen (Stand 2026-05-08). |
+| Pricing | Open-Source-Edition kostenlos; Cloud-Service: konkretes Pricing nicht oeffentlich auf klaro.org (Anfrage erforderlich) |
 
 ## Tier 3: WordPress-spezifische CMPs
 
@@ -98,8 +99,8 @@ von Drittanbietern einsetzt.
 | Produktname | Borlabs Cookie(R) 3.0 |
 | Hersteller | Borlabs GmbH (Deutschland) |
 | Plattform | WordPress-Plugin (Premium, lizenzpflichtig) |
-| Aktuelle Version | 3.4 (veroeffentlicht 2026-02-06, verifiziert 2026-04-19) |
-| Pricing | Jahreslizenz pro Domain, ab ca. 39-99 EUR/Jahr <<UNVERIFIZIERT>> |
+| Aktuelle Version | 3.4 (veroeffentlicht Februar 2026, verifiziert 2026-05-08) |
+| Pricing (Stand 2026-05-08) | **Personal** 49 EUR/Jahr (1 Website) / **Business Medium** 109 EUR/Jahr (5 Websites) / **Agency Small** 229 EUR/Jahr (25 Websites) / **Agency** 499 EUR/Jahr (99 Websites). Inklusive 1 Jahr Updates und Support. Quelle: borlabs.io/pricing/. Keine Sonderaktionen. |
 | Besonders gut bei | WordPress-Sites mit komplexem Content (Videos, Maps, externe Widgets) |
 | Geo-Blocking | kein TCF-Provider, fuer Small-/Mid-Market ausreichend |
 

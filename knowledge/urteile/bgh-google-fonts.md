@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-04-19
-quelle-primaer: https://dejure.org/dienste/vernetzung/rechtsprechung?Text=3+O+17493/20
+aktualisiert: 2026-05-08
+quelle-primaer: https://rewis.io/urteile/urteil/lhm-20-01-2022-3-o-1749320/
 quellen-sekundaer:
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Text=3+O+17493/20
   - https://www.ra-plutte.de/lg-muenchen-dynamische-einbindung-google-web-fonts-ist-dsgvo/
   - https://www.it-recht-kanzlei.de/lg-muenchen-I-webfonts-einwilligung-schadensersatz.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +16,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # LG München I 3 O 17493/20 — „Google Fonts"
 
@@ -77,7 +78,15 @@ Kurz nach dem Urteil starteten mehrere Abmahnanwälte und angebliche „Betroffe
 
 ### EuGH-Einfluss (C-300/21, Österreichische Post, 04.05.2023)
 
-Der EuGH hat klargestellt, dass **bloßer Kontrollverlust nicht automatisch** immaterieller Schaden ist — aber Befürchtungen / Gefühle können genügen (C-687/21). Damit wackelt die LG-München-Linie teilweise, bleibt aber dem Grunde nach bestätigt.
+Der EuGH hat klargestellt, dass der **bloße Verstoß gegen die DSGVO nicht automatisch** einen Schadenersatzanspruch begründet — die negative Folge muss nachgewiesen werden. Allerdings gibt es **keine Erheblichkeitsschwelle** (kein Bagatellausschluss).
+
+### EuGH-Einfluss (C-340/21, Bulgarische Post, 14.12.2023)
+
+Der EuGH hat in einer weiteren Entscheidung klargestellt, dass die **Befürchtung eines Datenmissbrauchs** durch Dritte nach einer DSGVO-Verletzung einen immateriellen Schaden darstellen kann (Hacking-Fall). Damit bleibt die LG-München-Linie für Google-Fonts-Verfahren grundsätzlich anschlussfähig, sofern der konkrete Kontrollverlust dargelegt wird.
+
+### BGH-Vorlage an EuGH (08/2025)
+
+Der BGH (VI. Zivilsenat) hat im Sommer 2025 dem EuGH Fragen zu **massenhaft provozierten Google-Fonts-Abmahnungen** vorgelegt: Stellt eine bewusst herbeigeführte Datenübermittlung zur Dokumentation des Verstoßes überhaupt einen ersatzfähigen immateriellen Schaden i.S.v. Art. 82 DSGVO dar? Die EuGH-Entscheidung steht aus; bis dahin ist die LG-München-Linie für Massen-Abmahnungen rechtsunsicher.
 
 ## Praktische Folgen für Codebases
 

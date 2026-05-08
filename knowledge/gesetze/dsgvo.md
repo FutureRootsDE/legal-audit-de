@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
-quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
+aktualisiert: 2026-05-08
+quelle-primaer: https://eur-lex.europa.eu/eli/reg/2016/679/oj
 quellen-sekundaer:
   - https://www.edpb.europa.eu/edpb_de
   - https://www.datenschutzkonferenz-online.de/
   - https://www.bfdi.bund.de/DE/Home/home_node.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # DSGVO — Datenschutz-Grundverordnung (Verordnung (EU) 2016/679)
 
@@ -125,6 +125,7 @@ Zwei Stufen:
 ## Behörden-Hinweise
 
 - **EDSA/EDPB Leitlinien 05/2020** zur Einwilligung
+- **EDSA Opinion 08/2024** — "Consent or Pay"-Modelle bei Large Online Platforms
 - **DSK Kurzpapier Nr. 20** — Einwilligung nach der DS-GVO
 - **DSK Kurzpapier Nr. 5** — Datenschutz-Folgenabschätzung
 - **BfDI:** „Die Datenschutz-Grundverordnung" (Leitfaden)
@@ -135,8 +136,9 @@ Zwei Stufen:
 - **EuGH C-673/17 (Planet49), 01.10.2019** — Vorangekreuzte Checkbox = keine Einwilligung
 - **EuGH C-40/17 (Fashion ID), 29.07.2019** — Social-Plugin-Betreiber gemeinsam Verantwortliche
 - **EuGH C-582/14 (Breyer), 19.10.2016** — Dynamische IP = personenbezogenes Datum
-- **EuGH C-300/21 (Österreichische Post), 04.05.2023** — Immaterieller Schaden erfordert konkreten Nachweis
+- **EuGH C-300/21 (Österreichische Post), 04.05.2023** — Immaterieller Schaden erfordert konkreten Nachweis (Art. 82 DSGVO setzt drei Voraussetzungen: Verstoss + Schaden + Kausalitaet)
 - **BGH I ZR 7/16 (Cookie II), 28.05.2020** — Bestätigt EuGH Planet49
+- **BGH I ZR 186/17 (App-Zentrum II), 27.03.2025** — Verbraucherschutzverbaende und Mitbewerber sind nach Art. 80 Abs. 2 DSGVO befugt, DSGVO-Verstoesse ueber UWG/UKlaG vor Zivilgerichten zu verfolgen
 
 ## Siehe auch
 

@@ -1,12 +1,12 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.bundesregierung.de/breg-de/aktuelles/nis-2-richtlinie-deutschland-2373174
 quellen-sekundaer:
   - https://www.bundestag.de/dokumente/textarchiv/2025/kw46-de-nis-2-1123138
   - https://www.openkritis.de/it-sicherheitsgesetz/nis2-umsetzung-gesetz-cybersicherheit.html
   - https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Regulierte-Wirtschaft/NIS-2/nis-2_node.html
   - https://eur-lex.europa.eu/eli/dir/2022/2555/oj
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # BSIG / NIS-2-Umsetzungsgesetz (NIS2UmsuCG)
 

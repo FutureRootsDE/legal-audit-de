@@ -1,18 +1,18 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
 quellen-sekundaer:
   - https://www.edpb.europa.eu/
   - https://www.bfdi.bund.de/
   - https://www.dataprivacyframework.gov/list
   - https://www.gesetze-im-internet.de/tddg/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
 > **Haftungsausschluss — Keine Rechtsberatung**
 > Dieses Dokument wurde mit Unterstützung KI-gestützter Recherche erstellt und dient ausschließlich der internen Orientierung. Es ersetzt keine anwaltliche Beratung. Rechtslage, Behörden-Praxis und Tool-Konfigurationen können sich jederzeit ändern — prüfe im Einzelfall mit aktueller Primärquelle. Die Einordnung einzelner Tools (Einwilligungspflicht, Drittland-Status) hängt stets von der konkreten Konfiguration und vom Einsatzkontext ab.
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Tool-Katalog — DSGVO-Einordnung gängiger Web-Tools
 
@@ -120,7 +120,7 @@ Eine CMP selbst ist zur Einwilligungs-Erfüllung "unbedingt erforderlich" (§ 25
 
 ### E-Mail-Marketing / CRM (10 Tools)
 
-Meist serverseitig → § 25 TDDDG nicht einschlägig. Einwilligung **für den Newsletter-Versand** folgt aus § 7 Abs. 2 Nr. 3 UWG (Double-Opt-In). Spalte "Einwilligung" bezieht sich hier auf Embed-Scripts / Trackings.
+Meist serverseitig → § 25 TDDDG nicht einschlägig. Einwilligung **für den Newsletter-Versand** folgt aus § 7 Abs. 2 Nr. 2 UWG (Double-Opt-In; Bestandskunden-Ausnahme nach § 7 Abs. 3 UWG). Spalte "Einwilligung" bezieht sich hier auf Embed-Scripts / Trackings.
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|

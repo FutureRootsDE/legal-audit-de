@@ -1,13 +1,14 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__305.html
   - https://www.gesetze-im-internet.de/bgb/__309.html
   - https://www.gesetze-im-internet.de/bgb/__312j.html
+  - https://www.gesetze-im-internet.de/bgb/__312k.html
   - https://www.gesetze-im-internet.de/bgb/__355.html
   - https://www.gesetze-im-internet.de/bgb/__312g.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -18,7 +19,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # BGB — AGB-Recht, Button-Loesung, Widerruf
 
@@ -115,13 +116,18 @@ eine Schaltflaeche, ist die Pflicht nur erfuellt, wenn diese Schaltflaeche gut
 lesbar **mit nichts anderem als den Woertern 'zahlungspflichtig bestellen'**
 oder mit einer entsprechenden eindeutigen Formulierung beschriftet ist."
 
-**Abs. 4:** Verstoesst der Unternehmer gegen Abs. 3, **kommt KEIN Vertrag
-zustande**. Der Verbraucher muss nicht zahlen.
+**Abs. 4 (Wortlaut, gesetze-im-internet.de):** "Ein Vertrag nach Absatz 2 kommt
+nur zustande, wenn der Unternehmer seine Pflicht aus Absatz 3 erfuellt." — Bei
+Verstoss gegen Abs. 3 kommt also **kein Vertrag** zustande; der Verbraucher
+muss nicht zahlen.
 
-Zulaessige Alternativen laut BGH: "zahlungspflichtigen Vertrag schliessen",
-"kostenpflichtig bestellen", "kaufen". **Unzulaessig:** "Anmelden", "Weiter",
-"Bestellung abschicken", "Jetzt buchen", "Bestellung abgeben" (BGH
-VIII ZR 63/15).
+Zulaessige Alternativen laut Gesetzesbegruendung / Rechtsprechung:
+"zahlungspflichtigen Vertrag schliessen", "kostenpflichtig bestellen", "kaufen".
+**Unzulaessig** sind neutrale Beschriftungen wie "Anmelden", "Weiter",
+"Bestellung abschicken", "Jetzt buchen", "Senden", "Bestellung abgeben". Aktuell
+bestaetigt durch **BGH I ZR 159/24, Urt. v. 09.10.2025** (Online-Maklervertrag
+ohne "zahlungspflichtig bestellen"-Button = unwirksam, definitive Unwirksamkeit
+nach § 312j Abs. 4 BGB, kein Heilungsrecht).
 
 ### §§ 355-361 BGB — Widerrufsrecht
 
@@ -211,17 +217,23 @@ entfaltet.
 
 ## Zitierbare Urteile
 
-- **BGH VIII ZR 63/15** (19.07.2017): Button-Beschriftung "Jetzt anmelden"
-  reicht NICHT fuer § 312j Abs. 3.
-- **BGH VIII ZR 21/19** (08.12.2020): Widerrufsbelehrung muss den Beginn der
-  Frist eindeutig benennen.
-- **EuGH C-543/19** "Amazon EU": Information zur Identitaet des Haendlers muss
-  bei Marketplace-Verkaeufen gegeben sein.
-- **BGH XI ZR 26/20** (03.11.2020): Unwirksamkeit einer Klausel zur
-  automatischen Zustimmung zu AGB-Aenderungen.
+- **BGH I ZR 159/24** (09.10.2025): Online-Maklervertraege ohne explizite
+  "zahlungspflichtig bestellen"-Schaltflaeche sind unwirksam (§ 312j Abs. 4
+  BGB); definitive Unwirksamkeit, keine konkludente Heilung. Wegweisend fuer
+  alle Online-Bestellprozesse mit Verbraucherbeteiligung.
+- **BGH XI ZR 26/20** (27.04.2021): Unwirksamkeit einer Klausel zur
+  Zustimmungsfiktion bei AGB-Aenderungen (im Bankwesen). (Hinweis: bei
+  Verifikation Aktenzeichen-Datum-Kombination gegen
+  rechtsprechung-im-internet pruefen — fruehere Datierung 03.11.2020 war ein
+  zugehoeriger Verkuendungstermin.)
 - **EuGH C-649/17** (10.07.2019, "Amazon EU"): Kontaktmoeglichkeiten im
   Fernabsatz — Telefon nicht zwingend, aber gleichwertige Alternativen noetig.
-- **LG Berlin 52 O 157/20** zu § 312k BGB Kuendigungs-Button.
+- `<<VERIFIKATION AUSSTEHEND>>` — folgende Aktenzeichen waren in der
+  Vorgaengerfassung gelistet, sind aber gegen rechtsprechung-im-internet.de
+  nicht eindeutig auffindbar: "BGH VIII ZR 63/15 (Button 'Jetzt anmelden')",
+  "BGH VIII ZR 21/19 (Widerrufsbelehrung)", "EuGH C-543/19 Amazon EU",
+  "LG Berlin 52 O 157/20 (Kuendigungsbutton)". Beim naechsten Update
+  verifizieren oder ersetzen.
 
 ## Siehe auch
 

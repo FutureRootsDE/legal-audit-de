@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 gilt-fuer: statische Marketing-Sites (Astro, Next.js-SSG, HTML, WordPress, Jekyll, Hugo)
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,7 +11,7 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Vor Live-Gang Pruefung durch
 > einen Fachanwalt fuer IT-Recht bzw. einen Datenschutzbeauftragten.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Audit-Checkliste: Landingpage / Marketing-Website
 
@@ -24,7 +24,7 @@ Im Vergleich zu SaaS: Weniger Backend-PII, aber **gleichzeitig hoeheres Tracking
 ## Pass 1: PII-Identifikation
 
 - [ ] Kontaktformular vorhanden? Welche Felder (Name, E-Mail, Telefon, Nachricht, Firma)?
-- [ ] Newsletter-Anmeldung? Double-Opt-In korrekt (§ 7 UWG + BGH I ZR 218/07)?
+- [ ] Newsletter-Anmeldung? Double-Opt-In korrekt (§ 7 Abs. 2 Nr. 2 UWG; BGH "Double-Opt-In II" I ZR 218/07 v. 10.02.2011 zur Bestaetigungs-Mail; vgl. BGH "Inbox-Werbung II" I ZR 25/19 v. 13.01.2022)?
 - [ ] Webinar-/Event-Registrierung?
 - [ ] Chat-Tool (Intercom, Tawk.to, Crisp)?
 - [ ] Cookie-basiertes Tracking (GA4, GTM, Meta Pixel, TikTok Pixel, LinkedIn Insight)?
@@ -64,27 +64,33 @@ Landingpages stehen im Fokus der Aufsichtsbehoerden wegen **Cookie-Banner-Muster
 
 Landingpages sind hier typisch schlampig — teuerster Abmahn-Vektor.
 
-- [ ] **Impressum** nach § 5 DDG + § 18 MStV: Firma/Name, ladungsfaehige Anschrift (KEIN Postfach), Kontakt (Telefon + E-Mail), Vertretungsberechtigte, Registergericht + HRB, USt-ID, Aufsichtsbehoerde bei regulierten Berufen, journalistisch-redaktionelle Verantwortliche (bei Blog)
+- [ ] **Impressum** nach § 5 DDG (geaendert 14.05.2024 — DDG ersetzt TMG) + § 18 MStV: Firma/Name, ladungsfaehige Anschrift (KEIN Postfach), Kontakt (Telefon + E-Mail), Vertretungsberechtigte, Registergericht + HRB, USt-ID, Aufsichtsbehoerde bei regulierten Berufen, journalistisch-redaktionelle Verantwortliche (bei Blog)
 - [ ] **Datenschutzerklaerung** nach Art. 13 DSGVO: jede Drittanbieter-Kategorie genannt, Rechtsgrundlagen, Speicherdauer, Betroffenenrechte, Beschwerderecht an Aufsichtsbehoerde
-- [ ] **Barrierefreiheitserklaerung** (nur falls B2C nach BFSG ab 2025-06-28)
+- [ ] **Werbekennzeichnung** § 5a Abs. 4 UWG bei kommerziellen Inhalten ohne klare Werbe-Indizes
+- [ ] **Barrierefreiheitserklaerung** falls B2C-Online-Dienstleistung im Anwendungsbereich des BFSG (seit 28.06.2025 anwendbar)
 - [ ] Kein AGB-Pflicht bei reiner Marketing-Landingpage ohne Kaufoption
 
-## Pass 5: KI-Spezifisch
+## Pass 5: KI-Spezifisch (AI Act-Stufung)
 
-Bei Landingpages meist weniger relevant, ausser:
+Anwendbarkeit: Verbotene Praktiken (Art. 5) seit **02.02.2025**, KI-Kompetenz (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**.
 
-- [ ] KI-Chatbot eingebunden? → Art. 50 AI Act Transparenzpflicht
-- [ ] KI-Text-/Bild-Generierung im Content (Blog)? → Kennzeichnung als KI-Content empfohlen ([[themen/ki-content]])
+- [ ] **KI-Kompetenz** Art. 4 AI Act: Schulungs-/Sensibilisierungsnachweis fuer Mitarbeiter mit KI-Beruehrung
+- [ ] KI-Chatbot eingebunden? → Art. 50 Abs. 1 AI Act Transparenzpflicht ("Sie interagieren mit einer KI")
+- [ ] KI-Text-/Bild-Generierung im Content (Blog)? → Kennzeichnung als KI-Content (Art. 50 Abs. 2; ab 02.08.2026 Wasserzeichen-Pflicht) — siehe [[themen/ki-content]] und [[themen/ki-transparenz]]
 - [ ] KI-gesteuerter Produktempfehlungs-Widget? → DSFA pruefen bei Personalisierung
+- [ ] [[gesetze/ai-act]]
 
-## Pass 6: Barrierefreiheit (BFSG — B2C nur)
+## Pass 6: Barrierefreiheit (BFSG — seit 28.06.2025 anwendbar)
 
-- [ ] Gilt BFSG? (Unternehmen > 10 MA UND > 2 Mio EUR Umsatz UND B2C-Angebot) — Ausnahme: Kleinstunternehmen
-- [ ] WCAG 2.1 AA als Standard
-- [ ] Farbkontrast, Alt-Texte, Keyboard-Navigation, Screen-Reader
-- [ ] Barrierefreiheitserklaerung veroeffentlicht
+BFSG ist seit **28.06.2025 in Anwendung**. Gilt fuer B2C-Online-Dienstleistungen ueber Kleinstunternehmen-Grenze (>= 10 MA ODER >= 2 Mio EUR Jahresumsatz/Bilanzsumme).
+
+- [ ] **Anwendungsbereich** (§ 1 BFSG): B2C-Online-Dienstleistung? Kleinstunternehmen-Ausnahme dokumentiert?
+- [ ] WCAG 2.1 AA als Standard (BFSGV § 3 setzt EN 301 549 um)
+- [ ] Farbkontrast, Alt-Texte, Keyboard-Navigation, Screen-Reader (NVDA/JAWS/VoiceOver)
+- [ ] **Barrierefreiheitserklaerung** veroeffentlicht (§ 14 BFSG)
 - [ ] Feedback-Kanal fuer Barrieren
-- [ ] [[themen/barrierefreiheit]]
+- [ ] Marktueberwachung Bundeslaender — Bussgeldrahmen bis 100.000 EUR (§ 37 BFSG)
+- [ ] [[gesetze/bfsg]], [[themen/barrierefreiheit]]
 
 ## Pass 7: Urheber / Marken
 
@@ -167,11 +173,12 @@ Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht k
 
 ### CRIT
 
-- Google Fonts direkt via fonts.googleapis.com (ohne Consent, ohne Self-Hosting)
-- GA4 oder Meta Pixel laden vor Consent
-- Impressum fehlt oder hat Postfach statt Anschrift
-- Meta Pixel ohne Joint Controller Agreement mit Facebook Ireland
-- Newsletter ohne Double-Opt-In (DOI) — § 7 UWG Verstoss
+- Google Fonts direkt via fonts.googleapis.com (ohne Consent, ohne Self-Hosting; LG Muenchen I 3 O 17493/20)
+- GA4 oder Meta Pixel laden vor Consent (BGH I ZR 91/21 "Cookie-Einwilligung II")
+- Impressum fehlt oder hat Postfach statt Anschrift (§ 5 DDG)
+- Meta Pixel ohne Joint Controller Agreement mit Meta Platforms Ireland (Art. 26 DSGVO; EuGH C-40/17 Fashion ID)
+- Newsletter ohne Double-Opt-In — Verstoss gegen § 7 Abs. 2 Nr. 2 UWG
+- BFSG-Pflichten komplett ignoriert bei B2C-Angebot mit > 10 MA (seit 28.06.2025 anwendbar)
 
 ### HIGH
 
@@ -196,9 +203,14 @@ Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht k
 
 - [[gesetze/dsgvo]]
 - [[gesetze/tdddg]] — § 25 Cookies
-- [[gesetze/ddg]] — § 5 Impressum
-- [[gesetze/uwg]] — § 7 UWG Newsletter/Direktmarketing
+- [[gesetze/ddg]] — § 5 Impressum (DDG ersetzt TMG seit 14.05.2024)
+- [[gesetze/uwg]] — § 7 Direktmarketing, § 5a Werbekennzeichnung
+- [[gesetze/bfsg]] — seit 28.06.2025 anwendbar
+- [[gesetze/ai-act]]
 - [[themen/impressum]]
+- [[themen/barrierefreiheit]]
+- [[themen/ki-transparenz]]
+- [[urteile/bgh-cookie-einwilligung]]
 - [[themen/datenschutzerklaerung]]
 - [[themen/cookie-consent]]
 - [[themen/tracking-analytics]]

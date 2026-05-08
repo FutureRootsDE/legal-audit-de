@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/it-grundschutz_node.html
   - https://www.iso.org/standard/27001
-verifiziert-am: 2026-04-19
+praxis-beispiel: C:/Users/Philip/SaaS_Project/projects/ksk-automation/docs/ISMS-CONCEPT.md
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 

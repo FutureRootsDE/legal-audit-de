@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 gilt-fuer: n8n-Workflow-Exports (JSON), self-hosted und Cloud
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -12,7 +12,7 @@ geltungsbereich: [DE, EU]
 > "schattenhafte" Datenverarbeitung, die in Verarbeitungsverzeichnissen und
 > Datenschutzerklaerungen fehlt. Vor jeder Produktiv-Nutzung pruefen.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Audit-Checkliste: n8n-Workflows
 
@@ -130,16 +130,21 @@ Webhook-Endpunkte sind oeffentlich erreichbar und oft das schwaechste Glied.
 - [ ] **HMAC-Verification** im Workflow (Code-Node, das Signatur vs. Shared Secret prueft)?
 - [ ] **Webhook-URL** nicht geleakt in Repo/README (Geheim halten)?
 
-## Pass 5: KI-Spezifisch (n8n)
+## Pass 5: KI-Spezifisch (AI Act-Stufung)
+
+Anwendbarkeit: Verbotene Praktiken (Art. 5) seit **02.02.2025**, **KI-Kompetenz** (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**. n8n-Workflows mit KI-Nodes: das **Unternehmen** ist Betreiber/Bereitsteller, nicht n8n.
 
 Bei KI-lastigen Workflows (Claude/GPT fuer Content-Generierung, Flux/Ideogram fuer Bilder, ElevenLabs fuer TTS):
 
+- [ ] **KI-Kompetenz** Art. 4 AI Act: Workflow-Entwickler / Operatoren geschult/sensibilisiert (Nachweis dokumentieren)
 - [ ] **Prompt-Inhalte** ohne PII (oder mit Consent)
 - [ ] **Output-Verantwortlichkeit**: KI-Halluzinationen erkennen, manueller Review-Schritt
 - [ ] **Bias in AI-Entscheidungen** bei Klassifikation (z.B. Content-Kategorisierung)
-- [ ] **Kennzeichnung** bei KI-generiertem Output (Art. 50 AI Act)
-- [ ] **DSFA** bei systematischer Bewertung von Menschen
-- [ ] **Training auf Nutzerdaten** bei Provider ausschalten (OpenAI Business-Tier / API ist Default-Out, Consumer-ChatGPT ist Default-In)
+- [ ] **Kennzeichnung** bei KI-generiertem Output (Art. 50 Abs. 2 AI Act); ab 02.08.2026 maschinenlesbares Wasserzeichen
+- [ ] **Verbotene Praktiken** Art. 5 AI Act ausgeschlossen (Social Scoring, Subliminal-Manipulation in Marketing-Workflows!)
+- [ ] **DSFA** bei systematischer Bewertung von Menschen (Art. 35 Abs. 3 lit. a DSGVO)
+- [ ] **Training auf Nutzerdaten** bei Provider ausschalten (OpenAI Business-Tier / API ist Default-Out, Consumer-ChatGPT ist Default-In; Anthropic API ist Default-Out)
+- [ ] **GPAI-Modell-Provider-Compliance**: Pruefen, dass Anbieter (OpenAI, Anthropic, Mistral, Google) GPAI-Pflichten Art. 53 ff. erfuellen (Trainings-Daten-Summary, Copyright-Konformitaet)
 - [ ] [[gesetze/ai-act]], [[themen/ki-transparenz]]
 
 ## Pass 6: Barrierefreiheit
@@ -161,19 +166,22 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 ## Pass 8: Logs / Retention / Monitoring
 
 - [ ] n8n-Container-Logs (docker logs) — Rotation konfiguriert
-- [ ] **Fehler-Alerting**: bei Cron-Job-Fehler Admin-Benachrichtigung (Slack, E-Mail, Discord) — "stille" Cron-Fehler sind DSGVO-relevant (Datenintegritaet Art. 5 Abs. 1 lit. f)
-- [ ] **Workflow-Audit-Log** wer hat welchen Workflow geaendert (n8n User-Management Pflicht ab mehreren Entwicklern)
+- [ ] **Fehler-Alerting**: bei Cron-Job-Fehler Admin-Benachrichtigung (Slack, E-Mail, Discord)
+  - Referenz: ksk-automation OPS-01 Anti-Pattern — "stille" Cron-Fehler sind DSGVO-relevant (Art. 32 DSGVO Integritaet/Verfuegbarkeit)
+- [ ] **Workflow-Audit-Log** wer hat welchen Workflow geaendert (n8n User-Management Pflicht ab mehreren Entwicklern; Art. 32 Abs. 1 lit. b/d DSGVO)
 - [ ] **Execution-Limits** (Timeout, Memory) konfiguriert — verhindert DoS
-- [ ] **Disaster Recovery**: PostgreSQL-Backup-Restore-Test alle 3 Monate
+- [ ] **Disaster Recovery**: PostgreSQL-Backup-Restore-Test alle 3 Monate (Art. 32 Abs. 1 lit. c DSGVO)
+- [ ] **Datenpannen-Meldepflicht** (Art. 33 DSGVO 72h): Eskalations-Plan dokumentiert — siehe [[themen/meldepflicht-datenpanne]]
+- [ ] **NIS2-Bezug**: bei wesentlicher/wichtiger Einrichtung n8n-Infrastruktur als IT-Asset im NIS2-Risiko-Management — siehe [[gesetze/nis2-bsig]]
 
 ## Typ-spezifische Besonderheiten
 
 - **n8n Cloud** (n8n.io SaaS) — Sitz in DE, aber unbedingt AVV mit n8n GmbH anfordern
-- **Self-hosted auf Hetzner / anderem EU-Hoster**: AVV mit Hoster, volle Kontrolle ueber Logs/Retention
+- **Self-hosted auf Hetzner** (wie SmarteHuette42): AVV mit Hetzner, volle Kontrolle ueber Logs/Retention
 - **n8n auf Vercel/AWS** — Drittland-Pruefung Hosting-Provider zusaetzlich
 - **Mehrere Workflows als Sub-Workflows**: Datenfluesse zwischen Workflows dokumentieren (ein Workflow-Aufruf = interne Verarbeitung, kein neuer Drittanbieter-Transfer)
 
-## Typische Findings (typische n8n-Produktiv-Workflows)
+## Typische Findings (ksk-automation / SmarteHuette42-Stil-Workflows)
 
 ### CRIT
 
@@ -219,13 +227,17 @@ jq '.nodes[] | select(.type == "n8n-nodes-base.webhook") | .parameters' workflow
 
 ## Siehe auch
 
-- [[gesetze/dsgvo]] — Art. 30, 32, 46
+- [[gesetze/dsgvo]] — Art. 30, 32, 33, 35, 46
 - [[gesetze/bdsg]]
+- [[gesetze/ai-act]]
+- [[gesetze/nis2-bsig]]
 - [[themen/avv-muster]]
 - [[themen/drittland-transfer]]
 - [[themen/verarbeitungsverzeichnis]]
 - [[themen/tom]] — TOM-Kategorien fuer n8n-Infrastruktur
 - [[themen/ki-transparenz]]
+- [[themen/ki-content]]
+- [[themen/meldepflicht-datenpanne]]
 - [[urteile/eugh-schrems-ii]]
 - [[checklisten/audit-saas]]
 - [[anwaelte-tools/tools-scanner]]

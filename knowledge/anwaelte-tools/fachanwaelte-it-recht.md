@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quellen-sekundaer:
-  - https://www.rechtsanwaltskammer.de/
   - https://www.brak.de/
+  - https://www.rechtsanwaltsregister.org/
   - https://www.davit.de/
-verifiziert-am: 2026-04-19
+  - https://anwaltauskunft.de/
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE]
 > selbst. Pruefe Zulassung und Fachanwaltstitel stets auf der Website der
 > zustaendigen Rechtsanwaltskammer.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Fachanwaelte fuer IT-Recht — Qualifikationen, Zertifikate, Suchportale
 
@@ -53,6 +54,17 @@ sollte nach Kanzleien mit **mehreren dieser Titel** suchen oder einer
 Boutique-Kanzlei mit Datenschutz-/IT-Schwerpunkt (siehe
 [[anwaelte-tools/kanzleien-saas-spezialisiert]]).
 
+### Wichtiger Hinweis: "Fachanwalt fuer Datenschutzrecht" existiert nicht
+
+Im Katalog der Fachanwaltschaften (§ 1 FAO) gibt es **keinen eigenstaendigen
+"Fachanwalt fuer Datenschutzrecht"**. Wer Datenschutz-Schwerpunkt hat, fuehrt
+typischerweise den Titel **"Fachanwalt fuer IT-Recht"** und/oder ein
+**externes/internes Datenschutzbeauftragten-Zertifikat** (udis, BvD, GDD, TUEV,
+DEKRA — siehe [[anwaelte-tools/datenschutzbeauftragte]]). Werbeaussagen wie
+"Fachanwalt fuer Datenschutz" sind irrefuehrend und unzulaessig (§ 7 Abs. 1
+BORA i.V.m. § 43b BRAO). Aktualisierte Liste der zugelassenen
+Fachanwaltsbezeichnungen: BRAK-Statistik (brak.de) und Fachanwaltsordnung (FAO).
+
 ## Suchportale
 
 ### Rechtsanwaltskammern (Tier 1 — offiziell)
@@ -86,15 +98,15 @@ Boutique-Kanzlei mit Datenschutz-/IT-Schwerpunkt (siehe
 5. **Mandatsvertrag** pruefen — Haftpflichtversicherung muss bestehen (Pflicht § 51 BRAO)
 6. **Zweitmeinung** bei strategischen Entscheidungen (Architektur, AGB, Lizenzmodell)
 
-## Typische Stunden-Saetze (oeffentlich kommuniziert)
+## Typische Stunden-Saetze (Markt-Indikationen)
 
-<<UNVERIFIZIERT fuer konkrete Kanzlei — Markt-Indikationen aus oeffentlichen Studien>>:
+Hinweis: Die folgenden Werte sind **nicht-verbindliche Markt-Indikationen** aus oeffentlichen Studien und Branchen-Befragungen (z.B. STAR-Studie der BRAK, JUVE-Marktanalysen, Soldan-Honorar-Statistiken). Konkrete Honorare koennen davon abweichen — entscheidend ist die individuelle Honorarvereinbarung (RVG / freie Vereinbarung).
 
-- **Boutique IT-Kanzlei**: 200-350 EUR / h (netto)
-- **Mittlere Wirtschaftskanzlei**: 300-500 EUR / h
-- **Grosskanzlei (CMS, Noerr, Osborne Clarke)**: 400-800+ EUR / h, Partner 700-1.500 EUR / h
-- **Pauschal-Paket "DSE + AGB + Impressum"**: 500-1.500 EUR netto (einmalig)
-- **Pauschal-Paket "komplettes SaaS-Launch-Package"**: 1.500-5.000 EUR netto
+- **Boutique IT-Kanzlei**: 200-350 EUR / h (netto) — Indikation
+- **Mittlere Wirtschaftskanzlei**: 300-500 EUR / h — Indikation
+- **Grosskanzlei (CMS, Noerr, Osborne Clarke, Heuking)**: 400-800+ EUR / h, Partner 700-1.500 EUR / h — Indikation
+- **Pauschal-Paket "DSE + AGB + Impressum"**: 500-1.500 EUR netto (einmalig) — Indikation
+- **Pauschal-Paket "komplettes SaaS-Launch-Package"**: 1.500-5.000 EUR netto — Indikation
 
 ## Spezialisierungen — Hinweise fuer die Kanzlei-Wahl
 

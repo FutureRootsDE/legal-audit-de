@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__7.html
 quellen-sekundaer:
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/DatenschutzAZ/Werbung/Werbung-node.html
   - https://www.datenschutzkonferenz-online.de/
   - https://www.dr-schwenke.de/newsletter-rechtssicher/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # E-Mail-Marketing — Rechtliche Anforderungen
 
@@ -44,7 +44,7 @@ Einwilligung. Die Einwilligung muss in unmittelbarem Zusammenhang mit der
 Werbemassnahme erfolgen und der Werbende muss sie nachweisen koennen
 (Beweislast beim Versender).
 
-**Konkrete Anforderungen (Double-Opt-In laut BGH I ZR 164/09):**
+**Konkrete Anforderungen (Double-Opt-In laut BGH I ZR 164/09, 10.02.2011 — "Double-opt-in-Verfahren"):**
 
 1. Formular-Eintrag (Single Opt-In) mit aktiver Handlung (leere Checkbox,
    die der Nutzer anhaken muss, oder expliziter "Anmelden"-Klick).
@@ -74,14 +74,18 @@ personenbezogener Daten zu Zwecken der Direktwerbung zu widersprechen. Der
 Widerspruch muss **einfach und kostenfrei** moeglich sein — praktische
 Umsetzung: One-Click-Unsubscribe-Link im Footer jeder Werbemail.
 
-### § 7 Abs. 4 UWG — Identitaet
+### § 6 DDG / § 5 DDG — Identitaet & Kennzeichnung
 
-Identitaet des Absenders darf nicht verschleiert werden. Pflichtangaben in
-der Mail:
+§ 7 UWG kennt nur die Absaetze 1 bis 3 (Stand 2026-05-08, verifiziert auf
+gesetze-im-internet.de/uwg_2004/__7.html). Die Identitaets-/Kennzeichnungs-
+pflicht fuer kommerzielle Kommunikation ergibt sich daher aus **§ 6 DDG**
+(frueher § 6 TMG) und **§ 5 DDG** (Impressum). Pflichtangaben in der Mail:
 
-- korrekter Absender-Name
+- korrekter Absender-Name (kommerzielle Kommunikation klar erkennbar, § 6 DDG)
 - gueltige Reply-Adresse
-- Impressum / Link zum Impressum
+- Impressum / Link zum Impressum (§ 5 DDG)
+- bei Werbe-Mails zusaetzlich: Kennzeichnungspflicht nach § 6 DDG, Auftraggeber
+  identifizierbar
 
 ### Art. 13 DSGVO — Informationspflichten beim Opt-In
 
@@ -153,8 +157,9 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
   Anerkennung des DOI-Standards.
 - **BGH I ZR 218/07** (10.02.2011, "Payback"): Einwilligung muss bewusst und
   eindeutig sein; Opt-Out-Loesungen nicht ausreichend.
-- **BGH I ZR 186/17** (13.01.2022, "Inbox-Werbung II"): Auch Inbox-Placements
-  in Freemail-Postfaechern sind Werbung. Siehe [[urteile/bgh-inbox-werbung]].
+- **BGH I ZR 25/19** (13.01.2022, "Inbox-Werbung II"): Auch Inbox-Placements
+  in Freemail-Postfaechern sind Werbung; Einwilligung muss konkrete
+  Modalitaeten der Werbe-Einblendung umfassen. Siehe [[urteile/bgh-inbox-werbung]].
 - **EuGH C-102/20** (25.11.2021): Vorabentscheidung zum Begriff "elektronische
   Post" — breit auszulegen.
 - **EuGH C-673/17** (01.10.2019, "Planet49"): Pre-ticked Checkboxen unwirksam.

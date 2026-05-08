@@ -1,12 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/ddg/__5.html
 quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0040
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62016CJ0210
   - https://www.gesetze-bayern.de/Content/Document/MStV-18
-  - https://www.heise.de/extras/socialmedia/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -152,10 +151,17 @@ Kernfolge: Joint-Controller-Pflicht auch ohne Zugriff auf die Rohdaten.
 Kernfolge: Pflicht zur Einwilligung **vor** Laden des Plugins; Shariff-/2-Klick-
 Loesung praxisueblich.
 
-### VG Schleswig-Holstein, 4 LA 12/23 (2024) `<<VERIFIKATION AUSSTEHEND>>`
+### OVG Schleswig-Holstein, 4 LB 20/13, 25.11.2021 (Anordnung zur Deaktivierung einer Fanpage rechtmaessig)
 
-Bestaetigung der Anordnung gegenueber oeffentlichen Stellen, Facebook-Fanpages
-abzuschalten. Aktenzeichen noch final zu verifizieren.
+Verifiziert ueber Pressemitteilung des ULD (Unabhaengiges Landeszentrum fuer
+Datenschutz Schleswig-Holstein). Das OVG bestaetigte rueckwirkend, dass die
+ULD-Anordnung aus 2011 rechtmaessig war.
+
+### BVerwG, 6 C 15.18, 11.09.2019 (Facebook-Fanpages, Vorinstanz nach EuGH C-210/16)
+
+Pressemitteilung Nr. 62/2019: Eine Datenschutzaufsichtsbehoerde kann den
+Betreiber einer Facebook-Fanpage zur Deaktivierung verpflichten, wenn von der
+Fanpage aus Datenschutzverstoesse begangen werden.
 
 ## Praxis-Check (Was Code-Reviewer konkret pruefen)
 

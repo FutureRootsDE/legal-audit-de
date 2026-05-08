@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/__312j.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__312k.html
   - https://www.bmj.de/DE/themen/verbraucherrecht/faire_vertraege/
-verifiziert-am: 2026-04-19
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=09.10.2025&Aktenzeichen=I+ZR+159/24
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Button-Loesung — § 312j Abs. 3/4 BGB
 
@@ -59,7 +60,8 @@ einer entsprechenden eindeutigen Formulierung beschriftet ist."
 
 - "zahlungspflichtig bestellen" (gesetzeswortlaut)
 - "kostenpflichtig bestellen"
-- "kaufen" (BGH VIII ZR 63/15 2017, wenn Gesamtkontext unmissverstaendlich)
+- "kaufen" (Gesamtkontext unmissverstaendlich; pruefen — Aktenzeichen-
+  Verifikation ausstehend)
 - "zahlungspflichtigen Vertrag schliessen"
 - "Jetzt kaufen" (Tendenz: OK)
 - "Kostenpflichtig bestellen"
@@ -138,14 +140,23 @@ Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
 
 ## Zitierbare Urteile
 
-- **BGH VIII ZR 63/15** (19.07.2017): "Jetzt anmelden" nicht ausreichend.
-- **BGH VIII ZR 99/19** (04.11.2020): "Buchen" ebenfalls nicht ausreichend,
-  wenn unklar bleibt, ob entgeltlich.
-- **OLG Koeln 6 U 102/12** (10.05.2013): Fruehe Praezisierung zu
-  Button-Labels.
+- **BGH I ZR 159/24** (09.10.2025, "Online-Maklervertrag"): NEU — Online-
+  Maklervertraege ohne "zahlungspflichtig bestellen"-Button (oder eindeutige
+  Formulierung) sind **endgueltig unwirksam**. Der BGH lehnt
+  Bereicherungsansprueche kategorisch ab; Schutzzweck des § 312j Abs. 3 BGB
+  geht vor. Button-Beschriftung "Senden" reicht nicht. (Tier-1-Verifikation
+  ueber bundesgerichtshof.de + dejure.org).
 - **EuGH C-249/21** (07.04.2022, "Fuhrmann-2"): Der Button-Text muss "aus
   sich heraus" die Zahlungsverpflichtung erkennbar machen; Gesamtumstaende
   reichen nicht.
+- **BGH VIII ZR 63/15** `<<VERIFIKATION AUSSTEHEND — Datum laut KB war
+  19.07.2017, in Tier-1-Suche nicht eindeutig auffindbar; Urteil zu "Jetzt
+  anmelden" beim naechsten Update gegen rechtsprechung-im-internet.de
+  abgleichen>>`.
+- **BGH VIII ZR 99/19** `<<VERIFIKATION AUSSTEHEND — Aktenzeichen / Datum /
+  Tenor zu "Buchen" pruefen>>`.
+- **OLG Koeln 6 U 102/12** (10.05.2013): Fruehe Praezisierung zu
+  Button-Labels.
 - **LG Berlin 52 O 157/20** zu § 312k (Kuendigungs-Button)
   `<<VERIFIKATION AUSSTEHEND — Aktenzeichen/Datum pruefen>>`.
 

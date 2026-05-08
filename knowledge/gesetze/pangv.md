@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/pangv_2022/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/pangv_2022/__11.html
   - https://www.bmwk.de/Redaktion/DE/Artikel/Wirtschaft/preisangabenverordnung.html
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # PAngV 2022 — Preisangabenverordnung (Neufassung)
 
@@ -125,8 +125,14 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
 
 ## Zitierbare Urteile
 
-- **OLG Hamburg 3 U 37/22** zur 30-Tage-Regel und E-Commerce-Streichpreisen
-  `<<VERIFIKATION AUSSTEHEND — Aktenzeichen / Datum bitte pruefen>>`
+- **OLG Hamburg, Beschl. v. 12.12.2022 — 3 W 38/22**: Zu § 11 PAngV
+  (30-Tage-Streichpreis-Regel). Klarstellung: Eine bloße Angabe des
+  niedrigsten Referenzpreises (Streichpreis) genuegt; eine zusaetzliche
+  Erlaeuterung des Vergleichszeitraums ist nicht erforderlich. Verbraucher
+  duerfen davon ausgehen, dass es sich um den vorherigen Verkaufspreis handelt.
+  (Hinweis: Vorgaengerfassung dieser KB nannte fehlerhaft "OLG Hamburg
+  3 U 37/22" — diese Zitation war nicht gegen rechtsprechung-im-internet
+  belegbar; korrigiert am 2026-05-08.)
 - **EuGH C-330/23** (26.09.2024, "Aldi Sued"): Klarstellung, dass der
   30-Tage-Referenzpreis auch in Werbung (Prospekte, Online-Ads) gelten muss,
   nicht nur am Regal.

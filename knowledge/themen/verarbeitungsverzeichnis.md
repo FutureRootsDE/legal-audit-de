@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
   - https://www.bfdi.bund.de/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -128,9 +128,15 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
 
 ## Zitierbare Urteile
 
-- **LG Mainz 3 O 12/20, 12.11.2021** — Bußgeld für mangelhafte VVT-Führung (ca. 1,24 Mio. EUR)
-- **Bayerisches LDA-Tätigkeitsbericht 2022** — Schwerpunkt Dokumentationsmängel
-- **OVG Lüneburg 11 LA 104/22, 19.03.2024** — VVT-Einsicht durch Aufsichtsbehörde rechtmäßig
+- **LG Mainz 3 O 12/20, 12.11.2021** — Schadensersatz 5.000 EUR wegen rechtswidriger
+  SCHUFA-Meldung (Art. 82 DSGVO). _Korrektur: Frueherer Eintrag verwies faelschlich auf
+  einen 1,24-Mio.-Bussgeld-Fall fuer VVT-Maengel; das Aktenzeichen 3 O 12/20 ist tatsaechlich
+  ein Schufa-Schadensersatz-Fall, nicht VVT-spezifisch._
+- **Bayerisches LDA-Taetigkeitsbericht 2022** — Schwerpunkt Dokumentationsmaengel,
+  einschliesslich VVT-Pflichten
+- **OVG Lueneburg 11 LA 104/22, 19.03.2024** — VVT-Einsicht durch Aufsichtsbehoerde
+  rechtmaessig `<<VERIFIKATION AUSSTEHEND — Aktenzeichen via WebSearch nicht direkt
+  trefferbar; Kernaussage entspricht der Aufsichtsbehoerden-Linie nach Art. 30 Abs. 4 DSGVO>>`
 
 ## Siehe auch
 

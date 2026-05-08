@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__5.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
   - https://www.rechtsprechung-im-internet.de/
   - https://www.bundesgerichtshof.de/
-verifiziert-am: 2026-04-19
+  - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3083
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Siegel- und Testergebnis-Werbung (TUEV, Trusted Shops, Stiftung Warentest)
 
@@ -138,15 +139,18 @@ Klick-Kaskaden erreichbar sein.
 
 ## Zitierbare Urteile
 
-### BGH I ZR 93/20 (Testsieger), 13.01.2022 `<<VERIFIKATION AUSSTEHEND>>`
+### BGH I ZR 134/20 (Testsiegel auf Produktabbildung), 15.04.2021
 
-Aktenzeichen + exaktes Datum aus Originalquelle (BGH-Entscheidungsdatenbank,
-dejure.org) final zu verifizieren. Ueberlieferte Kernaussage:
+KORREKTUR (war: faelschlich "I ZR 93/20"). Tier-1-verifiziert ueber dejure.org
+und medien-internet-und-recht.de.
 
-> Bei Werbung mit einem Testergebnis muss eine Fundstelle der konkreten
-> Testveroeffentlichung angegeben werden, damit der Verbraucher die
-> Testergebnisse nachpruefen kann. Dies gilt auch fuer die Verwendung des
-> Testsieger-Siegels als Qualitaetskennzeichnung.
+> Bei Werbung mit einem Testsiegel muss eine **Fundstelle der konkreten
+> Testveroeffentlichung** klar erkennbar angegeben werden — auch wenn das
+> Siegel nur klein in einer Produktabbildung sichtbar ist. Verbraucher
+> muessen den Pruefbericht ohne Aufwand nachvollziehen koennen.
+
+Kernfolge: Auch unauffaellige "Testsieger"-Siegel auf Verpackung/Produktbild
+loesen die volle Fundstellen-Pflicht aus.
 
 ### BGH I ZR 50/14 (Testsiegel), 05.11.2015
 

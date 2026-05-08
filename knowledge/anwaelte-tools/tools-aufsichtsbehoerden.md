@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quellen-sekundaer:
   - https://formulare.bfdi.bund.de/
   - https://www.lda.bayern.de/de/datenpanne.html
   - https://www.ldi.nrw.de/kontakt/meldepflicht-fuer-verantwortliche-verletzungen-des-schutzes-personenbezogener-daten
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE]
 > Falsch adressierte oder unvollstaendige Meldungen werden mit Bussgeldern
 > geahndet.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Meldewege an Aufsichtsbehoerden — Portale und Prozesse
 
@@ -40,7 +40,7 @@ Nutzung ist in der Regel die **erste Wahl** gegenueber E-Mail/Post.
 
 Volle Liste in [[behoerden/landesbeauftragte-kontakte]].
 
-## Online-Formulare (verifiziert 2026-04-19)
+## Online-Formulare (verifiziert 2026-05-08)
 
 ### BfDI (Bund)
 
@@ -206,9 +206,13 @@ Umsatz-Klassifizierung und Tages-Saetzen).
 - **Realistische Massnahmen-Plaene** — keine Versprechungen, die nicht gehalten werden koennen
 - **Referenz auf Verarbeitungsverzeichnis** — beweist, dass Datenschutz-Governance existiert
 
+## Hinweis: ODR-Plattform abgeschaltet (2025-07-20)
+
+Die EU-**Online-Streitbeilegungsplattform (ODR)** unter `ec.europa.eu/consumers/odr` ist seit dem **20.07.2025** abgeschaltet. Pflichten zur Verlinkung der ODR-Plattform aus AGB / Impressum / Footer sind damit weggefallen. Verbraucherstreitbeilegung erfolgt seither ueber nationale Schlichtungsstellen (z.B. Universalschlichtungsstelle des Bundes / Allgemeine Verbraucherschlichtungsstelle des Zentrums fuer Schlichtung e.V., Kehl). Hinweis hier nur fuer Cross-Ref — ODR betrifft UWG/E-Commerce-Pflichten, **nicht** den Art.-33/34-DSGVO-Meldeweg, der hier dokumentiert ist.
+
 ## Siehe auch
 
-- [[behoerden/landesbeauftragte-kontakte]] — komplette Liste mit Detail-Kontakten
+- [[behoerden/landesbeauftragte-kontakte]] — komplette Liste mit Detail-Kontakten (in Wave-1 aktualisiert)
 - [[behoerden/dsk-beschluesse]] — Kurzpapier 18 (Risikomodell), Kurzpapier 19 (Datenpannen)
 - [[behoerden/bfdi-leitfaeden]]
 - [[themen/meldepflicht-datenpanne]] — Pflichten, Fristen, Mustertexte

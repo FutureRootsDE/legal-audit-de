@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-05-08
 quelle-primaer: https://www.datenschutzkonferenz-online.de/
 quellen-sekundaer:
   - https://www.bfdi.bund.de/
@@ -7,7 +7,7 @@ quellen-sekundaer:
   - https://www.lda.bayern.de/
   - https://www.ldi.nrw.de/
   - https://www.datenschutz-berlin.de/
-verifiziert-am: 2026-04-19
+verifiziert-am: 2026-05-08
 geltungsbereich: [DE]
 ---
 
@@ -18,7 +18,7 @@ geltungsbereich: [DE]
 > Rechtsberatung** im Sinne des § 2 RDG. Eine Pruefung durch einen zugelassenen
 > Rechtsanwalt oder direkt bei der Behoerde ist vor jeder Meldung zwingend.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-05-08
 
 # Landesbeauftragte fuer Datenschutz — Kontakte
 
@@ -46,7 +46,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | E-Mail | poststelle@bfdi.bund.de |
 | Website | https://www.bfdi.bund.de/ |
 | Online-Formulare | https://formulare.bfdi.bund.de/ |
-| Leitung | Prof. Dr. Louisa Specht-Riemenschneider (Ruecktritt angekuendigt 2026-03-17 — Nachfolge <<UNVERIFIZIERT>>) |
+| Leitung | Prof. Dr. Louisa Specht-Riemenschneider (Ruecktritt am 17.03.2026 angekuendigt; bleibt bis Nachfolge im Amt — Stand 2026-05-08: Nachfolge nicht oeffentlich gewaehlt, Quelle: BfDI-Pressemitteilung 17.03.2026) |
 | Zustaendigkeit | Bundesbehoerden, Telekommunikation, Post, Bundesnachrichtendienste, Sozialversicherungstraeger bundesweit |
 | Meldung Datenpanne | Online-Formular "Meldung Datenschutzverstoss durch Verantwortliche" unter formulare.bfdi.bund.de |
 
@@ -59,7 +59,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Bayern (nicht-oeffentlich) | **BayLDA** | https://www.lda.bayern.de/ | Ansbach |
 | Berlin | BlnBDI | https://www.datenschutz-berlin.de/ | Berlin |
 | Brandenburg | LDA Brandenburg | https://www.lda.brandenburg.de/ | Kleinmachnow |
-| Bremen | LfDI Bremen | https://www.datenschutz.bremen.de/ | Bremen |
+| Bremen | LfDI Bremen | https://www.datenschutz.bremen.de/ | Bremerhaven (Behoerden-Adresse) |
 | Hamburg | HmbBfDI | https://datenschutz-hamburg.de/ | Hamburg |
 | Hessen | HBDI | https://datenschutz.hessen.de/ | Wiesbaden |
 | Mecklenburg-Vorpommern | LfDI MV | https://www.datenschutz-mv.de/ | Schwerin |
@@ -67,7 +67,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Nordrhein-Westfalen | **LDI NRW** | https://www.ldi.nrw.de/ | Duesseldorf |
 | Rheinland-Pfalz | LfDI RLP | https://www.datenschutz.rlp.de/ | Mainz |
 | Saarland | UDS | https://datenschutz.saarland.de/ | Saarbruecken |
-| Sachsen | SaechsDSB | https://www.saechsdsb.de/ | Dresden |
+| Sachsen | SDTB (Saechsische Datenschutz- und Transparenzbeauftragte) | https://www.datenschutz.sachsen.de/ | Dresden |
 | Sachsen-Anhalt | LfD Sachsen-Anhalt | https://datenschutz.sachsen-anhalt.de/ | Magdeburg |
 | Schleswig-Holstein | ULD | https://www.datenschutzzentrum.de/ | Kiel |
 | Thueringen | TLfDI | https://www.tlfdi.de/ | Erfurt |
@@ -87,7 +87,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | E-Mail Presse | presse@lda.bayern.de |
 | Meldung Datenpanne | https://www.lda.bayern.de/de/datenpanne.html (Online-Meldeformular) |
 | Online-Services | Beschwerden, Beratungsanfragen, Datenschutzverletzungsmeldungen — Vorrang vor Postweg |
-| Leitung | Praesident (Name <<VERIFIKATION AUSSTEHEND>> — siehe Website /unsere-behoerde) |
+| Leitung | Michael Will (Praesident; ernannt zum 01.02.2025 fuer 5 Jahre, Quelle: lda.bayern.de/de/praesident.html) |
 
 ### Bayern — BayLfD (oeffentlich)
 
@@ -110,7 +110,68 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Fax | +49 30 2155050 |
 | E-Mail | mailbox@datenschutz-berlin.de |
 | Website | https://www.datenschutz-berlin.de/ |
-| Leitung | siehe /ueber-uns/die-beauftragte/ (<<VERIFIKATION AUSSTEHEND>>) |
+| Leitung | Meike Kamp (Wahl Abgeordnetenhaus 06.10.2022, Ernennung 15.11.2022, 5-Jahres-Amtszeit) |
+
+### Brandenburg — LDA Brandenburg
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Die Landesbeauftragte fuer den Datenschutz und fuer das Recht auf Akteneinsicht |
+| Adresse | Stahnsdorfer Damm 77, 14532 Kleinmachnow |
+| Telefon | +49 33203 356-0 |
+| Fax | +49 33203 356-49 |
+| E-Mail | Poststelle@LDA.Brandenburg.de |
+| Leitung | Dagmar Hartge |
+
+### Bremen — LfDI Bremen
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Der Landesbeauftragte fuer Datenschutz und Informationsfreiheit der Freien Hansestadt Bremen |
+| Adresse | Georgstrasse 122-124, 27570 Bremerhaven (lt. BfDI-Adressliste) |
+| Telefon | +49 421 361-2010 / +49 471 596-2010 |
+| E-Mail | office@datenschutz.bremen.de |
+| Leitung | Dr. Timo Utermark (seit 13.12.2024; Vorgaengerin Dr. Imke Sommer 2009-2024, Steffen Bothe kommissarisch 26.01.2024-12.12.2024) |
+
+### Hamburg — HmbBfDI
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Der Hamburgische Beauftragte fuer Datenschutz und Informationsfreiheit |
+| Adresse | Ludwig-Erhard-Str. 22, 20459 Hamburg |
+| Telefon | +49 40 428 54 - 4040 |
+| E-Mail | mailbox@datenschutz.hamburg.de |
+| Leitung | Thomas Fuchs |
+
+### Hessen — HBDI
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Der Hessische Beauftragte fuer Datenschutz und Informationsfreiheit |
+| Postanschrift | Postfach 3163, 65021 Wiesbaden |
+| Telefon | +49 611 1408-0 |
+| E-Mail | poststelle@datenschutz.hessen.de |
+| Leitung | Prof. Dr. Alexander Rossnagel (Wahl 10.12.2020, Amtsantritt 01.03.2021) |
+
+### Mecklenburg-Vorpommern — LfDI MV
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Landesbeauftragter fuer Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern |
+| Adresse | Werderstrasse 74a, 19055 Schwerin |
+| Telefon | +49 385 59494-0 |
+| E-Mail | info@datenschutz-mv.de |
+| Leitung | Sebastian Schmidt |
+
+### Niedersachsen — LfD Niedersachsen
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Der Landesbeauftragte fuer den Datenschutz Niedersachsen |
+| Besucheranschrift | Prinzenstrasse 5, 30159 Hannover |
+| Postanschrift | Postfach 221, 30002 Hannover |
+| E-Mail | poststelle@lfd.niedersachsen.de |
+| Leitung | Denis Lehmkemper |
 
 ### Nordrhein-Westfalen — LDI NRW
 
@@ -120,7 +181,81 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Leitung | Bettina Gayk |
 | Website | https://www.ldi.nrw.de/ |
 | Meldung Datenpanne | https://www.ldi.nrw.de/kontakt/meldepflicht-fuer-verantwortliche-verletzungen-des-schutzes-personenbezogener-daten |
-| Adresse | Kavalleriestr. 2-4, 40213 Duesseldorf <<VERIFIKATION AUSSTEHEND>> |
+| Postanschrift | Postfach 20 04 44, 40102 Duesseldorf |
+| Telefon | +49 (0)211 / 38424 - 0 |
+
+### Rheinland-Pfalz — LfDI RLP
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Der Landesbeauftragte fuer den Datenschutz und die Informationsfreiheit Rheinland-Pfalz |
+| Website | https://www.datenschutz.rlp.de/ |
+| Leitung | Prof. Dr. Dieter Kugelmann (zweite Amtszeit ab 01.10.2023, Wiederwahl Januar 2023, 8 Jahre) |
+| Hauptsitz | Mainz |
+
+### Saarland — UDS
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Unabhaengiges Datenschutzzentrum Saarland — Die Landesbeauftragte fuer Datenschutz und Informationsfreiheit |
+| Adresse | Fritz-Dobisch-Str. 12, 66111 Saarbruecken |
+| Telefon | +49 681 94781-0 |
+| Fax | +49 681 94781-29 |
+| E-Mail | poststelle@datenschutz.saarland.de |
+| Leitung | <<aktuell laut Website /die-landesbeauftragte/>> |
+
+### Sachsen — SDTB
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Saechsische Datenschutz- und Transparenzbeauftragte |
+| Adresse | Maternistrasse 17, 01067 Dresden |
+| Telefon | +49 351 85471-101 |
+| Fax | +49 351 85471-109 |
+| E-Mail | post@sdtb.sachsen.de |
+| Website | https://www.datenschutz.sachsen.de/ (Redirect von www.saechsdsb.de) |
+| Leitung | Dr. Juliane Hundert (Taetigkeitsbericht 2025 vorgelegt im Maerz 2026) |
+
+### Sachsen-Anhalt — LfD Sachsen-Anhalt
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Landesbeauftragte fuer den Datenschutz Sachsen-Anhalt |
+| Adresse | Otto-von-Guericke-Strasse 34a, 39104 Magdeburg |
+| Postanschrift | Postfach 1947, 39009 Magdeburg |
+| Telefon | +49 391 81803-0 |
+| Fax | +49 391 81803-33 |
+| Leitung | Maria Christina Rost (Amtsantritt 02.08.2024; vorher Albert Cohaus kommissarisch ab 01.01.2021) |
+
+### Schleswig-Holstein — ULD
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Unabhaengiges Landeszentrum fuer Datenschutz Schleswig-Holstein |
+| Adresse | Holstenstrasse 98, 24103 Kiel |
+| Telefon | +49 431 988-1200 |
+| E-Mail | mail@datenschutzzentrum.de |
+| Leitung | Dr. h.c. Marit Hansen (zweite Amtszeit seit 18.06.2020) |
+
+### Thueringen — TLfDI
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Thueringer Landesbeauftragter fuer den Datenschutz und die Informationsfreiheit |
+| Adresse | Haesslerstrasse 8, 99096 Erfurt |
+| Postanschrift | Postfach 90 04 55, 99107 Erfurt |
+| Telefon | +49 361 57-3112900 |
+| E-Mail | poststelle@datenschutz.thueringen.de |
+| Leitung | Tino Melzer (seit 01.03.2024; Vorgaenger Dr. Lutz Hasse 2012-2024) |
+
+### Baden-Wuerttemberg — LfDI BW
+
+| Feld | Wert |
+|------|------|
+| Volle Bezeichnung | Der Landesbeauftragte fuer den Datenschutz und die Informationsfreiheit Baden-Wuerttemberg |
+| Adresse | Heilbronner Strasse 35, 70191 Stuttgart (Neue Adresse seit 22.12.2025) |
+| Website | https://www.baden-wuerttemberg.datenschutz.de/ |
+| Leitung | Prof. Dr. Tobias Keber |
 
 ## Zustaendigkeits-Regeln (vereinfacht)
 
