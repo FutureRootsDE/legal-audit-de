@@ -1,6 +1,6 @@
 # legal-audit-de
 
-> Claude Code plugin for systematic **German and EU legal audits** of codebases, live URLs, and legal documents.
+> Multi-platform toolkit for systematic **German and EU legal audits** of codebases, live URLs, and legal documents — available for **Claude Code**, **OpenAI Codex CLI**, and **GitHub Copilot CLI**.
 >
 > **⚠️ This is NOT legal advice.** See [Disclaimer](#disclaimer) below.
 
@@ -8,6 +8,8 @@
 [![Language](https://img.shields.io/badge/content%20language-German-informational)](#language)
 [![Scope](https://img.shields.io/badge/scope-DE%20%2F%20EU-blue)](#legal-scope)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Plugin-orange)](#installation)
+[![Codex CLI](https://img.shields.io/badge/Codex%20CLI-supported-black)](#codex-cli)
+[![Copilot CLI](https://img.shields.io/badge/GitHub%20Copilot%20CLI-supported-181717)](#github-copilot-cli)
 
 🇩🇪 [Deutsche Version](README.md)
 
@@ -80,12 +82,17 @@ This keeps your context window lean while current legal knowledge is always with
 
 ### Requirements
 
-- [Claude Code](https://claude.com/claude-code) ≥ 2.0
-- Python ≥ 3.10 (for hook scripts)
+- Python ≥ 3.10 (for hook scripts and the sync tool)
+- One of the following CLIs:
+  - [Claude Code](https://claude.com/claude-code) ≥ 2.0 (full feature support)
+  - [OpenAI Codex CLI](https://github.com/openai/codex) (with limitations — see below)
+  - [GitHub Copilot CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli) (with limitations — see below)
 - Optional: [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) for `/legal-audit-live`
 - Optional: [Obsidian](https://obsidian.md/) for visual KB navigation (graph view, backlinks)
 
-### Install via marketplace (recommended)
+### Claude Code (recommended — full hook architecture)
+
+#### Marketplace
 
 ```bash
 # In Claude Code — add marketplace, then install plugin
@@ -93,13 +100,13 @@ This keeps your context window lean while current legal knowledge is always with
 /plugin install legal-audit-de@futureroots-legal
 ```
 
-That's it. For updates later:
+For updates later:
 ```bash
 /plugin marketplace update futureroots-legal
 /legal-audit-de-update
 ```
 
-### As a workspace clone
+#### Workspace clone
 
 ```bash
 git clone https://github.com/FutureRootsDE/legal-audit-de.git
@@ -112,6 +119,55 @@ On first start, the SessionStart hook automatically loads `knowledge/INDEX.md`. 
 ```
 /legal-audit /path/to/your/project
 ```
+
+### Codex CLI
+
+Requires [OpenAI Codex CLI](https://github.com/openai/codex).
+
+```bash
+git clone https://github.com/FutureRootsDE/legal-audit-de.git
+cd legal-audit-de
+codex
+```
+
+Codex auto-loads `AGENTS.md` and `.codex/config.toml`. Slash prompts live under `.codex/prompts/`. Run:
+
+```
+/legal-audit ./your-project
+```
+
+**Differences from Claude Code:**
+- No SessionStart / UserPromptSubmit hooks → skills load `knowledge/INDEX.md` themselves and pull relevant KB chunks on demand (auto-routing).
+- No `WebSearch` tool → Tier-1 verification only via `http.get` against the whitelist in `.codex/config.toml`.
+- Model selection: the plugin records `claude-opus-4-7[1m]` as the original model; Codex users select an equivalent large-context model (e.g. `gpt-5`).
+
+### GitHub Copilot CLI
+
+Requires `gh` CLI with a Copilot subscription, or standalone GitHub Copilot CLI.
+
+```bash
+git clone https://github.com/FutureRootsDE/legal-audit-de.git
+cd legal-audit-de
+gh copilot suggest "Run legal-audit on the current directory"
+```
+
+Copilot auto-loads `.github/copilot-instructions.md`. Slash prompts live under `.github/prompts/<name>/PROMPT.md`.
+
+**Differences from Claude Code:**
+- No hook API → analogous auto-routing as in Codex.
+- Permissions are managed via GitHub App scopes, not via plugin config. The whitelist in `.github/copilot-instructions.md` is a convention, not enforcement.
+- `model:` fields in agents are ignored; Copilot uses its own default.
+
+### Maintainer workflow (cross-platform sync)
+
+If you edit `.claude/` (the source of truth), run the sync before committing:
+
+```bash
+python scripts/sync-platforms.py --apply   # generates .codex/ and .github/prompts/
+python scripts/sync-platforms.py --check   # CI mode: exit 1 on drift
+```
+
+The `validate.yml` GitHub Action blocks PRs when the sync wasn't run.
 
 ## Quick Start
 
@@ -165,31 +221,63 @@ Every verification is logged under `.claude/logs/zitate-verifikation-<date>.log`
 
 ## Architecture
 
-See [CLAUDE.md](CLAUDE.md). Short version:
+See [CLAUDE.md](CLAUDE.md) (Claude-specific) and [AGENTS.md](AGENTS.md) (cross-platform). Short version:
 
 ```
 legal-audit-de/
-├── plugin.json                 # Plugin manifest
-├── CLAUDE.md                   # Claude Code orientation
-├── .claude/
-│   ├── commands/*.md           # 7 slash commands
-│   ├── agents/*.md             # 3 custom agents
-│   ├── skills/*/SKILL.md       # 4 skills
-│   ├── hooks/*.py              # 3 hooks (SessionStart / PromptSubmit / PostToolUse)
-│   └── settings.json           # Hook registration
-├── knowledge/                  # 63 KB files (statutes, topics, case law, authorities, checklists, attorney tools)
-│   └── INDEX.md                # the only always-loaded file
-├── templates/                  # LegalAudit, clean, disclaimer templates
-└── scripts/                    # Python helpers
+├── AGENTS.md                       # Top-level for Codex / generic agent CLIs
+├── CLAUDE.md                       # Claude Code-specific guide
+├── README.md / README.en.md        # User docs (DE / EN)
+│
+├── .claude-plugin/
+│   ├── plugin.json                 # Claude Code plugin manifest
+│   └── marketplace.json            # Marketplace metadata
+│
+├── .claude/                        # ★ SOURCE OF TRUTH ★
+│   ├── commands/*.md               # 8 slash commands
+│   ├── agents/*.md                 # 3 custom agents
+│   ├── skills/*/SKILL.md           # 4 skills
+│   ├── hooks/*.py                  # 3 hooks (SessionStart / PromptSubmit / PostToolUse)
+│   └── settings.json               # Permissions, WebFetch whitelist
+│
+├── .codex/                         # ⚙ generated by scripts/sync-platforms.py
+│   ├── config.toml                 # Codex configuration
+│   ├── prompts/*.md                # 8 prompts
+│   ├── agents/*.md                 # 3 agents
+│   └── skills/*/SKILL.md           # 4 skills (with auto-routing)
+│
+├── .github/
+│   ├── copilot-instructions.md     # Top-level for Copilot CLI
+│   ├── workflows/                  # GitHub Actions (validate.yml, release.yml)
+│   ├── prompts/<name>/PROMPT.md    # ⚙ 8 prompts (generated)
+│   ├── agents/*.md                 # ⚙ 3 agents (generated)
+│   └── skills/*/SKILL.md           # ⚙ 4 skills (generated)
+│
+├── knowledge/                      # 63 KB files
+│   └── INDEX.md                    # only always-loaded file (Claude Code via hook)
+│
+├── templates/                      # LegalAudit, clean, disclaimer templates
+└── scripts/
+    ├── sync-platforms.py           # Codex / Copilot adapter generator
+    ├── legal-status.py             # plugin health check
+    ├── audit-compare.py            # audit diff tool
+    ├── find-placeholders.py        # placeholder scanner
+    └── legal-audit-pdf.py          # PDF bundling
 ```
+
+Directories marked ⚙ are automatically generated from `.claude/`. Direct edits there are overwritten by the sync tool.
 
 ## Roadmap
 
-- [ ] Submission to the Claude Code plugin marketplace
+- [x] **v1.3.0** Multi-platform support: Codex CLI + GitHub Copilot CLI (in addition to Claude Code)
+- [x] **v1.3.0** GitHub Actions: `validate.yml` (sync check, disclaimer check, placeholder scan) + `release.yml` (bundle build and auto-release on tag)
+- [x] **v1.2.0** Tier-1 KB update wave: 40+ case-number corrections, primary-source verification
+- [x] **v1.1.0** Marketplace structure (`.claude-plugin/marketplace.json`) + `/legal-audit-de-update`
+- [ ] Submission to the official Claude Code plugin marketplace registry
 - [ ] English KB summary under `knowledge/en/SUMMARY.md` (for non-German-speaking users)
-- [ ] Additional checklists: mobile apps (iOS/Android BFSG), API-only services
+- [ ] Additional checklists: mobile apps (iOS / Android BFSG), API-only services
 - [ ] Integration with `trivy`, `bandit`, other security scanners for combined audits
-- [ ] CI integration: GitHub Action for automated KB freshness checks
+- [ ] CI integration: automated KB freshness checks (every 90 days against Tier-1 sources)
 
 ## Contributing
 

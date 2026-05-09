@@ -6,6 +6,43 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ---
 
+## [1.3.0] — 2026-05-09
+
+### Hintergrund
+
+Erstes plattform-uebergreifendes Release. `legal-audit-de` ist ab v1.3.0 zusaetzlich zu Claude Code auch auf **OpenAI Codex CLI** und **GitHub Copilot CLI** lauffaehig — unter Beibehaltung von `.claude/` als Source of Truth. Adapter werden via Generator (`scripts/sync-platforms.py`) deterministisch erzeugt; CI blockt PRs bei Drift.
+
+### Added
+
+- **Multi-Platform-Support:**
+  - Neues Verzeichnis `.codex/` mit `config.toml`, `prompts/` (8 Prompts), `agents/` (3 Agents), `skills/` (4 Skills mit Auto-Routing).
+  - Neues Verzeichnis `.github/prompts/`, `.github/agents/`, `.github/skills/` fuer GitHub Copilot CLI.
+  - `AGENTS.md` (Top-Level) als plattform-uebergreifender Eintrittspunkt — wird von Codex automatisch geladen.
+  - `.github/copilot-instructions.md` als Copilot-CLI-Top-Level-Instructions.
+- **Sync-Tooling:** `scripts/sync-platforms.py` mit `--check` (CI), `--apply` (Maintainer), `--verbose`. Erzeugt aus `.claude/`-Source deterministisch alle Plattform-Adapter, ersetzt Tool-Namen und Pfad-Variablen, injiziert Auto-Routing-Block in Skills.
+- **GitHub Actions:**
+  - `.github/workflows/validate.yml` — bei jedem Push/PR: Sync-Check, Disclaimer-Check (Knowledge Base + Templates), Platzhalter-Scan, Markdown-Lint.
+  - `.github/workflows/release.yml` — bei Tag-Push (`v*.*.*`): Pre-Release-Validation, Bundle-Build pro Plattform (Claude/Codex/Copilot ZIPs), automatische GH-Release-Erstellung mit aus CHANGELOG extrahierten Notes.
+- **Pre-Write-Disclaimer-Check** im `legal-text-writer`-Agent — schliesst die Luecke auf Codex/Copilot, wo der `PostToolUse`-Hook fehlt.
+
+### Changed
+
+- **README.md / README.en.md:** Neuer "Installation"-Abschnitt mit getrennten Sektionen fuer Claude Code, Codex CLI und Copilot CLI; Tagline und Badges um Multi-Platform-Hinweis erweitert; Architektur-Tree zeigt Source-of-Truth- und Generator-Markierungen; Roadmap aktualisiert.
+- **`legal-text-writer`-Agent** (`.claude/agents/legal-text-writer.md`): neue Sektion "Pre-Write-Disclaimer-Check (Plattform-uebergreifend)" mit explizitem Vorgehen vor jedem Write/create. In Claude Code redundant (Hook validiert ohnehin), auf Codex/Copilot die einzige Sicherung.
+- **Auto-Routing in Skills** (Codex/Copilot-Versionen): jedes generierte `SKILL.md` enthaelt einen Auto-Routing-Block, der erklaert, wie das Skill `knowledge/INDEX.md` selbst liest und passende KB-Chunks zieht — Ersatz fuer fehlende SessionStart-/UserPromptSubmit-Hooks. Source-Skills in `.claude/skills/` bleiben unveraendert (Hooks decken das dort ab).
+
+### Fixed
+
+- v1.2.0 retroaktiv getaggt (Commit `c832bcb`), damit das Tag-zu-Commit-Mapping konsistent bleibt fuer den Release-Workflow.
+
+### Limitations (dokumentiert)
+
+- **Kein WebSearch** in Codex/Copilot — Tier-1-Verifikation laeuft nur via WebFetch/`http.get` auf der Whitelist-Domain-Liste.
+- **chrome-devtools-mcp** fuer `/legal-audit-live` benoetigt MCP-Server-Konfiguration auf Codex/Copilot; in Claude Code direkt verfuegbar.
+- **`model:`-Felder** in Custom Agents werden auf Copilot CLI ignoriert; Codex-User waehlen aequivalentes Modell mit grossem Kontext.
+
+---
+
 ## [1.2.0] — 2026-05-08
 
 ### Hintergrund

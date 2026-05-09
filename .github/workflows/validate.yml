@@ -1,0 +1,79 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync-check:
+    name: Platform-Adapter Sync-Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify .codex/ and .github/prompts/ are in sync with .claude/
+        run: python scripts/sync-platforms.py --check
+
+  disclaimer-check:
+    name: Disclaimer-Validation (Knowledge Base + Templates)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify disclaimer in Knowledge Base
+        run: |
+          MISSING=0
+          while IFS= read -r f; do
+            if ! grep -q "keine Rechtsberatung\|RDG\|§ 2 RDG\|Paragraph 2 RDG" "$f"; then
+              echo "MISSING DISCLAIMER: $f"
+              MISSING=$((MISSING + 1))
+            fi
+          done < <(find knowledge templates -name "*.md" -type f 2>/dev/null | grep -v "INDEX.md\|README" | head -200)
+          if [ "$MISSING" -gt 0 ]; then
+            echo ""
+            echo "FAIL: $MISSING knowledge/template files lack disclaimer reference."
+            exit 1
+          fi
+          echo "OK: Disclaimer present in all KB and template files."
+
+  placeholder-scan:
+    name: Platzhalter-Scan (informational)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run placeholder scanner
+        run: |
+          if [ -f scripts/find-placeholders.py ]; then
+            python scripts/find-placeholders.py --json || true
+          else
+            echo "scripts/find-placeholders.py not found, skipping"
+          fi
+
+  markdown-lint:
+    name: Markdown-Lint (relaxed)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+      - name: Lint Markdown
+        run: |
+          markdownlint \
+            --disable MD013 MD033 MD034 MD041 MD024 MD036 MD040 MD031 MD032 \
+            --ignore "node_modules" \
+            --ignore "audits/**" \
+            "**/*.md" || true

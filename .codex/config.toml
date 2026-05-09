@@ -1,0 +1,24 @@
+# Auto-generated from .claude/settings.json by scripts/sync-platforms.py
+# DO NOT EDIT DIRECTLY
+
+[plugin]
+name = "legal-audit-de"
+description = "DE/EU legal audit workspace (DSGVO, TDDDG, UWG, AI Act, etc.). NOT legal advice."
+
+[features]
+multi_agent = true
+
+[permissions]
+# WebFetch-Whitelist: Tier-1-Primaerquellen (DE/EU-Recht)
+web_fetch_domains = ["bfdi.bund.de", "bmj.de", "bmwk.de", "bsi.bund.de", "bundesanzeiger.de", "curia.europa.eu", "datenschutz-notizen.de", "datenschutzkonferenz-online.de", "dr-schwenke.de", "dsgvo-gesetz.de", "e-recht24.de", "ec.europa.eu", "edpb.europa.eu", "eur-lex.europa.eu", "gesetze-im-internet.de", "haerting.de", "it-recht-kanzlei.de", "lda.bayern.de", "openjur.de", "rechtsprechung-im-internet.de"]
+
+# Erlaubte Bash-Patterns
+bash_patterns = ["mkdir:*", "chmod:*", "find:*", "grep:*", "cat:*", "jq:*", "git log:*", "git diff:*", "git rev-parse:*"]
+
+[language]
+response = "de"
+comments = "en"
+
+[disclaimer]
+always_inject = true
+text = "Outputs sind keine Rechtsberatung im Sinne von Paragraph 2 RDG. Eine abschliessende Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend erforderlich."

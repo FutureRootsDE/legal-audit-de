@@ -1,0 +1,81 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    name: Pre-Release Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Sync-Check
+        run: python scripts/sync-platforms.py --check
+
+  bundle-and-release:
+    name: Build Bundles and Create Release
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine version
+        id: version
+        run: echo "version=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Build platform bundles
+        run: |
+          mkdir -p dist
+          # Claude Code bundle
+          zip -r dist/legal-audit-de-claude-${{ steps.version.outputs.version }}.zip \
+            .claude .claude-plugin knowledge templates scripts \
+            CLAUDE.md AGENTS.md README.md README.en.md \
+            CHANGELOG.md LICENSE
+          # Codex bundle
+          zip -r dist/legal-audit-de-codex-${{ steps.version.outputs.version }}.zip \
+            .codex knowledge templates scripts \
+            AGENTS.md README.md README.en.md \
+            CHANGELOG.md LICENSE
+          # Copilot bundle
+          zip -r dist/legal-audit-de-copilot-${{ steps.version.outputs.version }}.zip \
+            .github knowledge templates scripts \
+            AGENTS.md README.md README.en.md \
+            CHANGELOG.md LICENSE
+
+      - name: Extract changelog section
+        id: changelog
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          # Strip leading 'v' for changelog match
+          STRIP="${VERSION#v}"
+          awk -v ver="$STRIP" '
+            $0 ~ "^## \\[" ver "\\]" { found=1; print; next }
+            found && /^## \[/ { exit }
+            found { print }
+          ' CHANGELOG.md > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "WARN: no changelog section for $VERSION found, using full CHANGELOG.md head"
+            head -50 CHANGELOG.md > release-notes.md
+          fi
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.version.outputs.version }}" \
+            --title "${{ steps.version.outputs.version }} — legal-audit-de" \
+            --notes-file release-notes.md \
+            dist/legal-audit-de-claude-${{ steps.version.outputs.version }}.zip \
+            dist/legal-audit-de-codex-${{ steps.version.outputs.version }}.zip \
+            dist/legal-audit-de-copilot-${{ steps.version.outputs.version }}.zip

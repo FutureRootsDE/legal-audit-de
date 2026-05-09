@@ -1,6 +1,6 @@
 # legal-audit-de
 
-> Claude Code plugin for systematic **German and EU legal audits** of codebases, live URLs, and legal documents.
+> Multi-Platform-Toolkit für **deutsche und EU-Rechts-Audits** von Codebases, Live-URLs und Rechtsdokumenten — verfügbar für **Claude Code**, **OpenAI Codex CLI** und **GitHub Copilot CLI**.
 >
 > **⚠️ This is NOT legal advice.** See [Disclaimer](#disclaimer) below.
 
@@ -8,6 +8,8 @@
 [![Language](https://img.shields.io/badge/language-German-informational)](#sprache)
 [![Scope](https://img.shields.io/badge/scope-DE%20%2F%20EU-blue)](#rechtsgebiete-scope)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Plugin-orange)](#installation)
+[![Codex CLI](https://img.shields.io/badge/Codex%20CLI-supported-black)](#codex-cli)
+[![Copilot CLI](https://img.shields.io/badge/GitHub%20Copilot%20CLI-supported-181717)](#github-copilot-cli)
 
 🇬🇧 [English README](README.en.md)
 
@@ -69,12 +71,17 @@ Damit bleibt dein Kontext schlank und aktuelles Rechtswissen trotzdem parat.
 
 ### Voraussetzungen
 
-- [Claude Code](https://claude.com/claude-code) ≥ 2.0
-- Python ≥ 3.10 (für Hook-Skripte)
+- Python ≥ 3.10 (für Hook-Skripte und Sync-Tool)
+- Eine der folgenden CLIs:
+  - [Claude Code](https://claude.com/claude-code) ≥ 2.0 (vollständige Feature-Unterstützung)
+  - [OpenAI Codex CLI](https://github.com/openai/codex) (eingeschränkt — siehe Limitationen)
+  - [GitHub Copilot CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli) (eingeschränkt — siehe Limitationen)
 - Optional: [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) für `/legal-audit-live`
 - Optional: [Obsidian](https://obsidian.md/) für visuelle KB-Navigation (Graph-View, Backlinks)
 
-### Installation via Marketplace (empfohlen)
+### Claude Code (empfohlen — vollständige Hook-Architektur)
+
+#### Marketplace
 
 ```bash
 # In Claude Code — Marketplace hinzufügen, dann Plugin installieren
@@ -82,13 +89,13 @@ Damit bleibt dein Kontext schlank und aktuelles Rechtswissen trotzdem parat.
 /plugin install legal-audit-de@futureroots-legal
 ```
 
-Damit ist das Plugin installiert. Updates später via:
+Updates später via:
 ```bash
 /plugin marketplace update futureroots-legal
 /legal-audit-de-update
 ```
 
-### Installation als Workspace-Clone
+#### Workspace-Clone
 
 ```bash
 git clone https://github.com/FutureRootsDE/legal-audit-de.git
@@ -101,6 +108,55 @@ Beim ersten Start lädt der SessionStart-Hook automatisch `knowledge/INDEX.md`. 
 ```
 /legal-audit /pfad/zu/deinem/projekt
 ```
+
+### Codex CLI
+
+Voraussetzung: [OpenAI Codex CLI](https://github.com/openai/codex) installiert.
+
+```bash
+git clone https://github.com/FutureRootsDE/legal-audit-de.git
+cd legal-audit-de
+codex
+```
+
+Codex lädt automatisch `AGENTS.md` und `.codex/config.toml`. Slash-Prompts liegen unter `.codex/prompts/`. Aufruf:
+
+```
+/legal-audit ./mein-projekt
+```
+
+**Wichtige Unterschiede zu Claude Code:**
+- Keine SessionStart-/UserPromptSubmit-Hooks → die Skills laden `knowledge/INDEX.md` selbst und ziehen passende KB-Chunks bei Bedarf (Auto-Routing).
+- Kein `WebSearch`-Tool → Tier-1-Verifikation nutzt nur `http.get` auf der Whitelist-Domain-Liste in `.codex/config.toml`.
+- Modell-Auswahl: das Plugin gibt `claude-opus-4-7[1m]` als Original-Modell an; Codex-User wählen ein äquivalentes Modell mit großem Kontext (z.B. `gpt-5`).
+
+### GitHub Copilot CLI
+
+Voraussetzung: `gh` CLI mit Copilot-Subscription, oder GitHub Copilot CLI Standalone installiert.
+
+```bash
+git clone https://github.com/FutureRootsDE/legal-audit-de.git
+cd legal-audit-de
+gh copilot suggest "Führe legal-audit auf das aktuelle Verzeichnis aus"
+```
+
+Copilot lädt automatisch `.github/copilot-instructions.md`. Slash-Prompts liegen unter `.github/prompts/<name>/PROMPT.md`.
+
+**Wichtige Unterschiede zu Claude Code:**
+- Keine Hook-API → analoges Auto-Routing wie bei Codex.
+- Permissions werden über GitHub-App-Scopes gesteuert, nicht über Plugin-Config. Die Whitelist in `.github/copilot-instructions.md` ist eine Konvention, kein Enforcement.
+- `model:`-Felder in Agents werden ignoriert; Copilot nutzt seinen eigenen Default.
+
+### Maintainer-Workflow (Cross-Platform-Sync)
+
+Wer in `.claude/` arbeitet (Source of Truth), muss vor jedem Commit den Sync laufen lassen:
+
+```bash
+python scripts/sync-platforms.py --apply   # generiert .codex/ und .github/prompts/
+python scripts/sync-platforms.py --check   # CI-Modus: exit 1 bei Drift
+```
+
+Die GitHub-Action `validate.yml` blockiert PRs, wenn der Sync nicht durchgeführt wurde.
 
 ## Quick Start
 
@@ -156,31 +212,63 @@ Jede Zitat-Verifikation wird unter `.claude/logs/zitate-verifikation-<datum>.log
 
 ## Architektur
 
-Details in [CLAUDE.md](CLAUDE.md). Kurzfassung:
+Details in [CLAUDE.md](CLAUDE.md) (Claude-spezifisch) und [AGENTS.md](AGENTS.md) (plattform-übergreifend). Kurzfassung:
 
 ```
 legal-audit-de/
-├── plugin.json                 # Plugin-Manifest
-├── CLAUDE.md                   # Claude-Orientierung
-├── .claude/
-│   ├── commands/*.md           # 7 Slash-Commands
-│   ├── agents/*.md             # 3 Custom-Agents
-│   ├── skills/*/SKILL.md       # 4 Skills
-│   ├── hooks/*.py              # 3 Hooks (SessionStart / PromptSubmit / PostToolUse)
-│   └── settings.json           # Hook-Registrierung
-├── knowledge/                  # 63 KB-Dateien (Gesetze, Themen, Urteile, Behörden, Checklisten, Anwälte-Tools)
-│   └── INDEX.md                # einzige immer-geladene Datei
-├── templates/                  # LegalAudit-, Clean-, Disclaimer-Templates
-└── scripts/                    # Python-Hilfsskripte
+├── AGENTS.md                       # Top-Level für Codex / generische Agent-CLIs
+├── CLAUDE.md                       # Claude-Code-spezifische Anleitung
+├── README.md / README.en.md        # User-Doku (DE / EN)
+│
+├── .claude-plugin/
+│   ├── plugin.json                 # Claude-Code-Plugin-Manifest
+│   └── marketplace.json            # Marketplace-Metadaten
+│
+├── .claude/                        # ★ SOURCE OF TRUTH ★
+│   ├── commands/*.md               # 8 Slash-Commands
+│   ├── agents/*.md                 # 3 Custom-Agents
+│   ├── skills/*/SKILL.md           # 4 Skills
+│   ├── hooks/*.py                  # 3 Hooks (SessionStart / PromptSubmit / PostToolUse)
+│   └── settings.json               # Permissions, WebFetch-Whitelist
+│
+├── .codex/                         # ⚙ generiert von scripts/sync-platforms.py
+│   ├── config.toml                 # Codex-Konfiguration
+│   ├── prompts/*.md                # 8 Prompts
+│   ├── agents/*.md                 # 3 Agents
+│   └── skills/*/SKILL.md           # 4 Skills (mit Auto-Routing)
+│
+├── .github/
+│   ├── copilot-instructions.md     # Top-Level für Copilot CLI
+│   ├── workflows/                  # GitHub Actions (validate.yml, release.yml)
+│   ├── prompts/<name>/PROMPT.md    # ⚙ 8 Prompts (generiert)
+│   ├── agents/*.md                 # ⚙ 3 Agents (generiert)
+│   └── skills/*/SKILL.md           # ⚙ 4 Skills (generiert)
+│
+├── knowledge/                      # 63 KB-Dateien (Gesetze, Themen, Urteile, Behörden, Checklisten)
+│   └── INDEX.md                    # einzige immer-geladene Datei (Claude Code via Hook)
+│
+├── templates/                      # LegalAudit-, Clean-, Disclaimer-Templates
+└── scripts/
+    ├── sync-platforms.py           # Codex/Copilot-Adapter-Generator
+    ├── legal-status.py             # Plugin-Health-Check
+    ├── audit-compare.py            # Audit-Diff-Tool
+    ├── find-placeholders.py        # Platzhalter-Scanner
+    └── legal-audit-pdf.py          # PDF-Bundling
 ```
+
+Verzeichnisse mit ⚙ werden automatisch aus `.claude/` generiert. Direkte Edits dort werden vom Sync-Tool überschrieben.
 
 ## Roadmap
 
-- [ ] Marketplace-Submission für Claude-Code-Plugin-Registry
+- [x] **v1.3.0** Multi-Platform-Support: Codex CLI + GitHub Copilot CLI (zusätzlich zu Claude Code)
+- [x] **v1.3.0** GitHub Actions: `validate.yml` (Sync-Check, Disclaimer-Check, Platzhalter-Scan) + `release.yml` (Bundle-Build und Auto-Release bei Tag)
+- [x] **v1.2.0** Tier-1-KB-Update-Wave: 40+ Aktenzeichen-Korrekturen, Primärquellen-Verifikation
+- [x] **v1.1.0** Marketplace-Struktur (`.claude-plugin/marketplace.json`) + `/legal-audit-de-update`
+- [ ] Marketplace-Submission für die offizielle Claude-Code-Plugin-Registry
 - [ ] Englische KB-Kurzübersicht in `knowledge/en/SUMMARY.md` (für nicht-deutschsprachige Nutzer)
 - [ ] Zusätzliche Checklisten: Mobile Apps (iOS/Android BFSG), API-only Services
 - [ ] Integration mit `trivy`, `bandit`, anderen Security-Scannern für kombinierte Audits
-- [ ] CI-Integration: GitHub Action für automatische KB-Aktualitätsprüfungen
+- [ ] CI-Integration: automatische KB-Aktualitätsprüfungen (alle 90 Tage gegen Tier-1-Quellen)
 
 ## Contributing
 
