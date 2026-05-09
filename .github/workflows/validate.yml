@@ -25,21 +25,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify disclaimer in Knowledge Base
+      - name: Verify disclaimer in legally-substantive KB files
         run: |
+          # Nur in juristisch substantielle Dateien wird Disclaimer-Pflicht durchgesetzt:
+          # - gesetze/, themen/, urteile/, behoerden/, checklisten/
+          # NICHT in anwaelte-tools/ (Empfehlungslisten) oder tool-katalog.md (Index)
+          # NICHT in INDEX.md, README, *-OBSIDIAN.md (Meta-Dateien)
           MISSING=0
           while IFS= read -r f; do
             if ! grep -q "keine Rechtsberatung\|RDG\|§ 2 RDG\|Paragraph 2 RDG" "$f"; then
               echo "MISSING DISCLAIMER: $f"
               MISSING=$((MISSING + 1))
             fi
-          done < <(find knowledge templates -name "*.md" -type f 2>/dev/null | grep -v "INDEX.md\|README" | head -200)
+          done < <(find knowledge/gesetze knowledge/themen knowledge/urteile knowledge/behoerden knowledge/checklisten templates \
+              -name "*.md" -type f 2>/dev/null \
+              | grep -v "INDEX.md\|README\|tool-katalog.md")
           if [ "$MISSING" -gt 0 ]; then
             echo ""
-            echo "FAIL: $MISSING knowledge/template files lack disclaimer reference."
+            echo "FAIL: $MISSING legally-substantive KB files lack disclaimer reference."
             exit 1
           fi
-          echo "OK: Disclaimer present in all KB and template files."
+          echo "OK: Disclaimer present in all legally-substantive KB and template files."
 
   placeholder-scan:
     name: Platzhalter-Scan (informational)
