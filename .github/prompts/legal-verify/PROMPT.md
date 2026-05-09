@@ -1,13 +1,13 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/commands/legal-verify.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 description: Gibt Empfehlungen fuer Fachanwaelte, spezialisierte Kanzleien und Verifizierungs-Tools fuer ein Rechtsthema.
 argument-hint: <thema | audit-id | rechtsgebiet>
 allowed-tools: view, glob
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/commands/legal-verify.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # /legal-verify
 
 Gib konkrete Empfehlungen, wer und/oder welches Tool die KI-Analyse zu `$ARGUMENTS` verifizieren sollte.

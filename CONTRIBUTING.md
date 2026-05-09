@@ -82,8 +82,8 @@ python .claude/hooks/session_start.py
 python .claude/hooks/prompt_submit.py <<< "test prompt about cookies"
 
 # Scripts ausprobieren
-python scripts/legal-status.py
-python scripts/find-placeholders.py
+python3 scripts/legal-status.py
+python3 scripts/find-placeholders.py
 ```
 
 ## Commit-Message-Konvention

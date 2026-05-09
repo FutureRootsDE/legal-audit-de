@@ -1,13 +1,13 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/commands/legal-audit-live.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 description: Live-Rechts-Check einer oeffentlichen Website via chrome-devtools-mcp — testet Cookie-Banner-Blocking, Drittanbieter-Leaks VOR Consent, Google-Fonts-Leak, Embed-Verhalten, tatsaechlich gesetzte Cookies. Ergaenzt /legal-audit um die Verhaltens-Dimension.
 argument-hint: <url> [--consent=accept|reject|ignore] [--out=<zielordner>]
 allowed-tools: shell.exec, file.read, search.grep, file.glob, file.write, file.edit, http.get, spawn_agent, mcp__plugin_chrome-devtools-mcp__chrome-devtools__navigate_page, mcp__plugin_chrome-devtools-mcp__chrome-devtools__new_page, mcp__plugin_chrome-devtools-mcp__chrome-devtools__close_page, mcp__plugin_chrome-devtools-mcp__chrome-devtools__list_network_requests, mcp__plugin_chrome-devtools-mcp__chrome-devtools__get_network_request, mcp__plugin_chrome-devtools-mcp__chrome-devtools__take_screenshot, mcp__plugin_chrome-devtools-mcp__chrome-devtools__take_snapshot, mcp__plugin_chrome-devtools-mcp__chrome-devtools__evaluate_script, mcp__plugin_chrome-devtools-mcp__chrome-devtools__click, mcp__plugin_chrome-devtools-mcp__chrome-devtools__wait_for, mcp__plugin_chrome-devtools-mcp__chrome-devtools__list_console_messages, mcp__plugin_chrome-devtools-mcp__chrome-devtools__emulate
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/commands/legal-audit-live.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # /legal-audit-live
 
 Fuehrt einen **Live-Browser-Check** einer oeffentlichen URL durch. Ergaenzt `/legal-audit` (der nur Code liest) um die **Verhaltens-Dimension**: was laedt die Website **tatsaechlich** im Browser — bevor und nachdem der User den Cookie-Banner bedient?

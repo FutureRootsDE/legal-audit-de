@@ -1,13 +1,13 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/commands/legal-status.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 description: Zeigt den Gesundheits-Status des legal-audit-de-Workspaces (KB-Alter, Platzhalter, Audit-Historie, Hook-Config).
 argument-hint: [--verbose | --json]
 allowed-tools: shell.exec, file.read, file.glob, search.grep
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/commands/legal-status.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # /legal-status
 
 Diagnose des gesamten Workspace-Zustands. Nutze diesen Command:

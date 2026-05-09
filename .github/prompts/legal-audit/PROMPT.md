@@ -1,13 +1,13 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/commands/legal-audit.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 description: Startet einen vollstaendigen Rechts-Audit auf einer Codebase (DE/EU-Scope). Erzeugt LegalAudit.md + clean/*.md im Zielprojekt.
 argument-hint: <pfad> [--compare] [--pdf]
 allowed-tools: bash, view, grep, glob, create, edit, web_fetch, task
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/commands/legal-audit.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # /legal-audit
 
 Fuehre einen strukturierten Rechts-Audit auf der unter `$ARGUMENTS` uebergebenen Codebase durch.

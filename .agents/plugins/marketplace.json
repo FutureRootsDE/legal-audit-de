@@ -1,0 +1,20 @@
+{
+  "name": "futureroots-legal",
+  "interface": {
+    "displayName": "FutureRoots Legal"
+  },
+  "plugins": [
+    {
+      "name": "legal-audit-de",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Compliance"
+    }
+  ]
+}

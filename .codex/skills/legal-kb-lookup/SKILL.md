@@ -1,12 +1,12 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/skills/legal-kb-lookup/SKILL.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 name: legal-kb-lookup
 description: Laedt gezielt Knowledge-Base-Chunks zu einem rechtlichen Thema. Nutze diese Skill wenn /legal-kb aufgerufen wird ODER wenn der User eine spezifische Rechtsinformation braucht (z.B. "Erklaer mir Cookie-Consent", "Was sagt Art. 30 DSGVO?", "Welche Urteile gibt es zu Google Fonts?").
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/skills/legal-kb-lookup/SKILL.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # Knowledge-Base Lookup
 
 On-Demand-Zugriff auf die Rechts-Knowledge-Base.

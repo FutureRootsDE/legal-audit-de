@@ -124,13 +124,27 @@ On first start, the SessionStart hook automatically loads `knowledge/INDEX.md`. 
 
 Requires [OpenAI Codex CLI](https://github.com/openai/codex).
 
+#### As a Codex plugin / marketplace
+
+```bash
+codex plugin marketplace add FutureRootsDE/legal-audit-de
+```
+
+The repository contains:
+
+- `.codex-plugin/plugin.json` as the native Codex plugin manifest
+- `.agents/plugins/marketplace.json` as the Codex marketplace definition
+- `.codex/skills/` with the Codex-ported skills
+
+#### As a workspace clone
+
 ```bash
 git clone https://github.com/FutureRootsDE/legal-audit-de.git
 cd legal-audit-de
 codex
 ```
 
-Codex auto-loads `AGENTS.md` and `.codex/config.toml`. Slash prompts live under `.codex/prompts/`. Run:
+Codex loads `AGENTS.md` in a workspace. Codex adapters live under `.codex/`; native plugin metadata lives under `.codex-plugin/`. Slash prompts live under `.codex/prompts/`. Run:
 
 ```
 /legal-audit ./your-project
@@ -163,8 +177,8 @@ Copilot auto-loads `.github/copilot-instructions.md`. Slash prompts live under `
 If you edit `.claude/` (the source of truth), run the sync before committing:
 
 ```bash
-python scripts/sync-platforms.py --apply   # generates .codex/ and .github/prompts/
-python scripts/sync-platforms.py --check   # CI mode: exit 1 on drift
+python3 scripts/sync-platforms.py --apply  # generates .codex/, .codex-plugin/, and .github/prompts/
+python3 scripts/sync-platforms.py --check  # CI mode: exit 1 on drift
 ```
 
 The `validate.yml` GitHub Action blocks PRs when the sync wasn't run.
@@ -245,6 +259,12 @@ legal-audit-de/
 │   ├── prompts/*.md                # 8 prompts
 │   ├── agents/*.md                 # 3 agents
 │   └── skills/*/SKILL.md           # 4 skills (with auto-routing)
+│
+├── .codex-plugin/
+│   └── plugin.json                 # ⚙ native Codex plugin manifest
+│
+├── .agents/plugins/
+│   └── marketplace.json            # ⚙ Codex marketplace definition
 │
 ├── .github/
 │   ├── copilot-instructions.md     # Top-level for Copilot CLI

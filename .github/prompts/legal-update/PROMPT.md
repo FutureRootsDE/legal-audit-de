@@ -1,13 +1,13 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/commands/legal-update.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 description: Aktualisiert einen KB-Artikel oder die gesamte Knowledge Base (Primaerquellen-Recherche, YAML-Frontmatter-Update).
 argument-hint: [thema-slug | --all | --stale-only | --fix-pending]
 allowed-tools: bash, view, create, edit, glob, grep, web_fetch, web_fetch, task
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/commands/legal-update.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # /legal-update
 
 Aktualisiere Rechts-KB-Inhalte gegen Primaerquellen.

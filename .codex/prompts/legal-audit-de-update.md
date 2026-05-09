@@ -1,13 +1,13 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/commands/legal-audit-de-update.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 description: Aktualisiert das legal-audit-de Plugin selbst (neue Plugin-Version vom Marketplace ziehen) UND refreshed die KB gegen Primärquellen. All-in-One-Update.
 argument-hint: [--plugin-only | --kb-only | --dry-run]
 allowed-tools: shell.exec, file.read, file.write, http.get, spawn_agent
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/commands/legal-audit-de-update.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # /legal-audit-de-update
 
 Kombinierter Update-Befehl, der zwei Dinge parallel erledigt:

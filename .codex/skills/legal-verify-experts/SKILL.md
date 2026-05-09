@@ -1,12 +1,12 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/skills/legal-verify-experts/SKILL.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 name: legal-verify-experts
 description: Liefert Empfehlungen fuer Fachanwaelte, Kanzleien und Verifizierungs-Tools zu einem Rechtsthema. Nutze diese Skill wenn /legal-verify aufgerufen wird ODER wenn der User nach einem "Anwalt fuer ...", "Kanzlei fuer ...", "Tool zur Pruefung von ..." fragt.
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/skills/legal-verify-experts/SKILL.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # Legal Verify — Expert & Tool Recommendations
 
 Gibt strukturierte Empfehlungen fuer die menschliche / Tool-basierte Verifikation KI-erstellter Rechts-Analysen.

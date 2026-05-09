@@ -1,13 +1,13 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/commands/legal-doc-check.md
-  Regenerate via: python scripts/sync-platforms.py --apply
--->
 ---
 description: Prueft ein einzelnes Dokument (AGB / Datenschutzerklaerung / Impressum / Widerrufsbelehrung / Cookie-Richtlinie) auf rechtliche Maengel nach DE/EU-Recht — ohne Codebase-Kontext. Output: Finding-Liste + Clean-Version.
 argument-hint: <datei-pfad> [--typ=agb|dse|impressum|widerruf|cookie|auto] [--out=<zielordner>]
 allowed-tools: bash, view, grep, glob, create, edit, web_fetch, task
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/commands/legal-doc-check.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # /legal-doc-check
 
 Fuehre eine strukturierte Rechts-Pruefung auf einem **einzelnen Dokument** durch, das der User uebergibt. Typische Faelle:
