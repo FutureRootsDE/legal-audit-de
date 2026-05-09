@@ -28,6 +28,8 @@ from typing import Dict, List, Tuple
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_DIR = REPO_ROOT / ".claude"
 CODEX_DIR = REPO_ROOT / ".codex"
+CODEX_PLUGIN_DIR = REPO_ROOT / ".codex-plugin"
+CODEX_MARKETPLACE = REPO_ROOT / ".agents" / "plugins" / "marketplace.json"
 COPILOT_DIR = REPO_ROOT / ".github"
 
 # --- Tool-Mappings ---
@@ -87,7 +89,7 @@ Triggers: siehe `.claude/hooks/triggers.json` (gleiche Schlagwort-Map gilt fuer 
 PORT_HEADER = """<!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
   Source: .claude/{source_rel}
-  Regenerate via: python scripts/sync-platforms.py --apply
+  Regenerate via: python3 scripts/sync-platforms.py --apply
 -->
 """
 
@@ -281,6 +283,71 @@ def write_codex_config() -> str:
     return "\n".join(lines) + "\n"
 
 
+def write_codex_plugin_manifest() -> str:
+    """Erzeugt das native Codex-Plugin-Manifest."""
+    claude_manifest = json.loads((REPO_ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
+    manifest = {
+        "name": claude_manifest.get("name", "legal-audit-de"),
+        "version": claude_manifest.get("version", "0.0.0"),
+        "description": claude_manifest.get("description", "DE/EU legal audit workspace. NOT legal advice."),
+        "author": {
+            "name": claude_manifest.get("author", {}).get("name", "FutureRoots DE"),
+            "email": "noreply@futureroots.de",
+            "url": claude_manifest.get("author", {}).get("url", "https://github.com/FutureRootsDE"),
+        },
+        "homepage": claude_manifest.get("homepage", "https://github.com/FutureRootsDE/legal-audit-de"),
+        "repository": claude_manifest.get("repository", "https://github.com/FutureRootsDE/legal-audit-de"),
+        "license": claude_manifest.get("license", "MIT"),
+        "keywords": claude_manifest.get("keywords", []),
+        "skills": "./.codex/skills/",
+        "interface": {
+            "displayName": "legal-audit-de",
+            "shortDescription": "DE/EU legal audits for codebases, live URLs, and legal documents.",
+            "longDescription": (
+                "Specialized German/EU legal audit workspace for technical pre-checks of codebases, "
+                "websites, and legal documents. Produces severity-classified findings and clean "
+                "draft corrections. Outputs are not legal advice."
+            ),
+            "developerName": "FutureRoots DE",
+            "category": "Compliance",
+            "capabilities": ["Interactive", "Write"],
+            "websiteURL": claude_manifest.get("homepage", "https://github.com/FutureRootsDE/legal-audit-de"),
+            "defaultPrompt": [
+                "Audit this project for DE/EU legal issues.",
+                "Check this privacy policy for DSGVO issues.",
+                "Load legal KB for cookie consent.",
+            ],
+            "brandColor": "#1F2937",
+        },
+    }
+    return json.dumps(manifest, indent=2, ensure_ascii=False) + "\n"
+
+
+def write_codex_marketplace() -> str:
+    """Erzeugt eine Codex-Marketplace-Datei fuer dieses Repo als Plugin-Root."""
+    marketplace = {
+        "name": "futureroots-legal",
+        "interface": {
+            "displayName": "FutureRoots Legal",
+        },
+        "plugins": [
+            {
+                "name": "legal-audit-de",
+                "source": {
+                    "source": "local",
+                    "path": "./",
+                },
+                "policy": {
+                    "installation": "AVAILABLE",
+                    "authentication": "ON_INSTALL",
+                },
+                "category": "Compliance",
+            }
+        ],
+    }
+    return json.dumps(marketplace, indent=2, ensure_ascii=False) + "\n"
+
+
 def sync(actions: List[Tuple[Path, Path, str]], apply: bool, verbose: bool) -> int:
     """Vergleicht / schreibt Targets. Returns drift count."""
     drift = 0
@@ -320,6 +387,33 @@ def sync(actions: List[Tuple[Path, Path, str]], apply: bool, verbose: bool) -> i
             codex_config_path.parent.mkdir(parents=True, exist_ok=True)
             codex_config_path.write_text(codex_config, encoding="utf-8")
 
+    codex_plugin_path = CODEX_PLUGIN_DIR / "plugin.json"
+    codex_plugin = write_codex_plugin_manifest()
+    if codex_plugin_path.exists() and codex_plugin_path.read_text(encoding="utf-8") == codex_plugin:
+        if verbose:
+            print(f"OK   {codex_plugin_path.relative_to(REPO_ROOT).as_posix()}")
+    else:
+        drift += 1
+        if verbose or not apply:
+            label = "DIFF" if codex_plugin_path.exists() else "MISS"
+            print(f"{label} {codex_plugin_path.relative_to(REPO_ROOT).as_posix()}")
+        if apply:
+            codex_plugin_path.parent.mkdir(parents=True, exist_ok=True)
+            codex_plugin_path.write_text(codex_plugin, encoding="utf-8")
+
+    codex_marketplace = write_codex_marketplace()
+    if CODEX_MARKETPLACE.exists() and CODEX_MARKETPLACE.read_text(encoding="utf-8") == codex_marketplace:
+        if verbose:
+            print(f"OK   {CODEX_MARKETPLACE.relative_to(REPO_ROOT).as_posix()}")
+    else:
+        drift += 1
+        if verbose or not apply:
+            label = "DIFF" if CODEX_MARKETPLACE.exists() else "MISS"
+            print(f"{label} {CODEX_MARKETPLACE.relative_to(REPO_ROOT).as_posix()}")
+        if apply:
+            CODEX_MARKETPLACE.parent.mkdir(parents=True, exist_ok=True)
+            CODEX_MARKETPLACE.write_text(codex_marketplace, encoding="utf-8")
+
     return drift
 
 
@@ -338,7 +432,7 @@ def main() -> int:
     drift = sync(actions, apply=args.apply, verbose=args.verbose)
 
     if args.check and drift > 0:
-        print(f"\nFAIL: {drift} files out of sync. Run: python scripts/sync-platforms.py --apply", file=sys.stderr)
+        print(f"\nFAIL: {drift} files out of sync. Run: python3 scripts/sync-platforms.py --apply", file=sys.stderr)
         return 1
     if args.apply:
         print(f"OK: {drift} files written/updated")

@@ -1,7 +1,7 @@
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
   Source: .claude/agents/legal-auditor.md
-  Regenerate via: python scripts/sync-platforms.py --apply
+  Regenerate via: python3 scripts/sync-platforms.py --apply
 -->
 ---
 name: legal-auditor

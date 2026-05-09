@@ -1,7 +1,7 @@
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
   Source: .claude/commands/legal-audit-live.md
-  Regenerate via: python scripts/sync-platforms.py --apply
+  Regenerate via: python3 scripts/sync-platforms.py --apply
 -->
 ---
 description: Live-Rechts-Check einer oeffentlichen Website via chrome-devtools-mcp — testet Cookie-Banner-Blocking, Drittanbieter-Leaks VOR Consent, Google-Fonts-Leak, Embed-Verhalten, tatsaechlich gesetzte Cookies. Ergaenzt /legal-audit um die Verhaltens-Dimension.

@@ -32,10 +32,10 @@ Jede vom Plugin erzeugte Output-Datei muss diesen Disclaimer am Kopf tragen. Auf
 | Plattform | Konfigurations-Verzeichnis | Slash-Commands / Prompts | Custom Agents | Skills |
 |----|----|----|----|----|
 | **Claude Code** | `.claude/`, `.claude-plugin/plugin.json` | `.claude/commands/*.md` | `.claude/agents/*.md` | `.claude/skills/<name>/SKILL.md` |
-| **OpenAI Codex CLI** | `.codex/config.toml` | `.codex/prompts/*.md` | `.codex/agents/*.md` | `.codex/skills/<name>/SKILL.md` |
+| **OpenAI Codex CLI** | `.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `.codex/config.toml` | `.codex/prompts/*.md` | `.codex/agents/*.md` | `.codex/skills/<name>/SKILL.md` |
 | **GitHub Copilot CLI** | `.github/copilot-instructions.md` | `.github/prompts/<name>/PROMPT.md` | `.github/agents/*.md` | `.github/skills/<name>/SKILL.md` |
 
-**Source of Truth:** `.claude/`. Codex- und Copilot-Adapter werden via `python scripts/sync-platforms.py --apply` generiert. CI prueft die Konsistenz mit `--check`.
+**Source of Truth:** `.claude/`. Codex- und Copilot-Adapter werden via `python3 scripts/sync-platforms.py --apply` generiert. CI prueft die Konsistenz mit `--check`.
 
 ---
 
@@ -113,7 +113,7 @@ Der `legal-researcher`-Agent verifiziert vor Publikation jedes Zitat gegen eine 
 
 Jede Plattform erlaubt nur Tier-1- und Tier-2-Domains fuer WebFetch / http.get. Die Whitelist (~20 Domains) steht in:
 - Claude Code: `.claude/settings.json` → `permissions.allow`
-- Codex: `.codex/config.toml` → `[permissions] web_fetch_domains`
+- Codex: `.codex-plugin/plugin.json` → native Plugin-Metadaten; `.codex/config.toml` → `[permissions] web_fetch_domains`
 - Copilot CLI: in `.github/copilot-instructions.md` als Hinweis (Copilot enforced Permissions ueber GitHub-App-Scopes, nicht ueber Plugin-Config)
 
 Bash-Patterns sind jeweils auf read-only-Operationen beschraenkt (`mkdir`, `chmod`, `find`, `grep`, `cat`, `jq`, `git log`, `git diff`, `git rev-parse`).
@@ -124,7 +124,7 @@ Bash-Patterns sind jeweils auf read-only-Operationen beschraenkt (`mkdir`, `chmo
 
 - KB-Aktualitaet: alle 90 Tage `legal-update --stale-only`.
 - Trigger-Katalog (`.claude/hooks/triggers.json`): erweitern, wenn haeufige Prompts keine passenden KB-Chunks laden.
-- Cross-Platform-Sync: nach jeder Aenderung in `.claude/` muss `python scripts/sync-platforms.py --apply` laufen. CI blockiert Drift.
+- Cross-Platform-Sync: nach jeder Aenderung in `.claude/` muss `python3 scripts/sync-platforms.py --apply` laufen. CI blockiert Drift.
 - Anwalts-/Tool-Liste: halbjaehrlich pruefen.
 
 ---
@@ -133,6 +133,8 @@ Bash-Patterns sind jeweils auf read-only-Operationen beschraenkt (`mkdir`, `chmo
 
 - `CLAUDE.md` — Claude-Code-spezifische Anleitung (deckt Hook-Mechanik im Detail).
 - `.github/copilot-instructions.md` — Copilot-CLI-Top-Level-Instructions.
+- `.codex-plugin/plugin.json` — natives Codex-Plugin-Manifest.
+- `.agents/plugins/marketplace.json` — lokale Codex-Marketplace-Definition fuer `codex plugin marketplace add`.
 - `.codex/config.toml` — Codex-Konfiguration (Permissions, Sprache, Disclaimer).
 - `README.md` / `README.en.md` — User-Doku mit Installations-Anleitung pro Plattform.
 - `CHANGELOG.md` — Versions-Historie.

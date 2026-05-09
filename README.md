@@ -113,13 +113,27 @@ Beim ersten Start lädt der SessionStart-Hook automatisch `knowledge/INDEX.md`. 
 
 Voraussetzung: [OpenAI Codex CLI](https://github.com/openai/codex) installiert.
 
+#### Als Codex-Plugin / Marketplace
+
+```bash
+codex plugin marketplace add FutureRootsDE/legal-audit-de
+```
+
+Das Repo enthält dafür:
+
+- `.codex-plugin/plugin.json` als natives Codex-Plugin-Manifest
+- `.agents/plugins/marketplace.json` als Codex-Marketplace-Definition
+- `.codex/skills/` mit den für Codex portierten Skills
+
+#### Als Workspace-Clone
+
 ```bash
 git clone https://github.com/FutureRootsDE/legal-audit-de.git
 cd legal-audit-de
 codex
 ```
 
-Codex lädt automatisch `AGENTS.md` und `.codex/config.toml`. Slash-Prompts liegen unter `.codex/prompts/`. Aufruf:
+Codex lädt im Workspace `AGENTS.md`. Die Codex-Adapter liegen unter `.codex/`; native Plugin-Metadaten liegen unter `.codex-plugin/`. Slash-Prompts liegen unter `.codex/prompts/`. Aufruf:
 
 ```
 /legal-audit ./mein-projekt
@@ -152,8 +166,8 @@ Copilot lädt automatisch `.github/copilot-instructions.md`. Slash-Prompts liege
 Wer in `.claude/` arbeitet (Source of Truth), muss vor jedem Commit den Sync laufen lassen:
 
 ```bash
-python scripts/sync-platforms.py --apply   # generiert .codex/ und .github/prompts/
-python scripts/sync-platforms.py --check   # CI-Modus: exit 1 bei Drift
+python3 scripts/sync-platforms.py --apply  # generiert .codex/, .codex-plugin/ und .github/prompts/
+python3 scripts/sync-platforms.py --check  # CI-Modus: exit 1 bei Drift
 ```
 
 Die GitHub-Action `validate.yml` blockiert PRs, wenn der Sync nicht durchgeführt wurde.
@@ -236,6 +250,12 @@ legal-audit-de/
 │   ├── prompts/*.md                # 8 Prompts
 │   ├── agents/*.md                 # 3 Agents
 │   └── skills/*/SKILL.md           # 4 Skills (mit Auto-Routing)
+│
+├── .codex-plugin/
+│   └── plugin.json                 # ⚙ natives Codex-Plugin-Manifest
+│
+├── .agents/plugins/
+│   └── marketplace.json            # ⚙ Codex-Marketplace-Definition
 │
 ├── .github/
 │   ├── copilot-instructions.md     # Top-Level für Copilot CLI

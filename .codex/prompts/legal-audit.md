@@ -1,7 +1,7 @@
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
   Source: .claude/commands/legal-audit.md
-  Regenerate via: python scripts/sync-platforms.py --apply
+  Regenerate via: python3 scripts/sync-platforms.py --apply
 -->
 ---
 description: Startet einen vollstaendigen Rechts-Audit auf einer Codebase (DE/EU-Scope). Erzeugt LegalAudit.md + clean/*.md im Zielprojekt.

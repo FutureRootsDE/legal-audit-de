@@ -1,7 +1,7 @@
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
   Source: .claude/commands/legal-verify.md
-  Regenerate via: python scripts/sync-platforms.py --apply
+  Regenerate via: python3 scripts/sync-platforms.py --apply
 -->
 ---
 description: Gibt Empfehlungen fuer Fachanwaelte, spezialisierte Kanzleien und Verifizierungs-Tools fuer ein Rechtsthema.

@@ -1,0 +1,49 @@
+{
+  "name": "legal-audit-de",
+  "version": "1.3.0",
+  "description": "Multi-platform plugin (Claude Code, Codex CLI, GitHub Copilot CLI) for German/EU legal audits (DSGVO, TDDDG, UWG, AI Act, DDG, BGB, BFSG, UrhG, KUG, MarkenG, NIS2). Scans codebases, live URLs, and individual legal documents; produces severity-classified findings + clean corrected versions. NOT legal advice.",
+  "author": {
+    "name": "FutureRoots DE",
+    "email": "noreply@futureroots.de",
+    "url": "https://github.com/FutureRootsDE"
+  },
+  "homepage": "https://github.com/FutureRootsDE/legal-audit-de",
+  "repository": "https://github.com/FutureRootsDE/legal-audit-de",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-code-plugin",
+    "legal",
+    "dsgvo",
+    "gdpr",
+    "privacy",
+    "compliance",
+    "germany",
+    "eu-law",
+    "audit",
+    "tddg",
+    "uwg",
+    "ai-act",
+    "bdsg",
+    "legal-audit"
+  ],
+  "skills": "./.codex/skills/",
+  "interface": {
+    "displayName": "legal-audit-de",
+    "shortDescription": "DE/EU legal audits for codebases, live URLs, and legal documents.",
+    "longDescription": "Specialized German/EU legal audit workspace for technical pre-checks of codebases, websites, and legal documents. Produces severity-classified findings and clean draft corrections. Outputs are not legal advice.",
+    "developerName": "FutureRoots DE",
+    "category": "Compliance",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/FutureRootsDE/legal-audit-de",
+    "defaultPrompt": [
+      "Audit this project for DE/EU legal issues.",
+      "Check this privacy policy for DSGVO issues.",
+      "Load legal KB for cookie consent."
+    ],
+    "brandColor": "#1F2937"
+  }
+}
