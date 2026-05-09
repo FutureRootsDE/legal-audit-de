@@ -15,6 +15,7 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 ### Changed
 
 - Maintainer commands now document `python3` explicitly for Codex/Linux environments where `python` is not available.
+- Generated Codex/Copilot Markdown adapters now keep YAML frontmatter at byte one and place the auto-generated notice after it, so `SKILL.md` loaders can parse metadata correctly; `scripts/sync-platforms.py --check` now fails if generated adapters regress.
 
 ---
 

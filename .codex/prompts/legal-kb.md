@@ -1,13 +1,13 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/commands/legal-kb.md
-  Regenerate via: python3 scripts/sync-platforms.py --apply
--->
 ---
 description: Laedt gezielt einen Knowledge-Base-Chunk (Gesetz/Thema/Urteil/Checkliste/Behoerde/Anwalts-Empfehlung) in den aktuellen Kontext.
 argument-hint: <thema-slug | gesetz-slug | urteil-slug>
 allowed-tools: shell.exec, file.read, file.glob
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/commands/legal-kb.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 # /legal-kb
 
 Laedt explizit eine oder mehrere KB-Dateien zum Thema `$ARGUMENTS` und zeigt sie an.

@@ -1,12 +1,12 @@
+---
+name: legal-audit-codebase
+description: Fuehrt einen systematischen Rechts-Audit einer Codebase durch (DE/EU-Scope). Nutze diese Skill wenn /legal-audit aufgerufen wird ODER wenn der User eine Codebase auf DSGVO/UWG/AGB/DDG/AI-Act/BFSG/UrhG/NIS2-Probleme untersuchen lassen will.
+---
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
   Source: .claude/skills/legal-audit-codebase/SKILL.md
   Regenerate via: python3 scripts/sync-platforms.py --apply
 -->
----
-name: legal-audit-codebase
-description: Fuehrt einen systematischen Rechts-Audit einer Codebase durch (DE/EU-Scope). Nutze diese Skill wenn /legal-audit aufgerufen wird ODER wenn der User eine Codebase auf DSGVO/UWG/AGB/DDG/AI-Act/BFSG/UrhG/NIS2-Probleme untersuchen lassen will.
----
 # Legal Audit einer Codebase
 
 Diese Skill orchestriert den vollstaendigen Audit-Workflow, wenn Claude mit einer fremden Codebase konfrontiert wird.

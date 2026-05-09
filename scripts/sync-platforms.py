@@ -124,6 +124,12 @@ def render_frontmatter(fm: Dict[str, str]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_ported_markdown(source: Path, fm: Dict[str, str], body: str) -> str:
+    """Rendert generierte Markdown-Dateien mit YAML-Frontmatter an Dateianfang."""
+    source_rel = source.relative_to(SOURCE_DIR).as_posix()
+    return render_frontmatter(fm) + PORT_HEADER.format(source_rel=source_rel) + body
+
+
 def map_tools(tools_str: str, target: str) -> str:
     """Mappt Tool-Namen aus Frontmatter `allowed-tools` oder `tools`."""
     if not tools_str:
@@ -151,12 +157,7 @@ def port_command(source: Path, target_platform: str) -> str:
         fm["allowed-tools"] = map_tools(fm["allowed-tools"], target_platform)
 
     body = replace_path_vars(body, target_platform)
-    source_rel = source.relative_to(SOURCE_DIR).as_posix()
-
-    out = PORT_HEADER.format(source_rel=source_rel)
-    out += render_frontmatter(fm)
-    out += body
-    return out
+    return render_ported_markdown(source, fm, body)
 
 
 def port_agent(source: Path, target_platform: str) -> str:
@@ -176,12 +177,7 @@ def port_agent(source: Path, target_platform: str) -> str:
             fm["original-model"] = original_model
 
     body = replace_path_vars(body, target_platform)
-    source_rel = source.relative_to(SOURCE_DIR).as_posix()
-
-    out = PORT_HEADER.format(source_rel=source_rel)
-    out += render_frontmatter(fm)
-    out += body
-    return out
+    return render_ported_markdown(source, fm, body)
 
 
 def port_skill(source: Path, target_platform: str) -> str:
@@ -193,11 +189,7 @@ def port_skill(source: Path, target_platform: str) -> str:
     if "Auto-Routing" not in body:
         body = body.rstrip() + "\n" + AUTO_ROUTING_BLOCK_DE
 
-    source_rel = source.relative_to(SOURCE_DIR).as_posix()
-    out = PORT_HEADER.format(source_rel=source_rel)
-    out += render_frontmatter(fm)
-    out += body
-    return out
+    return render_ported_markdown(source, fm, body)
 
 
 def collect_actions() -> List[Tuple[Path, Path, str]]:
@@ -239,6 +231,17 @@ def render_for_action(source: Path, kind: str) -> str:
     if kind == "skill-copilot":
         return port_skill(source, "copilot")
     raise ValueError(f"Unbekannter kind: {kind}")
+
+
+def validate_frontmatter_start(actions: List[Tuple[Path, Path, str]]) -> List[str]:
+    """Prueft, dass generierte Markdown-Adapter mit YAML-Frontmatter starten."""
+    errors: List[str] = []
+    for source, target, _kind in actions:
+        content = render_for_action(source, _kind)
+        if not content.startswith("---\n"):
+            rel = target.relative_to(REPO_ROOT).as_posix()
+            errors.append(f"{rel}: missing YAML frontmatter at byte one")
+    return errors
 
 
 def write_codex_config() -> str:
@@ -430,6 +433,13 @@ def main() -> int:
 
     actions = collect_actions()
     drift = sync(actions, apply=args.apply, verbose=args.verbose)
+    frontmatter_errors = validate_frontmatter_start(actions)
+
+    if frontmatter_errors:
+        print("\nFAIL: generated Markdown adapters must start with YAML frontmatter.", file=sys.stderr)
+        for error in frontmatter_errors:
+            print(f" - {error}", file=sys.stderr)
+        return 1
 
     if args.check and drift > 0:
         print(f"\nFAIL: {drift} files out of sync. Run: python3 scripts/sync-platforms.py --apply", file=sys.stderr)

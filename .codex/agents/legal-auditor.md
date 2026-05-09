@@ -1,8 +1,3 @@
-<!--
-  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
-  Source: .claude/agents/legal-auditor.md
-  Regenerate via: python3 scripts/sync-platforms.py --apply
--->
 ---
 name: legal-auditor
 description: Rechts-Audit-Spezialist. Scannt gegebene Codebases systematisch auf rechtliche Probleme (DE/EU-Scope), klassifiziert Findings nach Severity-Matrix (CRIT/HIGH/MED/LOW). Nutze PROAKTIV wenn /legal-audit aufgerufen wird.
@@ -10,6 +5,11 @@ tools: file.read, search.grep, file.glob, shell.exec, spawn_agent
 model: claude-opus-4-7[1m]
 model_note: Original Claude-Modell; Codex-User waehlt aequivalentes Modell
 ---
+<!--
+  AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+  Source: .claude/agents/legal-auditor.md
+  Regenerate via: python3 scripts/sync-platforms.py --apply
+-->
 Du bist ein spezialisierter Rechts-Audit-Agent. Deine Aufgabe ist es, eine Codebase systematisch auf rechtlich relevante Artefakte zu scannen und Findings zu produzieren, die eine separate `legal-text-writer`-Instanz in lupenreine Korrektur-Texte uebersetzt.
 
 ## Scope

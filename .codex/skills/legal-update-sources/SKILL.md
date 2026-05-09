@@ -1,12 +1,12 @@
+---
+name: legal-update-sources
+description: Aktualisiert KB-Artikel gegen Primaerquellen. Nutze diese Skill wenn /legal-update aufgerufen wird ODER wenn ein KB-Artikel aelter als 90 Tage ist und im aktuellen Arbeitskontext verwendet wird.
+---
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
   Source: .claude/skills/legal-update-sources/SKILL.md
   Regenerate via: python3 scripts/sync-platforms.py --apply
 -->
----
-name: legal-update-sources
-description: Aktualisiert KB-Artikel gegen Primaerquellen. Nutze diese Skill wenn /legal-update aufgerufen wird ODER wenn ein KB-Artikel aelter als 90 Tage ist und im aktuellen Arbeitskontext verwendet wird.
----
 # Knowledge-Base Aktualitaets-Workflow
 
 Haelt die Rechts-KB aktuell gegen Primaerquellen.
