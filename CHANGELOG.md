@@ -10,7 +10,7 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ### Hintergrund
 
-Schliesst die Codex-spezifischen Luecken aus v1.3.0. Beitrag von externem Contributor (PR #1, AllstarGER) — gegen die echte Codex CLI getestet (`HOME=/tmp/... codex plugin marketplace add /tmp/legal-audit-de`). Squash-merged in Commit `5b1b212`.
+Schliesst die Codex-spezifischen Luecken aus v1.3.0. Diese Version geht zu **100 %** auf den ersten externen Community-Beitrag zum Repo zurueck — herzlichen Dank an [@AllstarGER](https://github.com/AllstarGER) fuer PR [#1](https://github.com/FutureRootsDE/legal-audit-de/pull/1), der nicht nur die Codex-spezifischen Plugin-Metadaten beigesteuert, sondern auch einen kritischen Frontmatter-Order-Bug aus v1.3.0 gefixt und das Ergebnis tatsaechlich gegen die echte Codex CLI verifiziert hat (`HOME=/tmp/... codex plugin marketplace add /tmp/legal-audit-de`). Squash-merged in Commit `5b1b212`.
 
 ### Added
 
@@ -22,8 +22,6 @@ Schliesst die Codex-spezifischen Luecken aus v1.3.0. Beitrag von externem Contri
 - **Frontmatter-Order-Fix:** generierte Codex- und Copilot-Adapter (`*/agents/*.md`, `*/prompts/*.md`, `*/skills/*/SKILL.md`) hatten in v1.3.0 den `<!-- AUTO-GENERATED -->`-Kommentar VOR dem YAML-Frontmatter. Damit stand `---` nicht an Byte 0 — viele Markdown-Plugin-Loader (inkl. Codex) erkennen Frontmatter nur an Position 0. Die Reihenfolge ist jetzt: Frontmatter → Auto-Generated-Kommentar → Body.
 - **`python` → `python3`** in README.md, README.en.md, AGENTS.md, CONTRIBUTING.md, PORT_HEADER (sync-platforms.py). Portabler auf Ubuntu-CI und Linux ohne `python`-Symlink.
 - **DRY-Refactor** in `scripts/sync-platforms.py`: gemeinsamer Helper `render_ported_markdown()` ersetzt drei dupliziert geschriebene Render-Bloecke in `port_command`/`port_agent`/`port_skill`.
-
----
 
 ---
 

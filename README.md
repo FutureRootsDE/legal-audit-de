@@ -337,6 +337,14 @@ Aufgebaut auf [Claude Code](https://claude.com/claude-code) von Anthropic.
 
 Inspiriert von der Erkenntnis, dass DSGVO-Compliance für technische Teams ohne Rechtsabteilung unnötig schwer ist — und dass gutes Vorbereitungswerkzeug den Fachanwalts-Zugang für Solo-Gründer bezahlbar macht.
 
+### Contributors
+
+Herzlichen Dank an alle, die zu diesem Plugin beigetragen haben:
+
+- [@AllstarGER](https://github.com/AllstarGER) — natives Codex-Plugin-Manifest, Frontmatter-Order-Bug-Fix und Real-World-Test gegen die Codex CLI ([PR #1](https://github.com/FutureRootsDE/legal-audit-de/pull/1), v1.3.1).
+
+PRs willkommen — siehe [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ---
 
 **Fragen? Issues? Beiträge?** → [GitHub Issues](https://github.com/FutureRootsDE/legal-audit-de/issues) · [Discussions](https://github.com/FutureRootsDE/legal-audit-de/discussions) · [Wiki](https://github.com/FutureRootsDE/legal-audit-de/wiki)
