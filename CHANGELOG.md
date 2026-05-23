@@ -6,6 +6,28 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ---
 
+## [1.3.2] — 2026-05-23
+
+### Hintergrund
+
+Bugfix-Release fuer zwei von [@slydlake](https://github.com/slydlake) gemeldete Probleme: Marketplace zeigt das Plugin nach dem Hinzufuegen nicht an ([#3](https://github.com/FutureRootsDE/legal-audit-de/issues/3)) und Claude Code Pro-Abonnenten ohne aktivierte Usage-Credits werden beim Plugin-Load durch das hartkodierte 1M-Kontext-Modell komplett ausgesperrt ([#4](https://github.com/FutureRootsDE/legal-audit-de/issues/4)).
+
+### Fixed
+
+- **#3 Marketplace zeigt kein Plugin an:** `plugins[0].source` in `.claude-plugin/marketplace.json` von `"./"` auf explizites GitHub-Source-Objekt `{ "source": "github", "repo": "FutureRootsDE/legal-audit-de" }` umgestellt. Die relative Pfad-Notation `./` aufloest zwar laut Doku auf den Marketplace-Root (Verzeichnis, das `.claude-plugin/` enthaelt), aber in Claude Code 1.8555.0 erscheint das Plugin damit nicht in der Plugin-Liste. Der explizite GitHub-Source-Objekt-Pfad ist robuster und funktioniert unabhaengig davon, ob der Marketplace via Git-Clone, URL oder lokalem Pfad hinzugefuegt wurde.
+- **#4 Fallback-Modell fuer Pro-Abos ohne Usage-Credits:** `model:`-Frontmatter in allen drei Agents (`legal-auditor`, `legal-researcher`, `legal-text-writer`) von `claude-opus-4-7[1m]` auf `claude-opus-4-7` (Standard-Kontext, ca. 200K Tokens) umgestellt. Die `[1m]`-Variante erfordert separat aktivierte Usage-Credits unter `claude.ai/settings/usage`; ohne diese sperrt Claude Code Pro-Abonnenten beim Plugin-Load mit `API Error: Usage credits required for 1M context` aus. Standard-Kontext deckt die typischen Audit-Faelle ab (Gesetzestexte + mittelgrosse Codebase). Power-User mit aktivierten 1M-Usage-Credits koennen `model: claude-opus-4-7[1m]` in `.claude/agents/*.md` lokal wieder setzen — dokumentiert in CLAUDE.md, README.md, README.en.md und AGENTS.md.
+
+### Changed
+
+- Plattform-Adapter via `scripts/sync-platforms.py --apply` regeneriert; `.codex/agents/*.md` und `.github/agents/*.md` reflektieren die neue Modell-Frontmatter.
+- `version`-Felder in `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` (plugins[0].version) und `.codex-plugin/plugin.json` (Sync-Generator-Output) auf `1.3.2` gehoben.
+
+### Dank
+
+- [@slydlake](https://github.com/slydlake) fuer die praezise und reproduzierbare Bug-Meldung beider Issues inkl. konkreter Fehler-Strings und Umgebungs-Daten (OS, Claude-Code-Version, Python-Version, Plugin-Version).
+
+---
+
 ## [1.3.1] — 2026-05-09
 
 ### Hintergrund
@@ -151,6 +173,9 @@ Erstmaliger Vollzug von `/legal-update --all` ueber die gesamte KB (63 Dateien) 
 
 ---
 
+[1.3.2]: https://github.com/FutureRootsDE/legal-audit-de/releases/tag/v1.3.2
+[1.3.1]: https://github.com/FutureRootsDE/legal-audit-de/releases/tag/v1.3.1
+[1.3.0]: https://github.com/FutureRootsDE/legal-audit-de/releases/tag/v1.3.0
 [1.2.0]: https://github.com/FutureRootsDE/legal-audit-de/releases/tag/v1.2.0
 [1.1.0]: https://github.com/FutureRootsDE/legal-audit-de/releases/tag/v1.1.0
 [1.0.0]: https://github.com/FutureRootsDE/legal-audit-de/releases/tag/v1.0.0

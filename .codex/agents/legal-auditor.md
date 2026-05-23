@@ -2,7 +2,7 @@
 name: legal-auditor
 description: Rechts-Audit-Spezialist. Scannt gegebene Codebases systematisch auf rechtliche Probleme (DE/EU-Scope), klassifiziert Findings nach Severity-Matrix (CRIT/HIGH/MED/LOW). Nutze PROAKTIV wenn /legal-audit aufgerufen wird.
 tools: file.read, search.grep, file.glob, shell.exec, spawn_agent
-model: claude-opus-4-7[1m]
+model: claude-opus-4-7
 model_note: Original Claude-Modell; Codex-User waehlt aequivalentes Modell
 ---
 <!--

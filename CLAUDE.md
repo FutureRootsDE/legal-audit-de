@@ -133,13 +133,13 @@ Grundsatz: **Im Zweifel eine Stufe höher** klassifizieren — Abmahnkosten sind
 
 ## Agenten
 
-Alle drei Custom-Agents laufen auf **Claude Opus 4.7 [1M]** (`claude-opus-4-7[1m]`). Begründung: Rechtsarbeit erfordert maximale Genauigkeit bei Zitaten, Paragraphen-Zuordnung und Formulierungen — ein falsches Aktenzeichen oder eine unsaubere AGB-Klausel kann abmahnbar werden. Das 1M-Kontextfenster erlaubt zudem, komplette Gesetzestexte + große Codebases gleichzeitig zu verarbeiten.
+Alle drei Custom-Agents laufen ab v1.3.2 standardmäßig auf **Claude Opus 4.7** (`claude-opus-4-7`, Standard-Kontext ≈ 200K). Begründung: Rechtsarbeit erfordert maximale Genauigkeit bei Zitaten, Paragraphen-Zuordnung und Formulierungen — ein falsches Aktenzeichen oder eine unsaubere AGB-Klausel kann abmahnbar werden. Bewusste Abkehr vom 1M-Kontext-Variant (`[1m]`): diese erfordert separat aktivierte Usage-Credits (siehe `claude.ai/settings/usage`); ohne Credits sperrt Claude Code Pro-Abonnenten mit `API Error: Usage credits required for 1M context` aus (siehe Issue #4). Für die meisten Audits reicht Standard-Kontext; bei sehr großen Codebases können Power-User die Agent-Frontmatter lokal auf `model: claude-opus-4-7[1m]` umstellen.
 
 | Agent | Modell | Aufgabe |
 |-------|--------|---------|
-| `legal-auditor` | Opus 4.7 [1M] | Scannt Codebase, klassifiziert Findings nach Severity-Matrix |
-| `legal-researcher` | Opus 4.7 [1M] | Recherchiert Primärquellen, verifiziert JEDES Zitat doppelt (Tier-1-Kaskade) |
-| `legal-text-writer` | Opus 4.7 [1M] | Erstellt lupenreine Clean-Versionen inkl. Disclaimer-Injection |
+| `legal-auditor` | Opus 4.7 | Scannt Codebase, klassifiziert Findings nach Severity-Matrix |
+| `legal-researcher` | Opus 4.7 | Recherchiert Primärquellen, verifiziert JEDES Zitat doppelt (Tier-1-Kaskade) |
+| `legal-text-writer` | Opus 4.7 | Erstellt lupenreine Clean-Versionen inkl. Disclaimer-Injection |
 
 ---
 

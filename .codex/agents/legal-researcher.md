@@ -2,7 +2,7 @@
 name: legal-researcher
 description: Recherchiert aktuelle Rechtsquellen (Gesetze, Urteile, Behoerden-Leitlinien) und verifiziert jedes Zitat doppelt gegen Primaerquelle. Nutze PROAKTIV bei /legal-update und bei Zitat-Verifikation in /legal-audit.
 tools: http.get, http.get, file.read, file.write, file.edit, shell.exec, search.grep, file.glob
-model: claude-opus-4-7[1m]
+model: claude-opus-4-7
 model_note: Original Claude-Modell; Codex-User waehlt aequivalentes Modell
 ---
 <!--

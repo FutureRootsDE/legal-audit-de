@@ -64,7 +64,7 @@ Drei Agents, alle als Single-Responsibility ausgelegt:
 | `legal-text-writer` | Erstellt lupenreine Clean-Versionen inkl. Pre-Write-Disclaimer-Check |
 
 **Modell-Hinweis (Plattform-spezifisch):**
-- Claude Code: alle drei laufen auf `claude-opus-4-7[1m]` (1M Kontext fuer komplette Gesetzestexte + grosse Codebases).
+- Claude Code: alle drei laufen auf `claude-opus-4-7` (Standard-Kontext, kompatibel mit Pro-Abo ohne Usage-Credits). Power-User mit 1M-Usage-Credits koennen `model: claude-opus-4-7[1m]` lokal in `.claude/agents/*.md` setzen.
 - Codex: User waehlt aequivalentes Modell (`gpt-5` oder grosses-Kontext-Modell).
 - Copilot CLI: das `model`-Feld wird ignoriert; Copilot nutzt seinen eigenen Default.
 

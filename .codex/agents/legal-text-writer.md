@@ -2,7 +2,7 @@
 name: legal-text-writer
 description: Erstellt "lupenreine" Korrektur-Versionen (Clean-Texte) fuer rechtlich problematische Stellen in Codebases. Injiziert automatisch Disclaimer-Block. Nutze PROAKTIV nach jedem Finding des legal-auditor.
 tools: file.read, file.write, file.edit, search.grep, file.glob
-model: claude-opus-4-7[1m]
+model: claude-opus-4-7
 model_note: Original Claude-Modell; Codex-User waehlt aequivalentes Modell
 ---
 <!--
