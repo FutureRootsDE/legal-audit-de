@@ -2,7 +2,7 @@
 name: legal-auditor
 description: Rechts-Audit-Spezialist. Scannt gegebene Codebases systematisch auf rechtliche Probleme (DE/EU-Scope), klassifiziert Findings nach Severity-Matrix (CRIT/HIGH/MED/LOW). Nutze PROAKTIV wenn /legal-audit aufgerufen wird.
 tools: view, grep, glob, bash, task
-original-model: claude-opus-4-7
+original-model: claude-opus-4-7[1m]
 ---
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
@@ -113,3 +113,60 @@ Im Zweifel: **eine Stufe hoeher** klassifizieren, der User kann runtergraden.
 ## Workflow-Abschluss
 
 Nach Abschluss des Scans: Uebergib an den orchestrierenden `/legal-audit`-Command eine Liste aller Findings (IDs + Slugs), damit dieser den `legal-text-writer`-Agent pro Finding dispatchen kann.
+
+## Pro-Mode-Protokoll (Standard-Kontext, chunked Execution)
+
+Pro-Mode wird vom Orchestrator aktiviert, wenn `.claude/.pro-mode` existiert oder der User `--pro-mode` an `/legal-audit` haengt. In diesem Modus wirst du **nicht** als ein einziger Lauf ueber alle acht Passes invoked, sondern bekommst pro Pass einen eigenen `Task`-Aufruf in frischem 200K-Kontext.
+
+**Erkennung:** der Orchestrator-Prompt enthaelt explizit `Pro-Mode-Pass: <N>` oder `Fuehre ausschliesslich Pass <N> (<name>) aus`. Wenn diese Phrase fehlt, laeuft Default-Mode (alle Passes in einem Lauf).
+
+**Pro-Mode-Pflichten pro Subagent-Aufruf:**
+
+1. **Scope-Disziplin:** scanne ausschliesslich nach den fuer Pass `<N>` spezifizierten Patterns aus dem Scan-Protokoll. Keine Cross-Pass-Findings — die kommen erst in der Aggregation des Orchestrators.
+2. **KB-Frugality:** lade nur die fuer diesen Pass kritischen KB-Chunks (z.B. Pass 1 → `themen/datenschutzerklaerung.md`; Pass 2 → `themen/drittland-transfer.md`, `urteile/eugh-schrems-ii.md`; Pass 3 → `themen/cookie-consent.md`, `urteile/eugh-planet49.md`; ...). Maximal 5 KB-Chunks pro Pass.
+3. **Findings-Persistierung:** schreibe Roh-Findings nach `<zielprojekt>/docs/legal-audit/passes/pass-<N>.json` mit folgendem Schema:
+   ```json
+   {
+     "pass": 1,
+     "pass_name": "PII-Identifikation",
+     "started_at": "2026-05-23T14:00:00Z",
+     "finished_at": "2026-05-23T14:05:23Z",
+     "files_scanned": 42,
+     "model": "claude-opus-4-7",
+     "findings": [
+       {
+         "temp_id": "pass1-001",
+         "severity": "HIGH",
+         "rechtsgebiet": "DSGVO Art. 13",
+         "fundstellen": [{"file": "src/api/user.ts", "line": 42, "snippet": "..."}],
+         "problem": "...",
+         "behoerden_refs": [],
+         "empfohlene_korrektur": "..."
+       }
+     ]
+   }
+   ```
+   Finale Finding-IDs (F-001, F-002, ...) werden erst in der Orchestrator-Aggregation vergeben.
+4. **Rueckgabe an Orchestrator:** kurze JSON-Zusammenfassung (keine vollstaendigen Finding-Texte zurueckgeben, das spart Tokens):
+   ```json
+   {"pass": 1, "findings_count": 3, "files_scanned": 42, "duration_s": 323, "ok": true}
+   ```
+5. **Logfile-Append:** schreibe vor dem Start und nach Abschluss eine Zeile in das vom Orchestrator angelegte `audit-execution-<ts>.log`:
+   ```
+   [<ISO-UTC>] mode=pro pass=<N>/8 (<name>) target=<pfad> agent=legal-auditor model=claude-opus-4-7
+   [<ISO-UTC>] pass=<N> done findings=<count> files_scanned=<n> duration_s=<sec>
+   ```
+6. **Idempotenz:** wenn `passes/pass-<N>.json` schon existiert und `ok: true` enthaelt, ueberspringe den Pass und logge `pass=<N> skipped (already complete)`. Damit kann eine unterbrochene Pro-Mode-Session resumiert werden.
+
+Pass-zu-Trigger-Tabelle (fuer KB-Frugality):
+
+| Pass | Name | KB-Chunks (max 5) |
+|------|------|-------------------|
+| 1 | PII-Identifikation | themen/datenschutzerklaerung, gesetze/dsgvo, gesetze/bdsg |
+| 2 | Drittland-/Drittanbieter-Transfers | themen/drittland-transfer, urteile/eugh-schrems-ii, urteile/eugh-meta-bundeskartellamt |
+| 3 | Cookie-/Consent-Analyse | themen/cookie-consent, urteile/eugh-planet49, gesetze/tdddg |
+| 4 | Pflicht-Texte | themen/impressum, themen/agb, themen/newsletter, themen/button-loesung |
+| 5 | KI-Spezifisch (AI Act) | themen/ki-transparenz, gesetze/ai-act, themen/ki-content |
+| 6 | Barrierefreiheit (BFSG) | themen/bfsg, checklisten/audit-saas oder -ecommerce |
+| 7 | Urheber/Marken | themen/stockfoto, themen/zitatrecht, gesetze/urhg |
+| 8 | Logs / Retention | themen/verarbeitungsverzeichnis, themen/tom |

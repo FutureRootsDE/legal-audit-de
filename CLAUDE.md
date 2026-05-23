@@ -36,12 +36,14 @@ Jede vom Plugin erzeugte Output-Datei trägt diesen Disclaimer am Kopf. Der `Pos
 | `/legal-update [slug\|--stale-only\|--all\|--fix-pending]` | KB gegen Primärquellen aktualisieren |
 | `/legal-audit-de-update [--plugin-only\|--kb-only\|--dry-run]` | Plugin + KB gemeinsam aktualisieren (Marketplace-Refresh + Primärquellen) |
 | `/legal-status [--verbose\|--json]` | Plugin-Gesundheit: KB-Alter, Platzhalter, Hook-Status, Audit-Historie |
+| `/legal-audit <pfad> --pro-mode` | Chunked Audit fuer Pro-Abos ohne 1M-Credits: 8 sequentielle 200K-Sessions + Execution-Logfile |
 
 Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
 - `legal-status.py` — Status-Report
 - `audit-compare.py` — Diff zwischen zwei Audits (`--auto <pfad>` findet vorheriges)
 - `find-placeholders.py` — listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen
 - `legal-audit-pdf.py` — bundled HTML/PDF-Briefing aus Audit-Ordner
+- `legal-audit-pro-mode.py` — Toggle Pro-Mode (1M↔Standard) inkl. Marker-File und Status-Check
 
 ## Integration in Zielprojekte
 
@@ -133,13 +135,25 @@ Grundsatz: **Im Zweifel eine Stufe höher** klassifizieren — Abmahnkosten sind
 
 ## Agenten
 
-Alle drei Custom-Agents laufen ab v1.3.2 standardmäßig auf **Claude Opus 4.7** (`claude-opus-4-7`, Standard-Kontext ≈ 200K). Begründung: Rechtsarbeit erfordert maximale Genauigkeit bei Zitaten, Paragraphen-Zuordnung und Formulierungen — ein falsches Aktenzeichen oder eine unsaubere AGB-Klausel kann abmahnbar werden. Bewusste Abkehr vom 1M-Kontext-Variant (`[1m]`): diese erfordert separat aktivierte Usage-Credits (siehe `claude.ai/settings/usage`); ohne Credits sperrt Claude Code Pro-Abonnenten mit `API Error: Usage credits required for 1M context` aus (siehe Issue #4). Für die meisten Audits reicht Standard-Kontext; bei sehr großen Codebases können Power-User die Agent-Frontmatter lokal auf `model: claude-opus-4-7[1m]` umstellen.
+Alle drei Custom-Agents laufen standardmäßig auf **Claude Opus 4.7 [1M]** (`claude-opus-4-7[1m]`). Begründung: Rechtsarbeit erfordert maximale Genauigkeit bei Zitaten, Paragraphen-Zuordnung und Formulierungen — ein falsches Aktenzeichen oder eine unsaubere AGB-Klausel kann abmahnbar werden. Das 1M-Kontextfenster erlaubt zudem, komplette Gesetzestexte + große Codebases gleichzeitig zu verarbeiten.
 
-| Agent | Modell | Aufgabe |
-|-------|--------|---------|
-| `legal-auditor` | Opus 4.7 | Scannt Codebase, klassifiziert Findings nach Severity-Matrix |
-| `legal-researcher` | Opus 4.7 | Recherchiert Primärquellen, verifiziert JEDES Zitat doppelt (Tier-1-Kaskade) |
-| `legal-text-writer` | Opus 4.7 | Erstellt lupenreine Clean-Versionen inkl. Disclaimer-Injection |
+### Pro-Mode für Claude-Pro-Abonnenten ohne 1M-Usage-Credits
+
+Pro-Abonnenten ohne separat aktivierte Usage-Credits können das 1M-Modell nicht laden (`API Error: Usage credits required for 1M context` — Issue #4). Ab v1.3.2 gibt es daher einen **Pro-Mode** als Opt-Out:
+
+```bash
+python3 scripts/legal-audit-pro-mode.py enable   # 1M -> Standard 200K, Marker setzen
+python3 scripts/legal-audit-pro-mode.py disable  # zurueck auf Default
+python3 scripts/legal-audit-pro-mode.py status
+```
+
+Im Pro-Mode laufen alle drei Agents auf `claude-opus-4-7` (Standard-Kontext, ca. 200K Tokens). Der `/legal-audit`-Command erkennt den Marker und teilt den Audit in **acht sequentielle Subagent-Sessions** auf — eine pro Audit-Pass (PII-Identifikation, Drittland-Transfers, Cookie-Analyse, Pflicht-Texte, KI-Spezifisch, BFSG-Barrierefreiheit, Urheber/Marken, Logs/Retention). Jeder Pass läuft in frischem 200K-Kontext, persistiert seine Findings nach `<zielprojekt>/docs/legal-audit/passes/pass-<N>.json` und schreibt Start/Ende ins **Execution-Logfile** `<zielprojekt>/docs/legal-audit/audit-execution-<timestamp>.log`. Damit ist auch im Standard-Kontext ein vollständiger Audit machbar — gegen leicht erhöhte Gesamt-Token-Kosten.
+
+| Agent | Modell (Default / Pro-Mode) | Aufgabe |
+|-------|------------------------------|---------|
+| `legal-auditor` | Opus 4.7 [1M] / Opus 4.7 | Scannt Codebase, klassifiziert Findings nach Severity-Matrix |
+| `legal-researcher` | Opus 4.7 [1M] / Opus 4.7 | Recherchiert Primärquellen, verifiziert JEDES Zitat doppelt (Tier-1-Kaskade) |
+| `legal-text-writer` | Opus 4.7 [1M] / Opus 4.7 | Erstellt lupenreine Clean-Versionen inkl. Disclaimer-Injection |
 
 ---
 

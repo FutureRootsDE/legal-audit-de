@@ -142,7 +142,7 @@ Codex lädt im Workspace `AGENTS.md`. Die Codex-Adapter liegen unter `.codex/`; 
 **Wichtige Unterschiede zu Claude Code:**
 - Keine SessionStart-/UserPromptSubmit-Hooks → die Skills laden `knowledge/INDEX.md` selbst und ziehen passende KB-Chunks bei Bedarf (Auto-Routing).
 - Kein `WebSearch`-Tool → Tier-1-Verifikation nutzt nur `http.get` auf der Whitelist-Domain-Liste in `.codex/config.toml`.
-- Modell-Auswahl: das Plugin gibt `claude-opus-4-7` als Original-Modell an (Standard-Kontext, ohne 1M-Usage-Credits nutzbar); Codex-User wählen ein äquivalentes Modell mit großem Kontext (z.B. `gpt-5`). Power-User mit aktivierten 1M-Usage-Credits können in `.claude/agents/*.md` lokal `model: claude-opus-4-7[1m]` setzen.
+- Modell-Auswahl: das Plugin gibt `claude-opus-4-7[1m]` (1M-Kontext) als Original-Modell an; Codex-User wählen ein äquivalentes Modell mit großem Kontext (z.B. `gpt-5`). Claude-Pro-Abonnenten ohne aktivierte 1M-Usage-Credits aktivieren den **Pro-Mode** (`python3 scripts/legal-audit-pro-mode.py enable`), der alle Agents auf Standard-Kontext umstellt und den Audit in 8 sequentielle 200K-Sub-Sessions mit Execution-Logfile aufteilt.
 
 ### GitHub Copilot CLI
 

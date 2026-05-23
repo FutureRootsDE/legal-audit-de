@@ -46,3 +46,6 @@ desktop.ini
 .claude/settings.local.json
 .claude-memory/
 .claude/memory/
+
+# Pro-Mode-Marker (lokale Opt-Out-Datei fuer Pro-Abonnenten ohne 1M-Credits)
+.claude/.pro-mode

@@ -10,21 +10,33 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ### Hintergrund
 
-Bugfix-Release fuer zwei von [@slydlake](https://github.com/slydlake) gemeldete Probleme: Marketplace zeigt das Plugin nach dem Hinzufuegen nicht an ([#3](https://github.com/FutureRootsDE/legal-audit-de/issues/3)) und Claude Code Pro-Abonnenten ohne aktivierte Usage-Credits werden beim Plugin-Load durch das hartkodierte 1M-Kontext-Modell komplett ausgesperrt ([#4](https://github.com/FutureRootsDE/legal-audit-de/issues/4)).
+Bugfix-Release fuer zwei von [@slydlake](https://github.com/slydlake) gemeldete Probleme: Marketplace zeigt das Plugin nach dem Hinzufuegen nicht an ([#3](https://github.com/FutureRootsDE/legal-audit-de/issues/3)) und Claude-Pro-Abonnenten ohne aktivierte 1M-Usage-Credits werden beim Plugin-Load durch das hartkodierte 1M-Kontext-Modell komplett ausgesperrt ([#4](https://github.com/FutureRootsDE/legal-audit-de/issues/4)).
+
+Designentscheidung zu #4: Der 1M-Kontext wird **fuer den Audit benoetigt** (vollstaendige Gesetzestexte + grosse Codebases parallel im Kontext) und bleibt deshalb **Default**. Statt ihn pauschal abzuschalten, fuehrt dieses Release einen **Opt-Out fuer Pro-Abonnenten** ein: den **Pro-Mode**, der den Audit in mehrere 200K-Subagent-Sessions splittet und ein Execution-Logfile schreibt, damit der vollstaendige Lauf nachvollziehbar bleibt.
 
 ### Fixed
 
 - **#3 Marketplace zeigt kein Plugin an:** `plugins[0].source` in `.claude-plugin/marketplace.json` von `"./"` auf explizites GitHub-Source-Objekt `{ "source": "github", "repo": "FutureRootsDE/legal-audit-de" }` umgestellt. Die relative Pfad-Notation `./` aufloest zwar laut Doku auf den Marketplace-Root (Verzeichnis, das `.claude-plugin/` enthaelt), aber in Claude Code 1.8555.0 erscheint das Plugin damit nicht in der Plugin-Liste. Der explizite GitHub-Source-Objekt-Pfad ist robuster und funktioniert unabhaengig davon, ob der Marketplace via Git-Clone, URL oder lokalem Pfad hinzugefuegt wurde.
-- **#4 Fallback-Modell fuer Pro-Abos ohne Usage-Credits:** `model:`-Frontmatter in allen drei Agents (`legal-auditor`, `legal-researcher`, `legal-text-writer`) von `claude-opus-4-7[1m]` auf `claude-opus-4-7` (Standard-Kontext, ca. 200K Tokens) umgestellt. Die `[1m]`-Variante erfordert separat aktivierte Usage-Credits unter `claude.ai/settings/usage`; ohne diese sperrt Claude Code Pro-Abonnenten beim Plugin-Load mit `API Error: Usage credits required for 1M context` aus. Standard-Kontext deckt die typischen Audit-Faelle ab (Gesetzestexte + mittelgrosse Codebase). Power-User mit aktivierten 1M-Usage-Credits koennen `model: claude-opus-4-7[1m]` in `.claude/agents/*.md` lokal wieder setzen — dokumentiert in CLAUDE.md, README.md, README.en.md und AGENTS.md.
+
+### Added
+
+- **#4 Pro-Mode fuer Claude-Pro-Abonnenten:** neuer Opt-Out-Mechanismus fuer User ohne aktivierte 1M-Usage-Credits, die sonst beim Plugin-Load mit `API Error: Usage credits required for 1M context` gesperrt wuerden. Komponenten:
+  - **`scripts/legal-audit-pro-mode.py`** mit Subcommands `enable`/`disable`/`status`. `enable` swappt `model: claude-opus-4-7[1m]` → `claude-opus-4-7` (Standard-Kontext ~200K) in allen drei Agents (`legal-auditor`, `legal-researcher`, `legal-text-writer`) und legt einen Marker `.claude/.pro-mode` an. `disable` macht beides rueckgaengig.
+  - **`/legal-audit --pro-mode`-Flag** (auto-aktiv bei vorhandenem Marker): Orchestrator splittet den Audit in 8 sequentielle `Task`-Aufrufe an `legal-auditor`, jeder in frischem 200K-Kontext und auf genau einen Pass (PII / Drittland / Cookies / Pflichttexte / KI / BFSG / Urheber-Marken / Logs) beschraenkt. Jeder Pass persistiert Findings nach `<zielprojekt>/docs/legal-audit/passes/pass-<N>.json` und gibt nur eine knappe JSON-Zusammenfassung an den Orchestrator zurueck — damit passt selbst ein grosser Codebase-Audit in Standard-Kontext.
+  - **Execution-Logfile** `<zielprojekt>/docs/legal-audit/audit-execution-<ISO-timestamp>.log` mit deterministischen Eintraegen pro Pass (Start, Ende, files_scanned, findings, duration_s) plus `complete`-Zeile am Ende. Damit ist der Pro-Mode-Lauf vollstaendig nachvollziehbar (DSGVO Art. 5 Abs. 2 Rechenschaftspflicht).
+  - **Idempotenz/Resume:** wenn `pass-<N>.json` bereits mit `ok: true` existiert, ueberspringt der Subagent diesen Pass. Damit kann eine unterbrochene Pro-Mode-Session ohne Datenverlust wieder aufgenommen werden.
+  - **Pro-Mode-Protokoll** im `legal-auditor`-Agent dokumentiert (Scope-Disziplin, KB-Frugality mit max. 5 KB-Chunks pro Pass, Pass-zu-KB-Trigger-Tabelle, Logfile-Format).
+- `.gitignore`-Eintrag fuer `.claude/.pro-mode` — Marker ist lokal und wird nicht eingecheckt.
 
 ### Changed
 
-- Plattform-Adapter via `scripts/sync-platforms.py --apply` regeneriert; `.codex/agents/*.md` und `.github/agents/*.md` reflektieren die neue Modell-Frontmatter.
+- Plattform-Adapter via `scripts/sync-platforms.py --apply` regeneriert; `.codex/agents/*.md`, `.codex/prompts/legal-audit.md`, `.github/agents/*.md` und `.github/prompts/legal-audit/PROMPT.md` reflektieren die Pro-Mode-Erweiterungen.
 - `version`-Felder in `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` (plugins[0].version) und `.codex-plugin/plugin.json` (Sync-Generator-Output) auf `1.3.2` gehoben.
+- Dokumentation in `CLAUDE.md`, `README.md`, `README.en.md`, `AGENTS.md` um Pro-Mode-Sektion und Modell-Tabelle (Default vs. Pro-Mode) erweitert.
 
 ### Dank
 
-- [@slydlake](https://github.com/slydlake) fuer die praezise und reproduzierbare Bug-Meldung beider Issues inkl. konkreter Fehler-Strings und Umgebungs-Daten (OS, Claude-Code-Version, Python-Version, Plugin-Version).
+- [@slydlake](https://github.com/slydlake) fuer die praezise und reproduzierbare Bug-Meldung beider Issues inkl. konkreter Fehler-Strings und Umgebungs-Daten (OS, Claude-Code-Version, Python-Version, Plugin-Version) sowie fuer den Design-Hinweis, den 1M-Kontext als Default zu behalten und stattdessen einen Pro-User-Opt-Out mit Logfile-getrackter Multi-Session-Execution einzufuehren.
 
 ---
 
