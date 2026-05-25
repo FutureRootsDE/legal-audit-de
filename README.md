@@ -37,15 +37,22 @@ Ein Claude-Code-Plugin, das wie ein IT-/Datenschutz-Fachaudit agiert. Es analysi
 | `/legal-verify <thema>` | Fachanwalts- und Tool-Empfehlungen |
 | `/legal-update [--stale-only]` | KB gegen Primärquellen aktualisieren |
 | `/legal-audit-de-update` | **NEU** — Plugin + KB gemeinsam aktualisieren (Marketplace-Refresh + Primärquellen-Verifikation) |
-| `/legal-status` | Plugin-Gesundheit (KB-Alter, Platzhalter, Hook-Status) |
+| `/legal-status` | Plugin-Gesundheit (KB-Alter, Platzhalter, Hook-Status, Pro-Mode-Status) |
+| `/legal-pro-mode enable\|disable\|status` | **NEU** — Pro-Mode-Toggle (Standard-Kontext statt 1M) für Claude-Pro-Abonnenten |
 
 ### 🤖 Agenten
 
-Drei Custom-Agents (alle Claude Opus 4.7 [1M] — maximale Zitat-Genauigkeit):
+Drei Custom-Agents (Default: Claude Opus 4.7 [1M] — maximale Zitat-Genauigkeit):
 
 - `legal-auditor` — scannt Codebase, klassifiziert Findings
 - `legal-researcher` — verifiziert jedes Zitat gegen Primärquellen (Tier-1-Kaskade)
 - `legal-text-writer` — erstellt Clean-Versionen inkl. Disclaimer-Injection
+
+**Pro-Mode** für Claude-Pro-Abonnenten (kein 1M-Zugriff): drei `-pro`-Varianten der
+Agents mit `model: claude-opus-4-7` (Standard-Kontext, ~200 K). Aktivieren via
+`/legal-pro-mode enable` oder `python3 scripts/legal-audit-pro-mode.py enable`. Der
+Marker liegt im offiziellen Plugin-Data-Verzeichnis (`${CLAUDE_PLUGIN_DATA}`) und
+überlebt Plugin-Updates.
 
 ### 📚 Knowledge Base
 

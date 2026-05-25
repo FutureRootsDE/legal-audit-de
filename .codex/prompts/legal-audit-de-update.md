@@ -35,6 +35,12 @@ Nur Knowledge-Base-Dateien aktualisieren. Plugin-Code bleibt unverändert.
 ### `/legal-audit-de-update --dry-run`
 Zeigt nur an, was aktualisiert würde, ohne tatsächlich etwas zu ändern. Hilfreich vor produktiven Systemen.
 
+## Pro-Mode-Awareness (vor Subagent-Dispatches beachten)
+
+Wenn der SessionStart-Hook einen "PRO-MODE AKTIV"-Block eingespielt hat oder
+`scripts/legal-audit-pro-mode.py status --json` `any_enabled: true` zeigt, dann
+**dispatche `legal-researcher-pro` statt `legal-researcher`**. Default bleibt 1M.
+
 ## Pflichtablauf
 
 ### Schritt 1 — Vor-Status festhalten
@@ -65,7 +71,7 @@ reinstalliert das Plugin in die aktuelle Version (Claude Code erkennt die Versio
 
 ### Schritt 3 — KB-Update (falls nicht `--plugin-only`)
 
-Dispatch den `legal-researcher`-Agent (Opus 4.7 [1M]) im "Stale-Only"-Modus:
+Dispatch den `legal-researcher`-Agent (Opus 4.7 [1M] — bei aktivem Pro-Mode: `legal-researcher-pro`) im "Stale-Only"-Modus:
 
 - Agent prüft jede KB-Datei mit `verifiziert-am` > 90 Tage gegen Tier-1-Primärquellen
 - Aktualisiert Frontmatter-Felder `aktualisiert:` und `verifiziert-am:`

@@ -77,3 +77,20 @@ Diese Plattform (Codex/Copilot) hat keine SessionStart-/UserPromptSubmit-Hooks. 
 4. **Merke geladene Slugs**, um Doppel-Reads zu vermeiden.
 
 Triggers: siehe `.claude/hooks/triggers.json` (gleiche Schlagwort-Map gilt fuer Codex/Copilot).
+
+## Pro-Mode-Erkennung (Hookless-CLI-Fallback)
+
+Da Codex und Copilot keinen SessionStart-Hook haben, der den Pro-Mode-Marker liest,
+muss das Skill den Marker vor dem Dispatch eines `legal-*`-Subagents selbst pruefen:
+
+1. **Pruefe** in dieser Reihenfolge auf `enabled: true`:
+   - `~/.codex/legal-audit-de-pro-mode.json` (auf Codex)
+   - `~/.copilot/legal-audit-de-pro-mode.json` (auf Copilot)
+   - Fallback `~/.claude/legal-audit-de-pro-mode.json`
+2. **Wenn aktiv,** dispatche die `-pro`-Variante:
+   - `legal-auditor-pro`     statt `legal-auditor`
+   - `legal-researcher-pro`  statt `legal-researcher`
+   - `legal-text-writer-pro` statt `legal-text-writer`
+3. **Sonst** dispatche die Default-1M-Variante.
+
+Aktivieren via: `python3 scripts/legal-audit-pro-mode.py enable`.

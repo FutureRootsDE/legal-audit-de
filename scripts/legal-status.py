@@ -25,6 +25,9 @@ ROOT = Path(os.environ.get("CLAUDE_PROJECT_DIR") or Path(__file__).resolve().par
 KB = ROOT / "knowledge"
 AUDITS = ROOT / "audits"
 HOOKS = ROOT / ".claude" / "hooks"
+AGENTS = ROOT / ".claude" / "agents"
+PRO_MODE_FILENAME = "pro-mode.json"
+FALLBACK_PRO_MODE_FILENAME = "legal-audit-de-pro-mode.json"
 
 
 def kb_categories() -> dict[str, list[Path]]:
@@ -112,6 +115,49 @@ def hook_status() -> dict:
     return status
 
 
+def pro_mode_status() -> dict:
+    candidates: list[tuple[str, Path]] = []
+    plugin_data = os.environ.get("CLAUDE_PLUGIN_DATA")
+    if plugin_data:
+        candidates.append(("claude_plugin_data", Path(plugin_data) / PRO_MODE_FILENAME))
+    candidates.append(("claude_fallback", Path.home() / ".claude" / FALLBACK_PRO_MODE_FILENAME))
+    codex_home = os.environ.get("CODEX_HOME") or (Path.home() / ".codex")
+    candidates.append(("codex", Path(codex_home) / FALLBACK_PRO_MODE_FILENAME))
+    copilot_home = os.environ.get("COPILOT_HOME") or (Path.home() / ".copilot")
+    candidates.append(("copilot", Path(copilot_home) / FALLBACK_PRO_MODE_FILENAME))
+
+    enabled = False
+    marker: dict | None = None
+    marker_path: str | None = None
+    for _label, path in candidates:
+        if not path.is_file():
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if isinstance(data, dict) and data.get("enabled") is True:
+            enabled = True
+            marker = data
+            marker_path = str(path)
+            break
+
+    pro_variants_expected = ["legal-auditor-pro", "legal-researcher-pro", "legal-text-writer-pro"]
+    pro_variants_present = [
+        name for name in pro_variants_expected if (AGENTS / f"{name}.md").is_file()
+    ]
+
+    return {
+        "enabled": enabled,
+        "marker_path": marker_path,
+        "set_at": (marker or {}).get("set_at"),
+        "version": (marker or {}).get("version"),
+        "variants_expected": pro_variants_expected,
+        "variants_present": pro_variants_present,
+        "variants_complete": pro_variants_present == pro_variants_expected,
+    }
+
+
 def build_report(verbose: bool) -> dict:
     today = date.today()
     cats = kb_categories()
@@ -155,6 +201,7 @@ def build_report(verbose: bool) -> dict:
         },
         "audits": audit_history(),
         "hooks": hook_status(),
+        "pro_mode": pro_mode_status(),
     }
 
     if verbose:
@@ -212,6 +259,20 @@ def render_text(report: dict) -> str:
         else:
             ok = "OK" if info["exists"] else "FEHLT"
             lines.append(f"  {hook}: {ok} ({info['script']})")
+
+    pm = report["pro_mode"]
+    lines.extend(["", "Pro-Mode:"])
+    state = "AKTIV" if pm["enabled"] else "deaktiviert"
+    lines.append(f"  Status:           {state}")
+    if pm["enabled"]:
+        lines.append(f"  Marker:           {pm['marker_path']}")
+        lines.append(f"  Gesetzt:          {pm.get('set_at') or '?'}")
+    variants = f"{len(pm['variants_present'])}/{len(pm['variants_expected'])}"
+    complete_tag = "OK" if pm["variants_complete"] else "INKOMPLETT"
+    lines.append(f"  Agent-Varianten:  {variants} ({complete_tag})")
+    if not pm["variants_complete"]:
+        missing = [n for n in pm["variants_expected"] if n not in pm["variants_present"]]
+        lines.append(f"    fehlt: {', '.join(missing)} — Run: python3 scripts/sync-pro-variants.py --apply")
 
     lines.extend(["", "Empfohlene Aktionen:"])
     if ph["total"] > 10:

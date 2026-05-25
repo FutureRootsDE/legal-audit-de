@@ -48,15 +48,22 @@ Designed for developers, founders, and small teams operating in or targeting the
 | `/legal-verify <topic>` | Attorney and tool recommendations |
 | `/legal-update [--stale-only]` | Refresh KB against primary sources |
 | `/legal-audit-de-update` | **NEW** — Update plugin + KB together (marketplace refresh + primary source verification) |
-| `/legal-status` | Plugin health (KB age, placeholders, hook status) |
+| `/legal-status` | Plugin health (KB age, placeholders, hook status, Pro-Mode status) |
+| `/legal-pro-mode enable\|disable\|status` | **NEW** — Pro-Mode toggle (standard context instead of 1M) for Claude Pro subscribers |
 
 ### 🤖 Agents
 
-Three custom agents, all on Claude Opus 4.7 [1M] — maximum citation accuracy:
+Three custom agents (default: Claude Opus 4.7 [1M] — maximum citation accuracy):
 
 - `legal-auditor` — scans codebase, classifies findings
 - `legal-researcher` — verifies every citation against Tier-1 primary sources
 - `legal-text-writer` — produces clean versions with automatic disclaimer injection
+
+**Pro-Mode** for Claude Pro subscribers (no 1M access): three `-pro` agent
+variants with `model: claude-opus-4-7` (standard ~200 K context). Activate via
+`/legal-pro-mode enable` or `python3 scripts/legal-audit-pro-mode.py enable`. The
+marker lives in the official plugin-data directory (`${CLAUDE_PLUGIN_DATA}`) and
+survives plugin updates.
 
 ### 📚 Knowledge Base
 
