@@ -25,6 +25,11 @@ ROOT = Path(os.environ.get("CLAUDE_PROJECT_DIR") or Path(__file__).resolve().par
 KB = ROOT / "knowledge"
 AUDITS = ROOT / "audits"
 HOOKS = ROOT / ".claude" / "hooks"
+AGENTS = ROOT / ".claude" / "agents"
+
+PRO_MODE_FILENAME = "pro-mode.json"
+FALLBACK_PRO_MODE_FILENAME = "legal-audit-de-pro-mode.json"
+PRO_AGENT_NAMES = ["legal-auditor-pro", "legal-researcher-pro", "legal-text-writer-pro"]
 
 
 def kb_categories() -> dict[str, list[Path]]:
@@ -69,6 +74,43 @@ def scan_file(path: Path, today: date) -> dict:
             "verifikation_ausstehend": sum(1 for p in placeholders if "VERIFIKATION" in p.upper()),
             "unverifiziert": sum(1 for p in placeholders if "UNVERIFIZIERT" in p.upper()),
         },
+    }
+
+
+def pro_mode_status() -> dict:
+    """Liest Pro-Mode-Marker und prueft ob alle Varianten-Agenten vorhanden sind."""
+    marker: dict | None = None
+    plugin_data = os.environ.get("CLAUDE_PLUGIN_DATA")
+    candidates: list[Path] = []
+    if plugin_data:
+        candidates.append(Path(plugin_data) / PRO_MODE_FILENAME)
+    candidates.append(Path.home() / ".claude" / FALLBACK_PRO_MODE_FILENAME)
+
+    for path in candidates:
+        if not path.is_file():
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if isinstance(data, dict) and data.get("enabled") is True:
+            marker = data
+            marker["_marker_path"] = str(path)
+            break
+
+    variants_present = [
+        name for name in PRO_AGENT_NAMES
+        if (AGENTS / f"{name}.md").is_file()
+    ]
+
+    return {
+        "enabled": marker is not None,
+        "marker_path": marker.get("_marker_path") if marker else None,
+        "set_at": marker.get("set_at") if marker else None,
+        "version": marker.get("version") if marker else None,
+        "variants_expected": PRO_AGENT_NAMES,
+        "variants_present": variants_present,
+        "variants_complete": len(variants_present) == len(PRO_AGENT_NAMES),
     }
 
 
@@ -131,6 +173,7 @@ def build_report(verbose: bool) -> dict:
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "project_dir": str(ROOT),
+        "pro_mode": pro_mode_status(),
         "kb": {
             "total": sum(len(v) for v in cats.values()),
             "by_category": {k: len(v) for k, v in cats.items()},
@@ -204,6 +247,24 @@ def render_text(report: dict) -> str:
             sev = meta.get("severity_count", {})
             sev_str = " ".join(f"{k}:{v}" for k, v in sev.items()) if sev else ""
             lines.append(f"  - {a['name']} @ {ts} {sev_str}")
+
+    pm = report.get("pro_mode", {})
+    pm_status = "AKTIV" if pm.get("enabled") else "INAKTIV"
+    pm_complete = "OK" if pm.get("variants_complete") else "WARNUNG: Varianten fehlen"
+    lines.extend([
+        "",
+        "Pro-Mode:",
+        f"  Status:   {pm_status}",
+        f"  Varianten: {pm_complete}",
+    ])
+    if pm.get("enabled"):
+        lines.append(f"  Marker:   {pm.get('marker_path', 'unbekannt')}")
+        lines.append(f"  Aktiviert: {pm.get('set_at', 'unbekannt')}")
+    if not pm.get("variants_complete"):
+        missing = [n for n in pm.get("variants_expected", []) if n not in pm.get("variants_present", [])]
+        if missing:
+            lines.append(f"  Fehlende Agenten: {', '.join(missing)}")
+            lines.append(f"  Empfehlung: python scripts/sync-pro-variants.py --apply")
 
     lines.extend(["", "Hook-Status:"])
     for hook, info in report["hooks"].items():

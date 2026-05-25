@@ -47,11 +47,12 @@ Alternativer Output-Ordner (Default: Geschwisterordner `legal-doc-check/` neben 
    - Cookie → `knowledge/themen/cookie-consent.md`
    - Social-Media → `knowledge/themen/social-media-datenschutz.md`
 
-4. **Dispatch `legal-auditor`-Agent** (Opus 4.7 [1M]) im Dokument-Modus:
+4. **Dispatch `legal-auditor`-Agent** (Opus 4.7 [1M] — bei Pro-Mode: `legal-auditor-pro`) im Dokument-Modus:
+   - Pruefe Pro-Mode-Marker (`${CLAUDE_PLUGIN_DATA}/pro-mode.json` oder `~/.claude/legal-audit-de-pro-mode.json`)
    - Prompt: "Pruefe das beigefuegte Dokument (Typ: <typ>) als Fachanwalts-Review. Klassifiziere Findings nach CRIT/HIGH/MED/LOW. Typische Pruefpunkte pro Typ siehe unten."
    - Agent liefert Finding-Liste als Markdown-Tabelle mit Zitat-Stellen
 
-5. **Dispatch `legal-text-writer`-Agent** (Opus 4.7 [1M]):
+5. **Dispatch `legal-text-writer`-Agent** (Opus 4.7 [1M] — bei Pro-Mode: `legal-text-writer-pro`):
    - Erzeugt **eine vollstaendige Clean-Version** des gesamten Dokuments (nicht pro Finding wie bei /legal-audit) — der User soll 1:1 Text zum Uebernehmen bekommen
    - Kopf: Disclaimer-Block aus `templates/disclaimer-block.md`
    - Darunter: vollstaendiges Dokument mit allen Korrekturen, Change-Kommentare als HTML-Kommentare `<!-- Aenderung Finding F-NNN: ... -->`

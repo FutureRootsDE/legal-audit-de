@@ -36,9 +36,12 @@ Jede vom Plugin erzeugte Output-Datei trägt diesen Disclaimer am Kopf. Der `Pos
 | `/legal-update [slug\|--stale-only\|--all\|--fix-pending]` | KB gegen Primärquellen aktualisieren |
 | `/legal-audit-de-update [--plugin-only\|--kb-only\|--dry-run]` | Plugin + KB gemeinsam aktualisieren (Marketplace-Refresh + Primärquellen) |
 | `/legal-status [--verbose\|--json]` | Plugin-Gesundheit: KB-Alter, Platzhalter, Hook-Status, Audit-Historie |
+| `/legal-pro-mode enable\|disable\|status` | Pro-Mode steuern (Claude Pro statt Max-Abo erforderlich) |
 
 Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
-- `legal-status.py` — Status-Report
+- `legal-status.py` — Status-Report (inkl. Pro-Mode-Status)
+- `legal-audit-pro-mode.py` — Pro-Mode Toggle (`enable | disable | status [--json]`)
+- `sync-pro-variants.py` — Pro-Agenten-Varianten aus Source-Agenten generieren
 - `audit-compare.py` — Diff zwischen zwei Audits (`--auto <pfad>` findet vorheriges)
 - `find-placeholders.py` — listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen
 - `legal-audit-pdf.py` — bundled HTML/PDF-Briefing aus Audit-Ordner
@@ -133,13 +136,29 @@ Grundsatz: **Im Zweifel eine Stufe höher** klassifizieren — Abmahnkosten sind
 
 ## Agenten
 
-Alle drei Custom-Agents laufen auf **Claude Opus 4.7 [1M]** (`claude-opus-4-7[1m]`). Begründung: Rechtsarbeit erfordert maximale Genauigkeit bei Zitaten, Paragraphen-Zuordnung und Formulierungen — ein falsches Aktenzeichen oder eine unsaubere AGB-Klausel kann abmahnbar werden. Das 1M-Kontextfenster erlaubt zudem, komplette Gesetzestexte + große Codebases gleichzeitig zu verarbeiten.
+### Standard-Modus (Max-Abonnement, 100 USD/Mo)
+
+Alle drei Standard-Agenten nutzen **Claude Opus 4.7 [1M]** (`claude-opus-4-7[1m]`). Das 1M-Kontextfenster erlaubt vollstaendige Codebases + Gesetzestexte gleichzeitig zu verarbeiten.
 
 | Agent | Modell | Aufgabe |
 |-------|--------|---------|
 | `legal-auditor` | Opus 4.7 [1M] | Scannt Codebase, klassifiziert Findings nach Severity-Matrix |
 | `legal-researcher` | Opus 4.7 [1M] | Recherchiert Primärquellen, verifiziert JEDES Zitat doppelt (Tier-1-Kaskade) |
 | `legal-text-writer` | Opus 4.7 [1M] | Erstellt lupenreine Clean-Versionen inkl. Disclaimer-Injection |
+
+### Pro-Mode (Pro-Abonnement, 20 USD/Mo)
+
+Pro-Mode-Agenten nutzen **Claude Opus 4.7** (Standard-Kontext, ~200k). Aktivierung
+via `/legal-pro-mode enable`. Geeignet fuer Codebases bis ~150 KB.
+
+| Agent | Modell | Aufgabe |
+|-------|--------|---------|
+| `legal-auditor-pro` | Opus 4.7 | Wie legal-auditor, mit Kontext-Management-Protokoll |
+| `legal-researcher-pro` | Opus 4.7 | Wie legal-researcher, komprimierte Ausgabe |
+| `legal-text-writer-pro` | Opus 4.7 | Wie legal-text-writer, Priorisierung bei Kontext-Knappheit |
+
+Die Pro-Agenten werden automatisch von `scripts/sync-pro-variants.py` aus den Standard-Agenten
+generiert (Single-Source-of-Truth). Pro-Mode-Status: `/legal-status` oder `/legal-pro-mode status`.
 
 ---
 
@@ -191,3 +210,4 @@ Der `legal-researcher`-Agent verifiziert vor Publikation jedes Zitat gegen eine 
 - **Trigger-Katalog:** `.claude/hooks/triggers.json` erweitern, wenn häufige Prompts keine passenden KB-Chunks laden.
 - **Checklisten-Evolution:** Nach jedem Audit prüfen, ob neue Muster in die Checklisten aufgenommen werden müssen.
 - **Anwalts-/Tool-Liste:** Halbjährlich per `/legal-update anwaelte-tools` prüfen.
+- **Pro-Agenten-Sync:** Nach Änderungen an Standard-Agenten immer `python scripts/sync-pro-variants.py --apply` ausführen. CI prüft Drift via `--check`.

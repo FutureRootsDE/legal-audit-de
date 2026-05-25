@@ -61,7 +61,8 @@ reinstalliert das Plugin in die aktuelle Version (Claude Code erkennt die Versio
 
 ### Schritt 3 — KB-Update (falls nicht `--plugin-only`)
 
-Dispatch den `legal-researcher`-Agent (Opus 4.7 [1M]) im "Stale-Only"-Modus:
+Dispatch den `legal-researcher`-Agent (Opus 4.7 [1M] — bei Pro-Mode: `legal-researcher-pro`) im "Stale-Only"-Modus.
+Pruefe Pro-Mode-Marker: `${CLAUDE_PLUGIN_DATA}/pro-mode.json` oder `~/.claude/legal-audit-de-pro-mode.json`:
 
 - Agent prüft jede KB-Datei mit `verifiziert-am` > 90 Tage gegen Tier-1-Primärquellen
 - Aktualisiert Frontmatter-Felder `aktualisiert:` und `verifiziert-am:`

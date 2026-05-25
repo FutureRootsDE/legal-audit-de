@@ -29,6 +29,18 @@ python "${CLAUDE_PROJECT_DIR}/scripts/legal-audit-pdf.py" <pfad>/docs/legal-audi
 
 Beide Flags kombinierbar.
 
+## Pro-Mode-Awareness
+
+Pruefe vor dem Dispatch ob Pro-Mode aktiv ist:
+- Lies `${CLAUDE_PLUGIN_DATA}/pro-mode.json` oder `~/.claude/legal-audit-de-pro-mode.json`
+- `"enabled": true` → nutze `-pro`-Varianten (siehe Tabelle unten)
+- Datei fehlt oder `"enabled": false` → nutze Standard-Agenten
+
+| Modus | Auditor | Researcher | Writer | Modell |
+|-------|---------|------------|--------|--------|
+| Standard | `legal-auditor` | `legal-researcher` | `legal-text-writer` | claude-opus-4-7[1m] |
+| Pro-Mode | `legal-auditor-pro` | `legal-researcher-pro` | `legal-text-writer-pro` | claude-opus-4-7 |
+
 ## Pflichtablauf
 
 1. **Validiere den Pfad.** Pruefe, dass `$ARGUMENTS` ein existierendes Verzeichnis ist. Wenn nicht, frage nach.
@@ -42,7 +54,7 @@ Beide Flags kombinierbar.
    └── evidence/
    ```
 
-3. **Dispatch `legal-auditor`-Agent** (Opus 4.7 [1M]) mit der Codebase:
+3. **Dispatch `legal-auditor`-Agent** (Opus 4.7 [1M] — bei Pro-Mode: `legal-auditor-pro`) mit der Codebase:
    - Der Agent scannt systematisch nach rechtlich relevanten Artefakten
    - Klassifiziert Findings nach Severity-Matrix (CRIT/HIGH/MED/LOW)
    - Nutzt Checklisten aus `knowledge/checklisten/audit-<codebase-typ>.md`

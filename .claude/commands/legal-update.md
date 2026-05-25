@@ -27,7 +27,8 @@ Scant die KB nach `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Platzha
    ```bash
    python "${CLAUDE_PROJECT_DIR}/scripts/find-placeholders.py" --json
    ```
-2. Dispatch `legal-researcher`-Agent (Opus 4.7 [1M]) mit der Platzhalter-Liste als Input.
+2. Dispatch `legal-researcher`-Agent (Opus 4.7 [1M] — bei Pro-Mode: `legal-researcher-pro`) mit der Platzhalter-Liste als Input.
+   Pruefe Pro-Mode-Marker: `${CLAUDE_PLUGIN_DATA}/pro-mode.json` oder `~/.claude/legal-audit-de-pro-mode.json`
 3. Agent recherchiert jeden Platzhalter gegen Tier-1-Primaerquelle und ersetzt ihn durch das verifizierte Zitat (oder bestaetigt Ausstehend-Status mit Begruendung).
 4. Frontmatter-Updates pro Datei, Log-Eintrag in `.claude/logs/kb-updates.log`.
 
@@ -35,7 +36,7 @@ Scant die KB nach `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Platzha
 
 ## Ablauf pro Datei
 
-1. **Dispatch `legal-researcher`-Agent** (Opus 4.7 [1M]) mit:
+1. **Dispatch `legal-researcher`-Agent** (Opus 4.7 [1M] — bei Pro-Mode: `legal-researcher-pro`) mit:
    - Zielthema / Gesetzestext / Urteil
    - Aktuelle YAML-Frontmatter-Felder (quelle-primaer, verifiziert-am)
    - Auftrag: "Pruefe die unten stehende Datei gegen die Primaerquelle. Liste alle Abweichungen (Paragraphen-Aenderungen, neue Urteile, Aufhebungen, Behoerden-Beschluesse)."
