@@ -20,6 +20,7 @@ from __future__ import annotations
 import os
 import re
 import sys
+import tempfile
 import textwrap
 from pathlib import Path
 
@@ -72,7 +73,8 @@ PRO_PROTOCOL_BLOCK = textwrap.dedent("""\
 # Frontmatter-Parser (minimalistisch, kein YAML-Parser benoetigt)
 # ---------------------------------------------------------------------------
 
-FRONTMATTER_RE = re.compile(r"^---\n(.*?\n)---\n(.*)", re.DOTALL)
+# CRLF-robust: matches both \n (Unix) and \r\n (Windows/autocrlf) line endings
+FRONTMATTER_RE = re.compile(r"^---\r?\n(.*?\r?\n)---\r?\n(.*)", re.DOTALL)
 
 
 def split_frontmatter(content: str) -> tuple[str, str]:
@@ -84,12 +86,18 @@ def split_frontmatter(content: str) -> tuple[str, str]:
 
 
 def replace_frontmatter_field(fm: str, key: str, new_value: str) -> str:
-    """Ersetzt einen Frontmatter-Schluessel mit neuem Wert (Zeile-fuer-Zeile)."""
+    """
+    Ersetzt den ERSTEN Frontmatter-Schluessel mit neuem Wert (Zeile-fuer-Zeile).
+    Nur die erste Zeile wird ersetzt — schuetzt vor doppelten Schluessel-Eintraegen
+    die sonst zu dauerhaftem --check-Drift fuehren wuerden.
+    """
     lines = fm.splitlines(keepends=True)
     result = []
+    replaced = False
     for line in lines:
-        if line.startswith(f"{key}:"):
+        if not replaced and line.startswith(f"{key}:"):
             result.append(f"{key}: {new_value}\n")
+            replaced = True
         else:
             result.append(line)
     return "".join(result)
@@ -169,9 +177,31 @@ def check_pair(source_path: Path, target_path: Path) -> bool:
     return True
 
 
+def atomic_write_text(path: Path, content: str) -> None:
+    """
+    Schreibt content atomar via tempfile + os.replace.
+    Verhindert korrupte Zieldateien bei Disk-Full oder PermissionError.
+    Tempfile liegt immer im selben Verzeichnis wie Ziel (kein Cross-Device-Problem).
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_path = tempfile.mkstemp(
+        dir=path.parent, prefix=".tmp-sync-pro-", suffix=".md"
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(content)
+        os.replace(tmp_path, path)
+    except Exception:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
+
+
 def apply_pair(source_path: Path, target_path: Path) -> bool:
     """
-    Schreibt/aktualisiert Pro-Variante.
+    Schreibt/aktualisiert Pro-Variante atomar.
     Gibt True zurueck wenn OK.
     """
     if not source_path.is_file():
@@ -179,7 +209,11 @@ def apply_pair(source_path: Path, target_path: Path) -> bool:
         return False
 
     content = render_pro_variant(source_path.read_text(encoding="utf-8"))
-    target_path.write_text(content, encoding="utf-8")
+    try:
+        atomic_write_text(target_path, content)
+    except Exception as exc:
+        print(f"[FEHLER] Schreiben fehlgeschlagen ({target_path.name}): {exc}", file=sys.stderr)
+        return False
     print(f"[WRITTEN] {target_path.name}")
     return True
 

@@ -66,8 +66,11 @@ def atomic_write_json(path: Path, payload: dict) -> None:
     """
     Schreibt payload als JSON atomar (tempfile + os.replace).
     Erstellt uebergeordnete Verzeichnisse automatisch.
-    Setzt Berechtigungen 0o600 (nur Eigentuemerlesbar).
+    Setzt Berechtigungen 0o600 auf Unix (nur Eigentuemerlesbar).
+    Auf Windows hat os.chmod keinen Effekt — ACLs sind dort nicht unterstuetzt.
     """
+    import platform
+
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp_path = tempfile.mkstemp(
         dir=path.parent, prefix=".tmp-pro-mode-", suffix=".json"
@@ -75,7 +78,8 @@ def atomic_write_json(path: Path, payload: dict) -> None:
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=2)
-        os.chmod(tmp_path, 0o600)
+        if platform.system() != "Windows":
+            os.chmod(tmp_path, 0o600)
         os.replace(tmp_path, path)
     except Exception:
         try:
