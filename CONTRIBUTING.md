@@ -60,6 +60,26 @@ Format wie bestehende Artefakte in `.claude/commands/`, `.claude/agents/`, `.cla
 - Disclaimer-Referenz im Output-Path
 - Beschreibung der Severity-Klassifikation
 
+#### Agenten bearbeiten — Pflicht-Hinweis
+
+`.claude/agents/` ist die **Source of Truth**. Direkte Edits an Codex/Copilot-Adaptern (`.codex/agents/`, `.github/agents/`) werden beim nächsten Sync überschrieben.
+
+Nach jeder Änderung an einem Standard-Agenten (`legal-auditor`, `legal-researcher`, `legal-text-writer`):
+
+```bash
+# Pro-Mode-Varianten neu generieren (-pro-Dateien sind deterministisch abgeleitet)
+python3 scripts/sync-pro-variants.py --apply
+
+# Alle Plattform-Adapter (Codex, Copilot) synchronisieren
+python3 scripts/sync-platforms.py --apply
+
+# Im CI geprüft via:
+python3 scripts/sync-pro-variants.py --check
+python3 scripts/sync-platforms.py --check
+```
+
+Wenn du nur den Pro-Mode-Protokoll-Block ändern möchtest: dieser steht in `scripts/sync-pro-variants.py` (`PRO_PROTOCOL_BLOCK`), nicht in den Agent-Dateien.
+
 ### 🌍 Übersetzungen
 
 Beiträge zu englischen Wiki-Seiten oder `knowledge/en/SUMMARY.md` sind willkommen. Bitte beachten:

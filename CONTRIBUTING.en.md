@@ -62,6 +62,26 @@ Format like existing artifacts in `.claude/commands/`, `.claude/agents/`, `.clau
 - Disclaimer reference in the output path
 - Description of the severity classification
 
+#### Editing agents — mandatory note
+
+`.claude/agents/` is the **source of truth**. Direct edits to Codex/Copilot adapters (`.codex/agents/`, `.github/agents/`) are overwritten on the next sync.
+
+After any change to a standard agent (`legal-auditor`, `legal-researcher`, `legal-text-writer`):
+
+```bash
+# Regenerate Pro-Mode variants (-pro files are deterministically derived)
+python3 scripts/sync-pro-variants.py --apply
+
+# Sync all platform adapters (Codex, Copilot)
+python3 scripts/sync-platforms.py --apply
+
+# Validated in CI via:
+python3 scripts/sync-pro-variants.py --check
+python3 scripts/sync-platforms.py --check
+```
+
+To change only the Pro-Mode protocol block: it lives in `scripts/sync-pro-variants.py` (`PRO_PROTOCOL_BLOCK`), not in the agent files themselves.
+
 ### 🌍 Translations
 
 Contributions to the English wiki pages or `knowledge/en/SUMMARY.md` are welcome. Please note:

@@ -287,6 +287,8 @@ Verzeichnisse mit ⚙ werden automatisch aus `.claude/` generiert. Direkte Edits
 
 ## Roadmap
 
+- [x] **v1.3.2** Pro-Mode für Claude-Pro-Abonnenten (Standard-Kontext statt 1M): `/legal-pro-mode enable`, sechs permanente Agent-Varianten, `${CLAUDE_PLUGIN_DATA}`-Marker
+- [x] **v1.3.1** Natives Codex-Plugin-Manifest + Frontmatter-Order-Fix ([@AllstarGER](https://github.com/AllstarGER))
 - [x] **v1.3.0** Multi-Platform-Support: Codex CLI + GitHub Copilot CLI (zusätzlich zu Claude Code)
 - [x] **v1.3.0** GitHub Actions: `validate.yml` (Sync-Check, Disclaimer-Check, Platzhalter-Scan) + `release.yml` (Bundle-Build und Auto-Release bei Tag)
 - [x] **v1.2.0** Tier-1-KB-Update-Wave: 40+ Aktenzeichen-Korrekturen, Primärquellen-Verifikation

@@ -296,6 +296,8 @@ Directories marked ⚙ are automatically generated from `.claude/`. Direct edits
 
 ## Roadmap
 
+- [x] **v1.3.2** Pro-Mode for Claude Pro subscribers (standard context instead of 1M): `/legal-pro-mode enable`, six permanent agent variants, `${CLAUDE_PLUGIN_DATA}` marker
+- [x] **v1.3.1** Native Codex plugin manifest + frontmatter-order fix ([@AllstarGER](https://github.com/AllstarGER))
 - [x] **v1.3.0** Multi-platform support: Codex CLI + GitHub Copilot CLI (in addition to Claude Code)
 - [x] **v1.3.0** GitHub Actions: `validate.yml` (sync check, disclaimer check, placeholder scan) + `release.yml` (bundle build and auto-release on tag)
 - [x] **v1.2.0** Tier-1 KB update wave: 40+ case-number corrections, primary-source verification
