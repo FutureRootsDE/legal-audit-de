@@ -6,6 +6,40 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ---
 
+## [1.3.2] — 2026-05-24
+
+### Hintergrund
+
+Schliesst die Pro-Abo-Sperre fuer Claude-Pro-Abonnenten (20 USD/mo). v1.3.0/1.3.1 pinnten alle drei `legal-*`-Agents fest auf `model: claude-opus-4-7[1m]` — Pro-User trafen beim ersten Dispatch den Fehler `1M context requires usage credits or Max plan` und konnten das Plugin gar nicht nutzen. v1.3.2 fuehrt einen sauberen, atomaren, dokumentations-konformen Pro-Mode ein, **ohne** die bestehenden 1M-Agents zu mutieren.
+
+### Added
+
+- **`/legal-pro-mode enable|disable|status`** — neuer Slash-Command. Setzt einen atomaren Marker in `${CLAUDE_PLUGIN_DATA}/pro-mode.json` (per [plugins-reference.md](https://code.claude.com/docs/en/plugins-reference) als "persistent directory for plugin state that survives updates" dokumentiert). Plattform-Fallbacks: `~/.claude/legal-audit-de-pro-mode.json`, `~/.codex/legal-audit-de-pro-mode.json`, `~/.copilot/legal-audit-de-pro-mode.json`.
+- **Drei `-pro`-Agent-Varianten:** `.claude/agents/legal-auditor-pro.md`, `legal-researcher-pro.md`, `legal-text-writer-pro.md`. Identischer Prompt-Body wie die 1M-Pendants, nur `model: claude-opus-4-7` (Standard-Kontext) und ein vorangestellter Pro-Mode-Protokoll-Block.
+- **`scripts/legal-audit-pro-mode.py`** — CLI-Tool fuer den Toggle (atomares `os.replace` Write, exit code 2 bei plattformuebergreifender Inkonsistenz statt 1 wegen `set -e`-Kompatibilitaet).
+- **`scripts/sync-pro-variants.py`** — Generator, der die drei `-pro`-Varianten deterministisch aus den 1M-Varianten ableitet (Single-Source-of-Truth fuer den Prompt-Body). Modi `--check` (CI) und `--apply` (Maintainer).
+- **SessionStart-Hook erweitert** (`.claude/hooks/session_start.py`): liest den Pro-Mode-Marker und ergaenzt bei aktiver Aktivierung einen System-Reminder im `additionalContext`, der den Orchestrator anweist, die `-pro`-Varianten zu dispatchen.
+- **Auto-Routing-Block fuer Codex/Copilot** (`scripts/sync-platforms.py:AUTO_ROUTING_BLOCK_DE`): Pro-Mode-Erkennung in jedem generierten `*/skills/*/SKILL.md`, da diese Plattformen keinen SessionStart-Hook haben.
+- **`legal-status`-Erweiterung:** neuer `pro_mode`-Block im JSON-Output und ein eigener Block im Text-Output mit Marker-Pfad, Set-Datum und Vollstaendigkeits-Check der Agent-Varianten.
+- **Vier Commands Pro-Mode-aware:** `/legal-audit`, `/legal-doc-check`, `/legal-update`, `/legal-audit-de-update` enthalten jetzt eine "Pro-Mode-Awareness"-Sektion (vor dem Pflichtablauf) plus eine Agent-Marker-Tabelle (am Ende), die Default- und Pro-Mode-Dispatch-Namen gegenueberstellt.
+
+### Fixed
+
+- **Codex-Marketplace (`.agents/plugins/marketplace.json`)** verwendet jetzt `{"source":"github","repo":"FutureRootsDE/legal-audit-de"}` statt `{"source":"local","path":"./"}`. Das Discriminator-Schema ist per [plugin-marketplaces.md](https://code.claude.com/docs/en/plugin-marketplaces) korrekt; der bisherige `local`-Wert hat den `codex plugin marketplace add FutureRootsDE/legal-audit-de`-Workflow gebrochen (resolves den Codex-Anteil von Issue #3, das bisher nur auf Claude-Seite gefixt war).
+- **Claude-Marketplace (`.claude-plugin/marketplace.json`)** auf das gleiche Schema umgestellt: `{"source":"github","repo":"FutureRootsDE/legal-audit-de"}` (statt `"source": "./"`). Konsistente Discriminator-Form auf beiden Plattformen.
+
+### Architektur-Hinweise
+
+- **Pro-Mode ist nicht-destruktiv:** Toggle veraendert **keine** Agent-Files, sondern setzt nur Marker im user-scope-Persistenz-Verzeichnis. Damit ueberlebt der Pro-Mode-Status `/plugin install`, Marketplace-Refresh und `/legal-audit-de-update`.
+- **Atomicity:** Marker-Writes nutzen `tempfile.mkstemp` + `os.replace`, was unter POSIX atomar ist. Halbe Marker-States koennen nicht entstehen.
+- **Drift-Schutz:** CI (`validate.yml`) prueft sowohl `sync-platforms.py --check` als auch `sync-pro-variants.py --check`. Aenderungen am 1M-Agent-Body propagieren via `sync-pro-variants.py --apply` in die `-pro`-Varianten.
+
+### Bewusst NICHT enthalten (v1.4.0)
+
+- **`--chunked`-Flag** fuer `/legal-audit` (sequentielle Multi-Pass-Ausfuehrung fuer Codebases > ~150 KB). Saubere Trennung von Concerns: Pro-Mode = Modell-Swap; `--chunked` = Execution-Strategie (auch fuer Max/Team-User nuetzlich). Eigenes Spec, eigener PR.
+
+---
+
 ## [1.3.1] — 2026-05-09
 
 ### Hintergrund

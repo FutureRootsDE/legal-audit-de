@@ -35,7 +35,8 @@ Jede vom Plugin erzeugte Output-Datei trägt diesen Disclaimer am Kopf. Der `Pos
 | `/legal-verify <thema>` | Fachanwalts-/Tool-Empfehlungen |
 | `/legal-update [slug\|--stale-only\|--all\|--fix-pending]` | KB gegen Primärquellen aktualisieren |
 | `/legal-audit-de-update [--plugin-only\|--kb-only\|--dry-run]` | Plugin + KB gemeinsam aktualisieren (Marketplace-Refresh + Primärquellen) |
-| `/legal-status [--verbose\|--json]` | Plugin-Gesundheit: KB-Alter, Platzhalter, Hook-Status, Audit-Historie |
+| `/legal-status [--verbose\|--json]` | Plugin-Gesundheit: KB-Alter, Platzhalter, Hook-Status, Audit-Historie, Pro-Mode-Status |
+| `/legal-pro-mode enable\|disable\|status` | Pro-Mode-Toggle (Standard-Kontext statt 1M) für Claude-Pro-Abonnenten |
 
 Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
 - `legal-status.py` — Status-Report
@@ -133,13 +134,33 @@ Grundsatz: **Im Zweifel eine Stufe höher** klassifizieren — Abmahnkosten sind
 
 ## Agenten
 
-Alle drei Custom-Agents laufen auf **Claude Opus 4.7 [1M]** (`claude-opus-4-7[1m]`). Begründung: Rechtsarbeit erfordert maximale Genauigkeit bei Zitaten, Paragraphen-Zuordnung und Formulierungen — ein falsches Aktenzeichen oder eine unsaubere AGB-Klausel kann abmahnbar werden. Das 1M-Kontextfenster erlaubt zudem, komplette Gesetzestexte + große Codebases gleichzeitig zu verarbeiten.
+Im Default laufen alle drei Custom-Agents auf **Claude Opus 4.7 [1M]** (`claude-opus-4-7[1m]`). Begründung: Rechtsarbeit erfordert maximale Genauigkeit bei Zitaten, Paragraphen-Zuordnung und Formulierungen — ein falsches Aktenzeichen oder eine unsaubere AGB-Klausel kann abmahnbar werden. Das 1M-Kontextfenster erlaubt zudem, komplette Gesetzestexte + große Codebases gleichzeitig zu verarbeiten.
 
-| Agent | Modell | Aufgabe |
-|-------|--------|---------|
-| `legal-auditor` | Opus 4.7 [1M] | Scannt Codebase, klassifiziert Findings nach Severity-Matrix |
-| `legal-researcher` | Opus 4.7 [1M] | Recherchiert Primärquellen, verifiziert JEDES Zitat doppelt (Tier-1-Kaskade) |
-| `legal-text-writer` | Opus 4.7 [1M] | Erstellt lupenreine Clean-Versionen inkl. Disclaimer-Injection |
+| Agent | Default-Modell | Pro-Mode-Variante | Aufgabe |
+|-------|----------------|-------------------|---------|
+| `legal-auditor` | Opus 4.7 [1M] | `legal-auditor-pro` (Opus 4.7, Standard-Kontext) | Scannt Codebase, klassifiziert Findings nach Severity-Matrix |
+| `legal-researcher` | Opus 4.7 [1M] | `legal-researcher-pro` | Recherchiert Primärquellen, verifiziert JEDES Zitat doppelt (Tier-1-Kaskade) |
+| `legal-text-writer` | Opus 4.7 [1M] | `legal-text-writer-pro` | Erstellt lupenreine Clean-Versionen inkl. Disclaimer-Injection |
+
+### Pro-Mode (Standard-Kontext statt 1M)
+
+Claude-Pro-Abonnenten (20 USD/mo) haben **keinen Zugriff** auf 1M-Kontext — der erste 1M-Agent-Dispatch endet mit `1M context requires usage credits or Max plan`. Das Plugin liefert deshalb drei `-pro`-Varianten der Agents mit `model: claude-opus-4-7` (200 K Standard-Kontext); die Commands dispatchen sie automatisch, wenn der Pro-Mode-Marker aktiv ist.
+
+**Aktivieren:**
+```bash
+python3 scripts/legal-audit-pro-mode.py enable
+# oder im Plugin:
+/legal-pro-mode enable
+```
+
+**Marker-Ort:** `${CLAUDE_PLUGIN_DATA}/pro-mode.json` — per [Anthropic-Doku](https://code.claude.com/docs/en/plugins-reference) explizit als "persistent directory for plugin state that survives updates" dokumentiert. Der Marker überlebt `/plugin install` und Marketplace-Refresh.
+
+**Wie es funktioniert:**
+1. Der `SessionStart`-Hook liest den Marker und injiziert bei aktivem Pro-Mode einen System-Reminder, der den Orchestrator anweist, die `-pro`-Varianten zu dispatchen.
+2. Jedes Command-Markdown (`/legal-audit`, `/legal-doc-check`, `/legal-update`, `/legal-audit-de-update`) enthält eine "Pro-Mode-Awareness"-Sektion und eine Agent-Marker-Tabelle.
+3. Auf Codex/Copilot (kein SessionStart-Hook) prüft das Skill den Marker selbst via Auto-Routing-Block.
+
+**Wartung:** Die `-pro`-Varianten werden via `python3 scripts/sync-pro-variants.py --apply` deterministisch aus den 1M-Varianten generiert. CI prüft Drift im `validate.yml`.
 
 ---
 

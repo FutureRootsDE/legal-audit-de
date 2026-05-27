@@ -64,9 +64,9 @@ Drei Agents, alle als Single-Responsibility ausgelegt:
 | `legal-text-writer` | Erstellt lupenreine Clean-Versionen inkl. Pre-Write-Disclaimer-Check |
 
 **Modell-Hinweis (Plattform-spezifisch):**
-- Claude Code: alle drei laufen auf `claude-opus-4-7[1m]` (1M Kontext fuer komplette Gesetzestexte + grosse Codebases).
-- Codex: User waehlt aequivalentes Modell (`gpt-5` oder grosses-Kontext-Modell).
-- Copilot CLI: das `model`-Feld wird ignoriert; Copilot nutzt seinen eigenen Default.
+- Claude Code: alle drei laufen im Default auf `claude-opus-4-7[1m]` (1M Kontext fuer komplette Gesetzestexte + grosse Codebases). Fuer Claude-Pro-Abonnenten (kein 1M-Zugriff) liefert das Plugin zusaetzlich drei **`-pro`-Varianten** (`legal-auditor-pro`, `legal-researcher-pro`, `legal-text-writer-pro`) mit `model: claude-opus-4-7` (Standard-Kontext, ~200 K). Aktivieren via `python3 scripts/legal-audit-pro-mode.py enable` oder `/legal-pro-mode enable`; Marker liegt in `${CLAUDE_PLUGIN_DATA}/pro-mode.json` und ueberlebt Plugin-Updates.
+- Codex: User waehlt aequivalentes Modell (`gpt-5` oder grosses-Kontext-Modell). Pro-Mode-Marker fuer Codex: `~/.codex/legal-audit-de-pro-mode.json`. Auto-Routing-Block in den Skills prueft ihn vor Subagent-Dispatch.
+- Copilot CLI: das `model`-Feld wird ignoriert; Copilot nutzt seinen eigenen Default. Pro-Mode-Marker fuer Copilot: `~/.copilot/legal-audit-de-pro-mode.json`.
 
 ---
 

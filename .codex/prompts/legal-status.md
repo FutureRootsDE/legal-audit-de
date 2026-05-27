@@ -54,6 +54,11 @@ Hook-Status:
   UserPromptSubmit: OK (22 Trigger-Patterns aktiv)
   PostToolUse: OK
 
+Pro-Mode:
+  Status:           deaktiviert | AKTIV
+  Marker:           ${CLAUDE_PLUGIN_DATA}/pro-mode.json  (wenn aktiv)
+  Agent-Varianten:  3/3 (OK)
+
 Empfohlene Aktionen:
   - /legal-update --fix-pending  (30 Platzhalter aufloesen)
   - /legal-update --stale-only   (0 stale Dateien — aktuell nicht noetig)
@@ -66,3 +71,5 @@ Nach dem Status-Report: schlage dem User konkrete naechste Schritte vor, basiere
 - Wenn Stale-Dateien > 0: `/legal-update --stale-only` empfehlen
 - Wenn kein Audit > 30 Tage: routinemaessiger Re-Audit des letzten Projekts
 - Wenn Hook-Probleme: auf Hook-Scripts in `.claude/hooks/` hinweisen
+- Wenn `pro_mode.variants_complete: false`: `python3 scripts/sync-pro-variants.py --apply` empfehlen
+- Wenn Pro-Mode aktiv aber `legal-status` zeigt ungewollte Modell-Fehler: `python3 scripts/legal-audit-pro-mode.py disable` zur Rueckkehr in 1M-Default

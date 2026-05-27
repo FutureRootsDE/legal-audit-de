@@ -25,6 +25,13 @@ Erzwingt einen Dokumenttyp: `agb`, `dse`, `impressum`, `widerruf`, `cookie`, `so
 ### `/legal-doc-check <datei> --out=<zielordner>`
 Alternativer Output-Ordner (Default: Geschwisterordner `legal-doc-check/` neben der geprueften Datei).
 
+## Pro-Mode-Awareness (vor jedem Subagent-Dispatch beachten)
+
+Wenn der SessionStart-Hook einen "PRO-MODE AKTIV"-Block eingespielt hat oder
+`scripts/legal-audit-pro-mode.py status --json` `any_enabled: true` zeigt, dann
+**ersetze beim Dispatch jeden Agent-Namen durch die `-pro`-Variante** (Marker-Tabelle
+am Ende dieser Datei). Default bleibt 1M.
+
 ## Pflichtablauf
 
 1. **Validiere die Datei.** Pruefe, dass `$ARGUMENTS` eine existierende Datei ist (`.md`, `.txt`, `.pdf`, `.html`, `.docx`). Bei PDF: `pdftotext` verwenden, wenn verfuegbar; sonst User bitten, eine Text-Version bereitzustellen.
@@ -47,16 +54,16 @@ Alternativer Output-Ordner (Default: Geschwisterordner `legal-doc-check/` neben 
    - Cookie → `knowledge/themen/cookie-consent.md`
    - Social-Media → `knowledge/themen/social-media-datenschutz.md`
 
-4. **Dispatch `legal-auditor`-Agent** (Opus 4.7 [1M]) im Dokument-Modus:
+4. **Dispatch `legal-auditor`-Agent** (Opus 4.7 [1M] — bei aktivem Pro-Mode: `legal-auditor-pro`) im Dokument-Modus:
    - Prompt: "Pruefe das beigefuegte Dokument (Typ: <typ>) als Fachanwalts-Review. Klassifiziere Findings nach CRIT/HIGH/MED/LOW. Typische Pruefpunkte pro Typ siehe unten."
    - Agent liefert Finding-Liste als Markdown-Tabelle mit Zitat-Stellen
 
-5. **Dispatch `legal-text-writer`-Agent** (Opus 4.7 [1M]):
+5. **Dispatch `legal-text-writer`-Agent** (Opus 4.7 [1M] — bei aktivem Pro-Mode: `legal-text-writer-pro`):
    - Erzeugt **eine vollstaendige Clean-Version** des gesamten Dokuments (nicht pro Finding wie bei /legal-audit) — der User soll 1:1 Text zum Uebernehmen bekommen
    - Kopf: Disclaimer-Block aus `templates/disclaimer-block.md`
    - Darunter: vollstaendiges Dokument mit allen Korrekturen, Change-Kommentare als HTML-Kommentare `<!-- Aenderung Finding F-NNN: ... -->`
 
-6. **Zitat-Verifikation:** `legal-researcher`-Agent verifiziert jedes zitierte Gesetz / Urteil gegen Tier-1-Quelle. Log unter `.claude/logs/docu-check-zitate-<YYYY-MM-DD>.log`.
+6. **Zitat-Verifikation:** `legal-researcher`-Agent (Pro-Mode: `legal-researcher-pro`) verifiziert jedes zitierte Gesetz / Urteil gegen Tier-1-Quelle. Log unter `.claude/logs/docu-check-zitate-<YYYY-MM-DD>.log`.
 
 7. **Output-Struktur erzeugen:**
    ```
@@ -156,3 +163,13 @@ Gib dem User eine Kurz-Zusammenfassung:
 - Anzahl Findings pro Severity
 - Top-3 CRIT/HIGH mit 1-Zeilen-Beschreibung
 - Empfehlung: Fachanwalts-Pruefung bei CRIT-Findings (Kontaktquellen siehe `knowledge/anwaelte-tools/`)
+
+## Agent-Marker (Default-Modus vs. Pro-Mode)
+
+| Default (1M-Kontext) | Pro-Mode (Standard-Kontext) |
+|---|---|
+| `legal-auditor`     | `legal-auditor-pro`     |
+| `legal-text-writer` | `legal-text-writer-pro` |
+| `legal-researcher`  | `legal-researcher-pro`  |
+
+Pro-Mode aktivieren: `python3 scripts/legal-audit-pro-mode.py enable`.

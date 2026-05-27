@@ -12,6 +12,12 @@ allowed-tools: bash, view, create, edit, glob, grep, web_fetch, web_fetch, task
 
 Aktualisiere Rechts-KB-Inhalte gegen Primaerquellen.
 
+## Pro-Mode-Awareness (vor jedem Subagent-Dispatch beachten)
+
+Wenn der SessionStart-Hook einen "PRO-MODE AKTIV"-Block eingespielt hat oder
+`scripts/legal-audit-pro-mode.py status --json` `any_enabled: true` zeigt, dann
+**dispatche `legal-researcher-pro` statt `legal-researcher`**. Default bleibt 1M.
+
 ## Modi
 
 ### `/legal-update <slug>`
@@ -31,7 +37,7 @@ Scant die KB nach `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Platzha
    ```bash
    python "${GITHUB_WORKSPACE}/scripts/find-placeholders.py" --json
    ```
-2. Dispatch `legal-researcher`-Agent (Opus 4.7 [1M]) mit der Platzhalter-Liste als Input.
+2. Dispatch `legal-researcher`-Agent (Opus 4.7 [1M] — bei aktivem Pro-Mode: `legal-researcher-pro`) mit der Platzhalter-Liste als Input.
 3. Agent recherchiert jeden Platzhalter gegen Tier-1-Primaerquelle und ersetzt ihn durch das verifizierte Zitat (oder bestaetigt Ausstehend-Status mit Begruendung).
 4. Frontmatter-Updates pro Datei, Log-Eintrag in `.claude/logs/kb-updates.log`.
 
@@ -39,7 +45,7 @@ Scant die KB nach `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Platzha
 
 ## Ablauf pro Datei
 
-1. **Dispatch `legal-researcher`-Agent** (Opus 4.7 [1M]) mit:
+1. **Dispatch `legal-researcher`-Agent** (Opus 4.7 [1M] — bei aktivem Pro-Mode: `legal-researcher-pro`) mit:
    - Zielthema / Gesetzestext / Urteil
    - Aktuelle YAML-Frontmatter-Felder (quelle-primaer, verifiziert-am)
    - Auftrag: "Pruefe die unten stehende Datei gegen die Primaerquelle. Liste alle Abweichungen (Paragraphen-Aenderungen, neue Urteile, Aufhebungen, Behoerden-Beschluesse)."
@@ -75,4 +81,13 @@ Scant die KB nach `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Platzha
 
 ## Zitat-Verifikation
 
-Alle in der geupdateten Datei zitierten Paragraphen / Aktenzeichen muessen vom `legal-researcher` gegen eine Primaerquelle aufloesbar sein (HTTP 200 + Text-Match). Halluzinierte Zitate werden geloescht.
+Alle in der geupdateten Datei zitierten Paragraphen / Aktenzeichen muessen vom `legal-researcher` (Pro-Mode: `legal-researcher-pro`) gegen eine Primaerquelle aufloesbar sein (HTTP 200 + Text-Match). Halluzinierte Zitate werden geloescht.
+
+## Agent-Marker (Default-Modus vs. Pro-Mode)
+
+| Default (1M-Kontext) | Pro-Mode (Standard-Kontext) |
+|---|---|
+| `legal-researcher`  | `legal-researcher-pro`  |
+
+Pro-Mode aktivieren: `python3 scripts/legal-audit-pro-mode.py enable`. Bei sehr
+grosser Platzhalter-Liste empfehle dem User chunked Ausfuehrung (in v1.4.0).

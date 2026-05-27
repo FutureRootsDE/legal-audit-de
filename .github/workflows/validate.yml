@@ -20,6 +20,42 @@ jobs:
       - name: Verify .codex/ and .github/prompts/ are in sync with .claude/
         run: python scripts/sync-platforms.py --check
 
+  pro-variants-check:
+    name: Pro-Mode Agent-Variant Drift-Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify .claude/agents/*-pro.md are in sync with 1M variants
+        run: python scripts/sync-pro-variants.py --check
+
+  pro-mode-toggle-smoke:
+    name: Pro-Mode Toggle Smoke-Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Roundtrip enable -> status -> disable -> status
+        run: |
+          set -e
+          python scripts/legal-audit-pro-mode.py status --json > /dev/null
+          python scripts/legal-audit-pro-mode.py enable
+          python scripts/legal-audit-pro-mode.py status --json \
+            | python -c "import sys,json; d=json.load(sys.stdin); assert d['any_enabled'] is True, 'enable did not flip state'; print('enable OK')"
+          python scripts/legal-audit-pro-mode.py disable
+          python scripts/legal-audit-pro-mode.py status --json \
+            | python -c "import sys,json; d=json.load(sys.stdin); assert d['any_enabled'] is False, 'disable did not flip state'; print('disable OK')"
+      - name: legal-status surfaces pro_mode block
+        run: |
+          python scripts/legal-status.py --json \
+            | python -c "import sys,json; d=json.load(sys.stdin); pm=d['pro_mode']; assert pm['variants_complete'] is True, 'pro variants missing'; assert pm['enabled'] is False, 'state should be off after smoke'; print('legal-status OK')"
+
   disclaimer-check:
     name: Disclaimer-Validation (Knowledge Base + Templates)
     runs-on: ubuntu-latest

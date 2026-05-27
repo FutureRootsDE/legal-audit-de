@@ -7,8 +7,8 @@
     {
       "name": "legal-audit-de",
       "source": {
-        "source": "local",
-        "path": "./"
+        "source": "github",
+        "repo": "FutureRootsDE/legal-audit-de"
       },
       "policy": {
         "installation": "AVAILABLE",
