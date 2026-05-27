@@ -29,6 +29,7 @@ Ausfuehrung:
 import argparse
 import os
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(os.environ.get("CLAUDE_PROJECT_DIR") or Path(__file__).resolve().parents[1])
@@ -62,6 +63,9 @@ PRO_PROTOCOL_BLOCK = """<!-- AUTO-GENERATED from {source}. Do not edit manually.
 
 
 def parse_frontmatter(text: str) -> tuple[dict, str]:
+    # Normalise CRLF -> LF so the parser works identically on Windows
+    # (git core.autocrlf=true or editors may produce CRLF line endings)
+    text = text.replace("\r\n", "\n")
     if not text.startswith("---\n"):
         raise ValueError("source file must start with '---' YAML frontmatter")
     end = text.find("\n---\n", 4)
@@ -133,6 +137,29 @@ def cmd_check(verbose: bool) -> int:
     return 0
 
 
+def atomic_write_text(path: Path, content: str) -> None:
+    """Write content atomically via tempfile + os.replace.
+
+    Placing the temp file in the same directory as the target guarantees
+    they are on the same filesystem, so os.replace() never performs a
+    cross-device move.  A failed write leaves the target untouched.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_path = tempfile.mkstemp(
+        dir=path.parent, prefix=".tmp-sync-pro-", suffix=".md"
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(content)
+        os.replace(tmp_path, path)
+    except Exception:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
+
+
 def cmd_apply(verbose: bool) -> int:
     AGENTS_DIR.mkdir(parents=True, exist_ok=True)
     written = 0
@@ -143,7 +170,7 @@ def cmd_apply(verbose: bool) -> int:
             if verbose:
                 print(f"  SKIP  {target.relative_to(ROOT)} (unchanged)")
             continue
-        target.write_text(expected, encoding="utf-8")
+        atomic_write_text(target, expected)
         written += 1
         print(f"  WROTE {target.relative_to(ROOT)}")
     print(f"Done ({written}/{len(SOURCE_NAMES)} Pro-Varianten aktualisiert)")
