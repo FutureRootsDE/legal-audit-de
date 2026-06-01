@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 gilt-fuer: WooCommerce, Shopware 6, Shopify, Magento, PrestaShop, JTL
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -245,10 +245,10 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 
 ## Empfohlene Schutzpakete
 
-- **IT-Recht Kanzlei Muenchen** (it-recht-kanzlei.de) — Starter ~10 EUR / Premium ~25 EUR / Unlimited ~55 EUR pro Monat — siehe [[anwaelte-tools/tools-generatoren]]
-- **Haendlerbund** (haendlerbund.de) <<VERIFIKATION AUSSTEHEND>> — Mitglieds-Modell ab ~10 EUR/Monat
-- **Trusted Shops Legal-Texte** (trustedshops.de) — Pake ab ~30 EUR/Monat <<UNVERIFIZIERT>>
-- **eRecht24 Premium** (e-recht24.de) ab ~15 EUR/Monat
+- **IT-Recht Kanzlei Muenchen** (it-recht-kanzlei.de) — Starter ~10 EUR / Premium ~25 EUR / Unlimited ~55 EUR pro Monat (Stand 06/2026; Preise ohne Gewaehr — Anbieter-Website maassgeblich) — siehe [[anwaelte-tools/tools-generatoren]]
+- **Haendlerbund** (haendlerbund.de) — Mitglieds-Modell, Basic-Paket ab ~10 EUR/Monat, Premium ab ~30 EUR/Monat (Stand 06/2026; Preise ohne Gewaehr — Anbieter-Website maassgeblich; Mindestlaufzeit 12 Monate)
+- **Trusted Shops Legal Services** (trustedshops.de / legal.trustedshops.com) — Pakete Legal Essential / Premium / Enterprise / Ultimate; Einstieg (Essential) am Markt mit ca. 50 EUR/Monat berichtet, hoehere Tarife auf Anfrage (Stand 06/2026 nicht vollstaendig oeffentlich; Anbieter-Website / Individualangebot maassgeblich; 12 Monate Mindestlaufzeit)
+- **eRecht24 Premium** (e-recht24.de) — ab ~15 EUR/Monat bei Jahreszahlung, ~30 EUR/Monat bei monatlicher Zahlung (Stand 06/2026; Preise ohne Gewaehr — Anbieter-Website maassgeblich)
 
 ## Siehe auch
 

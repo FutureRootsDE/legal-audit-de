@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 gilt-fuer: SaaS-Anwendungen (Next.js/React, Node/Python-Backend, PostgreSQL, Cloud-Hosting)
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -233,10 +233,10 @@ Bei Mandatierung folgendes liefern lassen:
 6. **Architektur-Skizze** (Provider, Dataflows, Drittland-Marker)
 7. **DSFA-Entwurf** falls KI-Kernkomponente
 
-Budget-Range (oeffentlich kommunizierte Marktpreise, <<UNVERIFIZIERT>> fuer konkreten Fall):
-- Review eines fertigen Pakets: 500-1.500 EUR
-- Vollstaendige Erstellung: 1.500-5.000 EUR
-- Laufende DSB-Funktion extern: 150-500 EUR/Monat abhaengig vom Umfang
+Budget-Range (oeffentlich kommunizierte Marktpreise, Stand 06/2026; Preise ohne Gewaehr — konkretes Angebot abhaengig von Umfang, Branche und Kanzlei):
+- Review eines fertigen Pakets: 500-1.500 EUR (am Markt sind auch hoehere Saetze bis ~3.000 EUR fuer komplexe SaaS-Reviews dokumentiert)
+- Vollstaendige Erstellung (AGB + DSE + AVV): 1.500-5.000 EUR (Festpreis-Pakete einzelner Kanzleien starten ab ~990 EUR fuer Basis-Pakete)
+- Laufende DSB-Funktion extern: ~150-1.200 EUR/Monat abhaengig vom Umfang (Einstiegs-/Bestellungspakete teils ab ~100 EUR/Monat, Standardpakete KMU typ. 500-1.200 EUR/Monat)
 
 Siehe [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-saas-spezialisiert]].
 
