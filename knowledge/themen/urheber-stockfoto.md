@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/
 quellen-sekundaer:
   - https://unsplash.com/license
@@ -8,7 +8,8 @@ quellen-sekundaer:
   - https://www.it-recht-kanzlei.de/Kommentar/16356/Verwendung_der_Bilder_bei_unsplash.php
   - https://www.e-recht24.de/urheberrecht/13169-rechtliches-zu-online-bilddatenbanken.html
   - https://krassevideos.de/blog/2025/04/08/abmahnwelle-2025-vorsicht-bei-bildern-aus-ai-pexels-unsplash-co/
-verifiziert-am: 2026-05-08
+  - https://www.prigge-recht.de/fotorecht-abmahnung-pexels/
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE]
 ---
 
@@ -165,7 +166,18 @@ Empfohlene Hierarchie nach Rechtssicherheit:
 ### Speziell zu Gratis-Plattformen
 
 - **LG Koeln, Urt. v. 20.04.2023 — 14 O 41/22** — Unsplash-CC0-Lizenz erloschen, neuer Vertragsrahmen nach Policy-Change
-- `<<VERIFIKATION AUSSTEHEND>>` — Aktuelles Urteil zu "falsch hochgeladenen" Pexels-Bildern / gutglaeubiger Nutzer-Schutz
+- **Stand 2026-06-01: Kein hoechstrichterliches Urteil zu "falsch
+  hochgeladenen" Pexels-Bildern und gutglaeubigem Nutzer-Schutz auffindbar.**
+  Recherche in dejure.org, rechtsprechung-im-internet.de und juris-BGH ergab
+  keinen Treffer fuer ein spezifisches BGH-/OLG-Urteil zur Pexels-Konstellation.
+  Die deutsche Rechtslage kennt **keinen gutglaeubigen Erwerb von Nutzungs-
+  rechten** (h.M. zum UrhG; § 932 BGB nicht analog anwendbar). Bedeutung
+  fuer die Praxis: Wer ein Bild von Pexels/Unsplash uebernimmt, das dort von
+  einem Nicht-Berechtigten hochgeladen wurde, haftet auch bei Gutglaeubigkeit
+  fuer Unterlassung und ggf. Schadensersatz nach Lizenzanalogie. Aktuelle
+  Abmahnwelle 2025/2026 wird ueberwiegend vor LG-Ebene verhandelt; eine
+  bundeseinheitliche Linie zur Hoehe des Schadensersatzes bei Stock-Foto-
+  Plattform-Faellen steht noch aus. Naechster Pflicht-Check: 2026-09-01.
 
 ### Neuere Entwicklungen
 

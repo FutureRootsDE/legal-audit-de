@@ -1,12 +1,13 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__5.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
   - https://www.rechtsprechung-im-internet.de/
   - https://www.bundesgerichtshof.de/
   - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3083
-verifiziert-am: 2026-05-08
+  - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3191
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE]
 ---
 
@@ -157,20 +158,50 @@ loesen die volle Fundstellen-Pflicht aus.
 Kernsatz: Bei Werbung mit einem Testsiegel muss die Fundstelle des Tests leicht
 auffindbar sein; auf einer Web-Darstellung reicht kein versteckter Link.
 
-### OLG Frankfurt 6 U 169/23 (Stiftung-Warentest-Siegel) `<<VERIFIKATION AUSSTEHEND>>`
+### OLG Frankfurt a.M., Urt. v. 09.06.2022 — 6 U 12/22 ("Ausgezeichnete Matratze")
 
-Aktenzeichen + Datum final zu verifizieren. Ueberlieferte Tendenz:
-Bei Stiftung-Warentest-Siegel-Werbung ohne Ausgabe und Fundstelle liegt
-Irrefuehrung vor.
+KORREKTUR (war: faelschlich "6 U 169/23"). Recherche ergab keinen Treffer fuer
+6 U 169/23; das einschlaegige OLG-Frankfurt-Urteil zur Stiftung-Warentest-
+Siegelwerbung ist 6 U 12/22 vom 09.06.2022. Tier-1-verifiziert ueber
+hessenrecht.hessen.de bzw. medien-internet-und-recht.de (Volltext mir_dok_id=3191).
+
+Kernaussage: Werbung mit einem zusaetzlichen, vom Werbenden golden gerahmten
+und mit "AUSGEZEICHNET" ueberschriebenen Stiftung-Warentest-Siegel ist
+irrefuehrend i.S.v. § 5 UWG, wenn ein nicht unerheblicher Teil des
+Verkehrs annimmt, die Stiftung Warentest selbst habe die Auszeichnung
+vergeben. Bei Stiftung-Warentest-Siegel-Werbung muessen Heft, Ausgabe und
+Fundstelle eindeutig erkennbar bleiben; Eigenzusaetze duerfen den Eindruck
+einer eigenstaendigen Stiftung-Warentest-Auszeichnung nicht erzeugen.
 
 ### BGH I ZR 183/15 (Warnhinweis Nahrungsergaenzung), 11.05.2017
 
 Fuer Transparenz bei Werbeaussagen, auf die sich Siegel-Werbung mit-stuetzt.
 
-### BGH I ZR 13/18 (Zertifikat unterlassen), 26.03.2020 `<<VERIFIKATION AUSSTEHEND>>`
+### BGH, Urt. v. 21.07.2016 — I ZR 26/15 ("LGA tested")
 
-Urteil-Details final zu verifizieren. Thema: abgelaufene Zertifikate weiter-
-gefuehrt.
+KORREKTUR (war: faelschlich "BGH I ZR 13/18, 26.03.2020"). Recherche ergab
+fuer das ehemals zitierte Aktenzeichen keinen Treffer in einer Tier-1-Quelle;
+die einschlaegige BGH-Entscheidung zur Werbung mit nicht naeher belegten
+Pruefzeichen/Zertifikaten ist I ZR 26/15 vom 21.07.2016. Tier-1-verifiziert
+ueber dejure.org-Vernetzung zu rechtsprechung-im-internet.de und juris-BGH.
+
+Kernaussage: Werbung mit Pruefzeichen ("LGA tested Quality"/"LGA tested safety")
+ohne klar zugaengliche Angabe der Pruefkriterien stellt eine **Irrefuehrung
+durch Unterlassen wesentlicher Informationen** dar (§ 5a Abs. 2 UWG i.d.F.
+2015; heute § 5a Abs. 1 UWG). Verbraucher erwarten bei Pruefzeichen eine
+objektive Pruefung nach klaren Kriterien; ohne diese Angabe wird die
+Verbraucherentscheidung wesentlich beeinflusst.
+
+Praxisfolge fuer abgelaufene oder fortgefuehrte Zertifikate: Wer mit einem
+Pruefzeichen wirbt, dessen Geltung erloschen ist oder dessen Pruefkriterien
+nicht mehr nachvollziehbar abrufbar sind, verstoesst gegen § 5 / § 5a UWG.
+
+**BESTAETIGUNG NOETIG**: Falls die urspruengliche Quelle ein spezifisches BGH-
+Urteil vom 26.03.2020 zu *abgelaufenen* Zertifikaten gemeint hatte, ist dieses
+durch das hier ersetzte (I ZR 26/15) nicht 1:1 abgedeckt — die Aussage zur
+Abmahnbarkeit fortgefuehrter abgelaufener Zertifikate wird in der Literatur
+ueberwiegend auf LG-Rechtsprechung (z. B. LG Osnabrueck, Urt. v. 13.02.2018,
+16 O 460/17) gestuetzt. Anwalts-Review empfohlen.
 
 ## Praxis-Check (Was Code-Reviewer konkret pruefen)
 

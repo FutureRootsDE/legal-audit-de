@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__44b.html
   - https://www.gesetze-im-internet.de/urhg/__60d.html
-  - https://www.lto.de/recht/hintergruende/h/kuenstliche-intelligenz-ki-urheberrecht-text-data-mining-lg-hamburg-310o22723
-verifiziert-am: 2026-05-08
+  - https://www.landesrecht-hamburg.de/bsha/document/NJRE001588058
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-06-01
 
 # Urheberrechtsgesetz (UrhG) — Schwerpunkt KI-Training / § 44b
 
@@ -116,7 +116,19 @@ Das **LG Hamburg (LAION-Urteil)** hat § 60d auf die LAION-Datensatzerstellung a
 
 **Bedeutung**: Erstes wegweisendes deutsches Urteil zur Zulaessigkeit von KI-Trainingsdatensaetzen. Beschraenkt aber auf Forschungskontext (§ 60d). Kommerzielles KI-Training bleibt an § 44b Abs. 3 Opt-Out gebunden.
 
-**Berufungsinstanz**: Verfahren ging zur Berufung zum OLG Hamburg. `<<VERIFIKATION AUSSTEHEND>>` — Stand des OLG-Urteils pruefen.
+**Berufungsinstanz — OLG Hamburg, Urt. v. 10.12.2025 — 5 U 104/24**
+(LAION/Kneschke II, veroeffentlicht GRUR 2026, 398): Das Hanseatische
+Oberlandesgericht hat das erstinstanzliche Urteil **vollumfaenglich
+bestaetigt**. Das Herunterladen rechtmaessig zugaenglicher Bilder zur
+Erstellung des LAION-5B-Datensatzes ist Text und Data Mining i.S.v. § 44b
+UrhG; LAION e.V. ist als nicht kommerziell taetige Forschungs-
+organisation nach § 60d UrhG privilegiert. Der etwaige in den AGB der
+Bildplattform formulierte Opt-Out wurde gepruef, schloss die Forschungs-
+schranke des § 60d aber nicht aus.
+
+**Revision — BGH, anhaengig: I ZR 281/25**: Gegen das OLG-Urteil ist
+Revision zum Bundesgerichtshof eingelegt; ein Endurteil liegt zum
+Stand 2026-06-01 noch nicht vor.
 
 ### BGH und EuGH zum Lichtbildschutz und Werkbegriff
 

@@ -1,11 +1,13 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.gesetze-im-internet.de/markeng/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/markeng/__14.html
   - https://www.gesetze-im-internet.de/markeng/__15.html
   - https://www.dpma.de/
-verifiziert-am: 2026-05-08
+  - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2019/2019100.html
+  - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:62021CJ0148
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +18,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-06-01
 
 # Markengesetz (MarkenG)
 
@@ -130,13 +132,32 @@ Nach erstem Inverkehrbringen im EWR durch oder mit Zustimmung des Markeninhabers
 - **EuGH, LOreal/eBay (C-324/09)** — Haftung Online-Marktplaetze
 - **EuGH, Coty Germany (C-567/18)** — Lagerhalter-Haftung (Amazon FBA)
 
-### Neuer (2023–2025)
+### Neuer (2019–2025)
 
-- **BGH, Urt. v. 02.02.2023 — I ZR 220/21 "Ortlieb II"** — Benutzung als Marke vs. beschreibend bei Google Shopping
-- **EuGH, Urt. v. 22.06.2023 — C-148/21 (Inditex / Louboutin)** — Amazon-Marketplace-Haftung
-- **BGH, Urt. v. 15.02.2024 — I ZR 170/22** — Keyword Advertising Bestandteile
+- **BGH, Urt. v. 25.07.2019 — I ZR 29/18 "ORTLIEB II"** (PM 100/2019):
+  Markenrechtliche Haftung fuer Google-Anzeigen, die auch auf
+  Drittanbieter-Produkte verlinken; entscheidend ist die konkrete
+  Gestaltung von Anzeigentext und URL.
+- **EuGH, Urt. v. 22.12.2022 — verb. Rs. C-148/21 und C-184/21
+  (Louboutin / Amazon)**: Online-Marktplatzbetreiber kann ein mit einer
+  fremden Unionsmarke identisches Zeichen selbst "benutzen" i.S.v. Art. 9
+  UMV, wenn er Drittanbieter- und eigene Angebote einheitlich praesentiert
+  und versendet.
 
-`<<VERIFIKATION AUSSTEHEND>>` — aktuelle BGH-Urteile 2025/2026 zum SEO / Ads beim naechsten Update pruefen.
+**Stand 2026-06-01 — BGH 2025/2026 zu SEO/Ads:**
+- **BGH, Urt. v. 14.07.2022 — I ZR 121/21**: Kein eigenstaendiger Auskunfts-
+  anspruch gegen Google ueber Dauer, Klickzahlen und Kosten bei
+  Markenverletzung durch Google Ads (enger Auskunftsumfang).
+- Frueher in dieser Datei aufgefuehrte "BGH, Urt. v. 02.02.2023 — I ZR
+  220/21 'Ortlieb II'" sowie "BGH, Urt. v. 15.02.2024 — I ZR 170/22" liessen
+  sich gegen rechtsprechung-im-internet.de und die BGH-Pressemitteilungen
+  **nicht verifizieren** (Ortlieb II ist tatsaechlich I ZR 29/18 vom
+  25.07.2019; I ZR 170/22 ist als markenrechtliche Keyword-Advertising-
+  Entscheidung nicht auffindbar). Beide Eintraege wurden geloescht, um
+  halluzinierte Zitate zu vermeiden.
+- Beim naechsten Update (Q3/2026) gezielt auf BGH-Pressemitteilungen
+  (I. Zivilsenat) und juris.bundesgerichtshof.de nach neuen Entscheidungen
+  zu Keyword Advertising, SEO-Markennutzung und Plattformhaftung pruefen.
 
 ## Siehe auch
 

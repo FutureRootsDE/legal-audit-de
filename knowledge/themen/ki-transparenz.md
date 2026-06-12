@@ -1,11 +1,13 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 quellen-sekundaer:
   - https://artificialintelligenceact.eu/article/50/
   - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50
+  - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/KI/14_Marktueberwachung/start.html
+  - https://bmds.bund.de/service/gesetzgebungsverfahren/gesetz-zur-durchfuehrung-der-ki-verordnung
   - https://www.srd-rechtsanwaelte.de/blog/kennzeichnungspflicht-code-of-practice-zur-transparenz-von-ki-generierten-inhalten
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -142,7 +144,19 @@ Fuer **KI-generierten Text im CMS**:
 
 - **EU AI Office**: Federfuehrend fuer Leitlinien und Code of Practice
 - **AI Act Service Desk**: https://ai-act-service-desk.ec.europa.eu/
-- **Bundesnetzagentur**: In DE als Marktueberwachungsbehoerde vorgesehen (detailliert in KI-Marktueberwachungsgesetz, Stand pruefen `<<VERIFIKATION AUSSTEHEND>>`)
+- **Bundesnetzagentur (BNetzA)** ist als zentrale **Marktueberwachungsbehoerde**
+  fuer die KI-Verordnung (VO (EU) 2024/1689) vorgesehen. Rechtsgrundlage:
+  Entwurf eines **Gesetzes zur Durchfuehrung der KI-Verordnung** (KI-Markt-
+  ueberwachungs- und Innovationsfoerderungs-Gesetz, "KI-MIG"). Stand 2026-06-01:
+  Regierungsentwurf am **11.02.2026 vom Bundeskabinett** beschlossen, erste
+  Lesung im Deutschen Bundestag am 20.03.2026; Bundesrats-Stellungnahme und
+  abschliessende Lesungen noch ausstehend. Die BNetzA richtet ein
+  "Koordinierungs- und Kompetenzzentrum fuer die KI-Verordnung (KoKIVO)"
+  sowie ein KI-Reallabor und einen KI-Service-Desk ein. Anwendung der
+  Marktueberwachungs-Vorschriften fuer Hochrisiko-KI nach Anhang III ab
+  **02.08.2026**, fuer Anhang I ab 02.08.2027.
+  Quelle: BMDS-Gesetzgebungsseite und Bundesnetzagentur-Marktueberwachungs-
+  Portal (siehe Sekundaerquellen).
 
 ## Zitierbare Urteile
 

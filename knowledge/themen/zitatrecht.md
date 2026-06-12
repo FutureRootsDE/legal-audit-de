@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/__51.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__51a.html
@@ -7,7 +7,8 @@ quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0476
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0516
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0469
-verifiziert-am: 2026-05-08
+  - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=1653
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -145,12 +146,24 @@ zulaessiges Zitat** nach § 51 UrhG.
 
 ## Zitierbare Urteile
 
-### BGH I ZR 241/95 (Kleinzitat), 20.12.2007 `<<VERIFIKATION AUSSTEHEND>>`
+### BGH, Urt. v. 20.12.2007 — I ZR 42/05 ("TV-Total" / "Landparty in Huettenberg")
 
-Exaktes Datum/Aktenzeichen final zu verifizieren — Angaben variieren je nach
-Quelle. Ueberlieferte Kernaussage: Kleinzitat nur zulaessig, wenn das zitierte
-Werk in einem inneren Zusammenhang mit der eigenen Darstellung steht (**Beleg-
-oder Erlaeuterungsfunktion**).
+KORREKTUR (war: faelschlich "BGH I ZR 241/95"). Recherche ergab, dass das
+Aktenzeichen I ZR 241/95 zur Entscheidung "Rolex-Uhr mit Diamanten" vom
+12.02.1998 gehoert — ein Markenrechtsfall, **nicht** zum Zitatrecht. Das
+einschlaegige Kleinzitat-Urteil vom 20.12.2007 traegt das Aktenzeichen
+**I ZR 42/05**. Tier-1-verifiziert ueber juris.bundesgerichtshof.de und
+dejure.org sowie ueber Volltext bei medien-internet-und-recht.de
+(mir_dok_id=1653).
+
+Kernaussage: Ein Zitat nach § 51 UrhG ist nur dann zulaessig, wenn eine
+**innere Verbindung** zwischen der zitierten Stelle und eigenen Gedanken
+des Zitierenden hergestellt wird. Die Zitierfreiheit erlaubt nicht, ein
+Werk lediglich um seiner selbst willen oeffentlich wahrnehmbar zu machen;
+das Zitat muss als **Belegstelle oder Eroerterungsgrundlage** fuer
+selbstaendige Ausfuehrungen des Zitierenden dienen — blosse aeusserliche,
+unverbundene Einfuegungen genuegen nicht. Diese Massstaebe gelten auch fuer
+Filmzitate und Laufbild-Sequenzen.
 
 ### BGH I ZR 102/10 (Elektronischer Pressespiegel), 16.01.2014
 

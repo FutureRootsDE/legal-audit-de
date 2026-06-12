@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__305.html
@@ -8,7 +8,8 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__312k.html
   - https://www.gesetze-im-internet.de/bgb/__355.html
   - https://www.gesetze-im-internet.de/bgb/__312g.html
-verifiziert-am: 2026-05-08
+  - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2021/2021088.html
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -19,7 +20,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-06-01
 
 # BGB — AGB-Recht, Button-Loesung, Widerruf
 
@@ -217,23 +218,29 @@ entfaltet.
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 159/24** (09.10.2025): Online-Maklervertraege ohne explizite
-  "zahlungspflichtig bestellen"-Schaltflaeche sind unwirksam (§ 312j Abs. 4
-  BGB); definitive Unwirksamkeit, keine konkludente Heilung. Wegweisend fuer
-  alle Online-Bestellprozesse mit Verbraucherbeteiligung.
-- **BGH XI ZR 26/20** (27.04.2021): Unwirksamkeit einer Klausel zur
-  Zustimmungsfiktion bei AGB-Aenderungen (im Bankwesen). (Hinweis: bei
-  Verifikation Aktenzeichen-Datum-Kombination gegen
-  rechtsprechung-im-internet pruefen — fruehere Datierung 03.11.2020 war ein
-  zugehoeriger Verkuendungstermin.)
-- **EuGH C-649/17** (10.07.2019, "Amazon EU"): Kontaktmoeglichkeiten im
-  Fernabsatz — Telefon nicht zwingend, aber gleichwertige Alternativen noetig.
-- `<<VERIFIKATION AUSSTEHEND>>` — folgende Aktenzeichen waren in der
-  Vorgaengerfassung gelistet, sind aber gegen rechtsprechung-im-internet.de
-  nicht eindeutig auffindbar: "BGH VIII ZR 63/15 (Button 'Jetzt anmelden')",
-  "BGH VIII ZR 21/19 (Widerrufsbelehrung)", "EuGH C-543/19 Amazon EU",
-  "LG Berlin 52 O 157/20 (Kuendigungsbutton)". Beim naechsten Update
-  verifizieren oder ersetzen.
+- **BGH, Urt. v. 09.10.2025 — I ZR 159/24**: Online-Maklervertraege ohne
+  explizite "zahlungspflichtig bestellen"-Schaltflaeche sind nach § 312j
+  Abs. 4 BGB unwirksam; **endgueltige Unwirksamkeit**, kein Rueckgriff
+  ueber Bereicherungsrecht. Wegweisend fuer alle Online-Bestellprozesse
+  mit Verbraucherbeteiligung.
+- **BGH, Urt. v. 27.04.2021 — XI ZR 26/20** (PM 88/2021): Klauseln in
+  Banken-AGB, die eine fiktive Zustimmung des Kunden zu AGB-Aenderungen
+  ohne inhaltliche Begrenzung anordnen, sind nach § 307 Abs. 1 und 2 BGB
+  unwirksam.
+- **EuGH, Urt. v. 10.07.2019 — C-649/17** ("Bundesverband / Amazon EU"):
+  Onlinehaendler muessen Verbrauchern keine Telefonnummer zur Verfuegung
+  stellen; ausreichend sind gleichwertige direkte und effiziente
+  Kommunikationsmittel (E-Mail-Formular, Chat, Rueckrufsystem).
+- **Hinweis 2026-06-01 (Hygiene):** Frueher in dieser Datei gelistete
+  Aktenzeichen "BGH VIII ZR 63/15 (Button 'Jetzt anmelden')",
+  "BGH VIII ZR 21/19 (Widerrufsbelehrung)", "EuGH C-543/19 (Amazon EU)"
+  und "LG Berlin 52 O 157/20 (Kuendigungsbutton)" wurden geprueft und
+  liessen sich gegen rechtsprechung-im-internet.de / curia.europa.eu nicht
+  als Endurteile zum behaupteten Thema verifizieren. Sie wurden geloescht,
+  um halluzinierte Zitate zu vermeiden. Die Sachthemen (Buttonloesung,
+  Widerrufsbelehrung, Kuendigungsbutton, Kontaktangaben) sind durch die
+  o. g. drei verifizierten Entscheidungen sowie § 312j/§ 312k BGB
+  hinreichend belegt.
 
 ## Siehe auch
 

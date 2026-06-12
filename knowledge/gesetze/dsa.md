@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
 quellen-sekundaer:
   - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/start.html
   - https://gesetz-digitale-dienste.de/
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/Telemedien/DDG/Digitale_Dienste_Gesetz.html
-verifiziert-am: 2026-05-08
+  - https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2024/20240514_DSC.html
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-06-01
 
 # Digital Services Act (DSA) — VO (EU) 2022/2065
 
@@ -103,7 +104,15 @@ Noch sehr begrenzt — DSA ist erst seit Februar 2024 voll anwendbar. Bisher vor
 - Verfahren der EU-Kommission gegen VLOPs (X, TikTok, Meta, AliExpress) — keine Endurteile, sondern Untersuchungsverfahren
 - Keine relevante deutsche Rechtsprechung zu Art. 14/16 DSA als Endurteil identifiziert
 
-`<<VERIFIKATION AUSSTEHEND>>` — konkrete deutsche Urteile zu DSA-Pflichten sollten bei naechstem Update geprueft werden.
+**Stand 2026-06-01:** Eine systematische Recherche auf
+rechtsprechung-im-internet.de hat **keine veroeffentlichten deutschen
+Endurteile** zu Art. 14 oder Art. 16 DSA ergeben. Aufsichts- statt
+gerichtsfoermige Durchsetzung dominiert: Die Bundesnetzagentur (Digital
+Services Coordinator) meldet fuer 2025 ueber 2.000 Beschwerden und ca.
+26 laufende Verfahren; eine zweite Enforcement-Welle gegen mittelgrosse
+Plattformen ist fuer Q2/2026 angekuendigt. Beim naechsten Update gezielt
+nach LG/OLG-Entscheidungen zu DDG-Bussgeldern (§ 28 DDG) und etwaigen
+Vorabentscheidungsersuchen an den EuGH suchen.
 
 ## Siehe auch
 

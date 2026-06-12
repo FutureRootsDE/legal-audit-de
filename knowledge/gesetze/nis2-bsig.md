@@ -1,12 +1,14 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.bundesregierung.de/breg-de/aktuelles/nis-2-richtlinie-deutschland-2373174
 quellen-sekundaer:
   - https://www.bundestag.de/dokumente/textarchiv/2025/kw46-de-nis-2-1123138
   - https://www.openkritis.de/it-sicherheitsgesetz/nis2-umsetzung-gesetz-cybersicherheit.html
   - https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Regulierte-Wirtschaft/NIS-2/nis-2_node.html
+  - https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2025/251113_NIS-2-Umsetzungsgesetz.html
+  - https://www.recht.bund.de/bgbl/1/2025/301/VO.html
   - https://eur-lex.europa.eu/eli/dir/2022/2555/oj
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +19,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-06-01
 
 # BSIG / NIS-2-Umsetzungsgesetz (NIS2UmsuCG)
 
@@ -26,11 +28,11 @@ geltungsbereich: [DE, EU]
 Die **NIS-2-Richtlinie (EU) 2022/2555** loest die NIS-1-Richtlinie ab und setzt deutlich erweiterte Anforderungen an die **Cybersicherheit von Unternehmen und oeffentlichen Stellen** in der EU. Umsetzungsfrist war **17.10.2024**.
 
 **Deutschland** hat verzoegert umgesetzt: Das **NIS-2-Umsetzungs- und Cybersicherheitsstaerkungsgesetz (NIS2UmsuCG)** wurde
-- am **13.11.2025** vom Bundestag beschlossen
+- am **13.11.2025** vom Bundestag beschlossen (BSI-PM vom 13.11.2025)
 - am **21.11.2025** vom Bundesrat gebilligt
-- am **05./06.12.2025** im Bundesgesetzblatt verkuendet und **unmittelbar in Kraft getreten** (ohne Uebergangsfrist)
+- am **05.12.2025** im Bundesgesetzblatt verkuendet (**BGBl. 2025 I Nr. 301**) und am **06.12.2025 in Kraft getreten** — **ohne Uebergangsfrist**
 
-Quellen: Bundesregierung, Bundestag-Pressearchiv (2025-11), BGBl. (Dezember 2025)
+Quellen: BSI-Pressemitteilung 251113, Bundesregierung-Meldung 2373174, BGBl. 2025 I Nr. 301 (recht.bund.de).
 
 Das NIS2UmsuCG **novelliert das BSI-Gesetz (BSIG)** erheblich. Der gelaeufige Ausdruck "BSIG 2.0" bezeichnet diese novellierte Fassung.
 
@@ -129,7 +131,13 @@ Indirekt relevant aus NIS-1-Ära / IT-Sicherheitsgesetz:
 - **VG Koeln, Urt. v. 11.10.2019 — 1 L 861/19** (zu KRITIS-Einstufungsbescheiden)
 - **BGH, Urt. v. 16.03.2021 — VI ZR 260/20** (Haftungsmassstab bei Datenpannen, DSGVO-nahe Anwendung)
 
-`<<VERIFIKATION AUSSTEHEND>>` — erste BSI-Bussgeldbescheide unter NIS2UmsuCG sind fuer 2026 zu erwarten; beim naechsten Update pruefen.
+**Stand 2026-06-01:** Eine systematische Suche bei BSI-Pressemitteilungen
+und rechtsprechung-im-internet.de hat **keine veroeffentlichten
+Bussgeldbescheide** unter dem NIS2UmsuCG ergeben (Gesetz ist erst seit
+06.12.2025 in Kraft, ohne Uebergangsfrist). Erste Bescheide / Verwaltungs-
+gerichtsverfahren werden im Verlauf 2026 erwartet. Beim naechsten Update
+gezielt auf BSI-Pressestelle, VG-Koeln (Sitz BSI), sowie auf Aufsichts-
+berichte des Bundesrechnungshofs zur NIS2UmsuCG-Umsetzung pruefen.
 
 ## Siehe auch
 

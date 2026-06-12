@@ -1,12 +1,12 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.gesetze-im-internet.de/bfsg/
 quellen-sekundaer:
   - https://www.bundesfachstelle-barrierefreiheit.de/DE/Fachwissen/Produkte-und-Dienstleistungen/Barrierefreiheitsstaerkungsgesetz/FAQ/faq_node.html
   - https://www.w3.org/TR/WCAG22/
   - https://www.etsi.org/deliver/etsi_en/301500_301599/301549/
   - https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -214,7 +214,16 @@ Oft schwere Verstoesse:
 
 ## Zitierbare Urteile
 
-**Noch keine hoechstrichterliche BFSG-Rechtsprechung**. `<<VERIFIKATION AUSSTEHEND>>` — erste OLG/BGH-Entscheidungen zu UWG-Abmahnfaehigkeit und Bussgeldern sollten beim naechsten Update geprueft werden.
+**Stand 2026-06-01: Keine veroeffentlichte OLG- oder BGH-Entscheidung
+zur BFSG-Abmahnfaehigkeit auffindbar.** Recherche ueber dejure.org und
+juris.bundesgerichtshof.de ergab keine instanzgerichtlichen oder hoechstrichter-
+lichen Urteile zur Abmahnfaehigkeit nach §§ 3, 3a UWG i.V.m. BFSG. Erste
+Abmahnwellen sind seit Sommer 2025 dokumentiert; erste obergerichtliche
+Entscheidungen werden fuer die zweite Jahreshaelfte 2026 erwartet. Bis zur
+Klaerung wird in der Fachliteratur die Linie der BGH-Rechtsprechung zur
+Abmahnfaehigkeit von Marktverhaltensregelungen (insb. zu DSGVO-Verstoessen)
+als wahrscheinlicher Argumentationsrahmen herangezogen. Naechster Pflicht-Check:
+2026-09-01.
 
 Relevant aus Nachbargebieten:
 - **LSG Nordrhein-Westfalen, Urt. v. 29.10.2019 — L 13 SB 55/19** (zu Barrierefreiheit im weiteren Sinne)

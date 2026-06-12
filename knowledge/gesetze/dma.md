@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32022R1925
 quellen-sekundaer:
   - https://digital-markets-act.ec.europa.eu/gatekeepers-portal_en
   - https://epthinktank.eu/2025/04/24/digital-markets-act-enforcement-state-of-play/
-verifiziert-am: 2026-05-08
+  - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62023TJ1077
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-06-01
 
 # Digital Markets Act (DMA) — VO (EU) 2022/1925
 
@@ -98,7 +99,20 @@ Typische SaaS- und E-Commerce-Codebases sind **nicht direkt DMA-verpflichtet**. 
 ## Zitierbare Urteile
 
 - **EU-Kommission, Non-Compliance Decisions (23.04.2024 / 2025)**: Erste Nichtbefolgungsverfahren gegen Apple (Anti-Steering App Store) und Meta (Pay-or-Consent-Modell)
-- `<<VERIFIKATION AUSSTEHEND>>` — Endurteile EuGH zu DMA-Benennungen sind in Arbeit (Klagen von ByteDance, Meta, Apple gegen Benennungen/Durchfuehrungsbeschluesse)
+- **EuG, Urt. v. 17.07.2024 — T-1077/23, ByteDance Ltd / Kommission**: Die
+  Klage gegen die Gatekeeper-Benennung von ByteDance (TikTok) durch die
+  Kommissionsentscheidung vom 05.09.2023 wurde im beschleunigten Verfahren
+  **abgewiesen**. Das Gericht bestaetigt die Kommissionsbefugnis nach Art. 3
+  DMA, auch bei sehr schnell gewachsenen Plattformen (CELEX:62023TJ1077).
+- **EuGH, anhaengig: C-627/24 P, ByteDance / Kommission**: Rechtsmittel
+  gegen das EuG-Urteil T-1077/23, eingelegt am 26.09.2024 — erste
+  Anfechtung einer DMA-Gatekeeper-Benennung vor der Grossen Kammer des
+  EuGH; Endurteil bei Redaktionsschluss noch nicht veroeffentlicht
+  (Stand 2026-06-01).
+- **Stand 2026-06-01**: Endurteile zu den Klagen von Meta und Apple gegen
+  ihre jeweiligen Benennungs- oder Durchfuehrungsbeschluesse sind
+  oeffentlich noch nicht ergangen; beim naechsten Update gezielt auf
+  curia.europa.eu pruefen.
 
 ## Siehe auch
 

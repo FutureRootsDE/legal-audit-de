@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://www.gesetze-im-internet.de/kunsturhg/BJNR000070907.html
 quellen-sekundaer:
   - https://www.rechtsprechung-im-internet.de/
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -140,11 +140,23 @@ weil Art. 85 DSGVO als Oeffnungsklausel eine nationale Regelung ermoeglicht
 — jedenfalls fuer journalistische Bildberichterstattung. Hinweis: Das KUG
 regelt nur Verbreitung/Schaustellung, nicht das Erstellen der Fotos.
 
-### LG Frankfurt a.M., 2-03 O 234/20 `<<VERIFIKATION AUSSTEHEND>>`
+### LG Frankfurt a.M. — Az. 2-03 O 234/20: NICHT-AUFLOESBAR (Stand 2026-06-01)
 
-Aktenzeichen und Datum final zu verifizieren. Tendenz der Rechtsprechung:
-Foto ohne Einwilligung -> Unterlassungsanspruch + Schadensersatz (§ 823 BGB
-i.V.m. § 22 KUG; Art. 82 DSGVO).
+Recherche ueber dejure.org und juris/rechtsprechung-im-internet.de ergab keinen
+Treffer fuer das Aktenzeichen 2-03 O 234/20. Die zur 03. Zivilkammer des LG
+Frankfurt veroeffentlichten und einschlaegigen Urteile zum Foto-Persoenlichkeits-
+schutz sind:
+
+- **LG Frankfurt a.M., Urt. v. 13.09.2018 — 2-03 O 283/18** (Friseursalon-Video,
+  Beweislast fuer Einwilligung beim Werbenden), verifiziert ueber dejure.org.
+- **LG Frankfurt a.M., Urt. v. 26.09.2019 — 2-03 O 402/18** (Versenden eines
+  Profilbilds per E-Mail rechtswidrig), verifiziert ueber dejure.org.
+
+Tendenz der Rechtsprechung bleibt: Foto ohne Einwilligung loest
+Unterlassungs- und ggf. Schadensersatzanspruch aus (§ 823 BGB i.V.m. § 22 KUG;
+Art. 82 DSGVO). Das urspruengliche Aktenzeichen wurde wegen Nicht-Verifizierbar-
+keit entfernt; falls aus Quelle X bekannt, im naechsten Update mit Belegstelle
+nachtragen.
 
 ### BAG, 8 AZR 1011/13, 19.02.2015
 

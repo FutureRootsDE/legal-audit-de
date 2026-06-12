@@ -1,11 +1,15 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-06-01
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 quellen-sekundaer:
   - https://artificialintelligenceact.eu/implementation-timeline/
   - https://ai-act-service-desk.ec.europa.eu/
   - https://artificialintelligenceact.eu/article/50/
-verifiziert-am: 2026-05-08
+  - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/KI/14_Marktueberwachung/start.html
+  - https://bmds.bund.de/service/gesetzgebungsverfahren/gesetz-zur-durchfuehrung-der-ki-verordnung
+  - https://www.bundestag.de/dokumente/textarchiv/2026/kw12-de-kuenstliche-intelligenz-1151800
+  - https://www.bundestag.de/dokumente/textarchiv/2026/kw13-pa-digitales-1155576
+verifiziert-am: 2026-06-01
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +20,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-06-01
 
 # KI-Verordnung (EU AI Act) — VO (EU) 2024/1689
 
@@ -126,7 +130,7 @@ Anbieter von Foundation Models (Claude, GPT, Gemini, Llama etc.) muessen:
 ## Behoerden-Hinweise
 
 - **EU AI Office** (unter DG CNECT): Zentrale EU-Koordination, insbesondere fuer GPAI
-- **Deutschland**: Bundesnetzagentur als Marktueberwachungsbehoerde (KI-Marktueberwachungsgesetz in Beratung / teilweise verabschiedet — `<<VERIFIKATION AUSSTEHEND>>` zum exakten Stand des deutschen Durchfuehrungsgesetzes im April 2026)
+- **Deutschland — KI-Marktueberwachungs- und Innovationsfoerderungsgesetz (KI-MIG)** (Stand 2026-06-01): Das Gesetz zur Durchfuehrung der KI-Verordnung ist noch nicht in Kraft. Das Bundeskabinett hat den Entwurf beschlossen; **erste Lesung im Bundestag am 20.03.2026**, oeffentliche Anhoerung im Ausschuss fuer Digitales und Staatsmodernisierung am 23.03.2026. Vorgesehen ist die **Bundesnetzagentur als zentrale Marktueberwachungsbehoerde** mit einer Koordinierungs- und Kompetenzstelle KI-Verordnung (KoKIVO) sowie einem niedrigschwelligen KI-Service-Desk fuer KMU/Start-ups. Bis zum Inkrafttreten des KI-MIG fungiert die Bundesnetzagentur faktisch bereits als zustaendige Stelle nach den unmittelbar geltenden Teilen der VO (EU) 2024/1689 (Quellen: BMDS-Gesetzgebungsverfahren, Bundestag textarchiv 1151800/1155576).
 - **AI Act Service Desk**: https://ai-act-service-desk.ec.europa.eu/ — offizielle EU-Infostelle
 - **Offizielle Leitlinien**: Kommission veroeffentlicht laufend Guidelines (z. B. zu verbotenen Praktiken Februar 2025, zu GPAI Juli 2025)
 
