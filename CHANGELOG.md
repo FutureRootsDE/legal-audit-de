@@ -8,6 +8,19 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
+### Hintergrund Doku-Site
+
+Eigenstaendige Documentation-Site unter `docs/` fuer GitHub Pages, statt READMEs als alleinige Quelle. Mehrseitige Navigation (Startseite, Setup, Commands, KB-Uebersicht, MCP-Integration) mit just-the-docs als Remote-Theme. Voraussetzung: GitHub Pages muss im Repo unter Settings → Pages → Source = `main` Branch, Folder = `/docs` aktiviert werden. Diese Aktivierung kann nur durch einen Repo-Maintainer mit Admin-Rechten erfolgen.
+
+### Added Doku-Site
+
+- **`docs/_config.yml`** mit `remote_theme: just-the-docs/just-the-docs`, deutscher Beschreibung, Suche, Callouts (warning / note / tipp), Footer mit Disclaimer-Hinweis.
+- **`docs/index.md`** Landing-Page mit Hero, Scope-Tabelle, Schnellstart fuer Claude Code, Verweisen auf alle Unterseiten.
+- **`docs/setup.md`** Installation fuer alle drei CLIs (Claude Code, Codex CLI, Copilot CLI), Pro-Mode-Toggle, optionale Hilfs-MCPs (`chrome-devtools-mcp`, `rechtsinformationen-bund-de-mcp`).
+- **`docs/commands.md`** Vollstaendige Slash-Befehlsreferenz mit Optionen, Severity-Matrix, Hilfsskript-Tabelle.
+- **`docs/knowledge-base.md`** Aufbau der KB, Quellen-Hierarchie (Tier 1/2/3), Gesetzes-Tabelle, Schluesselurteile, Trigger-Beispiele, Frontmatter-Konvention inkl. der seit dem MCP-Patch optionalen `eli`- und `ecli`-Felder.
+- **`docs/mcp-integration.md`** Vollanleitung fuer den optionalen `rechtsinformationen`-MCP-Server: drei Installationsvarianten, drei Registrierungs-Scopes, Tool-Praeferenz-Tabelle, Anti-Fallen, Troubleshooting.
+
 ### Hintergrund
 
 Optionale Anbindung an den MCP-Server [`wolfgangihloff/rechtsinformationen-bund-de-mcp`](https://github.com/wolfgangihloff/rechtsinformationen-bund-de-mcp), der das offizielle Bundes-Portal [`rechtsinformationen.bund.de`](https://docs.rechtsinformationen.bund.de) ueber das Model Context Protocol erschliesst. Tip vom Community-Feedback nach dem v1.3.x-Release: strukturierter Zugriff mit ELI/ECLI-Identifiern statt HTML-Scraping per WebFetch macht Zitat-Verifikation robuster, insbesondere bei Re-Releases des Portals. Die Integration ist bewusst **opt-in** — der MCP-Server haengt von einem lokalen Node.js-Build des Drittautors ab und nutzt eine API, die selbst noch "testphase" ist; das Default-Setup des Plugins soll ohne diese Abhaengigkeit lauffaehig bleiben.
