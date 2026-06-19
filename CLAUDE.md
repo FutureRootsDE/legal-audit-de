@@ -181,6 +181,12 @@ python3 scripts/legal-audit-pro-mode.py enable
 
 Der `legal-researcher`-Agent verifiziert vor Publikation jedes Zitat gegen eine Tier-1-Quelle und schreibt ein Log unter `.claude/logs/zitate-verifikation-<YYYY-MM-DD>.log`.
 
+### Optional: MCP-Beschleunigung via `rechtsinformationen-bund-de-mcp`
+
+Wer den MCP-Server [`wolfgangihloff/rechtsinformationen-bund-de-mcp`](https://github.com/wolfgangihloff/rechtsinformationen-bund-de-mcp) lokal installiert und in `.mcp.json` (Projekt) oder `~/.claude.json` (User) registriert, bekommt strukturierten ELI/ECLI-Zugriff auf das offizielle Bundesportal `rechtsinformationen.bund.de` statt HTML-Scraping. Der `legal-researcher`-Agent erkennt den Server am Tool-Praefix `mcp__rechtsinformationen__*` und nutzt ihn dann bevorzugt; ohne den Server laeuft der WebFetch-Fallback unveraendert weiter. Setup-Anleitung: `templates/mcp/README.md`. Plugin-Root bleibt MCP-frei, damit der Default-Install ohne Node.js/Build-Schritt funktioniert.
+
+KB-Frontmatter unterstuetzt seit dieser Integration die optionalen Felder `eli:` (ELI-URI fuer Gesetze) und `ecli:` (ECLI fuer Urteile). Beide sind nicht verpflichtend, aber bei Verfuegbarkeit stabiler als URLs allein.
+
 ---
 
 ## Codebase-Typ-Erkennung

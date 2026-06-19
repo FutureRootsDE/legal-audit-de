@@ -6,6 +6,35 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ---
 
+## [Unreleased]
+
+### Hintergrund
+
+Optionale Anbindung an den MCP-Server [`wolfgangihloff/rechtsinformationen-bund-de-mcp`](https://github.com/wolfgangihloff/rechtsinformationen-bund-de-mcp), der das offizielle Bundes-Portal [`rechtsinformationen.bund.de`](https://docs.rechtsinformationen.bund.de) ueber das Model Context Protocol erschliesst. Tip vom Community-Feedback nach dem v1.3.x-Release: strukturierter Zugriff mit ELI/ECLI-Identifiern statt HTML-Scraping per WebFetch macht Zitat-Verifikation robuster, insbesondere bei Re-Releases des Portals. Die Integration ist bewusst **opt-in** — der MCP-Server haengt von einem lokalen Node.js-Build des Drittautors ab und nutzt eine API, die selbst noch "testphase" ist; das Default-Setup des Plugins soll ohne diese Abhaengigkeit lauffaehig bleiben.
+
+### Added
+
+- **Opt-in MCP-Integration**: `templates/mcp/` mit `rechtsinformationen.mcp.json.example` (Beispiel-Konfiguration fuer projekt- oder user-scoped `.mcp.json`) und ausfuehrlicher Setup-Doku (`templates/mcp/README.md`) inklusive drei Installationsoptionen (Upstream-Build, npm-Third-Party-Wrapper, Skip), drei Registrierungs-Scopes (Projekt, User, Plugin) und Troubleshooting-Tabelle. **Kein** `.mcp.json` im Plugin-Root, damit Default-Installs ohne Node.js-Setup nicht brechen.
+- **Optionale `eli:` / `ecli:` Frontmatter-Felder** in der KB-Datei-Struktur (dokumentiert in `legal-researcher.md`). Stabile, kanonische Identifier nach den Standards [ELI](http://publications.europa.eu/eli) und [ECLI](https://e-justice.europa.eu/ecli) ueberleben URL-Reshuffles. Bestehende KB-Dateien bleiben unveraendert; Felder sind nicht verpflichtend.
+
+### Changed
+
+- **`legal-researcher.md` und `legal-researcher-pro.md` (beide 1M und Pro-Mode, Claude/Codex/Copilot)**: neuer Abschnitt "Optional: MCP-beschleunigte Verifikation". Der Agent bevorzugt `mcp__rechtsinformationen__*`-Tools, wenn vorhanden, und faellt sonst still auf WebFetch zurueck. Anti-Fallen explizit dokumentiert: historische Gesetzesfassungen, Aenderungsgesetze (TMG→DDG, TTDSG→TDDDG) und leere/fehlgeformte Responses triggern Fallback. Log-Konvention erweitert: `VERIFIED mcp:rechtsinformationen eli:...`.
+- **`post_write.py`-Hook**: Disclaimer-Ausnahme-Liste fuer Meta-Dateien (`README*.md`, `INDEX.md`, `tool-katalog.md`) ergaenzt. Spiegelt das `grep -v`-Filter aus `.github/workflows/validate.yml:disclaimer-check` — vorher haben PostToolUse-Warnungen auf juristisch nicht-substantielle Meta-Dateien geschossen, was bei der neuen `templates/mcp/README.md` aufgefallen waere.
+
+### Architektur-Hinweise
+
+- **Kein Plugin-Root-`.mcp.json`** — wuerde Plugin-Enable bei jedem User triggern, der den Upstream-Server nicht installiert hat. Daher template-only.
+- **Sync-Generatoren unveraendert.** `sync-pro-variants.py --apply` und `sync-platforms.py --apply` haben die MCP-Erweiterung deterministisch in alle sechs Researcher-Varianten propagiert (Claude/Codex/Copilot je 1M + Pro).
+- **Quellen-Hierarchie unveraendert.** MCP-Server ist Tier-1-Werkzeug (Quelle = `rechtsinformationen.bund.de` ist das selbe BMJ-Datenbestand wie `gesetze-im-internet.de`), aber keine eigene Tier-Stufe; bleibt als Verifikations-Beschleuniger eingeordnet.
+
+### Bewusst NICHT enthalten
+
+- **Auto-Install des MCP-Servers** (z.B. via `npx -y` im Plugin-Root-`.mcp.json`). Begruendung: der einzige npm-Wrapper ist von einem Drittautor (`@iflow-mcp/...`), aktuell ca. 23 monatliche Downloads — Supply-Chain-Risiko nicht zumutbar in einem rechts-relevanten Tooling-Stack.
+- **Backfill bestehender KB-Dateien mit ELI/ECLI**. Wird in einem separaten `/legal-update --add-identifiers`-Lauf nachgezogen (eigene Spec, eigener PR), damit dieser PR rein additiv und reviewbar bleibt.
+
+---
+
 ## [1.3.2] — 2026-05-24
 
 ### Hintergrund

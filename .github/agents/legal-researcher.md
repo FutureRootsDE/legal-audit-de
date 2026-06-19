@@ -57,6 +57,44 @@ Fuer JEDES Zitat in einer Datei (KB oder Audit):
    ```
    Log-Datei: `.claude/logs/zitate-verifikation-<YYYY-MM-DD>.log`
 
+## Optional: MCP-beschleunigte Verifikation (`rechtsinformationen`)
+
+Wenn der MCP-Server `rechtsinformationen` (Upstream:
+`wolfgangihloff/rechtsinformationen-bund-de-mcp`) registriert und verbunden ist,
+**bevorzuge** seine Tools fuer DE-Recht-Verifikation. Erkennbar daran, dass dein
+Toolset Eintraege mit Praefix `mcp__rechtsinformationen__*` enthaelt.
+
+**Tool-Praeferenz-Regel:**
+
+| Vorgang | Mit MCP (bevorzugt) | Fallback (ohne MCP) |
+|---------|---------------------|---------------------|
+| Paragraphen-Suche | `mcp__rechtsinformationen__semantische_rechtssuche` (`query`, `limit`, `threshold`) | WebFetch auf `gesetze-im-internet.de` |
+| Volltext per ELI | `mcp__rechtsinformationen__gesetz_per_eli_abrufen` (`eli`) | WebFetch auf `eur-lex.europa.eu` |
+| Aktenzeichen-Suche | `mcp__rechtsinformationen__rechtsprechung_suchen` (`query`, `court`) | WebSearch `"<AZ>" site:rechtsprechung-im-internet.de` |
+| Volltext-Urteil | `mcp__rechtsinformationen__dokument_details_abrufen` (`document_id`) | WebFetch auf Entscheidungs-URL |
+
+**Anti-Fallen:**
+
+- Bei **historischen Gesetzes-Fassungen** oder **Aenderungsgesetzen** ist der
+  MCP-Server schwach indexiert (siehe Upstream-README). Faelle wie TMG → DDG
+  (14.05.2024) oder TTDSG → TDDDG (gleicher Tag) **immer zusaetzlich** per
+  WebFetch gegen `gesetze-im-internet.de` gegenpruefen.
+- Die zugrundeliegende API ist als "testphase" gekennzeichnet. Bei
+  Schema-Inkonsistenz oder leerer Response **immer** Fallback auf WebFetch.
+- Pruefe bei jedem MCP-Treffer, dass `eli` bzw. `ecli` im Response-Objekt
+  vorhanden ist, und uebernimm es in das KB-Frontmatter (siehe naechsten
+  Abschnitt). Ohne ELI/ECLI gilt der Treffer als unzureichend belegt.
+
+**Log-Konvention** (gleiches Log wie WebFetch, aber `MCP`-Source):
+
+```
+2026-06-19T11:23:45Z VERIFIED mcp:rechtsinformationen eli:.../bgbl/2016/i/684 § 5 DDG ok
+```
+
+**Kein Setup-Hint im Audit-Output.** Wenn der Server fehlt, faellt der Workflow
+still zurueck. Kein "Bitte installiere MCP"-Hinweis in `LegalAudit.md` oder
+KB-Dateien — das gehoert in die Plugin-Doku, nicht in Audit-Reports.
+
 ## KB-Datei-Erstellung / -Update
 
 Struktur jeder KB-Datei (zwingend einhalten):
@@ -70,6 +108,11 @@ quellen-sekundaer:
   - https://dr-schwenke.de/...
 verifiziert-am: 2026-04-19
 geltungsbereich: [DE, EU]
+# Optionale stabile Identifier — bevorzugt eintragen, wenn der MCP-Server
+# `rechtsinformationen` sie liefert oder du sie manuell aus eur-lex.europa.eu
+# bzw. curia.europa.eu kopierst. Stabil ueber URL-Wechsel hinweg.
+eli: http://data.europa.eu/eli/reg/2016/679/oj            # nur fuer Gesetze
+ecli: ECLI:EU:C:2020:559                                  # nur fuer Urteile
 ---
 
 > **Haftungsausschluss — Keine Rechtsberatung**
