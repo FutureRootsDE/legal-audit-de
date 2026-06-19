@@ -64,6 +64,10 @@ Marker liegt im offiziellen Plugin-Data-Verzeichnis (`${CLAUDE_PLUGIN_DATA}`) un
 - **Behörden**: DSK, EDSA, BfDI, Landesbeauftragte
 - **Checklisten** für SaaS, Landingpage, E-Commerce, n8n, Content/Blog, Pre-Launch
 
+### 🔌 Optionale MCP-Beschleunigung
+
+Wer den MCP-Server [`rechtsinformationen-bund-de-mcp`](https://github.com/wolfgangihloff/rechtsinformationen-bund-de-mcp) lokal registriert, bekommt strukturierten Zugriff auf das offizielle Bundesportal `rechtsinformationen.bund.de` mit ELI- und ECLI-Identifiern. Der `legal-researcher` erkennt den Server automatisch und nutzt ihn statt HTML-Scraping; ohne den Server läuft das Plugin unverändert weiter. Setup: [`templates/mcp/README.md`](templates/mcp/README.md).
+
 ### ⚡ Hook-basiertes Context-Management
 
 Der Clou: die 63 KB-Dateien werden **nicht** komplett in jede Session geladen. Stattdessen:

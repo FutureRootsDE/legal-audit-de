@@ -1,0 +1,9 @@
+{
+  "_comment": "Beispiel-Konfiguration fuer den optionalen MCP-Server rechtsinformationen-bund-de-mcp. Siehe templates/mcp/README.md fuer Installation und Setup. JSON erlaubt keine echten Kommentare; loesche das _comment-Feld vor der Verwendung.",
+  "mcpServers": {
+    "rechtsinformationen": {
+      "command": "node",
+      "args": ["/ABSOLUTER/PFAD/zu/rechtsinformationen-bund-de-mcp/dist/index.js"]
+    }
+  }
+}

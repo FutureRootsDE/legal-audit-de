@@ -23,6 +23,15 @@ RELEVANT_PATH_PATTERNS = [
     re.compile(r"audits[\\/].+\.md$"),
 ]
 
+# Meta-Dateien (READMEs, INDEX, Tool-Kataloge) sind keine juristisch
+# substantiellen KB-Inhalte. Spiegelt die Ausschluss-Liste aus
+# .github/workflows/validate.yml (disclaimer-check Job).
+DISCLAIMER_EXEMPT_PATTERNS = [
+    re.compile(r"(?:^|/)README(?:\.[^./]+)?\.md$", re.IGNORECASE),
+    re.compile(r"(?:^|/)INDEX\.md$", re.IGNORECASE),
+    re.compile(r"tool-katalog\.md$", re.IGNORECASE),
+]
+
 DISCLAIMER_HEAD = re.compile(r"Haftungsausschluss", re.IGNORECASE)
 DISCLAIMER_BODY = re.compile(r"Keine\s+Rechtsberatung", re.IGNORECASE)
 
@@ -44,6 +53,8 @@ def main() -> int:
 
     normalized = file_path.replace("\\", "/")
     if not any(p.search(normalized) for p in RELEVANT_PATH_PATTERNS):
+        return 0
+    if any(p.search(normalized) for p in DISCLAIMER_EXEMPT_PATTERNS):
         return 0
 
     try:

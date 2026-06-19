@@ -75,6 +75,10 @@ survives plugin updates.
 - **Authorities**: DSK, EDPB, BfDI, state data protection officers
 - **Checklists** for SaaS, landing pages, e-commerce, n8n, content/blog, pre-launch
 
+### 🔌 Optional MCP acceleration
+
+If you register the [`rechtsinformationen-bund-de-mcp`](https://github.com/wolfgangihloff/rechtsinformationen-bund-de-mcp) server locally, the `legal-researcher` agent automatically uses structured ELI and ECLI access to the official German federal portal `rechtsinformationen.bund.de` instead of HTML scraping. The plugin works the same without it. Setup: [`templates/mcp/README.md`](templates/mcp/README.md).
+
 ### ⚡ Hook-based context management
 
 The key: the 63 KB files are **not** loaded into every session. Instead:
