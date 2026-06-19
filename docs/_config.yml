@@ -1,0 +1,45 @@
+title: legal-audit-de
+description: Multi-Plattform-Toolkit fuer DSGVO/TDDDG/UWG/AI-Act-Audits — Claude Code, Codex CLI, Copilot CLI
+remote_theme: just-the-docs/just-the-docs
+color_scheme: dark
+
+permalink: pretty
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+aux_links:
+  "GitHub":
+    - "https://github.com/FutureRootsDE/legal-audit-de"
+  "Changelog":
+    - "https://github.com/FutureRootsDE/legal-audit-de/blob/main/CHANGELOG.md"
+
+heading_anchors: true
+search_enabled: true
+search:
+  heading_level: 3
+  previews: 2
+  preview_words_before: 4
+  preview_words_after: 4
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+callouts:
+  warning:
+    title: Warnung
+    color: red
+  note:
+    title: Hinweis
+    color: blue
+  tipp:
+    title: Tipp
+    color: green
+
+footer_content: >-
+  legal-audit-de ist Open Source unter MIT. Es erzeugt keine Rechtsberatung
+  im Sinne des Paragraph 2 RDG. Anwaltliche Pruefung vor produktivem Einsatz
+  ist zwingend.

@@ -11,7 +11,7 @@
 [![Codex CLI](https://img.shields.io/badge/Codex%20CLI-supported-black)](#codex-cli)
 [![Copilot CLI](https://img.shields.io/badge/GitHub%20Copilot%20CLI-supported-181717)](#github-copilot-cli)
 
-🇩🇪 [Deutsche Version](README.md)
+🇩🇪 [Deutsche Version](README.md) · 📖 [Docs site](https://futurerootsde.github.io/legal-audit-de/)
 
 ---
 
