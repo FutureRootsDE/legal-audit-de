@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 gilt-fuer: SaaS-Anwendungen (Next.js/React, Node/Python-Backend, PostgreSQL, Cloud-Hosting)
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,7 +11,7 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Eine Pruefung durch einen
 > zugelassenen Rechtsanwalt ist zwingend, bevor ein SaaS-Produkt live geht.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Audit-Checkliste: SaaS-Anwendung (Next.js/React)
 
@@ -233,10 +233,10 @@ Bei Mandatierung folgendes liefern lassen:
 6. **Architektur-Skizze** (Provider, Dataflows, Drittland-Marker)
 7. **DSFA-Entwurf** falls KI-Kernkomponente
 
-Budget-Range (oeffentlich kommunizierte Marktpreise, <<UNVERIFIZIERT>> fuer konkreten Fall):
-- Review eines fertigen Pakets: 500-1.500 EUR
-- Vollstaendige Erstellung: 1.500-5.000 EUR
-- Laufende DSB-Funktion extern: 150-500 EUR/Monat abhaengig vom Umfang
+Budget-Range (grobe, oeffentlich kommunizierte Marktspannen; Tier-3-Marktinfo, keine belastbare Kanzlei-Preisstatistik; unverbindliche ca.-Angaben, immer individuell einholen):
+- Review eines fertigen Pakets: ca. 500-1.500 EUR
+- Vollstaendige Erstellung: ca. 1.500-5.000 EUR
+- Laufende DSB-Funktion extern: ca. 150-500 EUR/Monat abhaengig vom Umfang
 
 Siehe [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-saas-spezialisiert]].
 

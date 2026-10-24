@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-10-24
 quelle-primaer: https://www.gesetze-im-internet.de/kunsturhg/BJNR000070907.html
 quellen-sekundaer:
   - https://www.rechtsprechung-im-internet.de/
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
-verifiziert-am: 2026-05-08
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=LG+Frankfurt/Main&Datum=26.09.2019&Aktenzeichen=2-03+O+402/18
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-07-08
 
 # Fotos Dritter — Recht am eigenen Bild (KUG) und DSGVO
 
@@ -140,11 +141,30 @@ weil Art. 85 DSGVO als Oeffnungsklausel eine nationale Regelung ermoeglicht
 — jedenfalls fuer journalistische Bildberichterstattung. Hinweis: Das KUG
 regelt nur Verbreitung/Schaustellung, nicht das Erstellen der Fotos.
 
-### LG Frankfurt a.M., 2-03 O 234/20 `<<VERIFIKATION AUSSTEHEND>>`
+### LG Frankfurt a.M., 2-03 O 402/18, 26.09.2019 (Xing-Profilbild per E-Mail)
 
-Aktenzeichen und Datum final zu verifizieren. Tendenz der Rechtsprechung:
-Foto ohne Einwilligung -> Unterlassungsanspruch + Schadensersatz (§ 823 BGB
+Der urspruenglich hier gelistete Verweis "2-03 O 234/20" liess sich gegen
+Tier-1-Quellen nicht verifizieren und wurde im Update 2026-07-08 durch das
+tatsaechlich einschlaegige, breit rezipierte LG-Frankfurt-Urteil ersetzt.
+
+Sachverhalt: Der Beklagte hatte das Xing-Profilbild des Klaegers per E-Mail
+an einen Dritten weitergeleitet, um die Identitaet zu verifizieren.
+
+Kernaussage:
+- Das Versenden eines Bildnisses per E-Mail ist ein Verbreiten i.S.d. §§ 22,
+  23 KUG (auch bei nicht-koerperlicher Weitergabe in digitaler Form).
+- Die Regelungen des KUG gelten ueber Art. 85 Abs. 2 DSGVO als nationale
+  Sonderregelungen zum Datenschutz weiter.
+- Das Einstellen eines Profilbilds bei Xing ist keine Einwilligung fuer
+  jede beliebige weitere Nutzung.
+
+Foto ohne Einwilligung → Unterlassungsanspruch + Schadensersatz (§ 823 BGB
 i.V.m. § 22 KUG; Art. 82 DSGVO).
+
+Quelle: dejure.org, rechtambild.de, beckmannundnorda.de. Hinweis 2026-10-24:
+Die dejure-Verlinkung war bei der Stichprobe nicht abrufbar (kein Treffer unter
+LG Frankfurt/Main); Aktenzeichen und Datum vor Verwendung in einem Audit gegen
+den Volltext (z. B. Landesrecht Hessen) pruefen.
 
 ### BAG, 8 AZR 1011/13, 19.02.2015
 

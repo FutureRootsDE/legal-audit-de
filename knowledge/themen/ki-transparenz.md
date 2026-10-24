@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-10-24
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 quellen-sekundaer:
   - https://artificialintelligenceact.eu/article/50/
   - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50
   - https://www.srd-rechtsanwaelte.de/blog/kennzeichnungspflicht-code-of-practice-zur-transparenz-von-ki-generierten-inhalten
-verifiziert-am: 2026-05-08
+  - https://www.gesetze-im-internet.de/ki-mig/
+verifiziert-am: 2026-10-24
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-10-24
 >
 > **Zeitkritischer Hinweis (Mai 2026):** Art. 50 AI Act greift ab 02.08.2026
 > — also in **< 3 Monaten**. Anbieter und Betreiber muessen JETZT die
@@ -142,7 +143,7 @@ Fuer **KI-generierten Text im CMS**:
 
 - **EU AI Office**: Federfuehrend fuer Leitlinien und Code of Practice
 - **AI Act Service Desk**: https://ai-act-service-desk.ec.europa.eu/
-- **Bundesnetzagentur**: In DE als Marktueberwachungsbehoerde vorgesehen (detailliert in KI-Marktueberwachungsgesetz, Stand pruefen `<<VERIFIKATION AUSSTEHEND>>`)
+- **Bundesnetzagentur**: In DE zustaendige Marktueberwachungsbehoerde nach dem **KI-Marktueberwachungs- und Innovationsfoerderungsgesetz (KI-MIG)** vom 22.07.2026 (BGBl. 2026 I Nr. 223, in Kraft seit 29.07.2026), soweit keine Sonderzustaendigkeit greift (z. B. BaFin, Landesbehoerden fuer Medien und oeffentliche Stellen der Laender). Bei der BNetzA bestehen eine unabhaengige KI-Marktueberwachungskammer und ein Koordinierungs- und Kompetenzzentrum (siehe [[../gesetze/ai-act]] fuer Details). Primaerquelle: https://www.gesetze-im-internet.de/ki-mig/
 
 ## Zitierbare Urteile
 

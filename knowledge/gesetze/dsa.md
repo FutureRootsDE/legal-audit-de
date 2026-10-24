@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-10-24
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
 quellen-sekundaer:
   - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/start.html
   - https://gesetz-digitale-dienste.de/
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/Telemedien/DDG/Digitale_Dienste_Gesetz.html
-verifiziert-am: 2026-05-08
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=OLG+N%C3%BCrnberg&Datum=23.07.2024&Aktenzeichen=3+U+2469/23
+verifiziert-am: 2026-10-24
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-10-24
 
 # Digital Services Act (DSA) — VO (EU) 2022/2065
 
@@ -99,11 +100,11 @@ Der Anbieter muss:
 
 ## Zitierbare Urteile
 
-Noch sehr begrenzt — DSA ist erst seit Februar 2024 voll anwendbar. Bisher vor allem:
-- Verfahren der EU-Kommission gegen VLOPs (X, TikTok, Meta, AliExpress) — keine Endurteile, sondern Untersuchungsverfahren
-- Keine relevante deutsche Rechtsprechung zu Art. 14/16 DSA als Endurteil identifiziert
+Noch begrenzt — DSA ist erst seit Februar 2024 voll anwendbar. Bisher vor allem:
+- Verfahren der EU-Kommission gegen VLOPs (X, TikTok, Meta, AliExpress) — keine Endurteile, sondern Untersuchungsverfahren.
+- **OLG Nuernberg, Urt. v. 23.07.2024 — 3 U 2469/23**: Plattformbetreiber (hier YouTube) haften auch nach dem Haftungsprivileg des Art. 6 Abs. 1 DSA nur bei unschwer erkennbaren Persoenlichkeitsrechtsverletzungen auf Unterlassung, und erst nach einer **ausreichend konkreten Meldung** des Rechtsverstosses. Relevant fuer die Ausgestaltung des Melde- und Abhilfeverfahrens nach Art. 16 DSA (Leitsatzangaben ueber dejure.org).
 
-`<<VERIFIKATION AUSSTEHEND>>` — konkrete deutsche Urteile zu DSA-Pflichten sollten bei naechstem Update geprueft werden.
+`<<VERIFIKATION AUSSTEHEND>>` (Stand 2026-10-24) — BGH-Endurteile speziell zu Art. 14/16 DSA sowie zu Art. 26 (Werbetransparenz) sowie gerichtliche Entscheidungen zu DDG-Bussgeldern sind weiterhin zu beobachten. Naechste Pruefung: 2027-01.
 
 ## Siehe auch
 

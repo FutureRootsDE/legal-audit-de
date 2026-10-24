@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-10-24
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/
 quellen-sekundaer:
   - https://unsplash.com/license
@@ -8,7 +8,7 @@ quellen-sekundaer:
   - https://www.it-recht-kanzlei.de/Kommentar/16356/Verwendung_der_Bilder_bei_unsplash.php
   - https://www.e-recht24.de/urheberrecht/13169-rechtliches-zu-online-bilddatenbanken.html
   - https://krassevideos.de/blog/2025/04/08/abmahnwelle-2025-vorsicht-bei-bildern-aus-ai-pexels-unsplash-co/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE]
 ---
 
@@ -19,7 +19,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-10-24
 
 # Stock-Foto-Lizenzierung — Unsplash, Pexels, Pixabay, Shutterstock, Adobe Stock, Creative Commons
 
@@ -165,7 +165,7 @@ Empfohlene Hierarchie nach Rechtssicherheit:
 ### Speziell zu Gratis-Plattformen
 
 - **LG Koeln, Urt. v. 20.04.2023 — 14 O 41/22** — Unsplash-CC0-Lizenz erloschen, neuer Vertragsrahmen nach Policy-Change
-- `<<VERIFIKATION AUSSTEHEND>>` — Aktuelles Urteil zu "falsch hochgeladenen" Pexels-Bildern / gutglaeubiger Nutzer-Schutz
+- `<<VERIFIKATION AUSSTEHEND>>` (Stand 2026-10-24) — bisher kein hoechst- oder obergerichtliches Endurteil gezielt zum "gutglaeubigen Nutzer-Schutz bei falsch hochgeladenen Pexels/Pixabay-Bildern" identifiziert; Einzelfallentscheidungen auf LG-Ebene. Belastbarer Grundsatz bleibt: Das UrhG kennt **keinen gutglaeubigen Erwerb von Nutzungsrechten** (h.M.). Wer ein Bild uebernimmt, das ein Nichtberechtigter hochgeladen hat, haftet daher auch bei Gutglaeubigkeit auf Unterlassung und ggf. Schadensersatz nach Lizenzanalogie. Zum KI-Training siehe das beim BGH anhaengige Revisionsverfahren I ZR 281/25 (LAION, [[../gesetze/urhg]]). Naechste Pruefung: 2027-01.
 
 ### Neuere Entwicklungen
 

@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-10-24
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__44b.html
   - https://www.gesetze-im-internet.de/urhg/__60d.html
   - https://www.lto.de/recht/hintergruende/h/kuenstliche-intelligenz-ki-urheberrecht-text-data-mining-lg-hamburg-310o22723
-verifiziert-am: 2026-05-08
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=OLG+Hamburg&Datum=10.12.2025&Aktenzeichen=5+U+104/24
+verifiziert-am: 2026-10-24
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-10-24
 
 # Urheberrechtsgesetz (UrhG) — Schwerpunkt KI-Training / § 44b
 
@@ -116,7 +117,11 @@ Das **LG Hamburg (LAION-Urteil)** hat § 60d auf die LAION-Datensatzerstellung a
 
 **Bedeutung**: Erstes wegweisendes deutsches Urteil zur Zulaessigkeit von KI-Trainingsdatensaetzen. Beschraenkt aber auf Forschungskontext (§ 60d). Kommerzielles KI-Training bleibt an § 44b Abs. 3 Opt-Out gebunden.
 
-**Berufungsinstanz**: Verfahren ging zur Berufung zum OLG Hamburg. `<<VERIFIKATION AUSSTEHEND>>` — Stand des OLG-Urteils pruefen.
+**Berufungsinstanz — OLG Hamburg, Urt. v. 10.12.2025 — 5 U 104/24** (GRUR 2026, 398): Die Berufung des Klaegers wurde zurueckgewiesen, das erstinstanzliche Urteil im Ergebnis bestaetigt. Das Herunterladen rechtmaessig zugaenglicher Bilder zur Erstellung des LAION-5B-Datensatzes ist Text und Data Mining; LAION e.V. ist als nicht kommerziell taetige Forschungsorganisation nach § 60d UrhG privilegiert, auch wenn eine spaetere Nachnutzung durch kommerzielle Akteure moeglich ist. Da § 60d UrhG keinen Nutzungsvorbehalt kennt (anders als § 44b Abs. 3 UrhG), kam es auf die Wirksamkeit des Vorbehalts in den Nutzungsbedingungen der Bildplattform im Ergebnis nicht an; ob ein in natuerlicher Sprache formulierter Vorbehalt "maschinenlesbar" i.S.v. § 44b Abs. 3 S. 2 UrhG sein kann, bleibt damit offen.
+
+**Revision — BGH, anhaengig: I ZR 281/25** (Stand 2026-10-24 kein Endurteil).
+
+Quelle: dejure.org (Verfahrensgang mit GRUR-Fundstelle und BGH-Az.), Normtext § 44b und § 60d UrhG (gesetze-im-internet.de).
 
 ### BGH und EuGH zum Lichtbildschutz und Werkbegriff
 
