@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__44b.html
   - https://www.gesetze-im-internet.de/urhg/__60d.html
   - https://www.lto.de/recht/hintergruende/h/kuenstliche-intelligenz-ki-urheberrecht-text-data-mining-lg-hamburg-310o22723
-verifiziert-am: 2026-05-08
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=OLG+Hamburg&Datum=10.12.2025&Aktenzeichen=5+U+104/24
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Urheberrechtsgesetz (UrhG) — Schwerpunkt KI-Training / § 44b
 
@@ -116,7 +117,9 @@ Das **LG Hamburg (LAION-Urteil)** hat § 60d auf die LAION-Datensatzerstellung a
 
 **Bedeutung**: Erstes wegweisendes deutsches Urteil zur Zulaessigkeit von KI-Trainingsdatensaetzen. Beschraenkt aber auf Forschungskontext (§ 60d). Kommerzielles KI-Training bleibt an § 44b Abs. 3 Opt-Out gebunden.
 
-**Berufungsinstanz**: Verfahren ging zur Berufung zum OLG Hamburg. `<<VERIFIKATION AUSSTEHEND>>` — Stand des OLG-Urteils pruefen.
+**Berufungsinstanz**: OLG Hamburg, Urt. v. 10.12.2025 — Az. 5 U 104/24. Die Berufung des Fotografen Kneschke wurde zurueckgewiesen; die erstinstanzliche Entscheidung des LG Hamburg wurde im Ergebnis bestaetigt. Der Senat qualifizierte die Datensatz-Erstellung als wissenschaftliche Forschung nach § 60d UrhG, auch wenn spaetere Nachnutzung durch kommerzielle Akteure moeglich ist. Der Nutzungsvorbehalt der Stock-Foto-Agentur war unwirksam, weil er nicht maschinenlesbar formuliert war (§ 44b Abs. 3 UrhG i.V.m. Art. 4 Abs. 3 DSM-RL). Der Senat hat die **Revision zum BGH** wegen grundsaetzlicher Bedeutung zugelassen; Kneschke hat die Revision eingelegt (BGH-Az. noch nicht bekannt).
+
+Quelle: dejure.org, dlapiper.com JDSupra, bildkunst.de.
 
 ### BGH und EuGH zum Lichtbildschutz und Werkbegriff
 

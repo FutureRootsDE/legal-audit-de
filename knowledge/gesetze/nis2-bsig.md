@@ -1,12 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://www.bundesregierung.de/breg-de/aktuelles/nis-2-richtlinie-deutschland-2373174
 quellen-sekundaer:
   - https://www.bundestag.de/dokumente/textarchiv/2025/kw46-de-nis-2-1123138
   - https://www.openkritis.de/it-sicherheitsgesetz/nis2-umsetzung-gesetz-cybersicherheit.html
   - https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Regulierte-Wirtschaft/NIS-2/nis-2_node.html
   - https://eur-lex.europa.eu/eli/dir/2022/2555/oj
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # BSIG / NIS-2-Umsetzungsgesetz (NIS2UmsuCG)
 
@@ -129,7 +129,7 @@ Indirekt relevant aus NIS-1-Ära / IT-Sicherheitsgesetz:
 - **VG Koeln, Urt. v. 11.10.2019 — 1 L 861/19** (zu KRITIS-Einstufungsbescheiden)
 - **BGH, Urt. v. 16.03.2021 — VI ZR 260/20** (Haftungsmassstab bei Datenpannen, DSGVO-nahe Anwendung)
 
-`<<VERIFIKATION AUSSTEHEND>>` — erste BSI-Bussgeldbescheide unter NIS2UmsuCG sind fuer 2026 zu erwarten; beim naechsten Update pruefen.
+**Stand 2026-07-08**: Das NIS2UmsuCG ist am 06.12.2025 im Bundesgesetzblatt verkuendet worden und seither in Kraft (keine Uebergangsfrist). Registrierungsfrist beim BSI lief bis 06.03.2026; ab 07.03.2026 sind BSI-Zwangsgeldverfahren gegen nicht registrierte Betreiber moeglich. Als Ende Maerz 2026 waren gemaess BSI-Angaben erst rund 38,5 % der betroffenen Anlagen registriert. `<<VERIFIKATION AUSSTEHEND>>` — konkrete BSI-Bussgeldbescheide unter § 65 BSIG (bis 10 Mio. EUR / 2 % Weltjahresumsatz) waren bis 2026-07-08 nicht oeffentlich dokumentiert; naechste Pruefung: 2026-10.
 
 ## Siehe auch
 

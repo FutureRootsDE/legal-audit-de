@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-07-08
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/__51.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__51a.html
@@ -7,7 +7,7 @@ quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0476
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0516
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0469
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -18,7 +18,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Zitatrecht — § 51 UrhG, Pastiche, Quellenangabe
 
@@ -145,12 +145,18 @@ zulaessiges Zitat** nach § 51 UrhG.
 
 ## Zitierbare Urteile
 
-### BGH I ZR 241/95 (Kleinzitat), 20.12.2007 `<<VERIFIKATION AUSSTEHEND>>`
+### BGH I ZR 6/71 "Handbuch moderner Zitate", 22.09.1972
 
-Exaktes Datum/Aktenzeichen final zu verifizieren — Angaben variieren je nach
-Quelle. Ueberlieferte Kernaussage: Kleinzitat nur zulaessig, wenn das zitierte
-Werk in einem inneren Zusammenhang mit der eigenen Darstellung steht (**Beleg-
-oder Erlaeuterungsfunktion**).
+Klassisches BGH-Grundsatzurteil zur Abgrenzung Kleinzitat/Grosszitat und zum
+Zitatzweck. Der BGH stellte fest: Ein Kleinzitat i.S.v. § 51 Nr. 2 UrhG ist
+nur zulaessig, wenn das zitierte Werk in einem inneren Zusammenhang mit der
+eigenen Darstellung steht (**Beleg- oder Erlaeuterungsfunktion**). Reine
+Aneinanderreihung ohne Auseinandersetzung ist keine zulaessige Zitierung.
+
+Quelle: dejure.org — BGH, 22.09.1972 – I ZR 6/71 (Verweiskette). Der frueher
+in dieser KB genannte Verweis "I ZR 241/95, 20.12.2007" war fehlerhaft
+(I ZR 241/95 ist die Rolex-Uhr-mit-Diamanten-Entscheidung vom 12.02.1998,
+kein Zitatrechtsfall) und wurde im Update 2026-07-08 entfernt.
 
 ### BGH I ZR 102/10 (Elektronischer Pressespiegel), 16.01.2014
 

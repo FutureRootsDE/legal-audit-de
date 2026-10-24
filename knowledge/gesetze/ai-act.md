@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 quellen-sekundaer:
   - https://artificialintelligenceact.eu/implementation-timeline/
   - https://ai-act-service-desk.ec.europa.eu/
   - https://artificialintelligenceact.eu/article/50/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # KI-Verordnung (EU AI Act) — VO (EU) 2024/1689
 
@@ -126,7 +126,7 @@ Anbieter von Foundation Models (Claude, GPT, Gemini, Llama etc.) muessen:
 ## Behoerden-Hinweise
 
 - **EU AI Office** (unter DG CNECT): Zentrale EU-Koordination, insbesondere fuer GPAI
-- **Deutschland**: Bundesnetzagentur als Marktueberwachungsbehoerde (KI-Marktueberwachungsgesetz in Beratung / teilweise verabschiedet — `<<VERIFIKATION AUSSTEHEND>>` zum exakten Stand des deutschen Durchfuehrungsgesetzes im April 2026)
+- **Deutschland**: Der Bundestag hat das **KI-Marktueberwachungsgesetz (KI-Durchfuehrungsgesetz)** am 11.06.2026 in 2. und 3. Lesung beschlossen (Bundestag-Textarchiv kw24). Die **Bundesnetzagentur** wird zentrale Marktueberwachungsbehoerde fuer KI-Systeme, sofern nicht spezifische Fachaufsichten (BaFin, BfArM, KBA etc.) zustaendig sind. Bei der BNetzA werden eine Koordinierungs- und Kompetenzstelle sowie eine unabhaengige KI-Marktueberwachungskammer eingerichtet. Die Vollstaendige Verkuendung im BGBl. war zum 2026-07-08 noch offen; Inkrafttreten fuer 2026 erwartet.
 - **AI Act Service Desk**: https://ai-act-service-desk.ec.europa.eu/ — offizielle EU-Infostelle
 - **Offizielle Leitlinien**: Kommission veroeffentlicht laufend Guidelines (z. B. zu verbotenen Praktiken Februar 2025, zu GPAI Juli 2025)
 

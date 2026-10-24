@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 quellen-sekundaer:
   - https://artificialintelligenceact.eu/article/50/
   - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50
   - https://www.srd-rechtsanwaelte.de/blog/kennzeichnungspflicht-code-of-practice-zur-transparenz-von-ki-generierten-inhalten
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 >
 > **Zeitkritischer Hinweis (Mai 2026):** Art. 50 AI Act greift ab 02.08.2026
 > — also in **< 3 Monaten**. Anbieter und Betreiber muessen JETZT die
@@ -142,7 +142,7 @@ Fuer **KI-generierten Text im CMS**:
 
 - **EU AI Office**: Federfuehrend fuer Leitlinien und Code of Practice
 - **AI Act Service Desk**: https://ai-act-service-desk.ec.europa.eu/
-- **Bundesnetzagentur**: In DE als Marktueberwachungsbehoerde vorgesehen (detailliert in KI-Marktueberwachungsgesetz, Stand pruefen `<<VERIFIKATION AUSSTEHEND>>`)
+- **Bundesnetzagentur**: In DE als Marktueberwachungsbehoerde vorgesehen. Der Bundestag hat das **KI-Marktueberwachungsgesetz (KI-Durchfuehrungsgesetz)** am 11.06.2026 in 2./3. Lesung beschlossen; BNetzA wird zentrale Aufsicht mit Koordinierungs- und Kompetenzstelle sowie unabhaengiger Marktueberwachungskammer (siehe [[../gesetze/ai-act]] fuer Details). BGBl.-Verkuendung war zum 2026-07-08 noch offen.
 
 ## Zitierbare Urteile
 

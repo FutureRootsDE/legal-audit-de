@@ -1,12 +1,13 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__5.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
   - https://www.rechtsprechung-im-internet.de/
   - https://www.bundesgerichtshof.de/
   - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3083
-verifiziert-am: 2026-05-08
+  - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3191
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE]
 ---
 
@@ -17,7 +18,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Siegel- und Testergebnis-Werbung (TUEV, Trusted Shops, Stiftung Warentest)
 
@@ -157,20 +158,46 @@ loesen die volle Fundstellen-Pflicht aus.
 Kernsatz: Bei Werbung mit einem Testsiegel muss die Fundstelle des Tests leicht
 auffindbar sein; auf einer Web-Darstellung reicht kein versteckter Link.
 
-### OLG Frankfurt 6 U 169/23 (Stiftung-Warentest-Siegel) `<<VERIFIKATION AUSSTEHEND>>`
+### OLG Frankfurt 6 U 12/22 "Ausgezeichnete Matratze", 09.06.2022
 
-Aktenzeichen + Datum final zu verifizieren. Ueberlieferte Tendenz:
-Bei Stiftung-Warentest-Siegel-Werbung ohne Ausgabe und Fundstelle liegt
-Irrefuehrung vor.
+Der urspruenglich hier gelistete Verweis "OLG Frankfurt 6 U 169/23" liess sich
+gegen Tier-1-Quellen nicht verifizieren und wurde im Update 2026-07-08 durch
+die tatsaechlich einschlaegige OLG-Frankfurt-Stiftung-Warentest-Entscheidung
+ersetzt.
+
+Sachverhalt: Der Beklagte hatte auf ein Stiftung-Warentest-Siegel (Note 2,2,
+"Emma Dynamic"-Matratze) einen selbst hinzugefuegten golden gerahmten Aufsatz
+"AUSGEZEICHNET" mit Benotungscharakter platziert.
+
+Kernaussage: Die Verwendung eines eigenen Zusatzsiegels mit Benotungscharakter
+ueber dem originalen Stiftung-Warentest-Siegel ist irrefuehrende Blickfangwerbung
+(§ 5 UWG), weil ein nicht unerheblicher Teil der Verbraucher annehmen kann, die
+Stiftung Warentest habe dem Produkt eine zusaetzliche Auszeichnung verliehen.
+
+Quelle: medien-internet-und-recht.de, dejure.org.
 
 ### BGH I ZR 183/15 (Warnhinweis Nahrungsergaenzung), 11.05.2017
 
 Fuer Transparenz bei Werbeaussagen, auf die sich Siegel-Werbung mit-stuetzt.
 
-### BGH I ZR 13/18 (Zertifikat unterlassen), 26.03.2020 `<<VERIFIKATION AUSSTEHEND>>`
+### BGH I ZR 26/15 "LGA tested" (Pruefzeichen-Werbung), 21.07.2016
 
-Urteil-Details final zu verifizieren. Thema: abgelaufene Zertifikate weiter-
-gefuehrt.
+Der urspruenglich hier gelistete Verweis "BGH I ZR 13/18, 26.03.2020" liess
+sich gegen Tier-1-Quellen nicht verifizieren und wurde im Update 2026-07-08
+durch das tatsaechlich einschlaegige BGH-Grundsatzurteil zur Pruefzeichen-
+Werbung ersetzt.
+
+Sachverhalt: Ein Haendler bewarb ein Enthaarungsgeraet mit den Pruefzeichen
+"LGA tested Quality" und "LGA tested safety" ohne Fundstelle oder Verweis
+auf Pruefkriterien.
+
+Kernaussage: An die Werbung mit einem Pruefzeichen sind die gleichen
+Transparenzanforderungen zu stellen wie an die Werbung mit einem Testergebnis
+— Verbraucher muessen zumindest ueber eine Internetadresse Zugang zu den
+wesentlichen Inhalten der Pruefbedingungen erhalten. Fehlt dies, ist die
+Werbung nach § 5a Abs. 1 UWG irrefuehrend durch Unterlassen.
+
+Quelle: dejure.org, wettbewerbszentrale.de.
 
 ## Praxis-Check (Was Code-Reviewer konkret pruefen)
 

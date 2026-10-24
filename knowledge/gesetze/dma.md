@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32022R1925
 quellen-sekundaer:
   - https://digital-markets-act.ec.europa.eu/gatekeepers-portal_en
   - https://epthinktank.eu/2025/04/24/digital-markets-act-enforcement-state-of-play/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Digital Markets Act (DMA) — VO (EU) 2022/1925
 
@@ -98,7 +98,9 @@ Typische SaaS- und E-Commerce-Codebases sind **nicht direkt DMA-verpflichtet**. 
 ## Zitierbare Urteile
 
 - **EU-Kommission, Non-Compliance Decisions (23.04.2024 / 2025)**: Erste Nichtbefolgungsverfahren gegen Apple (Anti-Steering App Store) und Meta (Pay-or-Consent-Modell)
-- `<<VERIFIKATION AUSSTEHEND>>` — Endurteile EuGH zu DMA-Benennungen sind in Arbeit (Klagen von ByteDance, Meta, Apple gegen Benennungen/Durchfuehrungsbeschluesse)
+- **EuG, T-1080/23** (Apple / App Store, iOS): Klage abgewiesen, 08.07.2026 — Apples Anfechtung der Gatekeeper-Benennung wurde zurueckgewiesen; App Store und iOS bleiben zentrale Plattformdienste i.S.v. Art. 3 DMA. Rechtsmittel zum EuGH nur auf Rechtsfragen moeglich, keine aufschiebende Wirkung.
+- **EuG, T-1078/23** (Meta / Messenger): Klage abgewiesen, 03.06.2026 — Facebook Messenger bleibt Gatekeeper-Dienst; das Gericht befand, Messenger sei unabhaengig von Facebook/Instagram nutzbar.
+- `<<VERIFIKATION AUSSTEHEND>>` (Stand 2026-07-08) — ByteDance/TikTok-Klage gegen Gatekeeper-Benennung: muendliche Verhandlung Mai 2026, Urteil fuer 2. Halbjahr 2026 erwartet. Naechste Pruefung: 2026-10.
 
 ## Siehe auch
 
