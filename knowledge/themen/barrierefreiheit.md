@@ -214,7 +214,7 @@ Oft schwere Verstoesse:
 
 ## Zitierbare Urteile
 
-**Stand 2026-07-08: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Erste Abmahnwellen seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH i. A. [Name entfernt]) sind aktenkundig, aber ueberwiegend als abwehrfaehig eingeschaetzt. `<<VERIFIKATION AUSSTEHEND>>` — erste OLG/BGH-Endurteile zu § 3a UWG i.V.m. BFSG sind fuer 2026/2027 zu erwarten; naechste Pruefung: 2026-10.
+**Stand 2026-07-08: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Erste Abmahnwellen seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH) sind aktenkundig, aber ueberwiegend als abwehrfaehig eingeschaetzt. `<<VERIFIKATION AUSSTEHEND>>` — erste OLG/BGH-Endurteile zu § 3a UWG i.V.m. BFSG sind fuer 2026/2027 zu erwarten; naechste Pruefung: 2026-10.
 
 Relevant aus Nachbargebieten:
 - **LSG Nordrhein-Westfalen, Urt. v. 29.10.2019 — L 13 SB 55/19** (zu Barrierefreiheit im weiteren Sinne)

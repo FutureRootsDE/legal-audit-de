@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-07-08
+aktualisiert: 2026-10-24
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__305.html
@@ -9,7 +9,9 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__355.html
   - https://www.gesetze-im-internet.de/bgb/__312g.html
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=LG+Berlin&Datum=16.03.2023&Aktenzeichen=52+O+333%2F22
-verifiziert-am: 2026-07-08
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=09.10.2025&Aktenzeichen=I+ZR+159/24
+  - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2021/2021088.html
+verifiziert-am: 2026-10-24
 geltungsbereich: [DE, EU]
 ---
 
@@ -20,7 +22,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-07-08
+> **Stand:** 2026-10-24
 
 # BGB — AGB-Recht, Button-Loesung, Widerruf
 
@@ -127,8 +129,8 @@ Zulaessige Alternativen laut Gesetzesbegruendung / Rechtsprechung:
 **Unzulaessig** sind neutrale Beschriftungen wie "Anmelden", "Weiter",
 "Bestellung abschicken", "Jetzt buchen", "Senden", "Bestellung abgeben". Aktuell
 bestaetigt durch **BGH I ZR 159/24, Urt. v. 09.10.2025** (Online-Maklervertrag
-ohne "zahlungspflichtig bestellen"-Button = unwirksam, definitive Unwirksamkeit
-nach § 312j Abs. 4 BGB, kein Heilungsrecht).
+ohne "zahlungspflichtig bestellen"-Button kommt nach § 312j Abs. 4 BGB nicht
+zustande; keine Heilung durch nachtraegliche einseitige Bestaetigung).
 
 ### §§ 355-361 BGB — Widerrufsrecht
 
@@ -218,17 +220,21 @@ entfaltet.
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 159/24** (09.10.2025): Online-Maklervertraege ohne explizite
-  "zahlungspflichtig bestellen"-Schaltflaeche sind unwirksam (§ 312j Abs. 4
-  BGB); definitive Unwirksamkeit, keine konkludente Heilung. Wegweisend fuer
-  alle Online-Bestellprozesse mit Verbraucherbeteiligung.
-- **BGH XI ZR 26/20** (27.04.2021): Unwirksamkeit einer Klausel zur
-  Zustimmungsfiktion bei AGB-Aenderungen (im Bankwesen). (Hinweis: bei
-  Verifikation Aktenzeichen-Datum-Kombination gegen
-  rechtsprechung-im-internet pruefen — fruehere Datierung 03.11.2020 war ein
-  zugehoeriger Verkuendungstermin.)
-- **EuGH C-649/17** (10.07.2019, "Amazon EU"): Kontaktmoeglichkeiten im
-  Fernabsatz — Telefon nicht zwingend, aber gleichwertige Alternativen noetig.
+- **BGH, Urt. v. 09.10.2025 — I ZR 159/24**: Ein im elektronischen
+  Geschaeftsverkehr geschlossener Maklervertrag ohne ausdrueckliche
+  Bestaetigung der Zahlungspflicht ("zahlungspflichtig bestellen"-Schaltflaeche)
+  kommt nach § 312j Abs. 3, 4 BGB nicht zustande; auch eine nachtraegliche
+  einseitige Bestaetigung fuehrt nicht ohne Weiteres zu einem wirksamen
+  Neuabschluss. Wegweisend fuer alle Online-Bestellprozesse mit
+  Verbraucherbeteiligung.
+- **BGH, Urt. v. 27.04.2021 — XI ZR 26/20** (PM 88/2021): Klauseln in
+  Banken-AGB, die eine fiktive Zustimmung des Kunden zu AGB-Aenderungen ohne
+  inhaltliche Begrenzung vorsehen, sind nach § 307 Abs. 1 und 2 BGB
+  unwirksam.
+- **EuGH, Urt. v. 10.07.2019 — C-649/17** ("Bundesverband / Amazon EU"):
+  Onlinehaendler muessen keine Telefonnummer bereitstellen; ausreichend sind
+  andere direkte und effiziente Kommunikationsmittel (z. B. Kontaktformular,
+  Chat, Rueckrufsystem).
 - **LG Berlin 52 O 333/22** (16.03.2023): Auch fuer online bestellte Lebens-
   mittel-Abos/Kochboxen (Marley Spoon) besteht die gesetzliche Pflicht zum
   Kuendigungsbutton nach § 312k BGB; Verstoss loest UWG-Unterlassungsanspruch

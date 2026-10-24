@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-07-08
+aktualisiert: 2026-10-24
 quelle-primaer: https://www.gesetze-im-internet.de/kunsturhg/BJNR000070907.html
 quellen-sekundaer:
   - https://www.rechtsprechung-im-internet.de/
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
-  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=LG+Frankfurt/Main&Datum=26.09.2019&Aktenzeichen=3+O+402/18
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=LG+Frankfurt/Main&Datum=26.09.2019&Aktenzeichen=2-03+O+402/18
 verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
@@ -161,7 +161,10 @@ Kernaussage:
 Foto ohne Einwilligung → Unterlassungsanspruch + Schadensersatz (§ 823 BGB
 i.V.m. § 22 KUG; Art. 82 DSGVO).
 
-Quelle: dejure.org, rechtambild.de, beckmannundnorda.de.
+Quelle: dejure.org, rechtambild.de, beckmannundnorda.de. Hinweis 2026-10-24:
+Die dejure-Verlinkung war bei der Stichprobe nicht abrufbar (kein Treffer unter
+LG Frankfurt/Main); Aktenzeichen und Datum vor Verwendung in einem Audit gegen
+den Volltext (z. B. Landesrecht Hessen) pruefen.
 
 ### BAG, 8 AZR 1011/13, 19.02.2015
 

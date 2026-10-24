@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-07-08
+aktualisiert: 2026-10-24
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__5.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
@@ -7,7 +7,9 @@ quellen-sekundaer:
   - https://www.bundesgerichtshof.de/
   - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3083
   - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3191
-verifiziert-am: 2026-07-08
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=21.07.2016&Aktenzeichen=I+ZR+26/15
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=OLG+Frankfurt&Datum=09.06.2022&Aktenzeichen=6+U+12/22
+verifiziert-am: 2026-10-24
 geltungsbereich: [DE]
 ---
 
@@ -18,7 +20,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-07-08
+> **Stand:** 2026-10-24
 
 # Siegel- und Testergebnis-Werbung (TUEV, Trusted Shops, Stiftung Warentest)
 
@@ -195,9 +197,17 @@ Kernaussage: An die Werbung mit einem Pruefzeichen sind die gleichen
 Transparenzanforderungen zu stellen wie an die Werbung mit einem Testergebnis
 — Verbraucher muessen zumindest ueber eine Internetadresse Zugang zu den
 wesentlichen Inhalten der Pruefbedingungen erhalten. Fehlt dies, ist die
-Werbung nach § 5a Abs. 1 UWG irrefuehrend durch Unterlassen.
+Werbung irrefuehrend durch Unterlassen (damals § 5a Abs. 2 UWG i.d.F. 2015,
+heute § 5a Abs. 1 UWG).
 
 Quelle: dejure.org, wettbewerbszentrale.de.
+
+**Hinweis zur Abdeckung:** Das frueher gelistete Thema "abgelaufene
+Zertifikate weitergefuehrt" deckt I ZR 26/15 nicht 1:1 ab. Die Praxisfolge
+(Werbung mit erloschenem Pruefzeichen ist irrefuehrend, §§ 5, 5a UWG) ergibt
+sich aus den allgemeinen Massstaeben; eine einschlaegige obergerichtliche
+Entscheidung speziell zu abgelaufenen Zertifikaten ist in dieser KB nicht
+verifiziert. Anwalts-Review empfohlen.
 
 ## Praxis-Check (Was Code-Reviewer konkret pruefen)
 
