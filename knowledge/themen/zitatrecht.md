@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-07-08
+aktualisiert: 2026-10-24
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/__51.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__51a.html
@@ -7,7 +7,8 @@ quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0476
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0516
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0469
-verifiziert-am: 2026-07-08
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=20.12.2007&Aktenzeichen=I+ZR+42/05
+verifiziert-am: 2026-10-24
 geltungsbereich: [DE, EU]
 ---
 
@@ -18,7 +19,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-07-08
+> **Stand:** 2026-10-24
 
 # Zitatrecht — § 51 UrhG, Pastiche, Quellenangabe
 
@@ -157,6 +158,20 @@ Quelle: dejure.org — BGH, 22.09.1972 – I ZR 6/71 (Verweiskette). Der frueher
 in dieser KB genannte Verweis "I ZR 241/95, 20.12.2007" war fehlerhaft
 (I ZR 241/95 ist die Rolex-Uhr-mit-Diamanten-Entscheidung vom 12.02.1998,
 kein Zitatrechtsfall) und wurde im Update 2026-07-08 entfernt.
+
+### BGH, Urt. v. 20.12.2007 — I ZR 42/05 ("TV-Total")
+
+Das zum frueher genannten Datum 20.12.2007 tatsaechlich ergangene
+Zitatrechtsurteil traegt das Aktenzeichen **I ZR 42/05**. Kernaussage: Ein
+Zitat nach § 51 UrhG setzt eine **innere Verbindung** zwischen der zitierten
+Stelle und eigenen Gedanken des Zitierenden voraus; das Zitat muss als
+**Belegstelle oder Eroerterungsgrundlage** fuer selbstaendige Ausfuehrungen
+dienen. Ein Werk lediglich um seiner selbst willen oeffentlich wahrnehmbar zu
+machen, deckt die Zitierfreiheit nicht. Die Massstaebe gelten auch fuer
+Laufbild- und Filmzitate (Fernsehausschnitte).
+
+Quelle: dejure.org — BGH, 20.12.2007 – I ZR 42/05 ("TV-Total"), Verweiskette
+und Volltextnachweise.
 
 ### BGH I ZR 102/10 (Elektronischer Pressespiegel), 16.01.2014
 
