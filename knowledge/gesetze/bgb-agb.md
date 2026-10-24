@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__305.html
@@ -8,7 +8,8 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__312k.html
   - https://www.gesetze-im-internet.de/bgb/__355.html
   - https://www.gesetze-im-internet.de/bgb/__312g.html
-verifiziert-am: 2026-05-08
+  - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=LG+Berlin&Datum=16.03.2023&Aktenzeichen=52+O+333%2F22
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -19,7 +20,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # BGB — AGB-Recht, Button-Loesung, Widerruf
 
@@ -228,12 +229,21 @@ entfaltet.
   zugehoeriger Verkuendungstermin.)
 - **EuGH C-649/17** (10.07.2019, "Amazon EU"): Kontaktmoeglichkeiten im
   Fernabsatz — Telefon nicht zwingend, aber gleichwertige Alternativen noetig.
-- `<<VERIFIKATION AUSSTEHEND>>` — folgende Aktenzeichen waren in der
-  Vorgaengerfassung gelistet, sind aber gegen rechtsprechung-im-internet.de
-  nicht eindeutig auffindbar: "BGH VIII ZR 63/15 (Button 'Jetzt anmelden')",
-  "BGH VIII ZR 21/19 (Widerrufsbelehrung)", "EuGH C-543/19 Amazon EU",
-  "LG Berlin 52 O 157/20 (Kuendigungsbutton)". Beim naechsten Update
-  verifizieren oder ersetzen.
+- **LG Berlin 52 O 333/22** (16.03.2023): Auch fuer online bestellte Lebens-
+  mittel-Abos/Kochboxen (Marley Spoon) besteht die gesetzliche Pflicht zum
+  Kuendigungsbutton nach § 312k BGB; Verstoss loest UWG-Unterlassungsanspruch
+  von Verbraucherverbaenden aus. Verifiziert ueber dejure.org und
+  vzbv.de/urteile/zum-kuendigungsbutton-bei-marley-spoon.
+- Hinweis zur Zitat-Bereinigung (Stand 2026-07-08): Die folgenden Aktenzeichen
+  aus einer aelteren Vorgaengerfassung wurden im Update 2026-07-08 entfernt,
+  weil sie gegen Tier-1-Quellen nicht verifizierbar waren bzw. thematisch
+  nicht passten: "BGH VIII ZR 63/15 (Button 'Jetzt anmelden')" — nicht
+  auffindbar; "BGH VIII ZR 21/19 (Widerrufsbelehrung)" — Az. existiert
+  (09.10.2019), betrifft aber Mieterhoehung nach Modernisierung, nicht die
+  Widerrufsbelehrung; "EuGH C-543/19 Amazon EU" — nicht auffindbar;
+  "LG Berlin 52 O 157/20 (Kuendigungsbutton)" — Az. so nicht auffindbar
+  (das verwandte 52 O 157/21 betrifft Netflix-Preisanpassung, kein
+  Kuendigungsbutton). Ersatz siehe LG Berlin 52 O 333/22.
 
 ## Siehe auch
 

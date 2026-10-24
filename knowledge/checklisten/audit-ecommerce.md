@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 gilt-fuer: WooCommerce, Shopware 6, Shopify, Magento, PrestaShop, JTL
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -12,7 +12,7 @@ geltungsbereich: [DE, EU]
 > vor Launch zwingend Pruefung durch einen Fachanwalt fuer IT-/E-Commerce-Recht
 > oder ein Schutzpaket (z.B. IT-Recht Kanzlei Muenchen).
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Audit-Checkliste: E-Commerce-Shop
 
@@ -246,8 +246,8 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 ## Empfohlene Schutzpakete
 
 - **IT-Recht Kanzlei Muenchen** (it-recht-kanzlei.de) — Starter ~10 EUR / Premium ~25 EUR / Unlimited ~55 EUR pro Monat — siehe [[anwaelte-tools/tools-generatoren]]
-- **Haendlerbund** (haendlerbund.de) <<VERIFIKATION AUSSTEHEND>> — Mitglieds-Modell ab ~10 EUR/Monat
-- **Trusted Shops Legal-Texte** (trustedshops.de) — Pake ab ~30 EUR/Monat <<UNVERIFIZIERT>>
+- **Haendlerbund** (haendlerbund.de) — Starter ab ca. 9,90 EUR/Monat, Business ab ca. 57,90 EUR/Monat, Professional ab ca. 119,90 EUR/Monat (Anbieterangaben Stand 2026-07-08; Tier-3-Marktinfo, keine Rechtsquelle)
+- **Trusted Shops Legal-Texte** (trustedshops.de) — Basis-Rechtstexter kostenlos; kostenpflichtige Abmahnschutz- und Legal-Services-Pakete mit variabler Preisstruktur (Anbieterangaben Stand 2026-07-08; Tier-3-Marktinfo)
 - **eRecht24 Premium** (e-recht24.de) ab ~15 EUR/Monat
 
 ## Siehe auch

@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
 quellen-sekundaer:
   - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/start.html
   - https://gesetz-digitale-dienste.de/
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/Telemedien/DDG/Digitale_Dienste_Gesetz.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Digital Services Act (DSA) — VO (EU) 2022/2065
 
@@ -99,11 +99,11 @@ Der Anbieter muss:
 
 ## Zitierbare Urteile
 
-Noch sehr begrenzt — DSA ist erst seit Februar 2024 voll anwendbar. Bisher vor allem:
-- Verfahren der EU-Kommission gegen VLOPs (X, TikTok, Meta, AliExpress) — keine Endurteile, sondern Untersuchungsverfahren
-- Keine relevante deutsche Rechtsprechung zu Art. 14/16 DSA als Endurteil identifiziert
+Noch begrenzt — DSA ist erst seit Februar 2024 voll anwendbar. Bisher vor allem:
+- Verfahren der EU-Kommission gegen VLOPs (X, TikTok, Meta, AliExpress) — keine Endurteile, sondern Untersuchungsverfahren.
+- **OLG Nuernberg, Urt. v. 23.07.2024 — 3 U 2469/23**: Erste deutsche Berufungsentscheidung mit Bezug auf das Verhaeltnis von vor-DSA-Stoererhaftung zu DSA-Notice-and-Action (Art. 16 DSA) fuer Hosting-Provider.
 
-`<<VERIFIKATION AUSSTEHEND>>` — konkrete deutsche Urteile zu DSA-Pflichten sollten bei naechstem Update geprueft werden.
+`<<VERIFIKATION AUSSTEHEND>>` (Stand 2026-07-08) — weitere BGH-Endurteile speziell zu Art. 14/16 DSA sowie zu Art. 26 (Werbetransparenz) sollten beim naechsten Update geprueft werden. Naechste Pruefung: 2026-10.
 
 ## Siehe auch
 

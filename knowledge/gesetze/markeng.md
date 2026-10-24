@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://www.gesetze-im-internet.de/markeng/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/markeng/__14.html
   - https://www.gesetze-im-internet.de/markeng/__15.html
   - https://www.dpma.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Markengesetz (MarkenG)
 
@@ -136,7 +136,7 @@ Nach erstem Inverkehrbringen im EWR durch oder mit Zustimmung des Markeninhabers
 - **EuGH, Urt. v. 22.06.2023 — C-148/21 (Inditex / Louboutin)** — Amazon-Marketplace-Haftung
 - **BGH, Urt. v. 15.02.2024 — I ZR 170/22** — Keyword Advertising Bestandteile
 
-`<<VERIFIKATION AUSSTEHEND>>` — aktuelle BGH-Urteile 2025/2026 zum SEO / Ads beim naechsten Update pruefen.
+`<<VERIFIKATION AUSSTEHEND>>` (Stand 2026-07-08) — Ueberpruefung neuerer BGH-Endurteile 2025/2026 zu SEO/Keyword Advertising/Google Shopping ergab bis 2026-07-08 kein neues, breit rezipiertes Grundsatzurteil ueber die in dieser KB bereits gelisteten Entscheidungen hinaus. Naechste Pruefung: 2026-10.
 
 ## Siehe auch
 

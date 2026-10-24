@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-07-08
 quelle-primaer: https://www.gesetze-im-internet.de/bfsg/
 quellen-sekundaer:
   - https://www.bundesfachstelle-barrierefreiheit.de/DE/Fachwissen/Produkte-und-Dienstleistungen/Barrierefreiheitsstaerkungsgesetz/FAQ/faq_node.html
   - https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html
   - https://www.bundesregierung.de/breg-de/aktuelles/barrierefreiheitsstaerkungsgesetz-2353790
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-07-08
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-07-08
 
 # Barrierefreiheitsstaerkungsgesetz (BFSG)
 
@@ -26,7 +26,7 @@ Das BFSG setzt die **EU-Richtlinie 2019/882** (European Accessibility Act, EAA) 
 
 **Kernaussage:** Wer B2C-Produkte (z. B. Notebooks, Smartphones, Geldautomaten) oder B2C-Dienstleistungen (insb. **E-Commerce, SaaS, Banking, Messenger, E-Book-Reader**) anbietet, muss WCAG-konforme Barrierefreiheit gewaehrleisten — ausser er faellt unter die Kleinstunternehmen-Ausnahme.
 
-**Stand 2026-04:** Aktive Marktueberwachung laeuft. **Abmahnwellen** seit Sommer 2025 (CLAIM Rechtsanwalts GmbH) und erneute Welle seit Februar 2026 (Kanzlei MK Berlin). Bussgelder bis **100.000 EUR** moeglich. Ob UWG-Abmahnungen dogmatisch haltbar sind, ist **noch nicht hoechstrichterlich geklaert** (Stand Maerz 2026).
+**Stand 2026-07-08:** Aktive Marktueberwachung laeuft in den Laendern. **Abmahnwellen** seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH i. A. [Name entfernt]) und weitere Wellen im Herbst 2025 / Fruehjahr 2026. Bussgelder bis **100.000 EUR** moeglich. Ob UWG-Abmahnungen (§ 3a UWG i.V.m. BFSG) dogmatisch haltbar sind, ist **noch nicht hoechstrichterlich geklaert**.
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -114,9 +114,9 @@ Bis **100.000 EUR** pro Verstoss. Zustaendig: Marktueberwachungsbehoerden der La
 
 ## Zitierbare Urteile
 
-**Noch keine hoechstrichterliche BFSG-Rechtsprechung** (Stand 2026-04). Erste LG-/OLG-Entscheidungen zu Abmahnfaehigkeit sind erwartet, liegen aber nach oeffentlich zugaenglichen Quellen **noch nicht** als Endurteile vor.
+**Stand 2026-07-08: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Erste Abmahnwellen sind seit Sommer 2025 aktenkundig (u. a. CLAIM Rechtsanwalts GmbH i. A. [Name entfernt], ca. 595 EUR Vergleichssumme; zweite Welle Herbst 2025). Marktueberwachungsbehoerden der Laender pruefen seit Januar 2026 aktiv; Bussgelder bis 100.000 EUR moeglich.
 
-`<<VERIFIKATION AUSSTEHEND>>` — beim naechsten Update pruefen, ob BGH/OLG zur UWG-Abmahnfaehigkeit von BFSG-Verstoessen entschieden hat.
+`<<VERIFIKATION AUSSTEHEND>>` — beim naechsten Update pruefen, ob BGH/OLG zur UWG-Abmahnfaehigkeit von BFSG-Verstoessen (§ 3a UWG als Marktverhaltensregelung?) entschieden hat. Naechste Pruefung: 2026-10.
 
 Hintergrund aus EU-Ebene:
 - **EuGH, Urt. v. 19.10.2023, C-660/21** (betrifft EAA-Ausstrahlung, nicht BFSG direkt)
