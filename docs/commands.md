@@ -105,7 +105,7 @@ Aktualisiert die Knowledge Base gegen Primaerquellen.
 ```text
 /legal-update                     # interaktive Auswahl
 /legal-update tdddg               # einzelnen Artikel updaten
-/legal-update --stale-only        # nur KB-Dateien aelter als 90 Tage
+/legal-update --stale-only        # nur KB-Dateien, deren Verifikation (verifiziert-am, ersatzweise aktualisiert) 90 Tage oder aelter ist
 /legal-update --all               # komplette Tier-1-Re-Verifikation
 /legal-update --fix-pending       # Platzhalter <<VERIFIKATION AUSSTEHEND>> aufloesen
 ```
@@ -166,11 +166,11 @@ Grundsatz: im Zweifel eine Stufe hoeher klassifizieren. Abmahnkosten sind asymme
 
 | Skript | Zweck |
 |--------|-------|
-| `legal-status.py` | Status-Report (Quelle fuer `/legal-status`) |
+| `legal-status.py` | Status-Report (Quelle fuer `/legal-status`); Frische nach `verifiziert-am` (ersatzweise `aktualisiert`), `teilverifiziert-am` als eigener Zustand |
 | `audit-compare.py` | Diff zwischen zwei Audits, `--auto <pfad>` findet das vorherige automatisch |
-| `find-placeholders.py` | Listet alle `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Stellen |
+| `find-placeholders.py` | Listet alle `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Stellen; abweichende oder defekte Marker werden als WARNUNG auf stderr gemeldet (Exit 0) |
 | `legal-audit-pdf.py` | HTML/PDF-Briefing aus einem Audit-Ordner |
 | `legal-audit-pro-mode.py` | Pro-Mode-Marker setzen, loeschen, abfragen |
-| `verify-citations.py` | Prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional, nur Standardbibliothek; `--only-pending`, `--json`, `--offline`, `--write-ecli --dry-run`) |
+| `verify-citations.py` | Prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional, nur Standardbibliothek; `--only-pending`, `--json`, `--offline`, `--today YYYY-MM-DD`, `--write-ecli --dry-run`) |
 | `sync-pro-variants.py` | `-pro`-Agentenvarianten deterministisch aus den 1M-Varianten generieren |
 | `sync-platforms.py` | Codex- und Copilot-Adapter aus `.claude/` portieren |

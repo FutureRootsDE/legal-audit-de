@@ -69,7 +69,7 @@ reinstalliert das Plugin in die aktuelle Version (Claude Code erkennt die Versio
 
 Dispatch den `legal-researcher`-Agent (Opus 4.7 [1M] — bei aktivem Pro-Mode: `legal-researcher-pro`) im "Stale-Only"-Modus:
 
-- Agent prüft jede KB-Datei mit `verifiziert-am` > 90 Tage gegen Tier-1-Primärquellen
+- Agent prüft jede KB-Datei mit `verifiziert-am` 90 Tage oder älter (fehlt das Feld: `aktualisiert`) gegen Tier-1-Primärquellen
 - Aktualisiert Frontmatter-Felder `aktualisiert:` und `verifiziert-am:`
 - Markiert nicht verifizierbare Stellen mit `<<VERIFIKATION AUSSTEHEND>>`
 - Schreibt ein Log nach `.claude/logs/kb-update-<timestamp>.log`

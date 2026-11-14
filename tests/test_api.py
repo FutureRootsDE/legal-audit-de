@@ -92,7 +92,7 @@ class ClientTests(unittest.TestCase):
         fetch = FakeFetch({"I ZR 159/24": urllib.error.URLError("offline")})
         res = self.client(fetch, max_retries=1).lookup("BGH", "I ZR 159/24")
         self.assertEqual(res.state, "error")
-        self.assertIn("offline", res.detail)
+        self.assertEqual(res.detail, "Netzwerkfehler: URLError")
 
     def test_422_is_error_without_retry_and_reports_message(self):
         fetch = FakeFetch({"I ZR 159/24": ERR_422})

@@ -6,6 +6,7 @@ import json
 import os
 import sys
 import time
+from datetime import date
 from pathlib import Path
 from typing import Callable
 
@@ -27,11 +28,14 @@ EXIT_WRITE_FAILED = 3
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Bundesgerichts-Aktenzeichen in knowledge/ gegen die "
                                             "Rechtsinformations-API des Bundes pruefen (optional).",
-                                epilog="Bekannte Grenzen: Kurzform-Aufzaehlungen wie 'I ZR 90/20, 125/20' werden nicht "
-                                       "aufgeloest (nur das erste Aktenzeichen). BVerwG-Aktenzeichen ohne Gerichtsnamen "
-                                       "in der Zeile werden nur in knowledge/urteile/ erkannt, wenn Gericht-Zeile, "
-                                       "Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen. Daten nach Vermerkwoertern "
-                                       "(Stand, geprueft, eingelegt, ...) und ab dem Lauftag gelten nie als Entscheidungsdatum.")
+                                epilog="Bekannte Grenzen: Kurzform-Aufzaehlungen wie 'I ZR 90/20, 125/20 und 126/20' werden "
+                                       "aufgeloest (ein folgendes Datum bindet nur an das letzte Glied). BVerwG-Aktenzeichen "
+                                       "ohne Gerichtsnamen in der Zeile werden nur in knowledge/urteile/ erkannt, wenn "
+                                       "Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen, kein "
+                                       "Vorinstanz-Signal in der Zeile steht und das Registerzeichen passt. Daten nach "
+                                       "Vermerkwoertern (Stand, geprueft, eingelegt, ...), Daten in einer Klammer hinter "
+                                       "einem Aktenzeichen (gehoeren zu diesem) und Daten ab dem Lauftag gelten nie als "
+                                       "Entscheidungsdatum des nachfolgenden Aktenzeichens.")
     p.add_argument("--path", default=str(ROOT / "knowledge"), help="KB-Verzeichnis (Standard: knowledge/)")
     p.add_argument("--json", action="store_true", help="JSON statt lesbarem Bericht")
     p.add_argument("--offline", action="store_true", help="nur Extraktion und Cache, keine Anfragen")
@@ -49,6 +53,9 @@ def build_parser() -> argparse.ArgumentParser:
                    help="maximales Alter von Cache-Eintraegen in Tagen (Standard 7)")
     p.add_argument("--timeout", type=float, default=15.0,
                    help="Gesamtzeit je Anfrage in Sekunden (inkl. Lesen der Antwort)")
+    p.add_argument("--today", default=None, metavar="YYYY-MM-DD",
+                   help="Lauftag fuer die Regel 'Daten ab dem Lauftag sind keine Entscheidungsdaten' "
+                        "(Standard: heute; fuer reproduzierbare Laeufe)")
     p.add_argument("--strict", action="store_true", help="Exit 1 bei DATE_MISMATCH")
     p.add_argument("--write-ecli", action="store_true",
                    help="ecli: in knowledge/urteile/*.md eintragen (nur eindeutig VERIFIED, frisch abgefragt; "
@@ -62,6 +69,11 @@ def _validate_args(parser: argparse.ArgumentParser, args: argparse.Namespace) ->
         parser.error("--dry-run ist nur zusammen mit --write-ecli sinnvoll")
     if not 0 < args.rate <= MAX_RATE_PER_SECOND:
         parser.error(f"--rate muss > 0 und <= {MAX_RATE_PER_SECOND:g} sein")
+    if args.today is not None:
+        try:
+            date.fromisoformat(args.today)
+        except ValueError:
+            parser.error("--today muss ein Datum im Format YYYY-MM-DD sein")
     if args.timeout <= 0:
         parser.error("--timeout muss > 0 sein")
     if args.cache_ttl_days <= 0:
@@ -140,7 +152,7 @@ def main(argv: list[str] | None = None, fetch: FetchFn | None = None,
                        offline=args.offline, sleep=sleep,
                        cache_ttl_seconds=args.cache_ttl_days * 24 * 3600)
     client.warnings.extend([cache_warning] if cache_warning else [])
-    citations = scan_kb(kb_path, client.warnings)
+    citations = scan_kb(kb_path, client.warnings, today=args.today)
     if args.only_pending:
         citations = [c for c in citations if c.pending]
     known: LookupMap = {}

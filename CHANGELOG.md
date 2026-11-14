@@ -8,6 +8,17 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
+<!-- BEGIN restpunkte-zitatpruefung: eigener Block, bei Merge mit dem Release-PR unter den neuen [Unreleased] setzen -->
+
+### Scripts — Restpunkte der Zitatpruefung und des Statusskripts
+
+- `scripts/citation_check/extract.py` — Datum in Klammern hinter einem Aktenzeichen bindet nie an das naechste Aktenzeichen rechts (behebt den letzten DATE_MISMATCH in `knowledge/gesetze/pangv.md`, I ZR 143/19); Kurzform-Aufzaehlungen wie `I ZR 90/20, 125/20 und 126/20` werden als weitere Aktenzeichen erkannt (ein folgendes Datum bindet nur an das letzte Glied); der Gerichts-Fallback in `knowledge/urteile/` greift nur ohne Vorinstanz-Signal und bei passendem BVerwG-Registerzeichen, sonst NOT_COVERED; der Lauftag ist ein Parameter (`today`) statt fest `date.today()`.
+- `scripts/verify-citations.py` — neue Option `--today YYYY-MM-DD` (reproduzierbare Laeufe); Netzwerkfehler erscheinen nur noch als feste Kategorie (`Netzwerkfehler: Zeitueberschreitung`, `Verbindung abgelehnt`, `TLS-Fehler`, `unzulaessige Weiterleitung`, `Antwort zu gross`, `ungueltige Antwort`, sonst Klassenname), nie mit Text aus der Ausnahme.
+- `scripts/legal-status.py` — Frische nach `verifiziert-am` (ersatzweise `aktualisiert`) statt nach `aktualisiert`; `teilverifiziert-am` ist ein eigener Zustand "teilverifiziert" und zaehlt nie als frisch (z. B. `knowledge/themen/tool-katalog.md`); JSON abwaertskompatibel (neu: `kb.aktualitaet.teilverifiziert`, `placeholders.deviant`). Stale-Kriterium in `/legal-status`, `/legal-update`, `/legal-audit-de-update` und im Skill `legal-update-sources` vereinheitlicht.
+- `scripts/find-placeholders.py`, `scripts/legal-status.py` — Warnung (kein Fehler) fuer defekte oder abweichende Platzhalter-Formen (Zusatztext, einfaches `>`, ueber zwei Zeilen, nicht geschlossen); Marker in Backticks zaehlen nicht. Gemeinsame Logik in `scripts/placeholder_check.py`.
+
+<!-- END restpunkte-zitatpruefung -->
+
 ---
 
 ## [1.4.0] — 2026-11-14

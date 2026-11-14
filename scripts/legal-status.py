@@ -3,7 +3,8 @@
 legal-audit-de Status-Report.
 
 Zeigt:
-  - KB-Dateienzahl + Aktualitaets-Status (YAML-Frontmatter aktualisiert:)
+  - KB-Dateienzahl + Aktualitaets-Status (massgeblich ist verifiziert-am, ersatzweise aktualisiert;
+    Dateien mit teilverifiziert-am gelten als eigener Zustand "teilverifiziert" und nie als frisch)
   - Anzahl <<VERIFIKATION AUSSTEHEND>> / <<UNVERIFIZIERT>>-Platzhalter
   - Audit-Historie aus audits/
   - Hook-Konfigurations-Check
@@ -20,6 +21,12 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from placeholder_check import EXACT_RE, find_deviant  # noqa: E402
+
+STALE_DAYS = 90
+VERY_STALE_DAYS = 180
+
 
 ROOT = Path(os.environ.get("CLAUDE_PROJECT_DIR") or Path(__file__).resolve().parents[1])
 KB = ROOT / "knowledge"
@@ -30,48 +37,76 @@ PRO_MODE_FILENAME = "pro-mode.json"
 FALLBACK_PRO_MODE_FILENAME = "legal-audit-de-pro-mode.json"
 
 
-def kb_categories() -> dict[str, list[Path]]:
+def kb_categories(kb: Path = KB) -> dict[str, list[Path]]:
     cats = {}
     for sub in ["gesetze", "themen", "urteile", "behoerden", "checklisten", "anwaelte-tools"]:
-        d = KB / sub
+        d = kb / sub
         cats[sub] = sorted(d.glob("*.md")) if d.exists() else []
-    index = KB / "INDEX.md"
+    index = kb / "INDEX.md"
     cats["_index"] = [index] if index.exists() else []
     return cats
 
 
-AKTUALISIERT_RE = re.compile(r"^aktualisiert:\s*(\d{4}-\d{2}-\d{2})", re.MULTILINE)
-PLACEHOLDER_RE = re.compile(r"<<\s*(VERIFIKATION\s+AUSSTEHEND|UNVERIFIZIERT)\s*>>", re.IGNORECASE)
+FRONTMATTER_RE = re.compile(r"\A---[ \t]*\r?\n(.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
+DATE_FIELD_RE = re.compile(r"^(aktualisiert|verifiziert-am|teilverifiziert-am):[ \t]*(\S*)", re.MULTILINE)
+PLACEHOLDER_RE = EXACT_RE
 
 
 def age_days(aktualisiert_str: str, today: date) -> int:
     try:
         d = datetime.strptime(aktualisiert_str, "%Y-%m-%d").date()
         return (today - d).days
-    except Exception:
+    except ValueError:
         return -1
 
 
-def scan_file(path: Path, today: date) -> dict:
+def frontmatter_fields(text: str) -> dict[str, str]:
+    """Date fields of the YAML frontmatter (empty dict without frontmatter); only the first block counts."""
+    block = FRONTMATTER_RE.match(text)
+    return {k: v for k, v in DATE_FIELD_RE.findall(block.group(1))} if block else {}
+
+
+def freshness_state(fields: dict[str, str], today: date) -> tuple[str, int]:
+    """State and verification age: verifiziert-am decides, aktualisiert is the fallback.
+
+    teilverifiziert-am marks a partly verified file: own state, never fresh.
+    """
+    reference = fields.get("verifiziert-am") or fields.get("aktualisiert") or ""
+    age = age_days(reference, today) if reference else -1
+    if "teilverifiziert-am" in fields:
+        return "teilverifiziert", age
+    if age < 0:
+        return "no_frontmatter", age
+    if age < STALE_DAYS:
+        return "fresh", age
+    return ("stale" if age < VERY_STALE_DAYS else "very_stale"), age
+
+
+def scan_file(path: Path, today: date, root: Path = ROOT) -> dict:
     try:
         text = path.read_text(encoding="utf-8")
-    except Exception:
-        return {"path": str(path), "error": "read-fail"}
+    except (OSError, UnicodeDecodeError):
+        return {"path": str(path), "error": "read-fail", "state": "no_frontmatter"}
 
-    aktual_match = AKTUALISIERT_RE.search(text)
-    aktual = aktual_match.group(1) if aktual_match else None
-    age = age_days(aktual, today) if aktual else -1
-    placeholders = PLACEHOLDER_RE.findall(text)
+    fields = frontmatter_fields(text)
+    aktual = fields.get("aktualisiert") or None
+    state, verification_age = freshness_state(fields, today)
+    placeholders = [m.group(1) for m in PLACEHOLDER_RE.finditer(text)]
 
     return {
-        "path": str(path.relative_to(ROOT)).replace("\\", "/"),
+        "path": str(path.relative_to(root)).replace("\\", "/"),
         "aktualisiert": aktual,
-        "age_days": age,
+        "age_days": age_days(aktual, today) if aktual else -1,
+        "verifiziert_am": fields.get("verifiziert-am") or None,
+        "teilverifiziert_am": fields.get("teilverifiziert-am") or None,
+        "verification_age_days": verification_age,
+        "state": state,
         "placeholders": len(placeholders),
         "placeholder_types": {
             "verifikation_ausstehend": sum(1 for p in placeholders if "VERIFIKATION" in p.upper()),
             "unverifiziert": sum(1 for p in placeholders if "UNVERIFIZIERT" in p.upper()),
         },
+        "deviant_placeholders": [d._asdict() for d in find_deviant(text)],
     }
 
 
@@ -158,18 +193,20 @@ def pro_mode_status() -> dict:
     }
 
 
-def build_report(verbose: bool) -> dict:
-    today = date.today()
-    cats = kb_categories()
+def build_report(verbose: bool, today: date | None = None, root: Path = ROOT) -> dict:
+    today = today or date.today()
+    cats = kb_categories(root / "knowledge")
     files: list[dict] = []
     for sub_files in cats.values():
         for path in sub_files:
-            files.append(scan_file(path, today))
+            files.append(scan_file(path, today, root))
 
-    fresh = [f for f in files if 0 <= f.get("age_days", -1) < 90]
-    stale = [f for f in files if 90 <= f.get("age_days", -1) < 180]
-    very_stale = [f for f in files if f.get("age_days", -1) >= 180]
-    no_frontmatter = [f for f in files if f.get("age_days") == -1]
+    def in_state(name: str) -> list[dict]:
+        return [f for f in files if f.get("state") == name]
+
+    fresh, stale, very_stale = in_state("fresh"), in_state("stale"), in_state("very_stale")
+    partly_verified, no_frontmatter = in_state("teilverifiziert"), in_state("no_frontmatter")
+    with_deviant = [f for f in files if f.get("deviant_placeholders")]
 
     total_placeholders = sum(f.get("placeholders", 0) for f in files)
     files_with_placeholders = [f for f in files if f.get("placeholders", 0) > 0]
@@ -185,9 +222,15 @@ def build_report(verbose: bool) -> dict:
                 "stale_90_to_180d": len(stale),
                 "very_stale_over_180d": len(very_stale),
                 "no_frontmatter": len(no_frontmatter),
+                "teilverifiziert": len(partly_verified),
+                "basis": "verifiziert-am (ersatzweise aktualisiert); teilverifiziert-am zaehlt nie als frisch",
             },
         },
         "placeholders": {
+            "deviant": {
+                "total": sum(len(f["deviant_placeholders"]) for f in with_deviant),
+                "affected_files": len(with_deviant),
+            },
             "total": total_placeholders,
             "affected_files": len(files_with_placeholders),
             "by_type": {
@@ -205,7 +248,12 @@ def build_report(verbose: bool) -> dict:
     }
 
     if verbose:
-        report["kb"]["stale_files"] = [{"path": f["path"], "age_days": f["age_days"]} for f in stale + very_stale]
+        report["kb"]["stale_files"] = [
+            {"path": f["path"], "age_days": f["verification_age_days"]} for f in stale + very_stale]
+        report["kb"]["teilverifiziert_files"] = [
+            {"path": f["path"], "teilverifiziert_am": f["teilverifiziert_am"]} for f in partly_verified]
+        report["placeholders"]["deviant_files"] = [
+            {"path": f["path"], "findings": f["deviant_placeholders"]} for f in with_deviant]
         report["placeholders"]["files"] = [
             {"path": f["path"], "count": f["placeholders"]} for f in files_with_placeholders
         ]
@@ -226,9 +274,11 @@ def render_text(report: dict) -> str:
         f"  Gesamt: {kb['total']} Dateien",
         f"  Kategorien: " + ", ".join(f"{k}={v}" for k, v in kb['by_category'].items()),
         f"  Aktualitaet:",
+        "    (Alter der Verifikation: verifiziert-am, ersatzweise aktualisiert)",
         f"    - Aktuell (<90 Tage):     {kb['aktualitaet']['fresh_under_90d']}",
         f"    - Stale (90-180 Tage):    {kb['aktualitaet']['stale_90_to_180d']}",
         f"    - Sehr Stale (>180 Tage): {kb['aktualitaet']['very_stale_over_180d']}",
+        f"    - Teilverifiziert:        {kb['aktualitaet']['teilverifiziert']}",
         f"    - Ohne Frontmatter:       {kb['aktualitaet']['no_frontmatter']}",
         "",
         "Platzhalter (zu recherchieren):",
@@ -237,6 +287,9 @@ def render_text(report: dict) -> str:
         f"  Gesamt:                  {ph['total']}",
         f"  Betroffene Dateien:      {ph['affected_files']}",
     ]
+    if ph["deviant"]["total"] > 0:
+        lines.append(f"  WARNUNG: {ph['deviant']['total']} abweichende Platzhalter-Formen in "
+                     f"{ph['deviant']['affected_files']} Dateien (python scripts/find-placeholders.py zeigt sie)")
     if ph["total"] > 0:
         lines.append(f"  Empfehlung: /legal-update --fix-pending")
 
@@ -279,6 +332,8 @@ def render_text(report: dict) -> str:
         lines.append("  - /legal-update --fix-pending  (Platzhalter aufloesen)")
     if kb["aktualitaet"]["stale_90_to_180d"] + kb["aktualitaet"]["very_stale_over_180d"] > 0:
         lines.append("  - /legal-update --stale-only   (veraltete KB-Dateien)")
+    if kb["aktualitaet"]["teilverifiziert"] > 0:
+        lines.append("  - /legal-update <slug>         (teilverifizierte Dateien vollstaendig verifizieren)")
     if not report["audits"]:
         lines.append("  - /legal-audit <pfad>  (ersten Audit durchfuehren)")
 
@@ -306,6 +361,13 @@ def main() -> int:
                 print("\nStale-Dateien:")
                 for f in report["kb"]["stale_files"]:
                     print(f"  {f['path']} ({f['age_days']} Tage alt)")
+            if report["kb"].get("teilverifiziert_files"):
+                print("\nTeilverifizierte Dateien:")
+                for f in report["kb"]["teilverifiziert_files"]:
+                    print(f"  {f['path']} (teilverifiziert-am {f['teilverifiziert_am']})")
+            for f in report["placeholders"].get("deviant_files", []):
+                for d in f["findings"]:
+                    print(f"  WARNUNG {f['path']}:{d['line']}: {d['reason']}: {d['snippet']}")
             if report["placeholders"].get("files"):
                 print("\nDateien mit Platzhaltern:")
                 for f in report["placeholders"]["files"]:
