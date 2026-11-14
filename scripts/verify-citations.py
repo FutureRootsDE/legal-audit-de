@@ -35,6 +35,7 @@ import http.client
 import json
 import os
 import re
+import stat
 import sys
 import tempfile
 import time
@@ -54,7 +55,8 @@ PAGE_SIZE = 50
 MAX_PAGES = 3
 MAX_RESPONSE_BYTES = 5_000_000
 RETRY_STATUSES = frozenset({429, 500, 502, 503, 504})
-CACHE_TTL_SECONDS = 7 * 24 * 3600
+DEFAULT_CACHE_TTL_DAYS = 7
+CACHE_TTL_SECONDS = DEFAULT_CACHE_TTL_DAYS * 24 * 3600
 MAX_RATE_PER_SECOND = 10.0
 STATUSES = ("VERIFIED", "DATE_MISMATCH", "NOT_IN_DATASET", "NOT_COVERED", "ERROR", "UNCHECKED")
 
@@ -99,6 +101,7 @@ DATE_ISO = re.compile(r"\b(\d{4})-(\d{2})-(\d{2})\b")
 DATE_MAX_DISTANCE = 120
 PENDING_RE = re.compile(r"<<\s*VERIFIKATION\s+AUSSTEHEND", re.IGNORECASE)
 ECLI_RE = re.compile(r"ECLI:[A-Z]{2}:[A-Za-z0-9]+:\d{4}:[A-Za-z0-9.\-]+")
+ECLI_WRITE_RE = re.compile(r"ECLI:DE:[A-Z]+:\d{4}:[A-Z0-9.]+")  # strict: only this is ever written to the KB
 
 
 @dataclass(frozen=True)
@@ -260,8 +263,35 @@ def _error_detail(status: int, body: bytes) -> str:
     return f"HTTP {status}"
 
 
-def _to_hit(item: dict) -> dict:
+DATE_FIELD_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def _clean_text(value: object, pattern: re.Pattern[str] | None = None) -> str | None:
+    if not isinstance(value, str) or len(value) > 500:
+        return None
+    if pattern is not None and not pattern.fullmatch(value):
+        return None
+    return value
+
+
+def sanitize_hit(raw: dict) -> dict:
+    """Canonical hit with validated field types; invalid fields become None."""
+    numbers = raw.get("file_numbers")
+    if not isinstance(numbers, list):
+        numbers = []
     return {
+        "ecli": _clean_text(raw.get("ecli"), ECLI_RE),
+        "date": _clean_text(raw.get("date"), DATE_FIELD_RE),
+        "type": _clean_text(raw.get("type")),
+        "document_number": _clean_text(raw.get("document_number")),
+        "court": _clean_text(raw.get("court")),
+        "file_numbers": [n for n in numbers if _clean_text(n) is not None],
+        "headline": _clean_text(raw.get("headline")),
+    }
+
+
+def _to_hit(item: dict) -> dict:
+    return sanitize_hit({
         "ecli": item.get("ecli"),
         "date": item.get("decisionDate"),
         "type": item.get("documentType"),
@@ -269,7 +299,7 @@ def _to_hit(item: dict) -> dict:
         "court": item.get("courtName"),
         "file_numbers": item.get("fileNumbers") or [],
         "headline": item.get("headline"),
-    }
+    })
 
 
 class ApiClient:
@@ -300,38 +330,70 @@ class ApiClient:
     def now_epoch(self) -> float:
         return time.time()
 
-    # -- cache
+    # -- cache (entries are untrusted input: validate on read, write atomically)
+    def _cache_key(self, court: str, az: str) -> str:
+        return f"{court}|{az}"
+
     def _cache_path(self, court: str, az: str) -> Path | None:
         if self.cache_dir is None:
             return None
-        digest = hashlib.sha256(f"{court}|{az}".encode("utf-8")).hexdigest()
+        digest = hashlib.sha256(self._cache_key(court, az).encode("utf-8")).hexdigest()
         return self.cache_dir / f"{digest}.json"
 
     def _cache_read(self, court: str, az: str) -> list[dict] | None:
         path = self._cache_path(court, az)
-        if path is None or not path.is_file():
+        if path is None:
             return None
         try:
-            entry = json.loads(path.read_text(encoding="utf-8"))
-            age = self.now_epoch() - float(entry["fetched_at"])
-            if not self.offline and age > self.cache_ttl_seconds:
+            if path.is_symlink() or not path.is_file():
                 return None
-            return list(entry["hits"])
-        except (OSError, ValueError, KeyError, TypeError):
-            return None  # corrupt entry counts as miss and is overwritten
+            if path.stat().st_size > MAX_RESPONSE_BYTES:
+                return None
+            entry = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return None
+        return self._validated_hits(entry, court, az)
+
+    def _validated_hits(self, entry: object, court: str, az: str) -> list[dict] | None:
+        """Return hits of a cache entry, or None if it is malformed or stale."""
+        if not isinstance(entry, dict) or set(entry) != {"court", "az", "fetched_at", "hits"}:
+            return None
+        if entry["court"] != court or entry["az"] != az:
+            return None
+        fetched = entry["fetched_at"]
+        if isinstance(fetched, bool) or not isinstance(fetched, (int, float)):
+            return None
+        age = self.now_epoch() - fetched
+        if age < -60 or (not self.offline and age > self.cache_ttl_seconds):
+            return None
+        hits = entry["hits"]
+        if not isinstance(hits, list):
+            return None
+        if any(not isinstance(h, dict) or sanitize_hit(h) != h for h in hits):
+            return None
+        return hits
 
     def _cache_write(self, court: str, az: str, hits: list[dict]) -> None:
         path = self._cache_path(court, az)
         if path is None:
             return
         entry = {"court": court, "az": az, "fetched_at": self.now_epoch(), "hits": hits}
+        tmp_name = None
         try:
-            path.parent.mkdir(parents=True, exist_ok=True)
-            tmp = path.with_suffix(".tmp")
-            tmp.write_text(json.dumps(entry, ensure_ascii=False), encoding="utf-8")
-            os.replace(tmp, path)
+            self.cache_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+            fd, tmp_name = tempfile.mkstemp(dir=self.cache_dir, prefix=".tmp-cache-", suffix=".json")
+            with os.fdopen(fd, "w", encoding="utf-8") as handle:
+                handle.write(json.dumps(entry, ensure_ascii=False))
+            os.replace(tmp_name, path)
+            tmp_name = None
         except OSError as exc:
-            self.warnings.append(f"Cache nicht schreibbar ({path.parent}): {exc}")
+            self.warnings.append(f"Cache nicht schreibbar ({self.cache_dir}): {exc}")
+        finally:
+            if tmp_name is not None:
+                try:
+                    os.unlink(tmp_name)
+                except OSError:
+                    pass
 
     # -- network
     def _throttle(self) -> None:
@@ -392,8 +454,11 @@ class ApiClient:
         self._consecutive_failures = 0
         return LookupResult("ok", hits)
 
-    def lookup(self, court: str, az: str) -> LookupResult:
-        cached = self._cache_read(court, az)
+    def lookup(self, court: str, az: str, fresh: bool = False) -> LookupResult:
+        """Look up one Aktenzeichen. fresh=True bypasses the cache (read and write)."""
+        if fresh and self.offline:
+            return LookupResult("unchecked", [], "offline, frische Abfrage nicht moeglich")
+        cached = None if fresh else self._cache_read(court, az)
         if cached is not None:
             return LookupResult("ok", cached, from_cache=True)
         if self.offline:
@@ -401,7 +466,7 @@ class ApiClient:
         if self._consecutive_failures >= self.breaker_threshold:
             return LookupResult("error", [], "API wiederholt nicht erreichbar, uebersprungen")
         result = self._query(court, az)
-        if result.state == "ok":
+        if result.state == "ok" and not fresh:
             self._cache_write(court, az, result.hits)
         return result
 
@@ -500,11 +565,11 @@ def _main_reference(lines: list[str], body_start: int) -> tuple[Citation | None,
 def _unique_ecli(hits: list[dict], date: str | None) -> tuple[str | None, str]:
     candidates = [h for h in hits if date is None or h.get("date") == date]
     eclis = {h["ecli"] for h in candidates
-             if isinstance(h.get("ecli"), str) and ECLI_RE.fullmatch(h["ecli"])}
+             if isinstance(h.get("ecli"), str) and ECLI_WRITE_RE.fullmatch(h["ecli"])}
     if len(eclis) == 1:
         return eclis.pop(), ""
     if not eclis:
-        return None, "kein gueltiger ECLI im Treffer"
+        return None, "kein ECLI im Treffer oder ECLI entspricht nicht dem strengen Muster"
     return None, "mehrere Treffer, ohne eindeutiges Datum nicht entscheidbar"
 
 
@@ -528,7 +593,7 @@ def _atomic_write(path: Path, data: bytes) -> None:
         raise
 
 
-def plan_ecli_updates(kb_path: Path, client: ApiClient) -> tuple[list[dict], list[dict]]:
+def plan_ecli_updates(kb_path: Path, client: ApiClient, fresh: bool = False) -> tuple[list[dict], list[dict]]:
     """Return (updates, skipped). Updates carry the new file bytes, never written here."""
     updates: list[dict] = []
     skipped: list[dict] = []
@@ -559,7 +624,7 @@ def plan_ecli_updates(kb_path: Path, client: ApiClient) -> tuple[list[dict], lis
         if not citation.covered:
             skip(f"{citation.court} nicht im Bestand der API")
             continue
-        lookup = client.lookup(citation.court, citation.az)
+        lookup = client.lookup(citation.court, citation.az, fresh=fresh)
         main = Citation(rel, 0, citation.az, citation.court, True, date, False, "")
         status = classify(main, lookup)
         if status != "VERIFIED":
@@ -632,6 +697,49 @@ def render_ecli(updates: list[dict], skipped: list[dict], dry_run: bool) -> str:
     return "\n".join(out)
 
 
+# ---------------------------------------------------------------- cache dir
+
+REPARSE_POINT = 0x400  # Windows FILE_ATTRIBUTE_REPARSE_POINT (symlink, junction)
+
+
+def default_cache_dir() -> Path:
+    """Per-user cache location (never the shared system temp directory)."""
+    if os.name == "nt":
+        base = os.environ.get("LOCALAPPDATA") or str(Path.home() / "AppData" / "Local")
+        return Path(base) / "citation-check" / "cache"
+    xdg = os.environ.get("XDG_CACHE_HOME")
+    base = xdg if xdg and os.path.isabs(xdg) else str(Path.home() / ".cache")
+    return Path(base) / "citation-check"
+
+
+def _current_uid() -> int | None:
+    return os.getuid() if hasattr(os, "getuid") else None
+
+
+def prepare_cache_dir(path: Path) -> tuple[Path | None, str | None]:
+    """Create (mode 0700) and vet the cache directory.
+
+    Returns (usable path or None, warning). A directory that is a symlink, owned by
+    someone else or writable by group/others disables the cache for this run.
+    """
+    try:
+        path.mkdir(mode=0o700, parents=True, exist_ok=True)
+        info = os.lstat(path)
+    except OSError as exc:
+        return None, f"Cache deaktiviert: {path} nicht nutzbar ({exc})."
+    if stat.S_ISLNK(info.st_mode) or getattr(info, "st_file_attributes", 0) & REPARSE_POINT:
+        return None, f"Cache deaktiviert: {path} ist ein Symlink oder Verzeichnis-Link."
+    if not stat.S_ISDIR(info.st_mode):
+        return None, f"Cache deaktiviert: {path} ist kein Verzeichnis."
+    uid = _current_uid()
+    if uid is not None:
+        if info.st_uid != uid:
+            return None, f"Cache deaktiviert: {path} gehoert einem anderen Nutzer."
+        if info.st_mode & 0o022:
+            return None, f"Cache deaktiviert: {path} ist fuer Gruppe oder Andere schreibbar."
+    return path, None
+
+
 # --------------------------------------------------------------------- main
 
 def build_parser() -> argparse.ArgumentParser:
@@ -644,7 +752,11 @@ def build_parser() -> argparse.ArgumentParser:
                    help="nur Zitate mit <<VERIFIKATION AUSSTEHEND>> in derselben Zeile")
     p.add_argument("--rate", type=float, default=2.0, help="max. Anfragen pro Sekunde (Standard 2)")
     p.add_argument("--cache-dir", default=None,
-                   help="Cache-Verzeichnis (Standard: System-Temp/citation-check-cache, nie im Repo)")
+                   help="Cache-Verzeichnis (Standard: pro Nutzer, Windows %%LOCALAPPDATA%%\citation-check\cache, "
+                        "sonst $XDG_CACHE_HOME/citation-check bzw. ~/.cache/citation-check; nie im Repo)")
+    p.add_argument("--no-cache", action="store_true", help="keinen Cache lesen oder schreiben")
+    p.add_argument("--cache-ttl-days", type=float, default=DEFAULT_CACHE_TTL_DAYS,
+                   help="maximales Alter von Cache-Eintraegen in Tagen (Standard 7)")
     p.add_argument("--timeout", type=float, default=15.0, help="Timeout je Anfrage in Sekunden")
     p.add_argument("--strict", action="store_true", help="Exit 1 bei DATE_MISMATCH")
     p.add_argument("--write-ecli", action="store_true",
@@ -671,6 +783,10 @@ def main(argv: list[str] | None = None, fetch: FetchFn | None = None,
         parser.error(f"--rate muss > 0 und <= {MAX_RATE_PER_SECOND:g} sein")
     if args.timeout <= 0:
         parser.error("--timeout muss > 0 sein")
+    if args.cache_ttl_days <= 0:
+        parser.error("--cache-ttl-days muss > 0 sein")
+    if args.write_ecli and not args.dry_run and args.offline:
+        parser.error("--write-ecli ohne --dry-run braucht frische API-Abfragen und ist mit --offline unvereinbar")
 
     out = stdout or sys.stdout
     err = stderr or sys.stderr
@@ -679,17 +795,26 @@ def main(argv: list[str] | None = None, fetch: FetchFn | None = None,
     if stderr is None and hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8")
 
-    cache_dir = Path(args.cache_dir) if args.cache_dir else Path(tempfile.gettempdir()) / "citation-check-cache"
-    if _inside(cache_dir, ROOT):
-        print(f"Fehler: --cache-dir darf nicht im Repo liegen ({cache_dir}).", file=err)
-        return 2
+    cache_dir: Path | None = None
+    cache_warning: str | None = None
+    if not args.no_cache:
+        requested = Path(args.cache_dir) if args.cache_dir else default_cache_dir()
+        if _inside(requested, ROOT):
+            print(f"Fehler: --cache-dir darf nicht im Repo liegen ({requested}).", file=err)
+            return 2
+        cache_dir, cache_warning = prepare_cache_dir(requested)
+        if cache_warning:
+            print(f"WARNUNG: {cache_warning}", file=err)
     kb_path = Path(args.path)
     if not kb_path.is_dir():
         print(f"Fehler: KB-Verzeichnis nicht gefunden: {kb_path}", file=err)
         return 2
 
     client = ApiClient(fetch=fetch, cache_dir=cache_dir, rate=args.rate, timeout=args.timeout,
-                       offline=args.offline, sleep=sleep)
+                       offline=args.offline, sleep=sleep,
+                       cache_ttl_seconds=args.cache_ttl_days * 24 * 3600)
+    if cache_warning:
+        client.warnings.append(cache_warning)
     citations = scan_kb(kb_path)
     if args.only_pending:
         citations = [c for c in citations if c.pending]
@@ -699,7 +824,7 @@ def main(argv: list[str] | None = None, fetch: FetchFn | None = None,
     updates: list[dict] = []
     skipped: list[dict] = []
     if args.write_ecli:
-        updates, skipped = plan_ecli_updates(kb_path, client)
+        updates, skipped = plan_ecli_updates(kb_path, client, fresh=not args.dry_run)
         if not args.dry_run:
             for update in updates:
                 _atomic_write(update["path"], update["data"])
