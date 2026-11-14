@@ -98,14 +98,23 @@ Widerrufsfunktion** bereitstellen:
 
 Umsetzung der **Richtlinie (EU) 2023/2673**. Anwendung seit **19.06.2026**
 (BGBl. 2026 Teil I Nr. 28, Gesetz vom 03.02.2026, veroeffentlicht am
-05.02.2026, am 2026-11-14 ueber recht.bund.de primaer bestaetigt). Die
-Konsolidierung in gesetze-im-internet.de/bgb/__356a.html bildet zum Stichtag
-2026-11-14 noch die Vorgaengerfassung ab — der konkrete Wortlaut der neuen
-Absaetze 1 bis 5 traegt daher einen Verifikationsmarker <<VERIFIKATION AUSSTEHEND>>. Ob und wie die Muster-Widerrufsbelehrung in
-Anlage 1 EGBGB i.V.m. Art. 246a § 1 Abs. 2 Satz 2 EGBGB zur Aufnahme eines
-Hinweises auf die neue Widerrufsfunktion angepasst wurde, konnte in diesem
-Lauf gegen Tier-1-Quellen nicht verifiziert werden (die EGBGB-Anlagen-URL
-auf gesetze-im-internet.de lieferte 404). <<VERIFIKATION AUSSTEHEND>>
+05.02.2026, Art. 1 Nr. 8 und Inkrafttreten nach Art. 10 Abs. 1 am 19.06.2026;
+primaer bestaetigt am 2026-11-14 ueber den BGBl.-Volltext sowie die
+konsolidierte Fassung auf gesetze-im-internet.de/bgb/__356a.html, die
+zwischenzeitlich die neue Fassung ("Elektronische Widerrufsfunktion bei
+Fernabsatzvertraegen") abbildet). Die Schaltflaechen-Beschriftungen "Vertrag
+widerrufen" (Abs. 1 Satz 2) und "Widerruf bestaetigen" (Abs. 3 Satz 2) sind
+jeweils "oder [eine] andere gleichbedeutende eindeutige Formulierung"
+zugelassen; die Eingangsbestaetigung muss "Datum und Uhrzeit ihres Eingangs"
+enthalten (Abs. 4). Die Muster-Widerrufsbelehrung in Anlage 1 EGBGB ist durch
+**Art. 2 Nr. 7 Buchst. a** desselben Gesetzes (BGBl. 2026 I Nr. 28) angepasst
+worden: **Gestaltungshinweis 33 n. F.** sieht einen Pflicht-Einschub
+"Sie koennen Ihr Widerrufsrecht auch online unter ... [Internetadresse oder
+anderen geeigneten Hinweis darueber eingeben, wo die Widerrufsfunktion
+verfuegbar ist] ausueben. Wenn Sie diese Online-Funktion nutzen, uebermitteln
+wir Ihnen auf einem dauerhaften Datentraeger (z. B. durch eine E-Mail)
+unverzueglich eine Eingangsbestaetigung mit Informationen zum Inhalt der
+Widerrufserklaerung sowie dem Datum und der Uhrzeit ihres Eingangs." vor.
 
 ### § 357 BGB — Rechtsfolgen des Widerrufs
 
@@ -212,8 +221,14 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
   primaer gegen gesetze-im-internet.de/bgb/__356a.html verifiziert. Geltung
   fuer **alle** Fernabsatzvertraege ueber Online-Benutzeroberflaeche
   (nicht nur Finanzdienstleistungen) bestaetigt; Schaltflaechen-Texte
-  "Vertrag widerrufen" / "Widerruf bestaetigen", Pflicht zur
-  Eingangsbestaetigung mit Datum und Uhrzeit sowie Fristwahrung durch
-  rechtzeitige Absendung (Abs. 5) ausdruecklich im Text bestaetigt. Der
-  verbleibende Verifikationsmarker bezieht sich nur noch auf die
-  Anpassung der Muster-Widerrufsbelehrung in Anlage 1 EGBGB.
+  "Vertrag widerrufen" / "Widerruf bestaetigen" (jeweils "oder [eine] andere
+  gleichbedeutende eindeutige Formulierung"), Pflicht zur Eingangs-
+  bestaetigung mit "Datum und Uhrzeit ihres Eingangs" sowie Fristwahrung
+  durch rechtzeitige Absendung (Abs. 5) direkt am Gesetzestext belegt.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Verifikationsmarker zum
+  § 356a-Wortlaut und zur Muster-Widerrufsbelehrung aufgeloest. Die
+  konsolidierte Fassung auf gesetze-im-internet.de zeigt die neue
+  Paragraphenueberschrift und den vollstaendigen Absatztext; die
+  Anpassung von Gestaltungshinweis 33 der Muster-Widerrufsbelehrung
+  (Anlage 1 EGBGB) ergibt sich aus Art. 2 Nr. 7 Buchst. a des
+  Umsetzungsgesetzes (BGBl. 2026 I Nr. 28 vom 05.02.2026).

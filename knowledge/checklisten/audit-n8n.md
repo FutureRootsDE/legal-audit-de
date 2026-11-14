@@ -177,7 +177,7 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 - [ ] **Data Act (EU) 2023/2854** — zeitliche Staffelung pruefen (Art. 50, per Cellar CELEX:32023R2854 verifiziert):
   - **Kapitel VI** (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten) **gilt seit 12.09.2025**. Bei n8n-Cloud oder sonstigen Datenverarbeitungsdiensten pruefen, ob Portabilitaets-, Kuendigungs- und Uebergangspflichten greifen.
   - **Art. 29** (Wechselentgelte): vom 11.01.2024 bis **12.01.2027** nur ermaessigte Wechselentgelte (max. Selbstkosten); **ab 12.01.2027** vollstaendig verboten.
-  - **Kapitel IV** (Art. 13, missbraeuchliche B2B-Vertragsklauseln): fuer Neuvertraege seit 12.09.2025; fuer Altvertraege (geschlossen am oder vor 12.09.2025, unbefristet oder Laufzeitende fruehestens zehn Jahre nach dem 11.01.2024) **ab 12.09.2027**.
+  - **Kapitel IV** (Art. 13, missbraeuchliche B2B-Vertragsklauseln): fuer Vertraege, die **nach dem 12. September 2025** geschlossen wurden, unmittelbar; fuer Altvertraege, die am oder vor dem 12. September 2025 geschlossen wurden, **ab 12. September 2027** unter der in Art. 50 genannten Voraussetzung (Vertrag unbefristet oder Laufzeitende fruehestens zehn Jahre nach dem 11. Januar 2024).
   - Severity MED
 
 ## Typ-spezifische Besonderheiten

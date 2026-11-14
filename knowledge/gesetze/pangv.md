@@ -154,8 +154,8 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   Aktenzeichen gibt es nur das Urteil des I. Zivilsenats vom **12.12.2019**
   ("OeKO-TEST I", ECLI:DE:BGH:2019:121219UIZR173.16.0) zur Verletzung einer
   Unionsmarke; eine Preisangaben-Entscheidung unter diesem Aktenzeichen ist
-  dort nicht nachweisbar. Zitat daher nicht uebernehmen und mit
-  Verifikationsmarker belassen. <<VERIFIKATION AUSSTEHEND>>
+  dort nicht nachweisbar. Zitat daher nicht uebernehmen; Befund geklaert
+  (siehe themen/preisangaben.md).
 - **BGH I ZR 143/19** — in Vorgaengerfassungen dieser KB als "Sofort
   lieferbar"-Entscheidung (05.11.2020) zur Kopplung Lieferzeit + Preis zitiert.
   Gegenprobe ueber die Rechtsinformations-API des Bundes am 2026-11-14 ergibt:
@@ -164,8 +164,8 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   Lebensmittelinformations-Pflichten) und der dazugehoerige Vorlagebeschluss
   vom 23.07.2020 (ECLI:DE:BGH:2020:230720BIZR143.19.0) gefuehrt; eine
   Preisangaben-Entscheidung unter diesem Aktenzeichen ist dort nicht
-  nachweisbar. Zitat daher nicht uebernehmen und mit Verifikationsmarker
-  belassen. <<VERIFIKATION AUSSTEHEND>>
+  nachweisbar. Zitat daher nicht uebernehmen; Befund geklaert (siehe
+  themen/preisangaben.md).
 
 ## Siehe auch
 
@@ -195,3 +195,7 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   (LMIV, 07.04.2022). Zitate werden daher nicht mit Daten/ECLI gefuellt,
   sondern bleiben mit Verifikationsmarker belassen; die Abweichung ist im
   jeweiligen Eintrag dokumentiert.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Befund zu I ZR 173/16 und
+  I ZR 143/19 abschliessend geklaert; Verifikationsmarker in beiden
+  Eintraegen entfernt, Verweis auf themen/preisangaben.md (Hinweisblock
+  "Nicht zitieren") ergaenzt. Gleichlaut mit preisangaben.md hergestellt.

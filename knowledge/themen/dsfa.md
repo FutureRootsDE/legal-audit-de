@@ -73,7 +73,7 @@ Bleibt trotz Maßnahmen ein hohes Restrisiko: vorherige Konsultation der Aufsich
 
 ## Typische Fallstricke in Codebases
 
-- **SaaS mit KI-gestütztem Scoring / Automation:** AI-Features oft DSFA-pflichtig (Abs. 3 lit. a). Neue Pflichten durch EU-AI-Act (ab 2026 stufenweise).
+- **SaaS mit KI-gestütztem Scoring / Automation:** AI-Features oft DSFA-pflichtig (Art. 35 Abs. 3 lit. a). Zusatzpflichten aus der KI-VO greifen stufenweise: Art. 50 KI-VO (Transparenz von Chatbots, synthetischen Medien, Deepfakes) ist seit **02.08.2026** anwendbar; die Hochrisiko-Pflichten nach **Anhang III ab 02.12.2027** und nach **Anhang I ab 02.08.2028** (Art. 113 Abs. 3 Buchst. c KI-VO i. d. F. des Art. 1 Nr. 40 Buchst. b VO (EU) 2026/1744). Die **Grundrechte-Folgenabschätzung nach Art. 27 KI-VO** gilt nur für Betreiber von Hochrisiko-KI-Systemen und wird daher erst mit den Hochrisiko-Pflichten pflichtig (Anhang III ab 02.12.2027 bzw. Anhang I ab 02.08.2028); Abgrenzung zur DSFA nach Art. 35 DSGVO beachten.
 - **Tracking-heavy Landingpage:** bei breitem Drittland-Transfer + umfassendem Profiling (TCF-String-Fall, EuGH C-604/22): DSFA empfohlen.
 - **HR-Tool mit Analytics / People-Analytics:** Mustertyp für DSFA-Pflicht (Punkt 4 DSK-Liste).
 - **Fitness-Tracker / Health-Apps:** Art. 9 + Punkt 15 Muss-Liste.
@@ -144,3 +144,10 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
   (COM(2025) 501 final) befindet sich dagegen noch im ordentlichen
   Gesetzgebungsverfahren und ist Stand 2026-11-14 nicht verkuendet.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Fliesstext bei
+  "SaaS mit KI-gestuetztem Scoring" konkretisiert — pauschales
+  "ab 2026 stufenweise" durch die stufenweise Anwendbarkeit der KI-VO
+  (Art. 50 seit 02.08.2026; Hochrisiko Anhang III ab 02.12.2027,
+  Anhang I ab 02.08.2028) sowie den Hinweis auf Art. 27 KI-VO
+  (Grundrechte-Folgenabschaetzung, erst mit den Hochrisiko-Pflichten)
+  ersetzt. Deckt sich mit knowledge/gesetze/ai-act.md.

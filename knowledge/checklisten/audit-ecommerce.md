@@ -95,7 +95,7 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 - [ ] 14-Tage-Frist korrekt formuliert
 - [ ] Ausnahmen konkret aufgelistet (digitaler Content nach Einwilligung, versiegelte Waren, etc. § 312g BGB)
 - [ ] Bestaetigungs-Mail nach Kauf enthaelt Widerrufsbelehrung in **Textform** (nicht nur Link!)
-- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** (gesetze-im-internet.de/bgb/__356a.html) bei allen Fernabsatzvertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht nur Finanzdienstleistungen): Pflichtschaltflaeche "Vertrag widerrufen" waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" + Eingangsbestaetigung auf dauerhaftem Datentraeger inkl. Datum und Uhrzeit (§ 356a Abs. 1-4 BGB); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity CRIT bei B2C-Shop ohne Widerrufsbutton
+- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** (gesetze-im-internet.de/bgb/__356a.html) bei allen Fernabsatzvertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht nur Finanzdienstleistungen): Pflichtschaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung) waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Eingangsbestaetigung auf dauerhaftem Datentraeger inkl. Datum und Uhrzeit (§ 356a Abs. 1-4 BGB); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity CRIT bei B2C-Shop ohne Widerrufsbutton
 - [ ] [[themen/widerrufsbelehrung]]
 
 ### Button-Loesung (§ 312j Abs. 3 BGB)

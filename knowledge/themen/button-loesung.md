@@ -99,29 +99,35 @@ Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
 Durch das "Gesetz zur Aenderung des Verbrauchervertrags- und des
 Versicherungsvertragsrechts sowie zur Aenderung des Behandlungsvertragsrechts"
 vom 03.02.2026 (**BGBl. 2026 Teil I Nr. 28**, veroeffentlicht am 05.02.2026,
-Umsetzung der Richtlinie (EU) 2023/2673; Fundstelle recht.bund.de am
-2026-11-14 bestaetigt) wird der **neue § 356a BGB** eingefuehrt;
-Anwendung seit **19.06.2026**. Die Konsolidierung auf
-gesetze-im-internet.de/bgb/__356a.html bildet zum Stichtag 2026-11-14 noch
-die Vorgaengerfassung ab; der konkrete Paragraphen-Wortlaut traegt hier
-daher einen Verifikationsmarker <<VERIFIKATION AUSSTEHEND>>. Fuer Fernabsatzvertraege, die ueber eine
+Umsetzung der Richtlinie (EU) 2023/2673; Inkrafttreten nach Art. 10 Abs. 1
+am 19.06.2026) wird der **neue § 356a BGB** ("Elektronische Widerrufsfunktion
+bei Fernabsatzvertraegen") eingefuehrt. Primaerbelege am 2026-11-14:
+BGBl.-Volltext Art. 1 Nr. 8 und konsolidierte Fassung auf
+gesetze-im-internet.de/bgb/__356a.html mit dem vollstaendigen neuen
+Absatztext. Fuer Fernabsatzvertraege, die ueber eine
 **Online-Benutzeroberflaeche** geschlossen werden, muss der Unternehmer eine
 **elektronische Widerrufsfunktion** bereitstellen:
 
-- Schaltflaeche beschriftet "Vertrag widerrufen" (oder gleichwertig), gut
-  lesbar, waehrend der gesamten Widerrufsfrist staendig verfuegbar.
+- Schaltflaeche beschriftet "Vertrag widerrufen" (oder eine andere
+  gleichbedeutende eindeutige Formulierung), gut lesbar, waehrend der
+  gesamten Widerrufsfrist staendig verfuegbar und hervorgehoben platziert.
 - Eingabemoeglichkeit fuer Name, Vertragsidentifikation und elektronisches
-  Kommunikationsmittel fuer die Eingangsbestaetigung.
-- Bestaetigungs-Schaltflaeche "Widerruf bestaetigen" (oder gleichwertig).
+  Kommunikationsmittel fuer die Eingangsbestaetigung (Abs. 2).
+- Bestaetigungs-Schaltflaeche "Widerruf bestaetigen" (oder eine andere
+  gleichbedeutende eindeutige Formulierung, Abs. 3 Satz 2).
 - Unternehmer sendet unverzueglich elektronische Eingangsbestaetigung auf
-  dauerhaftem Datentraeger (Inhalt, Datum, Uhrzeit).
+  dauerhaftem Datentraeger mit Inhalt der Widerrufserklaerung sowie
+  **"Datum und Uhrzeit ihres Eingangs"** (Abs. 4).
 
-Der bisherige § 356a BGB (Besondere Fristregelungen fuer Teilzeit-
-Wohnrechtsvertraege etc.) wird nach dem Umsetzungsgesetz verschoben; der
-Darlehens-Paragraph § 356b bleibt inhaltsgleich. (Primaerquelle Umsetzungsgesetz:
-recht.bund.de/bgbl/1/2026/28/VO.html, Abruf 2026-11-14; konsolidierte
-Fassung in gesetze-im-internet.de/bgb/__356a.html zum Stichtag 2026-11-14
-noch nicht sichtbar.)
+Durch Art. 1 Nr. 8 des Umsetzungsgesetzes wird § 356a a. F. ersetzt; die
+bisherigen Paragraphen rutschen nach: Teilzeit-Wohnrechte stehen jetzt in
+**§ 356c BGB**, Ratenlieferungsvertraege in **§ 356d BGB**, Verbraucher-
+bauvertrag in **§ 356e BGB**, unentgeltliche Darlehensvertraege in
+**§ 356f BGB**; **§ 356b BGB** (Verbraucherdarlehen) bleibt inhaltsgleich.
+Die Muster-Widerrufsbelehrung in Anlage 1 EGBGB ist durch **Art. 2 Nr. 7
+Buchst. a** desselben Gesetzes angepasst (Gestaltungshinweis 33 n. F.:
+Pflicht-Einschub "Sie koennen Ihr Widerrufsrecht auch online unter ...
+ausueben ...").
 
 ## Typische Fallstricke in Codebases
 
@@ -204,3 +210,13 @@ noch nicht sichtbar.)
 - Drei Marker-Varianten mit angehaengtem Grund auf das einzeilige
   Standardformat des Verifikationsmarkers normalisiert.
 - Hinweis "kaufen"-Beschriftung umformuliert.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Verifikationsmarker zum
+  § 356a-Wortlaut aufgeloest (konsolidierte Fassung zeigt neue Fassung).
+  Schaltflaechen-Texte um Zusatz "oder [eine] andere gleichbedeutende
+  eindeutige Formulierung" ergaenzt. Paragraphenverschiebung durch
+  Art. 1 Nr. 8 des Umsetzungsgesetzes dokumentiert: Teilzeit-Wohnrechte
+  jetzt § 356c BGB, Ratenlieferungsvertrag § 356d BGB, Verbraucherbau-
+  vertrag § 356e BGB, unentgeltliches Darlehen § 356f BGB; § 356b BGB
+  (Verbraucherdarlehen) unveraendert. Anpassung von Gestaltungshinweis 33
+  der Muster-Widerrufsbelehrung (Anlage 1 EGBGB) durch Art. 2 Nr. 7
+  Buchst. a desselben Gesetzes ergaenzt.

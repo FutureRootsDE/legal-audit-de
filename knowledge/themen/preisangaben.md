@@ -154,10 +154,24 @@ Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
   PAngV / Art. 6a UGP-Richtlinie muss sich auch in **Werbemassnahmen**
   (Prospekte, Online-Ads) auf den 30-Tage-Tiefstpreis beziehen, nicht nur am
   Regal.
-- **BGH I ZR 173/16** (Preisangabe "auf einen Blick") <<VERIFIKATION AUSSTEHEND>>
-- **BGH I ZR 143/19** (Lieferzeit- und Preisangabe) <<VERIFIKATION AUSSTEHEND>>
 - **OLG Hamm 4 U 85/22** (unzulaessiger Streichpreis ohne 30-Tage-Basis) <<VERIFIKATION AUSSTEHEND>>
 - **BGH I ZR 85/21** (Angabe "inkl. MwSt." bei B2B-/Hybrid-Angeboten) <<VERIFIKATION AUSSTEHEND>>
+
+### Nicht zitieren — nachweislich falsch zugeordnete Aktenzeichen
+
+- **BGH I ZR 173/16** — in Vorgaengerfassungen als Preisangaben-Entscheidung
+  ("auf einen Blick") gefuehrt. Tatsaechlich: Urteil des I. Zivilsenats vom
+  **12.12.2019** "ÖKO-TEST I" (Unionsmarken-Verletzung,
+  ECLI:DE:BGH:2019:121219UIZR173.16.0). Aktenzeichen nachweislich falsch
+  zugeordnet, nicht zitieren; die behauptete Aussage zu Preisangaben ist
+  damit unbelegt.
+- **BGH I ZR 143/19** — in Vorgaengerfassungen als "Sofort lieferbar"-
+  Entscheidung zur Kopplung Lieferzeit/Preis gefuehrt. Tatsaechlich: Urteil
+  des I. Zivilsenats vom **07.04.2022** "Knuspermüsli II" (Lebensmittel-
+  informations-Pflichten nach LMIV,
+  ECLI:DE:BGH:2022:070422UIZR143.19.0). Aktenzeichen nachweislich falsch
+  zugeordnet, nicht zitieren; die behauptete Aussage zu Preisangaben ist
+  damit unbelegt.
 
 ## Siehe auch
 
@@ -171,6 +185,13 @@ Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
 - Vier Marker-Varianten mit angehaengtem Grund auf das einzeilige
   Standardformat des Verifikationsmarkers normalisiert
   (BGH I ZR 173/16, I ZR 143/19, OLG Hamm 4 U 85/22, BGH I ZR 85/21).
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: BGH I ZR 173/16 und
+  BGH I ZR 143/19 aus "Zitierbare Urteile" herausgenommen; beide
+  Aktenzeichen sind der Preisangaben-Thematik nachweislich falsch
+  zugeordnet (I ZR 173/16 = Marke "OeKO-TEST I" 12.12.2019;
+  I ZR 143/19 = LMIV "Knuspermuesli II" 07.04.2022). Hinweisblock
+  "Nicht zitieren" mit dem tatsaechlichen Verfahrensgegenstand ergaenzt.
+  Spiegelbild in gesetze/pangv.md.
 - EuGH C-330/23 Aldi Sued und BGH I ZR 183/24 (jeweils 2024/2025) unveraendert
   belassen; weitere Folgerechtsprechung zu § 11 PAngV nicht aufgefunden.
 - **2026-11-14 (Task 12, API-Gegenprobe)**: BGH I ZR 173/16 und BGH I ZR 143/19

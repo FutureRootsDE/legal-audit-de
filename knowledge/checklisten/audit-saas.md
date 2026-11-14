@@ -97,7 +97,7 @@ Ziel: § 25 TDDDG + DSGVO sauber umgesetzt.
 - [ ] **Kuendigungsbutton § 312k BGB** bei Abo-/SaaS-Vertraegen mit Verbrauchern: Schaltflaeche "Vertraege hier kuendigen" (oder gleichwertig) + Bestaetigungsseite mit Button "jetzt kuendigen", staendig verfuegbar und leicht zugaenglich (§ 312k Abs. 2 BGB); Bestaetigung unverzueglich in Textform (§ 312k Abs. 4 BGB); Folge bei Verstoss: jederzeitige fristlose Kuendigung durch Verbraucher moeglich (§ 312k Abs. 6 BGB) — Severity CRIT
 - [ ] **Preisangaben-Transparenz** (PAngV — Gesamtpreis inkl. USt, monatlich/jaehrlich)
 - [ ] **Widerrufsrecht bei digitalen Inhalten** — Hinweis auf Verzicht moeglich (§ 356 Abs. 5 BGB)
-- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** bei B2C-Vertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht auf Finanzdienstleistungen beschraenkt): Pflichtschaltflaeche "Vertrag widerrufen" waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" + Eingangsbestaetigung auf dauerhaftem Datentraeger mit Datum und Uhrzeit (§ 356a Abs. 1-4 BGB; gesetze-im-internet.de/bgb/__356a.html); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity HIGH
+- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** bei B2C-Vertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht auf Finanzdienstleistungen beschraenkt): Pflichtschaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung) waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Eingangsbestaetigung auf dauerhaftem Datentraeger mit Datum und Uhrzeit (§ 356a Abs. 1-4 BGB; gesetze-im-internet.de/bgb/__356a.html); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity HIGH
 
 ## Pass 5: KI-Spezifisch (AI Act — Verordnung (EU) 2024/1689)
 
@@ -155,7 +155,7 @@ BFSG ist seit **28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Angebote (O
 - [ ] **Data Act (EU) 2023/2854** — zeitliche Staffelung pruefen (Art. 50 i. d. F. der konsolidierten Fassung, per Cellar CELEX:32023R2854 verifiziert):
   - **Kapitel VI** (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten) **gilt seit 12.09.2025**. SaaS-/Cloud-Vertraege auf Pflichten zum erleichterten Anbieterwechsel pruefen (Portabilitaet, Kuendigungs- und Uebergangsfristen).
   - **Art. 29** (schrittweise Abschaffung der Wechselentgelte): vom 11.01.2024 bis **12.01.2027** nur ermaessigte Wechselentgelte (max. Selbstkosten); **ab 12.01.2027** sind Wechselentgelte vollstaendig verboten.
-  - **Kapitel IV** (Art. 13, missbraeuchliche Vertragsklauseln in B2B-Datenvertraegen): gilt fuer **ab 12.09.2025** geschlossene Vertraege unmittelbar; fuer **Altvertraege, die am oder vor dem 12.09.2025** geschlossen wurden, gilt Kapitel IV **ab 12.09.2027**, sofern der Vertrag unbefristet ist oder seine Geltungsdauer fruehestens 10 Jahre nach dem 11.01.2024 endet.
+  - **Kapitel IV** (Art. 13, missbraeuchliche Vertragsklauseln in B2B-Datenvertraegen): gilt fuer Vertraege, die **nach dem 12. September 2025** geschlossen wurden, unmittelbar; fuer Altvertraege, die am oder vor dem 12. September 2025 geschlossen wurden, gilt Kapitel IV **ab 12. September 2027** unter der in Art. 50 genannten Voraussetzung, dass der Vertrag unbefristet ist oder seine Geltungsdauer fruehestens zehn Jahre nach dem 11. Januar 2024 endet.
   - Severity MED
 
 ## Pass 9: Social-Media & Drittinhalte

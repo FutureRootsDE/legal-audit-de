@@ -95,10 +95,10 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
   den DPF-Angemessenheitsbeschluss (2023/1795) ist in der publizierten
   Curia-Verfahrensliste Stand 2026-11-14 nicht als eigener Verfahrensgegenstand
   nachweisbar; die Formulierung "Schrems III anhaengig" wurde deshalb hier
-  gestrichen. Belegte Verfahrenslage: EuG T-553/23 (Latombe/Kommission,
-  Urteil 03.09.2025, Klage abgewiesen) und das dagegen eingelegte Rechtsmittel
-  C-703/25 P (Mitteilung ABl. C/2025/6610, Rechtsmittel 31.10.2025), beide
-  beim EuGH anhaengig.
+  gestrichen. Belegte Verfahrenslage: **EuG T-553/23 (Latombe/Kommission,
+  Urteil vom 03.09.2025, Klage abgewiesen)** — in erster Instanz abgeschlossen;
+  **anhaengig beim EuGH ist allein das Rechtsmittel C-703/25 P**
+  (eingelegt 31.10.2025, Mitteilung im Amtsblatt ABl. C/2025/6610).
 
 ## Anwendung auf Codebases
 
@@ -131,3 +131,8 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
   Rechtsmittels C-703/25 P (31.10.2025) primaer gegen die Mitteilung im
   Amtsblatt der EU verifiziert (EUR-Lex ELI `C/2025/6610`); Marker
   aufgeloest. Deckungsgleich mit themen/drittland-transfer.md.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Falsche Aussage
+  "T-553/23 ... und C-703/25 P ... beide beim EuGH anhaengig" korrigiert.
+  Richtig: T-553/23 hat das EuG am 03.09.2025 entschieden (Klage
+  abgewiesen); anhaengig beim EuGH ist nur das Rechtsmittel C-703/25 P
+  (31.10.2025). Wortlaut mit themen/drittland-transfer.md synchronisiert.
