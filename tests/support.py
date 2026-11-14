@@ -52,4 +52,4 @@ ERR_422 = (422, fixture_bytes("ris_fehler_422"))
 GOOD_ECLI = "ECLI:DE:BGH:2025:091025UIZR159.24.0"
 GOOD_HIT = {"ecli": GOOD_ECLI, "date": "2025-10-09", "type": "Urteil",
             "document_number": "KORE726702025", "court": "BGH",
-            "file_numbers": ["I ZR 159/24"], "headline": "BGH, Urteil"}
+            "file_numbers": ["I ZR 159/24"]}

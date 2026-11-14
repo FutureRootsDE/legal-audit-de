@@ -43,7 +43,7 @@ Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
 - `audit-compare.py` — Diff zwischen zwei Audits (`--auto <pfad>` findet vorheriges)
 - `find-placeholders.py` — listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen
 - `legal-audit-pdf.py` — bundled HTML/PDF-Briefing aus Audit-Ordner
-- `verify-citations.py` — prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--only-pending`, `--json`, `--offline`, `--write-ecli --dry-run`)
+- `verify-citations.py` — prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--only-pending`, `--json`, `--offline`, `--write-ecli --dry-run`); duenner Einstiegspunkt, Logik im Paket `citation_check/` daneben (nur Standardbibliothek); Cache-Treffer sind im Bericht und JSON gekennzeichnet (`source: cache`) und gelten als ungeprueft; Exit 3 bei Schreibfehlern von `--write-ecli`
 
 ## Integration in Zielprojekte
 

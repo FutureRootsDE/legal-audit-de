@@ -18,6 +18,7 @@ class Citation:
     date: str | None
     pending: bool
     context: str
+    correction: bool = False
 
 
 @dataclass

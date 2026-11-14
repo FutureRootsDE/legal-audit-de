@@ -10,10 +10,10 @@ import time
 from pathlib import Path
 from typing import Callable
 
+from .fsutil import REPARSE_POINT, is_under
 from .hits import sanitize_hit
 
 MAX_CACHE_ENTRY_BYTES = 5_000_000
-REPARSE_POINT = 0x400  # Windows FILE_ATTRIBUTE_REPARSE_POINT (symlink, junction)
 
 
 class HitCache:
@@ -101,6 +101,22 @@ def default_cache_dir() -> Path:
     xdg = os.environ.get("XDG_CACHE_HOME")
     base = xdg if xdg and os.path.isabs(xdg) else str(Path.home() / ".cache")
     return Path(base) / "citation-check"
+
+
+def user_home() -> Path:
+    return Path(os.path.expanduser("~"))
+
+
+def vet_default_dir(path: Path, home: Path, enforce: bool) -> tuple[Path | None, str | None]:
+    """With `enforce`, the default cache dir must lie below the user profile (else cache off)."""
+    if enforce and not is_under(path, home):
+        return None, f"Cache deaktiviert: Standardverzeichnis {path} liegt nicht im Nutzerprofil ({home})."
+    return path, None
+
+
+def default_cache_dir_vetted() -> tuple[Path | None, str | None]:
+    """Default cache dir; on Windows LOCALAPPDATA must point below the user profile."""
+    return vet_default_dir(default_cache_dir(), user_home(), enforce=os.name == "nt")
 
 
 def _current_uid() -> int | None:

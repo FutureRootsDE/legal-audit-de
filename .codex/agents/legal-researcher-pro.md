@@ -154,6 +154,8 @@ Bundesgerichts-Aktenzeichen aus `knowledge/`, fragt die API ab (gecacht, max. 2
 Anfragen pro Sekunde) und klassifiziert VERIFIED / DATE_MISMATCH / NOT_IN_DATASET /
 NOT_COVERED / ERROR. Optionen: `--only-pending`, `--json`, `--offline`. Das Skript
 entfernt nie Marker und schreibt nur mit `--write-ecli` (Vorschau: `--dry-run`).
+Ergebnisse mit `source: cache` stammen aus einer lokalen, nicht authentisch pruefbaren
+Cache-Datei und zaehlen nicht als Primaerbeleg; fuer einen Beleg mit `--no-cache` neu abfragen.
 
 ## KB-Datei-Erstellung / -Update
 
