@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
   - https://www.datenschutz-hamburg.de/fileadmin/user_upload/HmbBfDI/Datenschutz/Informationen/DSFA_Muss-Liste_fuer_den_nicht-oeffentlicher_Bereich_-_Stand_17.10.2018.pdf
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-11-14
 
 # DSFA — Datenschutz-Folgenabschätzung (Art. 35 DSGVO)
 
@@ -73,7 +73,7 @@ Bleibt trotz Maßnahmen ein hohes Restrisiko: vorherige Konsultation der Aufsich
 
 ## Typische Fallstricke in Codebases
 
-- **SaaS mit KI-gestütztem Scoring / Automation:** AI-Features oft DSFA-pflichtig (Abs. 3 lit. a). Neue Pflichten durch EU-AI-Act (ab 2026 stufenweise).
+- **SaaS mit KI-gestütztem Scoring / Automation:** AI-Features oft DSFA-pflichtig (Art. 35 Abs. 3 lit. a). Zusatzpflichten aus der KI-VO greifen stufenweise: Art. 50 KI-VO (Transparenz von Chatbots, synthetischen Medien, Deepfakes) ist seit **02.08.2026** anwendbar; die Hochrisiko-Pflichten nach **Anhang III ab 02.12.2027** und nach **Anhang I ab 02.08.2028** (Art. 113 Abs. 3 Buchst. c KI-VO i. d. F. des Art. 1 Nr. 40 Buchst. b VO (EU) 2026/1744). Die **Grundrechte-Folgenabschätzung nach Art. 27 KI-VO** betrifft nur Hochrisiko-KI-Systeme nach Art. 6 Abs. 2 (Anhang III), ausgenommen den Bereich Anhang III Nr. 2; verpflichtet sind Betreiber, die Einrichtungen des öffentlichen Rechts sind oder private Einrichtungen, die öffentliche Dienste erbringen, sowie Betreiber von Systemen nach Anhang III Nr. 5 Buchst. b und c (Kreditwürdigkeitsprüfung sowie Risikobewertung und Preisbildung bei Lebens- und Krankenversicherung); für Anhang-I-Systeme gilt Art. 27 nicht. Zeitlich greift die Pflicht mit der Anwendbarkeit der Anhang-III-Hochrisiko-Pflichten (02.12.2027 nach Art. 113 Abs. 3 n. F.). Abgrenzung zur DSFA nach Art. 35 DSGVO beachten.
 - **Tracking-heavy Landingpage:** bei breitem Drittland-Transfer + umfassendem Profiling (TCF-String-Fall, EuGH C-604/22): DSFA empfohlen.
 - **HR-Tool mit Analytics / People-Analytics:** Mustertyp für DSFA-Pflicht (Punkt 4 DSK-Liste).
 - **Fitness-Tracker / Health-Apps:** Art. 9 + Punkt 15 Muss-Liste.
@@ -116,8 +116,8 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
 
 - **EuGH C-26/22, C-64/22 (SCHUFA), 07.12.2023** — Scoring ist automatisierte Entscheidung nach Art. 22 DSGVO
 - **EuGH C-634/21 (SCHUFA), 07.12.2023** — Weitere Präzisierung Scoring
-- **OVG NRW 16 A 2805/20, 07.05.2024** — Aufsichtsbehörden-Anordnung bei fehlender DSFA
-- **VG Wiesbaden 6 K 1164/21.WI, 19.01.2022** — Keylogger-Einsatz DSFA-pflichtig
+- **OVG NRW 16 A 2805/20, 07.05.2024** — Aufsichtsbehörden-Anordnung bei fehlender DSFA <<VERIFIKATION AUSSTEHEND>>
+- **VG Wiesbaden 6 K 1164/21.WI, 19.01.2022** — Keylogger-Einsatz DSFA-pflichtig <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -125,3 +125,32 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
 - [[themen/verarbeitungsverzeichnis]]
 - [[themen/tom]]
 - [[themen/meldepflicht-datenpanne]]
+
+## Aenderungsvermerk 2026-11-14
+
+- EuGH C-26/22 und C-634/21 (SCHUFA, 07.12.2023) gegen curia.europa.eu
+  verifiziert; Aussage bleibt korrekt.
+- OVG NRW 16 A 2805/20 und VG Wiesbaden 6 K 1164/21.WI konnten nicht direkt
+  gegen rechtsprechung-im-internet.de verifiziert werden; Aktenzeichen bleiben
+  stehen mit Verifikationsmarker.
+- AI-Act: Stufenweise Anwendbarkeit ergaenzt — Art. 5 (verbotene Praktiken)
+  seit 02.02.2025, GPAI-Governance seit 02.08.2025, Art. 50 (Transparenz)
+  anwendbar seit 02.08.2026; Pflichten fuer Hochrisiko-KI nach Anhang III ab
+  **02.12.2027**, nach Anhang I ab **02.08.2028** (Art. 113 Abs. 3 Buchst. c
+  KI-VO n. F., verschoben durch Art. 1 Nr. 40 Buchst. b der VO (EU) 2026/1744
+  ("Digital Omnibus on AI"), verkuendet 24.07.2026, in Kraft seit 27.07.2026;
+  Primaerquelle: Cellar-Volltext CELEX:32026R1744). Der am 19.11.2025 von der
+  Kommission vorgelegte **Digital-Omnibus-Vorschlag zur DSGVO**
+  (COM(2025) 501 final) befindet sich dagegen noch im ordentlichen
+  Gesetzgebungsverfahren und ist Stand 2026-11-14 nicht verkuendet.
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Fliesstext bei
+  "SaaS mit KI-gestuetztem Scoring" konkretisiert — pauschales
+  "ab 2026 stufenweise" durch die stufenweise Anwendbarkeit der KI-VO
+  (Art. 50 seit 02.08.2026; Hochrisiko Anhang III ab 02.12.2027,
+  Anhang I ab 02.08.2028) sowie den Hinweis auf Art. 27 KI-VO
+  (Grundrechte-Folgenabschaetzung, erst mit den Hochrisiko-Pflichten)
+  ersetzt. Beleg: Art. 27 Abs. 1 KI-VO (Cellar-Volltext
+  CELEX:32024R1689); die Omnibus-Verordnung (EU) 2026/1744 aendert
+  Art. 27 nur in Abs. 4 und Abs. 5 (Querverweis auf Abschnitte einer
+  DSFA bzw. Fragebogenmuster), nicht den Anwendungsbereich in Abs. 1.

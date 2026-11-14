@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/ddg/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/ddg/__5.html
   - https://www.bmj.de/DE/themen/digitales/digitale_dienste/DDG/DDG_node.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -15,16 +15,17 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # DDG — Digitale-Dienste-Gesetz
 
 ## Kurz-Ueberblick
 
-Das **Digitale-Dienste-Gesetz (DDG)** ist am **14. Mai 2024** in Kraft getreten
-und loest das bisherige Telemediengesetz (TMG) und Teile des Netzwerk-
-durchsetzungsgesetzes (NetzDG) ab. Es dient der Umsetzung und Durchfuehrung
-der EU-Verordnung **Digital Services Act (DSA) 2022/2065**.
+Das **Digitale-Dienste-Gesetz (DDG)** vom 06.05.2024 (BGBl. 2024 I Nr. 149,
+verkuendet am 13.05.2024) ist am **14. Mai 2024** in Kraft getreten und loest
+das bisherige Telemediengesetz (TMG) und Teile des Netzwerkdurchsetzungs-
+gesetzes (NetzDG) ab. Es dient der Umsetzung und Durchfuehrung der
+EU-Verordnung **Digital Services Act (DSA) 2022/2065**.
 
 Fuer die Anbieter von Websites, Online-Shops, Apps und SaaS-Portalen ist vor
 allem **§ 5 DDG** (Impressumspflicht) praxisrelevant — inhaltlich unveraendert
@@ -156,10 +157,17 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
 - **OLG Duesseldorf I-20 U 17/07** (18.12.2007): Mobilnummer als Telefonkontakt
   ausreichend.
 - **OLG Muenchen 29 U 3698/20** zur Impressumspflicht bei
-  Instagram-Business-Profilen.
+  Instagram-Business-Profilen. <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
 - [[themen/impressum]]
 - [[gesetze/uwg]] — Impressumsverletzung = UWG-Verstoss ueber § 3a UWG
 - [[gesetze/bgb-agb]]
+
+## Aenderungsvermerk
+
+- **2026-11-14**: Frontmatter-Datum und Disclaimer-Stand aktualisiert.
+  Fundstelle BGBl. 2024 I Nr. 149 (verkuendet 13.05.2024, Ausfertigung
+  06.05.2024) ergaenzt. Materielle Inhalte (§ 5 DDG, §§ 7-16 DDG, § 18 MStV)
+  gegen gesetze-im-internet.de/ddg unveraendert.

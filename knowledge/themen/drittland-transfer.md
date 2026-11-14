@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/eu-us-data-transfers_en
   - https://www.bfdi.bund.de/SharedDocs/Kurzmeldungen/DE/2023/17_Angemessenheitsbeschluss-EU-US-DPF.html
   - https://www.datenschutzkonferenz-online.de/media/ah/230904_DSK_Ah_EU_US.pdf
-verifiziert-am: 2026-05-08
+  - https://curia.europa.eu/juris/liste.jsf?num=T-553/23
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Drittland-Transfer — Schrems II, SCCs, TIA, EU-US Data Privacy Framework
 
@@ -32,7 +33,7 @@ geltungsbereich: [DE, EU]
 Übermittlung nur zulässig, wenn Schutzniveau im Drittland „nicht unterlaufen" wird.
 
 **Art. 45** — Angemessenheitsbeschluss:
-EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derzeit (Stand Mai 2026) u. a.: Andorra, Argentinien, Färöer, Guernsey, Isle of Man, Israel, Japan, Jersey, Kanada (kommerziell), Neuseeland, Schweiz, Südkorea, Uruguay, UK, **USA (DPF-zertifizierte Unternehmen)**.
+EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derzeit (Stand November 2026) u. a.: Andorra, Argentinien, Färöer, Guernsey, Isle of Man, Israel, Japan, Jersey, Kanada (kommerziell), Neuseeland, Schweiz, Südkorea, Uruguay, UK, **USA (DPF-zertifizierte Unternehmen)**.
 
 **Art. 46** — Geeignete Garantien (ohne Angemessenheitsbeschluss):
 - Standardvertragsklauseln (Standard Contractual Clauses, SCCs) — aktuelle Fassung 2021/914/EU vom 04.06.2021
@@ -51,8 +52,10 @@ EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derz
 - Nachfolger des durch Schrems II gekippten Privacy Shield
 - **Organisations-spezifisch**: nur für Unternehmen, die sich aktiv über das US-Handelsministerium (DoC) unter DPF zertifizieren und auf der offiziellen Liste unter `dataprivacyframework.gov` geführt sind
 - **Rechtsbehelfs-Mechanismus**: Data Protection Review Court (DPRC); Exec. Order 14086/2022 regelt Bulk-Interception-Einschränkungen
-- **Schrems III** (NOYB-Klage) anhängig — DPF könnte erneut kippen. Safety-Net: SCCs + TIA parallel pflegen.
-- Praktisch: Für nicht-DPF-zertifizierte US-Anbieter gelten weiterhin SCCs + TIA + ggf. ergänzende Maßnahmen
+- **EuG T-553/23 (Latombe), 03.09.2025**: EuG hat die Nichtigkeitsklage des franzoesischen Abgeordneten Philippe Latombe gegen den DPF-Angemessenheitsbeschluss abgewiesen; DPF bleibt in Kraft.
+- **Rechtsmittel C-703/25 P (Latombe/Kommission), eingelegt am 31.10.2025**: Latombe hat gegen das EuG-Urteil Rechtsmittel beim EuGH eingelegt; Verfahren anhaengig. Primaerbeleg: Amtsblatt der EU, Mitteilung ueber das Rechtsmittel (EUR-Lex ELI `C/2025/6610`). Eine gesonderte "Schrems III"-Klage von noyb gegen den DPF-Angemessenheitsbeschluss ist in der publizierten Curia-Verfahrensliste Stand 2026-11-14 nicht als eigener Verfahrensgegenstand nachgewiesen; die Formulierung "NOYB/Schrems III anhaengig" wurde deshalb gestrichen.
+- Safety-Net: SCCs + TIA parallel pflegen bleibt Best Practice, zumal die US-Rechtslage (Executive Order 14086, DPRC) von jedem Praesidentenwechsel beruehrt werden kann.
+- Praktisch: Fuer nicht-DPF-zertifizierte US-Anbieter gelten weiterhin SCCs + TIA + ggf. ergaenzende Massnahmen
 
 ### Transfer Impact Assessment (TIA) — Pflicht seit Schrems II
 
@@ -108,6 +111,7 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
 
 - **EuGH C-311/18 (Schrems II), 16.07.2020** — Privacy Shield ungültig; SCCs nur mit TIA
 - **EuGH C-362/14 (Schrems I), 06.10.2015** — Safe Harbor ungültig
+- **EuG T-553/23 (Latombe), 03.09.2025** — Nichtigkeitsklage gegen den DPF-Angemessenheitsbeschluss abgewiesen; DPF bleibt in Kraft (Rechtsmittel C-703/25 P am 31.10.2025 eingelegt, anhaengig)
 - **DSB Österreich, 22.04.2022** — GA Universal unvereinbar (vor DPF)
 - **CNIL, 10.02.2022** — Google Analytics Sanktion
 - **Garante (IT), 09.06.2022** — Caffeina Media / GA-Entscheidung
@@ -118,3 +122,18 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
 - [[themen/tracking-analytics]]
 - [[themen/avv-muster]]
 - [[urteile/eugh-schrems-ii]]
+
+## Aenderungsvermerk 2026-11-14
+
+- EuG-Urteil T-553/23 (Latombe, 03.09.2025) ergaenzt (Quelle: curia.europa.eu und mehrere Kanzleimeldungen).
+- Formulierung "Schrems III anhaengig" entfernt; stattdessen klarer Hinweis, dass EuG entschieden hat und weitere Klagen moeglich sind (verifikationsoffen markiert).
+- Stand und Verifizierung auf 2026-11-14 gesetzt. Kein Hinweis auf Digital Omnibus im Drittland-Abschnitt noetig: Der Kommissions-Vorschlag vom 19.11.2025 beruehrt primaer Art. 30/33 DSGVO, nicht Art. 44 ff.
+- **2026-11-14 (Abgleich)**: Rechtsmittel **C-703/25 P (Latombe/Kommission)**
+  mit Einlegungsdatum **31.10.2025** ergaenzt; Primaerbeleg ist die
+  Mitteilung ueber das Rechtsmittel im Amtsblatt der EU (EUR-Lex ELI
+  `C/2025/6610`). Der frueher an dieser Stelle gesetzte Marker ist damit
+  aufgeloest. Deckungsgleich mit urteile/eugh-schrems-ii.md.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Zusatz
+  "Rechtsmittel zum EuGH moeglich" in der Urteilsliste durch die belegte
+  Verfahrenslage ersetzt (C-703/25 P eingelegt am 31.10.2025, anhaengig);
+  wortgleich zum Fliesstext weiter oben in dieser Datei.

@@ -1,12 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quellen-sekundaer:
   - https://www.e-recht24.de/
   - https://www.it-recht-kanzlei.de/
   - https://www.trustedshops.de/
   - https://www.haendlerbund.de/
   - https://datenschutz-generator.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE]
 > erklaerungen und AGB brauchen Individualisierung fuer den konkreten Stack und
 > Geschaeftsmodell. Generator-Ausgaben sind Startpunkte, keine Endergebnisse.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Rechtstext-Generatoren und -Tools
 
@@ -61,7 +61,7 @@ einfliessen.
 | URL | https://www.trustedshops.de/ |
 | Sitz | Koeln |
 | Produkte | Legal-Text-Pakete + Kaeuferschutz-Siegel + Bewertungssystem |
-| Pricing (Stand 2026-05-08) | Konkrete Tarif-Tabelle nicht oeffentlich zugaenglich (Subseiten `/preise/` und `/business/preise/` lieferten 404). Anbieterseitig wird auf individuelle Angebote / Sales-Kontakt verwiesen. <<PRICING VERIFIKATION AUSSTEHEND - 2026-05-08>> |
+| Pricing (Stand 2026-05-08) | Konkrete Tarif-Tabelle nicht oeffentlich zugaenglich (Subseiten `/preise/` und `/business/preise/` lieferten 404). Anbieterseitig wird auf individuelle Angebote / Sales-Kontakt verwiesen. <<VERIFIKATION AUSSTEHEND>> |
 | Besonderheit | Hohes Konsumenten-Vertrauen durch Siegel, speziell fuer B2C-E-Commerce |
 
 ### Haendlerbund
@@ -69,10 +69,10 @@ einfliessen.
 | Feld | Wert |
 |------|------|
 | URL | https://www.haendlerbund.de/ |
-| Sitz | Leipzig |
+| Sitz | Leipzig (Kohlgartenstrasse 11-13, 04315 Leipzig, verifiziert 2026-11-14) |
 | Produkte | Mitgliedschaft mit Rechtstexten + Abmahn-Schutz + Beratung + Recht-News |
-| Mitgliedspakete (Stand 2026-05-08, haendlerbund.de) | **Basic** (1 Praesenz, Live-Chat-Support, Rechtstexte) / **Premium** (5 Web-Praesenzen, 10 E-Mails/Monat + Live-Chat, Shop-Audits) / **Unlimited** (unbegrenzte Praesenzen, Komplettloesung) / **Professional** (priority Support, Amazon/eBay-Account-Suspension-Hilfe, KI-Trainings). Konkrete EUR-Werte werden auf der Paket-Uebersicht nicht oeffentlich gelistet; Jahres-Zahlung gewaehrt bis zu 23 % Rabatt. |
-| Inklusive in allen Tarifen | Sofort-Hilfe bei Abmahnungen, Rechtstexte, Cookie-Consent-Tools, Bewertungs-Portal-Zugang |
+| Mitgliedspakete (Stand 2026-11-14, haendlerbund.de/de/leistungen) | **Website & Content Creator** ab 4,90 EUR/Monat (Websites ohne Shop; Impressum + DSE in 8 Sprachen) / **Starter** ab 9,90 EUR/Monat (erste Shop-Praesenz; AGB, Widerruf, DSE, Impressum in 10 Sprachen) / **Business** ab 57,90 EUR/Monat (mehrere Verkaufskanaele; Unlimited-Rechtstexte inklusive) / **Enterprise** sowie **Enterprise Plus** auf Anfrage. Alte Paketnamen (Basic / Premium / Unlimited / Professional) am 2026-11-14 nicht mehr aufgefuehrt. Preise netto zzgl. MwSt., Laufzeit 12 Monate (Starter alternativ monatlich). "Unlimited Rechtstexte" als eigenes Add-on 19,90 EUR/Monat verfuegbar. Hinweis: Paket-Checkout zeigte am 2026-11-14 Fehlermeldung "nicht online buchbar". |
+| Inklusive in allen Tarifen (laut Produktseite) | Rechtstexte mit Haftungsuebernahme durch Haendlerbund, automatische Updates bei Gesetzesaenderungen |
 | Besonderheit | Verbands-Modell mit politischer Interessen-Vertretung |
 
 ## Tier 2: Spezialisierte Generatoren
@@ -83,19 +83,19 @@ einfliessen.
   - **Free-Variante**: kostenlos fuer Privatpersonen / Organisationen mit < 5.000 EUR Jahresumsatz; Basis-Module DE/AT/CH; Lifetime-Nutzung; verpflichtender Backlink zum Generator.
   - **Premium**: 99,90 EUR netto **einmalig** (kein Abo); 2.500+ konfigurierbare Module; 1 Jahr unbegrenzte Updates; Word/PDF/HTML-Export; Website-Analyse-Tool; Englisch optional gegen Aufpreis.
   - Anbieter: Dr. Thomas Schwenke, Berlin. Mehr als 500.000 Nutzer (Eigenangabe).
-- **activeMind.legal DSE-Generator** — gehoert zur activeMind AG (activemind.de). Eine eigenstaendige Generator-URL `activemind.legal` wurde am 2026-05-08 nicht direkt verifiziert. <<URL VERIFIKATION AUSSTEHEND - 2026-05-08>>
+- **activeMind.legal DSE-Generator** — gehoert zur activeMind AG (activemind.de). Eine eigenstaendige Generator-URL `activemind.legal` wurde am 2026-05-08 nicht direkt verifiziert. <<VERIFIKATION AUSSTEHEND>>
 
 ### Impressum-Generator (Standalone)
 
 - eRecht24 (siehe oben) ist Marktfuehrer
-- **IHK-Generator** (lokal bei Handelskammern) — einzelne IHKs (z.B. IHK Muenchen, IHK Frankfurt) bieten Impressum-Hilfen oder Pruef-Checklisten an. Kein zentraler bundesweiter Generator unter einer einheitlichen Domain. <<KONKRETE IHK-URL VERIFIKATION AUSSTEHEND - 2026-05-08>>
+- **IHK-Generator** (lokal bei Handelskammern) — einzelne IHKs (z.B. IHK Muenchen, IHK Frankfurt) bieten Impressum-Hilfen oder Pruef-Checklisten an. Kein zentraler bundesweiter Generator unter einer einheitlichen Domain. <<VERIFIKATION AUSSTEHEND>>
 
 ### AGB-Generator
 
 - IT-Recht Kanzlei (Teil des Abos)
 - Haendlerbund (Teil der Mitgliedschaft)
 - eRecht24 Premium
-- **agb.de** — die Qualitaet variiert; ohne unabhaengig verifizierte Anbieter-/Kanzlei-Anbindung im KB. <<ANBIETER-VERIFIKATION AUSSTEHEND - 2026-05-08>>
+- **agb.de** — die Qualitaet variiert; ohne unabhaengig verifizierte Anbieter-/Kanzlei-Anbindung im KB. <<VERIFIKATION AUSSTEHEND>>
 
 ### Widerrufs-Belehrungs-Generator
 
@@ -154,3 +154,8 @@ einfliessen.
 - [[anwaelte-tools/kanzleien-saas-spezialisiert]]
 - [[anwaelte-tools/tools-consent-mgmt]]
 - [[anwaelte-tools/tools-scanner]]
+
+## Aenderungsvermerk
+
+- **2026-11-14** (Batch E, stale-only): Mehrere Platzhalter-Varianten mit Suffixen (Pricing, URL, konkrete IHK-URL, Anbieter, jeweils Stand 2026-05-08) auf die einheitliche Form des Verifikationsmarkers normiert.
+- **2026-11-14** (Batch E3, Live-Pruefung): Jeden Generator-Eintrag live abgerufen. eRecht24 (e-recht24.de/mitglieder): Preisstaffel Basic 15 EUR / Business 40 EUR / Enterprise 90 EUR / Ultimate 800 EUR pro Monat bei Jahres-Zahlung (regulaer 30 / 80 / 180 / 1.600 EUR) bestaetigt — 50 % Rabatt bei Jahreszahlung. IT-Recht Kanzlei (it-recht-kanzlei.de): Datenschutz 5,90 / Starter 9,90 / Premium 24,90 / Unlimited 54,90 EUR/Monat bestaetigt; Muenchener Vorwahl erneut festgestellt. datenschutz-generator.de: Premium einmalig 99,90 EUR netto, Free-Grenze 5.000 EUR Jahresumsatz, Anbieter Dr. Thomas Schwenke LL.M. bestaetigt. Trusted Shops (trustedshops.de): Impressum verweist auf Trusted Shops SE; Pricing weiterhin nicht oeffentlich — Marker bleibt. **Haendlerbund (haendlerbund.de/de/leistungen)**: Paketstruktur komplett geaendert — alte Bezeichnungen Basic / Premium / Unlimited / Professional durch Website & Content Creator (ab 4,90 EUR) / Starter (ab 9,90 EUR) / Business (ab 57,90 EUR) / Enterprise / Enterprise Plus ersetzt; Eintrag korrigiert. Sitz Leipzig (Kohlgartenstrasse 11-13) bestaetigt und ergaenzt. `aktualisiert` und `verifiziert-am` auf 2026-11-14 gesetzt.

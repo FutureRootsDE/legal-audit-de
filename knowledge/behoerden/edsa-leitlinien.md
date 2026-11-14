@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.edpb.europa.eu/
 quellen-sekundaer:
   - https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en
   - https://www.edpb.europa.eu/our-work-tools/our-documents/type/guidelines_en
-verifiziert-am: 2026-05-08
+  - https://www.edpb.europa.eu/system/files/2026-02/edpb_work-programme_2026-2027_en.pdf
+verifiziert-am: 2026-11-14
 geltungsbereich: [EU]
 ---
 
@@ -15,7 +16,7 @@ geltungsbereich: [EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # EDSA / EDPB — Europäischer Datenschutzausschuss
 
@@ -106,6 +107,25 @@ Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection 
 - **Recommendations 1/2026 on Processor Binding Corporate Rules** (eroeffnet 19.01.2026)
 - **Guidelines 1/2026 on Scientific Research Data Processing** (eroeffnet 16.04.2026)
 
+**Arbeitsprogramm 2026-2027 und Neues ab Mitte 2026** (Quelle:
+edpb.europa.eu/system/files/2026-02/edpb_work-programme_2026-2027_en.pdf;
+verifiziert 2026-11-14):
+
+- **Guidelines 02/2026 on Anonymisation** — angenommen im Plenum 07/2026,
+  Version 1.0 in oeffentlicher Konsultation.
+- **Guidelines 03/2026 on Web Scraping in the Context of Generative AI** —
+  angenommen 07.07.2026, Konsultation bis 30.10.2026. Kernaussage: Einwilligung
+  als Rechtsgrundlage fuer Massen-Scraping von Drittdaten praktisch
+  unzureichend (fehlende direkte Beziehung zu Betroffenen).
+- **Guidelines 04/2026 on Administrative Fines (Art. 83 DSGVO)** — Entwurf in
+  Konsultation.
+- **„Consent or Pay"-Guidelines** — im Arbeitsprogramm 2026-2027 als anstehend
+  gelistet; zum Stand 2026-11-14 noch nicht als eigenstaendige Guideline
+  verabschiedet. Fuer grosse Online-Plattformen bleibt bis dahin
+  **Opinion 08/2024** (17.04.2024) massgeblich.
+- **EDSA-Stellungnahme zum „digitalen Omnibus" / AI-Act-Anpassungen** vom
+  **20.01.2026** (Plenum).
+
 > Hinweis: Die in Vorgaengerversion erwaehnte "Stellungnahme 08/2024 zu Consent or Pay" ist eine **Opinion** (nicht Guideline) gemaess Art. 64(2) DSGVO; offizielle EDPB-Bezeichnung: "Opinion 08/2024 on Consent or Pay models implemented by large online platforms" (verabschiedet 17.04.2024).
 
 ## Anwendungsbereich für Entwickler / Unternehmen
@@ -134,3 +154,12 @@ Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection 
 - [[themen/cookie-consent]]
 - [[themen/drittland-transfer]]
 - [[urteile/eugh-schrems-ii]]
+
+## Aenderungsvermerk
+
+- 2026-11-14: Arbeitsprogramm 2026-2027 und neue Guidelines 02/2026
+  (Anonymisation), 03/2026 (Web Scraping Generative AI, 07.07.2026),
+  04/2026 (Administrative Fines) sowie EDSA-Stellungnahme zum digitalen
+  Omnibus (20.01.2026) ergaenzt. Status „Consent or Pay"-Guidelines
+  klargestellt (noch nicht verabschiedet, Opinion 08/2024 bleibt
+  massgeblich).

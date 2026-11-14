@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/ddg/__5.html
 quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0040
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62016CJ0210
   - https://www.gesetze-bayern.de/Content/Document/MStV-18
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-11-14
 
 # Social-Media-Profile & Plugins — Datenschutz und Impressum
 
@@ -155,7 +155,7 @@ Loesung praxisueblich.
 
 Verifiziert ueber Pressemitteilung des ULD (Unabhaengiges Landeszentrum fuer
 Datenschutz Schleswig-Holstein). Das OVG bestaetigte rueckwirkend, dass die
-ULD-Anordnung aus 2011 rechtmaessig war.
+ULD-Anordnung aus 2011 rechtmaessig war. <<VERIFIKATION AUSSTEHEND>>
 
 ### BVerwG, 6 C 15.18, 11.09.2019 (Facebook-Fanpages, Vorinstanz nach EuGH C-210/16)
 
@@ -216,3 +216,18 @@ Siehe [[datenschutzerklaerung]] fuer vollstaendige Struktur.
 - [[tracking-analytics]] — Social-Pixel (Meta-Pixel, LinkedIn Insight Tag)
 - [[ki-transparenz]] — Kennzeichnung automatisierter Inhalte (§ 18 MStV)
 - [[verarbeitungsverzeichnis]] — Eintrag fuer Social-Media-Verarbeitungen
+
+## Aenderungsvermerk 2026-11-14
+
+- Kernzitate EuGH C-210/16 (Wirtschaftsakademie) und C-40/17 (Fashion ID)
+  gegen curia.europa.eu verifiziert.
+- OVG Schleswig-Holstein 4 LB 20/13 mit Verifikationsmarker versehen:
+  Aktenzeichen in rechtsprechung-im-internet.de nicht direkt auffindbar; der
+  Grundgehalt (Fanpage-Deaktivierung als zulaessige Anordnung) folgt aus
+  EuGH C-210/16 und BVerwG 6 C 15.18.
+- Links zu JCA der Plattformen (Meta Page Controller Addendum, LinkedIn Pages
+  JCA) sind Stand 2026-11-14 weiterhin erreichbar; URL-Aktualitaet bestaetigt.
+  X (Twitter) stellt kein eigenes JCA mehr bereit, nur eine
+  Datenschutzerklaerung — Formulierung im DSE-Passus entsprechend vorsichtig
+  halten.
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.

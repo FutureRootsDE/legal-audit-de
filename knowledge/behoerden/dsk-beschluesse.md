@@ -1,10 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.datenschutzkonferenz-online.de/
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
   - https://www.datenschutzkonferenz-online.de/beschluesse-dsk.html
-verifiziert-am: 2026-05-08
+  - https://www.datenschutz-bayern.de/ki/OH_KI.pdf
+  - https://www.datenschutz.bremen.de/sixcms/media.php/13/DSK_PM_OH-RAG-Systeme.pdf
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +17,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Datenschutzkonferenz (DSK) — Beschlüsse & Kurzpapiere
 
@@ -103,18 +105,22 @@ Sieben datenschutzrechtliche Anforderungen an KI-Systeme — Vorläufer zum EU A
 
 Einsatz nur mit wirksamer Einwilligung + JCA + Datenflüsse transparent.
 
-### Neuere DSK-Beschluesse 2024-2025 (Auswahl)
+### Neuere DSK-Beschluesse 2024-2026 (Auswahl)
 
-Quelle: datenschutzkonferenz-online.de/beschluesse-dsk.html (verifiziert 2026-05-08)
+Quelle: datenschutzkonferenz-online.de/beschluesse-dsk.html (verifiziert 2026-11-14)
 
 - **03.05.2024** — Positionspapier zu nationalen Zustaendigkeiten fuer die KI-Verordnung (AI Act)
 - **15.05.2024** — Anforderungen an Sekundaernutzung genetischer Daten zu Forschungszwecken
 - **19.08.2024** — Datenschutzrechtliche Grenzen beim Einsatz von Bezahlkarten zur Leistungsgewaehrung nach AsylbLG
 - **11.09.2024** — Uebermittlungen personenbezogener Daten an Unternehmenserwerbende im Rahmen von Asset-Deals
-- **11.09.2024** — Positionspapier zu wissenschaftlicher Forschung unter der DS-GVO (derzeit unter Ueberpruefung wg. neuer EDSA-Richtlinien 1/2026)
+- **11.09.2024** — Positionspapier zu wissenschaftlicher Forschung unter der DS-GVO (derzeit unter Ueberpruefung wg. neuer EDSA-Leitlinien 1/2026)
 - **28.05.2025** — Beschluss zur Meldung von Mieter:innendaten an Grundversorger
 - **16.06.2025** — Positionspapier zum Datenschutz bei der Terminverwaltung durch Heilberufspraxen
-- **Dezember 2025** — Standardisierter Pruefprozess zu datenschutzrechtlichen Anforderungen bei EfA-Onlinediensten nach OZG
+- **Juni 2025** — Aktualisierte **DSK-Orientierungshilfe „Kuenstliche Intelligenz und Datenschutz"** (Version mit ergaenzten technischen und organisatorischen Massnahmen fuer Entwicklung und Einsatz von KI-Systemen; Volltext ueber datenschutz-bayern.de/ki/OH_KI.pdf).
+- **17.10.2025** — DSK-Orientierungshilfe zu **RAG-Systemen (Retrieval-Augmented Generation)** veroeffentlicht (dritte KI-OH der DSK seit 2024). Quelle: DSK-PM_OH-RAG-Systeme.pdf via datenschutz.bremen.de.
+- **Dezember 2025** — Standardisierter Pruefprozess zu datenschutzrechtlichen Anforderungen bei EfA-Onlinediensten nach OZG.
+- **11.02.2026** — DSK-Stellungnahme zum „digitalen Omnibus" (EU-Omnibus-Paket, Anpassungen DSGVO/AI Act). Quelle: datenschutzkonferenz-online.de/media/pm/DSK_03_20260211_PM-Omnibus.pdf.
+- **05.05.2026** — DSK-Entschliessung zur **Chatkontrolle** (erneute Forderung nach vollstaendigem Verzicht auf anlasslose Massenueberwachung). Quelle: datenschutzkonferenz-online.de/media/pm/2026-05-05_PM_Chatkontrolle_Entschliessung.pdf.
 
 ## Muss-Liste zur DSFA (Art. 35 Abs. 4 DSGVO)
 
@@ -140,3 +146,10 @@ Siehe [[themen/dsfa]]. Version 1.1 vom 17.10.2018, 17 Fallgruppen.
 - [[gesetze/dsgvo]]
 - [[themen/dsfa]]
 - [[themen/verarbeitungsverzeichnis]]
+
+## Aenderungsvermerk
+
+- 2026-11-14: Neuere DSK-Beschluesse ergaenzt — aktualisierte KI-OH (06/2025),
+  RAG-Systeme-OH (17.10.2025), Omnibus-Stellungnahme (11.02.2026),
+  Chatkontrolle-Entschliessung (05.05.2026). Frontmatter und Disclaimer-Stand
+  auf 2026-11-14 aktualisiert.

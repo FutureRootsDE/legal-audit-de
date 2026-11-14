@@ -8,6 +8,70 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
+### KB-Update 2026-11-14 (stale-only)
+
+Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-Batches waren an den Vortagen bereits aktualisiert worden; dieser Abschlusslauf stellt KB-Konsistenz, Marker-Normierung und drei gezielte Rechts-Updates sicher.
+
+### KB — Changed
+
+- **knowledge/gesetze/ai-act.md** (bereits im Batch D aktualisiert): Grundfassung VO (EU) 2024/1689 i. d. F. **VO (EU) 2026/1744** "Digital Omnibus on AI" seit 27.07.2026. Art. 4 KI-Kompetenz als Verhaltenspflicht ohne Garantie-Erfolg (Art. 4 Abs. 1 Satz 2 n. F.); neue Verbote Art. 5 Abs. 1 Buchst. ba/bb (NCII, CSAM) ab 02.12.2026; Art. 50 Transparenz anwendbar seit 02.08.2026, Altbestand bis 02.12.2026 (Art. 111 Abs. 4); Hochrisiko Anhang III verschoben auf 02.12.2027, Anhang I auf 02.08.2028; neue Durchsetzungsbefugnisse des Bueros fuer Kuenstliche Intelligenz nach Art. 75a bis 75d gegenueber den **Akteuren nach Art. 75 Abs. 1** (nicht pauschal alle GPAI-Anbieter).
+- **knowledge/checklisten/** (alle sechs Dateien): KI-Kompetenz-Pruefpunkt an Art. 4 KI-VO n. F. angeglichen ("Massnahmen ergreifen", keine Garantie-Pflicht). `audit-n8n.md` Pass 5 (GPAI-Provider) um Klarstellung ergaenzt, dass die Art. 75a bis 75d-Durchsetzung nur Akteure nach Art. 75 Abs. 1 trifft, nicht pauschal alle GPAI-Anbieter.
+- **ODR-Plattform-Marker aufgeloest**: `knowledge/checklisten/general-pre-launch.md`, `knowledge/checklisten/audit-ecommerce.md`, `knowledge/themen/impressum.md` und `knowledge/anwaelte-tools/tools-aufsichtsbehoerden.md` ziehen jetzt einheitlich **VO (EU) 2024/3228 vom 19.12.2024, Art. 1** (CELEX 32024R3228; Cellar-Volltext am 2026-11-14 verifiziert) als Primaerbeleg fuer die Einstellung der EU-OS-Plattform am 20.07.2025 und die Aufhebung der VO (EU) 524/2013.
+- **Aktenzeichen-Konsistenz** (Teil B): strittige Zitate einheitlich markiert bzw. Markup-Fehler repariert — OLG Muenchen 29 U 3698/20 (ergaenzt in `gesetze/ddg.md`), BGH VIII ZR 63/15 (ergaenzt in `themen/button-loesung.md`), BGH I ZR 173/16 und I ZR 143/19 (ergaenzt in `gesetze/pangv.md`), BGH I ZR 85/21 Marker-Markup repariert (`themen/preisangaben.md`), Marker-Markup repariert in `themen/impressum.md`. Live-Primaercheck zu BGH VIII ZR 63/15 und BGH I ZR 173/16 ergab keine Treffer, Marker bleiben.
+
+### KB — Removed
+
+- **anwaelte-tools/** — drei nicht mehr belegbare Eintraege entfernt (die Gruende sind jeweils im Datei-Aenderungsvermerk dokumentiert): Prolinkia/PROLIV (Kanzlei nicht mehr auffindbar), externer-datenschutzbeauftragter.com (Anbieter ohne verlaessliche Primaerquelle) sowie Eckert Rechtsanwaelte (Zuordnung zum IT-/Datenschutz-Schwerpunkt nicht mehr belegbar). Uebrige Markt-Indikationen und Scanner-Status-Marker aus Batch E unberuehrt uebernommen.
+
+### KB — Housekeeping
+
+- `knowledge/INDEX.md` — Stand-Zeile auf 2026-11-14, Platzhalter-Angabe nach zweitem Review-Korrekturlauf PR #14 auf **46 Marker in 31 Dateien** aktualisiert (Selbst-Referenzen auf die Marker-Schreibweise in Aenderungsvermerken wurden entfernt und zaehlen nicht mehr mit). Kurzbeschreibungen fuer `ai-act`, `uwg`, `pangv`, `widerrufsbelehrung`, `button-loesung` um die neuen Schwerpunkte ergaenzt.
+- **Review-Korrekturlauf PR #14 (2026-11-14, dieser Commit)** zusaetzlich umgesetzt: AI-Act-Fristen am Volltext der **VO (EU) 2026/1744** (Cellar CELEX:32026R1744) ausgerichtet (Hochrisiko Anhang III ab 02.12.2027, Anhang I ab 02.08.2028 nach Art. 113 Abs. 3 Buchst. c KI-VO n. F.); Data-Act-Staffelung in Checklisten an Art. 50 VO (EU) 2023/2854 angeglichen (Kapitel VI seit 12.09.2025, Art. 29 Wechselentgelt-Verbot ab 12.01.2027, Kapitel IV fuer Altvertraege ab 12.09.2027); § 356a BGB n. F. ueber das Umsetzungsgesetz vom 03.02.2026, **BGBl. 2026 Teil I Nr. 28** vom 05.02.2026 (recht.bund.de) primaer belegt; EmpCo-UWG-Regel zur zukunftsbezogenen Umweltaussage (Art. 1 Nr. 2 Buchst. b der RL (EU) 2024/825) am Richtlinien-Wortlaut geschaerft; Aufsicht ueber GPAI-Modelle in `themen/ki-content.md` auf **Art. 88 KI-VO** (ausschliessliche Kommissionsbefugnis) korrigiert; "Schrems III"-Formulierung durch den belegten Stand (EuG T-553/23, 03.09.2025; Rechtsmittel C-703/25 P, ABl. C/2025/6610) ersetzt; BGH VI ZR 109/23 (28.01.2025, ECLI:DE:BGH:2025:280125UVIZR109.23.0) primaer belegt; BGH I ZR 7/16 und BGH I ZR 25/19 ueber die Rechtsinformations-API des Bundes bestaetigt; BGH I ZR 173/16 und I ZR 143/19 ueber dieselbe API gegenverifiziert, Zuordnung zum Preisangabenrecht bestaetigt sich dort nicht (Marker mit Erlaeuterung belassen).
+- Verweise auf lokale, nicht versionierte Log-Dateien unter `.claude/logs/` beschreiben die Arbeitslogs des Verifikationslaufs; die Dateien sind projekt-lokal und nicht Bestandteil des Repos.
+
+### KB-Update 2026-11-14 (zweiter Review-Korrekturlauf PR #14)
+
+- **§ 356a BGB n. F. als belegt gefuehrt**: Die konsolidierte Fassung auf
+  `gesetze-im-internet.de/bgb/__356a.html` zeigt mittlerweile die neue
+  Paragraphenueberschrift ("Elektronische Widerrufsfunktion bei Fernabsatz-
+  vertraegen") samt vollstaendigem Absatztext. Marker in
+  `themen/widerrufsbelehrung.md` (§ 356a-Wortlaut + Anpassung Anlage 1 EGBGB)
+  und `themen/button-loesung.md` (§ 356a-Wortlaut) aufgeloest; Fundstellen
+  BGBl. 2026 I Nr. 28 vom 05.02.2026 Art. 1 Nr. 8 (§ 356a BGB) und Art. 2
+  Nr. 7 Buchst. a (Gestaltungshinweis 33 Anlage 1 EGBGB) ergaenzt.
+- **Paragraphenverschiebung dokumentiert**: Teilzeit-Wohnrechte stehen nun in
+  § 356c BGB, Ratenlieferung in § 356d BGB, Verbraucherbauvertrag in
+  § 356e BGB, unentgeltliches Darlehen in § 356f BGB; § 356b BGB
+  (Verbraucherdarlehen) unveraendert. Vermerkt in `themen/button-loesung.md`,
+  `themen/widerrufsbelehrung.md`, `themen/agb-muster.md` und `INDEX.md`.
+- **Checklisten**: Schaltflaechen-Texte des § 356a-Pruefpunkts in
+  `audit-ecommerce.md`, `audit-saas.md`, `audit-landingpage.md` und
+  `general-pre-launch.md` um den Zusatz "oder [eine] andere gleichbedeutende
+  eindeutige Formulierung" vervollstaendigt.
+- **DSFA**: `themen/dsfa.md` — Fliesstext zum SaaS-KI-Scoring konkretisiert
+  (Art. 50 KI-VO seit 02.08.2026; Hochrisiko-Pflichten Anhang III ab
+  02.12.2027, Anhang I ab 02.08.2028 nach Art. 113 Abs. 3 KI-VO i. d. F. der
+  VO (EU) 2026/1744; Art. 27 KI-VO Grundrechte-Folgenabschaetzung erst mit
+  den Hochrisiko-Pflichten).
+- **Schrems/DPF**: `urteile/eugh-schrems-ii.md` — falsche Aussage
+  "T-553/23 und C-703/25 P beide beim EuGH anhaengig" korrigiert. T-553/23
+  hat das EuG am 03.09.2025 entschieden (Klage abgewiesen); anhaengig beim
+  EuGH ist allein das Rechtsmittel C-703/25 P (ABl. C/2025/6610, eingelegt
+  31.10.2025). Wortlaut mit `themen/drittland-transfer.md` abgeglichen.
+- **Preisangaben-Fehlzitate**: BGH I ZR 173/16 ("ÖKO-TEST I", 12.12.2019,
+  Markenrecht) und BGH I ZR 143/19 ("Knuspermüsli II", 07.04.2022, LMIV)
+  aus "Zitierbare Urteile" in `themen/preisangaben.md` herausgenommen und
+  stattdessen in einen Hinweisblock "Nicht zitieren — nachweislich falsch
+  zugeordnet" ueberfuehrt. Spiegelbildliche Marker in `gesetze/pangv.md`
+  entfernt; Befund dort als geklaert vermerkt.
+- **Data Act (Art. 50 VO (EU) 2023/2854)**: `checklisten/audit-saas.md` und
+  `checklisten/audit-n8n.md` — Kapitel-IV-Staffelung sprachlich an den
+  Wortlaut von Art. 50 angeglichen ("Vertraege, die nach dem 12. September
+  2025 geschlossen wurden"; Altvertraege unter den dort genannten
+  Voraussetzungen ab 12. September 2027).
+- **Platzhalter-Stand**: `knowledge/INDEX.md` und CHANGELOG auf
+  **46 Marker in 31 Dateien** (vorher 53 in 33) aktualisiert.
+
 ### Hintergrund Zitatpruefung
 
 Der Bund betreibt eine offene API fuer Rechtsinformationen (`testphase.rechtsinformationen.bund.de`, Testphase, kein Key). Sie liefert zu Aktenzeichen der Bundesgerichte ECLI, Datum und Dokumenttyp und eignet sich als optionale Beschleunigung der Zitat-Verifikation. Grenzen: nur sieben Bundesgerichte (BGH ab etwa 2010), keine Stabilitaetszusage, keine dokumentierte Datenlizenz. "Kein Treffer" ist deshalb nie ein Gegenbeweis; die Tier-1-Kaskade bleibt unveraendert Pflicht-Fallback.

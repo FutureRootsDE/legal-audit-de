@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/__25.html
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
   - https://www.edpb.europa.eu/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Tracking & Analytics — GA4, Meta Pixel, Server-Side-Tracking
 
@@ -98,6 +98,8 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 - **LG München I 3 O 17493/20, 20.01.2022** — Google Fonts dynamisch = 100 EUR Schadenersatz
 - **EuGH C-252/21 (Meta/Bundeskartellamt), 04.07.2023** — Personalisierte Werbung nur mit Einwilligung
 - **EuGH C-604/22 (IAB Europe), 07.03.2024** — TC-String ist personenbezogenes Datum; IAB ist (Mit-)Verantwortlicher für TCF
+- **EuGH C-21/23 (Lindenapotheke), 04.10.2024** — DSGVO-Verstoesse (inkl. fehlender Tracking-Consent) koennen durch Mitbewerber per UWG abgemahnt werden
+- **BGH VI ZR 10/24, 18.11.2024** — Kontrollverlust als immaterieller Schaden (Facebook-Scraping); relevant fuer Risiko-Einordnung bei undichter Tracking-Pipeline
 
 ## Siehe auch
 
@@ -106,3 +108,14 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 - [[themen/cookie-consent]]
 - [[themen/drittland-transfer]]
 - [[urteile/bgh-google-fonts]]
+
+## Aenderungsvermerk 2026-11-14
+
+- Einleitung bleibt: DPF seit 10.07.2023, Consent-Pflicht nach § 25 TDDDG
+  unberuehrt. Ergaenzt um EuG T-553/23 (Latombe, 03.09.2025) in
+  [[drittland-transfer]].
+- EuGH C-21/23 und BGH VI ZR 10/24 als Abmahn-/Haftungsrisiken ergaenzt.
+- Google Consent Mode v2 als technischer Mechanismus beschrieben; keine
+  Einwilligungsersatz-Funktion. Diese Einordnung entspricht weiterhin DSK OH
+  Digitale Dienste (2023).
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.

@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/bdsg_2018/
 quellen-sekundaer:
   - https://www.bfdi.bund.de/
   - https://www.datenschutzkonferenz-online.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +15,15 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
+>
+> **Fassung:** Fassung vom 30.06.2017, Textnachweis ab 25.05.2018. Zuletzt
+> geaendert durch Art. 3 des Gesetzes vom 12.05.2026 (BGBl. 2026 I Nr. 139);
+> zusaetzlich textlich erfasst: Art. 3 G v. 03.07.2026 (BGBl. 2026 I Nr. 199)
+> — dokumentarische Bearbeitung laut gesetze-im-internet.de noch nicht
+> vollstaendig abgeschlossen (Stand 2026-11-14). § 26 BDSG weiterhin
+> geltendes Recht; ein neues Beschaeftigtendatengesetz ist Stand 2026-11-14
+> nicht verkuendet.
 
 # BDSG — Bundesdatenschutzgesetz (neu, 2018)
 
@@ -100,3 +108,11 @@ Verweis auf Art. 82 DSGVO für privatwirtschaftlichen Bereich.
 - [[gesetze/tdddg]]
 - [[themen/verarbeitungsverzeichnis]]
 - [[themen/tom]]
+
+## Aenderungsvermerk
+
+- **2026-11-14**: Frontmatter-Datum und Disclaimer-Stand aktualisiert.
+  Fassung-Hinweis ergaenzt (Aenderung durch G v. 12.05.2026
+  BGBl. 2026 I Nr. 139, textlich zudem G v. 03.07.2026 BGBl. 2026 I Nr. 199).
+  Materielle Paragraphen (§§ 4, 26, 38, 42, 43) gegen gesetze-im-internet.de
+  unveraendert; kein neues Beschaeftigtendatengesetz in Kraft.

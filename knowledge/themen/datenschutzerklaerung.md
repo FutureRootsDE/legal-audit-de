@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/
   - https://www.bfdi.bund.de/
   - https://www.edpb.europa.eu/
-verifiziert-am: 2026-05-08
+  - https://curia.europa.eu/juris/liste.jsf?num=C-21/23
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Datenschutzerklärung — Art. 13 / 14 DSGVO
 
@@ -81,8 +82,10 @@ Zusätzlich: Datenkategorien + Quelle (Abs. 2 lit. f). Frist: innerhalb eines Mo
 ## Zitierbare Urteile
 
 - **EuGH C-154/21 (RW / Österreichische Post), 12.01.2023** — Auskunftsanspruch umfasst konkrete Empfänger, nicht nur Kategorien, wenn möglich
-- **OLG Düsseldorf 20 U 75/20, 09.02.2022** — Abmahnfähigkeit von fehlerhaften Datenschutzerklärungen nach UWG (teils umstritten, noch BGH)
+- **EuGH C-21/23 (Lindenapotheke), 04.10.2024** — DSGVO-Verstoesse koennen von Mitbewerbern per UWG verfolgt werden; nationale Klagebefugnis bleibt zulaessig. Daten zu rezeptfreien Arzneimitteln sind Gesundheitsdaten nach Art. 9 DSGVO.
+- **BGH, Folgeentscheidung zu C-21/23 (Lindenapotheke) in 2025** — BGH setzt C-21/23 um: fehlerhafte Datenschutzerklaerung/Einwilligung ist abmahnfaehig durch Mitbewerber nach § 8 Abs. 3 Nr. 1 UWG. Exaktes Aktenzeichen und Datum nicht gegen Tier-1-Quelle verifiziert <<VERIFIKATION AUSSTEHEND>>
 - **LG München I 3 O 17493/20, 20.01.2022** — 100 EUR immaterieller Schaden bei Google Fonts ohne Transparenz
+- **BGH VI ZR 10/24, 18.11.2024 (Leitentscheidung Facebook-Scraping)** — Blosser und kurzzeitiger Kontrollverlust kann bereits immaterieller Schaden nach Art. 82 DSGVO sein; Groessenordnung im Streitwert ca. 100 EUR
 - **EuGH C-319/22, 09.11.2023** — Fahrzeug-Identifizierungsnummer als personenbezogenes Datum (Implikation für Erklärungs-Schema)
 
 ## Siehe auch
@@ -91,3 +94,13 @@ Zusätzlich: Datenkategorien + Quelle (Abs. 2 lit. f). Frist: innerhalb eines Mo
 - [[themen/cookie-consent]]
 - [[themen/tracking-analytics]]
 - [[themen/drittland-transfer]]
+
+## Aenderungsvermerk 2026-11-14
+
+- "OLG Duesseldorf 20 U 75/20, 09.02.2022" entfernt: Aktenzeichen liess sich gegen
+  Tier-1-Quellen (rechtsprechung-im-internet.de, NRWE) nicht verifizieren; die
+  einschlaegige Rechtsprechung zur Abmahnfaehigkeit kommt jetzt vom EuGH
+  C-21/23 (Lindenapotheke) und dessen BGH-Umsetzung.
+- EuGH C-21/23 (04.10.2024) und BGH-Umsetzung sowie BGH VI ZR 10/24 (18.11.2024,
+  Kontrollverlust als immaterieller Schaden) ergaenzt.
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
