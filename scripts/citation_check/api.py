@@ -4,6 +4,8 @@ from __future__ import annotations
 import http.client
 import json
 import re
+import socket
+import ssl
 import time
 import urllib.error
 import urllib.request
@@ -123,6 +125,24 @@ def parse_retry_after(value: str | None, now: float) -> float | None:
     return seconds if seconds >= 0 else None
 
 
+def error_category(exc: BaseException) -> str:
+    """Fixed category of a network error; never any text taken from the exception message."""
+    reason = exc.reason if isinstance(exc, urllib.error.URLError) and isinstance(exc.reason, BaseException) else exc
+    if isinstance(reason, RedirectBlocked):
+        return "unzulaessige Weiterleitung"
+    if isinstance(reason, ResponseTooLarge):
+        return "Antwort zu gross"
+    if isinstance(reason, (TimeoutError, socket.timeout)):
+        return "Zeitueberschreitung"
+    if isinstance(reason, ConnectionRefusedError):
+        return "Verbindung abgelehnt"
+    if isinstance(reason, ssl.SSLError):
+        return "TLS-Fehler"
+    if isinstance(reason, http.client.HTTPException):
+        return "ungueltige Antwort"
+    return type(reason).__name__
+
+
 def _norm_file_number(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip().casefold()
 
@@ -225,9 +245,9 @@ class ApiClient:
         try:
             result = self.fetch(url, self.timeout)
         except NonRetryableError as exc:
-            return Attempt(None, b"", {}, short(f"Netzwerkfehler: {exc}"), True)
+            return Attempt(None, b"", {}, f"Netzwerkfehler: {error_category(exc)}", True)
         except (urllib.error.URLError, http.client.HTTPException, OSError) as exc:
-            return Attempt(None, b"", {}, short(f"Netzwerkfehler: {exc}"), False)
+            return Attempt(None, b"", {}, f"Netzwerkfehler: {error_category(exc)}", False)
         status, body, *rest = result
         headers = {str(k).lower(): v for k, v in (rest[0] if rest else {}).items()}
         return Attempt(status, body, headers, f"HTTP {status}" if status in RETRY_STATUSES else "", False)

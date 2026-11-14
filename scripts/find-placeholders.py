@@ -13,6 +13,9 @@ Output-Format (JSON):
   },
   ...
 ]
+
+Abweichende oder defekte Marker (Zusatztext, einfaches > am Ende, ueber zwei Zeilen, nicht geschlossen) erscheinen
+als WARNUNG auf stderr; Marker in Backticks (Aenderungsvermerke) werden ignoriert. Exit-Code bleibt 0.
 """
 import argparse
 import json
@@ -21,10 +24,13 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from placeholder_check import EXACT_RE, find_deviant  # noqa: E402
+
 
 ROOT = Path(os.environ.get("CLAUDE_PROJECT_DIR") or Path(__file__).resolve().parents[1])
 KB = ROOT / "knowledge"
-PLACEHOLDER_RE = re.compile(r"<<\s*(VERIFIKATION\s+AUSSTEHEND|UNVERIFIZIERT)\s*>>", re.IGNORECASE)
+PLACEHOLDER_RE = EXACT_RE
 
 
 def scan() -> list[dict]:
@@ -55,6 +61,27 @@ def scan() -> list[dict]:
     return results
 
 
+def scan_deviant() -> list[dict]:
+    """Marker-like constructs that differ from the exact form (reported as warnings, never as errors)."""
+    results = []
+    if not KB.exists():
+        return results
+    for md in sorted(KB.rglob("*.md")):
+        try:
+            text = md.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        rel = str(md.relative_to(ROOT)).replace("\\", "/")
+        results.extend({"file": rel, **d._asdict()} for d in find_deviant(text))
+    return results
+
+
+def print_warnings(deviant: list[dict]) -> None:
+    for d in deviant:
+        print(f"WARNUNG {d['file']}:{d['line']}: abweichender Platzhalter ({d['reason']}): {d['snippet']}",
+              file=sys.stderr)
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--json", action="store_true")
@@ -65,6 +92,7 @@ def main() -> int:
         sys.stdout.reconfigure(encoding="utf-8")
 
     placeholders = scan()
+    print_warnings(scan_deviant())
 
     if args.json:
         print(json.dumps(placeholders, ensure_ascii=False, indent=2))

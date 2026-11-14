@@ -53,7 +53,7 @@ class TimeoutTests(ClientBase):
         fetch = FakeFetch({"I ZR 159/24": socket.timeout("timed out")})
         res = self.client(fetch, max_retries=1).lookup("BGH", "I ZR 159/24")
         self.assertEqual(res.state, "error")
-        self.assertIn("timed out", res.detail)
+        self.assertEqual(res.detail, "Netzwerkfehler: Zeitueberschreitung")
 
     def test_total_deadline_stops_trickling_response(self):
         class Trickle:

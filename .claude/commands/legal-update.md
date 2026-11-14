@@ -20,7 +20,7 @@ Wenn der SessionStart-Hook einen "PRO-MODE AKTIV"-Block eingespielt hat oder
 Aktualisiere genau eine KB-Datei (z.B. `/legal-update tdddg`).
 
 ### `/legal-update --stale-only`
-Finde alle Dateien mit `aktualisiert:`-Datum aelter als 90 Tage, aktualisiere alle.
+Finde alle Dateien, deren `verifiziert-am:` 90 Tage oder aelter ist (fehlt das Feld, zaehlt `aktualisiert:`), und aktualisiere alle. Massgeblich ist die Verifikation, nicht die letzte Bearbeitung. Dateien mit `teilverifiziert-am:` sind ein eigener Zustand ("teilverifiziert"), gelten nie als frisch und werden nicht von `--stale-only` erfasst, sondern einzeln per `/legal-update <slug>` vervollstaendigt.
 
 ### `/legal-update --all`
 Aktualisiere alle KB-Dateien (nur bewusst nutzen — toolintensiv).

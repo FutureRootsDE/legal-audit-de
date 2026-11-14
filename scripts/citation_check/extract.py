@@ -42,6 +42,17 @@ COURT_MENTION = re.compile(
     rf"\b(?:{FEDERAL_COURTS}|EuGH|EuG|EGMR|OLG|LG|AG|OVG|VGH|VG|LAG|KG|FG|SG|LSG|ArbG|BayObLG)\b"
     r"(?:\s+[A-ZÄÖÜ][\wäöüß.\-]+(?:\s+(?:am\s+Main|I{1,3}))?)?")
 HINT_WINDOW = 60
+# Signals that an AZ in a judgment file belongs to another instance or proceeding, not to the file's court.
+FOREIGN_SIGNAL = re.compile(
+    r"\b(?:Vorinstanz\w*|vorgehend\w*|nachgehend\w*|Berufungsgericht\w*|Ausgangsverfahren|Vorverfahren|"
+    r"LG|OLG|VG|OVG|VGH|AG|KG|FG|SG|LSG|LAG|ArbG|BayObLG|EuGH|EuG|EGMR)\b")
+# BVerwG registers accepted by the file-court fallback, written in the official dotted form (6 C 12.20);
+# A and K with a slash are register signs of the Oberverwaltungsgerichte and Verwaltungsgerichte.
+BVERWG_FALLBACK_AZ = re.compile(r"^[0-9]{1,2}\s+(?:B|C|D|F|P|S|WD|WB|CN|CE|AV|VR|A)\s+[0-9]{1,4}\.[0-9]{2}$")
+BVERWG_FALLBACK_SLASH = re.compile(r"^[0-9]{1,2}\s+(?:B|C)\s+[0-9]{1,4}/[0-9]{2}$")
+# Short-form list member: ", 125/20", " und 126/20", " sowie 126/20" directly after an AZ.
+SHORT_FORM = re.compile(r"\s*(?:,|\bund\b|\bsowie\b)\s*([0-9]{1,4})/([0-9]{2})(?![0-9/.\w])")
+AZ_PARTS = re.compile(r"^(.+\s)[0-9]{1,4}/[0-9]{2}$")
 
 MONTHS = {m: i for i, m in enumerate(
     ["januar", "februar", "märz", "april", "mai", "juni", "juli", "august",
@@ -137,11 +148,20 @@ def _is_free(spans: list[Span], start: int, end: int) -> bool:
     return all(end <= s or start >= e for s, e, *_ in spans)
 
 
-def _bverwg_applies(line: str, start: int, file_is_bverwg: bool) -> bool:
-    """BVerwG-style AZ: a preceding BVerwG, or the file's own court if no other court is named before it."""
+def _fallback_fits(line: str, az: str) -> bool:
+    """File-court fallback: no foreign-instance signal in the line and a BVerwG-typical register."""
+    if FOREIGN_SIGNAL.search(line):
+        return False
+    return bool(BVERWG_FALLBACK_AZ.fullmatch(az) or BVERWG_FALLBACK_SLASH.fullmatch(az))
+
+
+def _bverwg_court(line: str, start: int, az: str, file_is_bverwg: bool) -> str | None:
+    """Court for a BVerwG-style AZ: BVerwG, "unbekannt" (uncovered, doubtful), or None (named other court)."""
     if _bverwg_precedes(line, start):
-        return True
-    return file_is_bverwg and _last_hint(line, start, COURT_MENTION) is None
+        return "BVerwG"
+    if not file_is_bverwg or _last_hint(line, start, COURT_MENTION) is not None:
+        return None
+    return "BVerwG" if _fallback_fits(line, az) else "unbekannt"
 
 
 def _federal_spans(line: str, spans: list[Span], file_is_bverwg: bool = False) -> None:
@@ -149,9 +169,26 @@ def _federal_spans(line: str, spans: list[Span], file_is_bverwg: bool = False) -
         for m in pattern.finditer(line):
             if not _is_free(spans, m.start(), m.end()):
                 continue
-            if needs_bverwg and not _bverwg_applies(line, m.start(), file_is_bverwg):
-                continue
-            spans.append((m.start(), m.end(), _normalize_az(m.group(0)), court, True))
+            az = _normalize_az(m.group(0))
+            if needs_bverwg:
+                court = _bverwg_court(line, m.start(), az, file_is_bverwg)
+                if court is None:
+                    continue
+            spans.append((m.start(), m.end(), az, court, court != "unbekannt"))
+
+
+def _short_form_spans(line: str, spans: list[Span]) -> None:
+    """Add list members written without senate/register ("I ZR 90/20, 125/20 und 126/20")."""
+    for start, end, az, court, covered in list(spans):
+        parts = AZ_PARTS.match(az)
+        if not covered or not parts or court == "BVerwG":
+            continue
+        pos = end
+        while (m := SHORT_FORM.match(line, pos)):
+            if not _is_free(spans, m.start(1), m.end()):
+                break
+            spans.append((m.start(1), m.end(), f"{parts.group(1)}{m.group(1)}/{m.group(2)}", court, True))
+            pos = m.end()
 
 
 def _eu_spans(line: str, spans: list[Span]) -> None:
@@ -175,6 +212,7 @@ def _line_matches(line: str, file_is_bverwg: bool = False) -> list[Span]:
     """Find all Aktenzeichen in one line: (start, end, az, court, covered)."""
     spans: list[Span] = []
     _federal_spans(line, spans, file_is_bverwg)
+    _short_form_spans(line, spans)
     _eu_spans(line, spans)
     _lower_spans(line, spans)
     return sorted(spans)
@@ -191,6 +229,8 @@ def _neighbours(line: str, spans: list[Span], d_start: int, d_end: int) -> tuple
         left_gap = None
     if right_gap and len(right_gap[1]) > DATE_MAX_DISTANCE:
         right_gap = None
+    if right_gap and right_gap[1].lstrip().startswith(")"):
+        right_gap = None  # a date inside a bracket belongs to the AZ before it, never to the one after it
     return left_gap, right_gap
 
 
@@ -217,10 +257,9 @@ def _date_owner(line: str, spans: list[Span], d_start: int, d_end: int) -> tuple
     return None
 
 
-def _assign_dates(line: str, spans: list[Span]) -> list[str | None]:
+def _assign_dates(line: str, spans: list[Span], today: str) -> list[str | None]:
     """Bind every date to at most one AZ; per AZ the closest date wins."""
     best: list[tuple[int, str] | None] = [None] * len(spans)
-    today = run_day()
     for d_start, d_end, iso in find_dates(line):
         if _is_memo_date(line, d_start, iso, today):
             continue
@@ -233,13 +272,14 @@ def _assign_dates(line: str, spans: list[Span]) -> list[str | None]:
     return [b[1] if b else None for b in best]
 
 
-def _line_citations(line: str, lineno: int, rel_path: str, file_is_bverwg: bool = False) -> list[Citation]:
+def _line_citations(line: str, lineno: int, rel_path: str, file_is_bverwg: bool = False,
+                    today: str | None = None) -> list[Citation]:
     spans = _line_matches(line, file_is_bverwg)
     if not spans:
         return []
     pending = bool(PENDING_RE.search(line))
     correction = bool(CORRECTION_RE.search(line))
-    dates = [None] * len(spans) if correction else _assign_dates(line, spans)
+    dates = [None] * len(spans) if correction else _assign_dates(line, spans, today or run_day())
     context = line.strip()[:160]
     return [Citation(rel_path, lineno, az, court, covered, date, pending, context, correction)
             for (_, _, az, court, covered), date in zip(spans, dates)]
@@ -258,8 +298,8 @@ def is_bverwg_file(text: str, rel_path: str) -> bool:
     return Path(rel_path).stem.lower().startswith("bverwg") or "BVerwG" in first_h1
 
 
-def extract_with_notes(text: str, rel_path: str) -> tuple[list[Citation], int]:
-    """Extract citations; lines above MAX_LINE_CHARS are skipped and counted."""
+def extract_with_notes(text: str, rel_path: str, today: str | None = None) -> tuple[list[Citation], int]:
+    """Extract citations; lines above MAX_LINE_CHARS are skipped and counted. `today`: ISO run day."""
     citations: list[Citation] = []
     skipped = 0
     file_is_bverwg = is_bverwg_file(text, rel_path)
@@ -268,13 +308,13 @@ def extract_with_notes(text: str, rel_path: str) -> tuple[list[Citation], int]:
         if len(line) > MAX_LINE_CHARS:
             skipped += 1
             continue
-        citations.extend(_line_citations(line, lineno, rel_path, file_is_bverwg))
+        citations.extend(_line_citations(line, lineno, rel_path, file_is_bverwg, today))
     return citations, skipped
 
 
-def extract_citations(text: str, rel_path: str) -> list[Citation]:
+def extract_citations(text: str, rel_path: str, today: str | None = None) -> list[Citation]:
     """Extract Aktenzeichen with file:line, nearby date and pending marker."""
-    return extract_with_notes(text, rel_path)[0]
+    return extract_with_notes(text, rel_path, today)[0]
 
 
 def _rel(path: Path, kb_path: Path) -> str:
@@ -301,7 +341,7 @@ def _read_limited(md: Path, rel: str, notes: list[str]) -> str | None:
     return data.decode("utf-8", errors="replace")
 
 
-def scan_kb(kb_path: Path, notes: list[str] | None = None) -> list[Citation]:
+def scan_kb(kb_path: Path, notes: list[str] | None = None, today: str | None = None) -> list[Citation]:
     """Scan all *.md files; skipped inputs (too large, too long lines, unreadable) go to `notes`."""
     notes = notes if notes is not None else []
     citations: list[Citation] = []
@@ -312,7 +352,7 @@ def scan_kb(kb_path: Path, notes: list[str] | None = None) -> list[Citation]:
         text = _read_limited(md, rel, notes)
         if text is None:
             continue
-        found, skipped = extract_with_notes(text, rel)
+        found, skipped = extract_with_notes(text, rel, today)
         citations.extend(found)
         if skipped:
             _note(notes, f"{rel}: {skipped} Zeilen laenger als {MAX_LINE_CHARS} Zeichen uebersprungen")

@@ -39,11 +39,11 @@ Jede vom Plugin erzeugte Output-Datei trägt diesen Disclaimer am Kopf. Der `Pos
 | `/legal-pro-mode enable\|disable\|status` | Pro-Mode-Toggle (Standard-Kontext statt 1M) für Claude-Pro-Abonnenten |
 
 Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
-- `legal-status.py` — Status-Report
+- `legal-status.py` — Status-Report; Frische nach `verifiziert-am` (ersatzweise `aktualisiert`), `teilverifiziert-am` als eigener Zustand "teilverifiziert" (nie frisch), Warnung bei abweichenden Platzhalter-Formen
 - `audit-compare.py` — Diff zwischen zwei Audits (`--auto <pfad>` findet vorheriges)
-- `find-placeholders.py` — listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen
+- `find-placeholders.py` — listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen; abweichende oder defekte Marker (Zusatztext, einfaches `>`, ueber zwei Zeilen, nicht geschlossen) erscheinen als WARNUNG auf stderr, Marker in Backticks werden ignoriert
 - `legal-audit-pdf.py` — bundled HTML/PDF-Briefing aus Audit-Ordner
-- `verify-citations.py` — prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--only-pending`, `--json`, `--offline`, `--write-ecli --dry-run`); duenner Einstiegspunkt, Logik im Paket `citation_check/` daneben (nur Standardbibliothek); Cache-Treffer sind im Bericht und JSON gekennzeichnet (`source: cache`) und gelten als ungeprueft; Exit 3 bei Schreibfehlern von `--write-ecli`; bekannte Grenzen: Datumsbindung nur bei klarem Bezug (Daten nach Vermerkwoertern wie Stand/geprueft/eingelegt und Daten ab dem Lauftag sind keine Entscheidungsdaten, im Zweifel kein Datum), Kurzform-Aufzaehlungen wie `I ZR 90/20, 125/20` werden nicht aufgeloest (nur das erste Aktenzeichen wird geprueft), BVerwG-Aktenzeichen ohne Gerichtsnamen in der Zeile werden nur in `knowledge/urteile/` erkannt, wenn Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen
+- `verify-citations.py` — prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--only-pending`, `--json`, `--offline`, `--today`, `--write-ecli --dry-run`); duenner Einstiegspunkt, Logik im Paket `citation_check/` daneben (nur Standardbibliothek); Cache-Treffer sind im Bericht und JSON gekennzeichnet (`source: cache`) und gelten als ungeprueft; Exit 3 bei Schreibfehlern von `--write-ecli`; bekannte Grenzen: Datumsbindung nur bei klarem Bezug (Daten nach Vermerkwoertern wie Stand/geprueft/eingelegt und Daten ab dem Lauftag (`--today`, Standard heute) sind keine Entscheidungsdaten, ein Datum in einer Klammer hinter einem Aktenzeichen gehoert nie zum nachfolgenden, im Zweifel kein Datum), Kurzform-Aufzaehlungen wie `I ZR 90/20, 125/20 und 126/20` werden aufgeloest (Folgeglieder `NNN/JJ` direkt per Komma, und oder sowie angeschlossen; ein folgendes Datum bindet nur an das letzte Glied), BVerwG-Aktenzeichen ohne Gerichtsnamen in der Zeile werden nur in `knowledge/urteile/` erkannt, wenn Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen, die Zeile kein Vorinstanz-Signal (Vorinstanz, vorgehend, LG, OLG, VG, EuGH usw.) enthaelt und das Registerzeichen zum BVerwG passt (sonst NOT_COVERED); Netzwerkfehler erscheinen nur als feste Kategorie ohne Text aus der Ausnahme
 
 ## Integration in Zielprojekte
 
@@ -219,7 +219,7 @@ KB-Frontmatter unterstuetzt seit dieser Integration die optionalen Felder `eli:`
 
 ## Wartung
 
-- **KB-Aktualität:** alle 90 Tage `/legal-update --stale-only` ausführen.
+- **KB-Aktualität:** alle 90 Tage `/legal-update --stale-only` ausführen (stale = `verifiziert-am` 90 Tage oder älter, ersatzweise `aktualisiert`).
 - **Trigger-Katalog:** `.claude/hooks/triggers.json` erweitern, wenn häufige Prompts keine passenden KB-Chunks laden.
 - **Checklisten-Evolution:** Nach jedem Audit prüfen, ob neue Muster in die Checklisten aufgenommen werden müssen.
 - **Anwalts-/Tool-Liste:** Halbjährlich per `/legal-update anwaelte-tools` prüfen.

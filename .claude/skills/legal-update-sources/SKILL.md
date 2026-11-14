@@ -1,6 +1,6 @@
 ---
 name: legal-update-sources
-description: Aktualisiert KB-Artikel gegen Primaerquellen. Nutze diese Skill wenn /legal-update aufgerufen wird ODER wenn ein KB-Artikel aelter als 90 Tage ist und im aktuellen Arbeitskontext verwendet wird.
+description: Aktualisiert KB-Artikel gegen Primaerquellen. Nutze diese Skill wenn /legal-update aufgerufen wird ODER wenn die Verifikation eines KB-Artikels 90 Tage oder aelter ist und im aktuellen Arbeitskontext verwendet wird.
 ---
 
 # Knowledge-Base Aktualitaets-Workflow
@@ -10,7 +10,7 @@ Haelt die Rechts-KB aktuell gegen Primaerquellen.
 ## Trigger
 
 - Expliziter Aufruf: `/legal-update <slug>` oder `/legal-update --stale-only`
-- Hook-Trigger: wenn UserPromptSubmit-Hook eine KB-Datei laedt, die `aktualisiert:`-Datum > 90 Tage hat, warnt Claude den User: "KB-Datei X ist 120 Tage alt — empfehle `/legal-update X`".
+- Hook-Trigger: wenn UserPromptSubmit-Hook eine KB-Datei laedt, deren `verifiziert-am:` (ersatzweise `aktualisiert:`) 90 Tage oder aelter ist, warnt Claude den User: "KB-Datei X ist 120 Tage alt — empfehle `/legal-update X`".
 
 ## Delegation
 
@@ -33,10 +33,11 @@ Die Recherche- und Verifikations-Arbeit uebernimmt der `legal-researcher`-Agent 
 
 ## Stale-Detection
 
-Ein KB-Artikel gilt als "stale", wenn:
-- `aktualisiert:` > 90 Tage alt, ODER
-- `verifiziert-am:` > 180 Tage alt, ODER
-- Ein verlinktes Urteil/Gesetz zwischenzeitlich geaendert wurde (manuell per Trigger)
+Ein KB-Artikel gilt als "stale", wenn `verifiziert-am:` 90 Tage oder aelter ist (massgeblich ist die Verifikation, nicht die letzte Bearbeitung). Fehlt `verifiziert-am:`, zaehlt `aktualisiert:`. `scripts/legal-status.py` weist 90 bis 180 Tage als "stale" und ab 180 Tagen als "sehr stale" aus.
+
+Dateien mit `teilverifiziert-am:` sind ein eigener Zustand ("teilverifiziert"): sie gelten nie als frisch und werden einzeln per `/legal-update <slug>` vollstaendig verifiziert.
+
+Unabhaengig davon kann ein manueller Trigger (ein verlinktes Urteil oder Gesetz hat sich zwischenzeitlich geaendert) eine Pruefung anstossen; das aendert nicht die Stale-Definition.
 
 ## Zitat-Preservation
 
