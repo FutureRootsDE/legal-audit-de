@@ -57,7 +57,7 @@ getroffen haette."
 
 **Ausnahme bei kostenloser Handlung:** Kein kommerzieller Zweck bei einer
 Handlung **zugunsten eines fremden Unternehmens**, wenn der Handelnde **kein
-Entgelt oder keine aehnliche Gegenleistung** erhaelt oder erwartet.
+Entgelt oder keine aehnliche Gegenleistung** erhaelt oder sich versprechen laesst.
 
 **Beweislast-Umkehr:** Entgelt / Gegenleistung werden **vermutet**; der
 Handelnde muss glaubhaft machen, dass er nichts erhalten hat.
@@ -137,7 +137,7 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
 3. **"in Zusammenarbeit mit" / "supported by" / "PR Sample":** von der
    Rechtsprechung nicht einheitlich als ausreichend anerkannt.
 4. **Gifted Products ohne Gegenleistung behauptet:** Beweislast § 5a Abs. 4
-   S. 2 UWG — Vermutung der Gegenleistung. Dokumentation des Sachverhalts
+   S. 3 UWG — Vermutung der Gegenleistung. Dokumentation des Sachverhalts
    wichtig.
 5. **Affiliate-Links ohne Hinweis:** Produktlinks mit Provisions-ID
    ("ref=XY"): eindeutig kommerziell — Kennzeichnung Pflicht.
@@ -186,9 +186,9 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   Urteilen vom 09.09.2021 war ein Beitrag ohne Gegenleistung nur bei
   werblichem Ueberschuss eine geschaeftliche Handlung zugunsten des
   fremden Unternehmens (I ZR 90/20, Leitsatz 4); nach § 5a Abs. 4
-  Satz 2 UWG n. F. kommt es darauf nicht mehr an. Eigenwerbung ist
+  Satz 2 UWG n. F. kommt es fuer die Kennzeichnungspflicht nach § 5a Abs. 4 UWG darauf nicht mehr an; eine Gegenleistung wird jedoch vermutet (Satz 3). Eigenwerbung ist
   regelmaessig eine geschaeftliche Handlung zugunsten des eigenen
-  Unternehmens; das Merkmal der Gegenleistung gilt dafuer nicht
+  Unternehmens (I ZR 90/20, Leitsatz 2); das Merkmal der Gegenleistung gilt dafuer nicht
   (I ZR 125/20, Leitsatz 2). Zu "Tap Tags": Der Umstand, dass die
   Influencerin Bilder mit "Tap Tags" versehen hat, um die Hersteller
   der abgebildeten Waren zu bezeichnen, genuegt als solcher nicht,
@@ -255,3 +255,4 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   1 und 2) ausgerichtet; unbelegte Aussage zur UGP-Richtlinie
   gestrichen; I ZR 35/21-Formulierung am Leitsatz "Influencer III"
   ausgerichtet; Tap-Tag-Aussage I ZR 90/20 Leitsatz 5 zugeordnet.
+- **2026-11-14 (Nachzug Review, Leitsatz-Zuordnung)**: Eigenwerbung-Beleg auf I ZR 90/20 Leitsatz 2 und I ZR 125/20 Leitsatz 2 getrennt, Vermutung der Gegenleistung auf § 5a Abs. 4 Satz 3 UWG gestellt (statt Satz 2), Formulierung am Gesetzeswortlaut ausgerichtet.
