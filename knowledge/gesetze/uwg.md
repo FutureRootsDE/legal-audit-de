@@ -207,7 +207,7 @@ Enthaelt 32 per se unzulaessige Handlungen, u.a.:
   Kombination beim naechsten Update gegen rechtsprechung-im-internet pruefen.)
 - **BGH I ZR 90/20** (09.09.2021, "Influencer I"): Kennzeichnungspflicht fuer
   kommerzielle Instagram-Posts (Parallelverfahren I ZR 125/20 "Influencer II"
-  und I ZR 126/20 "Influencer III" am selben Tag).
+  und I ZR 126/20; "Influencer III" ist I ZR 35/21 vom 13.01.2022).
 - **BGH I ZR 186/17** (27.03.2025, "App-Zentrum II"): Verbraucherverbaende und
   Mitbewerber sind nach Art. 80 Abs. 2 DSGVO i.V.m. UWG/UKlaG befugt, DSGVO-
   Verstoesse zivilrechtlich zu verfolgen. (Wichtige Klarstellung — vormals als
@@ -237,3 +237,7 @@ Enthaelt 32 per se unzulaessige Handlungen, u.a.:
   lassen sich aus der UWG-Fussnote nicht eindeutig der EmpCo-Umsetzung
   zuordnen; sie wurden mit Verifikationsmarker versehen statt still
   entfernt. Dateienabgleich mit themen/werbekennzeichnung.md.
+- **2026-11-14 (Review-Korrekturlauf PR #17, Influencer-Absatz)**:
+  Fehlerhafte Zuordnung "Influencer III = I ZR 126/20" im Bullet zu
+  I ZR 90/20 beseitigt; "Influencer III" ist I ZR 35/21 vom
+  13.01.2022.

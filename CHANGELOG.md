@@ -17,6 +17,7 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 - `knowledge/themen/agb-muster.md`, `knowledge/themen/widerrufsbelehrung.md` — Hinweisblock zu BGH VIII ZR 21/19 richtiggestellt: ECLI `…UVIIIZR21.19.0` (Mieterhoehungs-Urteil 09.10.2019); der zuvor miteinsortierte Abgasskandal-Beschluss vom 26.04.2022 (`…BVIIIZR19.21.0`) gehoert zu **BGH VIII ZR 19/21**.
 - `.claude/hooks/triggers.json` — zu breite Muster eingeengt: `omnibus` nur im Rechtskontext (digital/ki/ai + Verordnung/Paket/VO), Art. 82 nur mit DSGVO/GDPR-Bezug (plus `immaterielle[rn]? Schaden|Kontrollverlust`), `data act` mit Wortgrenzen, `empco` ebenfalls mit Wortgrenzen; der zuvor getrennte Widerrufsbutton-Eintrag wurde in den `widerruf`-Eintrag integriert (keine Reihenfolgen-Abhaengigkeit mehr).
 - `knowledge/INDEX.md` — Platzhalter-Angabe auf **53** nachgezogen (`git grep -c "<<VERIFIKATION AUSSTEHEND>>" -- knowledge/`).
+- `knowledge/themen/email-marketing.md`, `knowledge/themen/werbekennzeichnung.md`, `knowledge/gesetze/uwg.md` — Darstellung der BGH-Influencer-Rechtsprechung und § 5a Abs. 4 UWG wortgleich am Gesetzeswortlaut (§ 5a Abs. 4 Saetze 2 und 3 UWG) und an den Leitsaetzen (I ZR 90/20 Leitsaetze 4 und 5; I ZR 125/20 Leitsaetze 1 und 2; I ZR 35/21 "Influencer III" vom 13.01.2022) ausgerichtet; unbelegte UGP-Richtlinien-Aussage gestrichen, Fehlzuordnung "Influencer III = I ZR 126/20" beseitigt.
 
 ### KB-Update 2026-11-14 (stale-only)
 
