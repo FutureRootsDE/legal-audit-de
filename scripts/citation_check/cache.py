@@ -90,22 +90,71 @@ class HitCache:
         entry = {"court": court, "az": az, "fetched_at": self.now_epoch(), "hits": hits}
         if self.token_sanitizer:
             entry["tokens"] = tokens or []
+        write_json_atomic(self.cache_dir, path, entry, self.warnings)
+
+
+def write_json_atomic(cache_dir: Path, path: Path, entry: dict, warnings: list[str]) -> None:
+    """Write a cache entry via a temp file; problems become short warnings, never exceptions."""
+    tmp_name = None
+    try:
+        cache_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+        fd, tmp_name = tempfile.mkstemp(dir=cache_dir, prefix=".tmp-cache-", suffix=".json")
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            handle.write(json.dumps(entry, ensure_ascii=False))
+        os.replace(tmp_name, path)
         tmp_name = None
+    except OSError as exc:
+        warnings.append(short(f"Cache nicht schreibbar ({cache_dir}): {exc}", WARNING_LIMIT))
+    finally:
+        if tmp_name is not None:
+            try:
+                os.unlink(tmp_name)
+            except OSError as exc:
+                warnings.append(short(f"Cache-Temp-Datei nicht entfernt ({tmp_name}): {exc}", WARNING_LIMIT))
+
+
+class DocCache:
+    """Named JSON documents (law indexes, table of contents) with a time to live; entries are validated by the caller."""
+
+    def __init__(self, cache_dir: Path | None, ttl_seconds: float, offline: bool = False,
+                 warnings: list[str] | None = None, now: Callable[[], float] = time.time) -> None:
+        self.cache_dir = cache_dir
+        self.ttl_seconds = ttl_seconds
+        self.offline = offline
+        self.warnings = warnings if warnings is not None else []
+        self._now = now
+
+    def _path(self, name: str) -> Path | None:
+        if self.cache_dir is None:
+            return None
+        return self.cache_dir / f"doc-{hashlib.sha256(name.encode('utf-8')).hexdigest()[:32]}.json"
+
+    def read(self, name: str) -> object | None:
+        """The stored payload, or None if missing, stale, linked, too large or not valid JSON."""
+        path = self._path(name)
+        if path is None:
+            return None
         try:
-            self.cache_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
-            fd, tmp_name = tempfile.mkstemp(dir=self.cache_dir, prefix=".tmp-cache-", suffix=".json")
-            with os.fdopen(fd, "w", encoding="utf-8") as handle:
-                handle.write(json.dumps(entry, ensure_ascii=False))
-            os.replace(tmp_name, path)
-            tmp_name = None
-        except OSError as exc:
-            self.warnings.append(short(f"Cache nicht schreibbar ({self.cache_dir}): {exc}", WARNING_LIMIT))
-        finally:
-            if tmp_name is not None:
-                try:
-                    os.unlink(tmp_name)
-                except OSError as exc:
-                    self.warnings.append(short(f"Cache-Temp-Datei nicht entfernt ({tmp_name}): {exc}", WARNING_LIMIT))
+            if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_CACHE_ENTRY_BYTES * 4:
+                return None
+            entry = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return None
+        if not isinstance(entry, dict) or set(entry) != {"name", "fetched_at", "payload"} or entry["name"] != name:
+            return None
+        fetched = entry["fetched_at"]
+        if isinstance(fetched, bool) or not isinstance(fetched, (int, float)):
+            return None
+        age = self._now() - fetched
+        if age < -60 or (not self.offline and age > self.ttl_seconds):
+            return None
+        return entry["payload"]
+
+    def write(self, name: str, payload: object) -> None:
+        path = self._path(name)
+        if path is not None:
+            write_json_atomic(self.cache_dir, path, {"name": name, "fetched_at": self._now(),
+                                                      "payload": payload}, self.warnings)
 
 
 def default_cache_dir() -> Path:

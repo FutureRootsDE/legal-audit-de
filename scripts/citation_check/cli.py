@@ -18,6 +18,9 @@ from .eu_client import EU_RATE, EU_TIMEOUT, EuClient
 from .extract import scan_kb
 from .fsutil import is_under
 from .models import DEFAULT_CACHE_TTL_DAYS
+from .bgbl import DEFAULT_MAX_BGBL
+from .norm_client import NORM_RATE
+from .norm_run import run_norm_mode
 from .report import json_payload, render_ecli, render_report
 
 ROOT = Path(os.environ.get("CLAUDE_PROJECT_DIR") or Path(__file__).resolve().parents[2])
@@ -53,6 +56,14 @@ def build_parser() -> argparse.ArgumentParser:
                    help="EU-Rechtsprechung (EuGH/EuG) nicht gegen den Cellar des Amts fuer Veroeffentlichungen pruefen")
     p.add_argument("--eu-rate", type=float, default=EU_RATE,
                    help="max. SPARQL-Anfragen pro Sekunde an den Cellar (Standard 1)")
+    p.add_argument("--check-norms", action="store_true",
+                   help="eigener Modus: Normzitate (BGB, UWG, ...) gegen gesetze-im-internet.de und BGBl.-Fundstellen "
+                        "gegen recht.bund.de pruefen (prueft keine Aktenzeichen, schreibt nie in die KB)")
+    p.add_argument("--max-bgbl", type=int, default=DEFAULT_MAX_BGBL, metavar="N",
+                   help="mit --check-norms: hoechstens N BGBl.-Seiten abrufen (robots.txt verlangt 30 Sekunden "
+                        f"Abstand; Standard {DEFAULT_MAX_BGBL}, 0 = keine)")
+    p.add_argument("--norm-rate", type=float, default=NORM_RATE,
+                   help="mit --check-norms: max. Anfragen pro Sekunde an gesetze-im-internet.de (Standard 1)")
     p.add_argument("--no-cache", action="store_true", help="keinen Cache lesen oder schreiben")
     p.add_argument("--cache-ttl-days", type=float, default=DEFAULT_CACHE_TTL_DAYS,
                    help="maximales Alter von Cache-Eintraegen in Tagen (Standard 7)")
@@ -81,6 +92,12 @@ def _validate_args(parser: argparse.ArgumentParser, args: argparse.Namespace) ->
             parser.error("--today muss ein Datum im Format YYYY-MM-DD sein")
     if not 0 < args.eu_rate <= MAX_RATE_PER_SECOND:
         parser.error(f"--eu-rate muss > 0 und <= {MAX_RATE_PER_SECOND:g} sein")
+    if not 0 < args.norm_rate <= MAX_RATE_PER_SECOND:
+        parser.error(f"--norm-rate muss > 0 und <= {MAX_RATE_PER_SECOND:g} sein")
+    if args.max_bgbl < 0:
+        parser.error("--max-bgbl muss >= 0 sein")
+    if args.check_norms and (args.write_ecli or args.only_pending):
+        parser.error("--check-norms ist ein eigener Modus und nicht mit --write-ecli oder --only-pending kombinierbar")
     if args.timeout <= 0:
         parser.error("--timeout muss > 0 sein")
     if args.cache_ttl_days <= 0:
@@ -156,6 +173,8 @@ def main(argv: list[str] | None = None, fetch: FetchFn | None = None,
         print(f"Fehler: KB-Verzeichnis nicht gefunden: {kb_path}", file=err)
         return EXIT_USAGE
 
+    if args.check_norms:
+        return run_norm_mode(args, kb_path, cache_dir, cache_warning, fetch, sleep, out, err)
     client = ApiClient(fetch=fetch, cache_dir=cache_dir, rate=args.rate, timeout=args.timeout,
                        offline=args.offline, sleep=sleep,
                        cache_ttl_seconds=args.cache_ttl_days * 24 * 3600)
