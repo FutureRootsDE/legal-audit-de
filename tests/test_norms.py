@@ -106,6 +106,11 @@ class LawIndex(unittest.TestCase):
             with self.assertRaises(norm_xml.XmlRejected):
                 norm_xml.parse_law_xml(raw)
 
+    def test_plain_http_doctype_of_the_real_files_is_accepted(self):
+        raw = (b'<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE dokumente SYSTEM '
+               b'"http://www.gesetze-im-internet.de/dtd/1.01/gii-norm.dtd">\n<dokumente builddate="20260101"/>')
+        self.assertEqual(norm_xml.parse_law_xml(raw)["norms"], {})
+
     def test_archive_limits(self):
         with self.assertRaises(norm_xml.XmlRejected):
             norm_xml.parse_law_zip(b"kein zip")

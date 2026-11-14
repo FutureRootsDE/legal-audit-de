@@ -23,10 +23,13 @@ TOKEN = re.compile(
     r"|(?P<conn>\bund\b|\boder\b|\bsowie\b|\bbis\b|[,/+–—-])"
     r"|(?P<word>[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß0-9]*(?:-[A-Za-zÄÖÜäöüß0-9]+)*)"
     r"|(?P<other>\S)")
-ABBR = re.compile(r"^[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9]*(?:-[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9]*)*$")
 OLD_VERSION = re.compile(r"\s*(?:a\.\s?F\.|alter\s+Fassung|alte\s+Fassung)")
 EU_LAWS = frozenset({"DSGVO", "DS-GVO", "KI-VO", "DSA", "DMA", "GRCh", "AEUV", "EUV", "ePrivacy-RL", "DSM-RL",
-                     "NIS2-RL", "Data-Act", "AI-Act", "EMRK", "UGP-RL", "VRRL", "e-Commerce-RL"})
+                     "NIS2-RL", "Data-Act", "AI-Act", "AI", "EMRK", "UGP-RL", "UGP-Richtlinie", "VRRL",
+                     "e-Commerce-RL", "InfoSoc-RL", "RL", "VO", "EuGVVO", "UMV", "Omnibus-VO"})
+# Unknown law abbreviations: one capitalised word (no hyphen) or hyphenated all-caps parts (KI-MIG);
+# compounds like "Button-Loesung" or "DSGVO-Verstoss" are ordinary words.
+UNKNOWN_LAW = re.compile(r"^(?:[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9]*|[A-ZÄÖÜ]{2,}(?:-[A-ZÄÖÜ]{2,})+)$")
 MEMO_FRONT = re.compile(r"\A---[ \t]*\r?\n(.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
 FRONT_DATE = re.compile(r"^(verifiziert-am|aktualisiert):[ \t]*[\"']?([0-9]{4}-[0-9]{2}-[0-9]{2})", re.MULTILINE)
 BGBL = re.compile(
@@ -78,7 +81,9 @@ class Extraction:
 
 
 def _is_law(word: str) -> bool:
-    return word in EU_LAWS or (bool(ABBR.match(word)) and sum(c.isupper() for c in word) >= 2)
+    if word in EU_LAWS:
+        return True
+    return bool(UNKNOWN_LAW.match(word)) and sum(c.isupper() for c in word) >= 2
 
 
 class _Scanner:
@@ -108,7 +113,10 @@ class _Scanner:
         if under_article:
             self.mode = "sub"
             return
-        if not (self.items and self.conn):
+        if self.items and self.conn:
+            # "Art. 37-39, § 38 BDSG": the law belongs to the paragraphs, the bare articles are another law's
+            self.items = [item for item in self.items if item.kind != "Art"]
+        else:
             self.reset()
         self.mode = "para"
 

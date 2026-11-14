@@ -20,7 +20,7 @@ LAW_SLUGS: dict[str, str] = {
     "KUG": "kunsturhg", "KunstUrhG": "kunsturhg", "AO": "ao_1977", "HGB": "hgb", "VSBG": "vsbg",
     "UStG": "ustg_1980", "MarkenG": "markeng", "ZPO": "zpo", "TKG": "tkg_2021", "BetrVG": "betrvg",
     "BSIG": "bsig_2025", "UKlaG": "uklag", "MessEinhG": "me_einhg", "BRAO": "brao", "GG": "gg",
-    "StGB": "stgb", "StPO": "stpo",
+    "StGB": "stgb", "StPO": "stpo", "GWB": "gwb", "UrhDaG": "urhdag", "GeschGehG": "geschgehg",
 }
 # Abbreviations that are the old name of a law under the same slug (reported as a note).
 RENAMED = {"TTDSG": "TDDDG"}

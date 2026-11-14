@@ -68,6 +68,24 @@ class NoCitation(unittest.TestCase):
         self.assertEqual([(r.number, r.old_version) for r in out.norms], [("8", True), ("8", False)])
 
 
+class RealKbForms(unittest.TestCase):
+    def test_bare_articles_before_a_paragraph_belong_to_another_law(self):
+        self.assertEqual(refs("Art. 37-39, § 38 BDSG"), [("BDSG", "§", None, "38", (), ())])
+        self.assertEqual(refs("Art. 6 Abs. 1 lit. f, § 4 BDSG"), [("BDSG", "§", None, "4", (), ())])
+        self.assertEqual(refs("Art. 6 lit. a + § 25 TDDDG"), [("TDDDG", "§", None, "25", (), ())])
+
+    def test_compound_words_are_no_law_abbreviations(self):
+        for text in ("§ 5 Button-Loesung", "Art. 33 DSGVO-Meldeweg", "§ 12 Opt-Out", "§ 3 DDG-Verstoss"):
+            self.assertEqual(refs(text), [], text)
+
+    def test_hyphenated_all_caps_laws_are_kept(self):
+        self.assertEqual(refs("§ 3 KI-MIG"), [("KI-MIG", "§", None, "3", (), ())])
+
+    def test_eu_directives_and_ai_act_are_counted(self):
+        out = ne.extract_text("Art. 50 AI Act, Art. 5 RL und Art. 3 VO", "f.md")
+        self.assertEqual((out.norms, out.eu_counts), ([], {"AI": 1, "RL": 1, "VO": 1}))
+
+
 class EuLaws(unittest.TestCase):
     def test_eu_articles_are_counted_not_listed(self):
         out = ne.extract_text("Art. 6 Abs. 1 lit. a DSGVO, Art. 30/32/33 DSGVO und Art. 50 KI-VO", "f.md")
