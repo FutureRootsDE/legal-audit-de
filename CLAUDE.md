@@ -43,7 +43,7 @@ Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
 - `audit-compare.py` — Diff zwischen zwei Audits (`--auto <pfad>` findet vorheriges)
 - `find-placeholders.py` — listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen
 - `legal-audit-pdf.py` — bundled HTML/PDF-Briefing aus Audit-Ordner
-- `verify-citations.py` — prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--only-pending`, `--json`, `--offline`, `--write-ecli --dry-run`); duenner Einstiegspunkt, Logik im Paket `citation_check/` daneben (nur Standardbibliothek); Cache-Treffer sind im Bericht und JSON gekennzeichnet (`source: cache`) und gelten als ungeprueft; Exit 3 bei Schreibfehlern von `--write-ecli`
+- `verify-citations.py` — prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--only-pending`, `--json`, `--offline`, `--write-ecli --dry-run`); duenner Einstiegspunkt, Logik im Paket `citation_check/` daneben (nur Standardbibliothek); Cache-Treffer sind im Bericht und JSON gekennzeichnet (`source: cache`) und gelten als ungeprueft; Exit 3 bei Schreibfehlern von `--write-ecli`; bekannte Grenzen: Datumsbindung nur bei klarem Bezug (Daten nach Vermerkwoertern wie Stand/geprueft/eingelegt und Daten ab dem Lauftag sind keine Entscheidungsdaten, im Zweifel kein Datum), Kurzform-Aufzaehlungen wie `I ZR 90/20, 125/20` werden nicht aufgeloest (nur das erste Aktenzeichen wird geprueft), BVerwG-Aktenzeichen ohne Gerichtsnamen in der Zeile werden nur in `knowledge/urteile/` erkannt, wenn Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen
 
 ## Integration in Zielprojekte
 

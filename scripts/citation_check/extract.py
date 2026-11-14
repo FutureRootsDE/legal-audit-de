@@ -2,12 +2,15 @@
 from __future__ import annotations
 
 import re
+from datetime import date
 from pathlib import Path
 
 from .models import Citation
+from .text import short
 
 MAX_FILE_BYTES = 2_000_000
 MAX_LINE_CHARS = 5000
+NOTE_LIMIT = 300
 
 ROMAN = r"(?:XIII|XII|XI|IX|X|VIII|VII|VI|IV|V|III|II|I)"
 HYPHEN = "-‐‑‒–—−"
@@ -52,6 +55,20 @@ DATE_MAX_DISTANCE = 120
 PENDING_RE = re.compile(r"<<\s*VERIFIKATION\s+AUSSTEHEND", re.IGNORECASE)
 CORRECTION_RE = re.compile(r"\b(?:korrigiert|statt|vormals|fälschlich(?:erweise)?|berichtigt)\b", re.IGNORECASE)
 
+FALLBACK_MAX_GAP = 30  # characters between AZ and a non-adjacent date for the nearest-date fallback
+_MEMO_WORDS = (r"stand|gepr(?:ü|ue)ft|verifiziert|abgerufen|abruf|aktualisiert|zuletzt\s+ge(?:ä|ae)ndert|"
+               r"eingelegt|anh(?:ä|ae)ngig\s+seit|in\s+kraft(?:\s+getreten)?|gilt\s+ab|anzuwenden\s+ab|"
+               r"ver(?:ö|oe)ffentlicht|bgbl\.?")
+_MEMO_PREP = r"(?:\s+(?:am|vom|seit|ab|zum|per|im))?"
+# A date directly preceded by a memo word (Stand, geprueft, eingelegt am, ...) is no decision date.
+MEMO_BEFORE = re.compile(rf"\b(?:{_MEMO_WORDS}){_MEMO_PREP}\W*$", re.IGNORECASE)
+MEMO_BGBL = re.compile(r"\bBGBl\b[^;]{0,40}$", re.IGNORECASE)
+MEMO_VERKUENDET = re.compile(r"\b(?:Gesetz|BGBl)\b.{0,40}verk(?:ü|ue)ndet(?:\s+\w+)?\W*$", re.IGNORECASE)
+MEMO_ANY = re.compile(rf"\b(?:{_MEMO_WORDS})(?!\w)", re.IGNORECASE)
+MEMO_TAIL = 45
+GERICHT_ROW = re.compile(r"^\W*(?:\*\*Gericht:?\*\*|gericht\s*:)\W*([^|\n]*)", re.IGNORECASE)
+HEAD_LINES = 60
+
 _SEP = rf"[\s,;:()\[\]/{re.escape(HYPHEN)}]*"
 _COURT_WORDS = rf"(?:(?:{FEDERAL_COURTS}|EuGH|EuG)\b[\s,.:{re.escape(HYPHEN)}]*)?"
 _INTRO = r"(?:(?:Urteil|Urt\.|Beschluss|Beschl\.|Entscheidung|Gerichtsbescheid)\s*)?(?:vom|v\.)"
@@ -88,6 +105,18 @@ def find_dates(line: str) -> list[tuple[int, int, str]]:
     return found
 
 
+def run_day() -> str:
+    """ISO date of today; dates on or after it cannot be decision dates."""
+    return date.today().isoformat()
+
+
+def _is_memo_date(line: str, d_start: int, iso: str, today: str) -> bool:
+    if iso >= today:
+        return True
+    tail = line[max(0, d_start - MEMO_TAIL):d_start]
+    return bool(MEMO_BEFORE.search(tail) or MEMO_BGBL.search(tail) or MEMO_VERKUENDET.search(tail))
+
+
 def _normalize_az(raw: str) -> str:
     return re.sub(r"\s+", " ", raw.strip())
 
@@ -108,12 +137,19 @@ def _is_free(spans: list[Span], start: int, end: int) -> bool:
     return all(end <= s or start >= e for s, e, *_ in spans)
 
 
-def _federal_spans(line: str, spans: list[Span]) -> None:
+def _bverwg_applies(line: str, start: int, file_is_bverwg: bool) -> bool:
+    """BVerwG-style AZ: a preceding BVerwG, or the file's own court if no other court is named before it."""
+    if _bverwg_precedes(line, start):
+        return True
+    return file_is_bverwg and _last_hint(line, start, COURT_MENTION) is None
+
+
+def _federal_spans(line: str, spans: list[Span], file_is_bverwg: bool = False) -> None:
     for pattern, court, needs_bverwg in FEDERAL_PATTERNS:
         for m in pattern.finditer(line):
             if not _is_free(spans, m.start(), m.end()):
                 continue
-            if needs_bverwg and not _bverwg_precedes(line, m.start()):
+            if needs_bverwg and not _bverwg_applies(line, m.start(), file_is_bverwg):
                 continue
             spans.append((m.start(), m.end(), _normalize_az(m.group(0)), court, True))
 
@@ -135,10 +171,10 @@ def _lower_spans(line: str, spans: list[Span]) -> None:
             spans.append((m.start(), m.end(), _normalize_az(m.group(0)), hint or "Land-/Oberlandesgericht", False))
 
 
-def _line_matches(line: str) -> list[Span]:
+def _line_matches(line: str, file_is_bverwg: bool = False) -> list[Span]:
     """Find all Aktenzeichen in one line: (start, end, az, court, covered)."""
     spans: list[Span] = []
-    _federal_spans(line, spans)
+    _federal_spans(line, spans, file_is_bverwg)
     _eu_spans(line, spans)
     _lower_spans(line, spans)
     return sorted(spans)
@@ -175,15 +211,19 @@ def _date_owner(line: str, spans: list[Span], d_start: int, d_end: int) -> tuple
         owner = left if left_ok else right
         return owner[0], len(owner[1])
     if not left_ok and len(spans) == 1:
-        near = left or right
-        return (near[0], len(near[1])) if near else None
+        close = [g for g in (left, right) if g and len(g[1]) <= FALLBACK_MAX_GAP and not MEMO_ANY.search(g[1])]
+        best = min(close, key=lambda g: len(g[1]), default=None)
+        return (best[0], len(best[1])) if best else None
     return None
 
 
 def _assign_dates(line: str, spans: list[Span]) -> list[str | None]:
     """Bind every date to at most one AZ; per AZ the closest date wins."""
     best: list[tuple[int, str] | None] = [None] * len(spans)
+    today = run_day()
     for d_start, d_end, iso in find_dates(line):
+        if _is_memo_date(line, d_start, iso, today):
+            continue
         owner = _date_owner(line, spans, d_start, d_end)
         if owner is None:
             continue
@@ -193,8 +233,8 @@ def _assign_dates(line: str, spans: list[Span]) -> list[str | None]:
     return [b[1] if b else None for b in best]
 
 
-def _line_citations(line: str, lineno: int, rel_path: str) -> list[Citation]:
-    spans = _line_matches(line)
+def _line_citations(line: str, lineno: int, rel_path: str, file_is_bverwg: bool = False) -> list[Citation]:
+    spans = _line_matches(line, file_is_bverwg)
     if not spans:
         return []
     pending = bool(PENDING_RE.search(line))
@@ -205,16 +245,30 @@ def _line_citations(line: str, lineno: int, rel_path: str) -> list[Citation]:
             for (_, _, az, court, covered), date in zip(spans, dates)]
 
 
+def is_bverwg_file(text: str, rel_path: str) -> bool:
+    """Court fallback for judgment files: Gericht row/frontmatter, else file name or H1 names the BVerwG."""
+    if "/urteile/" not in f"/{rel_path}":
+        return False
+    head = text.split("\n", HEAD_LINES)[:HEAD_LINES]
+    for raw in head:
+        row = GERICHT_ROW.match(raw.strip())
+        if row:
+            return row.group(1).strip().startswith("BVerwG")
+    first_h1 = next((ln for ln in head if ln.startswith("# ")), "")
+    return Path(rel_path).stem.lower().startswith("bverwg") or "BVerwG" in first_h1
+
+
 def extract_with_notes(text: str, rel_path: str) -> tuple[list[Citation], int]:
     """Extract citations; lines above MAX_LINE_CHARS are skipped and counted."""
     citations: list[Citation] = []
     skipped = 0
+    file_is_bverwg = is_bverwg_file(text, rel_path)
     for lineno, raw in enumerate(text.split("\n"), start=1):
         line = raw.rstrip("\r")
         if len(line) > MAX_LINE_CHARS:
             skipped += 1
             continue
-        citations.extend(_line_citations(line, lineno, rel_path))
+        citations.extend(_line_citations(line, lineno, rel_path, file_is_bverwg))
     return citations, skipped
 
 
@@ -227,18 +281,22 @@ def _rel(path: Path, kb_path: Path) -> str:
     return path.relative_to(kb_path.parent).as_posix()
 
 
+def _note(notes: list[str], message: str) -> None:
+    notes.append(short(message, NOTE_LIMIT))
+
+
 def _read_limited(md: Path, rel: str, notes: list[str]) -> str | None:
     if md.is_symlink():
-        notes.append(f"{rel}: Symlink uebersprungen")
+        _note(notes, f"{rel}: Symlink uebersprungen")
         return None
     try:
         with md.open("rb") as handle:
             data = handle.read(MAX_FILE_BYTES + 1)
     except OSError as exc:
-        notes.append(f"{rel}: nicht lesbar ({exc})")
+        _note(notes, f"{rel}: nicht lesbar ({exc})")
         return None
     if len(data) > MAX_FILE_BYTES:
-        notes.append(f"{rel}: Datei groesser als {MAX_FILE_BYTES} Bytes uebersprungen")
+        _note(notes, f"{rel}: Datei groesser als {MAX_FILE_BYTES} Bytes uebersprungen")
         return None
     return data.decode("utf-8", errors="replace")
 
@@ -257,5 +315,5 @@ def scan_kb(kb_path: Path, notes: list[str] | None = None) -> list[Citation]:
         found, skipped = extract_with_notes(text, rel)
         citations.extend(found)
         if skipped:
-            notes.append(f"{rel}: {skipped} Zeilen laenger als {MAX_LINE_CHARS} Zeichen uebersprungen")
+            _note(notes, f"{rel}: {skipped} Zeilen laenger als {MAX_LINE_CHARS} Zeichen uebersprungen")
     return citations
