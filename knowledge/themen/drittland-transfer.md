@@ -111,7 +111,7 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
 
 - **EuGH C-311/18 (Schrems II), 16.07.2020** — Privacy Shield ungültig; SCCs nur mit TIA
 - **EuGH C-362/14 (Schrems I), 06.10.2015** — Safe Harbor ungültig
-- **EuG T-553/23 (Latombe), 03.09.2025** — Nichtigkeitsklage gegen den DPF-Angemessenheitsbeschluss abgewiesen; DPF bleibt in Kraft (Rechtsmittel zum EuGH moeglich)
+- **EuG T-553/23 (Latombe), 03.09.2025** — Nichtigkeitsklage gegen den DPF-Angemessenheitsbeschluss abgewiesen; DPF bleibt in Kraft (Rechtsmittel C-703/25 P am 31.10.2025 eingelegt, anhaengig)
 - **DSB Österreich, 22.04.2022** — GA Universal unvereinbar (vor DPF)
 - **CNIL, 10.02.2022** — Google Analytics Sanktion
 - **Garante (IT), 09.06.2022** — Caffeina Media / GA-Entscheidung
@@ -133,3 +133,7 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
   Mitteilung ueber das Rechtsmittel im Amtsblatt der EU (EUR-Lex ELI
   `C/2025/6610`). Der frueher an dieser Stelle gesetzte Marker ist damit
   aufgeloest. Deckungsgleich mit urteile/eugh-schrems-ii.md.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Zusatz
+  "Rechtsmittel zum EuGH moeglich" in der Urteilsliste durch die belegte
+  Verfahrenslage ersetzt (C-703/25 P eingelegt am 31.10.2025, anhaengig);
+  wortgleich zum Fliesstext weiter oben in dieser Datei.

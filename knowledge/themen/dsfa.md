@@ -73,7 +73,7 @@ Bleibt trotz Maßnahmen ein hohes Restrisiko: vorherige Konsultation der Aufsich
 
 ## Typische Fallstricke in Codebases
 
-- **SaaS mit KI-gestütztem Scoring / Automation:** AI-Features oft DSFA-pflichtig (Art. 35 Abs. 3 lit. a). Zusatzpflichten aus der KI-VO greifen stufenweise: Art. 50 KI-VO (Transparenz von Chatbots, synthetischen Medien, Deepfakes) ist seit **02.08.2026** anwendbar; die Hochrisiko-Pflichten nach **Anhang III ab 02.12.2027** und nach **Anhang I ab 02.08.2028** (Art. 113 Abs. 3 Buchst. c KI-VO i. d. F. des Art. 1 Nr. 40 Buchst. b VO (EU) 2026/1744). Die **Grundrechte-Folgenabschätzung nach Art. 27 KI-VO** gilt nur für Betreiber von Hochrisiko-KI-Systemen und wird daher erst mit den Hochrisiko-Pflichten pflichtig (Anhang III ab 02.12.2027 bzw. Anhang I ab 02.08.2028); Abgrenzung zur DSFA nach Art. 35 DSGVO beachten.
+- **SaaS mit KI-gestütztem Scoring / Automation:** AI-Features oft DSFA-pflichtig (Art. 35 Abs. 3 lit. a). Zusatzpflichten aus der KI-VO greifen stufenweise: Art. 50 KI-VO (Transparenz von Chatbots, synthetischen Medien, Deepfakes) ist seit **02.08.2026** anwendbar; die Hochrisiko-Pflichten nach **Anhang III ab 02.12.2027** und nach **Anhang I ab 02.08.2028** (Art. 113 Abs. 3 Buchst. c KI-VO i. d. F. des Art. 1 Nr. 40 Buchst. b VO (EU) 2026/1744). Die **Grundrechte-Folgenabschätzung nach Art. 27 KI-VO** betrifft nur Hochrisiko-KI-Systeme nach Art. 6 Abs. 2 (Anhang III), ausgenommen den Bereich Anhang III Nr. 2; verpflichtet sind Betreiber, die Einrichtungen des öffentlichen Rechts sind oder private Einrichtungen, die öffentliche Dienste erbringen, sowie Betreiber von Systemen nach Anhang III Nr. 5 Buchst. b und c (Kreditwürdigkeitsprüfung sowie Risikobewertung und Preisbildung bei Lebens- und Krankenversicherung); für Anhang-I-Systeme gilt Art. 27 nicht. Zeitlich greift die Pflicht mit der Anwendbarkeit der Anhang-III-Hochrisiko-Pflichten (02.12.2027 nach Art. 113 Abs. 3 n. F.). Abgrenzung zur DSFA nach Art. 35 DSGVO beachten.
 - **Tracking-heavy Landingpage:** bei breitem Drittland-Transfer + umfassendem Profiling (TCF-String-Fall, EuGH C-604/22): DSFA empfohlen.
 - **HR-Tool mit Analytics / People-Analytics:** Mustertyp für DSFA-Pflicht (Punkt 4 DSK-Liste).
 - **Fitness-Tracker / Health-Apps:** Art. 9 + Punkt 15 Muss-Liste.
@@ -150,4 +150,7 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
   (Art. 50 seit 02.08.2026; Hochrisiko Anhang III ab 02.12.2027,
   Anhang I ab 02.08.2028) sowie den Hinweis auf Art. 27 KI-VO
   (Grundrechte-Folgenabschaetzung, erst mit den Hochrisiko-Pflichten)
-  ersetzt. Deckt sich mit knowledge/gesetze/ai-act.md.
+  ersetzt. Beleg: Art. 27 Abs. 1 KI-VO (Cellar-Volltext
+  CELEX:32024R1689); die Omnibus-Verordnung (EU) 2026/1744 aendert
+  Art. 27 nur in Abs. 4 und Abs. 5 (Querverweis auf Abschnitte einer
+  DSFA bzw. Fragebogenmuster), nicht den Anwendungsbereich in Abs. 1.

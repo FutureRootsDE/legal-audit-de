@@ -119,11 +119,12 @@ Absatztext. Fuer Fernabsatzvertraege, die ueber eine
   dauerhaftem Datentraeger mit Inhalt der Widerrufserklaerung sowie
   **"Datum und Uhrzeit ihres Eingangs"** (Abs. 4).
 
-Durch Art. 1 Nr. 8 des Umsetzungsgesetzes wird § 356a a. F. ersetzt; die
-bisherigen Paragraphen rutschen nach: Teilzeit-Wohnrechte stehen jetzt in
-**§ 356c BGB**, Ratenlieferungsvertraege in **§ 356d BGB**, Verbraucher-
-bauvertrag in **§ 356e BGB**, unentgeltliche Darlehensvertraege in
-**§ 356f BGB**; **§ 356b BGB** (Verbraucherdarlehen) bleibt inhaltsgleich.
+Art. 1 Nr. 8 des Umsetzungsgesetzes ersetzt § 356a BGB; durch Art. 1
+Nr. 9 werden die bisherigen §§ 356c bis 356e durch die neuen §§ 356c
+bis 356f ersetzt: Teilzeit-Wohnrechte stehen jetzt in **§ 356c BGB**,
+Ratenlieferungsvertraege in **§ 356d BGB**, Verbraucherbauvertrag in
+**§ 356e BGB**, unentgeltliche Darlehensvertraege in **§ 356f BGB**;
+**§ 356b BGB** (Verbraucherdarlehen) bleibt inhaltsgleich.
 Die Muster-Widerrufsbelehrung in Anlage 1 EGBGB ist durch **Art. 2 Nr. 7
 Buchst. a** desselben Gesetzes angepasst (Gestaltungshinweis 33 n. F.:
 Pflicht-Einschub "Sie koennen Ihr Widerrufsrecht auch online unter ...
@@ -220,3 +221,8 @@ ausueben ...").
   (Verbraucherdarlehen) unveraendert. Anpassung von Gestaltungshinweis 33
   der Muster-Widerrufsbelehrung (Anlage 1 EGBGB) durch Art. 2 Nr. 7
   Buchst. a desselben Gesetzes ergaenzt.
+- **2026-11-14 (Review-Korrekturlauf PR #14, Nachtrag)**: Fundstelle der
+  Paragraphenverschiebung §§ 356c-f praezisiert — diese folgt aus Art. 1
+  Nr. 9 (Ersetzung der §§ 356c bis 356e durch §§ 356c bis 356f); Art. 1
+  Nr. 8 betrifft ausschliesslich die Neufassung des § 356a BGB. Beleg:
+  BGBl. 2026 Teil I Nr. 28, Art. 1 Nrn. 8 und 9.

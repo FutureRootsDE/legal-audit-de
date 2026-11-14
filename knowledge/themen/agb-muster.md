@@ -199,7 +199,9 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
   auf gesetze-im-internet.de/bgb/__356a.html zeigt zwischenzeitlich die
   neue Paragraphenfassung; die frueheren Verifikationsmarker in
   widerrufsbelehrung.md und button-loesung.md zum § 356a-Wortlaut sind
-  damit aufgeloest. Durch Art. 1 Nr. 8 des Umsetzungsgesetzes rutschen
-  die bisherigen Paragraphen nach (§ 356c BGB: Teilzeit-Wohnrechte,
+  damit aufgeloest. Art. 1 Nr. 8 des Umsetzungsgesetzes ersetzt § 356a
+  BGB; durch Art. 1 Nr. 9 werden die bisherigen §§ 356c bis 356e durch
+  die neuen §§ 356c bis 356f ersetzt (§ 356c BGB: Teilzeit-Wohnrechte,
   § 356d BGB: Ratenlieferung, § 356e BGB: Verbraucherbauvertrag,
   § 356f BGB: unentgeltliches Darlehen); § 356b BGB bleibt unveraendert.
+  Beleg: BGBl. 2026 Teil I Nr. 28, Art. 1 Nrn. 8 und 9.

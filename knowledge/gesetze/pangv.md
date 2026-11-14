@@ -148,6 +148,8 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
 - **EuGH C-330/23** (26.09.2024, "Aldi Sued"): Klarstellung, dass der
   30-Tage-Referenzpreis auch in Werbung (Prospekte, Online-Ads) gelten muss,
   nicht nur am Regal.
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
 - **BGH I ZR 173/16** — in Vorgaengerfassungen dieser KB als Preisangabe-
   Entscheidung ("auf einen Blick", 31.10.2018) zitiert. Gegenprobe ueber die
   Rechtsinformations-API des Bundes am 2026-11-14 ergibt: unter diesem
@@ -199,3 +201,8 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   I ZR 143/19 abschliessend geklaert; Verifikationsmarker in beiden
   Eintraegen entfernt, Verweis auf themen/preisangaben.md (Hinweisblock
   "Nicht zitieren") ergaenzt. Gleichlaut mit preisangaben.md hergestellt.
+- **2026-11-14 (Review-Korrekturlauf PR #14, Nachtrag)**: Hinweisblock zu
+  den beiden Fehlzitaten unter eine eigene Ueberschrift
+  ("Nicht zitieren: falsch zugeordnete Aktenzeichen") ausserhalb von
+  "Zitierbare Urteile" verschoben; Inhalt unveraendert. Analog zur
+  bestehenden Struktur in themen/preisangaben.md.
