@@ -180,9 +180,9 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
   vom 09.09.2021 war ein Beitrag ohne Gegenleistung nur bei
   werblichem Ueberschuss eine geschaeftliche Handlung zugunsten des
   fremden Unternehmens (I ZR 90/20, Leitsatz 4); nach § 5a Abs. 4
-  Satz 2 UWG n. F. kommt es darauf nicht mehr an. Eigenwerbung ist
+  Satz 2 UWG n. F. kommt es fuer die Kennzeichnungspflicht nach § 5a Abs. 4 UWG darauf nicht mehr an; eine Gegenleistung wird jedoch vermutet (Satz 3). Eigenwerbung ist
   regelmaessig eine geschaeftliche Handlung zugunsten des eigenen
-  Unternehmens; das Merkmal der Gegenleistung gilt dafuer nicht
+  Unternehmens (I ZR 90/20, Leitsatz 2); das Merkmal der Gegenleistung gilt dafuer nicht
   (I ZR 125/20, Leitsatz 2). ECLI-Belege:
   ECLI:DE:BGH:2021:090921UIZR90.20.0,
   ECLI:DE:BGH:2021:090921UIZR125.20.0,
@@ -245,3 +245,4 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
   und an den Leitsaetzen von I ZR 90/20 (Leitsaetze 4 und 5) und
   I ZR 125/20 (Leitsaetze 1 und 2) ausgerichtet; Aussagen ohne
   Quellenbeleg entfernt.
+- **2026-11-14 (Nachzug Review, Leitsatz-Zuordnung)**: Eigenwerbung-Beleg auf I ZR 90/20 Leitsatz 2 und I ZR 125/20 Leitsatz 2 getrennt, Vermutung der Gegenleistung auf § 5a Abs. 4 Satz 3 UWG gestellt (statt Satz 2), Formulierung am Gesetzeswortlaut ausgerichtet.
