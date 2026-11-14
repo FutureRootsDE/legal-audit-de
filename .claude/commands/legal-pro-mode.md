@@ -63,4 +63,4 @@ anderer) den User informieren und `enable` oder `disable` zum Resynchronisieren 
 - Die `-pro`-Varianten der Agents werden via `scripts/sync-pro-variants.py` aus den
   1M-Varianten generiert. CI prueft die Konsistenz im `validate.yml`.
 - Wer eine grosse Codebase auditieren will und auf Standard-Kontext laeuft, sollte zusaetzlich
-  `--chunked` an `/legal-audit` haengen (verfuegbar ab v1.4.0).
+  `--chunked` an `/legal-audit` haengen (geplant, noch nicht verfuegbar).

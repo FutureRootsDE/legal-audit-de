@@ -92,4 +92,4 @@ Alle in der geupdateten Datei zitierten Paragraphen / Aktenzeichen muessen vom `
 | `legal-researcher`  | `legal-researcher-pro`  |
 
 Pro-Mode aktivieren: `python3 scripts/legal-audit-pro-mode.py enable`. Bei sehr
-grosser Platzhalter-Liste empfehle dem User chunked Ausfuehrung (in v1.4.0).
+grosser Platzhalter-Liste empfehle dem User chunked Ausfuehrung (geplant, noch nicht verfuegbar).

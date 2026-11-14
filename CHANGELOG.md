@@ -19,40 +19,68 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 <!-- END restpunkte-zitatpruefung -->
 
-### KB — Review-Korrekturlauf PR #17 (2026-11-14)
+---
 
-- `knowledge/gesetze/bdsg.md` — verbleibende Erwaehnung von "BAG 2 AZR 133/18 zu Keylogger" in "Typische Fallstricke" durch das korrekte Aktenzeichen **BAG 2 AZR 681/16 vom 27.07.2017** inkl. ECLI ersetzt (primaer ueber die Rechtsinformations-API des Bundes belegt).
-- `knowledge/urteile/eugh-c-654-25-google-fonts-vorlage.md` — Abschnitt zum Vorlagebeschluss am Volltext neu gefasst: die unbelegte Anknuepfung an die vom EuG bestaetigte DPF-Angemessenheit entfernt (der Beschluss datiert vom 28.08.2025, vor dem EuG-Urteil vom 03.09.2025, und enthaelt keine DPF-Aussage). Rn. 30 zitiert nun die tatsaechliche Senats-Aussage; Arnsberg-Querverweis von Rn. 43 auf Rn. 42 korrigiert (C-526/24, AG Arnsberg 31.07.2024, ECLI:DE:AGAR:2024:0731.42C434.23.0, Frage 7).
-- `knowledge/urteile/bgh-vi-zr-10-24-kontrollverlust.md` — Randnummern nachgezogen: Darlegungsanforderungen auf **Rn. 35 f.** praezisiert; die Ausgleichsfunktions-Aussage mit Verweis auf **Rn. 18 und Rn. 25** sowie die zitierte EuGH-Entscheidung **C-741/21, NJW 2024, 1561 Rn. 59 f., 64 f.** gefuellt.
-- `knowledge/themen/email-marketing.md` — Influencer-Rechtsprechungstrio (BGH I ZR 90/20, I ZR 125/20, I ZR 126/20 vom 09.09.2021) in "Zitierbare Urteile" mit ECLI-Ketten belegt, Verifikationsmarker dort entfernt. Belege primaer ueber die Rechtsinformations-API des Bundes.
-- `knowledge/themen/agb-muster.md`, `knowledge/themen/widerrufsbelehrung.md` — Hinweisblock zu BGH VIII ZR 21/19 richtiggestellt: ECLI `…UVIIIZR21.19.0` (Mieterhoehungs-Urteil 09.10.2019); der zuvor miteinsortierte Abgasskandal-Beschluss vom 26.04.2022 (`…BVIIIZR19.21.0`) gehoert zu **BGH VIII ZR 19/21**.
-- `.claude/hooks/triggers.json` — zu breite Muster eingeengt: `omnibus` nur im Rechtskontext (digital/ki/ai + Verordnung/Paket/VO), Art. 82 nur mit DSGVO/GDPR-Bezug (plus `immaterielle[rn]? Schaden|Kontrollverlust`), `data act` mit Wortgrenzen, `empco` ebenfalls mit Wortgrenzen; der zuvor getrennte Widerrufsbutton-Eintrag wurde in den `widerruf`-Eintrag integriert (keine Reihenfolgen-Abhaengigkeit mehr).
-- `knowledge/INDEX.md` — Platzhalter-Angabe auf **53** nachgezogen (`git grep -c "<<VERIFIKATION AUSSTEHEND>>" -- knowledge/`).
-- `knowledge/themen/email-marketing.md`, `knowledge/themen/werbekennzeichnung.md`, `knowledge/gesetze/uwg.md` — Darstellung der BGH-Influencer-Rechtsprechung und § 5a Abs. 4 UWG wortgleich am Gesetzeswortlaut (§ 5a Abs. 4 Saetze 2 und 3 UWG) und an den Leitsaetzen (I ZR 90/20 Leitsaetze 4 und 5; I ZR 125/20 Leitsaetze 1 und 2; I ZR 35/21 "Influencer III" vom 13.01.2022) ausgerichtet; unbelegte UGP-Richtlinien-Aussage gestrichen, Fehlzuordnung "Influencer III = I ZR 126/20" beseitigt.
-- `knowledge/themen/email-marketing.md`, `knowledge/themen/werbekennzeichnung.md` — Nachzug Review: Eigenwerbung-Beleg getrennt (I ZR 90/20 Leitsatz 2 / I ZR 125/20 Leitsatz 2), Vermutung der Gegenleistung auf § 5a Abs. 4 Satz 3 UWG gestellt, Formulierungen am Gesetzeswortlaut ausgerichtet.
+## [1.4.0] — 2026-11-14
 
-### KB-Update 2026-11-14 (stale-only)
+Minor-Release: Zitatpruefung gegen die Rechtsinformations-API des Bundes (`scripts/verify-citations.py` mit Tests und CI-Job), optionale MCP-Integration, eigenstaendige Doku-Site, grosses KB-Update (VO (EU) 2026/1744 AI-Omnibus, § 356a BGB n. F., drei neue Leiturteile) und neue Trigger. Endstand: 65 KB-Dateien plus `INDEX.md`, 53 Verifikationsmarker in 34 Dateien, 35 Trigger-Muster, 196 Tests. Version 1.3.2 (Pro-Mode) wurde nie separat getaggt und ist in diesem Release enthalten; die zuvor fuer v1.4.0 angekuendigte `--chunked`-Ausfuehrung ist weiterhin geplant, aber ohne feste Versionsnummer.
+
+### Hintergrund — Zitatpruefung
+
+Der Bund betreibt eine offene API fuer Rechtsinformationen (`testphase.rechtsinformationen.bund.de`, Testphase, kein Key). Sie liefert zu Aktenzeichen der Bundesgerichte ECLI, Datum und Dokumenttyp und eignet sich als optionale Beschleunigung der Zitat-Verifikation. Grenzen: nur sieben Bundesgerichte (BGH ab etwa 2010), keine Stabilitaetszusage, keine dokumentierte Datenlizenz. "Kein Treffer" ist deshalb nie ein Gegenbeweis; die Tier-1-Kaskade bleibt unveraendert Pflicht-Fallback.
+
+### Added — Zitatpruefung
+
+- **`scripts/verify-citations.py`**: extrahiert Bundesgerichts-Aktenzeichen aus `knowledge/**/*.md` (Datei:Zeile, Gericht, Datum in der Naehe, Marker `<<VERIFIKATION AUSSTEHEND>>` in derselben Zeile), fragt die API gedrosselt (Standard 2 Anfragen pro Sekunde, Timeout, Exponential Backoff, Circuit-Breaker, generischer User-Agent, JSON-Cache pro Nutzer unter `%LOCALAPPDATA%\citation-check\cache` bzw. `$XDG_CACHE_HOME/citation-check`, Modus 0700, nie im gemeinsamen Temp-Verzeichnis; Cache-Eintraege werden als nicht vertrauenswuerdig validiert, `--no-cache` und `--cache-ttl-days` verfuegbar) ab und klassifiziert VERIFIED / DATE_MISMATCH / NOT_IN_DATASET / NOT_COVERED / ERROR. Nur Python-Standardbibliothek. Optionen: `--path`, `--json`, `--offline` (zusaetzlicher Status UNCHECKED bei fehlendem Cache), `--only-pending`, `--rate`, `--cache-dir`, `--timeout`, `--strict`. Aktenzeichen von OLG/LG/OVG/VG/LAG und EU-Gerichten werden als NOT_COVERED ausgewiesen und nicht abgefragt. Exit-Code 0 auch bei API-Ausfall.
+- **`--write-ecli`** (Standard aus, Vorschau mit `--dry-run`): fuegt in `knowledge/urteile/*.md` ohne `ecli:` genau diese eine Frontmatter-Zeile ein, wenn das Haupt-Aktenzeichen eindeutig VERIFIED ist (Zeilenenden bleiben erhalten, atomares Schreiben, ECLI muss dem strengen Muster `ECLI:DE:<Gericht>:<Jahr>:<Kennung>` entsprechen; beim Schreiben wird nie der Cache verwendet, sondern frisch abgefragt, daher nicht mit `--offline` kombinierbar). Marker entfernt das Skript nie.
+- **`tests/test_*.py`** (unittest, ohne Netzwerk, Fixtures nach echten API-Antworten, je Modul eine Testdatei) und ein CI-Schritt `citation-script-tests` in `.github/workflows/validate.yml`. Das Skript ist ein duenner Einstiegspunkt, die Logik liegt im Paket `scripts/citation_check/` (keine Datei ueber 800, keine Funktion ueber 50 Zeilen).
+- **Review-Haertung**: Datum wird nur dem unmittelbar passenden Aktenzeichen zugeordnet (unklar: kein Datum; Zeilen mit "korrigiert/statt/vormals/faelschlich" liefern einen Hinweis statt DATE_MISMATCH), Gericht folgt dem unmittelbar vorangehenden Gerichtsnamen (VG-Aktenzeichen neben BVerwG bleibt NOT_COVERED), BGH-Strafsenate (`5 StR 12/20`) werden erkannt, nur ASCII-Ziffern in Aktenzeichen. `--write-ecli`: Schreibfehler je Datei (Exit 3), Lost-Update-Schutz per Hash, nur reguelaere Dateien ohne Symlinks unterhalb von `urteile/`, ECLI-Gerichtskuerzel muss zum Zitat passen, je Aktenzeichen eine Abfrage. API: unerwartete Antwortstrukturen ergeben ERROR, `Retry-After` wird beachtet, Weiterleitungen nur auf https und denselben Host, Antwort hoechstens 5 MB und Gesamtzeit je Anfrage begrenzt. Ausgabe: Steuerzeichen entfernt, Fehlertexte auf 200 Zeichen gekuerzt, keine Leitsatz-/Kontexttexte im JSON, Felder per Muster validiert; Cache-Treffer als `source: cache` gekennzeichnet (Vorschlaege daraus: UNGEPRUEFT), Windows-Cache nur unterhalb des Nutzerprofils; Eingabegrenzen 2 MB je Datei und 5000 Zeichen je Zeile. CI-Workflow mit `permissions: contents: read`.
+- **Review-Nachlauf Zitatpruefung**: kein falsches Entscheidungsdatum mehr aus Vermerken (Daten nach Stand/geprueft/eingelegt/BGBl. und Daten ab dem Lauftag werden ignoriert, der Nachbardatum-Ausweg gilt nur bei Abstand bis 30 Zeichen ohne Vermerkwort; im Zweifel VERIFIED ohne Datumsvergleich statt DATE_MISMATCH). API-Fehler zeigen nur `HTTP <status>` und Fehler-Codes eines engen Musters, nie Freitext. `--write-ecli`: Hash-, Symlink- und Pfadpruefung unmittelbar vor `os.replace`. Antwort-Lesen mit `read1` in kleinen Bloecken und Fristpruefung je Block (Socket-Timeout hoechstens 5 s). Keine stillen `except: pass` mehr (Warnhinweise im Bericht), Warnungen auf 300 Zeichen gekuerzt und von Steuerzeichen befreit. BVerwG-Aktenzeichen in `knowledge/urteile/` werden ueber Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift erkannt. Dokumentierte Grenze: Kurzform-Aufzaehlungen (`I ZR 90/20, 125/20`) werden nicht aufgeloest.
+- **`legal-researcher`**: neuer Abschnitt "Rechtsinformations-API des Bundes (optional, Testphase)" inklusive Log-Konvention `VERIFIED api:rechtsinformationen ecli:...`; Pro-Variante und Codex/Copilot-Adapter neu generiert.
+
+### Hintergrund — Doku-Site
+
+Eigenstaendige Documentation-Site unter `docs/` fuer GitHub Pages, statt READMEs als alleinige Quelle. Mehrseitige Navigation (Startseite, Setup, Commands, KB-Uebersicht, MCP-Integration) mit just-the-docs als Remote-Theme. Voraussetzung: GitHub Pages muss im Repo unter Settings → Pages → Source = `main` Branch, Folder = `/docs` aktiviert werden. Diese Aktivierung kann nur durch einen Repo-Maintainer mit Admin-Rechten erfolgen.
+
+### Added — Doku-Site
+
+- **`docs/_config.yml`** mit `remote_theme: just-the-docs/just-the-docs`, deutscher Beschreibung, Suche, Callouts (warning / note / tipp), Footer mit Disclaimer-Hinweis.
+- **`docs/index.md`** Landing-Page mit Hero, Scope-Tabelle, Schnellstart fuer Claude Code, Verweisen auf alle Unterseiten.
+- **`docs/setup.md`** Installation fuer alle drei CLIs (Claude Code, Codex CLI, Copilot CLI), Pro-Mode-Toggle, optionale Hilfs-MCPs (`chrome-devtools-mcp`, `rechtsinformationen-bund-de-mcp`).
+- **`docs/commands.md`** Vollstaendige Slash-Befehlsreferenz mit Optionen, Severity-Matrix, Hilfsskript-Tabelle.
+- **`docs/knowledge-base.md`** Aufbau der KB, Quellen-Hierarchie (Tier 1/2/3), Gesetzes-Tabelle, Schluesselurteile, Trigger-Beispiele, Frontmatter-Konvention inkl. der seit dem MCP-Patch optionalen `eli`- und `ecli`-Felder.
+- **`docs/mcp-integration.md`** Vollanleitung fuer den optionalen `rechtsinformationen`-MCP-Server: drei Installationsvarianten, drei Registrierungs-Scopes, Tool-Praeferenz-Tabelle, Anti-Fallen, Troubleshooting.
+
+### Hintergrund — Optionale MCP-Integration
+
+Optionale Anbindung an den MCP-Server [`wolfgangihloff/rechtsinformationen-bund-de-mcp`](https://github.com/wolfgangihloff/rechtsinformationen-bund-de-mcp), der das offizielle Bundes-Portal [`rechtsinformationen.bund.de`](https://docs.rechtsinformationen.bund.de) ueber das Model Context Protocol erschliesst. Tip vom Community-Feedback nach dem v1.3.x-Release: strukturierter Zugriff mit ELI/ECLI-Identifiern statt HTML-Scraping per WebFetch macht Zitat-Verifikation robuster, insbesondere bei Re-Releases des Portals. Die Integration ist bewusst **opt-in** — der MCP-Server haengt von einem lokalen Node.js-Build des Drittautors ab und nutzt eine API, die selbst noch "testphase" ist; das Default-Setup des Plugins soll ohne diese Abhaengigkeit lauffaehig bleiben.
+
+### Added — Opt-in MCP-Integration
+
+- **Opt-in MCP-Integration**: `templates/mcp/` mit `rechtsinformationen.mcp.json.example` (Beispiel-Konfiguration fuer projekt- oder user-scoped `.mcp.json`) und ausfuehrlicher Setup-Doku (`templates/mcp/README.md`) inklusive drei Installationsoptionen (Upstream-Build, npm-Third-Party-Wrapper, Skip), drei Registrierungs-Scopes (Projekt, User, Plugin) und Troubleshooting-Tabelle. **Kein** `.mcp.json` im Plugin-Root, damit Default-Installs ohne Node.js-Setup nicht brechen.
+- **Optionale `eli:` / `ecli:` Frontmatter-Felder** in der KB-Datei-Struktur (dokumentiert in `legal-researcher.md`). Stabile, kanonische Identifier nach den Standards [ELI](http://publications.europa.eu/eli) und [ECLI](https://e-justice.europa.eu/ecli) ueberleben URL-Reshuffles. Bestehende KB-Dateien bleiben unveraendert; Felder sind nicht verpflichtend.
+
+### Changed — MCP-Integration (Agents und Hook)
+
+- **`legal-researcher.md` und `legal-researcher-pro.md` (beide 1M und Pro-Mode, Claude/Codex/Copilot)**: neuer Abschnitt "Optional: MCP-beschleunigte Verifikation". Der Agent bevorzugt `mcp__rechtsinformationen__*`-Tools, wenn vorhanden, und faellt sonst still auf WebFetch zurueck. Anti-Fallen explizit dokumentiert: historische Gesetzesfassungen, Aenderungsgesetze (TMG→DDG, TTDSG→TDDDG) und leere/fehlgeformte Responses triggern Fallback. Log-Konvention erweitert: `VERIFIED mcp:rechtsinformationen eli:...`.
+- **`post_write.py`-Hook**: Disclaimer-Ausnahme-Liste fuer Meta-Dateien (`README*.md`, `INDEX.md`, `tool-katalog.md`) ergaenzt. Spiegelt das `grep -v`-Filter aus `.github/workflows/validate.yml:disclaimer-check` — vorher haben PostToolUse-Warnungen auf juristisch nicht-substantielle Meta-Dateien geschossen, was bei der neuen `templates/mcp/README.md` aufgefallen waere.
+
+### Changed — KB-Update 2026-11-14 (stale-only)
 
 Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-Batches waren an den Vortagen bereits aktualisiert worden; dieser Abschlusslauf stellt KB-Konsistenz, Marker-Normierung und drei gezielte Rechts-Updates sicher.
-
-### KB — Changed
 
 - **knowledge/gesetze/ai-act.md** (bereits im Batch D aktualisiert): Grundfassung VO (EU) 2024/1689 i. d. F. **VO (EU) 2026/1744** "Digital Omnibus on AI" seit 27.07.2026. Art. 4 KI-Kompetenz als Verhaltenspflicht ohne Garantie-Erfolg (Art. 4 Abs. 1 Satz 2 n. F.); neue Verbote Art. 5 Abs. 1 Buchst. ba/bb (NCII, CSAM) ab 02.12.2026; Art. 50 Transparenz anwendbar seit 02.08.2026, Altbestand bis 02.12.2026 (Art. 111 Abs. 4); Hochrisiko Anhang III verschoben auf 02.12.2027, Anhang I auf 02.08.2028; neue Durchsetzungsbefugnisse des Bueros fuer Kuenstliche Intelligenz nach Art. 75a bis 75d gegenueber den **Akteuren nach Art. 75 Abs. 1** (nicht pauschal alle GPAI-Anbieter).
 - **knowledge/checklisten/** (alle sechs Dateien): KI-Kompetenz-Pruefpunkt an Art. 4 KI-VO n. F. angeglichen ("Massnahmen ergreifen", keine Garantie-Pflicht). `audit-n8n.md` Pass 5 (GPAI-Provider) um Klarstellung ergaenzt, dass die Art. 75a bis 75d-Durchsetzung nur Akteure nach Art. 75 Abs. 1 trifft, nicht pauschal alle GPAI-Anbieter.
 - **ODR-Plattform-Marker aufgeloest**: `knowledge/checklisten/general-pre-launch.md`, `knowledge/checklisten/audit-ecommerce.md`, `knowledge/themen/impressum.md` und `knowledge/anwaelte-tools/tools-aufsichtsbehoerden.md` ziehen jetzt einheitlich **VO (EU) 2024/3228 vom 19.12.2024, Art. 1** (CELEX 32024R3228; Cellar-Volltext am 2026-11-14 verifiziert) als Primaerbeleg fuer die Einstellung der EU-OS-Plattform am 20.07.2025 und die Aufhebung der VO (EU) 524/2013.
 - **Aktenzeichen-Konsistenz** (Teil B): strittige Zitate einheitlich markiert bzw. Markup-Fehler repariert — OLG Muenchen 29 U 3698/20 (ergaenzt in `gesetze/ddg.md`), BGH VIII ZR 63/15 (ergaenzt in `themen/button-loesung.md`), BGH I ZR 173/16 und I ZR 143/19 (ergaenzt in `gesetze/pangv.md`), BGH I ZR 85/21 Marker-Markup repariert (`themen/preisangaben.md`), Marker-Markup repariert in `themen/impressum.md`. Live-Primaercheck zu BGH VIII ZR 63/15 und BGH I ZR 173/16 ergab keine Treffer, Marker bleiben.
 
-### KB — Removed
+### Changed — KB-Housekeeping
 
-- **anwaelte-tools/** — drei nicht mehr belegbare Eintraege entfernt (die Gruende sind jeweils im Datei-Aenderungsvermerk dokumentiert): Prolinkia/PROLIV (Kanzlei nicht mehr auffindbar), externer-datenschutzbeauftragter.com (Anbieter ohne verlaessliche Primaerquelle) sowie Eckert Rechtsanwaelte (Zuordnung zum IT-/Datenschutz-Schwerpunkt nicht mehr belegbar). Uebrige Markt-Indikationen und Scanner-Status-Marker aus Batch E unberuehrt uebernommen.
-
-### KB — Housekeeping
-
-- `knowledge/INDEX.md` — Stand-Zeile auf 2026-11-14, Platzhalter-Angabe nach zweitem Review-Korrekturlauf PR #14 auf **46 Marker in 31 Dateien** aktualisiert (Selbst-Referenzen auf die Marker-Schreibweise in Aenderungsvermerken wurden entfernt und zaehlen nicht mehr mit). Kurzbeschreibungen fuer `ai-act`, `uwg`, `pangv`, `widerrufsbelehrung`, `button-loesung` um die neuen Schwerpunkte ergaenzt.
+- `knowledge/INDEX.md` — Stand-Zeile auf 2026-11-14, Platzhalter-Angabe nach zweitem Review-Korrekturlauf PR #14 aktualisiert (Endstand dieses Releases: **53 Marker in 34 Dateien**) (Selbst-Referenzen auf die Marker-Schreibweise in Aenderungsvermerken wurden entfernt und zaehlen nicht mehr mit). Kurzbeschreibungen fuer `ai-act`, `uwg`, `pangv`, `widerrufsbelehrung`, `button-loesung` um die neuen Schwerpunkte ergaenzt.
 - **Review-Korrekturlauf PR #14 (2026-11-14, dieser Commit)** zusaetzlich umgesetzt: AI-Act-Fristen am Volltext der **VO (EU) 2026/1744** (Cellar CELEX:32026R1744) ausgerichtet (Hochrisiko Anhang III ab 02.12.2027, Anhang I ab 02.08.2028 nach Art. 113 Abs. 3 Buchst. c KI-VO n. F.); Data-Act-Staffelung in Checklisten an Art. 50 VO (EU) 2023/2854 angeglichen (Kapitel VI seit 12.09.2025, Art. 29 Wechselentgelt-Verbot ab 12.01.2027, Kapitel IV fuer Altvertraege ab 12.09.2027); § 356a BGB n. F. ueber das Umsetzungsgesetz vom 03.02.2026, **BGBl. 2026 Teil I Nr. 28** vom 05.02.2026 (recht.bund.de) primaer belegt; EmpCo-UWG-Regel zur zukunftsbezogenen Umweltaussage (Art. 1 Nr. 2 Buchst. b der RL (EU) 2024/825) am Richtlinien-Wortlaut geschaerft; Aufsicht ueber GPAI-Modelle in `themen/ki-content.md` auf **Art. 88 KI-VO** (ausschliessliche Kommissionsbefugnis) korrigiert; "Schrems III"-Formulierung durch den belegten Stand (EuG T-553/23, 03.09.2025; Rechtsmittel C-703/25 P, ABl. C/2025/6610) ersetzt; BGH VI ZR 109/23 (28.01.2025, ECLI:DE:BGH:2025:280125UVIZR109.23.0) primaer belegt; BGH I ZR 7/16 und BGH I ZR 25/19 ueber die Rechtsinformations-API des Bundes bestaetigt; BGH I ZR 173/16 und I ZR 143/19 ueber dieselbe API gegenverifiziert, Zuordnung zum Preisangabenrecht bestaetigt sich dort nicht (Marker mit Erlaeuterung belassen).
 - Verweise auf lokale, nicht versionierte Log-Dateien unter `.claude/logs/` beschreiben die Arbeitslogs des Verifikationslaufs; die Dateien sind projekt-lokal und nicht Bestandteil des Repos.
 
-### KB-Update 2026-11-14 (zweiter Review-Korrekturlauf PR #14)
+### Changed — KB-Update 2026-11-14 (zweiter Review-Korrekturlauf PR #14)
 
 - **§ 356a BGB n. F. als belegt gefuehrt**: Die konsolidierte Fassung auf
   `gesetze-im-internet.de/bgb/__356a.html` zeigt mittlerweile die neue
@@ -93,7 +121,7 @@ Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-B
   2025 geschlossen wurden"; Altvertraege unter den dort genannten
   Voraussetzungen ab 12. September 2027).
 - **Platzhalter-Stand**: `knowledge/INDEX.md` und CHANGELOG auf
-  **46 Marker in 31 Dateien** (vorher 53 in 33) aktualisiert.
+  **53 Marker in 34 Dateien** (Endstand dieses Releases) aktualisiert.
 - **KB-Nachlauf (Urteile, Trigger, Datumsabweichungen)**: drei neue
   Urteils-Dateien in `knowledge/urteile/` ergaenzt — BGH VI ZR 10/24
   vom 18.11.2024 (Kontrollverlust als immaterieller Schaden nach
@@ -127,45 +155,21 @@ Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-B
   Referenz auf die Marker-Schreibweise in INDEX.md Zeile 89 im
   Review-Korrekturlauf PR #17).
 
-### Hintergrund Zitatpruefung
+### Removed — KB (anwaelte-tools)
 
-Der Bund betreibt eine offene API fuer Rechtsinformationen (`testphase.rechtsinformationen.bund.de`, Testphase, kein Key). Sie liefert zu Aktenzeichen der Bundesgerichte ECLI, Datum und Dokumenttyp und eignet sich als optionale Beschleunigung der Zitat-Verifikation. Grenzen: nur sieben Bundesgerichte (BGH ab etwa 2010), keine Stabilitaetszusage, keine dokumentierte Datenlizenz. "Kein Treffer" ist deshalb nie ein Gegenbeweis; die Tier-1-Kaskade bleibt unveraendert Pflicht-Fallback.
+- **anwaelte-tools/** — drei nicht mehr belegbare Eintraege entfernt (die Gruende sind jeweils im Datei-Aenderungsvermerk dokumentiert): Prolinkia/PROLIV (Kanzlei nicht mehr auffindbar), externer-datenschutzbeauftragter.com (Anbieter ohne verlaessliche Primaerquelle) sowie Eckert Rechtsanwaelte (Zuordnung zum IT-/Datenschutz-Schwerpunkt nicht mehr belegbar). Uebrige Markt-Indikationen und Scanner-Status-Marker aus Batch E unberuehrt uebernommen.
 
-### Added Zitatpruefung
+### Fixed — KB-Review-Korrekturlauf PR #17 (2026-11-14)
 
-- **`scripts/verify-citations.py`**: extrahiert Bundesgerichts-Aktenzeichen aus `knowledge/**/*.md` (Datei:Zeile, Gericht, Datum in der Naehe, Marker `<<VERIFIKATION AUSSTEHEND>>` in derselben Zeile), fragt die API gedrosselt (Standard 2 Anfragen pro Sekunde, Timeout, Exponential Backoff, Circuit-Breaker, generischer User-Agent, JSON-Cache pro Nutzer unter `%LOCALAPPDATA%\citation-check\cache` bzw. `$XDG_CACHE_HOME/citation-check`, Modus 0700, nie im gemeinsamen Temp-Verzeichnis; Cache-Eintraege werden als nicht vertrauenswuerdig validiert, `--no-cache` und `--cache-ttl-days` verfuegbar) ab und klassifiziert VERIFIED / DATE_MISMATCH / NOT_IN_DATASET / NOT_COVERED / ERROR. Nur Python-Standardbibliothek. Optionen: `--path`, `--json`, `--offline` (zusaetzlicher Status UNCHECKED bei fehlendem Cache), `--only-pending`, `--rate`, `--cache-dir`, `--timeout`, `--strict`. Aktenzeichen von OLG/LG/OVG/VG/LAG und EU-Gerichten werden als NOT_COVERED ausgewiesen und nicht abgefragt. Exit-Code 0 auch bei API-Ausfall.
-- **`--write-ecli`** (Standard aus, Vorschau mit `--dry-run`): fuegt in `knowledge/urteile/*.md` ohne `ecli:` genau diese eine Frontmatter-Zeile ein, wenn das Haupt-Aktenzeichen eindeutig VERIFIED ist (Zeilenenden bleiben erhalten, atomares Schreiben, ECLI muss dem strengen Muster `ECLI:DE:<Gericht>:<Jahr>:<Kennung>` entsprechen; beim Schreiben wird nie der Cache verwendet, sondern frisch abgefragt, daher nicht mit `--offline` kombinierbar). Marker entfernt das Skript nie.
-- **`tests/test_*.py`** (unittest, ohne Netzwerk, Fixtures nach echten API-Antworten, je Modul eine Testdatei) und ein CI-Schritt `citation-script-tests` in `.github/workflows/validate.yml`. Das Skript ist ein duenner Einstiegspunkt, die Logik liegt im Paket `scripts/citation_check/` (keine Datei ueber 800, keine Funktion ueber 50 Zeilen).
-- **Review-Haertung**: Datum wird nur dem unmittelbar passenden Aktenzeichen zugeordnet (unklar: kein Datum; Zeilen mit "korrigiert/statt/vormals/faelschlich" liefern einen Hinweis statt DATE_MISMATCH), Gericht folgt dem unmittelbar vorangehenden Gerichtsnamen (VG-Aktenzeichen neben BVerwG bleibt NOT_COVERED), BGH-Strafsenate (`5 StR 12/20`) werden erkannt, nur ASCII-Ziffern in Aktenzeichen. `--write-ecli`: Schreibfehler je Datei (Exit 3), Lost-Update-Schutz per Hash, nur reguelaere Dateien ohne Symlinks unterhalb von `urteile/`, ECLI-Gerichtskuerzel muss zum Zitat passen, je Aktenzeichen eine Abfrage. API: unerwartete Antwortstrukturen ergeben ERROR, `Retry-After` wird beachtet, Weiterleitungen nur auf https und denselben Host, Antwort hoechstens 5 MB und Gesamtzeit je Anfrage begrenzt. Ausgabe: Steuerzeichen entfernt, Fehlertexte auf 200 Zeichen gekuerzt, keine Leitsatz-/Kontexttexte im JSON, Felder per Muster validiert; Cache-Treffer als `source: cache` gekennzeichnet (Vorschlaege daraus: UNGEPRUEFT), Windows-Cache nur unterhalb des Nutzerprofils; Eingabegrenzen 2 MB je Datei und 5000 Zeichen je Zeile. CI-Workflow mit `permissions: contents: read`.
-- **Review-Nachlauf Zitatpruefung**: kein falsches Entscheidungsdatum mehr aus Vermerken (Daten nach Stand/geprueft/eingelegt/BGBl. und Daten ab dem Lauftag werden ignoriert, der Nachbardatum-Ausweg gilt nur bei Abstand bis 30 Zeichen ohne Vermerkwort; im Zweifel VERIFIED ohne Datumsvergleich statt DATE_MISMATCH). API-Fehler zeigen nur `HTTP <status>` und Fehler-Codes eines engen Musters, nie Freitext. `--write-ecli`: Hash-, Symlink- und Pfadpruefung unmittelbar vor `os.replace`. Antwort-Lesen mit `read1` in kleinen Bloecken und Fristpruefung je Block (Socket-Timeout hoechstens 5 s). Keine stillen `except: pass` mehr (Warnhinweise im Bericht), Warnungen auf 300 Zeichen gekuerzt und von Steuerzeichen befreit. BVerwG-Aktenzeichen in `knowledge/urteile/` werden ueber Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift erkannt. Dokumentierte Grenze: Kurzform-Aufzaehlungen (`I ZR 90/20, 125/20`) werden nicht aufgeloest.
-- **`legal-researcher`**: neuer Abschnitt "Rechtsinformations-API des Bundes (optional, Testphase)" inklusive Log-Konvention `VERIFIED api:rechtsinformationen ecli:...`; Pro-Variante und Codex/Copilot-Adapter neu generiert.
-
-### Hintergrund Doku-Site
-
-Eigenstaendige Documentation-Site unter `docs/` fuer GitHub Pages, statt READMEs als alleinige Quelle. Mehrseitige Navigation (Startseite, Setup, Commands, KB-Uebersicht, MCP-Integration) mit just-the-docs als Remote-Theme. Voraussetzung: GitHub Pages muss im Repo unter Settings → Pages → Source = `main` Branch, Folder = `/docs` aktiviert werden. Diese Aktivierung kann nur durch einen Repo-Maintainer mit Admin-Rechten erfolgen.
-
-### Added Doku-Site
-
-- **`docs/_config.yml`** mit `remote_theme: just-the-docs/just-the-docs`, deutscher Beschreibung, Suche, Callouts (warning / note / tipp), Footer mit Disclaimer-Hinweis.
-- **`docs/index.md`** Landing-Page mit Hero, Scope-Tabelle, Schnellstart fuer Claude Code, Verweisen auf alle Unterseiten.
-- **`docs/setup.md`** Installation fuer alle drei CLIs (Claude Code, Codex CLI, Copilot CLI), Pro-Mode-Toggle, optionale Hilfs-MCPs (`chrome-devtools-mcp`, `rechtsinformationen-bund-de-mcp`).
-- **`docs/commands.md`** Vollstaendige Slash-Befehlsreferenz mit Optionen, Severity-Matrix, Hilfsskript-Tabelle.
-- **`docs/knowledge-base.md`** Aufbau der KB, Quellen-Hierarchie (Tier 1/2/3), Gesetzes-Tabelle, Schluesselurteile, Trigger-Beispiele, Frontmatter-Konvention inkl. der seit dem MCP-Patch optionalen `eli`- und `ecli`-Felder.
-- **`docs/mcp-integration.md`** Vollanleitung fuer den optionalen `rechtsinformationen`-MCP-Server: drei Installationsvarianten, drei Registrierungs-Scopes, Tool-Praeferenz-Tabelle, Anti-Fallen, Troubleshooting.
-
-### Hintergrund
-
-Optionale Anbindung an den MCP-Server [`wolfgangihloff/rechtsinformationen-bund-de-mcp`](https://github.com/wolfgangihloff/rechtsinformationen-bund-de-mcp), der das offizielle Bundes-Portal [`rechtsinformationen.bund.de`](https://docs.rechtsinformationen.bund.de) ueber das Model Context Protocol erschliesst. Tip vom Community-Feedback nach dem v1.3.x-Release: strukturierter Zugriff mit ELI/ECLI-Identifiern statt HTML-Scraping per WebFetch macht Zitat-Verifikation robuster, insbesondere bei Re-Releases des Portals. Die Integration ist bewusst **opt-in** — der MCP-Server haengt von einem lokalen Node.js-Build des Drittautors ab und nutzt eine API, die selbst noch "testphase" ist; das Default-Setup des Plugins soll ohne diese Abhaengigkeit lauffaehig bleiben.
-
-### Added
-
-- **Opt-in MCP-Integration**: `templates/mcp/` mit `rechtsinformationen.mcp.json.example` (Beispiel-Konfiguration fuer projekt- oder user-scoped `.mcp.json`) und ausfuehrlicher Setup-Doku (`templates/mcp/README.md`) inklusive drei Installationsoptionen (Upstream-Build, npm-Third-Party-Wrapper, Skip), drei Registrierungs-Scopes (Projekt, User, Plugin) und Troubleshooting-Tabelle. **Kein** `.mcp.json` im Plugin-Root, damit Default-Installs ohne Node.js-Setup nicht brechen.
-- **Optionale `eli:` / `ecli:` Frontmatter-Felder** in der KB-Datei-Struktur (dokumentiert in `legal-researcher.md`). Stabile, kanonische Identifier nach den Standards [ELI](http://publications.europa.eu/eli) und [ECLI](https://e-justice.europa.eu/ecli) ueberleben URL-Reshuffles. Bestehende KB-Dateien bleiben unveraendert; Felder sind nicht verpflichtend.
-
-### Changed
-
-- **`legal-researcher.md` und `legal-researcher-pro.md` (beide 1M und Pro-Mode, Claude/Codex/Copilot)**: neuer Abschnitt "Optional: MCP-beschleunigte Verifikation". Der Agent bevorzugt `mcp__rechtsinformationen__*`-Tools, wenn vorhanden, und faellt sonst still auf WebFetch zurueck. Anti-Fallen explizit dokumentiert: historische Gesetzesfassungen, Aenderungsgesetze (TMG→DDG, TTDSG→TDDDG) und leere/fehlgeformte Responses triggern Fallback. Log-Konvention erweitert: `VERIFIED mcp:rechtsinformationen eli:...`.
-- **`post_write.py`-Hook**: Disclaimer-Ausnahme-Liste fuer Meta-Dateien (`README*.md`, `INDEX.md`, `tool-katalog.md`) ergaenzt. Spiegelt das `grep -v`-Filter aus `.github/workflows/validate.yml:disclaimer-check` — vorher haben PostToolUse-Warnungen auf juristisch nicht-substantielle Meta-Dateien geschossen, was bei der neuen `templates/mcp/README.md` aufgefallen waere.
+- `knowledge/gesetze/bdsg.md` — verbleibende Erwaehnung von "BAG 2 AZR 133/18 zu Keylogger" in "Typische Fallstricke" durch das korrekte Aktenzeichen **BAG 2 AZR 681/16 vom 27.07.2017** inkl. ECLI ersetzt (primaer ueber die Rechtsinformations-API des Bundes belegt).
+- `knowledge/urteile/eugh-c-654-25-google-fonts-vorlage.md` — Abschnitt zum Vorlagebeschluss am Volltext neu gefasst: die unbelegte Anknuepfung an die vom EuG bestaetigte DPF-Angemessenheit entfernt (der Beschluss datiert vom 28.08.2025, vor dem EuG-Urteil vom 03.09.2025, und enthaelt keine DPF-Aussage). Rn. 30 zitiert nun die tatsaechliche Senats-Aussage; Arnsberg-Querverweis von Rn. 43 auf Rn. 42 korrigiert (C-526/24, AG Arnsberg 31.07.2024, ECLI:DE:AGAR:2024:0731.42C434.23.0, Frage 7).
+- `knowledge/urteile/bgh-vi-zr-10-24-kontrollverlust.md` — Randnummern nachgezogen: Darlegungsanforderungen auf **Rn. 35 f.** praezisiert; die Ausgleichsfunktions-Aussage mit Verweis auf **Rn. 18 und Rn. 25** sowie die zitierte EuGH-Entscheidung **C-741/21, NJW 2024, 1561 Rn. 59 f., 64 f.** gefuellt.
+- `knowledge/themen/email-marketing.md` — Influencer-Rechtsprechungstrio (BGH I ZR 90/20, I ZR 125/20, I ZR 126/20 vom 09.09.2021) in "Zitierbare Urteile" mit ECLI-Ketten belegt, Verifikationsmarker dort entfernt. Belege primaer ueber die Rechtsinformations-API des Bundes.
+- `knowledge/themen/agb-muster.md`, `knowledge/themen/widerrufsbelehrung.md` — Hinweisblock zu BGH VIII ZR 21/19 richtiggestellt: ECLI `…UVIIIZR21.19.0` (Mieterhoehungs-Urteil 09.10.2019); der zuvor miteinsortierte Abgasskandal-Beschluss vom 26.04.2022 (`…BVIIIZR19.21.0`) gehoert zu **BGH VIII ZR 19/21**.
+- `.claude/hooks/triggers.json` — zu breite Muster eingeengt: `omnibus` nur im Rechtskontext (digital/ki/ai + Verordnung/Paket/VO), Art. 82 nur mit DSGVO/GDPR-Bezug (plus `immaterielle[rn]? Schaden|Kontrollverlust`), `data act` mit Wortgrenzen, `empco` ebenfalls mit Wortgrenzen; der zuvor getrennte Widerrufsbutton-Eintrag wurde in den `widerruf`-Eintrag integriert (keine Reihenfolgen-Abhaengigkeit mehr).
+- `knowledge/INDEX.md` — Platzhalter-Angabe auf **53** nachgezogen (`git grep -c "<<VERIFIKATION AUSSTEHEND>>" -- knowledge/`).
+- `knowledge/themen/email-marketing.md`, `knowledge/themen/werbekennzeichnung.md`, `knowledge/gesetze/uwg.md` — Darstellung der BGH-Influencer-Rechtsprechung und § 5a Abs. 4 UWG wortgleich am Gesetzeswortlaut (§ 5a Abs. 4 Saetze 2 und 3 UWG) und an den Leitsaetzen (I ZR 90/20 Leitsaetze 4 und 5; I ZR 125/20 Leitsaetze 1 und 2; I ZR 35/21 "Influencer III" vom 13.01.2022) ausgerichtet; unbelegte UGP-Richtlinien-Aussage gestrichen, Fehlzuordnung "Influencer III = I ZR 126/20" beseitigt.
+- `knowledge/themen/email-marketing.md`, `knowledge/themen/werbekennzeichnung.md` — Nachzug Review: Eigenwerbung-Beleg getrennt (I ZR 90/20 Leitsatz 2 / I ZR 125/20 Leitsatz 2), Vermutung der Gegenleistung auf § 5a Abs. 4 Satz 3 UWG gestellt, Formulierungen am Gesetzeswortlaut ausgerichtet.
 
 ### Architektur-Hinweise
 
@@ -208,7 +212,7 @@ Schliesst die Pro-Abo-Sperre fuer Claude-Pro-Abonnenten (20 USD/mo). v1.3.0/1.3.
 - **Atomicity:** Marker-Writes nutzen `tempfile.mkstemp` + `os.replace`, was unter POSIX atomar ist. Halbe Marker-States koennen nicht entstehen.
 - **Drift-Schutz:** CI (`validate.yml`) prueft sowohl `sync-platforms.py --check` als auch `sync-pro-variants.py --check`. Aenderungen am 1M-Agent-Body propagieren via `sync-pro-variants.py --apply` in die `-pro`-Varianten.
 
-### Bewusst NICHT enthalten (v1.4.0)
+### Bewusst NICHT enthalten (geplant, ohne feste Versionsnummer)
 
 - **`--chunked`-Flag** fuer `/legal-audit` (sequentielle Multi-Pass-Ausfuehrung fuer Codebases > ~150 KB). Saubere Trennung von Concerns: Pro-Mode = Modell-Swap; `--chunked` = Execution-Strategie (auch fuer Max/Team-User nuetzlich). Eigenes Spec, eigener PR.
 
