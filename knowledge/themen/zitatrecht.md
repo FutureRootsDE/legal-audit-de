@@ -173,10 +173,10 @@ Laufbild- und Filmzitate (Fernsehausschnitte).
 Quelle: dejure.org — BGH, 20.12.2007 – I ZR 42/05 ("TV-Total"), Verweiskette
 und Volltextnachweise.
 
-### BGH I ZR 102/10 (Elektronischer Pressespiegel), 16.01.2014
+### Aussage zum Pressespiegel
 
-Kernsatz: Blosses Anfuehren fremder Inhalte ohne innere Auseinandersetzung
-ist kein Zitat.
+Aussage: Blosses Anfuehren fremder Inhalte ohne innere Auseinandersetzung
+ist kein Zitat. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
 
 ### EuGH C-476/17 (Pelham / Metall auf Metall), 29.07.2019
 
@@ -242,3 +242,22 @@ Quelle: https://de.wikipedia.org/wiki/Albert_Einstein
 - [[werbekennzeichnung]] — Testimonials und Promi-Zitate
 - [[ki-content]] — KI-generierte Werke und Zitatrecht
 - [[datenschutzerklaerung]] — Quellenangabe bei fremden Inhalten
+
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
+- **BGH I ZR 102/10** — in Vorgaengerfassungen als Zitatrechts-Entscheidung
+  "Elektronischer Pressespiegel" vom 16.01.2014 gefuehrt. Gegenprobe ueber
+  die Rechtsinformations-API des Bundes am 2026-11-14: unter diesem
+  Aktenzeichen ist nur das Urteil des I. Zivilsenats vom **22.03.2012**
+  gefuehrt ("Markenrechtlicher Titelschutz fuer eine Zeitungskolumne —
+  Stimmt's" — Markenrecht). Keine Zitatrechts-Entscheidung unter diesem
+  Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen; Aussage bleibt
+  mit Verifikationsmarker.
+
+## Aenderungsvermerk
+
+- **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BGH I ZR 102/10 ueber die
+  Rechtsinformations-API des Bundes abgefragt — Treffer: 22.03.2012
+  "Stimmt's" (Markenrecht). Gegenstand passt nicht zum Zitatrecht; Zitat
+  aus dem Abschnitt "Kernentscheidungen" entfernt und in Hinweisblock
+  "Nicht zitieren" dokumentiert, Aussage mit Verifikationsmarker belassen.

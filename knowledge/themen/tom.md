@@ -145,6 +145,7 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 - [[themen/meldepflicht-datenpanne]]
 - [[themen/verarbeitungsverzeichnis]]
 - [[themen/avv-muster]]
+- [[urteile/bgh-vi-zr-10-24-kontrollverlust]]
 
 ## Aenderungsvermerk 2026-11-14
 

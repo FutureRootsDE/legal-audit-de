@@ -71,6 +71,36 @@ Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-B
   Voraussetzungen ab 12. September 2027).
 - **Platzhalter-Stand**: `knowledge/INDEX.md` und CHANGELOG auf
   **46 Marker in 31 Dateien** (vorher 53 in 33) aktualisiert.
+- **KB-Nachlauf (Urteile, Trigger, Datumsabweichungen)**: drei neue
+  Urteils-Dateien in `knowledge/urteile/` ergaenzt — BGH VI ZR 10/24
+  vom 18.11.2024 (Kontrollverlust als immaterieller Schaden nach
+  Art. 82 DSGVO, Facebook-Scraping; Groessenordnung rund 100 EUR),
+  EuG T-553/23 „Latombe" vom 03.09.2025 (DPF-Angemessenheitsbeschluss
+  erstinstanzlich bestaetigt; Rechtsmittel C-703/25 P anhaengig),
+  EuGH C-654/25 (anhaengig; BGH-Vorlagebeschluss vom 28.08.2025,
+  VI ZR 258/24, zu Google Fonts und dynamischer IP-Adresse). Je neue
+  Datei Querverweise aus `urteile/bgh-google-fonts.md`,
+  `urteile/eugh-schrems-ii.md`, `themen/drittland-transfer.md`,
+  `themen/tracking-analytics.md`, `themen/datenschutzerklaerung.md`,
+  `themen/meldepflicht-datenpanne.md` und `themen/tom.md`.
+  Datumsabweichungen aus `scripts/verify-citations.py` geklaert: BGH
+  I ZR 7/16 in `checklisten/general-pre-launch.md` und
+  `checklisten/audit-saas.md` um das Datum 28.05.2020 ("Cookie-
+  Einwilligung II") disambiguiert; sieben Aktenzeichen sind nach
+  API-Gegenprobe nicht zuordnungsgleich und wurden in Hinweisbloecke
+  "Nicht zitieren: falsch zugeordnete Aktenzeichen" verschoben, die
+  tragende Aussage jeweils mit Verifikationsmarker belassen
+  (BAG 2 AZR 133/18 — Aktenzeichen auf **BAG 2 AZR 681/16**
+  korrigiert, Datum 27.07.2017 primaer belegt; BAG 8 AZR 253/20,
+  BGH I ZR 228/14, VIII ZR 21/19, VIII ZR 6/10, I ZR 61/20,
+  I ZR 118/12, I ZR 102/10). ECLI-Backfill ueber
+  `scripts/verify-citations.py --write-ecli`: `knowledge/urteile/bgh-inbox-werbung.md`
+  erhaelt `ecli: ECLI:DE:BGH:2022:130122UIZR25.19.0`. Neue Trigger in
+  `.claude/hooks/triggers.json` fuer Widerrufsbutton/§ 356a, EmpCo/
+  Greenwashing, Preisangabengesetz, Data Act, Produktsicherheit
+  (GPSR), Omnibus, Kontrollverlust/Art. 82 DSGVO, DPF/Latombe und
+  Google Fonts. Platzhalter-Stand entsprechend auf **54 Marker** in
+  `knowledge/INDEX.md` neu gezaehlt.
 
 ### Hintergrund Zitatpruefung
 

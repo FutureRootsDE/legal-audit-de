@@ -163,10 +163,26 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - **EuGH C-102/20** (25.11.2021): Vorabentscheidung zum Begriff "elektronische
   Post" — breit auszulegen.
 - **EuGH C-673/17** (01.10.2019, "Planet49"): Pre-ticked Checkboxen unwirksam.
-- **BGH I ZR 61/20** (09.09.2021, "Influencer I/II/III"): Kommerzielle
-  Kommunikation kennzeichnen.
+- Aussage: Kommerzielle Kommunikation ist zu kennzeichnen (Influencer-
+  Rechtsprechungstrio). <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt
+  "Nicht zitieren"; richtige Aktenzeichen des Trios sind BGH I ZR 90/20,
+  I ZR 125/20 und I ZR 126/20 vom 09.09.2021 — siehe
+  themen/werbekennzeichnung.md.)
 - **OLG Muenchen 29 U 1563/20**: Bestaetigungs-Mail darf keine Werbung
   enthalten.
+
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
+- **BGH I ZR 61/20** — in Vorgaengerfassungen als Teil der Influencer-
+  Rechtsprechung vom 09.09.2021 zitiert. Gegenprobe ueber die
+  Rechtsinformations-API des Bundes am 2026-11-14: unter diesem Aktenzeichen
+  ist nur das Urteil des I. Zivilsenats vom **06.05.2021** gefuehrt
+  ("Markenverletzungsstreit: Zurechnungszusammenhang; Die Filsbacher",
+  ECLI:DE:BGH:2021:060521UIZR61.20.0). Keine Influencer-Entscheidung unter
+  diesem Aktenzeichen nachweisbar; das Influencer-Trio vom 09.09.2021 ist
+  I ZR 90/20, I ZR 125/20 und I ZR 126/20 (bereits in
+  themen/werbekennzeichnung.md belegt). Zitat daher nicht uebernehmen;
+  Aussage bleibt mit Verifikationsmarker.
 
 ## Siehe auch
 
@@ -180,3 +196,9 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - Tier-3-Quelle (dr-schwenke.de) aus Frontmatter entfernt; war nicht zitierfaehig.
 - § 7 UWG gegen gesetze-im-internet.de verifiziert.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BGH I ZR 61/20 ueber die
+  Rechtsinformations-API des Bundes abgefragt — Treffer: 06.05.2021
+  "Die Filsbacher" (Markenrecht). Gegenstand passt nicht zum Influencer-
+  Trio; Zitat aus "Zitierbare Urteile" entfernt und in Hinweisblock
+  "Nicht zitieren" dokumentiert. Aussage mit Verifikationsmarker belassen;
+  Verweis auf das bereits belegte Trio in themen/werbekennzeichnung.md.

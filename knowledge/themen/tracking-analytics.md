@@ -108,6 +108,8 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 - [[themen/cookie-consent]]
 - [[themen/drittland-transfer]]
 - [[urteile/bgh-google-fonts]]
+- [[urteile/eugh-c-654-25-google-fonts-vorlage]]
+- [[urteile/bgh-vi-zr-10-24-kontrollverlust]]
 
 ## Aenderungsvermerk 2026-11-14
 

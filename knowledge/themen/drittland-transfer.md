@@ -122,6 +122,7 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
 - [[themen/tracking-analytics]]
 - [[themen/avv-muster]]
 - [[urteile/eugh-schrems-ii]]
+- [[urteile/eug-latombe-dpf]]
 
 ## Aenderungsvermerk 2026-11-14
 

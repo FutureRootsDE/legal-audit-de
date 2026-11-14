@@ -31,6 +31,42 @@
       "files": ["themen/widerrufsbelehrung.md", "themen/button-loesung.md"]
     },
     {
+      "pattern": "(?i)(widerrufsbutton|widerrufsfunktion|§\\s*356a|\\b356a\\b)",
+      "files": ["themen/widerrufsbelehrung.md", "themen/button-loesung.md"]
+    },
+    {
+      "pattern": "(?i)(empco|greenwashing|umweltaussage|klimaneutral|nachhaltigkeitssiegel)",
+      "files": ["themen/werbekennzeichnung.md", "gesetze/uwg.md"]
+    },
+    {
+      "pattern": "(?i)(preisangabengesetz|\\bpangg\\b)",
+      "files": ["gesetze/pangv.md", "themen/preisangaben.md"]
+    },
+    {
+      "pattern": "(?i)(data\\s*act|datenverordnung|anbieterwechsel|cloud[-\\s]*wechsel)",
+      "files": ["checklisten/audit-saas.md", "checklisten/audit-ecommerce.md"]
+    },
+    {
+      "pattern": "(?i)(\\bgpsr\\b|produktsicherheit)",
+      "files": ["checklisten/audit-ecommerce.md"]
+    },
+    {
+      "pattern": "(?i)(omnibus)",
+      "files": ["gesetze/ai-act.md", "gesetze/dsgvo.md"]
+    },
+    {
+      "pattern": "(?i)(kontrollverlust|art\\.?\\s*82|immaterieller\\s+schaden|scraping)",
+      "files": ["urteile/bgh-vi-zr-10-24-kontrollverlust.md"]
+    },
+    {
+      "pattern": "(?i)(data\\s*privacy\\s*framework|\\bdpf\\b|latombe)",
+      "files": ["urteile/eug-latombe-dpf.md", "themen/drittland-transfer.md"]
+    },
+    {
+      "pattern": "(?i)(google[-\\s]*fonts?|webfonts?)",
+      "files": ["urteile/bgh-google-fonts.md", "urteile/eugh-c-654-25-google-fonts-vorlage.md"]
+    },
+    {
       "pattern": "(?i)(newsletter|email[-\\s]*marketing|§\\s*7\\s*UWG|double[-\\s]*opt[-\\s]*in|opt[-\\s]*out)",
       "files": ["themen/email-marketing.md", "gesetze/uwg.md"]
     },

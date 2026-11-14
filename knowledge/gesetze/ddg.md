@@ -152,12 +152,24 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
   dauerhaft erreichbar.
 - **EuGH C-298/07** (16.10.2008, "deutsche internet versicherung AG"):
   Zweiter Kommunikationsweg neben E-Mail erforderlich.
-- **BGH I ZR 228/14** (07.07.2016, "English alphabet"): Anforderung an
-  verstaendliche, hier: deutschsprachige Kontaktaufnahme.
+- Aussage: Anforderung an verstaendliche, deutschsprachige Kontaktaufnahme
+  im Impressum. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
 - **OLG Duesseldorf I-20 U 17/07** (18.12.2007): Mobilnummer als Telefonkontakt
   ausreichend.
 - **OLG Muenchen 29 U 3698/20** zur Impressumspflicht bei
   Instagram-Business-Profilen. <<VERIFIKATION AUSSTEHEND>>
+
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
+- **BGH I ZR 228/14** — in Vorgaengerfassungen dieser KB als Impressum-
+  Entscheidung "English alphabet" vom 07.07.2016 gefuehrt. Gegenprobe ueber
+  die Rechtsinformations-API des Bundes am 2026-11-14: unter diesem
+  Aktenzeichen ist nur das Urteil des I. Zivilsenats vom **17.09.2015**
+  gefuehrt ("Ramses — Kabelweitersendung durch Uebertragung von mit einer
+  Gemeinschaftsantenne der Wohnanlage empfangenen Fernseh- oder Hoerfunk-
+  signalen", Urheberrecht). Eine Impressum-/Kontaktaufnahme-Entscheidung
+  unter diesem Aktenzeichen ist dort nicht nachweisbar. Zitat daher nicht
+  uebernehmen; die zugrundeliegende Aussage bleibt mit Verifikationsmarker.
 
 ## Siehe auch
 
@@ -171,3 +183,8 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
   Fundstelle BGBl. 2024 I Nr. 149 (verkuendet 13.05.2024, Ausfertigung
   06.05.2024) ergaenzt. Materielle Inhalte (§ 5 DDG, §§ 7-16 DDG, § 18 MStV)
   gegen gesetze-im-internet.de/ddg unveraendert.
+- **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BGH I ZR 228/14 ueber die
+  Rechtsinformations-API des Bundes abgefragt — Treffer: 17.09.2015
+  "Ramses", Urheberrecht. Gegenstand passt nicht zu Impressum; Zitat aus
+  "Zitierbare Urteile" entfernt und in Hinweisblock "Nicht zitieren"
+  dokumentiert, Aussage mit Verifikationsmarker belassen.

@@ -165,6 +165,8 @@ const inter = Inter({ subsets: ["latin"] });
 - [[themen/tracking-analytics]]
 - [[themen/cookie-consent]]
 - [[urteile/eugh-schrems-ii]]
+- [[urteile/eugh-c-654-25-google-fonts-vorlage]]
+- [[urteile/bgh-vi-zr-10-24-kontrollverlust]]
 
 ## Aenderungsvermerk
 

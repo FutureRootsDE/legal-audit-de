@@ -121,6 +121,7 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
 - [[themen/tracking-analytics]]
 - [[themen/avv-muster]]
 - [[behoerden/edsa-leitlinien]]
+- [[urteile/eug-latombe-dpf]]
 
 ## Aenderungsvermerk
 

@@ -169,13 +169,35 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
 - **BGH XI ZR 26/20** (27.04.2021): Klausel zur automatischen Zustimmung zu
   AGB-Aenderungen unwirksam.
 - **BGH VIII ZR 268/19** (29.04.2020): Transparenzgebot in SaaS-AGB.
-- **BGH VIII ZR 21/19** (08.12.2020): Widerrufsbelehrung als Teil der AGB.
+- Aussage: Widerrufsbelehrung als Teil der AGB einzubeziehen. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
 - **EuGH C-186/16** (20.09.2017, "Andriciuc"): Strenges Transparenzgebot im
   Verbraucherrecht.
 - **BGH III ZR 25/19** (16.01.2020, "Clickwrap"): Einbeziehung bei
   Registrierung erfordert wahrnehmbare Zustimmung. <<VERIFIKATION AUSSTEHEND>>
-- **BGH VIII ZR 6/10** (10.11.2010): Salvatorische Klausel in AGB ist selbst
-  in AGB unzulaessig.
+- Aussage: Salvatorische Klausel in AGB ist selbst in AGB unzulaessig. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
+
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
+- **BGH VIII ZR 21/19** — in Vorgaengerfassungen als AGB-Entscheidung
+  "Widerrufsbelehrung als Teil der AGB" vom 08.12.2020 gefuehrt. Gegenprobe
+  ueber die Rechtsinformations-API des Bundes am 2026-11-14: unter diesem
+  Aktenzeichen ist das Urteil des VIII. Zivilsenats vom **09.10.2019**
+  gefuehrt ("Zumutbarkeit einer Mieterhoehung unter Beruecksichtigung der
+  wirtschaftlichen Verhaeltnisse des Mieters",
+  ECLI:DE:BGH:2019:091019UVIIIZR19.21.0 — Mietrecht); zusaetzlich ein
+  Beschluss vom 26.04.2022 zum Abgasskandal. Keine AGB-Entscheidung unter
+  diesem Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen; Aussage
+  bleibt mit Verifikationsmarker. Dieselbe Streichung im Hinweisblock von
+  themen/widerrufsbelehrung.md.
+- **BGH VIII ZR 6/10** — in Vorgaengerfassungen als AGB-Entscheidung
+  "Salvatorische Klausel" vom 10.11.2010 gefuehrt. Gegenprobe ueber die
+  Rechtsinformations-API des Bundes am 2026-11-14: unter diesem Aktenzeichen
+  ist nur ein Beschluss des VIII. Zivilsenats vom **12.01.2011** gefuehrt
+  ("Oeffentlich gefoerderter, preisgebundener Wohnraum: Einseitige Erhoehung
+  der Kostenmiete bei Unwirksamkeit einer Schoenheitsreparaturklausel" —
+  Mietrecht). Keine AGB-Entscheidung zur salvatorischen Klausel unter
+  diesem Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen; Aussage
+  bleibt mit Verifikationsmarker.
 
 ## Siehe auch
 
@@ -195,6 +217,12 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
   Widerrufsfunktion fuer Online-Vertragsschluesse ergaenzt — in AGB-
   Verweisen auf das Widerrufsrecht sollte darauf verwiesen werden (siehe
   [[themen/widerrufsbelehrung]], [[themen/button-loesung]]).
+- **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BGH VIII ZR 21/19 und
+  BGH VIII ZR 6/10 ueber die Rechtsinformations-API des Bundes abgefragt.
+  Treffer (Mieterhoehung 09.10.2019 bzw. Kostenmiete 12.01.2011) passen nicht
+  zu AGB-Themen; beide Zitate aus "Zitierbare Urteile" entfernt und in
+  Hinweisblock "Nicht zitieren" dokumentiert, zugrundeliegende Aussagen mit
+  Verifikationsmarker belassen.
 - **2026-11-14 (Review-Korrekturlauf PR #14)**: Die konsolidierte Fassung
   auf gesetze-im-internet.de/bgb/__356a.html zeigt zwischenzeitlich die
   neue Paragraphenfassung; die frueheren Verifikationsmarker in
