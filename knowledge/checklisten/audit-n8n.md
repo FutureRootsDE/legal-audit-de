@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 gilt-fuer: n8n-Workflow-Exports (JSON), self-hosted und Cloud
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -12,7 +12,7 @@ geltungsbereich: [DE, EU]
 > "schattenhafte" Datenverarbeitung, die in Verarbeitungsverzeichnissen und
 > Datenschutzerklaerungen fehlt. Vor jeder Produktiv-Nutzung pruefen.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Audit-Checkliste: n8n-Workflows
 
@@ -132,19 +132,20 @@ Webhook-Endpunkte sind oeffentlich erreichbar und oft das schwaechste Glied.
 
 ## Pass 5: KI-Spezifisch (AI Act-Stufung)
 
-Anwendbarkeit: Verbotene Praktiken (Art. 5) seit **02.02.2025**, **KI-Kompetenz** (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**. n8n-Workflows mit KI-Nodes: das **Unternehmen** ist Betreiber/Bereitsteller, nicht n8n.
+Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI): Verbotene Praktiken (Art. 5) seit **02.02.2025** (neue NCII/CSAM-Verbote ab 02.12.2026), **KI-Kompetenz** (Art. 4) seit **02.02.2025** (seit 27.07.2026 Verhaltenspflicht), GPAI-Pflichten seit **02.08.2025**, **Art. 50 Transparenz seit 02.08.2026 anwendbar** (Altbestand-Markierung bis 02.12.2026, Art. 111 Abs. 4), Hochrisiko Anhang III ab 02.12.2027, Anhang I ab 02.08.2028. n8n-Workflows mit KI-Nodes: das **Unternehmen** ist Betreiber/Bereitsteller, nicht n8n — Abgrenzung Anbieter/Betreiber pro Workflow dokumentieren.
 
 Bei KI-lastigen Workflows (Claude/GPT fuer Content-Generierung, Flux/Ideogram fuer Bilder, ElevenLabs fuer TTS):
 
-- [ ] **KI-Kompetenz** Art. 4 AI Act: Workflow-Entwickler / Operatoren geschult/sensibilisiert (Nachweis dokumentieren)
+- [ ] **KI-Kompetenz** Art. 4 KI-VO n. F. (seit 27.07.2026 i. d. F. VO (EU) 2026/1744): Anbieter und Betreiber ergreifen **Massnahmen zur Unterstuetzung** der KI-Kompetenz — keine Pflicht, ein bestimmtes Kompetenzniveau zu **garantieren** (Art. 4 Abs. 1 Satz 2 n. F.); Workflow-Entwickler / Operatoren trotzdem geschult/sensibilisiert und Nachweis dokumentieren
 - [ ] **Prompt-Inhalte** ohne PII (oder mit Consent)
 - [ ] **Output-Verantwortlichkeit**: KI-Halluzinationen erkennen, manueller Review-Schritt
 - [ ] **Bias in AI-Entscheidungen** bei Klassifikation (z.B. Content-Kategorisierung)
-- [ ] **Kennzeichnung** bei KI-generiertem Output (Art. 50 Abs. 2 AI Act); ab 02.08.2026 maschinenlesbares Wasserzeichen
+- [ ] **Kennzeichnung** bei KI-generiertem Output (Art. 50 Abs. 2 AI Act); maschinenlesbare Markierung seit 02.08.2026 Pflicht fuer Neuprodukte; Altbestand (vor 02.08.2026 in Verkehr gebracht) bis 02.12.2026 nachzuruesten (Art. 111 Abs. 4 i.d.F. VO (EU) 2026/1744)
+- [ ] Bei Chatbot-artigen Workflows (n8n Bot auf Social/Discord/Slack mit Nutzerinteraktion): **Art. 50 Abs. 1** Chatbot-Hinweis sicherstellen
 - [ ] **Verbotene Praktiken** Art. 5 AI Act ausgeschlossen (Social Scoring, Subliminal-Manipulation in Marketing-Workflows!)
 - [ ] **DSFA** bei systematischer Bewertung von Menschen (Art. 35 Abs. 3 lit. a DSGVO)
 - [ ] **Training auf Nutzerdaten** bei Provider ausschalten (OpenAI Business-Tier / API ist Default-Out, Consumer-ChatGPT ist Default-In; Anthropic API ist Default-Out)
-- [ ] **GPAI-Modell-Provider-Compliance**: Pruefen, dass Anbieter (OpenAI, Anthropic, Mistral, Google) GPAI-Pflichten Art. 53 ff. erfuellen (Trainings-Daten-Summary, Copyright-Konformitaet)
+- [ ] **GPAI-Modell-Provider-Compliance**: Pruefen, dass Anbieter (OpenAI, Anthropic, Mistral, Google) GPAI-Pflichten Art. 53 ff. erfuellen (Trainings-Daten-Summary, Copyright-Konformitaet). Hinweis: Die direkten Durchsetzungsbefugnisse des **Bueros fuer Kuenstliche Intelligenz** nach Art. 75a bis 75d KI-VO n. F. treffen **nicht pauschal alle GPAI-Anbieter**, sondern **nur Akteure nach Art. 75 Abs. 1 KI-VO n. F.** (Anbieter bestimmter GPAI-basierter KI-Systeme, bei denen Modell und System aus derselben Hand stammen, sowie KI-Systeme, die eine VLOP/VLOSE i. S. v. VO (EU) 2022/2065 bilden oder darin integriert sind). Fuer alle uebrigen GPAI-Pflichtverletzungen bleibt die allgemeine Aufsicht zustaendig.
 - [ ] [[gesetze/ai-act]], [[themen/ki-transparenz]]
 
 ## Pass 6: Barrierefreiheit
@@ -173,6 +174,7 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 - [ ] **Disaster Recovery**: PostgreSQL-Backup-Restore-Test alle 3 Monate (Art. 32 Abs. 1 lit. c DSGVO)
 - [ ] **Datenpannen-Meldepflicht** (Art. 33 DSGVO 72h): Eskalations-Plan dokumentiert — siehe [[themen/meldepflicht-datenpanne]]
 - [ ] **NIS2-Bezug**: bei wesentlicher/wichtiger Einrichtung n8n-Infrastruktur als IT-Asset im NIS2-Risiko-Management — siehe [[gesetze/nis2-bsig]]
+- [ ] **Data Act (EU) 2023/2854** Kapitel VI (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten; Art. 29 Abbau der Wechselentgelte): bei n8n-Cloud oder sonstigen Datenverarbeitungsdiensten pruefen, ob die neuen Pflichten zum erleichterten Anbieterwechsel (Portabilitaet, Kuendigungs-/Uebergangsfristen, Kostenregime) greifen; **anwendbar seit 12.09.2025** (Art. 50; per Cellar CELEX:32023R2854 verifiziert); fuer Vertraege am oder vor 12.09.2025 geschlossen: ab 12.09.2027 — Severity MED
 
 ## Typ-spezifische Besonderheiten
 
@@ -241,3 +243,12 @@ jq '.nodes[] | select(.type == "n8n-nodes-base.webhook") | .parameters' workflow
 - [[urteile/eugh-schrems-ii]]
 - [[checklisten/audit-saas]]
 - [[anwaelte-tools/tools-scanner]]
+
+---
+
+## Aenderungsvermerk (2026-11-14, Batch F stale-only)
+
+- Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
+- Pass 8 (Data Act): Marker aufgeloest. Primaerquelle Cellar CELEX:32023R2854, Art. 50 — anwendbar ab 12.09.2025, Altvertraege ab 12.09.2027. Kapitel VI (Wechsel Datenverarbeitungsdienste, Art. 23 ff., Art. 29 Wechselentgelte) verifiziert.
+- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate bestaetigt — Art. 6/13/26/28/30/32/33/35/46 DSGVO, § 59 UrhG (nicht zitiert, aber Kontext), § 38 BDSG; EuGH C-311/18 (Schrems II). Keine Aktenzeichen ausserhalb bestehender KB-Belege. Pass 5 unberuehrt.
+- Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.

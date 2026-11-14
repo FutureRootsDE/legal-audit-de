@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 gilt-fuer: generische Pre-Launch-Pruefung (jedes Web-Projekt in DE/EU)
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,7 +11,7 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Diese Generalist-Checkliste
 > ersetzt nicht die Pruefung durch einen Fachanwalt vor Launch.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Generische Pre-Launch-Checkliste
 
@@ -76,8 +76,10 @@ Pflichtenkatalog.
 - [ ] **AGB** (falls Leistungsabgabe) mit Einbeziehungs-Mechanismus, AGB-Kontrolle §§ 305-309 BGB — [[themen/agb-muster]]
 - [ ] **Widerrufsbelehrung** bei B2C nach § 355 BGB + Art. 246a EGBGB — [[themen/widerrufsbelehrung]]
 - [ ] **Button-Loesung** (§ 312j Abs. 3 BGB) bei entgeltlichen Services — Pflichtwortlaut auf finalem Button (BGH I ZR 159/24 v. 09.10.2025) — [[themen/button-loesung]]
+- [ ] **Kuendigungsbutton § 312k BGB** bei entgeltlichen Dauerschuldverhaeltnissen mit Verbrauchern: Schaltflaeche "Vertraege hier kuendigen" + Bestaetigungsseite mit "jetzt kuendigen", staendig verfuegbar; Folge bei Verstoss: fristlose Kuendigung jederzeit (§ 312k Abs. 6 BGB) — Severity CRIT
+- [ ] **Elektronische Widerrufsfunktion / "Widerrufsbutton" nach § 356a BGB** (gesetze-im-internet.de/bgb/__356a.html) bei **allen** Fernabsatzvertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht nur Finanzdienstleistungen): Schaltflaeche "Vertrag widerrufen" oder gleichbedeutend, waehrend der gesamten Widerrufsfrist erreichbar, mit Bestaetigungsschaltflaeche "Widerruf bestaetigen" und Eingangsbestaetigung auf dauerhaftem Datentraeger inkl. Datum und Uhrzeit (§ 356a Abs. 1 bis 4 BGB); anzuwenden seit **19.06.2026** (Umsetzung der RL (EU) 2023/2673, CELEX:32023L2673 — Umsetzung bis 19.12.2025, Anwendung ab 19.06.2026) — Severity HIGH
 - [ ] **Preisangaben** transparent (PAngV; § 11 PAngV: 30-Tage-Tiefstpreis bei Reduzierungen; BGH I ZR 183/22) — [[themen/preisangaben]]
-- [ ] **VSBG-Hinweis** bei Online-Verkauf (§ 36 VSBG) — ODR-Plattform-Pflicht **entfaellt seit 20.07.2025** (VO (EU) 2024/3228 — ODR-Plattform abgeschaltet)
+- [ ] **VSBG-Hinweis** bei Online-Verkauf (§ 36 VSBG); die **Pflicht zur Verlinkung der EU-OS-Plattform** nach Art. 14 Abs. 1 VO (EU) 524/2013 ist mit Wirkung vom **20.07.2025** entfallen — Aufhebung durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 (CELEX 32024R3228; verifiziert am Cellar-Volltext 2026-11-14). Die OS-Plattform wurde eingestellt; vorhandene Hinweise/Links auf https://ec.europa.eu/consumers/odr/ entfernen.
 - [ ] **SLA** bei B2B-Services (optional, aber empfohlen)
 
 ## 5. Marketing / Kommunikation
@@ -89,6 +91,7 @@ Pflichtenkatalog.
 - [ ] **Kennzeichnung bezahlter Inhalte** (§ 5a Abs. 4 UWG) — [[themen/werbekennzeichnung]]
 - [ ] **Influencer-Kooperationen** mit klarer Werbe-Kennzeichnung (BGH I ZR 90/20, 125/20, 126/20 v. 09.09.2021)
 - [ ] **Bewertungen-Echtheit** (§ 5b Abs. 3 UWG) — bei Aggregat-Anzeigen Methode der Verifikation transparent
+- [ ] **Umweltaussagen / Nachhaltigkeitssiegel** — EmpCo-Richtlinie (EU) 2024/825 (CELEX:32024L0825): Mitgliedstaaten erlassen bis 27.03.2026, Anwendung ab **27.09.2026** (per Cellar verifiziert); deutsche Umsetzung durch Art. 6 Gesetz vom 22.10.2026 (BGBl. 2026 I Nr. 322), UWG-Uebergang ueber § 15b UWG Stichtag 27.09.2026 (siehe [[gesetze/uwg]]): Verbot vager/pauschaler Umweltaussagen (§ 5 Abs. 2 Nr. 1, Abs. 3 Nr. 3/4 UWG), Einschraenkungen bei nicht-zertifizierten Nachhaltigkeitssiegeln (Anhang Nrn. 2a, 4a-4c, 10a, 23d), ergaenzte Informationspflichten § 5b Abs. 3a UWG — Severity HIGH
 
 ## 6. Geistiges Eigentum
 
@@ -113,12 +116,12 @@ Je nach Branche weitere Pflichten:
 
 ## 8. KI / AI Act (Verordnung (EU) 2024/1689)
 
-Anwendbarkeits-Stufung: Verbotene Praktiken (Art. 5) seit **02.02.2025**, **KI-Kompetenz** (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**, High-Risk Anhang II ab 02.08.2027.
+Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI): Verbotene Praktiken (Art. 5) seit **02.02.2025** (neue NCII/CSAM-Verbote ab 02.12.2026); **KI-Kompetenz** (Art. 4) seit **02.02.2025**, seit 27.07.2026 Verhaltenspflicht; GPAI-Pflichten seit **02.08.2025**; **Art. 50 Transparenz seit 02.08.2026 anwendbar** (Altbestand-Markierung bis 02.12.2026, Art. 111 Abs. 4); Hochrisiko Anhang III **verschoben auf 02.12.2027**, Anhang I **verschoben auf 02.08.2028**.
 
-- [ ] **Verbotene Praktiken** (Art. 5) ausgeschlossen
-- [ ] **KI-Kompetenz** Mitarbeiter (Art. 4) — Schulung dokumentiert
+- [ ] **Verbotene Praktiken** (Art. 5) ausgeschlossen (inkl. NCII/CSAM-Generatoren ab 02.12.2026)
+- [ ] **KI-Kompetenz** Art. 4 KI-VO n. F. (seit 27.07.2026 i. d. F. VO (EU) 2026/1744): Anbieter und Betreiber ergreifen **Massnahmen zur Unterstuetzung** der KI-Kompetenz; **keine Pflicht**, ein bestimmtes Kompetenzniveau zu **garantieren** (Art. 4 Abs. 1 Satz 2 n. F.) — Foerdermassnahmen und Schulungsnachweise dennoch dokumentieren
 - [ ] KI-Komponenten klassifiziert (Verboten / Hoch / Begrenzt / Minimal)
-- [ ] Transparenzpflichten erfuellt (Art. 50 AI Act); ab 02.08.2026 Wasserzeichen-Pflicht
+- [ ] Transparenzpflichten erfuellt (Art. 50 AI Act); maschinenlesbare Markierung seit 02.08.2026; Altbestand bis 02.12.2026
 - [ ] High-Risk: Konformitaetsbewertung eingeleitet
 - [ ] GPAI-Provider-Compliance bei verwendeten Modellen
 - [ ] [[gesetze/ai-act]], [[themen/ki-transparenz]], [[themen/ki-content]]
@@ -220,3 +223,15 @@ das Abmahn-Risiko auf ein beherrschbares Niveau.
 - [[anwaelte-tools/fachanwaelte-it-recht]]
 - [[anwaelte-tools/datenschutzbeauftragte]]
 - [[anwaelte-tools/tools-generatoren]]
+
+---
+
+## Aenderungsvermerk (2026-11-14, Batch F stale-only)
+
+- Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
+- Abschnitt 4 (Vertragstexte) um Kuendigungsbutton § 312k BGB erweitert; Tier-1-belegt gegen gesetze-im-internet.de/bgb/__312k.html.
+- **Abschnitt 4 (Korrektur):** Elektronische Widerrufsfunktion nach § 356a BGB gilt NICHT nur fuer Fernabsatz-Finanzdienstleistungsvertraege, sondern fuer **alle** Fernabsatzvertraege, die ueber eine Online-Benutzeroberflaeche geschlossen werden. Pflichtschaltflaechen "Vertrag widerrufen" und "Widerruf bestaetigen", Eingangsbestaetigung mit Datum/Uhrzeit, anzuwenden seit 19.06.2026. Tier-1-Beleg: gesetze-im-internet.de/bgb/__356a.html; RL (EU) 2023/2673 (CELEX:32023L2673) per Cellar verifiziert (Umsetzung bis 19.12.2025, Anwendung ab 19.06.2026). Marker aufgeloest.
+- Abschnitt 4 (VSBG/ODR): Marker am 2026-11-14 aufgeloest. Primaerbeleg VO (EU) 2024/3228 vom 19.12.2024, Art. 1 (CELEX 32024R3228, Cellar-Volltext): Aufhebung der VO (EU) 524/2013 mit Wirkung 20.07.2025, Einstellung der OS-Plattform.
+- Abschnitt 5 um EmpCo-RL (EU) 2024/825 (ab 27.09.2026) ergaenzt; nun Cellar-verifiziert (CELEX:32024L0825, Mitgliedstaaten erlassen bis 27.03.2026, Anwendung ab 27.09.2026). Deutsche Umsetzung Tier-1-belegt via knowledge/gesetze/uwg.md (Art. 6 Gesetz vom 22.10.2026, BGBl. 2026 I Nr. 322, § 15b UWG). Marker aufgeloest.
+- Bestandspruefung (11 Pflicht-Normzitate ausserhalb Abschnitt 8): alle bestaetigt — § 5 DDG, § 18 MStV, Art. 30/32/33/35/5/13/17 DSGVO, § 38 BDSG, § 7 Abs. 2 Nr. 2/Abs. 3 UWG, § 5a Abs. 4 UWG, § 5b Abs. 3 UWG, § 312j Abs. 3 BGB, § 312k BGB, § 11 PAngV, § 51 UrhG, § 22 KUG, § 14/§ 37 BFSG, § 257 HGB, § 147 AO. BGH-Aktenzeichen I ZR 159/24 (09.10.2025), I ZR 25/19 (13.01.2022), I ZR 90/20, 125/20, 126/20 (09.09.2021), I ZR 7/16, EuGH C-673/17 (Planet49), C-40/17 (Fashion ID) — konsistent zu KB.
+- Abschnitt 8 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.

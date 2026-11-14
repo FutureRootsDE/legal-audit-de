@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quellen-sekundaer:
   - https://www.bvdnet.de/
   - https://www.udis.de/
@@ -10,7 +10,7 @@ quellen-sekundaer:
   - https://www.activemind.de/
   - https://www.althammer-kill.de/
   - https://www.isico.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -20,7 +20,7 @@ geltungsbereich: [DE]
 > illustrative Beispiele aus oeffentlich zugaenglichen Quellen. Das ist keine
 > Vermittlung. Pruefe Zertifikate und Qualifikation selbststaendig.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Datenschutzbeauftragte (DSB) — Zertifikate und externe Anbieter
 
@@ -62,7 +62,7 @@ Gesetzlich (Art. 37 Abs. 5 DSGVO) sind nur **"berufliche Qualifikation und insbe
 ### BvD — Berufsverband der Datenschutzbeauftragten Deutschlands
 
 - URL: https://www.bvdnet.de/
-- Sitz: Budapester Strasse 31, 10787 Berlin
+- Sitz: Gustav-Meyer-Allee 25, GSG-Hof Gebaeude 12, 13355 Berlin (verifiziert 2026-11-14)
 - Aeltester Berufsverband, ca. 2.000 Mitglieder
 - Mitglied in EFDPO (European Federation of Data Protection Officers)
 - Programme:
@@ -116,9 +116,6 @@ Diese sind Beispiele fuer externe DSB-Services; es gibt hunderte mehr — die Li
   - Externer DSB explizit angeboten; Standorte: Berlin, Koeln, Muenchen
   - Konzern-Verbund mit SRD (Schuermann Rosenthal Dreyer) — Logo im Footer als "Unternehmensverbund"
   - Schwerpunkte: Datenschutz, Informationssicherheit (ISO 27001, NIS2/DORA), KI-Governance (ISO 42001), Datenstrategie
-- **Prolinkia / PROLIV** — Domains `prolinkia.de` und `proliv.de` waren am 2026-05-08 nicht via WebFetch erreichbar (ECONNREFUSED). Eintrag bei naechstem Update verifizieren oder loeschen. <<URL VERIFIKATION AUSSTEHEND - 2026-05-08>>
-- **externer-datenschutzbeauftragter.com** — Sammel-/Portal-Charakter mit verschiedenen regionalen Anbietern; aufgrund unklarer Anbieter-Struktur als Tier-3-Hinweis behalten. <<ANBIETER-VERIFIKATION AUSSTEHEND - 2026-05-08>>
-
 **Wichtig:** Bei der Auswahl immer pruefen:
 - Referenzen im eigenen Industriezweig
 - Erreichbarkeit (Response-Zeit-SLA)
@@ -146,7 +143,7 @@ Diese sind Beispiele fuer externe DSB-Services; es gibt hunderte mehr — die Li
 
 ## Typischer Leistungs-Umfang extern
 
-<<Budget-Ranges UNVERIFIZIERT fuer konkrete Anbieter — Markt-Indikationen>>:
+Markt-Indikationen (keine individuellen Anbieter-Preise, nicht verbindlich) <<VERIFIKATION AUSSTEHEND>>:
 
 - **Kleine GmbH / Startup mit < 50 MA**: 200-500 EUR / Monat Flatrate
 - **Mittelstand > 100 MA**: 500-1.500 EUR / Monat
@@ -188,3 +185,13 @@ Der DSB ist der zustaendigen Aufsichtsbehoerde zu melden:
 - [[themen/dsfa]]
 - [[anwaelte-tools/fachanwaelte-it-recht]]
 - [[behoerden/landesbeauftragte-kontakte]]
+
+## Aenderungsvermerk
+
+- **2026-11-14** (Batch E, stale-only): Platzhalter-Marker auf einheitliche Schreibweise `<<VERIFIKATION AUSSTEHEND>>` normiert (Budget-Ranges). Normative Aussagen zu § 38 Abs. 1 BDSG (Benennungspflicht ab 20 staendig mit automatisierter Verarbeitung beschaeftigten Personen) und Art. 37 DSGVO gegen Tier-1 (gesetze-im-internet.de, eur-lex.europa.eu) bestaetigt.
+- **2026-11-14** (Batch E2, Live-Pruefung): Vollstaendiger URL-Abgleich aller gelisteten Zertifikats-Geber und DSB-Dienstleister. Aenderungen:
+  - BvD-Sitz korrigiert: Gustav-Meyer-Allee 25, 13355 Berlin (zuvor fehlerhaft Budapester Str. 31, 10787 Berlin).
+  - `Prolinkia / PROLIV` entfernt: Domain `prolinkia.de` loest nicht mehr auf (ENOTFOUND, 2026-11-14), keine Websearch-Treffer.
+  - `externer-datenschutzbeauftragter.com` entfernt: TLS-Fehler beim Abruf (unrecognized-name, 2026-11-14), keine belegbare Anbieter-Struktur ueber Websearch auffindbar.
+  - udis, GDD, TUEV NORD, TUEV SUED (per Suchmaschine bestaetigt, Direktabruf vom Bot geblockt), TUEV Rheinland, DEKRA, activeMind, Althammer & Kill, ISiCO: OK, Inhalte decken Eintrag.
+  - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.

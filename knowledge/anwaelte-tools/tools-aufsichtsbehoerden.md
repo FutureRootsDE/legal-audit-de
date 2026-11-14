@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quellen-sekundaer:
   - https://formulare.bfdi.bund.de/
   - https://www.lda.bayern.de/de/datenpanne.html
   - https://www.ldi.nrw.de/kontakt/meldepflicht-fuer-verantwortliche-verletzungen-des-schutzes-personenbezogener-daten
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE]
 > Falsch adressierte oder unvollstaendige Meldungen werden mit Bussgeldern
 > geahndet.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Meldewege an Aufsichtsbehoerden — Portale und Prozesse
 
@@ -40,7 +40,7 @@ Nutzung ist in der Regel die **erste Wahl** gegenueber E-Mail/Post.
 
 Volle Liste in [[behoerden/landesbeauftragte-kontakte]].
 
-## Online-Formulare (verifiziert 2026-05-08)
+## Online-Formulare (verifiziert 2026-11-14)
 
 ### BfDI (Bund)
 
@@ -49,6 +49,7 @@ Volle Liste in [[behoerden/landesbeauftragte-kontakte]].
 - **Authentifizierung**: kein Login noetig
 - **Speicherung**: digital, offizieller Eingangsnachweis
 - **Rueckmeldung**: i.d.R. binnen weniger Werktage
+- **Hinweis Stand 2026-11-14**: Die Online-Anwendung meldete beim Live-Abruf "Die Anwendung steht aktuell nicht zur Verfuegung." Im Panne-Fall vorsorglich ergaenzend per E-Mail/Post an die BfDI melden und Terminverfuegbarkeit der Anwendung pruefen.
 
 ### BayLDA (Bayern nicht-oeffentlich)
 
@@ -84,9 +85,9 @@ Site nach "Datenpanne" / "Meldung Art. 33" / "Verantwortliche" suchen):
 | Schleswig-Holstein | https://www.datenschutzzentrum.de/ |
 | Thueringen | https://www.tlfdi.de/ |
 
-**VERIFIKATION AUSSTEHEND** fuer konkrete direkte Deep-Links pro Bundesland —
-pruefen durch `site:lda.brandenburg.de datenpanne` oder aehnliche Google-
-Suchanfrage.
+Konkrete direkte Deep-Links pro Bundesland pruefen durch
+`site:lda.brandenburg.de datenpanne` oder aehnliche Google-Suchanfrage.
+<<VERIFIKATION AUSSTEHEND>>
 
 ## Pflicht-Inhalte der Meldung (Art. 33 Abs. 3)
 
@@ -208,7 +209,7 @@ Umsatz-Klassifizierung und Tages-Saetzen).
 
 ## Hinweis: ODR-Plattform abgeschaltet (2025-07-20)
 
-Die EU-**Online-Streitbeilegungsplattform (ODR)** unter `ec.europa.eu/consumers/odr` ist seit dem **20.07.2025** abgeschaltet. Pflichten zur Verlinkung der ODR-Plattform aus AGB / Impressum / Footer sind damit weggefallen. Verbraucherstreitbeilegung erfolgt seither ueber nationale Schlichtungsstellen (z.B. Universalschlichtungsstelle des Bundes / Allgemeine Verbraucherschlichtungsstelle des Zentrums fuer Schlichtung e.V., Kehl). Hinweis hier nur fuer Cross-Ref — ODR betrifft UWG/E-Commerce-Pflichten, **nicht** den Art.-33/34-DSGVO-Meldeweg, der hier dokumentiert ist.
+Die EU-**Online-Streitbeilegungsplattform (ODR/OS)** unter `ec.europa.eu/consumers/odr` ist seit dem **20.07.2025** eingestellt; die Rechtsgrundlage (VO (EU) 524/2013) wurde durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 aufgehoben (CELEX 32024R3228; am 2026-11-14 am Cellar-Volltext verifiziert). Pflichten zur Verlinkung aus AGB / Impressum / Footer sind damit weggefallen. Verbraucherstreitbeilegung erfolgt seither ueber nationale Schlichtungsstellen (z.B. Universalschlichtungsstelle des Bundes / Allgemeine Verbraucherschlichtungsstelle des Zentrums fuer Schlichtung e.V., Kehl). Hinweis hier nur fuer Cross-Ref — ODR betrifft UWG/E-Commerce-Pflichten, **nicht** den Art.-33/34-DSGVO-Meldeweg, der hier dokumentiert ist.
 
 ## Siehe auch
 
@@ -220,3 +221,8 @@ Die EU-**Online-Streitbeilegungsplattform (ODR)** unter `ec.europa.eu/consumers/
 - [[themen/verarbeitungsverzeichnis]]
 - [[themen/tom]]
 - [[themen/dsfa]]
+
+## Aenderungsvermerk
+
+- **2026-11-14** (Batch E, stale-only): Freitext-Marker `**VERIFIKATION AUSSTEHEND**` fuer die Deep-Link-Tabelle der 14 Landesaufsichtsbehoerden auf einheitliche Form `<<VERIFIKATION AUSSTEHEND>>` (einzeilig, am Ende des Hinweises) normiert. Normative Aussagen gegen Tier-1 bestaetigt: 72-Stunden-Frist (Art. 33 Abs. 1 DSGVO), Benachrichtigungspflicht (Art. 34 DSGVO), Bussgeldrahmen 10 Mio EUR / 2 % (Art. 83 Abs. 4 lit. a DSGVO).
+- **2026-11-14** (Batch E3, Live-Pruefung): Portale aktiv abgerufen. BfDI-Formular-Portal `formulare.bfdi.bund.de` erreichbar, aber Anwendung meldete "aktuell nicht zur Verfuegung" — Hinweis in Eintrag ergaenzt. BayLDA-Datenpanne-Seite (`lda.bayern.de/de/datenpanne.html`) und LDI-NRW-Meldeseite erreichbar und Formular-Links aktiv (LDI-Formular jetzt unter `ldi-fms.nrw.de/lip/action/invoke.do?id=Datenschutzverletzung`). ODR-Abschaltung 20.07.2025 gegen `consumer-redress.ec.europa.eu/site-relocation_en` bestaetigt (Rechtsgrundlage VO (EU) 2024/3228). `verifiziert-am` auf 2026-11-14 aktualisiert. Deep-Links der Landesaufsichtsbehoerden-Tabelle bleiben nicht einzeln reverifiziert und tragen weiterhin den Sammel-Marker.

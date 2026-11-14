@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/pangv_2022/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/pangv_2022/__11.html
   - https://www.bmwk.de/Redaktion/DE/Artikel/Wirtschaft/preisangabenverordnung.html
   - https://www.wettbewerbszentrale.de/de/themen/preisangaben/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Preisangaben — PAngV 2022 in der Praxis
 
@@ -154,17 +154,30 @@ Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
   PAngV / Art. 6a UGP-Richtlinie muss sich auch in **Werbemassnahmen**
   (Prospekte, Online-Ads) auf den 30-Tage-Tiefstpreis beziehen, nicht nur am
   Regal.
-- **BGH I ZR 173/16** `<<VERIFIKATION AUSSTEHEND — Datum/Tenor pruefen>>`:
-  Preisangabe "auf einen Blick" erkennbar.
-- **BGH I ZR 143/19** `<<VERIFIKATION AUSSTEHEND — Datum/Tenor pruefen>>`:
-  Lieferzeit- und Preisangabe.
-- **OLG Hamm 4 U 85/22**: Unzulaessiger Streichpreis ohne 30-Tage-Basis
-  `<<VERIFIKATION AUSSTEHEND — Instanz-/Datum-Check empfohlen>>`.
-- **BGH I ZR 85/21** `<<VERIFIKATION AUSSTEHEND — Datum/Tenor pruefen>>`:
-  Angabe "inkl. MwSt." bei B2B-/Hybrid-Angeboten.
+- **BGH I ZR 173/16** (Preisangabe "auf einen Blick") <<VERIFIKATION AUSSTEHEND>>
+- **BGH I ZR 143/19** (Lieferzeit- und Preisangabe) <<VERIFIKATION AUSSTEHEND>>
+- **OLG Hamm 4 U 85/22** (unzulaessiger Streichpreis ohne 30-Tage-Basis) <<VERIFIKATION AUSSTEHEND>>
+- **BGH I ZR 85/21** (Angabe "inkl. MwSt." bei B2B-/Hybrid-Angeboten) <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
 - [[gesetze/pangv]]
 - [[gesetze/uwg]] — § 3a Rechtsbruch, § 5 Irrefuehrung
 - [[themen/button-loesung]]
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
+- Vier Marker-Varianten (`<<VERIFIKATION AUSSTEHEND — ...>>`) auf das
+  einzeilige Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert
+  (BGH I ZR 173/16, I ZR 143/19, OLG Hamm 4 U 85/22, BGH I ZR 85/21).
+- EuGH C-330/23 Aldi Sued und BGH I ZR 183/24 (jeweils 2024/2025) unveraendert
+  belassen; weitere Folgerechtsprechung zu § 11 PAngV nicht aufgefunden.
+- **2026-11-14 (Abgleich)**: Hinweis auf das Gesetz zur Aenderung des
+  Preisangabenrechts vom 19.10.2026 (BGBl. 2026 I Nr. 314, Inkrafttreten
+  01.01.2027) ergaenzt. Die Aenderung betrifft die PAngV selbst nur in
+  § 20 (Sanktionsverweis); § 11 (30-Tage-Streichpreis), § 4 (Grundpreis)
+  und § 6 (Versandkosten) bleiben unveraendert. Neu ist das eigenstaendige
+  Preisangabengesetz (PAngG) mit Bussgeldrahmen bis 100.000 EUR, in das
+  die bisher im WiStG geregelte Sanktionsnorm verlagert wird. Siehe
+  [[gesetze/pangv]]. Quelle: recht.bund.de/bgbl/1/2026/314/VO.html.

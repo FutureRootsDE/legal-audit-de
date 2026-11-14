@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-07-08
+aktualisiert: 2026-11-14
 gilt-fuer: WooCommerce, Shopware 6, Shopify, Magento, PrestaShop, JTL
-verifiziert-am: 2026-07-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -12,7 +12,7 @@ geltungsbereich: [DE, EU]
 > vor Launch zwingend Pruefung durch einen Fachanwalt fuer IT-/E-Commerce-Recht
 > oder ein Schutzpaket (z.B. IT-Recht Kanzlei Muenchen).
 >
-> **Stand:** 2026-07-08
+> **Stand:** 2026-11-14
 
 # Audit-Checkliste: E-Commerce-Shop
 
@@ -95,6 +95,7 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 - [ ] 14-Tage-Frist korrekt formuliert
 - [ ] Ausnahmen konkret aufgelistet (digitaler Content nach Einwilligung, versiegelte Waren, etc. § 312g BGB)
 - [ ] Bestaetigungs-Mail nach Kauf enthaelt Widerrufsbelehrung in **Textform** (nicht nur Link!)
+- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** (gesetze-im-internet.de/bgb/__356a.html) bei allen Fernabsatzvertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht nur Finanzdienstleistungen): Pflichtschaltflaeche "Vertrag widerrufen" waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" + Eingangsbestaetigung auf dauerhaftem Datentraeger inkl. Datum und Uhrzeit (§ 356a Abs. 1-4 BGB); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity CRIT bei B2C-Shop ohne Widerrufsbutton
 - [ ] [[themen/widerrufsbelehrung]]
 
 ### Button-Loesung (§ 312j Abs. 3 BGB)
@@ -104,6 +105,7 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 - [ ] **BGH I ZR 159/24 (09.10.2025)**: bei mehrstufigen Bestell-Flows muss der Pflichtwortlaut auf dem **finalen** Button stehen, der die Zahlungspflicht ausloest — nicht auf einem vorherigen Schritt
 - [ ] Checkout-Seite: Wesentliche Produktmerkmale, Gesamtpreis, Versand, Laufzeit unmittelbar vor dem Button (§ 312j Abs. 2 BGB)
 - [ ] **Abo-Fallen** (Art. 246 § 1 EGBGB): bei wiederkehrenden Leistungen Mindestlaufzeit + Gesamtkosten transparent
+- [ ] **Kuendigungsbutton § 312k BGB** bei Abo-/Dauerschuldverhaeltnissen mit Verbrauchern: Schaltflaeche "Vertraege hier kuendigen" (oder gleichwertig) auf der Website + Bestaetigungsseite mit Button "jetzt kuendigen", staendig verfuegbar und leicht zugaenglich (§ 312k Abs. 2 BGB); Bestaetigung der Kuendigung unverzueglich in Textform (§ 312k Abs. 4 BGB); Folge bei Verstoss: jederzeitige fristlose Kuendigung durch Verbraucher moeglich (§ 312k Abs. 6 BGB) — Severity CRIT
 - [ ] [[themen/button-loesung]]
 
 ### AGB
@@ -111,7 +113,7 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 - [ ] **AGB** mit Einbeziehungsklausel im Checkout ("Ich habe die AGB gelesen und akzeptiere sie")
 - [ ] Pre-Tick VERBOTEN — User muss aktiv bestaetigen
 - [ ] Klauselkontrolle (§§ 305-309 BGB) — keine ueberraschenden oder unklaren Klauseln
-- [ ] **Streitbeilegung-Hinweis** nach Art. 14 ODR-VO (Link zu ec.europa.eu/consumers/odr) — **ACHTUNG**: ODR-Plattform der EU wurde **20.07.2025 abgeschaltet** (VO (EU) 2024/3228); Pflicht zur Verlinkung **entfaellt** seitdem; alte AGB-Klauseln zu ODR ueberpruefen und entfernen <<VERIFIKATION durch Fachanwalt empfohlen>>
+- [ ] **Streitbeilegungs-Hinweis** nach Art. 14 Abs. 1 VO (EU) 524/2013 ist entfallen: Die **OS-Plattform der EU wurde am 20.07.2025 eingestellt** und die VO (EU) 524/2013 mit Wirkung vom **20.07.2025** durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 aufgehoben (CELEX 32024R3228; am 2026-11-14 am Cellar-Volltext verifiziert). Links auf https://ec.europa.eu/consumers/odr/ sowie entsprechende AGB-/Impressumsklauseln entfernen. **Unberuehrt:** VSBG-Hinweis nach § 36 VSBG (Teilnahme an nationaler Verbraucherschlichtungsstelle) bleibt bestehen.
 - [ ] **VSBG-Hinweis** (§ 36 VSBG): Verbraucherschlichtungsstelle-Bereitschaft JA/NEIN — bleibt unveraendert Pflicht
 - [ ] [[themen/agb-muster]], [[gesetze/bgb-agb]]
 
@@ -120,15 +122,24 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 - [ ] Impressum nach § 5 DDG mit vollen Angaben — [[themen/impressum]]
 - [ ] DSE nach Art. 13 DSGVO mit allen Shop-spezifischen Drittanbietern — [[themen/datenschutzerklaerung]]
 
+### Allgemeine Produktsicherheitsverordnung (GPSR)
+
+- [ ] **GPSR Verordnung (EU) 2023/988** beachtet: **gilt ab 13.12.2024** (Art. 47; per Cellar CELEX:32023R0988 verifiziert); produktbezogene Informationspflichten beim Onlinehandel inkl. Fernabsatz (Art. 19: u.a. Name/Anschrift Hersteller, Name/Anschrift des EU-Verantwortlichen nach Art. 16, eindeutige Produktidentifikation, Warnhinweise in deutscher Sprache fuer DE-Markt) — Severity HIGH
+- [ ] Bezug im deutschen ProdSG § 3 Abs. 5 verifiziert (Verweis auf VO (EU) 2023/988)
+
+### Umweltaussagen / Nachhaltigkeitssiegel
+
+- [ ] **EmpCo-Richtlinie (EU) 2024/825** (Empowering Consumers for the Green Transition, CELEX:32024L0825, per Cellar verifiziert): Mitgliedstaaten erlassen bis 27.03.2026, Anwendung ab **27.09.2026**; deutsche Umsetzung durch Art. 6 Gesetz vom 22.10.2026 (BGBl. 2026 I Nr. 322), UWG-Uebergang ueber § 15b UWG Stichtag 27.09.2026 (siehe [[gesetze/uwg]]): Verbot irrefuehrender Umweltaussagen (§ 5 Abs. 2 Nr. 1, Abs. 3 Nr. 3/4 UWG), Beschraenkung der Nutzung von Nachhaltigkeitssiegeln ohne zertifiziertes System (Anhang Nrn. 2a, 4a-4c, 10a, 23d UWG), ergaenzte Informationspflichten § 5b Abs. 3a UWG — Severity HIGH
+
 ## Pass 5: KI-Spezifisch (AI Act-Stufung)
 
-Anwendbarkeit-Stufung: Verbotene Praktiken (Art. 5) seit **02.02.2025**, KI-Kompetenz (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**.
+Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI): Verbotene Praktiken (Art. 5) seit **02.02.2025** (neue NCII/CSAM-Verbote ab 02.12.2026), KI-Kompetenz (Art. 4) seit **02.02.2025** (seit 27.07.2026 Verhaltenspflicht), GPAI-Pflichten seit **02.08.2025**, **Art. 50 Transparenz seit 02.08.2026 anwendbar** (Altbestand-Markierung bis 02.12.2026, Art. 111 Abs. 4).
 
-- [ ] **KI-Kompetenz** Art. 4 AI Act: Schulungsnachweis fuer Mitarbeiter mit KI-Beruehrung
+- [ ] **KI-Kompetenz** Art. 4 KI-VO n. F. (seit 27.07.2026 i. d. F. VO (EU) 2026/1744): "Massnahmen ergreifen" zur Unterstuetzung der KI-Kompetenz; **keine Pflicht** zur **Garantie** eines bestimmten Niveaus (Art. 4 Abs. 1 Satz 2 n. F.) — Nachweis geeigneter Foerdermassnahmen fuer Mitarbeiter mit KI-Beruehrung dennoch dokumentieren
 - [ ] KI-Produktempfehlungs-Engine → Einwilligung + ggf. DSFA
 - [ ] KI-generierte Produktbeschreibungen → Kennzeichnung empfohlen (insb. bei Bewertungen!)
-- [ ] Chatbot mit GPT/Claude-Backend → Art. 50 Abs. 1 AI Act Transparenzpflicht ("Sie interagieren mit einer KI")
-- [ ] KI-generierte Produktbilder → Kennzeichnung Art. 50 Abs. 2 AI Act (Wasserzeichen ab 02.08.2026)
+- [ ] Chatbot mit GPT/Claude-Backend → Art. 50 Abs. 1 AI Act Transparenzpflicht seit 02.08.2026 ("Sie interagieren mit einer KI")
+- [ ] KI-generierte Produktbilder → Kennzeichnung Art. 50 Abs. 2 AI Act (maschinenlesbar seit 02.08.2026 Pflicht; Altbestand bis 02.12.2026)
 - [ ] **Fake Reviews**: §§ 5, 5a UWG sowie § 5b Abs. 3 UWG (Pflicht zur Echtheits-Verifikation) — bei KI-generierten Bewertungen klare Kennzeichnung
 - [ ] [[gesetze/ai-act]], [[themen/ki-content]], [[themen/ki-transparenz]]
 
@@ -274,3 +285,16 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 - [[urteile/bgh-cookie-einwilligung]]
 - [[urteile/bgh-inbox-werbung]]
 - [[anwaelte-tools/tools-generatoren]]
+
+---
+
+## Aenderungsvermerk (2026-11-14, Batch F stale-only)
+
+- Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
+- Pass 4 (Button-Loesung) um Kuendigungsbutton § 312k BGB fuer Abo-/Dauerschuldverhaeltnisse erweitert; Tier-1-belegt gegen gesetze-im-internet.de/bgb/__312k.html.
+- **Pass 4 (Widerrufsbelehrung) neu:** Elektronische Widerrufsfunktion nach § 356a BGB (Tier-1 gesetze-im-internet.de/bgb/__356a.html; RL (EU) 2023/2673 per Cellar CELEX:32023L2673 verifiziert — Umsetzung bis 19.12.2025, Anwendung ab 19.06.2026). Gilt NICHT nur fuer Finanzdienstleistungen, sondern fuer alle Fernabsatzvertraege ueber Online-Benutzeroberflaeche.
+- Pass 4 (AGB/ODR): Marker am 2026-11-14 aufgeloest. Primaerbeleg VO (EU) 2024/3228 vom 19.12.2024, Art. 1 (CELEX 32024R3228, Cellar-Volltext): Aufhebung VO (EU) 524/2013 mit Wirkung 20.07.2025, Einstellung der OS-Plattform.
+- Pass 4 (GPSR): Marker aufgeloest. Primaerquelle Cellar CELEX:32023R0988, Art. 47 "Sie gilt ab dem 13. Dezember 2024". Produktbezogene Fernabsatz-Informationspflichten in Art. 19.
+- Pass 4 (EmpCo): Marker aufgeloest. Primaerquelle Cellar CELEX:32024L0825 (Mitgliedstaaten erlassen bis 27.03.2026, Anwendung ab 27.09.2026). Deutsche UWG-Umsetzung Tier-1-belegt via knowledge/gesetze/uwg.md (Gesetz vom 22.10.2026, BGBl. 2026 I Nr. 322, § 15b UWG).
+- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate bestaetigt — § 3/§ 4/§ 6/§ 11 PAngV, § 312g/§ 312j Abs. 2+3/§ 312k BGB, §§ 305-309 BGB, Art. 246a EGBGB, § 36 VSBG, Art. 26 DSGVO, § 5/§ 5a Abs. 4/§ 5b Abs. 3/§ 6/§ 7 Abs. 2 Nr. 2/§ 19 UWG, § 1/§ 14/§ 37 BFSG, § 257 HGB, § 147 AO, § 51 UrhG, § 59 UrhG. BGH I ZR 159/24 (09.10.2025), I ZR 183/22 (10.10.2024), I ZR 163/19 — konsistent zu KB.
+- Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.

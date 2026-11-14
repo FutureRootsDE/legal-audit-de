@@ -1,12 +1,12 @@
 ---
-aktualisiert: 2026-07-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/bfsg/
 quellen-sekundaer:
   - https://www.bundesfachstelle-barrierefreiheit.de/DE/Fachwissen/Produkte-und-Dienstleistungen/Barrierefreiheitsstaerkungsgesetz/FAQ/faq_node.html
   - https://www.w3.org/TR/WCAG22/
   - https://www.etsi.org/deliver/etsi_en/301500_301599/301549/
   - https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html
-verifiziert-am: 2026-07-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-07-08
+> **Stand:** 2026-11-14
 
 # Barrierefreiheit — BFSG-Scope, WCAG 2.1/2.2 AA & Pflicht-Elemente
 
@@ -25,7 +25,7 @@ geltungsbereich: [DE, EU]
 
 Das **BFSG** (gilt seit 28.06.2025) verpflichtet Anbieter bestimmter B2C-Produkte und -Dienstleistungen zur Barrierefreiheit. Technische Referenz sind die **harmonisierten Normen**, insbesondere **EN 301 549** (die ihrerseits auf **WCAG 2.1 Level AA** verweist; **WCAG 2.2** ist die aktuellere W3C-Empfehlung).
 
-**Stand 2026-07-08**: Abmahnwellen durch spezialisierte Kanzleien seit Sommer 2025 aktenkundig (CLAIM Rechtsanwalts GmbH u.a.); Marktueberwachungsbehoerden der Laender fuehren seit Januar 2026 aktiv Kontrollen durch. Bussgelder bis **100.000 EUR** pro Verstoss. Zur UWG-Abmahnfaehigkeit siehe [[../gesetze/bfsg]].
+**Stand 2026-11-14**: Abmahnwellen durch spezialisierte Kanzleien seit Sommer 2025 aktenkundig (CLAIM Rechtsanwalts GmbH u.a.); Marktueberwachungsbehoerden der Laender fuehren seit Januar 2026 aktiv Kontrollen durch. Bussgelder bis **100.000 EUR** pro Verstoss. Zur UWG-Abmahnfaehigkeit siehe [[../gesetze/bfsg]].
 
 ## BFSG-Scope — wer ist betroffen?
 
@@ -214,7 +214,7 @@ Oft schwere Verstoesse:
 
 ## Zitierbare Urteile
 
-**Stand 2026-07-08: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Erste Abmahnwellen seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH) sind aktenkundig, aber ueberwiegend als abwehrfaehig eingeschaetzt. `<<VERIFIKATION AUSSTEHEND>>` — erste OLG/BGH-Endurteile zu § 3a UWG i.V.m. BFSG sind fuer 2026/2027 zu erwarten; naechste Pruefung: 2026-10.
+**Stand 2026-11-14: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Erste Abmahnwellen seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH) sind aktenkundig, aber ueberwiegend als abwehrfaehig eingeschaetzt. Erste OLG/BGH-Endurteile zu § 3a UWG i.V.m. BFSG sind fuer 2027 zu erwarten; naechste Pruefung: 2027-02. <<VERIFIKATION AUSSTEHEND>>
 
 Relevant aus Nachbargebieten:
 - **LSG Nordrhein-Westfalen, Urt. v. 29.10.2019 — L 13 SB 55/19** (zu Barrierefreiheit im weiteren Sinne)
@@ -226,3 +226,11 @@ US-Parallele: **Robles v. Dominos Pizza** (9th Cir. 2019) — ADA Title III fuer
 - [[../gesetze/bfsg]]
 - [[../gesetze/dsa]] — Art. 14 DSA verlangt ebenfalls "verstaendliche" AGB
 - [[ki-transparenz]] — Art. 50 Abs. 5 AI Act verlangt zugaengliche Kennzeichnung
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
+- Platzhalter zur BFSG-Rechtsprechung (§ 3a UWG i.V.m. BFSG) bleibt bestehen:
+  gezielte Suche nach ersten OLG/BGH-Endurteilen ergab bis 2026-11-14 keinen
+  belastbaren Tier-1-Treffer; Marker normalisiert, naechste Pruefung
+  2027-02.

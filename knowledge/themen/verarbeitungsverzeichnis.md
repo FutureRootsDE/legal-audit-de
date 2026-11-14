@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
   - https://www.bfdi.bund.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-11-14
 
 # Verzeichnis von Verarbeitungstätigkeiten (VVT) — Art. 30 DSGVO
 
@@ -134,9 +134,7 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
   ein Schufa-Schadensersatz-Fall, nicht VVT-spezifisch._
 - **Bayerisches LDA-Taetigkeitsbericht 2022** — Schwerpunkt Dokumentationsmaengel,
   einschliesslich VVT-Pflichten
-- **OVG Lueneburg 11 LA 104/22, 19.03.2024** — VVT-Einsicht durch Aufsichtsbehoerde
-  rechtmaessig `<<VERIFIKATION AUSSTEHEND — Aktenzeichen via WebSearch nicht direkt
-  trefferbar; Kernaussage entspricht der Aufsichtsbehoerden-Linie nach Art. 30 Abs. 4 DSGVO>>`
+- **OVG Lueneburg 11 LA 104/22, 19.03.2024** — VVT-Einsicht durch Aufsichtsbehoerde rechtmaessig <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -144,3 +142,16 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
 - [[themen/avv-muster]]
 - [[themen/tom]]
 - [[themen/dsfa]]
+
+## Aenderungsvermerk 2026-11-14
+
+- Marker-Variante am OVG-Lueneburg-Eintrag auf die vereinheitlichte Form
+  `<<VERIFIKATION AUSSTEHEND>>` gebracht.
+- Digital-Omnibus-Hinweis: Die Kommission hat am 19.11.2025 einen Vorschlag
+  zur Lockerung der VVT-Pflicht (Art. 30 DSGVO) fuer KMU vorgelegt. Status
+  2026-11-14: **nur Kommissionsvorschlag**, noch nicht verkuendet. Bis zur
+  Verkuendung bleibt Art. 30 Abs. 5 DSGVO mit der bestehenden
+  250-Mitarbeiter-Schwelle und den kumulativen Zusatzkriterien verbindlich.
+- EuGH C-21/23 (Lindenapotheke, 04.10.2024) in [[datenschutzerklaerung]]
+  ergaenzt; relevant auch fuer VVT-Mangel-Abmahnungen.
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.

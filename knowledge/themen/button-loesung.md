@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/__312j.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__312k.html
+  - https://www.gesetze-im-internet.de/bgb/__356a.html
   - https://www.bmj.de/DE/themen/verbraucherrecht/faire_vertraege/
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=09.10.2025&Aktenzeichen=I+ZR+159/24
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Button-Loesung — § 312j Abs. 3/4 BGB
 
@@ -60,8 +61,7 @@ einer entsprechenden eindeutigen Formulierung beschriftet ist."
 
 - "zahlungspflichtig bestellen" (gesetzeswortlaut)
 - "kostenpflichtig bestellen"
-- "kaufen" (Gesamtkontext unmissverstaendlich; pruefen — Aktenzeichen-
-  Verifikation ausstehend)
+- "kaufen" (Gesamtkontext unmissverstaendlich; Praxis-Verwendung umstritten) <<VERIFIKATION AUSSTEHEND>>
 - "zahlungspflichtigen Vertrag schliessen"
 - "Jetzt kaufen" (Tendenz: OK)
 - "Kostenpflichtig bestellen"
@@ -73,7 +73,7 @@ einer entsprechenden eindeutigen Formulierung beschriftet ist."
 - "Weiter zur Bezahlung"
 - "Bestellung abschicken"
 - "Bestellung abgeben" (umstritten, Tendenz: unzulaessig)
-- "Jetzt anmelden" (BGH VIII ZR 63/15)
+- "Jetzt anmelden" (BGH VIII ZR 63/15 <<VERIFIKATION AUSSTEHEND>>)
 - "Bestellen" (alleine)
 - "Buchen"
 - "Auftrag erteilen"
@@ -93,6 +93,27 @@ Bestaetigungsseite mit allen Pflichtangaben; nach Klick wird die Kuendigung
 sofort bestaetigt (Textform).
 
 Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
+
+### § 356a BGB — Widerrufs-Button (seit 19.06.2026, NEU)
+
+Durch das deutsche Umsetzungsgesetz zur Richtlinie (EU) 2023/2673 (BGBl. 2026 I
+Nr. 28, verkuendet Februar 2026) wurde der **neue § 356a BGB** eingefuehrt;
+Anwendung seit **19.06.2026**. Fuer Fernabsatzvertraege, die ueber eine
+**Online-Benutzeroberflaeche** geschlossen werden, muss der Unternehmer eine
+**elektronische Widerrufsfunktion** bereitstellen:
+
+- Schaltflaeche beschriftet "Vertrag widerrufen" (oder gleichwertig), gut
+  lesbar, waehrend der gesamten Widerrufsfrist staendig verfuegbar.
+- Eingabemoeglichkeit fuer Name, Vertragsidentifikation und elektronisches
+  Kommunikationsmittel fuer die Eingangsbestaetigung.
+- Bestaetigungs-Schaltflaeche "Widerruf bestaetigen" (oder gleichwertig).
+- Unternehmer sendet unverzueglich elektronische Eingangsbestaetigung auf
+  dauerhaftem Datentraeger (Inhalt, Datum, Uhrzeit).
+
+Der bisherige § 356a BGB (Besondere Fristregelungen fuer Teilzeit-
+Wohnrechtsvertraege etc.) wurde verschoben; der Darlehens-Paragraph § 356b
+bleibt inhaltsgleich. (Quelle: gesetze-im-internet.de/bgb/__356a.html,
+Abruf 2026-11-14.)
 
 ## Typische Fallstricke in Codebases
 
@@ -149,16 +170,13 @@ Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
 - **EuGH C-249/21** (07.04.2022, "Fuhrmann-2"): Der Button-Text muss "aus
   sich heraus" die Zahlungsverpflichtung erkennbar machen; Gesamtumstaende
   reichen nicht.
-- **BGH VIII ZR 63/15** `<<VERIFIKATION AUSSTEHEND — Datum laut KB war
-  19.07.2017, in Tier-1-Suche nicht eindeutig auffindbar; Urteil zu "Jetzt
-  anmelden" beim naechsten Update gegen rechtsprechung-im-internet.de
-  abgleichen>>`.
-- **BGH VIII ZR 99/19** `<<VERIFIKATION AUSSTEHEND — Aktenzeichen / Datum /
-  Tenor zu "Buchen" pruefen>>`.
+- **BGH VIII ZR 63/15** — Zuordnung zu "Jetzt anmelden"-Button laesst sich
+  gegen Tier-1-Quellen nicht bestaetigen. <<VERIFIKATION AUSSTEHEND>>
+- **BGH VIII ZR 99/19** — Zuordnung zu Button-Beschriftung "Buchen" laesst
+  sich gegen Tier-1-Quellen nicht bestaetigen. <<VERIFIKATION AUSSTEHEND>>
 - **OLG Koeln 6 U 102/12** (10.05.2013): Fruehe Praezisierung zu
   Button-Labels.
-- **LG Berlin 52 O 157/20** zu § 312k (Kuendigungs-Button)
-  `<<VERIFIKATION AUSSTEHEND — Aktenzeichen/Datum pruefen>>`.
+- **LG Berlin 52 O 157/20** zu § 312k (Kuendigungs-Button) <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -166,3 +184,15 @@ Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
 - [[themen/widerrufsbelehrung]]
 - [[themen/agb-muster]]
 - [[themen/preisangaben]]
+- [[themen/widerrufsbelehrung]] — § 356a BGB Widerrufs-Button
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter `aktualisiert` + `verifiziert-am` + Disclaimer-Stand auf
+  2026-11-14 gesetzt.
+- Neuer Abschnitt "§ 356a BGB Widerrufs-Button" ergaenzt (Umsetzung
+  Richtlinie (EU) 2023/2673, Anwendung seit 19.06.2026; verifiziert via
+  gesetze-im-internet.de/bgb/__356a.html).
+- Drei Marker-Varianten (`<<VERIFIKATION AUSSTEHEND — ...>>`) auf das
+  einzeilige Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert.
+- Hinweis "kaufen"-Beschriftung umformuliert.

@@ -1,8 +1,8 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quellen-sekundaer:
   - https://haerting.de/
-  - https://srd.law/
+  - https://www.srd-rechtsanwaelte.de/
   - https://drschwenke.de/
   - https://cms.law/de/deu/
   - https://www.osborneclarke.com/de
@@ -11,7 +11,7 @@ quellen-sekundaer:
   - https://www.heuking.de/
   - https://bartsch.law/
   - https://www.menoldbezler.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -23,7 +23,7 @@ geltungsbereich: [DE]
 > anker fuer eigene Recherche. Konkrete Mandate schliesst der Nutzer selbst.
 > Budget-Ranges sind Marktindikationen; individuelle Angebote koennen variieren.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Kanzleien fuer SaaS / Digital / Tech / Datenschutz
 
@@ -35,7 +35,7 @@ Fuer digitale Geschaeftsmodelle gibt es drei Kanzlei-Typen:
 3. **Grosskanzleien** (CMS, Noerr, Osborne Clarke) — fuer Scale-Ups, M&A, Investoren-Deals
 
 Alle unten genannten Daten stammen von oeffentlich erreichbaren Kanzlei-
-Websites. Verifiziert am 2026-05-08.
+Websites. Verifiziert am 2026-11-14.
 
 ## Boutique-Kanzleien mit IT-/Datenschutz-Fokus
 
@@ -56,7 +56,7 @@ Websites. Verifiziert am 2026-05-08.
 | Feld | Wert |
 |------|------|
 | Voller Name | Schuermann Rosenthal Dreyer Rechtsanwaelte |
-| URL | https://srd.law/ |
+| URL | https://www.srd-rechtsanwaelte.de/ (die frueher gelistete Kurz-URL `srd.law` war am 2026-11-14 nicht mehr erreichbar, ECONNREFUSED) |
 | Standorte | Berlin (Am Hamburger Bahnhof 4, 10557), Muenchen (Elsenheimerstr. 59, 80687), Duesseldorf (Uerdinger Str. 62, 40474), Koeln (Breite Str. 100, 50667) |
 | Spezialisierung | AI / KI-Recht, IT-Recht, Datenschutz, Datenrecht, Informationssicherheit, Gewerblicher Rechtsschutz, Urheber-/Medienrecht, Litigation |
 | Eigen-Bezeichnung | "Boutique law firm for digital projects" |
@@ -91,11 +91,6 @@ Websites. Verifiziert am 2026-05-08.
 | Besonders relevant fuer | Online-Shops, Haendler auf Marktplaetzen (Amazon, eBay, Shopify) |
 
 ## Mittlere Wirtschaftskanzleien
-
-### Eckert Rechtsanwaelte (Muenchen) — URL nicht mehr aufloesbar
-
-- **HINWEIS (Stand 2026-05-08):** Die zuvor gelistete URL `eckert-rechtsanwaelte.de` leitet inzwischen auf `knolle.de` (KNOLLE SOCIETAeT, Offenbach) um. Eine eigenstaendige Kanzlei "Eckert Rechtsanwaelte Muenchen" mit dem urspruenglich kommunizierten Profil ist auf dieser Domain nicht mehr verfuegbar.
-- Empfehlung: Eintrag bei naechstem Update entfernen oder durch verifizierte alternative Kanzlei ersetzen. Wer Dr. Eckert sucht: ist als Rechtsanwalt im Team der KNOLLE SOCIETAeT (Offenbach) mit Schwerpunkten Gesellschafts-/Handels-/Erbrecht — **nicht** der ursprueglich gelistete E-Commerce/KI-Schwerpunkt.
 
 ### Heuking (Heuking Kuehn Lueer Wojtek)
 
@@ -133,8 +128,8 @@ Websites. Verifiziert am 2026-05-08.
 ### Dr. Ronald Kandelhard
 
 - Spezialisierung laut oeffentlichem Profil: AGB, E-Commerce
-- URL / aktuelle Kanzlei: konnte am 2026-05-08 nicht eindeutig auf einer offiziellen Kanzlei-Seite verifiziert werden.
-- **Empfehlung:** Eintrag bei naechstem Update entweder verifizieren oder loeschen.
+- URL / aktuelle Kanzlei: konnte am 2026-11-14 weiterhin nicht eindeutig auf einer offiziellen Kanzlei-Seite verifiziert werden (Websearch ohne belastbaren Treffer).
+- <<VERIFIKATION AUSSTEHEND>>
 
 ## Grosskanzleien mit Tech-Praxis
 
@@ -200,24 +195,23 @@ Die Phase-10-Planung des ksk-automation-Projekts (C:\Users\Philip\SaaS_Project\p
 Dieser Ansatz ("Vor-Arbeit maximal automatisieren, finale Freigabe juristisch")
 minimiert die Kosten und ist fuer Solo-Gruender / kleine Teams empfehlenswert.
 
-## Verifizierte URLs (Stand 2026-05-08)
+## Verifizierte URLs (Stand 2026-11-14)
 
-Die folgenden URLs wurden am 2026-05-08 via WebFetch geprueft und liefern
+Die folgenden URLs wurden am 2026-11-14 via WebFetch geprueft und liefern
 erwartete Inhalte:
 
 | Kanzlei | URL | Status |
 |---------|-----|--------|
-| Haerting | https://haerting.de/ | OK, funktional |
-| SRD | https://srd.law/ | OK, alle 4 Standorte bestaetigt |
-| Dr. Schwenke | https://drschwenke.de/ | OK (Berlin verifiziert via datenschutz-generator.de) |
-| CMS DE | https://cms.law/de/deu/ | OK |
-| Osborne Clarke DE | https://www.osborneclarke.com/de | OK |
-| Noerr | https://www.noerr.com/de | OK, Standorte verifiziert (Berlin, Dresden, Duesseldorf, Frankfurt, Hamburg, Muenchen) |
-| IT-Recht Kanzlei | https://www.it-recht-kanzlei.de/ | OK, Pricing-Tiers (5.90/9.90/24.90/54.90 EUR) verifiziert 2026-05-08 |
-| Heuking | https://www.heuking.de/ | OK, 8 dt. Standorte + KI-Praxis verifiziert |
-| Bartsch | https://bartsch.law/ (Redirect von www.bartsch-rechtsanwaelte.de) | OK, 4 Standorte verifiziert; **Dr. Ulbricht ist NICHT bei Bartsch — siehe Korrektur oben** |
-| Menold Bezler / Dr. Ulbricht | https://www.menoldbezler.de/ansprechpartner/carsten-ulbricht | OK, Dr. Ulbricht (Stuttgart) verifiziert |
-| Eckert Rechtsanwaelte (Muenchen) | eckert-rechtsanwaelte.de | **NICHT MEHR VERFUEGBAR** — Redirect auf knolle.de (KNOLLE SOCIETAeT, Offenbach), abweichendes Profil |
+| Haerting | https://haerting.de/ | OK, Chausseestr. 13, 10115 Berlin bestaetigt |
+| SRD | https://www.srd-rechtsanwaelte.de/ | OK, 4 Standorte (Berlin, Duesseldorf, Muenchen, Koeln) bestaetigt; die frueher gelistete Kurz-URL `srd.law` war 2026-11-14 ECONNREFUSED |
+| Dr. Schwenke | https://drschwenke.de/ | OK |
+| CMS DE | https://cms.law/de/deu/ | OK, 8 dt. Standorte bestaetigt |
+| Osborne Clarke DE | https://www.osborneclarke.com/de | OK, Partner Gabrysch/Abendroth/Wittmann mit Durchwahl bestaetigt |
+| Noerr | https://www.noerr.com/de | OK |
+| IT-Recht Kanzlei | https://www.it-recht-kanzlei.de/ | OK, Pricing-Tiers (5,90 / 9,90 / 24,90 / 54,90 EUR/Monat) 2026-11-14 bestaetigt |
+| Heuking | https://www.heuking.de/ | OK, 8 dt. Standorte + KI-/Datenschutz-Praxis bestaetigt |
+| Bartsch | https://bartsch.law/ | OK, Karlsruhe/Frankfurt/Muenchen/Pforzheim (+ Bruchsal) bestaetigt |
+| Menold Bezler / Dr. Ulbricht | https://www.menoldbezler.de/ansprechpartner/carsten-ulbricht | OK, Stuttgart (Vorwahl 0711) bestaetigt |
 
 ## Siehe auch
 
@@ -226,3 +220,12 @@ erwartete Inhalte:
 - [[anwaelte-tools/tools-generatoren]] — erRecht24, IT-Recht Kanzlei-Tools
 - [[checklisten/audit-saas]]
 - [[checklisten/general-pre-launch]]
+
+## Aenderungsvermerk
+
+- **2026-11-14** (Batch E2, Live-Pruefung): Vollstaendiger URL-Abgleich aller gelisteten Kanzleien. Aenderungen:
+  - SRD-URL korrigiert: `srd.law` war 2026-11-14 ECONNREFUSED; die bestaende offizielle Domain ist `srd-rechtsanwaelte.de` (Firmierung im Impressum: SCHUeRMANN, ROSENTHAL, DREYER Partnerschaft von Rechtsanwaelten mbB; Standorte Berlin/Duesseldorf/Muenchen/Koeln unveraendert). Frontmatter-URL entsprechend angepasst.
+  - Eckert Rechtsanwaelte (Muenchen) entfernt: Domain `eckert-rechtsanwaelte.de` leitet dauerhaft auf `knolle.de` um; eigenstaendige Kanzlei mit dem frueheren E-Commerce-/KI-Profil existiert nicht mehr. Hinweis bereits seit 2026-05-08 im File als Entfernungs-Kandidat markiert.
+  - Haerting, Dr. Schwenke, IT-Recht Kanzlei (Pricing bestaetigt), Heuking, Bartsch, Menold Bezler/Dr. Ulbricht, CMS, Osborne Clarke, Noerr: Live-Abruf OK, Firmierung und Standorte decken Eintrag.
+  - Dr. Ronald Kandelhard: weiter nicht belegbar, Eintrag mit `<<VERIFIKATION AUSSTEHEND>>`-Marker belassen.
+  - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.

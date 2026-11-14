@@ -8,6 +8,26 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
+### KB-Update 2026-11-14 (stale-only)
+
+Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-Batches waren an den Vortagen bereits aktualisiert worden; dieser Abschlusslauf stellt KB-Konsistenz, Marker-Normierung und drei gezielte Rechts-Updates sicher.
+
+### KB — Changed
+
+- **knowledge/gesetze/ai-act.md** (bereits im Batch D aktualisiert): Grundfassung VO (EU) 2024/1689 i. d. F. **VO (EU) 2026/1744** "Digital Omnibus on AI" seit 27.07.2026. Art. 4 KI-Kompetenz als Verhaltenspflicht ohne Garantie-Erfolg (Art. 4 Abs. 1 Satz 2 n. F.); neue Verbote Art. 5 Abs. 1 Buchst. ba/bb (NCII, CSAM) ab 02.12.2026; Art. 50 Transparenz anwendbar seit 02.08.2026, Altbestand bis 02.12.2026 (Art. 111 Abs. 4); Hochrisiko Anhang III verschoben auf 02.12.2027, Anhang I auf 02.08.2028; neue Durchsetzungsbefugnisse des Bueros fuer Kuenstliche Intelligenz nach Art. 75a bis 75d gegenueber den **Akteuren nach Art. 75 Abs. 1** (nicht pauschal alle GPAI-Anbieter).
+- **knowledge/checklisten/** (alle sechs Dateien): KI-Kompetenz-Pruefpunkt an Art. 4 KI-VO n. F. angeglichen ("Massnahmen ergreifen", keine Garantie-Pflicht). `audit-n8n.md` Pass 5 (GPAI-Provider) um Klarstellung ergaenzt, dass die Art. 75a bis 75d-Durchsetzung nur Akteure nach Art. 75 Abs. 1 trifft, nicht pauschal alle GPAI-Anbieter.
+- **ODR-Plattform-Marker aufgeloest**: `knowledge/checklisten/general-pre-launch.md`, `knowledge/checklisten/audit-ecommerce.md`, `knowledge/themen/impressum.md` und `knowledge/anwaelte-tools/tools-aufsichtsbehoerden.md` ziehen jetzt einheitlich **VO (EU) 2024/3228 vom 19.12.2024, Art. 1** (CELEX 32024R3228; Cellar-Volltext am 2026-11-14 verifiziert) als Primaerbeleg fuer die Einstellung der EU-OS-Plattform am 20.07.2025 und die Aufhebung der VO (EU) 524/2013.
+- **Aktenzeichen-Konsistenz** (Teil B): strittige Zitate einheitlich markiert bzw. Markup-Fehler repariert — OLG Muenchen 29 U 3698/20 (ergaenzt in `gesetze/ddg.md`), BGH VIII ZR 63/15 (ergaenzt in `themen/button-loesung.md`), BGH I ZR 173/16 und I ZR 143/19 (ergaenzt in `gesetze/pangv.md`), BGH I ZR 85/21 Marker-Markup repariert (`themen/preisangaben.md`), Marker-Markup repariert in `themen/impressum.md`. Live-Primaercheck zu BGH VIII ZR 63/15 und BGH I ZR 173/16 ergab keine Treffer, Marker bleiben.
+
+### KB — Removed
+
+- Keine Eintraege aus `anwaelte-tools/` entfernt; die seit Batch E aktualisierten Markt-Indikationen und Scanner-Status-Marker sind unberuehrt uebernommen.
+
+### KB — Housekeeping
+
+- `knowledge/INDEX.md` — Stand-Zeile auf 2026-11-14, Platzhalter-Angabe von "18" auf **57 Marker in 31 Dateien** (davon rund die Haelfte Selbst-Referenzen in Aenderungsvermerken) aktualisiert; Kurzbeschreibungen fuer `ai-act`, `uwg`, `pangv`, `widerrufsbelehrung`, `button-loesung` um die neuen Schwerpunkte ergaenzt.
+- `.claude/logs/kb-update-2026-11-14-abschluss.log` dokumentiert ODR-Verifikation, Marker-Konsistenz und Stichprobe (1/10 primaer verifiziert — BGH I ZR 159/24 vom 09.10.2025).
+
 ### Hintergrund Doku-Site
 
 Eigenstaendige Documentation-Site unter `docs/` fuer GitHub Pages, statt READMEs als alleinige Quelle. Mehrseitige Navigation (Startseite, Setup, Commands, KB-Uebersicht, MCP-Integration) mit just-the-docs als Remote-Theme. Voraussetzung: GitHub Pages muss im Repo unter Settings → Pages → Source = `main` Branch, Folder = `/docs` aktiviert werden. Diese Aktivierung kann nur durch einen Repo-Maintainer mit Admin-Rechten erfolgen.

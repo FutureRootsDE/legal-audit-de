@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.datenschutzkonferenz-online.de/
 quellen-sekundaer:
   - https://www.bfdi.bund.de/
@@ -7,7 +7,7 @@ quellen-sekundaer:
   - https://www.lda.bayern.de/
   - https://www.ldi.nrw.de/
   - https://www.datenschutz-berlin.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -18,7 +18,7 @@ geltungsbereich: [DE]
 > Rechtsberatung** im Sinne des § 2 RDG. Eine Pruefung durch einen zugelassenen
 > Rechtsanwalt oder direkt bei der Behoerde ist vor jeder Meldung zwingend.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Landesbeauftragte fuer Datenschutz — Kontakte
 
@@ -46,7 +46,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | E-Mail | poststelle@bfdi.bund.de |
 | Website | https://www.bfdi.bund.de/ |
 | Online-Formulare | https://formulare.bfdi.bund.de/ |
-| Leitung | Prof. Dr. Louisa Specht-Riemenschneider (Ruecktritt am 17.03.2026 angekuendigt; bleibt bis Nachfolge im Amt — Stand 2026-05-08: Nachfolge nicht oeffentlich gewaehlt, Quelle: BfDI-Pressemitteilung 17.03.2026) |
+| Leitung | **Prof. Dr. Moritz Hennemann**, Amtsantritt **01.10.2026** (Antrittspressekonferenz am 06.10.2026). Wahl durch den Bundestag am 25.06.2026 (391 Ja, 122 Nein, 77 Enthaltungen). Vorgaengerin: Prof. Dr. Louisa Specht-Riemenschneider (bis 30.09.2026, Ruecktrittsankuendigung Maerz 2026). Quellen: bundestag.de KW26/2026-Textarchiv, bfdi.bund.de (Amtsleitungsseite). |
 | Zustaendigkeit | Bundesbehoerden, Telekommunikation, Post, Bundesnachrichtendienste, Sozialversicherungstraeger bundesweit |
 | Meldung Datenpanne | Online-Formular "Meldung Datenschutzverstoss durch Verantwortliche" unter formulare.bfdi.bund.de |
 
@@ -87,7 +87,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | E-Mail Presse | presse@lda.bayern.de |
 | Meldung Datenpanne | https://www.lda.bayern.de/de/datenpanne.html (Online-Meldeformular) |
 | Online-Services | Beschwerden, Beratungsanfragen, Datenschutzverletzungsmeldungen — Vorrang vor Postweg |
-| Leitung | Michael Will (Praesident; ernannt zum 01.02.2025 fuer 5 Jahre, Quelle: lda.bayern.de/de/praesident.html) |
+| Leitung | Michael Will (Praesident; erstmals ernannt zum 01.02.2020, Wiederernennung zum 01.02.2025 fuer weitere 5 Jahre. Quelle: lda.bayern.de/de/praesident.html) |
 
 ### Bayern — BayLfD (oeffentlich)
 
@@ -202,7 +202,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Telefon | +49 681 94781-0 |
 | Fax | +49 681 94781-29 |
 | E-Mail | poststelle@datenschutz.saarland.de |
-| Leitung | <<aktuell laut Website /die-landesbeauftragte/>> |
+| Leitung | Monika Grethel (Landesbeauftragte seit 01.04.2016; Quelle: datenschutz.saarland.de/ueber-uns/die-landesbeauftragte) |
 
 ### Sachsen — SDTB
 
@@ -235,7 +235,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Adresse | Holstenstrasse 98, 24103 Kiel |
 | Telefon | +49 431 988-1200 |
 | E-Mail | mail@datenschutzzentrum.de |
-| Leitung | Dr. h.c. Marit Hansen (zweite Amtszeit seit 18.06.2020) |
+| Leitung | Dr. h.c. Marit Hansen (zweite Amtszeit seit 18.06.2020, Stand 2026-11-14 noch im Amt). Nachfolger: Jens Ambrock vom Landtag Schleswig-Holstein einstimmig gewaehlt (Bekanntgabe 07.10.2026 laut dpa/t-online); Amtsantritt mit Ernennung durch Ministerpraesident Daniel Guenther laut Staatskanzlei Ende Januar 2027 vorgesehen. Hansen durfte nach zwei Amtszeiten nicht erneut antreten. <<VERIFIKATION AUSSTEHEND>> (offizielle ULD-/Landtags-Primaerquelle zum Wahldatum von Ambrock im Abruf nicht erreicht; t-online/dpa ist Sekundaerquelle). |
 
 ### Thueringen — TLfDI
 
@@ -337,6 +337,31 @@ Die 18 Behoerden (16 Laender + BfDI + evtl. Kirche als Gast) koordinieren sich i
 - [[themen/meldepflicht-datenpanne]] — Ablauf, Fristen, Muster-Meldung
 - [[gesetze/dsgvo]] — Art. 33, 34, 55, 56
 - [[gesetze/bdsg]] — nationale Ergaenzungen
-- [[behoerden/dsk-beschluesse]] — DSK Kurzpapiere (Nr. 19 Datenpannen)
+- [[behoerden/dsk-beschluesse]] — DSK Kurzpapiere (Datenpannen: Art. 33/34 i.V.m. Kurzpapier 18)
 - [[behoerden/bfdi-leitfaeden]] — BfDI-spezifische Hinweise
 - [[anwaelte-tools/tools-aufsichtsbehoerden]] — Meldewege-Details, Portal-Links
+
+## Aenderungsvermerk
+
+- 2026-11-14: BfDI-Leitungsabsatz vollstaendig aktualisiert: Moritz Hennemann
+  ist Amtsinhaber seit 01.10.2026 (bestaetigt ueber bfdi.bund.de;
+  Antrittspressekonferenz 06.10.2026); Marker zur formalen Amtsuebernahme
+  entfernt. Saarland-UDS: Leitung auf Monika Grethel (seit 01.04.2016) gesetzt
+  (bestaetigt ueber datenschutz.saarland.de/ueber-uns/die-landesbeauftragte);
+  Marker entfernt. Bayern BayLDA: Angabe zur Amtszeit praezisiert (Erstbestellung
+  Michael Will zum 01.02.2020, Wiederernennung 01.02.2025). Schleswig-Holstein
+  ULD: Hinweis auf gewaehlten Nachfolger Jens Ambrock (Bekanntgabe 07.10.2026,
+  Amtsantritt vorgesehen Ende Januar 2027) ergaenzt; neuer Marker gesetzt, da
+  Primaerquelle (Landtag/ULD) im Abruf fehlt. Uebrige Laender-Leitungen gegen
+  die Behoerden-Websites gegengeprueft: BW (Keber + neue Adresse Heilbronner
+  Str. 35, Stuttgart), Bayern BayLfD (Petri), Berlin (Kamp, 15.11.2022),
+  Brandenburg (Hartge), Bremen (Utermark + Impressum-Adresse Georgstr. 122-124,
+  Bremerhaven), Hamburg (Fuchs), Hessen (Rossnagel, 01.03.2021),
+  MV (Schmidt), Niedersachsen (Lehmkemper), NRW (Gayk), RLP (Kugelmann,
+  bestaetigt durch 10-Jahres-Jubilaeum Okt. 2025), Sachsen (Hundert,
+  belegt ueber Taetigkeitsbericht), Sachsen-Anhalt (Rost, 01.08.2024),
+  Thueringen (Melzer, 01.03.2024) — unveraendert korrekt. Hinweis zum
+  DSK-Kurzpapier in „Siehe auch" unveraendert.
+- 2026-11-14 (Vorlauf): Hinweis in „Siehe auch" zur Datenpannen-Fundstelle in
+  DSK-Kurzpapieren korrigiert (zuvor „Nr. 19"; die 2026-05-08-Korrektur in
+  dsk-beschluesse.md stellte klar: Datenpannen regelt nicht Kurzpapier 19).

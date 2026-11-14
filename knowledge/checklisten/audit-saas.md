@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-07-08
+aktualisiert: 2026-11-14
 gilt-fuer: SaaS-Anwendungen (Next.js/React, Node/Python-Backend, PostgreSQL, Cloud-Hosting)
-verifiziert-am: 2026-07-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,7 +11,7 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Eine Pruefung durch einen
 > zugelassenen Rechtsanwalt ist zwingend, bevor ein SaaS-Produkt live geht.
 >
-> **Stand:** 2026-07-08
+> **Stand:** 2026-11-14
 
 # Audit-Checkliste: SaaS-Anwendung (Next.js/React)
 
@@ -27,8 +27,8 @@ mindestens **halbjaehrlich**. Sie ist generisch — fuer ein konkretes ausgearbe
 - [ ] Multi-Tenant oder Single-Tenant? (Multi-Tenant = striktere Isolierung)
 - [ ] B2C, B2B oder Mixed? (BFSG seit 28.06.2025 anwendbar — bei B2C zwingend pruefen)
 - [ ] Welche Drittlaender? (USA/UK/CH/IN — je mehr, desto komplexer)
-- [ ] KI-Komponenten? (AI Act Risk-Class — Limited Risk i.d.R. = Transparenzpflicht; verbotene Praktiken seit 02.02.2025; GPAI-Pflichten seit 02.08.2025; Vollanwendung ab 02.08.2026)
-- [ ] **KI-Kompetenz** Art. 4 AI Act seit 02.02.2025: Mitarbeiter, die KI einsetzen oder betreiben, muessen geschult sein
+- [ ] KI-Komponenten? (AI Act Risk-Class — Limited Risk i.d.R. = Transparenzpflicht; verbotene Praktiken seit 02.02.2025; GPAI-Pflichten seit 02.08.2025; Art. 50 Transparenz seit 02.08.2026; Hochrisiko Anhang III seit Digital Omnibus VO (EU) 2026/1744 verschoben auf 02.12.2027)
+- [ ] **KI-Kompetenz** Art. 4 KI-VO gilt seit 02.02.2025; seit 27.07.2026 in der Fassung der VO (EU) 2026/1744: Anbieter und Betreiber ergreifen **Massnahmen zur Unterstuetzung der KI-Kompetenz** ihres Personals und der in ihrem Auftrag mit KI befassten Personen — **ausdruecklich keine Pflicht**, ein bestimmtes Kompetenzniveau zu **garantieren** (Art. 4 Abs. 1 Satz 2 KI-VO n. F.); Schulungs- und Sensibilisierungsnachweise trotzdem dokumentieren (Nachweis-Obliegenheit).
 
 ## Pass 1: PII-Identifikation
 
@@ -94,23 +94,25 @@ Ziel: § 25 TDDDG + DSGVO sauber umgesetzt.
 - [ ] **AGB** (falls vorhanden) mit wirksamer Einbeziehung (§§ 305 ff. BGB), inbesondere AGB-rechtliche Klauselkontrolle
 - [ ] **Widerrufsbelehrung** (bei B2C) — siehe [[themen/widerrufsbelehrung]]
 - [ ] **Button-Loesung** "zahlungspflichtig bestellen" (§ 312j Abs. 3 BGB) bei kostenpflichtigen Services — Pflicht-Wortlaut (oder gleichbedeutend); BGH I ZR 159/24 (09.10.2025) bestaetigt: bei mehrstufigen Bestell-Flows muss Pflichtwortlaut auf finalem Button stehen — siehe [[themen/button-loesung]]
+- [ ] **Kuendigungsbutton § 312k BGB** bei Abo-/SaaS-Vertraegen mit Verbrauchern: Schaltflaeche "Vertraege hier kuendigen" (oder gleichwertig) + Bestaetigungsseite mit Button "jetzt kuendigen", staendig verfuegbar und leicht zugaenglich (§ 312k Abs. 2 BGB); Bestaetigung unverzueglich in Textform (§ 312k Abs. 4 BGB); Folge bei Verstoss: jederzeitige fristlose Kuendigung durch Verbraucher moeglich (§ 312k Abs. 6 BGB) — Severity CRIT
 - [ ] **Preisangaben-Transparenz** (PAngV — Gesamtpreis inkl. USt, monatlich/jaehrlich)
 - [ ] **Widerrufsrecht bei digitalen Inhalten** — Hinweis auf Verzicht moeglich (§ 356 Abs. 5 BGB)
+- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** bei B2C-Vertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht auf Finanzdienstleistungen beschraenkt): Pflichtschaltflaeche "Vertrag widerrufen" waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" + Eingangsbestaetigung auf dauerhaftem Datentraeger mit Datum und Uhrzeit (§ 356a Abs. 1-4 BGB; gesetze-im-internet.de/bgb/__356a.html); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity HIGH
 
 ## Pass 5: KI-Spezifisch (AI Act — Verordnung (EU) 2024/1689)
 
-Anwendbarkeit-Stufung: Verbotene Praktiken (Art. 5) seit **02.02.2025**, KI-Kompetenz (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**, High-Risk-Systeme nach Anhang II ab 02.08.2027.
+Anwendbarkeit (Stand 2026-11-14, inkl. Digital Omnibus on AI VO (EU) 2026/1744): Verbotene Praktiken (Art. 5) seit **02.02.2025** (zwei neue Verbote NCII/CSAM ab **02.12.2026**); KI-Kompetenz (Art. 4) seit **02.02.2025**, seit 27.07.2026 Verhaltenspflicht ("Massnahmen ergreifen"); GPAI-Pflichten Art. 51 ff. seit **02.08.2025**; **Art. 50 Transparenzpflichten seit 02.08.2026 anwendbar** (Altbestand-Nachruestung Markierung Art. 50 Abs. 2 bis **02.12.2026** gem. Art. 111 Abs. 4); Hochrisiko Anhang III **verschoben auf 02.12.2027**, Anhang I **verschoben auf 02.08.2028**.
 
 Falls das SaaS KI-Komponenten enthaelt (LLM-Integration, Klassifikation, Empfehlungen, Generierung):
 
 - [ ] **Verbotene Praktiken** (Art. 5) ausgeschlossen? (Social Scoring, biometrische Echtzeit-Identifizierung, manipulative Subliminal-Techniken, Emotion-Recognition am Arbeitsplatz/Bildung)
-- [ ] **KI-Kompetenz** Art. 4 AI Act: Schulungs-/Sensibilisierungsnachweis fuer alle Mitarbeiter mit KI-Beruehrung
+- [ ] **KI-Kompetenz** Art. 4 KI-VO n. F.: "Massnahmen ergreifen" statt Erfolgspflicht — Schulungs-/Sensibilisierungsnachweis fuer alle Mitarbeiter mit KI-Beruehrung dokumentieren (Nachweispflicht im Streitfall)
 - [ ] **Risiko-Klasse** bestimmt (Verboten / Hoch / Begrenzt / Minimal)
 - [ ] Bei **Limited Risk** (Chatbot, generative KI-Outputs): **Transparenzpflicht** Art. 50 AI Act
   - Nutzer-Hinweis "Sie interagieren mit einer KI" (Art. 50 Abs. 1)
-  - Generierte/manipulierte Bilder, Audio, Video als KI-Output kennzeichnen — maschinenlesbares Wasserzeichen ab 02.08.2026 (Art. 50 Abs. 2)
+  - Generierte/manipulierte Bilder, Audio, Video als KI-Output kennzeichnen — maschinenlesbares Wasserzeichen seit 02.08.2026 Pflicht (Art. 50 Abs. 2); Altbestand vor 02.08.2026 bis 02.12.2026 nachzuruesten (Art. 111 Abs. 4 i.d.F. VO (EU) 2026/1744)
   - Deepfakes klar als kuenstlich erzeugt kennzeichnen (Art. 50 Abs. 4)
-- [ ] Bei **High Risk** (Anhang III: CV-Screening, Kredit-Scoring, Bildungs-Bewertung, etc.): volle Konformitaetsbewertung, Risk Management System (Art. 9), Logs (Art. 12), menschliche Aufsicht (Art. 14), Daten-Governance (Art. 10)
+- [ ] Bei **High Risk** (Anhang III: CV-Screening, Kredit-Scoring, Bildungs-Bewertung, etc., Pflichten seit Digital Omnibus erst ab **02.12.2027**; Anhang I ab **02.08.2028**): volle Konformitaetsbewertung, Risk Management System (Art. 9), Logs (Art. 12), menschliche Aufsicht (Art. 14), Daten-Governance (Art. 10) — Aufbau JETZT beginnen, nicht bis zum Geltungsdatum warten
 - [ ] **GPAI-Modelle** integriert (z.B. Claude, GPT-4): Provider-Compliance-Dokumentation einholen (technische Dokumentation, Trainings-Daten-Summary)
 - [ ] **Training-Daten-Rechtmaessigkeit** falls Fine-Tuning mit Nutzerdaten (explizite Einwilligung noetig)
 - [ ] **Output-Verantwortlichkeit** (Halluzinationen, Bias, Diskriminierung) mit Haftungsausschluss + menschlichem Review
@@ -150,6 +152,7 @@ BFSG ist seit **28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Angebote (O
   - **10-Jahres-Retention** fuer Rechnungs-/Handelsdaten nach § 257 HGB + § 147 AO (Rechnungen, Buchungs-Belege, Steuer-relevante Mails)
 - [ ] **Retention-Tabelle** im Verarbeitungsverzeichnis dokumentiert (fuer jede Kategorie)
 - [ ] **Automatisierte Loesch-Jobs** (Cron/Scheduler) mit Fehler-Alert (siehe OPS-01 Anti-Pattern in ksk-automation)
+- [ ] **Data Act (EU) 2023/2854** Kapitel VI (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten; Art. 29 Abbau der Wechselentgelte): SaaS-/Cloud-Vertraege auf neue Pflichten zum Anbieterwechsel pruefen (Portabilitaet der Kunden-Daten, Kuendigungs- und Uebergangsfristen, schrittweise Reduktion und Wegfall von Wechselentgelten); **anwendbar seit 12.09.2025** (Art. 50, per Cellar CELEX:32023R2854 verifiziert); fuer Vertraege, die am oder vor dem 12.09.2025 geschlossen wurden, gilt die Verordnung ab 12.09.2027 — Severity MED
 
 ## Pass 9: Social-Media & Drittinhalte
 
@@ -269,3 +272,14 @@ Siehe [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-sa
 - [[urteile/eugh-schrems-ii]]
 - [[anwaelte-tools/fachanwaelte-it-recht]]
 - [[anwaelte-tools/kanzleien-saas-spezialisiert]]
+
+---
+
+## Aenderungsvermerk (2026-11-14, Batch F stale-only)
+
+- Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
+- Pass 4 um Kuendigungsbutton § 312k BGB erweitert (Tier-1-belegt gegen gesetze-im-internet.de/bgb/__312k.html).
+- **Pass 4 neu:** Elektronische Widerrufsfunktion nach § 356a BGB fuer B2C-Vertragsschluss ueber Online-Benutzeroberflaeche (gesetze-im-internet.de/bgb/__356a.html; RL (EU) 2023/2673 per Cellar CELEX:32023L2673 verifiziert; Anwendung ab 19.06.2026).
+- Pass 8 (Data Act): Marker aufgeloest. Primaerquelle Cellar CELEX:32023R2854, Art. 50 — anwendbar ab 12.09.2025, Altvertraege ab 12.09.2027. Kapitel VI (Wechsel Datenverarbeitungsdienste, Art. 23 ff.) verifiziert.
+- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate gegen gesetze-im-internet.de und gesetzliche Fundstellen bestaetigt — Art. 5/6/13/26/28/30/32/33/35 DSGVO, § 25 TDDDG, § 5 DDG, § 18 MStV, § 312j Abs. 2/3, § 312k, § 355, § 356 Abs. 5 BGB, §§ 305-309 BGB, § 11 PAngV, § 38 BDSG, § 51 UrhG, § 22/§ 23 KUG, § 14/§ 37 BFSG, § 257 HGB, § 147 AO, § 7 Abs. 2 Nr. 2 UWG, § 5a Abs. 4, § 5b Abs. 3 UWG. BGH I ZR 159/24 (09.10.2025), I ZR 183/22 (10.10.2024), I ZR 25/19 (13.01.2022), I ZR 91/21, I ZR 7/16, I ZR 163/19; EuGH C-673/17, C-40/17, Schrems II (C-311/18); LG Muenchen I 3 O 17493/20 — konsistent zu KB.
+- Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.

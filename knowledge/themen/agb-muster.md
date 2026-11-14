@@ -1,12 +1,12 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__305.html
   - https://www.gesetze-im-internet.de/bgb/__307.html
   - https://www.gesetze-im-internet.de/bgb/__309.html
   - https://www.ihk.de/themenfelder/recht-steuern/vertrags-und-agb-recht
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # AGB — Struktur, Einbeziehung, unwirksame Klauseln
 
@@ -172,9 +172,8 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
 - **BGH VIII ZR 21/19** (08.12.2020): Widerrufsbelehrung als Teil der AGB.
 - **EuGH C-186/16** (20.09.2017, "Andriciuc"): Strenges Transparenzgebot im
   Verbraucherrecht.
-- **BGH III ZR 25/19** (16.01.2020, "Clickwrap") `<<VERIFIKATION
-  AUSSTEHEND — Aktenzeichen/Datum auf Tier-1-Quelle abgleichen>>`:
-  Einbeziehung bei Registrierung erfordert wahrnehmbare Zustimmung.
+- **BGH III ZR 25/19** (16.01.2020, "Clickwrap"): Einbeziehung bei
+  Registrierung erfordert wahrnehmbare Zustimmung. <<VERIFIKATION AUSSTEHEND>>
 - **BGH VIII ZR 6/10** (10.11.2010): Salvatorische Klausel in AGB ist selbst
   in AGB unzulaessig.
 
@@ -184,3 +183,14 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
 - [[themen/widerrufsbelehrung]]
 - [[themen/button-loesung]]
 - [[themen/impressum]]
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
+- Marker-Variante zu BGH III ZR 25/19 ("Clickwrap") auf einzeiliges
+  Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert.
+- Hinweis: Durch das Umsetzungsgesetz zur Richtlinie (EU) 2023/2673
+  (BGBl. 2026 I Nr. 28, Anwendung seit 19.06.2026) ergaenzt § 356a BGB n.F.
+  einen elektronischen Widerrufs-Button fuer Online-Vertragsschluesse — in
+  AGB-Verweisen auf das Widerrufsrecht sollte darauf verwiesen werden (siehe
+  [[themen/widerrufsbelehrung]], [[themen/button-loesung]]).

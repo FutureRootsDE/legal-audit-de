@@ -1,11 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__7.html
 quellen-sekundaer:
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/DatenschutzAZ/Werbung/Werbung-node.html
   - https://www.datenschutzkonferenz-online.de/
-  - https://www.dr-schwenke.de/newsletter-rechtssicher/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +15,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # E-Mail-Marketing — Rechtliche Anforderungen
 
@@ -25,7 +24,8 @@ geltungsbereich: [DE, EU]
 E-Mail-Werbung an Verbraucher (B2C) und auch an Geschaeftskunden (B2B) ist in
 Deutschland ohne **vorherige ausdrueckliche Einwilligung** (§ 7 Abs. 2 Nr. 2 UWG)
 rechtswidrig. Zusaetzlich greifen die DSGVO (Art. 6 Abs. 1 lit. a) und — bei
-Kopplung mit Tracking — das TTDSG / § 25 TTDSG.
+Kopplung mit Tracking — § 25 TDDDG (das TTDSG wurde am 14.05.2024 durch das
+TDDDG abgeloest, materiell inhaltsgleich).
 
 Drei Saeulen der Compliance:
 
@@ -173,3 +173,10 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - [[gesetze/uwg]] — § 7 UWG
 - [[themen/werbekennzeichnung]]
 - [[urteile/bgh-inbox-werbung]]
+
+## Aenderungsvermerk 2026-11-14
+
+- TTDSG-Referenz auf TDDDG (seit 14.05.2024) aktualisiert.
+- Tier-3-Quelle (dr-schwenke.de) aus Frontmatter entfernt; war nicht zitierfaehig.
+- § 7 UWG gegen gesetze-im-internet.de verifiziert.
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.

@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/__25.html
 quellen-sekundaer:
   - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
-verifiziert-am: 2026-05-08
+  - https://www.gesetze-im-internet.de/einwv/
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Cookie-Consent — § 25 TDDDG + Art. 6 DSGVO
 
@@ -102,6 +103,29 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 - **EuGH C-252/21 (Meta/Bundeskartellamt), 04.07.2023** — Personalisierte Werbung nicht auf „berechtigtes Interesse" stützbar
 - **EuGH C-604/22 (IAB Europe), 07.03.2024** — TC-String ist personenbezogenes Datum; IAB ist (Mit-)Verantwortlicher fuer TCF
 - **LG München I 3 O 17493/20, 20.01.2022** — Google Fonts als Beispiel für Drittanbieter-Tracking ohne Consent
+
+## Einwilligungsverwaltungsverordnung (EinwV) — seit 01.04.2025
+
+Die auf § 26 TDDDG gestuetzte Einwilligungsverwaltungsverordnung (EinwV, BGBl.
+2025 I Nr. 32 vom 06.02.2025, in Kraft seit 01.04.2025) regelt anerkannte
+Dienste zur zentralen Einwilligungsverwaltung (Personal Information Management
+Systems/PIMS). Teilnahme ist fuer Websitebetreiber **freiwillig**; ein Verzicht
+auf die eigene Cookie-Banner-Logik ist damit nicht verbunden. Zustaendig fuer
+die Anerkennung von Diensten ist der BfDI. Die EinwV aendert die materiellen
+Anforderungen an die Einwilligung nach § 25 TDDDG und Art. 7 DSGVO nicht; sie
+schafft lediglich einen zusaetzlichen Weg, Einwilligungen plattformuebergreifend
+zu verwalten.
+
+## Aenderungsvermerk 2026-11-14
+
+- EinwV-Abschnitt ergaenzt (Quelle: BGBl. 2025 I Nr. 32, § 26 TDDDG auf
+  gesetze-im-internet.de). Teilnahme bleibt freiwillig; keine Pflicht fuer
+  Audit-Scope.
+- Hinweis zum Digital-Omnibus-Vorschlag (COM(2025) 501 vom 19.11.2025): Der
+  Entwurf ist bislang **Kommissionsvorschlag** im ordentlichen
+  Gesetzgebungsverfahren, **noch nicht verkuendet**. Bis zur Verkuendung
+  gelten § 25 TDDDG und Art. 6/7 DSGVO unveraendert fort.
+- Datum und Verifizierung auf 2026-11-14 vereinheitlicht.
 
 ## Siehe auch
 

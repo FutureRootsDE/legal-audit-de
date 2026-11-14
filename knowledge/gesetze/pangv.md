@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/pangv_2022/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/pangv_2022/__11.html
   - https://www.bmwk.de/Redaktion/DE/Artikel/Wirtschaft/preisangabenverordnung.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +15,19 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
+>
+> **Fassung:** Ausfertigung 12.11.2021 (BGBl. I S. 4921), in Kraft seit
+> 28.05.2022. Letzte Aenderung durch **Art. 3 des Gesetzes zur Aenderung
+> des Preisangabenrechts zur Sanktionierung von Verstoessen gegen
+> nationale und europaeische Regelungen ueber Preisangaben vom 19.10.2026
+> (BGBl. 2026 I Nr. 314, verkuendet 22.10.2026)**. Art. 3 aendert allein
+> **§ 20 PAngV** (Verweis auf das neue Preisangabengesetz statt auf
+> § 3 Abs. 1 Satz 1 Nr. 2 WiStG 1954); die materiellen Vorschriften zu
+> Gesamtpreis, Grundpreis, Versandkosten, 30-Tage-Referenzpreis (§ 11)
+> und Dienstleistungen bleiben unveraendert. Inkrafttreten der Aenderung:
+> **01.01.2027** (Art. 4). Quelle: recht.bund.de/bgbl/1/2026/314/VO.html,
+> abgerufen 2026-11-14.
 
 # PAngV 2022 — Preisangabenverordnung (Neufassung)
 
@@ -137,9 +149,9 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   30-Tage-Referenzpreis auch in Werbung (Prospekte, Online-Ads) gelten muss,
   nicht nur am Regal.
 - **BGH I ZR 173/16** (31.10.2018): Preisangabe muss fuer den Verbraucher
-  "auf einen Blick" erkennbar sein.
+  "auf einen Blick" erkennbar sein. <<VERIFIKATION AUSSTEHEND>>
 - **BGH I ZR 143/19** (05.11.2020, "Sofort lieferbar"): Kopplung Lieferzeit +
-  Preisangabe.
+  Preisangabe. <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -147,3 +159,18 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
 - [[gesetze/uwg]] — § 3a UWG Rechtsbruch
 - [[gesetze/bgb-agb]] — § 312j BGB Button-Loesung
 - [[themen/button-loesung]]
+
+## Aenderungsvermerk
+
+- **2026-11-14**: Frontmatter-Datum, Disclaimer-Stand und Hinweis auf die
+  letzte Aenderung der PAngV durch Gesetz vom 19.10.2026
+  (BGBl. 2026 I Nr. 314) aktualisiert.
+- **2026-11-14 (Abgleich)**: Aenderungsinhalt primaer verifiziert
+  (recht.bund.de/bgbl/1/2026/314/VO.html). Art. 3 des Gesetzes aendert
+  **ausschliesslich § 20 PAngV** (Sanktionsverweis); § 11 (30-Tage-
+  Streichpreis), § 4 (Grundpreis), § 6 (Versandkosten) sowie Pfand- und
+  Energieangaben sind nicht betroffen. Kern des Artikelgesetzes ist das
+  neue Preisangabengesetz (PAngG, Art. 1) mit eigenem Bussgeldrahmen bis
+  **100.000 EUR** (§ 3 Abs. 3 PAngG). Inkrafttreten 01.01.2027 (Art. 4).
+  Vorheriger Hinweis "Betroffenheit einzelner Paragraphen nicht einzeln
+  gegenverifiziert" damit aufgeloest.

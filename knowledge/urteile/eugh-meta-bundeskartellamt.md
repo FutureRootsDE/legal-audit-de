@@ -1,13 +1,14 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://curia.europa.eu/juris/liste.jsf?num=C-252/21
 quellen-sekundaer:
   - https://curia.europa.eu/jcms/upload/docs/application/pdf/2023-07/cp230113de.pdf
   - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:62021CJ0252
   - https://www.bundeskartellamt.de/SharedDocs/Meldung/DE/Pressemitteilungen/2024/10_10_2024_Facebook.html
   - https://www.datenschutzkonferenz-online.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [EU, DE]
+ecli: ECLI:EU:C:2023:537
 ---
 
 > **Haftungsausschluss — Keine Rechtsberatung**
@@ -17,7 +18,7 @@ geltungsbereich: [EU, DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # EuGH C-252/21 — Meta Platforms vs. Bundeskartellamt
 
@@ -25,6 +26,7 @@ geltungsbereich: [EU, DE]
 
 - **Gericht:** Europaeischer Gerichtshof (Grosse Kammer)
 - **Aktenzeichen:** C-252/21
+- **ECLI:** ECLI:EU:C:2023:537
 - **Datum:** **04.07.2023**
 - **Verfahrensart:** Vorabentscheidung (Art. 267 AEUV)
 - **Vorlegendes Gericht:** Oberlandesgericht Duesseldorf (Kartellsenat,
@@ -125,7 +127,30 @@ Der EuGH entschied:
   gegen die BKartA-Entscheidung **zurueckgenommen**. Das BKartA-Verfahren ist
   damit bestandskraeftig abgeschlossen. Quelle: BKartA-Pressemitteilung vom
   10.10.2024 (https://www.bundeskartellamt.de/SharedDocs/Meldung/DE/Pressemitteilungen/2024/10_10_2024_Facebook.html).
-- **DSGVO-Abaenderungen**: Sowohl DSK-Leitfaeden (2023/2024) als auch EDPB-
+- **EuGH C-446/21 (Schrems/Meta, 04.10.2024):** Grundsatz der Datenminimierung
+  (Art. 5 Abs. 1 lit. c DSGVO) begrenzt die Aggregation personenbezogener Daten
+  fuer personalisierte Werbung auch bei erteilter Einwilligung zeitlich und
+  sachlich; zudem Praezisierung zu Art. 9 DSGVO (Hinweis auf sexuelle
+  Orientierung durch Nutzer macht nicht alle Daten zu „offensichtlich oeffentlich
+  gemacht"). Verfahren war nach Vorlage des Bundeskartellamt-Verfahrens
+  ausgesetzt. Beleg: curia.europa.eu, Rechtssache C-446/21.
+- **EDSA-Opinion 08/2024 vom 17.04.2024 („Consent or Pay")**: Auf gemeinsame
+  Anfrage NL/NO/HmbBfDI; Kernaussage: „Consent or Pay"-Modelle grosser Online-
+  Plattformen koennen in der Regel keine freiwillige Einwilligung i.S.v.
+  Art. 4 Nr. 11, Art. 7 DSGVO erzeugen; eine gleichwertige Alternative ohne
+  Entgelt ist regelmaessig erforderlich. Beleg: edpb.europa.eu, Opinion
+  202408_consentorpay. Eigenstaendige „Consent or Pay"-Guidelines standen zum
+  2026-11-14 weiterhin im EDSA-Arbeitsprogramm 2026-2027 und waren nicht final
+  verabschiedet.
+- **DMA-Entscheidung der EU-Kommission vom 23.04.2025 gegen Meta** wegen
+  „Pay or Consent"-Werbemodell: Verstoss gegen Art. 5 Abs. 2 DMA (Verknuepfung
+  personenbezogener Daten ueber Dienste ohne wirksame Einwilligung); Geldbusse
+  **200 Mio. EUR**, erste Nichtkonformitaets-Entscheidung unter dem DMA
+  ueberhaupt. Meta hat Nichtigkeitsklage vor dem EuG erhoben (Rechtssache
+  T-435/25, Anhaengigkeit laut Amtsblatt-Veroeffentlichung). <<VERIFIKATION AUSSTEHEND>>
+  (Press-corner-IP-Nummer im Direkt-Abruf nicht geladen; Beleg ueber
+  Sekundaer-Zusammenfassungen, eur-lex-Amtsblatt T-435/25 zu pruefen).
+- **DSGVO-Abaenderungen**: Sowohl DSK-Leitfaeden (2023/2024) als auch EDSA-
   Guidelines wurden entsprechend angepasst (Art. 6 Abs. 1 lit. b enge
   Auslegung, Art. 9 sensible Daten online).
 
@@ -147,3 +172,16 @@ Der EuGH entschied:
 - [[themen/email-marketing]]
 - [[themen/werbekennzeichnung]]
 - BKartA-Entscheidung B6-22/16 (06.02.2019)
+
+## Aenderungsvermerk
+
+- 2026-11-14: Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
+  ECLI (ECLI:EU:C:2023:537) in Frontmatter und Kurz-Ueberblick ergaenzt
+  (bestaetigt ueber curia.europa.eu / FRA-Caselaw und WebSearch). Grosse Kammer
+  und Urteilsdatum 04.07.2023 gegengeprueft. Follow-Up erweitert um EuGH
+  C-446/21 (Schrems/Meta, 04.10.2024, Datenminimierung), EDSA-Opinion 08/2024
+  „Consent or Pay" (17.04.2024), DMA-Entscheidung der EU-Kommission vom
+  23.04.2025 gegen Meta (200 Mio. EUR, Art. 5 Abs. 2 DMA, Klage T-435/25).
+  Marker fuer die DMA-Entscheidung gesetzt, weil die Kommissions-Press-Corner-
+  URL (IP/25/1085) im Abruf nicht den Volltext lieferte und der genaue Fundstellen-
+  Anker der Klage T-435/25 im eur-lex-Amtsblatt noch zu verifizieren ist.

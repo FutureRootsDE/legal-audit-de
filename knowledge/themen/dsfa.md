@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
   - https://www.datenschutz-hamburg.de/fileadmin/user_upload/HmbBfDI/Datenschutz/Informationen/DSFA_Muss-Liste_fuer_den_nicht-oeffentlicher_Bereich_-_Stand_17.10.2018.pdf
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-11-14
 
 # DSFA — Datenschutz-Folgenabschätzung (Art. 35 DSGVO)
 
@@ -116,8 +116,8 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
 
 - **EuGH C-26/22, C-64/22 (SCHUFA), 07.12.2023** — Scoring ist automatisierte Entscheidung nach Art. 22 DSGVO
 - **EuGH C-634/21 (SCHUFA), 07.12.2023** — Weitere Präzisierung Scoring
-- **OVG NRW 16 A 2805/20, 07.05.2024** — Aufsichtsbehörden-Anordnung bei fehlender DSFA
-- **VG Wiesbaden 6 K 1164/21.WI, 19.01.2022** — Keylogger-Einsatz DSFA-pflichtig
+- **OVG NRW 16 A 2805/20, 07.05.2024** — Aufsichtsbehörden-Anordnung bei fehlender DSFA <<VERIFIKATION AUSSTEHEND>>
+- **VG Wiesbaden 6 K 1164/21.WI, 19.01.2022** — Keylogger-Einsatz DSFA-pflichtig <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -125,3 +125,17 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
 - [[themen/verarbeitungsverzeichnis]]
 - [[themen/tom]]
 - [[themen/meldepflicht-datenpanne]]
+
+## Aenderungsvermerk 2026-11-14
+
+- EuGH C-26/22 und C-634/21 (SCHUFA, 07.12.2023) gegen curia.europa.eu
+  verifiziert; Aussage bleibt korrekt.
+- OVG NRW 16 A 2805/20 und VG Wiesbaden 6 K 1164/21.WI konnten nicht direkt
+  gegen rechtsprechung-im-internet.de verifiziert werden; Aktenzeichen bleiben
+  stehen mit Verifikationsmarker.
+- AI-Act: Stufenweise Anwendbarkeit ergaenzt — Art. 5 (verbotene Praktiken)
+  seit 02.02.2025, GPAI-Governance seit 02.08.2025, Pflichten fuer
+  Hochrisiko-KI nach aktuellem Stand ab 02.08.2026 (Verordnung (EU) 2024/1689,
+  Art. 113). Ein etwaiges "AI-Omnibus"-Paket der Kommission ist Stand
+  2026-11-14 nicht verkuendet.
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.

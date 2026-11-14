@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-10-24
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/kunsturhg/BJNR000070907.html
 quellen-sekundaer:
   - https://www.rechtsprechung-im-internet.de/
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=LG+Frankfurt/Main&Datum=26.09.2019&Aktenzeichen=2-03+O+402/18
-verifiziert-am: 2026-07-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-07-08
+> **Stand:** 2026-11-14
 
 # Fotos Dritter — Recht am eigenen Bild (KUG) und DSGVO
 
@@ -230,3 +230,13 @@ Delisting bei nicht mehr gerechtfertigter Verbreitung.
 - [[werbekennzeichnung]] — Testimonials + UWG
 - [[social-media-datenschutz]] — Fotos auf Fanpages
 - [[meldepflicht-datenpanne]] — Foto-Leak als Datenpanne
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14 vereinheitlicht
+  (zuvor: `aktualisiert` 2026-10-24, `verifiziert-am` + Disclaimer-Stand
+  2026-07-08).
+- Zitate verifiziert: LG Frankfurt a.M. 2-03 O 402/18 (26.09.2019) ueber
+  dejure.org bestaetigt; BAG 8 AZR 1011/13 (19.02.2015) breit rezipiert.
+- Keine neue BGH-/OLG-Rechtsprechung zu KUG/DSGVO-Verhaeltnis seit
+  2026-07-08 identifiziert.

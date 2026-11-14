@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__5a.html
 quellen-sekundaer:
   - https://www.die-medienanstalten.de/themen/werbung
   - https://www.lfm-nrw.de/leitfaeden/influencer
   - https://www.bmj.de/DE/themen/verbraucherrecht/lauterkeitsrecht/
-verifiziert-am: 2026-05-08
+  - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024L0825
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Werbekennzeichnung — Influencer, Sponsored, Native
 
@@ -82,6 +83,33 @@ Fuer Diensteanbieter:
 
 Journalistisch-redaktionelle Inhalte mit Werbung muessen durch geeignete
 Mittel vom redaktionellen Inhalt getrennt werden ("Trennungsgebot").
+
+### UWG-Novelle zur EmpCo-Richtlinie (Stichtag 27.09.2026)
+
+Die **Richtlinie (EU) 2024/825** ("Empowering Consumers for the Green
+Transition", EmpCo) wurde durch **Art. 6 des Gesetzes vom 22.10.2026
+(BGBl. 2026 I Nr. 322)** in das UWG umgesetzt (Fussnote auf
+gesetze-im-internet.de/uwg_2004/BJNR141400004.html, CELEX 32024L0825).
+Fuer bereits in Verkehr gebrachte Waren gilt die Uebergangsregelung
+in § 15b UWG mit **Stichtag 27. September 2026**. Wesentlich fuer
+Werbekennzeichnung und verwandte Pflichten:
+
+- Neue Begriffe in § 2 Abs. 2 UWG ("allgemeine Umweltaussage",
+  "Nachhaltigkeitssiegel", "Zertifizierungssystem") sowie in § 2 Abs. 3
+  ("Funktionalitaet", "Haltbarkeit").
+- § 5 Abs. 2 Nr. 1 und Abs. 3 Nr. 3/4 UWG: oekologische Merkmale,
+  Zirkularitaetsaspekte, irrelevante Vorteile, zukunftsbezogene
+  Umweltaussagen mit ueberpruefbarem Umsetzungsplan.
+- § 5b Abs. 3a UWG: Transparenzpflichten bei Vergleichsdiensten.
+- Erweiterung des Anhangs zu § 3 Abs. 3 UWG um Nrn. 2a, 4a-4c, 10a, 23d
+  (Nachhaltigkeitssiegel ohne Zertifizierungssystem, irrefuehrende
+  Umweltaussagen, Software-/Haltbarkeits-/Reparierbarkeitsbezug).
+- Pauschale Aussagen wie "klimaneutral", "oekologisch", "gruen" ohne
+  nachweisbare Grundlage sind per se unlauter (Anhang Nr. 4a).
+
+Fuer Influencer-/Content-Marketing heisst das: Werbung mit Umwelt- oder
+Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
+[[gesetze/uwg]] zur Umsetzung weiterer Anhang-Nrn.
 
 ## Typische Fallstricke in Codebases
 
@@ -156,3 +184,17 @@ Mittel vom redaktionellen Inhalt getrennt werden ("Trennungsgebot").
 - [[gesetze/uwg]] — § 5a Abs. 4 UWG
 - [[gesetze/ddg]] — § 6 DDG (ehemals § 6 TMG)
 - [[themen/email-marketing]]
+- [[themen/siegel-werbung]] — Umweltsiegel nach EmpCo
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
+- Neuer Abschnitt "UWG-Novelle zur EmpCo-Richtlinie" (Richtlinie (EU)
+  2024/825; Stichtag 27.09.2026 ueber § 15b UWG) ergaenzt; CELEX 32024L0825
+  in quellen-sekundaer eingetragen.
+- **2026-11-14 (Abgleich)**: Fruehere Angabe "Verkuendung Februar 2026,
+  Drittes Gesetz zur Aenderung des UWG" durch primaer belegte Fundstelle
+  **Art. 6 des Gesetzes vom 22.10.2026, BGBl. 2026 I Nr. 322** ersetzt
+  (Quelle: Fussnote gesetze-im-internet.de/uwg_2004/BJNR141400004.html).
+  Fehlerhaftes `<<VERIFIKATION AUSSTEHEND>`-Markup (ohne schliessendes >)
+  entfernt; Aussage ist nun primaer belegt. Abgleich mit gesetze/uwg.md.

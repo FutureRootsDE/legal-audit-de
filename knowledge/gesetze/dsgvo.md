@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+eli: http://data.europa.eu/eli/reg/2016/679/oj
 quellen-sekundaer:
   - https://www.edpb.europa.eu/edpb_de
   - https://www.datenschutzkonferenz-online.de/
   - https://www.bfdi.bund.de/DE/Home/home_node.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,18 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
+>
+> **Gesetzgebungsstand:** Die konsolidierte Fassung der DSGVO (CELEX 32016R0679)
+> ist unveraendert in Kraft. Die EU-Kommission hat am 19.11.2025 einen
+> Vorschlag fuer eine "Digital Omnibus"-Verordnung vorgelegt, die u.a. die
+> Definition personenbezogener Daten einengen, einen neuen Art. 88a DSGVO
+> ("Cookie-Regel" aus der ePrivacy-Richtlinie), KI-Training auf Basis
+> berechtigter Interessen und eine Verlaengerung der Meldefrist Art. 33 DSGVO
+> von 72 auf 96 Stunden vorsieht. Der Vorschlag befindet sich im ordentlichen
+> Gesetzgebungsverfahren; eine Verabschiedung durch Parlament und Rat oder
+> eine Verkuendung im Amtsblatt ist Stand 2026-11-14 nicht erfolgt. Fuer die
+> Rechtsanwendung gilt weiterhin der bestehende Text.
 
 # DSGVO — Datenschutz-Grundverordnung (Verordnung (EU) 2016/679)
 
@@ -149,3 +161,11 @@ Zwei Stufen:
 - [[themen/drittland-transfer]]
 - [[urteile/eugh-schrems-ii]]
 - [[urteile/eugh-planet49]]
+
+## Aenderungsvermerk
+
+- **2026-11-14**: Frontmatter-Datum und Disclaimer-Stand auf 2026-11-14
+  gesetzt; `eli:` ergaenzt; Gesetzgebungsstand-Hinweis zum Digital-Omnibus-
+  Vorschlag der EU-Kommission vom 19.11.2025 aufgenommen (Vorschlag, nicht
+  verabschiedet). Materielle Artikel der DSGVO unveraendert gegen
+  eur-lex.europa.eu/eli/reg/2016/679/oj.

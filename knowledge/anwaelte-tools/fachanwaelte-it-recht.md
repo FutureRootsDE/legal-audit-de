@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quellen-sekundaer:
   - https://www.brak.de/
-  - https://www.rechtsanwaltsregister.org/
+  - https://bravsearch.bea-brak.de/bravsearch
   - https://www.davit.de/
   - https://anwaltauskunft.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE]
 > selbst. Pruefe Zulassung und Fachanwaltstitel stets auf der Website der
 > zustaendigen Rechtsanwaltskammer.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Fachanwaelte fuer IT-Recht — Qualifikationen, Zertifikate, Suchportale
 
@@ -72,16 +72,16 @@ Fachanwaltsbezeichnungen: BRAK-Statistik (brak.de) und Fachanwaltsordnung (FAO).
 | Portal | URL | Umfang |
 |--------|-----|--------|
 | Bundesweite Anwaltsauskunft DAV | https://anwaltauskunft.de/ | Deutsche Anwaltverein (DAV) — Anwaltssuche mit Fachgebieten |
-| BRAK Rechtsanwaltsverzeichnis | https://www.rechtsanwaltsregister.org/ | Offizielles Verzeichnis der Bundesrechtsanwaltskammer, verifiziert zugelassen |
+| BRAK Rechtsanwaltsverzeichnis (BRAV) | https://bravsearch.bea-brak.de/bravsearch | Offizielles Bundesweites Amtliches Anwaltsverzeichnis der BRAK (die alte URL `rechtsanwaltsregister.org` leitet seit 2026 auf bea-brak.de weiter, verifiziert 2026-11-14) |
 | Regionale RAKs | z.B. rak-berlin.de, rak-muenchen.de, rak-koeln.de | lokale Kammern mit eigener Suche |
 
 ### Spezialisierungs-Portale
 
 - **DAVIT — Arbeitsgemeinschaft IT-Recht im DAV**: https://www.davit.de/ — Liste organisierter IT-Rechts-Anwaelte
-- **Handelsblatt Best Lawyers**: https://www.handelsblatt.com/beste-anwaelte/ — Peer-Review-Rankings (nicht verbindlich, aber Indikation)
+- **Handelsblatt / Best Lawyers Germany** — Peer-Review-Ranking, erscheint jaehrlich (zuletzt Juni 2025). Keine stabile Index-URL mehr (`handelsblatt.com/beste-anwaelte/` ergab am 2026-11-14 HTTP 404); Auflistungen jeweils ueber die Suche auf handelsblatt.com oder bestlawyers.com (Partnerverlag) abrufbar. Indikation, nicht verbindlich.
 - **JUVE Handbuch Rechtsanwaelte**: https://www.juve.de/ — Fachverlag mit Spezialisten-Rankings
 - **Legal 500 Deutschland**: https://www.legal500.com/c/germany/ — internationale Bewertung, DPIT-Praxisbereich
-- **Chambers Europe**: https://chambers.com/legal-guide/europe — globale Anwalts-Datenbank
+- **Chambers and Partners (Germany Guide)**: https://chambers.com/legal-guide/germany-122 — globale Anwalts-Datenbank; die alte Sammel-URL `/legal-guide/europe` liefert seit 2026 HTTP 404, der laenderspezifische Germany-Guide ist der richtige Einstieg (verifiziert 2026-11-14)
 
 ### Kommerzielle Vermittlungsportale
 
@@ -144,3 +144,12 @@ Wenn kein klassisches Mandat gewuenscht ist:
 - [[anwaelte-tools/datenschutzbeauftragte]]
 - [[anwaelte-tools/tools-generatoren]]
 - [[checklisten/general-pre-launch]]
+
+## Aenderungsvermerk
+
+- **2026-11-14** (Batch E2, Live-Pruefung): Vollstaendiger URL-Abgleich aller Suchportale und Register-Quellen. Korrekturen:
+  - `rechtsanwaltsregister.org` ersetzt durch `bravsearch.bea-brak.de/bravsearch` (die alte Domain leitet mit 301 auf die BRAK-BRAV-Suche weiter).
+  - `handelsblatt.com/beste-anwaelte/` ergab HTTP 404 — spezifische URL entfernt, verbal auf Handelsblatt/Best-Lawyers-Partnerschaft verwiesen.
+  - `chambers.com/legal-guide/europe` ergab HTTP 404 — ersetzt durch `chambers.com/legal-guide/germany-122`.
+  - anwaltauskunft.de, davit.de, brak.de, juve.de, legal500.com/c/germany/, anwalt.de, 123recht.de: OK (anwalt.de blockt WebFetch mit HTTP 403, Existenz von anwalt.de services AG Nuernberg per Websearch bestaetigt).
+  - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.

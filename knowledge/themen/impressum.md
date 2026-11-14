@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/ddg/__5.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/ddg/__33.html
   - https://www.gesetze-im-internet.de/mstv/
   - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/DSA_node.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-11-14
 
 # Impressum — § 5 DDG + § 18 MStV
 
@@ -81,10 +81,9 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
 
 ### EU-Plattform-Angaben (DSA / VSBG)
 
-- **OS-Plattform-Link:** Art. 14 Abs. 1 ODR-VO — Link zur EU-ODR-Plattform
-  (ec.europa.eu/consumers/odr/) bei Online-Kaufvertraegen
+- **OS-Plattform-Link ENTFALLEN:** Die Pflicht nach Art. 14 Abs. 1 VO (EU) 524/2013 ist mit Wirkung **20.07.2025** entfallen — Aufhebung der VO 524/2013 durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 (CELEX 32024R3228; am 2026-11-14 am Cellar-Volltext verifiziert); die EU-OS-Plattform wurde eingestellt. Links auf https://ec.europa.eu/consumers/odr/ aus Impressum/AGB entfernen.
 - **VSBG-Hinweis** (§ 36 VSBG): Information zur Verbraucherschlichtung
-  erforderlich
+  bleibt bestehen
 
 ### Erreichbarkeit
 
@@ -149,9 +148,9 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
   Zweiter Kontaktweg neben E-Mail erforderlich (Telefon ist nicht zwingend;
   ein Online-Formular mit zeitnaher Reaktion genuegt).
 - **OLG Muenchen 29 U 3698/20** (14.01.2021): Impressumspflicht bei
-  Instagram-Business-Profilen `<<VERIFIKATION AUSSTEHEND — Aktenzeichen via
-  WebSearch nicht direkt verifizierbar; OLG-Muenchen-Linie zu Impressums-
-  pflicht auf Instagram-Profilen ist allgemein anerkannt>>`.
+  Instagram-Business-Profilen. Aktenzeichen in Tier-1-Quellen nicht
+  auffindbar; OLG-Muenchen-Linie zu Impressumspflicht auf Instagram-Profilen
+  ist allgemein anerkannt. <<VERIFIKATION AUSSTEHEND>>
 - **BGH I ZR 118/12** (05.12.2013): Abgrenzung B2C / rein privater Web-Auftritt.
 
 ## Siehe auch
@@ -159,3 +158,10 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
 - [[gesetze/ddg]]
 - [[gesetze/uwg]] — § 3a Rechtsbruch bei Impressumsverstoss
 - [[themen/agb-muster]]
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14 vereinheitlicht
+  (zuvor: `aktualisiert` 2026-05-08, Disclaimer-Stand 2026-04-19).
+- Marker-Variante zur OLG Muenchen 29 U 3698/20 auf einzeiliges
+  Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert.

@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__7.html
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
   - https://www.bmj.de/DE/themen/verbraucherrecht/lauterkeitsrecht/uwg_node.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # UWG — Gesetz gegen den unlauteren Wettbewerb
 
@@ -38,6 +38,33 @@ Fuer Codebases besonders relevant:
 Die UWG-Novelle 2022 ("Gesetz zur Staerkung des Verbraucherschutzes im Wettbewerbs-
 und Gewerberecht") hat § 5a neu gefasst und § 9 Abs. 2 UWG (individueller
 Schadensersatz-Anspruch von Verbrauchern bei vorsaetzlicher Irrefuehrung) eingefuehrt.
+
+**UWG-Novelle 2026 (EmpCo-Richtlinie (EU) 2024/825, Art. 6 des Gesetzes vom
+22.10.2026, BGBl. 2026 I Nr. 322):** Die "Empowering Consumers for the Green
+Transition"-Richtlinie wurde durch Art. 6 eines Artikelgesetzes vom 22.10.2026
+in das UWG umgesetzt (Fussnote auf gesetze-im-internet.de/uwg_2004,
+CELEX 32024L0825). Primaer belegt sind folgende Aenderungen:
+
+- Neue Begriffe in § 2 Abs. 2 UWG ("allgemeine Umweltaussage",
+  "Nachhaltigkeitssiegel", "Zertifizierungssystem") sowie § 2 Abs. 3
+  ("Funktionalitaet", "Haltbarkeit").
+- § 5 Abs. 2 Nr. 1 UWG: oekologische und soziale Merkmale sowie
+  Zirkularitaetsaspekte sind wesentliche Produktmerkmale.
+- § 5 Abs. 3 Nr. 3 und 4 UWG: Irrefuehrung bei irrelevanten Vorteilen und
+  zukunftsbezogenen Umweltaussagen ohne ueberpruefbaren Umsetzungsplan.
+- § 5b Abs. 3a UWG: Transparenzpflichten bei Vergleichsdiensten.
+- Anhang zu § 3 Abs. 3 UWG: ergaenzte Nrn. 2a, 4a-4c, 10a, 23d
+  (Nachhaltigkeitssiegel ohne Zertifizierungssystem, irrefuehrende
+  Umweltaussagen, Softwareaktualisierung, Haltbarkeit/Reparierbarkeit).
+- § 15b UWG: Uebergangsregelung fuer Waren, die vor dem **27. September 2026**
+  in Verkehr gebracht wurden (Stichtag der Anwendung).
+
+Die Zuordnung weiterer Vorschriften (insb. Anhang Nrn. 11a, 23b, 23c sowie
+§ 19 UWG mit Bussgeldrahmen 50.000 EUR / 4 % Jahresumsatz) zur EmpCo-Umsetzung
+ist aus der Gesetzesfussnote nicht eindeutig ableitbar; § 19 UWG verweist nach
+der Fussnote auf die VO (EU) 2017/2394 in der Fassung vom 19.12.2024 (Omnibus-
+Linie). Diese Zuordnung ist nicht gegen den BGBl.-Volltext verifiziert.
+<<VERIFIKATION AUSSTEHEND>>
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -196,3 +223,17 @@ Enthaelt 32 per se unzulaessige Handlungen, u.a.:
 - [[themen/email-marketing]]
 - [[themen/werbekennzeichnung]]
 - [[urteile/bgh-inbox-werbung]]
+
+## Aenderungsvermerk
+
+- **2026-11-14**: Abschnitt "UWG-Novelle 2026" ergaenzt — Umsetzung der
+  EmpCo-Richtlinie (EU) 2024/825 durch **Art. 6 des Gesetzes vom 22.10.2026
+  (BGBl. 2026 I Nr. 322)**; neue Begriffe in § 2, Irrefuehrungstatbestaende
+  in § 5/§ 5b Abs. 3a, erweiterter Anhang zu § 3 Abs. 3 (Nrn. 2a, 4a-4c,
+  10a, 23d), Stichtag 27.09.2026 nach § 15b. Quelle: Fussnote auf
+  gesetze-im-internet.de/uwg_2004/BJNR141400004.html, abgerufen 2026-11-14.
+- **2026-11-14 (Abgleich)**: Die zuvor genannten Anhang-Nrn. 11a, 23b, 23c
+  sowie der "50.000 EUR / 4 % Jahresumsatz"-Bussgeldrahmen in § 19 UWG
+  lassen sich aus der UWG-Fussnote nicht eindeutig der EmpCo-Umsetzung
+  zuordnen; sie wurden mit Verifikationsmarker versehen statt still
+  entfernt. Dateienabgleich mit themen/werbekennzeichnung.md.

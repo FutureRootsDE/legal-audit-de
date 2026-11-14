@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 gilt-fuer: statische Marketing-Sites (Astro, Next.js-SSG, HTML, WordPress, Jekyll, Hugo)
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,7 +11,7 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Vor Live-Gang Pruefung durch
 > einen Fachanwalt fuer IT-Recht bzw. einen Datenschutzbeauftragten.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Audit-Checkliste: Landingpage / Marketing-Website
 
@@ -68,15 +68,17 @@ Landingpages sind hier typisch schlampig — teuerster Abmahn-Vektor.
 - [ ] **Datenschutzerklaerung** nach Art. 13 DSGVO: jede Drittanbieter-Kategorie genannt, Rechtsgrundlagen, Speicherdauer, Betroffenenrechte, Beschwerderecht an Aufsichtsbehoerde
 - [ ] **Werbekennzeichnung** § 5a Abs. 4 UWG bei kommerziellen Inhalten ohne klare Werbe-Indizes
 - [ ] **Barrierefreiheitserklaerung** falls B2C-Online-Dienstleistung im Anwendungsbereich des BFSG (seit 28.06.2025 anwendbar)
+- [ ] **Kuendigungsbutton § 312k BGB** falls die Landingpage den Abschluss eines entgeltlichen Dauerschuldverhaeltnisses mit Verbrauchern ermoeglicht (Abo, Mitgliedschaft, SaaS-Plan): Schaltflaeche "Vertraege hier kuendigen" + Bestaetigungsseite mit "jetzt kuendigen", staendig verfuegbar; Folge bei Verstoss: jederzeitige fristlose Kuendigung (§ 312k Abs. 6 BGB) — Severity CRIT
+- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** falls die Landingpage einen Verbraucher-Fernabsatzvertrag ueber eine Online-Benutzeroberflaeche ermoeglicht (nicht nur Finanzdienstleistungen): Pflichtschaltflaeche "Vertrag widerrufen" + Bestaetigungsschaltflaeche "Widerruf bestaetigen" + Eingangsbestaetigung auf dauerhaftem Datentraeger mit Datum und Uhrzeit (§ 356a Abs. 1-4 BGB; gesetze-im-internet.de/bgb/__356a.html); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity HIGH
 - [ ] Kein AGB-Pflicht bei reiner Marketing-Landingpage ohne Kaufoption
 
 ## Pass 5: KI-Spezifisch (AI Act-Stufung)
 
-Anwendbarkeit: Verbotene Praktiken (Art. 5) seit **02.02.2025**, KI-Kompetenz (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, Vollanwendung ab **02.08.2026**.
+Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI): Verbotene Praktiken (Art. 5) seit **02.02.2025** (neue NCII/CSAM-Verbote ab 02.12.2026), KI-Kompetenz (Art. 4) seit **02.02.2025** (seit 27.07.2026 Verhaltenspflicht), GPAI-Pflichten seit **02.08.2025**, **Art. 50 Transparenz seit 02.08.2026 anwendbar** (Altbestand-Markierung bis 02.12.2026, Art. 111 Abs. 4).
 
-- [ ] **KI-Kompetenz** Art. 4 AI Act: Schulungs-/Sensibilisierungsnachweis fuer Mitarbeiter mit KI-Beruehrung
-- [ ] KI-Chatbot eingebunden? → Art. 50 Abs. 1 AI Act Transparenzpflicht ("Sie interagieren mit einer KI")
-- [ ] KI-Text-/Bild-Generierung im Content (Blog)? → Kennzeichnung als KI-Content (Art. 50 Abs. 2; ab 02.08.2026 Wasserzeichen-Pflicht) — siehe [[themen/ki-content]] und [[themen/ki-transparenz]]
+- [ ] **KI-Kompetenz** Art. 4 KI-VO n. F. (seit 27.07.2026 i. d. F. VO (EU) 2026/1744): "Massnahmen ergreifen" zur Unterstuetzung der KI-Kompetenz; **keine Pflicht** zur **Garantie** eines bestimmten Niveaus (Art. 4 Abs. 1 Satz 2 n. F.) — Nachweis geeigneter Foerdermassnahmen fuer Mitarbeiter mit KI-Beruehrung dennoch dokumentieren
+- [ ] KI-Chatbot eingebunden? → Art. 50 Abs. 1 AI Act Transparenzpflicht gilt seit 02.08.2026 ("Sie interagieren mit einer KI")
+- [ ] KI-Text-/Bild-Generierung im Content (Blog)? → Kennzeichnung als KI-Content (Art. 50 Abs. 2 seit 02.08.2026 Pflicht; Altbestand bis 02.12.2026 nachruesten) — siehe [[themen/ki-content]] und [[themen/ki-transparenz]]
 - [ ] KI-gesteuerter Produktempfehlungs-Widget? → DSFA pruefen bei Personalisierung
 - [ ] [[gesetze/ai-act]]
 
@@ -224,3 +226,13 @@ Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht k
 - [[urteile/bgh-google-fonts]]
 - [[urteile/eugh-planet49]]
 - [[urteile/bgh-inbox-werbung]]
+
+---
+
+## Aenderungsvermerk (2026-11-14, Batch F stale-only)
+
+- Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
+- Pass 4 um Kuendigungsbutton § 312k BGB erweitert (greift, wenn eine LP zu Abo-Abschluss fuehrt); Tier-1-belegt gegen gesetze-im-internet.de/bgb/__312k.html.
+- **Pass 4 neu:** Elektronische Widerrufsfunktion § 356a BGB bei Landingpages mit Verbraucher-Online-Vertragsschluss (Tier-1 gesetze-im-internet.de/bgb/__356a.html; RL (EU) 2023/2673 per Cellar CELEX:32023L2673 verifiziert, Anwendung ab 19.06.2026).
+- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate bestaetigt — § 5 DDG, § 18 MStV, Art. 13/26 DSGVO, § 25 TDDDG, § 7 Abs. 2 Nr. 2 UWG, § 5a Abs. 4 UWG, § 5 UWG, § 6 UWG, § 312k BGB, § 1/§ 14/§ 37 BFSG, § 22/§ 23 KUG, § 26 BDSG, § 51 UrhG, § 59 UrhG. BGH I ZR 218/07 (10.02.2011), I ZR 25/19 (13.01.2022), I ZR 91/21, I ZR 163/19; EuGH C-40/17 (Fashion ID), C-673/17 (Planet49); LG Muenchen I 3 O 17493/20 — konsistent zu KB. Keine offenen Marker in dieser Datei.
+- Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.
