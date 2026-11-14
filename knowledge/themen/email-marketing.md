@@ -163,11 +163,15 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - **EuGH C-102/20** (25.11.2021): Vorabentscheidung zum Begriff "elektronische
   Post" — breit auszulegen.
 - **EuGH C-673/17** (01.10.2019, "Planet49"): Pre-ticked Checkboxen unwirksam.
-- Aussage: Kommerzielle Kommunikation ist zu kennzeichnen (Influencer-
-  Rechtsprechungstrio). <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt
-  "Nicht zitieren"; richtige Aktenzeichen des Trios sind BGH I ZR 90/20,
-  I ZR 125/20 und I ZR 126/20 vom 09.09.2021 — siehe
-  themen/werbekennzeichnung.md.)
+- **BGH I ZR 90/20, I ZR 125/20 und I ZR 126/20** (jeweils 09.09.2021,
+  "Influencer I/II/III"): Kommerzielle Kommunikation in sozialen Medien
+  ist als geschaeftliche Handlung zu kennzeichnen; werblicher Ueberschuss
+  begruendet Kennzeichnungspflicht nach § 5a Abs. 4 UWG a. F. / § 5a
+  Abs. 6 UWG n. F. (ECLI:DE:BGH:2021:090921UIZR90.20.0,
+  ECLI:DE:BGH:2021:090921UIZR125.20.0,
+  ECLI:DE:BGH:2021:090921UIZR126.20.0; ueber die Rechtsinformations-API
+  des Bundes am 2026-11-14 primaer bestaetigt). Vertiefung in
+  [[themen/werbekennzeichnung]].
 - **OLG Muenchen 29 U 1563/20**: Bestaetigungs-Mail darf keine Werbung
   enthalten.
 
@@ -202,3 +206,10 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
   Trio; Zitat aus "Zitierbare Urteile" entfernt und in Hinweisblock
   "Nicht zitieren" dokumentiert. Aussage mit Verifikationsmarker belassen;
   Verweis auf das bereits belegte Trio in themen/werbekennzeichnung.md.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: Influencer-Trio (BGH
+  I ZR 90/20, I ZR 125/20, I ZR 126/20 vom 09.09.2021) per Rechts-
+  informations-API primaer bestaetigt (ECLI-Ketten
+  090921UIZR90.20.0 / 125.20.0 / 126.20.0); Aussage in "Zitierbare
+  Urteile" mit Belegen versehen, Verifikationsmarker dort entfernt.
+  Hinweisblock zu BGH I ZR 61/20 ("Die Filsbacher", Markenrecht) bleibt
+  bestehen.

@@ -27,15 +27,11 @@
       "files": ["themen/ki-transparenz.md", "gesetze/ai-act.md"]
     },
     {
-      "pattern": "(?i)(widerruf|fernabsatz|§\\s*31[23]|button[-\\s]*l[oö]sung)",
+      "pattern": "(?i)(widerruf|fernabsatz|§\\s*31[23]|button[-\\s]*l[oö]sung|widerrufsbutton|widerrufsfunktion|§\\s*356a|\\b356a\\b)",
       "files": ["themen/widerrufsbelehrung.md", "themen/button-loesung.md"]
     },
     {
-      "pattern": "(?i)(widerrufsbutton|widerrufsfunktion|§\\s*356a|\\b356a\\b)",
-      "files": ["themen/widerrufsbelehrung.md", "themen/button-loesung.md"]
-    },
-    {
-      "pattern": "(?i)(empco|greenwashing|umweltaussage|klimaneutral|nachhaltigkeitssiegel)",
+      "pattern": "(?i)(\\bempco\\b|greenwashing|umweltaussage|klimaneutral|nachhaltigkeitssiegel)",
       "files": ["themen/werbekennzeichnung.md", "gesetze/uwg.md"]
     },
     {
@@ -43,7 +39,7 @@
       "files": ["gesetze/pangv.md", "themen/preisangaben.md"]
     },
     {
-      "pattern": "(?i)(data\\s*act|datenverordnung|anbieterwechsel|cloud[-\\s]*wechsel)",
+      "pattern": "(?i)(\\bdata\\s+act\\b|\\bdatenverordnung\\b|anbieterwechsel|cloud[-\\s]*wechsel)",
       "files": ["checklisten/audit-saas.md", "checklisten/audit-ecommerce.md"]
     },
     {
@@ -51,11 +47,11 @@
       "files": ["checklisten/audit-ecommerce.md"]
     },
     {
-      "pattern": "(?i)(omnibus)",
+      "pattern": "(?i)(digital[- ]?omnibus|omnibus[- ]?(verordnung|paket|vo)|ki[- ]?omnibus|ai[- ]?omnibus)",
       "files": ["gesetze/ai-act.md", "gesetze/dsgvo.md"]
     },
     {
-      "pattern": "(?i)(kontrollverlust|art\\.?\\s*82|immaterieller\\s+schaden|scraping)",
+      "pattern": "(?i)(art\\.?\\s*82\\s*(abs\\.?\\s*\\d+\\s*)?(ds-?gvo|gdpr)|immaterielle[rn]?\\s+schaden|kontrollverlust|scraping)",
       "files": ["urteile/bgh-vi-zr-10-24-kontrollverlust.md"]
     },
     {

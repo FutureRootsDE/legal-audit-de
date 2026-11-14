@@ -57,7 +57,7 @@ muessten.
 - **Rn. 30 (Leitsatz)** — Kontrollverlust als immaterieller Schaden i. S. v.
   Art. 82 Abs. 1 DSGVO. Die Auslegung folgt der Linie des EuGH
   (insb. C-300/21, C-340/21, C-687/21, C-456/22, NJW 2024, 1561).
-- **Rn. 36** — Zu den **Darlegungsanforderungen**: Werden konkret
+- **Rn. 35 f.** — Zu den **Darlegungsanforderungen**: Werden konkret
   erlebte Folgen vorgetragen (Flut unerwuenschter SMS/Anrufe, Zeit- und
   Muehe-Aufwand beim Umgang mit dem Scraping-Vorfall, Schutz vor
   kuenftigem Missbrauch), ueberspannt das Berufungsgericht die Anforderungen,
@@ -105,9 +105,10 @@ Uebrigen wird die Revision zurueckgewiesen.
 
 ## Abgrenzung
 
-- **Keine Strafsanktion**: Der Senat betont (Rn. unter Bezugnahme auf EuGH
-  C-340/21), dass Art. 82 DSGVO **ausschliesslich Ausgleichsfunktion** hat,
-  keine Abschreckung oder Strafe. Schadensersatzhoehe folgt der
+- **Keine Strafsanktion**: Der Senat betont (Rn. 18 und Rn. 25, unter
+  Bezugnahme auf EuGH, Urteil vom 11.04.2024, C-741/21, NJW 2024, 1561
+  Rn. 59 f., 64 f.), dass Art. 82 DSGVO **ausschliesslich Ausgleichs-
+  funktion** hat, keine Abschreckungs- oder Straffunktion. Schadensersatzhoehe folgt der
   Kompensationslogik, nicht der Bussgeldlogik.
 - **Konkurrenz zum gesetzlichen Unterlassungsanspruch**: Zu Antrag 3a
   (Unterlassung unbefugter Offenlegung) weist der Senat auf die bislang
@@ -139,5 +140,11 @@ Uebrigen wird die Revision zurueckgewiesen.
 
 - **2026-11-14**: Datei neu angelegt; Primaerbeleg ueber die
   Rechtsinformations-API des Bundes. Groessenordnung des Schadensersatzes
-  (~100 EUR) und Darlegungsanforderungen (Rn. 36) direkt am Volltext
+  (~100 EUR) und Darlegungsanforderungen (Rn. 35 f.) direkt am Volltext
   (Rn. 100 f.) belegt.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: Randnummern am Volltext
+  nachgezogen: Darlegungsanforderungen auf **Rn. 35 f.** praezisiert
+  (vorher nur "Rn. 36"); die Ausgleichsfunktions-Aussage mit Verweis auf
+  **Rn. 18 und Rn. 25** sowie die tatsaechlich zitierte EuGH-Entscheidung
+  **C-741/21, NJW 2024, 1561 Rn. 59 f., 64 f.** gefuellt (vorher
+  unspezifische "Rn. unter Bezugnahme auf EuGH C-340/21").

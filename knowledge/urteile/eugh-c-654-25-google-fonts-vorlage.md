@@ -101,12 +101,18 @@ vorgelegt:
   Fonts-Einbindungen. Der Senat erwaegt einen Ausschluss des
   Schadenersatzes wegen Rechtsmissbrauchs (Art. 82 Abs. 1 DSGVO im Lichte
   des unionsrechtlichen Missbrauchsverbots).
-- **Rn. 29 / 30** — Zur Drittlandsuebermittlung an Google USA haelt der
-  Senat die Pruefung derzeit fuer offen und knuepft auch an die zuletzt
-  durch das EuG bestaetigte DPF-Angemessenheit an (siehe
-  [[urteile/eug-latombe-dpf]]).
-- **Rn. 43** — Querverweis auf die weitere Vorlage des AG Arnsberg
-  C-526/24; beide Verfahren betreffen das Thema Rechtsmissbrauch.
+- **Rn. 30** — Zur Drittlandsuebermittlung an Google USA stellt der Senat
+  fest, dass das Berufungsgericht offen gelassen hat, ob die Uebermittlung
+  im Einklang mit der DSGVO stand; fuer das Revisionsverfahren ist daher
+  davon auszugehen, dass die Voraussetzungen fuer eine Drittland-
+  uebermittlung (Art. 6 f., Art. 44 ff. DSGVO) **nicht** erfuellt waren
+  und ein Verstoss im Sinne des Art. 82 Abs. 1 DSGVO vorlag. Eine
+  Aussage zur Angemessenheit nach dem Angemessenheitsbeschluss
+  (EU) 2023/1795 oder zum Data Privacy Framework trifft der Beschluss
+  nicht.
+- **Rn. 42** — Querverweis auf die weitere Vorlage des AG Arnsberg vom
+  31.07.2024 (Rechtssache C-526/24, ECLI:DE:AGAR:2024:0731.42C434.23.0,
+  Frage 7); beide Verfahren betreffen das Thema Rechtsmissbrauch.
 
 ## Bedeutung fuer Audits
 
@@ -161,3 +167,14 @@ vorgelegt:
   Verfahrensstand "anhaengig" ueber curia.europa.eu gegengeprueft; Stand
   2026-11-14 liegt weder Urteil noch Schlussantraege des Generalanwalts
   vor.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: Abschnitt "Rn. 29 / 30"
+  am Volltext des Vorlagebeschlusses neu gefasst. Die zuvor behauptete
+  Anknuepfung an die vom EuG bestaetigte DPF-Angemessenheit wurde
+  entfernt; der Beschluss datiert vom 28.08.2025 (vor EuG T-553/23 vom
+  03.09.2025) und enthaelt weder Aussagen zum Angemessenheitsbeschluss
+  (EU) 2023/1795 noch zum Data Privacy Framework. Rn. 30 zitiert nun
+  die tatsaechliche Senats-Aussage (Berufungsgericht hat Drittland-
+  Frage offengelassen; im Revisionsverfahren Verstoss unterstellt).
+  Arnsberg-Querverweis von "Rn. 43" auf Rn. 42 korrigiert
+  (C-526/24, AG Arnsberg 31.07.2024,
+  ECLI:DE:AGAR:2024:0731.42C434.23.0, Frage 7).

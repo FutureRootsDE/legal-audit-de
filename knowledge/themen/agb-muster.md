@@ -181,14 +181,17 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
 - **BGH VIII ZR 21/19** — in Vorgaengerfassungen als AGB-Entscheidung
   "Widerrufsbelehrung als Teil der AGB" vom 08.12.2020 gefuehrt. Gegenprobe
   ueber die Rechtsinformations-API des Bundes am 2026-11-14: unter diesem
-  Aktenzeichen ist das Urteil des VIII. Zivilsenats vom **09.10.2019**
+  Aktenzeichen ist das **Urteil des VIII. Zivilsenats vom 09.10.2019**
   gefuehrt ("Zumutbarkeit einer Mieterhoehung unter Beruecksichtigung der
   wirtschaftlichen Verhaeltnisse des Mieters",
-  ECLI:DE:BGH:2019:091019UVIIIZR19.21.0 — Mietrecht); zusaetzlich ein
-  Beschluss vom 26.04.2022 zum Abgasskandal. Keine AGB-Entscheidung unter
-  diesem Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen; Aussage
-  bleibt mit Verifikationsmarker. Dieselbe Streichung im Hinweisblock von
-  themen/widerrufsbelehrung.md.
+  ECLI:DE:BGH:2019:091019UVIIIZR21.19.0 — Mietrecht). Der zuvor hier
+  zitierte Abgasskandal-Beschluss (26.04.2022,
+  ECLI:DE:BGH:2022:260422BVIIIZR19.21.0) gehoert nicht zu diesem
+  Aktenzeichen, sondern zu **BGH VIII ZR 19/21** (Vertauschung von
+  Geschaeftsjahr und laufender Nummer). Keine AGB-Entscheidung unter dem
+  Aktenzeichen VIII ZR 21/19 nachweisbar. Zitat daher nicht uebernehmen;
+  Aussage bleibt mit Verifikationsmarker. Dieselbe Streichung im
+  Hinweisblock von themen/widerrufsbelehrung.md.
 - **BGH VIII ZR 6/10** — in Vorgaengerfassungen als AGB-Entscheidung
   "Salvatorische Klausel" vom 10.11.2010 gefuehrt. Gegenprobe ueber die
   Rechtsinformations-API des Bundes am 2026-11-14: unter diesem Aktenzeichen
@@ -233,3 +236,10 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
   § 356d BGB: Ratenlieferung, § 356e BGB: Verbraucherbauvertrag,
   § 356f BGB: unentgeltliches Darlehen); § 356b BGB bleibt unveraendert.
   Beleg: BGBl. 2026 Teil I Nr. 28, Art. 1 Nrn. 8 und 9.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: Im Hinweisblock "Nicht
+  zitieren" die ECLI-Endung fuer VIII ZR 21/19 korrigiert
+  (richtig: `…UVIIIZR21.19.0`, Mieterhoehungs-Urteil vom 09.10.2019) und
+  der zuvor miteinsortierte Abgasskandal-Beschluss vom 26.04.2022
+  (`…BVIIIZR19.21.0`) als zu **BGH VIII ZR 19/21** gehoerig ausgewiesen.
+  Beide Treffer primaer ueber die Rechtsinformations-API des Bundes
+  belegt.

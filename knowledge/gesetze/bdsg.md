@@ -75,7 +75,7 @@ Verweis auf Art. 82 DSGVO für privatwirtschaftlichen Bereich.
 
 ## Typische Fallstricke in Codebases
 
-- **Überwachungssoftware am Arbeitsplatz** (Zeiterfassung, Activity-Monitoring, Keylogger): § 26 BDSG + BAG-Rechtsprechung (z. B. BAG 2 AZR 133/18 zu Keylogger — unzulässig).
+- **Überwachungssoftware am Arbeitsplatz** (Zeiterfassung, Activity-Monitoring, Keylogger): § 26 BDSG + BAG-Rechtsprechung (BAG, Urteil vom 27.07.2017 — 2 AZR 681/16 zu Keylogger: unzulässig; ECLI:DE:BAG:2017:270717.U.2AZR681.16.0).
 - **HR-Tools (Personio, BambooHR) ohne AVV:** Wenn US-gehostet zusätzlich Drittland-Problem.
 - **Videoüberwachung von Mitarbeiter-Bereichen** ohne Betriebsratsbeteiligung (§ 87 BetrVG) + Kennzeichnung: doppelt problematisch.
 - **Bewerbermanagement:** Unbegrenzte Speicherung von abgelehnten Bewerbern. Faustregel: max. 6 Monate nach Absage.
@@ -150,3 +150,7 @@ Verweis auf Art. 82 DSGVO für privatwirtschaftlichen Bereich.
   Treffer passen inhaltlich nicht zur KB-Aussage "Auskunftsanspruch Art. 15
   DSGVO auch fuer Beschaeftigte"; Zitat entfernt und in Hinweisblock
   "Nicht zitieren" dokumentiert, Aussage mit Verifikationsmarker belassen.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: In "Typische Fallstricke"
+  wurde die verbleibende Erwaehnung von "BAG 2 AZR 133/18 zu Keylogger"
+  entfernt und durch das korrekte Aktenzeichen **BAG 2 AZR 681/16 vom
+  27.07.2017** (Keylogger) inklusive ECLI ersetzt.
