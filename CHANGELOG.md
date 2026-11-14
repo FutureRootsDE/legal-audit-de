@@ -8,7 +8,18 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
-### Hintergrund Doku-Site
+### Hintergrund Zitatpruefung
+
+Der Bund betreibt eine offene API fuer Rechtsinformationen (`testphase.rechtsinformationen.bund.de`, Testphase, kein Key). Sie liefert zu Aktenzeichen der Bundesgerichte ECLI, Datum und Dokumenttyp und eignet sich als optionale Beschleunigung der Zitat-Verifikation. Grenzen: nur sieben Bundesgerichte (BGH ab etwa 2010), keine Stabilitaetszusage, keine dokumentierte Datenlizenz. "Kein Treffer" ist deshalb nie ein Gegenbeweis; die Tier-1-Kaskade bleibt unveraendert Pflicht-Fallback.
+
+### Added Zitatpruefung
+
+- **`scripts/verify-citations.py`**: extrahiert Bundesgerichts-Aktenzeichen aus `knowledge/**/*.md` (Datei:Zeile, Gericht, Datum in der Naehe, Marker `<<VERIFIKATION AUSSTEHEND>>` in derselben Zeile), fragt die API gedrosselt (Standard 2 Anfragen pro Sekunde, Timeout, Exponential Backoff, Circuit-Breaker, generischer User-Agent, JSON-Cache im Temp-Verzeichnis) ab und klassifiziert VERIFIED / DATE_MISMATCH / NOT_IN_DATASET / NOT_COVERED / ERROR. Nur Python-Standardbibliothek. Optionen: `--path`, `--json`, `--offline` (zusaetzlicher Status UNCHECKED bei fehlendem Cache), `--only-pending`, `--rate`, `--cache-dir`, `--timeout`, `--strict`. Aktenzeichen von OLG/LG/OVG/VG/LAG und EU-Gerichten werden als NOT_COVERED ausgewiesen und nicht abgefragt. Exit-Code 0 auch bei API-Ausfall.
+- **`--write-ecli`** (Standard aus, Vorschau mit `--dry-run`): fuegt in `knowledge/urteile/*.md` ohne `ecli:` genau diese eine Frontmatter-Zeile ein, wenn das Haupt-Aktenzeichen eindeutig VERIFIED ist (Zeilenenden bleiben erhalten, atomares Schreiben, ECLI-Format wird geprueft). Marker entfernt das Skript nie.
+- **`tests/test_verify_citations.py`** (unittest, ohne Netzwerk, Fixtures nach echten API-Antworten) und ein CI-Schritt `citation-script-tests` in `.github/workflows/validate.yml`.
+- **`legal-researcher`**: neuer Abschnitt "Rechtsinformations-API des Bundes (optional, Testphase)" inklusive Log-Konvention `VERIFIED api:rechtsinformationen ecli:...`; Pro-Variante und Codex/Copilot-Adapter neu generiert.
+
+### Hintergrund Doku-Site### Hintergrund Doku-Site
 
 Eigenstaendige Documentation-Site unter `docs/` fuer GitHub Pages, statt READMEs als alleinige Quelle. Mehrseitige Navigation (Startseite, Setup, Commands, KB-Uebersicht, MCP-Integration) mit just-the-docs als Remote-Theme. Voraussetzung: GitHub Pages muss im Repo unter Settings → Pages → Source = `main` Branch, Folder = `/docs` aktiviert werden. Diese Aktivierung kann nur durch einen Repo-Maintainer mit Admin-Rechten erfolgen.
 

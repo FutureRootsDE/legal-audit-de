@@ -117,6 +117,43 @@ Toolset Eintraege mit Praefix `mcp__rechtsinformationen__*` enthaelt.
 still zurueck. Kein "Bitte installiere MCP"-Hinweis in `LegalAudit.md` oder
 KB-Dateien — das gehoert in die Plugin-Doku, nicht in Audit-Reports.
 
+## Optional: Rechtsinformations-API des Bundes (direkt, Testphase)
+
+Fuer **Aktenzeichen der sieben Bundesgerichte** (BGH, BFH, BVerwG, BPatG, BAG,
+BSG, BVerfG) kannst du die offene API des Bundes direkt abfragen. Sie ergaenzt den
+MCP-Server aus dem vorigen Abschnitt und braucht keine Installation und keinen Key:
+
+```
+GET https://testphase.rechtsinformationen.bund.de/v1/rechtsprechung?fileNumber=<url-kodiert>&court=<Kuerzel>
+```
+
+(per WebFetch oder `curl`, z.B. `fileNumber=I%20ZR%20159%2F24&court=BGH`).
+
+- **Treffer = Primaerbeleg.** Pruefe, dass `fileNumbers` das Aktenzeichen exakt
+  enthaelt (die Suche ist unscharf), uebernimm `ecli` und `decisionDate` und
+  vergleiche das Datum mit der KB. Mehrere Treffer (Urteil, Beschluss,
+  EuGH-Vorlage) alle mit Datum und `documentType` betrachten.
+- **Kein Treffer sagt nichts aus.** Die API deckt nur diese sieben Gerichte ab
+  (BGH erst ab etwa 2010); Landesgerichte, EU-Gerichte und viele Gesetze fehlen.
+  Bei keinem Treffer oder nicht abgedecktem Gericht weiter mit der bisherigen
+  Tier-1-Kaskade (`rechtsprechung-im-internet.de`, `curia.europa.eu`).
+- **Ausfall blockiert nie.** Die API ist eine Testphase ohne Stabilitaetszusage
+  und ohne dokumentierte Datenlizenz. Bei 429/500/503, Timeout oder Schemaabweichung
+  still auf die Tier-1-Kaskade zurueckfallen. Hoeflich bleiben: wenige Anfragen,
+  Antworten wiederverwenden, kein Hammering.
+
+**Log-Konvention:**
+
+```
+2026-11-14T10:12:03Z VERIFIED api:rechtsinformationen ecli:ECLI:DE:BGH:2025:091025UIZR159.24.0 BGH I ZR 159/24 09.10.2025 ok
+```
+
+**Sammelpruefung:** `python scripts/verify-citations.py` extrahiert alle
+Bundesgerichts-Aktenzeichen aus `knowledge/`, fragt die API ab (gecacht, max. 2
+Anfragen pro Sekunde) und klassifiziert VERIFIED / DATE_MISMATCH / NOT_IN_DATASET /
+NOT_COVERED / ERROR. Optionen: `--only-pending`, `--json`, `--offline`. Das Skript
+entfernt nie Marker und schreibt nur mit `--write-ecli` (Vorschau: `--dry-run`).
+
 ## KB-Datei-Erstellung / -Update
 
 Struktur jeder KB-Datei (zwingend einhalten):

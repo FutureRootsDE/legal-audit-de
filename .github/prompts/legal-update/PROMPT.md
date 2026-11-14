@@ -43,6 +43,8 @@ Scant die KB nach `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Platzha
 
 **User-Bestaetigung:** Vor jedem Edit zeigt der Agent den konkreten Diff und bittet um OK. Das schuetzt vor versehentlichen Massenaenderungen.
 
+**Optionaler Vorab-Schritt:** `python "${GITHUB_WORKSPACE}/scripts/verify-citations.py" --only-pending` prueft die Bundesgerichts-Aktenzeichen mit Marker vorab gegen die Rechtsinformations-API des Bundes (optional, Testphase, nur sieben Bundesgerichte). Treffer liefern ECLI und Datum als Primaerbeleg; "kein Treffer" ist kein Gegenbeweis, und ein API-Ausfall ersetzt nie die Tier-1-Kaskade.
+
 ## Ablauf pro Datei
 
 1. **Dispatch `legal-researcher`-Agent** (Opus 4.7 [1M] — bei aktivem Pro-Mode: `legal-researcher-pro`) mit:

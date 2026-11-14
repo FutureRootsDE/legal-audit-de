@@ -284,6 +284,7 @@ legal-audit-de/
     ├── legal-status.py             # Plugin-Health-Check
     ├── audit-compare.py            # Audit-Diff-Tool
     ├── find-placeholders.py        # Platzhalter-Scanner
+    ├── verify-citations.py         # Zitatpruefung gegen Rechtsinformations-API (optional)
     └── legal-audit-pdf.py          # PDF-Bundling
 ```
 

@@ -1,0 +1,57 @@
+{
+  "@type": "hydra:Collection",
+  "@context": "https://testphase.rechtsinformationen.bund.de/v1/context.jsonld",
+  "@id": "/v1/rechtsprechung?pageIndex=0&size=100",
+  "totalItems": 1,
+  "member": [
+    {
+      "@type": "SearchResult",
+      "item": {
+        "@type": "Decision",
+        "documentNumber": "KORE726702025",
+        "ecli": "ECLI:DE:BGH:2025:091025UIZR159.24.0",
+        "headline": "BGH, Urteil vom 9. Oktober 2025 - I ZR 159/24",
+        "titleLine": "(Wirksamkeitsvoraussetzungen eines im elektronischen Geschäftsverkehr geschlossenen Maklervertrags; Neuabschluss eines unwirksamen Maklervertrags durch eine einseitige Bestätigung)",
+        "otherLongText": null,
+        "decisionDate": "2025-10-09",
+        "fileNumbers": [
+          "I ZR 159/24"
+        ],
+        "courtType": "BGH",
+        "location": "Karlsruhe",
+        "documentType": "Urteil",
+        "outline": null,
+        "judicialBody": "1. Zivilsenat",
+        "courtName": "BGH",
+        "decisionName": [],
+        "deviatingDocumentNumber": null,
+        "encoding": [
+          {
+            "@type": "MediaObject",
+            "@id": "/v1/rechtsprechung/KORE726702025/html",
+            "contentUrl": "/v1/rechtsprechung/KORE726702025.html",
+            "encodingFormat": "text/html",
+            "inLanguage": "de"
+          }
+        ],
+        "@id": "/v1/rechtsprechung/KORE726702025",
+        "inLanguage": "de"
+      },
+      "textMatches": [
+        {
+          "@type": "SearchResultMatch",
+          "name": "fileNumbers",
+          "text": "<mark>I</mark> <mark>ZR</mark> <mark>159</mark>/<mark>24</mark>",
+          "location": null
+        }
+      ]
+    }
+  ],
+  "view": {
+    "@type": "hydra:PartialCollectionView",
+    "first": "/v1/rechtsprechung?pageIndex=0&size=100",
+    "previous": null,
+    "next": null,
+    "last": "/v1/rechtsprechung?pageIndex=0&size=100"
+  }
+}

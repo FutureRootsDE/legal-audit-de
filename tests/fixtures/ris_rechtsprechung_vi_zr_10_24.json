@@ -1,0 +1,99 @@
+{
+  "@type": "hydra:Collection",
+  "@context": "https://testphase.rechtsinformationen.bund.de/v1/context.jsonld",
+  "@id": "/v1/rechtsprechung?pageIndex=0&size=100",
+  "totalItems": 2,
+  "member": [
+    {
+      "@type": "SearchResult",
+      "item": {
+        "@type": "Decision",
+        "documentNumber": "KORE710342024",
+        "ecli": "ECLI:DE:BGH:2024:181124UVIZR10.24.0",
+        "headline": "BGH, Urteil vom 18. November 2024 - VI ZR 10/24",
+        "titleLine": "(Immaterieller Schadensersatz wegen Verletzung der Datenschutz-Grundverordnung: Kurzzeitiger Verlust der Kontrolle über eigene personenbezogene Daten bei Facebook)",
+        "otherLongText": null,
+        "decisionDate": "2024-11-18",
+        "fileNumbers": [
+          "VI ZR 10/24"
+        ],
+        "courtType": "BGH",
+        "location": "Karlsruhe",
+        "documentType": "Urteil",
+        "outline": null,
+        "judicialBody": "6. Zivilsenat",
+        "courtName": "BGH",
+        "decisionName": [],
+        "deviatingDocumentNumber": null,
+        "encoding": [
+          {
+            "@type": "MediaObject",
+            "@id": "/v1/rechtsprechung/KORE710342024/html",
+            "contentUrl": "/v1/rechtsprechung/KORE710342024.html",
+            "encodingFormat": "text/html",
+            "inLanguage": "de"
+          }
+        ],
+        "@id": "/v1/rechtsprechung/KORE710342024",
+        "inLanguage": "de"
+      },
+      "textMatches": [
+        {
+          "@type": "SearchResultMatch",
+          "name": "fileNumbers",
+          "text": "<mark>VI</mark> <mark>ZR</mark> <mark>10</mark>/<mark>24</mark>",
+          "location": null
+        }
+      ]
+    },
+    {
+      "@type": "SearchResult",
+      "item": {
+        "@type": "Decision",
+        "documentNumber": "KORE707592024",
+        "ecli": "ECLI:DE:BGH:2024:311024BVIZR10.24.0",
+        "headline": "BGH, Beschluss vom 31. Oktober 2024 - VI ZR 10/24",
+        "titleLine": "(Leitentscheidungsverfahren zu Ansprüchen aufgrund eines Scraping-Vorfalls bei Facebook)",
+        "otherLongText": null,
+        "decisionDate": "2024-10-31",
+        "fileNumbers": [
+          "VI ZR 10/24"
+        ],
+        "courtType": "BGH",
+        "location": "Karlsruhe",
+        "documentType": "Beschluss",
+        "outline": null,
+        "judicialBody": "6. Zivilsenat",
+        "courtName": "BGH",
+        "decisionName": [],
+        "deviatingDocumentNumber": null,
+        "encoding": [
+          {
+            "@type": "MediaObject",
+            "@id": "/v1/rechtsprechung/KORE707592024/html",
+            "contentUrl": "/v1/rechtsprechung/KORE707592024.html",
+            "encodingFormat": "text/html",
+            "inLanguage": "de"
+          }
+        ],
+        "@id": "/v1/rechtsprechung/KORE707592024",
+        "inLanguage": "de"
+      },
+      "textMatches": [
+        {
+          "@type": "SearchResultMatch",
+          "name": "fileNumbers",
+          "text": "<mark>VI</mark> <mark>ZR</mark> <mark>10</mark>/<mark>24</mark>",
+          "location": null
+        }
+      ]
+    }
+  ],
+  "view": {
+    "@type": "hydra:PartialCollectionView",
+    "first": "/v1/rechtsprechung?pageIndex=0&size=100",
+    "previous": null,
+    "next": null,
+    "last": "/v1/rechtsprechung?pageIndex=0&size=100"
+  }
+}
