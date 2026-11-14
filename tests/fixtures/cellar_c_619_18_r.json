@@ -1,0 +1,211 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "celex",
+   "ecli",
+   "date",
+   "title",
+   "joins"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CO0619(01)"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2018:910"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2018-11-15"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Beschluss des Präsidenten des Gerichtshofs vom 15. November 2018.#Europäische Kommission gegen Republik Polen.#Beschleunigtes Verfahren.#Rechtssache C-619/18."
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CO0619(02)"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2018:1021"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2018-12-17"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CO0619(03)"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2019:575"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2019-07-02"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Berichtigungsbeschluss vom 2. Juli 2019.#Europäische Kommission gegen Republik Polen.#Rechtssache C-619/18 R."
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CO0619(02)"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2018:1021"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2018-12-17"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Beschluss des Gerichtshofs (Große Kammer) vom 17. Dezember 2018.#Europäische Kommission gegen Republik Polen.#Vorläufiger Rechtsschutz – Art. 279 AEUV – Antrag auf einstw"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CC0619"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2019:325"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2019-04-11"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Schlussanträge des Generalanwalts E. Tanchev vom 11. April 2019.#Europäische Kommission gegen Republik Polen.#Vertragsverletzung eines Mitgliedstaats – Art. 19 Abs. 1 Unt"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CJ0619"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2019:531"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2019-06-24"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Urteil des Gerichtshofs (Große Kammer) vom 24. Juni 2019.#Europäische Kommission gegen Republik Polen.#Vertragsverletzung eines Mitgliedstaats – Art. 19 Abs. 1 Unterabs. "
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CN0619"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2018-10-02"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Rechtssache C-619/18: Klage, eingereicht am 2. Oktober 2018 — Europäische Kommission/Republik Polen"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CO0619(01)"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2018:910"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2018-11-15"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CJ0619"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2019:531"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2019-06-24"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CC0619"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2019:325"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2019-04-11"
+    }
+   }
+  ]
+ }
+}

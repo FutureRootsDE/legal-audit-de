@@ -108,9 +108,9 @@ class ShortFormLists(unittest.TestCase):
         self.assertEqual([a for a, *_ in self.azs("BGH I ZR 90/20, 5/2021")], ["I ZR 90/20"])
         self.assertEqual([a for a, *_ in self.azs("BGH I ZR 90/20, 12.05/21")], ["I ZR 90/20"])
 
-    def test_date_after_the_list_binds_to_the_last_member_only(self):
+    def test_date_after_the_list_binds_to_every_member(self):
         result = {c.az: c.date for c in found("BGH I ZR 90/20, 125/20 v. 09.09.2021")}
-        self.assertEqual(result, {"I ZR 90/20": None, "I ZR 125/20": "2021-09-09"})
+        self.assertEqual(result, {"I ZR 90/20": "2021-09-09", "I ZR 125/20": "2021-09-09"})
 
 
 if __name__ == "__main__":

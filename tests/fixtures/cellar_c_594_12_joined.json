@@ -1,0 +1,59 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "celex",
+   "ecli",
+   "date",
+   "title",
+   "joins"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62012CN0594"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2012-12-19"
+    },
+    "title": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "Rechtssache C-594/12: Vorabentscheidungsersuchen des Verfassungsgerichtshofs (Österreich) eingereicht am 19. Dezember 2012 — Kärntner Landesregierung u.a."
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62012CJ0293"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2014:238"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2014-04-08"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Urteil des Gerichtshofs (Große Kammer) vom 8. April 2014.#Digital Rights Ireland Ltd gegen Minister for Communications, Marine and Natural Resources u. a. und Kärntner La"
+    },
+    "joins": {
+     "type": "uri",
+     "value": "http://publications.europa.eu/resource/case/celex%3A62012CJ0594"
+    }
+   }
+  ]
+ }
+}

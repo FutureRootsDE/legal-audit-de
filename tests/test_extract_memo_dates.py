@@ -35,9 +35,9 @@ class RealKbLines(unittest.TestCase):
     def test_appeal_filing_date_is_not_a_decision_date(self):
         line = ("- **Rechtsmittel C-703/25 P (Latombe/Kommission), eingelegt am 31.10.2025**: "
                 "Latombe hat Rechtsmittel eingelegt")
-        self.assertEqual(dates(line), {"C-703/25": None})
+        self.assertEqual(dates(line), {"C-703/25 P": None})
         line = "- **2026-11-14 (Abgleich)**: Rechtsmittel **C-703/25 P (Latombe/Kommission)**"
-        self.assertEqual(dates(line), {"C-703/25": None})
+        self.assertEqual(dates(line), {"C-703/25 P": None})
 
 
 class MemoWords(unittest.TestCase):

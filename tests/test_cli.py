@@ -44,7 +44,7 @@ class CliTests(unittest.TestCase):
 
     def run_cli(self, *args, fetch=None):
         out = io.StringIO()
-        code = cli.main(["--path", str(self.kb), "--cache-dir", str(self.cache), *args],
+        code = cli.main(["--path", str(self.kb), "--cache-dir", str(self.cache), "--no-eu", *args],
                        fetch=fetch or self.fetch, sleep=lambda s: None, stdout=out)
         return code, out.getvalue()
 

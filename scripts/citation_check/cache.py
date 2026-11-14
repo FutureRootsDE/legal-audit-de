@@ -23,7 +23,11 @@ class HitCache:
 
     def __init__(self, cache_dir: Path | None, ttl_seconds: float, offline: bool = False,
                  warnings: list[str] | None = None,
-                 now: Callable[[], float] = time.time) -> None:
+                 now: Callable[[], float] = time.time,
+                 sanitize: Callable[[dict], dict] = sanitize_hit,
+                 token_sanitizer: Callable[[object], list | None] | None = None) -> None:
+        self.sanitize = sanitize
+        self.token_sanitizer = token_sanitizer  # set: entries carry a validated `tokens` list
         self.cache_dir = cache_dir
         self.ttl_seconds = ttl_seconds
         self.offline = offline
@@ -40,6 +44,11 @@ class HitCache:
         return self.cache_dir / f"{digest}.json"
 
     def read(self, court: str, az: str) -> list[dict] | None:
+        entry = self.read_entry(court, az)
+        return entry[0] if entry is not None else None
+
+    def read_entry(self, court: str, az: str) -> tuple[list[dict], list] | None:
+        """Validated (hits, tokens) of a cache entry; tokens are empty without a token sanitizer."""
         path = self.path(court, az)
         if path is None:
             return None
@@ -51,11 +60,12 @@ class HitCache:
             entry = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             return None
-        return self._validated_hits(entry, court, az)
+        return self._validated_entry(entry, court, az)
 
-    def _validated_hits(self, entry: object, court: str, az: str) -> list[dict] | None:
-        """Return hits of a cache entry, or None if it is malformed or stale."""
-        if not isinstance(entry, dict) or set(entry) != {"court", "az", "fetched_at", "hits"}:
+    def _validated_entry(self, entry: object, court: str, az: str) -> tuple[list[dict], list] | None:
+        """Return (hits, tokens) of a cache entry, or None if it is malformed or stale."""
+        keys = {"court", "az", "fetched_at", "hits"} | ({"tokens"} if self.token_sanitizer else set())
+        if not isinstance(entry, dict) or set(entry) != keys:
             return None
         if entry["court"] != court or entry["az"] != az:
             return None
@@ -68,15 +78,18 @@ class HitCache:
         hits = entry["hits"]
         if not isinstance(hits, list):
             return None
-        if any(not isinstance(h, dict) or sanitize_hit(h) != h for h in hits):
+        if any(not isinstance(h, dict) or self.sanitize(h) != h for h in hits):
             return None
-        return hits
+        tokens = self.token_sanitizer(entry["tokens"]) if self.token_sanitizer else []
+        return None if tokens is None else (hits, tokens)
 
-    def write(self, court: str, az: str, hits: list[dict]) -> None:
+    def write(self, court: str, az: str, hits: list[dict], tokens: list | None = None) -> None:
         path = self.path(court, az)
         if path is None:
             return
         entry = {"court": court, "az": az, "fetched_at": self.now_epoch(), "hits": hits}
+        if self.token_sanitizer:
+            entry["tokens"] = tokens or []
         tmp_name = None
         try:
             self.cache_dir.mkdir(mode=0o700, parents=True, exist_ok=True)

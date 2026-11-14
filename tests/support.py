@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, unquote_plus, urlparse
 
 HERE = Path(__file__).resolve().parent
 SCRIPTS = HERE.parent / "scripts"
@@ -53,3 +53,29 @@ GOOD_ECLI = "ECLI:DE:BGH:2025:091025UIZR159.24.0"
 GOOD_HIT = {"ecli": GOOD_ECLI, "date": "2025-10-09", "type": "Urteil",
             "document_number": "KORE726702025", "court": "BGH",
             "file_numbers": ["I ZR 159/24"]}
+
+
+def cellar_fixture(name: str) -> tuple[int, bytes]:
+    return 200, (FIXTURES / f"cellar_{name}.json").read_bytes()
+
+
+CELLAR_EMPTY = cellar_fixture("leer")
+
+
+class EuFakeFetch:
+    """Scripted Cellar endpoint: `responses` maps a CELEX number occurring in the query to (status, body)."""
+
+    def __init__(self, responses=None, default=CELLAR_EMPTY):
+        self.responses = responses or {}
+        self.default = default
+        self.calls: list[str] = []
+
+    def __call__(self, url: str, timeout: float):
+        self.calls.append(url)
+        query = unquote_plus(urlparse(url).query)
+        for celex, entry in self.responses.items():
+            if f'"{celex}"' in query:
+                if isinstance(entry, Exception):
+                    raise entry
+                return entry
+        return self.default

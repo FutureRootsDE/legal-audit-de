@@ -14,6 +14,7 @@ from .api import ApiClient, FetchFn
 from .cache import default_cache_dir_vetted, prepare_cache_dir
 from .classify import LookupMap, build_results, summarize
 from .ecli_writer import EcliOutcome, apply_updates, plan_ecli_updates
+from .eu_client import EU_RATE, EU_TIMEOUT, EuClient
 from .extract import scan_kb
 from .fsutil import is_under
 from .models import DEFAULT_CACHE_TTL_DAYS
@@ -29,7 +30,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Bundesgerichts-Aktenzeichen in knowledge/ gegen die "
                                             "Rechtsinformations-API des Bundes pruefen (optional).",
                                 epilog="Bekannte Grenzen: Kurzform-Aufzaehlungen wie 'I ZR 90/20, 125/20 und 126/20' werden "
-                                       "aufgeloest (ein folgendes Datum bindet nur an das letzte Glied). BVerwG-Aktenzeichen "
+                                       "aufgeloest (ein Datum vor oder nach der Liste gilt fuer alle Glieder). BVerwG-Aktenzeichen "
                                        "ohne Gerichtsnamen in der Zeile werden nur in knowledge/urteile/ erkannt, wenn "
                                        "Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen, kein "
                                        "Vorinstanz-Signal in der Zeile steht und das Registerzeichen passt. Daten nach "
@@ -48,6 +49,10 @@ def build_parser() -> argparse.ArgumentParser:
                         "~/.cache/citation-check; nie im Repo). Cache-Treffer sind gekennzeichnet "
                         "(source: cache im JSON, Quelle: Cache im Bericht): lokale Cache-Dateien sind nicht "
                         "authentisch pruefbar, Vorschlaege aus dem Cache gelten als UNGEPRUEFT")
+    p.add_argument("--no-eu", action="store_true",
+                   help="EU-Rechtsprechung (EuGH/EuG) nicht gegen den Cellar des Amts fuer Veroeffentlichungen pruefen")
+    p.add_argument("--eu-rate", type=float, default=EU_RATE,
+                   help="max. SPARQL-Anfragen pro Sekunde an den Cellar (Standard 1)")
     p.add_argument("--no-cache", action="store_true", help="keinen Cache lesen oder schreiben")
     p.add_argument("--cache-ttl-days", type=float, default=DEFAULT_CACHE_TTL_DAYS,
                    help="maximales Alter von Cache-Eintraegen in Tagen (Standard 7)")
@@ -74,6 +79,8 @@ def _validate_args(parser: argparse.ArgumentParser, args: argparse.Namespace) ->
             date.fromisoformat(args.today)
         except ValueError:
             parser.error("--today muss ein Datum im Format YYYY-MM-DD sein")
+    if not 0 < args.eu_rate <= MAX_RATE_PER_SECOND:
+        parser.error(f"--eu-rate muss > 0 und <= {MAX_RATE_PER_SECOND:g} sein")
     if args.timeout <= 0:
         parser.error("--timeout muss > 0 sein")
     if args.cache_ttl_days <= 0:
@@ -108,8 +115,9 @@ def _resolve_cache(args: argparse.Namespace, err) -> tuple[Path | None, str | No
     return requested, warning, True
 
 
-def _write_phase(args: argparse.Namespace, kb_path: Path, client: ApiClient, known: LookupMap) -> EcliOutcome:
-    updates, skipped = plan_ecli_updates(kb_path, client, fresh=not args.dry_run, known=known)
+def _write_phase(args: argparse.Namespace, kb_path: Path, client: ApiClient, known: LookupMap,
+                 eu: EuClient | None) -> EcliOutcome:
+    updates, skipped = plan_ecli_updates(kb_path, client, fresh=not args.dry_run, known=known, eu=eu)
     outcome = EcliOutcome(updates=updates, skipped=skipped, dry_run=args.dry_run)
     if not args.dry_run:
         applied = apply_updates(updates, kb_path)
@@ -156,8 +164,11 @@ def main(argv: list[str] | None = None, fetch: FetchFn | None = None,
     if args.only_pending:
         citations = [c for c in citations if c.pending]
     known: LookupMap = {}
-    results = build_results(citations, client, fresh=args.write_ecli and not args.dry_run, lookups=known)
-    ecli = _write_phase(args, kb_path, client, known) if args.write_ecli else None
-    summary = summarize(results, client, args.offline)
-    _emit(args, out, results, summary, client.warnings, ecli)
+    eu = None if args.no_eu else EuClient(fetch=fetch, cache_dir=cache_dir, rate=args.eu_rate,
+                                          timeout=max(args.timeout, EU_TIMEOUT), offline=args.offline,
+                                          cache_ttl_seconds=args.cache_ttl_days * 24 * 3600, sleep=sleep)
+    results = build_results(citations, client, fresh=args.write_ecli and not args.dry_run, lookups=known, eu=eu)
+    ecli = _write_phase(args, kb_path, client, known, eu) if args.write_ecli else None
+    summary = summarize(results, client, args.offline, eu)
+    _emit(args, out, results, summary, client.warnings + (eu.warnings if eu else []), ecli)
     return _exit_code(args, summary, ecli)
