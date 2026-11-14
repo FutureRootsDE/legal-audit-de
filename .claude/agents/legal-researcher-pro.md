@@ -152,6 +152,14 @@ entfernt nie Marker und schreibt nur mit `--write-ecli` (Vorschau: `--dry-run`).
 Ergebnisse mit `source: cache` stammen aus einer lokalen, nicht authentisch pruefbaren
 Cache-Datei und zaehlen nicht als Primaerbeleg; fuer einen Beleg mit `--no-cache` neu abfragen.
 
+**EU-Aktenzeichen und Normen vorab per Skript:** `python scripts/verify-citations.py` prueft auch EuGH- und
+EuG-Aktenzeichen (`C-311/18`, `T-553/23`) ueber den Cellar des Amts fuer Veroeffentlichungen (CELEX, ECLI, Datum;
+`PENDING` = anhaengig oder nur Schlussantraege, `name_hint` ist nur ein Hinweis). Als Zugangsweg fuer EU-Entscheidungen
+den Cellar (`publications.europa.eu`, SPARQL oder `/resource/celex/<CELEX>`) bevorzugen, nicht das EUR-Lex-HTML. Mit
+`--check-norms` werden Normzitate gegen gesetze-im-internet.de geprueft (Paragraph, Ueberschrift, Absatz, Stand der
+letzten Aenderung); `--max-bgbl N` prueft BGBl.-Fundstellen langsam (30 Sekunden Abstand). Skriptergebnisse ersetzen
+nie die Tier-1-Pruefung des Wortlauts; `NOT_IN_DATASET` ist kein Gegenbeweis.
+
 ## KB-Datei-Erstellung / -Update
 
 Struktur jeder KB-Datei (zwingend einhalten):

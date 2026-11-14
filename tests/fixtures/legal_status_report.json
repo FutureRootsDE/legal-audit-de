@@ -1,0 +1,126 @@
+{
+ "generated_at": "2026-11-14T00:00:00Z",
+ "project_dir": "PROJECT",
+ "kb": {
+  "total": 6,
+  "by_category": {
+   "gesetze": 1,
+   "themen": 5,
+   "urteile": 0,
+   "behoerden": 0,
+   "checklisten": 0,
+   "anwaelte-tools": 0,
+   "_index": 0
+  },
+  "aktualitaet": {
+   "fresh_under_90d": 1,
+   "stale_90_to_180d": 2,
+   "very_stale_over_180d": 1,
+   "no_frontmatter": 1,
+   "teilverifiziert": 1,
+   "basis": "verifiziert-am (ersatzweise aktualisiert); teilverifiziert-am zaehlt nie als frisch"
+  },
+  "stale_files": [
+   {
+    "path": "knowledge/gesetze/f.md",
+    "age_days": 147
+   },
+   {
+    "path": "knowledge/themen/c.md",
+    "age_days": 105
+   },
+   {
+    "path": "knowledge/themen/b.md",
+    "age_days": 190
+   }
+  ],
+  "teilverifiziert_files": [
+   {
+    "path": "knowledge/themen/d.md",
+    "teilverifiziert_am": "2026-11-14"
+   }
+  ],
+  "no_frontmatter_files": [
+   "knowledge/themen/e.md"
+  ]
+ },
+ "placeholders": {
+  "deviant": {
+   "total": 1,
+   "affected_files": 1
+  },
+  "total": 2,
+  "affected_files": 2,
+  "by_type": {
+   "verifikation_ausstehend": 1,
+   "unverifiziert": 1
+  },
+  "deviant_files": [
+   {
+    "path": "knowledge/themen/b.md",
+    "findings": [
+     {
+      "line": 6,
+      "reason": "Zusatztext oder abweichende Schreibweise",
+      "snippet": "<<VERIFIKATION AUSSTEHEND: Quelle>>"
+     }
+    ]
+   }
+  ],
+  "files": [
+   {
+    "path": "knowledge/themen/a.md",
+    "count": 1
+   },
+   {
+    "path": "knowledge/themen/d.md",
+    "count": 1
+   }
+  ]
+ },
+ "audits": [
+  {
+   "name": "demo-20261101",
+   "path": "audits/demo-20261101",
+   "meta": {
+    "audit_timestamp": "2026-11-01T10:00:00Z",
+    "severity_count": {
+     "CRIT": 1,
+     "HIGH": 2
+    }
+   }
+  }
+ ],
+ "hooks": {
+  "SessionStart": {
+   "script": "session_start.py",
+   "exists": true,
+   "size": 10
+  },
+  "UserPromptSubmit": {
+   "script": "prompt_submit.py",
+   "exists": false,
+   "size": 0
+  },
+  "PostToolUse": {
+   "script": "post_write.py",
+   "exists": true,
+   "size": 20
+  },
+  "trigger_patterns": 7
+ },
+ "pro_mode": {
+  "enabled": true,
+  "marker_path": "MARKER",
+  "set_at": "2026-11-01",
+  "version": "1",
+  "variants_expected": [
+   "a-pro",
+   "b-pro"
+  ],
+  "variants_present": [
+   "a-pro"
+  ],
+  "variants_complete": false
+ }
+}

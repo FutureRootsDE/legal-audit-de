@@ -1,0 +1,43 @@
+=== legal-audit-de Status ===
+Generiert: 2026-11-14T00:00:00Z
+Pfad: PROJECT
+
+Knowledge Base:
+  Gesamt: 6 Dateien
+  Kategorien: gesetze=1, themen=5, urteile=0, behoerden=0, checklisten=0, anwaelte-tools=0, _index=0
+  Aktualitaet:
+    (Alter der Verifikation: verifiziert-am, ersatzweise aktualisiert)
+    - Aktuell (<90 Tage):     1
+    - Stale (90-180 Tage):    2
+    - Sehr Stale (>180 Tage): 1
+    - Teilverifiziert:        1
+    - Ohne Frontmatter:       1
+
+Platzhalter (zu recherchieren):
+  VERIFIKATION AUSSTEHEND: 1
+  UNVERIFIZIERT:           1
+  Gesamt:                  2
+  Betroffene Dateien:      2
+  WARNUNG: 1 abweichende Platzhalter-Formen in 1 Dateien (python scripts/find-placeholders.py zeigt sie)
+  Empfehlung: /legal-update --fix-pending
+
+Audit-Historie:
+  Gesamt: 1 Audits
+  - demo-20261101 @ 2026-11-01T10:00:00Z CRIT:1 HIGH:2
+
+Hook-Status:
+  SessionStart: OK (session_start.py)
+  UserPromptSubmit: FEHLT (prompt_submit.py)
+  PostToolUse: OK (post_write.py)
+  Trigger-Patterns: 7
+
+Pro-Mode:
+  Status:           AKTIV
+  Marker:           MARKER
+  Gesetzt:          2026-11-01
+  Agent-Varianten:  1/2 (INKOMPLETT)
+    fehlt: b-pro — Run: python3 scripts/sync-pro-variants.py --apply
+
+Empfohlene Aktionen:
+  - /legal-update --stale-only   (veraltete KB-Dateien)
+  - /legal-update <slug>         (teilverifizierte Dateien vollstaendig verifizieren)

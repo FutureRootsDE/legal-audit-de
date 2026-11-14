@@ -5,6 +5,7 @@ legal-audit-de Status-Report.
 Zeigt:
   - KB-Dateienzahl + Aktualitaets-Status (massgeblich ist verifiziert-am, ersatzweise aktualisiert;
     Dateien mit teilverifiziert-am gelten als eigener Zustand "teilverifiziert" und nie als frisch)
+  - Dateien mit Frontmatter, aber ungueltigem oder zukuenftigem Datum: eigener Zustand "ungueltiges Datum"
   - Anzahl <<VERIFIKATION AUSSTEHEND>> / <<UNVERIFIZIERT>>-Platzhalter
   - Audit-Historie aus audits/
   - Hook-Konfigurations-Check
@@ -48,16 +49,22 @@ def kb_categories(kb: Path = KB) -> dict[str, list[Path]]:
 
 
 FRONTMATTER_RE = re.compile(r"\A---[ \t]*\r?\n(.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
-DATE_FIELD_RE = re.compile(r"^(aktualisiert|verifiziert-am|teilverifiziert-am):[ \t]*(\S*)", re.MULTILINE)
+DATE_FIELD_RE = re.compile(r"^(aktualisiert|verifiziert-am|teilverifiziert-am):[ \t]*(.*?)[ \t]*$", re.MULTILINE)
 PLACEHOLDER_RE = EXACT_RE
 
 
-def age_days(aktualisiert_str: str, today: date) -> int:
+def parse_date(value: str) -> date | None:
+    """ISO date of a frontmatter value; quotes around it are tolerated, anything else is not a date."""
+    cleaned = re.sub(r"\s+#.*$", "", value).strip().strip("\"'")
     try:
-        d = datetime.strptime(aktualisiert_str, "%Y-%m-%d").date()
-        return (today - d).days
+        return datetime.strptime(cleaned, "%Y-%m-%d").date()
     except ValueError:
-        return -1
+        return None
+
+
+def age_days(aktualisiert_str: str, today: date) -> int:
+    parsed = parse_date(aktualisiert_str)
+    return (today - parsed).days if parsed else -1
 
 
 def frontmatter_fields(text: str) -> dict[str, str]:
@@ -66,17 +73,28 @@ def frontmatter_fields(text: str) -> dict[str, str]:
     return {k: v for k, v in DATE_FIELD_RE.findall(block.group(1))} if block else {}
 
 
+def usable_reference(fields: dict[str, str], today: date) -> date | None:
+    """verifiziert-am if it is a valid, non-future date; else aktualisiert under the same conditions."""
+    for key in ("verifiziert-am", "aktualisiert"):
+        parsed = parse_date(fields.get(key, ""))
+        if parsed is not None and parsed <= today:
+            return parsed
+    return None
+
+
 def freshness_state(fields: dict[str, str], today: date) -> tuple[str, int]:
     """State and verification age: verifiziert-am decides, aktualisiert is the fallback.
 
-    teilverifiziert-am marks a partly verified file: own state, never fresh.
+    teilverifiziert-am marks a partly verified file: own state, never fresh. A frontmatter with date
+    fields but without any usable (valid, not future) date is "invalid_date"; without date fields
+    (or without frontmatter) it is "no_frontmatter".
     """
-    reference = fields.get("verifiziert-am") or fields.get("aktualisiert") or ""
-    age = age_days(reference, today) if reference else -1
+    reference = usable_reference(fields, today)
+    age = (today - reference).days if reference else -1
     if "teilverifiziert-am" in fields:
         return "teilverifiziert", age
-    if age < 0:
-        return "no_frontmatter", age
+    if reference is None:
+        return ("invalid_date" if fields else "no_frontmatter"), age
     if age < STALE_DAYS:
         return "fresh", age
     return ("stale" if age < VERY_STALE_DAYS else "very_stale"), age
@@ -193,83 +211,82 @@ def pro_mode_status() -> dict:
     }
 
 
+def _scan_all(cats: dict[str, list[Path]], today: date, root: Path) -> list[dict]:
+    return [scan_file(path, today, root) for sub_files in cats.values() for path in sub_files]
+
+
+def _in_state(files: list[dict], name: str) -> list[dict]:
+    return [f for f in files if f.get("state") == name]
+
+
+def _kb_section(cats: dict[str, list[Path]], files: list[dict]) -> dict:
+    return {
+        "total": sum(len(v) for v in cats.values()),
+        "by_category": {k: len(v) for k, v in cats.items()},
+        "aktualitaet": {
+            "fresh_under_90d": len(_in_state(files, "fresh")),
+            "stale_90_to_180d": len(_in_state(files, "stale")),
+            "very_stale_over_180d": len(_in_state(files, "very_stale")),
+            "no_frontmatter": len(_in_state(files, "no_frontmatter")),
+            "teilverifiziert": len(_in_state(files, "teilverifiziert")),
+            "invalid_date": len(_in_state(files, "invalid_date")),
+            "basis": "verifiziert-am (ersatzweise aktualisiert); teilverifiziert-am zaehlt nie als frisch",
+        },
+    }
+
+
+def _placeholder_section(files: list[dict]) -> dict:
+    with_deviant = [f for f in files if f.get("deviant_placeholders")]
+    return {
+        "deviant": {
+            "total": sum(len(f["deviant_placeholders"]) for f in with_deviant),
+            "affected_files": len(with_deviant),
+        },
+        "total": sum(f.get("placeholders", 0) for f in files),
+        "affected_files": len([f for f in files if f.get("placeholders", 0) > 0]),
+        "by_type": {
+            "verifikation_ausstehend": sum(f["placeholder_types"]["verifikation_ausstehend"] for f in files),
+            "unverifiziert": sum(f["placeholder_types"]["unverifiziert"] for f in files),
+        },
+    }
+
+
+def _add_verbose(report: dict, files: list[dict]) -> None:
+    stale = _in_state(files, "stale") + _in_state(files, "very_stale")
+    with_deviant = [f for f in files if f.get("deviant_placeholders")]
+    report["kb"]["stale_files"] = [{"path": f["path"], "age_days": f["verification_age_days"]} for f in stale]
+    report["kb"]["teilverifiziert_files"] = [
+        {"path": f["path"], "teilverifiziert_am": f["teilverifiziert_am"]} for f in _in_state(files, "teilverifiziert")]
+    report["placeholders"]["deviant_files"] = [
+        {"path": f["path"], "findings": f["deviant_placeholders"]} for f in with_deviant]
+    report["placeholders"]["files"] = [
+        {"path": f["path"], "count": f["placeholders"]} for f in files if f.get("placeholders", 0) > 0]
+    report["kb"]["no_frontmatter_files"] = [f["path"] for f in _in_state(files, "no_frontmatter")]
+    report["kb"]["invalid_date_files"] = [
+        {"path": f["path"], "verifiziert_am": f["verifiziert_am"], "aktualisiert": f["aktualisiert"]}
+        for f in _in_state(files, "invalid_date")]
+
+
 def build_report(verbose: bool, today: date | None = None, root: Path = ROOT) -> dict:
     today = today or date.today()
     cats = kb_categories(root / "knowledge")
-    files: list[dict] = []
-    for sub_files in cats.values():
-        for path in sub_files:
-            files.append(scan_file(path, today, root))
-
-    def in_state(name: str) -> list[dict]:
-        return [f for f in files if f.get("state") == name]
-
-    fresh, stale, very_stale = in_state("fresh"), in_state("stale"), in_state("very_stale")
-    partly_verified, no_frontmatter = in_state("teilverifiziert"), in_state("no_frontmatter")
-    with_deviant = [f for f in files if f.get("deviant_placeholders")]
-
-    total_placeholders = sum(f.get("placeholders", 0) for f in files)
-    files_with_placeholders = [f for f in files if f.get("placeholders", 0) > 0]
-
+    files = _scan_all(cats, today, root)
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "project_dir": str(ROOT),
-        "kb": {
-            "total": sum(len(v) for v in cats.values()),
-            "by_category": {k: len(v) for k, v in cats.items()},
-            "aktualitaet": {
-                "fresh_under_90d": len(fresh),
-                "stale_90_to_180d": len(stale),
-                "very_stale_over_180d": len(very_stale),
-                "no_frontmatter": len(no_frontmatter),
-                "teilverifiziert": len(partly_verified),
-                "basis": "verifiziert-am (ersatzweise aktualisiert); teilverifiziert-am zaehlt nie als frisch",
-            },
-        },
-        "placeholders": {
-            "deviant": {
-                "total": sum(len(f["deviant_placeholders"]) for f in with_deviant),
-                "affected_files": len(with_deviant),
-            },
-            "total": total_placeholders,
-            "affected_files": len(files_with_placeholders),
-            "by_type": {
-                "verifikation_ausstehend": sum(
-                    f["placeholder_types"]["verifikation_ausstehend"] for f in files
-                ),
-                "unverifiziert": sum(
-                    f["placeholder_types"]["unverifiziert"] for f in files
-                ),
-            },
-        },
+        "kb": _kb_section(cats, files),
+        "placeholders": _placeholder_section(files),
         "audits": audit_history(),
         "hooks": hook_status(),
         "pro_mode": pro_mode_status(),
     }
-
     if verbose:
-        report["kb"]["stale_files"] = [
-            {"path": f["path"], "age_days": f["verification_age_days"]} for f in stale + very_stale]
-        report["kb"]["teilverifiziert_files"] = [
-            {"path": f["path"], "teilverifiziert_am": f["teilverifiziert_am"]} for f in partly_verified]
-        report["placeholders"]["deviant_files"] = [
-            {"path": f["path"], "findings": f["deviant_placeholders"]} for f in with_deviant]
-        report["placeholders"]["files"] = [
-            {"path": f["path"], "count": f["placeholders"]} for f in files_with_placeholders
-        ]
-        report["kb"]["no_frontmatter_files"] = [f["path"] for f in no_frontmatter]
-
+        _add_verbose(report, files)
     return report
 
 
-def render_text(report: dict) -> str:
-    kb = report["kb"]
-    ph = report["placeholders"]
+def _kb_lines(kb: dict) -> list[str]:
     lines = [
-        "=== legal-audit-de Status ===",
-        f"Generiert: {report['generated_at']}",
-        f"Pfad: {report['project_dir']}",
-        "",
         "Knowledge Base:",
         f"  Gesamt: {kb['total']} Dateien",
         f"  Kategorien: " + ", ".join(f"{k}={v}" for k, v in kb['by_category'].items()),
@@ -280,7 +297,14 @@ def render_text(report: dict) -> str:
         f"    - Sehr Stale (>180 Tage): {kb['aktualitaet']['very_stale_over_180d']}",
         f"    - Teilverifiziert:        {kb['aktualitaet']['teilverifiziert']}",
         f"    - Ohne Frontmatter:       {kb['aktualitaet']['no_frontmatter']}",
-        "",
+    ]
+    if kb["aktualitaet"].get("invalid_date", 0):
+        lines.append(f"    - Ungueltiges Datum:      {kb['aktualitaet']['invalid_date']}")
+    return lines
+
+
+def _placeholder_lines(ph: dict) -> list[str]:
+    lines = [
         "Platzhalter (zu recherchieren):",
         f"  VERIFIKATION AUSSTEHEND: {ph['by_type']['verifikation_ausstehend']}",
         f"  UNVERIFIZIERT:           {ph['by_type']['unverifiziert']}",
@@ -292,51 +316,69 @@ def render_text(report: dict) -> str:
                      f"{ph['deviant']['affected_files']} Dateien (python scripts/find-placeholders.py zeigt sie)")
     if ph["total"] > 0:
         lines.append(f"  Empfehlung: /legal-update --fix-pending")
+    return lines
 
-    lines.extend(["", "Audit-Historie:"])
-    if not report["audits"]:
-        lines.append("  Keine Audits durchgefuehrt (noch).")
-    else:
-        lines.append(f"  Gesamt: {len(report['audits'])} Audits")
-        for a in report["audits"][-3:]:
-            meta = a.get("meta") or {}
-            ts = meta.get("audit_timestamp", "?")
-            sev = meta.get("severity_count", {})
-            sev_str = " ".join(f"{k}:{v}" for k, v in sev.items()) if sev else ""
-            lines.append(f"  - {a['name']} @ {ts} {sev_str}")
 
-    lines.extend(["", "Hook-Status:"])
-    for hook, info in report["hooks"].items():
+def _audit_lines(audits: list[dict]) -> list[str]:
+    lines = ["", "Audit-Historie:"]
+    if not audits:
+        return lines + ["  Keine Audits durchgefuehrt (noch)."]
+    lines.append(f"  Gesamt: {len(audits)} Audits")
+    for a in audits[-3:]:
+        meta = a.get("meta") or {}
+        ts = meta.get("audit_timestamp", "?")
+        sev = meta.get("severity_count", {})
+        sev_str = " ".join(f"{k}:{v}" for k, v in sev.items()) if sev else ""
+        lines.append(f"  - {a['name']} @ {ts} {sev_str}")
+    return lines
+
+
+def _hook_lines(hooks: dict) -> list[str]:
+    lines = ["", "Hook-Status:"]
+    for hook, info in hooks.items():
         if hook == "trigger_patterns":
             lines.append(f"  Trigger-Patterns: {info}")
         else:
             ok = "OK" if info["exists"] else "FEHLT"
             lines.append(f"  {hook}: {ok} ({info['script']})")
+    return lines
 
-    pm = report["pro_mode"]
-    lines.extend(["", "Pro-Mode:"])
-    state = "AKTIV" if pm["enabled"] else "deaktiviert"
-    lines.append(f"  Status:           {state}")
+
+def _pro_mode_lines(pm: dict) -> list[str]:
+    lines = ["", "Pro-Mode:", f"  Status:           {'AKTIV' if pm['enabled'] else 'deaktiviert'}"]
     if pm["enabled"]:
         lines.append(f"  Marker:           {pm['marker_path']}")
         lines.append(f"  Gesetzt:          {pm.get('set_at') or '?'}")
     variants = f"{len(pm['variants_present'])}/{len(pm['variants_expected'])}"
-    complete_tag = "OK" if pm["variants_complete"] else "INKOMPLETT"
-    lines.append(f"  Agent-Varianten:  {variants} ({complete_tag})")
+    lines.append(f"  Agent-Varianten:  {variants} ({'OK' if pm['variants_complete'] else 'INKOMPLETT'})")
     if not pm["variants_complete"]:
         missing = [n for n in pm["variants_expected"] if n not in pm["variants_present"]]
         lines.append(f"    fehlt: {', '.join(missing)} — Run: python3 scripts/sync-pro-variants.py --apply")
+    return lines
 
-    lines.extend(["", "Empfohlene Aktionen:"])
+
+def _action_lines(report: dict) -> list[str]:
+    kb, ph = report["kb"], report["placeholders"]
+    lines = ["", "Empfohlene Aktionen:"]
     if ph["total"] > 10:
         lines.append("  - /legal-update --fix-pending  (Platzhalter aufloesen)")
     if kb["aktualitaet"]["stale_90_to_180d"] + kb["aktualitaet"]["very_stale_over_180d"] > 0:
         lines.append("  - /legal-update --stale-only   (veraltete KB-Dateien)")
     if kb["aktualitaet"]["teilverifiziert"] > 0:
         lines.append("  - /legal-update <slug>         (teilverifizierte Dateien vollstaendig verifizieren)")
+    if kb["aktualitaet"].get("invalid_date", 0):
+        lines.append("  - Datum im Frontmatter korrigieren  (ungueltig oder in der Zukunft, siehe --verbose)")
     if not report["audits"]:
         lines.append("  - /legal-audit <pfad>  (ersten Audit durchfuehren)")
+    return lines
 
+
+def render_text(report: dict) -> str:
+    lines = ["=== legal-audit-de Status ===", f"Generiert: {report['generated_at']}",
+             f"Pfad: {report['project_dir']}", ""]
+    lines += _kb_lines(report["kb"]) + [""] + _placeholder_lines(report["placeholders"])
+    lines += _audit_lines(report["audits"]) + _hook_lines(report["hooks"])
+    lines += _pro_mode_lines(report["pro_mode"]) + _action_lines(report)
     return "\n".join(lines)
 
 
@@ -372,6 +414,10 @@ def main() -> int:
                 print("\nDateien mit Platzhaltern:")
                 for f in report["placeholders"]["files"]:
                     print(f"  {f['path']}: {f['count']} Platzhalter")
+            if report["kb"].get("invalid_date_files"):
+                print("\nDateien mit ungueltigem Datum im Frontmatter:")
+                for f in report["kb"]["invalid_date_files"]:
+                    print(f"  {f['path']} (verifiziert-am {f['verifiziert_am']}, aktualisiert {f['aktualisiert']})")
             if report["kb"].get("no_frontmatter_files"):
                 print("\nDateien ohne aktualisiert:-Frontmatter:")
                 for p in report["kb"]["no_frontmatter_files"]:

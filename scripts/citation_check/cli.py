@@ -61,7 +61,7 @@ def build_parser() -> argparse.ArgumentParser:
                         "gegen recht.bund.de pruefen (prueft keine Aktenzeichen, schreibt nie in die KB)")
     p.add_argument("--max-bgbl", type=int, default=DEFAULT_MAX_BGBL, metavar="N",
                    help="mit --check-norms: hoechstens N BGBl.-Seiten abrufen (robots.txt verlangt 30 Sekunden "
-                        f"Abstand; Standard {DEFAULT_MAX_BGBL}, 0 = keine)")
+                        f"Abstand; Standard {DEFAULT_MAX_BGBL} = keine Abrufe, nur auf Anforderung)")
     p.add_argument("--norm-rate", type=float, default=NORM_RATE,
                    help="mit --check-norms: max. Anfragen pro Sekunde an gesetze-im-internet.de (Standard 1)")
     p.add_argument("--no-cache", action="store_true", help="keinen Cache lesen oder schreiben")

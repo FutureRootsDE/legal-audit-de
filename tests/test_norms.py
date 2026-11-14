@@ -266,6 +266,7 @@ class BgblTests(unittest.TestCase):
     def checker(self, fake, **kw):
         self.sleeps: list[float] = []
         self.progress: list[str] = []
+        kw.setdefault("max_checks", 10)
         return bgbl.BgblChecker(fetch=fake, sleep=self.sleeps.append, clock=lambda: 0.0,
                                 progress=self.progress.append, **kw)
 
@@ -377,6 +378,11 @@ class CliTests(unittest.TestCase):
         self.run_cli("--json", "--max-bgbl", "0")
         self.assertEqual(self.file.read_bytes(), before)
         self.assertEqual([p.name for p in self.kb.rglob("*") if p.is_file()], ["t.md"])
+
+    def test_bgbl_check_is_opt_in(self):
+        _, text, _ = self.run_cli("--json")
+        self.assertEqual([c for c in self.fake.calls if "recht.bund.de" in c], [])
+        self.assertEqual({b["status"] for b in json.loads(text)["bgbl"]}, {"BGBL_UNCHECKED"})
 
     def test_max_bgbl_zero_sends_no_bgbl_request(self):
         self.run_cli("--json", "--max-bgbl", "0")
