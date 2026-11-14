@@ -21,7 +21,10 @@ USER_AGENT = "citation-check/1.0"
 PAGE_SIZE = 50
 MAX_PAGES = 3
 MAX_RESPONSE_BYTES = 5_000_000
-READ_CHUNK = 65_536
+READ_CHUNK = 8_192
+SOCKET_TIMEOUT = 5.0  # upper bound for one socket operation; the total time is enforced per block
+ERROR_CODE_RE = re.compile(r"^[A-Za-z0-9_.-]{1,40}$")
+MAX_ERROR_CODES = 3
 RETRY_STATUSES = frozenset({429, 500, 502, 503, 504})
 CACHE_TTL_SECONDS = DEFAULT_CACHE_TTL_DAYS * 24 * 3600
 
@@ -70,10 +73,11 @@ def read_bounded(resp, deadline: float, clock: Callable[[], float] = time.monoto
     """Read a response body in chunks: at most `limit` bytes and until `deadline` (clock value)."""
     parts: list[bytes] = []
     total = 0
+    read = getattr(resp, "read1", None) or resp.read  # read1 returns after one socket read: no long block
     while True:
         if clock() > deadline:
             raise DeadlineExceeded("Gesamtzeit je Anfrage ueberschritten")
-        chunk = resp.read(min(READ_CHUNK, limit + 1 - total))
+        chunk = read(min(READ_CHUNK, limit + 1 - total))
         if not chunk:
             return b"".join(parts)
         total += len(chunk)
@@ -87,6 +91,11 @@ def _retry_headers(headers) -> dict[str, str]:
     return {"retry-after": str(value)} if value is not None else {}
 
 
+def socket_timeout(timeout: float) -> float:
+    """Timeout of a single socket operation: small, so a stalled read overshoots the deadline only slightly."""
+    return min(timeout, SOCKET_TIMEOUT)
+
+
 def default_fetch(url: str, timeout: float) -> tuple[int, bytes, dict[str, str]]:
     """GET over https with a total time limit; returns (status, body, retry headers)."""
     if urlparse(url).scheme != "https":
@@ -94,7 +103,7 @@ def default_fetch(url: str, timeout: float) -> tuple[int, bytes, dict[str, str]]
     deadline = time.monotonic() + timeout
     opener = urllib.request.build_opener(SameHostHttpsRedirect)
     try:
-        with opener.open(build_request(url), timeout=timeout) as resp:
+        with opener.open(build_request(url), timeout=socket_timeout(timeout)) as resp:
             return resp.status, read_bounded(resp, deadline), _retry_headers(resp.headers)
     except urllib.error.HTTPError as exc:
         return exc.code, read_bounded(exc, deadline), _retry_headers(exc.headers)
@@ -119,14 +128,17 @@ def _norm_file_number(value: str) -> str:
 
 
 def _error_detail(status: int, body: bytes) -> str:
+    """Fixed format `HTTP <status>` plus at most MAX_ERROR_CODES API error codes of a strict pattern.
+
+    No free text of the response is ever passed on (agents read this output).
+    """
     try:
         errors = json.loads(body.decode("utf-8", errors="replace")).get("errors") or []
-        parts = [f"{e.get('parameter') or '-'}: {e.get('message') or e.get('code')}" for e in errors]
-        if parts:
-            return short(f"HTTP {status}: " + "; ".join(parts))
+        codes = [e["code"] for e in errors if isinstance(e, dict) and isinstance(e.get("code"), str)
+                 and ERROR_CODE_RE.fullmatch(e["code"])]
     except (ValueError, AttributeError, TypeError):
-        pass
-    return f"HTTP {status}"
+        codes = []
+    return f"HTTP {status} ({', '.join(codes[:MAX_ERROR_CODES])})" if codes else f"HTTP {status}"
 
 
 def parse_page(body: bytes) -> tuple[list[dict], int]:

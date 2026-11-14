@@ -44,8 +44,13 @@ class DateBindingTests(unittest.TestCase):
         self.assertEqual(dates("I ZR 1/20 (3.3.2021), X B 2/20"),
                          {"I ZR 1/20": "2021-03-03", "X B 2/20": None})
 
-    def test_single_az_line_keeps_nearest_date_behaviour(self):
+    def test_single_az_line_binds_an_adjacent_date_but_not_a_distant_one(self):
+        # Adjacent (only court name and brackets in between): still bound. The "nearest date"
+        # fallback now needs a gap of at most 30 characters and no memo word (see test_extract_memo_dates):
+        # a wrong DATE_MISMATCH is worse than no date comparison at all.
         self.assertEqual(dates("Beschluss vom 5.5.2020 (BGH I ZR 1/20)"), {"I ZR 1/20": "2020-05-05"})
+        far = "BGH I ZR 1/20 " + "Fuelltext " * 8 + "5.5.2020"
+        self.assertEqual(dates(far), {"I ZR 1/20": None})
 
     def test_correction_line_yields_no_date_but_a_flag(self):
         (citation,) = found("BGH I ZR 159/24 vom 10.10.2025 (korrigiert, statt 09.10.2025)")

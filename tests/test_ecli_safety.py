@@ -59,10 +59,10 @@ class WriteFailureTests(EcliBase):
         second = self.write("b.md", az="VI ZR 10/24", date="31.10.2024")
         real = ecli_writer.atomic_write
 
-        def flaky(path, data):
+        def flaky(path, data, **kwargs):
             if path.name == "a.md":
                 raise OSError("Platte voll")
-            real(path, data)
+            real(path, data, **kwargs)
 
         with mock.patch.object(ecli_writer, "atomic_write", flaky):
             code, text = self.run_cli("--write-ecli")

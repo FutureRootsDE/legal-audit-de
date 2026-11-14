@@ -98,7 +98,8 @@ class ClientTests(unittest.TestCase):
         fetch = FakeFetch({"I ZR 159/24": ERR_422})
         res = self.client(fetch).lookup("BGH", "I ZR 159/24")
         self.assertEqual((res.state, len(fetch.calls)), ("error", 1))
-        self.assertIn("pageIndex", res.detail)
+        self.assertEqual(res.detail, "HTTP 422 (invalid_parameter_value)")
+        self.assertNotIn("pageIndex", res.detail)
 
     def test_404_empty_body_means_no_hit(self):
         res = self.client(FakeFetch({"I ZR 159/24": (404, b"")})).lookup("BGH", "I ZR 159/24")

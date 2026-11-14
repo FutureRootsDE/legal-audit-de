@@ -26,7 +26,12 @@ EXIT_WRITE_FAILED = 3
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Bundesgerichts-Aktenzeichen in knowledge/ gegen die "
-                                            "Rechtsinformations-API des Bundes pruefen (optional).")
+                                            "Rechtsinformations-API des Bundes pruefen (optional).",
+                                epilog="Bekannte Grenzen: Kurzform-Aufzaehlungen wie 'I ZR 90/20, 125/20' werden nicht "
+                                       "aufgeloest (nur das erste Aktenzeichen). BVerwG-Aktenzeichen ohne Gerichtsnamen "
+                                       "in der Zeile werden nur in knowledge/urteile/ erkannt, wenn Gericht-Zeile, "
+                                       "Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen. Daten nach Vermerkwoertern "
+                                       "(Stand, geprueft, eingelegt, ...) und ab dem Lauftag gelten nie als Entscheidungsdatum.")
     p.add_argument("--path", default=str(ROOT / "knowledge"), help="KB-Verzeichnis (Standard: knowledge/)")
     p.add_argument("--json", action="store_true", help="JSON statt lesbarem Bericht")
     p.add_argument("--offline", action="store_true", help="nur Extraktion und Cache, keine Anfragen")
@@ -97,6 +102,7 @@ def _write_phase(args: argparse.Namespace, kb_path: Path, client: ApiClient, kno
     if not args.dry_run:
         applied = apply_updates(updates, kb_path)
         outcome.written, outcome.failed = applied.written, applied.failed
+        client.warnings.extend(applied.warnings)
         outcome.skipped = skipped + applied.skipped
     return outcome
 
