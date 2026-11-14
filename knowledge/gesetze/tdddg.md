@@ -124,6 +124,6 @@ Der Bundesbeauftragte für den Datenschutz überwacht § 25 TDDDG.
   10.03.2026 (BGBl. 2026 I Nr. 64, §§ 25/26 unveraendert) ergaenzt; § 26
   TDDDG um Hinweis auf die Einwilligungsverwaltungsverordnung (EinwV) vom
   06.02.2025 (BGBl. 2025 I Nr. 32, in Kraft seit 01.04.2025) ergaenzt.
-  Anerkennung des ersten Dienstes "Consenter" am 17.10.2025 mit Marker
-  `<<VERIFIKATION AUSSTEHEND>>`, da bislang nur ueber Sekundaerquellen
+  Anerkennung des ersten Dienstes "Consenter" am 17.10.2025 mit
+  Verifikationsmarker versehen, da bislang nur ueber Sekundaerquellen
   belegt (BfDI-Register nicht direkt abgerufen).

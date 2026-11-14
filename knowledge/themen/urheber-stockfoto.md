@@ -190,6 +190,6 @@ Empfohlene Hierarchie nach Rechtssicherheit:
 - Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
 - Platzhalter zum fehlenden Endurteil zu "gutglaeubigen Nutzer-Schutz" bei
   falsch hochgeladenen Gratis-Stockfotos bleibt bestehen; gezielte Suche
-  ergab weiterhin nur LG-Einzelfallentscheidungen. Marker auf einzeiliges
-  Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert, naechste Pruefung
+  ergab weiterhin nur LG-Einzelfallentscheidungen. Marker auf das einzeilige
+  Standardformat des Verifikationsmarkers normalisiert, naechste Pruefung
   2027-02.

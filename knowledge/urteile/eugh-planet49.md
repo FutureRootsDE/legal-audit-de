@@ -103,6 +103,9 @@ Die Einwilligung zur Cookie-Nutzung darf nicht in einer Weise mit der Teilnahme 
 
 ## Aenderungsvermerk
 
-- 2026-11-14: Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert; ECLI
-  (ECLI:EU:C:2019:801) in Frontmatter ergaenzt. Inhaltlich keine neuen
-  EuGH-Entscheidungen zur Planet49-Linie seit 2026-05-08 bekannt.
+- 2026-11-14: geprueft am Volltext des EuGH-Urteils C-673/17 ueber
+  curia.europa.eu (Urteil vom 01.10.2019, ECLI:EU:C:2019:801,
+  Grosse Kammer); Kernzitate zu Art. 5 Abs. 3 ePrivacy-RL und zu Art. 2
+  Buchst. f ePrivacy-RL i.V.m. Art. 4 Nr. 11 DSGVO bestaetigt. ECLI in
+  Frontmatter aufgenommen. Inhaltlich keine neuen EuGH-Entscheidungen zur
+  Planet49-Linie seit 2026-05-08 bekannt.

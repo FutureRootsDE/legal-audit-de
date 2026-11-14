@@ -148,10 +148,24 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
 - **EuGH C-330/23** (26.09.2024, "Aldi Sued"): Klarstellung, dass der
   30-Tage-Referenzpreis auch in Werbung (Prospekte, Online-Ads) gelten muss,
   nicht nur am Regal.
-- **BGH I ZR 173/16** (31.10.2018): Preisangabe muss fuer den Verbraucher
-  "auf einen Blick" erkennbar sein. <<VERIFIKATION AUSSTEHEND>>
-- **BGH I ZR 143/19** (05.11.2020, "Sofort lieferbar"): Kopplung Lieferzeit +
-  Preisangabe. <<VERIFIKATION AUSSTEHEND>>
+- **BGH I ZR 173/16** — in Vorgaengerfassungen dieser KB als Preisangabe-
+  Entscheidung ("auf einen Blick", 31.10.2018) zitiert. Gegenprobe ueber die
+  Rechtsinformations-API des Bundes am 2026-11-14 ergibt: unter diesem
+  Aktenzeichen gibt es nur das Urteil des I. Zivilsenats vom **12.12.2019**
+  ("OeKO-TEST I", ECLI:DE:BGH:2019:121219UIZR173.16.0) zur Verletzung einer
+  Unionsmarke; eine Preisangaben-Entscheidung unter diesem Aktenzeichen ist
+  dort nicht nachweisbar. Zitat daher nicht uebernehmen und mit
+  Verifikationsmarker belassen. <<VERIFIKATION AUSSTEHEND>>
+- **BGH I ZR 143/19** — in Vorgaengerfassungen dieser KB als "Sofort
+  lieferbar"-Entscheidung (05.11.2020) zur Kopplung Lieferzeit + Preis zitiert.
+  Gegenprobe ueber die Rechtsinformations-API des Bundes am 2026-11-14 ergibt:
+  unter diesem Aktenzeichen sind nur das Urteil des I. Zivilsenats vom
+  **07.04.2022** ("Knuspermuesli II", ECLI:DE:BGH:2022:070422UIZR143.19.0,
+  Lebensmittelinformations-Pflichten) und der dazugehoerige Vorlagebeschluss
+  vom 23.07.2020 (ECLI:DE:BGH:2020:230720BIZR143.19.0) gefuehrt; eine
+  Preisangaben-Entscheidung unter diesem Aktenzeichen ist dort nicht
+  nachweisbar. Zitat daher nicht uebernehmen und mit Verifikationsmarker
+  belassen. <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -174,3 +188,10 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   **100.000 EUR** (§ 3 Abs. 3 PAngG). Inkrafttreten 01.01.2027 (Art. 4).
   Vorheriger Hinweis "Betroffenheit einzelner Paragraphen nicht einzeln
   gegenverifiziert" damit aufgeloest.
+- **2026-11-14 (Task 12, API-Gegenprobe)**: BGH I ZR 173/16 und BGH I ZR 143/19
+  ueber die Rechtsinformations-API des Bundes abgefragt. Beide Treffer
+  passen nicht zum hier zugeschriebenen Gegenstand (Preisangaben) — I ZR 173/16
+  = "OeKO-TEST I" (Unionsmarke, 12.12.2019), I ZR 143/19 = "Knuspermuesli II"
+  (LMIV, 07.04.2022). Zitate werden daher nicht mit Daten/ECLI gefuellt,
+  sondern bleiben mit Verifikationsmarker belassen; die Abweichung ist im
+  jeweiligen Eintrag dokumentiert.

@@ -146,7 +146,7 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
 ## Aenderungsvermerk 2026-11-14
 
 - Marker-Variante am OVG-Lueneburg-Eintrag auf die vereinheitlichte Form
-  `<<VERIFIKATION AUSSTEHEND>>` gebracht.
+  des Verifikationsmarkers gebracht.
 - Digital-Omnibus-Hinweis: Die Kommission hat am 19.11.2025 einen Vorschlag
   zur Lockerung der VVT-Pflicht (Art. 30 DSGVO) fuer KMU vorgelegt. Status
   2026-11-14: **nur Kommissionsvorschlag**, noch nicht verkuendet. Bis zur

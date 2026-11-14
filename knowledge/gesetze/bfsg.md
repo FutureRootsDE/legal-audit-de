@@ -130,7 +130,7 @@ Hintergrund aus EU-Ebene:
 
 - **2026-11-14**: Frontmatter-Datum und Disclaimer-Stand aktualisiert.
   Stand-Hinweis in Kurzueberblick und im Abschnitt "Zitierbare Urteile"
-  aktualisiert. Platzhalter zur BGH/OLG-UWG-Abmahnfaehigkeit auf exakte
-  Marker-Schreibweise `<<VERIFIKATION AUSSTEHEND>>` vereinheitlicht; eine
+  aktualisiert. Platzhalter zur BGH/OLG-UWG-Abmahnfaehigkeit auf die exakte
+  Schreibweise des Verifikationsmarkers vereinheitlicht; eine
   BGH/OLG-Leitentscheidung zur BFSG-Abmahnfaehigkeit ist auch nach
   erneuter Recherche nicht belegbar.

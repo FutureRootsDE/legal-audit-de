@@ -168,11 +168,20 @@ Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
 ## Aenderungsvermerk 2026-11-14
 
 - Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
-- Vier Marker-Varianten (`<<VERIFIKATION AUSSTEHEND — ...>>`) auf das
-  einzeilige Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert
+- Vier Marker-Varianten mit angehaengtem Grund auf das einzeilige
+  Standardformat des Verifikationsmarkers normalisiert
   (BGH I ZR 173/16, I ZR 143/19, OLG Hamm 4 U 85/22, BGH I ZR 85/21).
 - EuGH C-330/23 Aldi Sued und BGH I ZR 183/24 (jeweils 2024/2025) unveraendert
   belassen; weitere Folgerechtsprechung zu § 11 PAngV nicht aufgefunden.
+- **2026-11-14 (Task 12, API-Gegenprobe)**: BGH I ZR 173/16 und BGH I ZR 143/19
+  ueber die Rechtsinformations-API des Bundes abgefragt. Treffer passen nicht
+  zum hier zugeschriebenen Gegenstand (Preisangaben) — I ZR 173/16 =
+  "OeKO-TEST I" (Unionsmarke, Urteil 12.12.2019,
+  ECLI:DE:BGH:2019:121219UIZR173.16.0); I ZR 143/19 = "Knuspermuesli II"
+  (LMIV, Urteil 07.04.2022, ECLI:DE:BGH:2022:070422UIZR143.19.0, dazu
+  EuGH-Vorlagebeschluss vom 23.07.2020). Beide Zitate werden daher nicht mit
+  Daten/ECLI gefuellt, sondern bleiben mit Verifikationsmarker belassen;
+  die Abweichung ist in gesetze/pangv.md spiegelbildlich dokumentiert.
 - **2026-11-14 (Abgleich)**: Hinweis auf das Gesetz zur Aenderung des
   Preisangabenrechts vom 19.10.2026 (BGBl. 2026 I Nr. 314, Inkrafttreten
   01.01.2027) ergaenzt. Die Aenderung betrifft die PAngV selbst nur in

@@ -130,7 +130,12 @@ bestaetigt.
 
 ## Aenderungsvermerk
 
-- 2026-11-14: Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert;
-  Inhalt unveraendert. Vorhandener Marker zur OLG-Nuernberg-Vorinstanz
-  (Aktenzeichen/Datum) bleibt in der dokumentierten Form bestehen, da in
-  Tier-1-Quellen weiterhin nicht zweifelsfrei reproduzierbar.
+- 2026-11-14: geprueft gegen die Rechtsinformations-API des Bundes
+  (`/v1/rechtsprechung?fileNumber=I ZR 25/19&court=BGH`); Urteil des I. Zivil-
+  senats vom 13.01.2022 "Inbox-Werbung II" mit ECLI:DE:BGH:2022:130122UIZR25.19.0
+  sowie der zugehoerige Vorlagebeschluss vom 30.01.2020
+  (ECLI:DE:BGH:2020:300120BIZR25.19.0) bestaetigt; das EuGH-Vorabentscheidungs-
+  verfahren wird auf curia.europa.eu als C-102/20 (Urteil vom 25.11.2021)
+  gefuehrt. Inhalt unveraendert. Vorhandener Marker zur OLG-Nuernberg-
+  Vorinstanz bleibt bestehen, da in Tier-1-Quellen weiterhin nicht zweifelsfrei
+  reproduzierbar.

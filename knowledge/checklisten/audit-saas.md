@@ -152,7 +152,11 @@ BFSG ist seit **28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Angebote (O
   - **10-Jahres-Retention** fuer Rechnungs-/Handelsdaten nach § 257 HGB + § 147 AO (Rechnungen, Buchungs-Belege, Steuer-relevante Mails)
 - [ ] **Retention-Tabelle** im Verarbeitungsverzeichnis dokumentiert (fuer jede Kategorie)
 - [ ] **Automatisierte Loesch-Jobs** (Cron/Scheduler) mit Fehler-Alert (siehe OPS-01 Anti-Pattern in ksk-automation)
-- [ ] **Data Act (EU) 2023/2854** Kapitel VI (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten; Art. 29 Abbau der Wechselentgelte): SaaS-/Cloud-Vertraege auf neue Pflichten zum Anbieterwechsel pruefen (Portabilitaet der Kunden-Daten, Kuendigungs- und Uebergangsfristen, schrittweise Reduktion und Wegfall von Wechselentgelten); **anwendbar seit 12.09.2025** (Art. 50, per Cellar CELEX:32023R2854 verifiziert); fuer Vertraege, die am oder vor dem 12.09.2025 geschlossen wurden, gilt die Verordnung ab 12.09.2027 — Severity MED
+- [ ] **Data Act (EU) 2023/2854** — zeitliche Staffelung pruefen (Art. 50 i. d. F. der konsolidierten Fassung, per Cellar CELEX:32023R2854 verifiziert):
+  - **Kapitel VI** (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten) **gilt seit 12.09.2025**. SaaS-/Cloud-Vertraege auf Pflichten zum erleichterten Anbieterwechsel pruefen (Portabilitaet, Kuendigungs- und Uebergangsfristen).
+  - **Art. 29** (schrittweise Abschaffung der Wechselentgelte): vom 11.01.2024 bis **12.01.2027** nur ermaessigte Wechselentgelte (max. Selbstkosten); **ab 12.01.2027** sind Wechselentgelte vollstaendig verboten.
+  - **Kapitel IV** (Art. 13, missbraeuchliche Vertragsklauseln in B2B-Datenvertraegen): gilt fuer **ab 12.09.2025** geschlossene Vertraege unmittelbar; fuer **Altvertraege, die am oder vor dem 12.09.2025** geschlossen wurden, gilt Kapitel IV **ab 12.09.2027**, sofern der Vertrag unbefristet ist oder seine Geltungsdauer fruehestens 10 Jahre nach dem 11.01.2024 endet.
+  - Severity MED
 
 ## Pass 9: Social-Media & Drittinhalte
 
@@ -280,6 +284,6 @@ Siehe [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-sa
 - Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
 - Pass 4 um Kuendigungsbutton § 312k BGB erweitert (Tier-1-belegt gegen gesetze-im-internet.de/bgb/__312k.html).
 - **Pass 4 neu:** Elektronische Widerrufsfunktion nach § 356a BGB fuer B2C-Vertragsschluss ueber Online-Benutzeroberflaeche (gesetze-im-internet.de/bgb/__356a.html; RL (EU) 2023/2673 per Cellar CELEX:32023L2673 verifiziert; Anwendung ab 19.06.2026).
-- Pass 8 (Data Act): Marker aufgeloest. Primaerquelle Cellar CELEX:32023R2854, Art. 50 — anwendbar ab 12.09.2025, Altvertraege ab 12.09.2027. Kapitel VI (Wechsel Datenverarbeitungsdienste, Art. 23 ff.) verifiziert.
+- Pass 8 (Data Act): Darstellung an Art. 50 VO (EU) 2023/2854 (Cellar-Volltext CELEX:32023R2854, am 2026-11-14 geprueft) angeglichen — Kapitel VI (Anbieterwechsel) gilt seit 12.09.2025, Art. 29 (Wechselentgelte) bis 12.01.2027 reduziert und danach verboten, Kapitel IV (B2B-Vertragsklauseln) fuer Neuvertraege seit 12.09.2025 und fuer Altvertraege (unbefristet oder Laufzeitende fruehestens zehn Jahre nach dem 11.01.2024) ab 12.09.2027. Die zuvor Kapitel VI pauschal zugewiesene Altvertrags-Frist war falsch zugeordnet.
 - Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate gegen gesetze-im-internet.de und gesetzliche Fundstellen bestaetigt — Art. 5/6/13/26/28/30/32/33/35 DSGVO, § 25 TDDDG, § 5 DDG, § 18 MStV, § 312j Abs. 2/3, § 312k, § 355, § 356 Abs. 5 BGB, §§ 305-309 BGB, § 11 PAngV, § 38 BDSG, § 51 UrhG, § 22/§ 23 KUG, § 14/§ 37 BFSG, § 257 HGB, § 147 AO, § 7 Abs. 2 Nr. 2 UWG, § 5a Abs. 4, § 5b Abs. 3 UWG. BGH I ZR 159/24 (09.10.2025), I ZR 183/22 (10.10.2024), I ZR 25/19 (13.01.2022), I ZR 91/21, I ZR 7/16, I ZR 163/19; EuGH C-673/17, C-40/17, Schrems II (C-311/18); LG Muenchen I 3 O 17493/20 — konsistent zu KB.
 - Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.

@@ -134,8 +134,13 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
   gegen rechtsprechung-im-internet.de verifiziert werden; Aktenzeichen bleiben
   stehen mit Verifikationsmarker.
 - AI-Act: Stufenweise Anwendbarkeit ergaenzt — Art. 5 (verbotene Praktiken)
-  seit 02.02.2025, GPAI-Governance seit 02.08.2025, Pflichten fuer
-  Hochrisiko-KI nach aktuellem Stand ab 02.08.2026 (Verordnung (EU) 2024/1689,
-  Art. 113). Ein etwaiges "AI-Omnibus"-Paket der Kommission ist Stand
-  2026-11-14 nicht verkuendet.
+  seit 02.02.2025, GPAI-Governance seit 02.08.2025, Art. 50 (Transparenz)
+  anwendbar seit 02.08.2026; Pflichten fuer Hochrisiko-KI nach Anhang III ab
+  **02.12.2027**, nach Anhang I ab **02.08.2028** (Art. 113 Abs. 3 Buchst. c
+  KI-VO n. F., verschoben durch Art. 1 Nr. 40 Buchst. b der VO (EU) 2026/1744
+  ("Digital Omnibus on AI"), verkuendet 24.07.2026, in Kraft seit 27.07.2026;
+  Primaerquelle: Cellar-Volltext CELEX:32026R1744). Der am 19.11.2025 von der
+  Kommission vorgelegte **Digital-Omnibus-Vorschlag zur DSGVO**
+  (COM(2025) 501 final) befindet sich dagegen noch im ordentlichen
+  Gesetzgebungsverfahren und ist Stand 2026-11-14 nicht verkuendet.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.

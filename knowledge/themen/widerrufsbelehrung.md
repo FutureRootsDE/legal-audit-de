@@ -75,8 +75,9 @@ Kein Widerrufsrecht u.a. bei:
 
 ### § 356a BGB — Elektronische Widerrufsfunktion / Widerrufs-Button
 
-Nach dem primaer belegten Wortlaut (gesetze-im-internet.de/bgb/__356a.html,
-Abruf 2026-11-14) gilt § 356a BGB fuer **Fernabsatzvertraege, die ueber eine
+Nach dem Umsetzungsgesetz (BGBl. 2026 Teil I Nr. 28 vom 05.02.2026,
+recht.bund.de/bgbl/1/2026/28/VO.html am 2026-11-14 bestaetigt) gilt der neue
+§ 356a BGB fuer **Fernabsatzvertraege, die ueber eine
 Online-Benutzeroberflaeche geschlossen werden** (nicht auf Finanz-
 dienstleistungen beschraenkt). Der Unternehmer muss eine **elektronische
 Widerrufsfunktion** bereitstellen:
@@ -96,8 +97,11 @@ Widerrufsfunktion** bereitstellen:
   Bestaetigungsfunktion wahrt die Widerrufsfrist.
 
 Umsetzung der **Richtlinie (EU) 2023/2673**. Anwendung seit **19.06.2026**
-(BGBl. 2026 I Nr. 28, verkuendet im Februar 2026 — BGBl.-Datum nicht
-einzeln primaer belegt). Ob und wie die Muster-Widerrufsbelehrung in
+(BGBl. 2026 Teil I Nr. 28, Gesetz vom 03.02.2026, veroeffentlicht am
+05.02.2026, am 2026-11-14 ueber recht.bund.de primaer bestaetigt). Die
+Konsolidierung in gesetze-im-internet.de/bgb/__356a.html bildet zum Stichtag
+2026-11-14 noch die Vorgaengerfassung ab — der konkrete Wortlaut der neuen
+Absaetze 1 bis 5 traegt daher einen Verifikationsmarker <<VERIFIKATION AUSSTEHEND>>. Ob und wie die Muster-Widerrufsbelehrung in
 Anlage 1 EGBGB i.V.m. Art. 246a § 1 Abs. 2 Satz 2 EGBGB zur Aufnahme eines
 Hinweises auf die neue Widerrufsfunktion angepasst wurde, konnte in diesem
 Lauf gegen Tier-1-Quellen nicht verifiziert werden (die EGBGB-Anlagen-URL

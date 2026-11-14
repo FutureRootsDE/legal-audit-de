@@ -21,12 +21,13 @@ Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-B
 
 ### KB — Removed
 
-- Keine Eintraege aus `anwaelte-tools/` entfernt; die seit Batch E aktualisierten Markt-Indikationen und Scanner-Status-Marker sind unberuehrt uebernommen.
+- **anwaelte-tools/** — drei nicht mehr belegbare Eintraege entfernt (die Gruende sind jeweils im Datei-Aenderungsvermerk dokumentiert): Prolinkia/PROLIV (Kanzlei nicht mehr auffindbar), externer-datenschutzbeauftragter.com (Anbieter ohne verlaessliche Primaerquelle) sowie Eckert Rechtsanwaelte (Zuordnung zum IT-/Datenschutz-Schwerpunkt nicht mehr belegbar). Uebrige Markt-Indikationen und Scanner-Status-Marker aus Batch E unberuehrt uebernommen.
 
 ### KB — Housekeeping
 
-- `knowledge/INDEX.md` — Stand-Zeile auf 2026-11-14, Platzhalter-Angabe von "18" auf **57 Marker in 31 Dateien** (davon rund die Haelfte Selbst-Referenzen in Aenderungsvermerken) aktualisiert; Kurzbeschreibungen fuer `ai-act`, `uwg`, `pangv`, `widerrufsbelehrung`, `button-loesung` um die neuen Schwerpunkte ergaenzt.
-- `.claude/logs/kb-update-2026-11-14-abschluss.log` dokumentiert ODR-Verifikation, Marker-Konsistenz und Stichprobe (1/10 primaer verifiziert — BGH I ZR 159/24 vom 09.10.2025).
+- `knowledge/INDEX.md` — Stand-Zeile auf 2026-11-14, Platzhalter-Angabe nach Review-Korrekturlauf PR #14 auf **53 Marker in 33 Dateien** aktualisiert (Selbst-Referenzen auf die Marker-Schreibweise in Aenderungsvermerken wurden entfernt und zaehlen nicht mehr mit). Kurzbeschreibungen fuer `ai-act`, `uwg`, `pangv`, `widerrufsbelehrung`, `button-loesung` um die neuen Schwerpunkte ergaenzt.
+- **Review-Korrekturlauf PR #14 (2026-11-14, dieser Commit)** zusaetzlich umgesetzt: AI-Act-Fristen am Volltext der **VO (EU) 2026/1744** (Cellar CELEX:32026R1744) ausgerichtet (Hochrisiko Anhang III ab 02.12.2027, Anhang I ab 02.08.2028 nach Art. 113 Abs. 3 Buchst. c KI-VO n. F.); Data-Act-Staffelung in Checklisten an Art. 50 VO (EU) 2023/2854 angeglichen (Kapitel VI seit 12.09.2025, Art. 29 Wechselentgelt-Verbot ab 12.01.2027, Kapitel IV fuer Altvertraege ab 12.09.2027); § 356a BGB n. F. ueber das Umsetzungsgesetz vom 03.02.2026, **BGBl. 2026 Teil I Nr. 28** vom 05.02.2026 (recht.bund.de) primaer belegt; EmpCo-UWG-Regel zur zukunftsbezogenen Umweltaussage (Art. 1 Nr. 2 Buchst. b der RL (EU) 2024/825) am Richtlinien-Wortlaut geschaerft; Aufsicht ueber GPAI-Modelle in `themen/ki-content.md` auf **Art. 88 KI-VO** (ausschliessliche Kommissionsbefugnis) korrigiert; "Schrems III"-Formulierung durch den belegten Stand (EuG T-553/23, 03.09.2025; Rechtsmittel C-703/25 P, ABl. C/2025/6610) ersetzt; BGH VI ZR 109/23 (28.01.2025, ECLI:DE:BGH:2025:280125UVIZR109.23.0) primaer belegt; BGH I ZR 7/16 und BGH I ZR 25/19 ueber die Rechtsinformations-API des Bundes bestaetigt; BGH I ZR 173/16 und I ZR 143/19 ueber dieselbe API gegenverifiziert, Zuordnung zum Preisangabenrecht bestaetigt sich dort nicht (Marker mit Erlaeuterung belassen).
+- Verweise auf lokale, nicht versionierte Log-Dateien unter `.claude/logs/` beschreiben die Arbeitslogs des Verifikationslaufs; die Dateien sind projekt-lokal und nicht Bestandteil des Repos.
 
 ### Hintergrund Doku-Site
 

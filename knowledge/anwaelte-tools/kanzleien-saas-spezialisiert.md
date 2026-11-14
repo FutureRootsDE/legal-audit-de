@@ -227,5 +227,5 @@ erwartete Inhalte:
   - SRD-URL korrigiert: `srd.law` war 2026-11-14 ECONNREFUSED; die bestaende offizielle Domain ist `srd-rechtsanwaelte.de` (Firmierung im Impressum: SCHUeRMANN, ROSENTHAL, DREYER Partnerschaft von Rechtsanwaelten mbB; Standorte Berlin/Duesseldorf/Muenchen/Koeln unveraendert). Frontmatter-URL entsprechend angepasst.
   - Eckert Rechtsanwaelte (Muenchen) entfernt: Domain `eckert-rechtsanwaelte.de` leitet dauerhaft auf `knolle.de` um; eigenstaendige Kanzlei mit dem frueheren E-Commerce-/KI-Profil existiert nicht mehr. Hinweis bereits seit 2026-05-08 im File als Entfernungs-Kandidat markiert.
   - Haerting, Dr. Schwenke, IT-Recht Kanzlei (Pricing bestaetigt), Heuking, Bartsch, Menold Bezler/Dr. Ulbricht, CMS, Osborne Clarke, Noerr: Live-Abruf OK, Firmierung und Standorte decken Eintrag.
-  - Dr. Ronald Kandelhard: weiter nicht belegbar, Eintrag mit `<<VERIFIKATION AUSSTEHEND>>`-Marker belassen.
+  - Dr. Ronald Kandelhard: weiter nicht belegbar, Eintrag mit Verifikationsmarker belassen.
   - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.

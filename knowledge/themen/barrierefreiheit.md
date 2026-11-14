@@ -230,6 +230,11 @@ US-Parallele: **Robles v. Dominos Pizza** (9th Cir. 2019) — ADA Title III fuer
 ## Aenderungsvermerk 2026-11-14
 
 - Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
+- 2026-11-14: geprueft am Primaertext BFSG
+  (gesetze-im-internet.de/bfsg/BJNR097010021.html) und am
+  Anwendungsstichtag 28.06.2025 (§ 38 BFSG); § 3 (Anwendungsbereich),
+  § 14 (Ausnahmen Kleinstunternehmen) und § 37 (B2B-Ausnahme) im Volltext
+  bestaetigt; die Verweise auf EN 301 549 / WCAG 2.2 bleiben unveraendert.
 - Platzhalter zur BFSG-Rechtsprechung (§ 3a UWG i.V.m. BFSG) bleibt bestehen:
   gezielte Suche nach ersten OLG/BGH-Endurteilen ergab bis 2026-11-14 keinen
   belastbaren Tier-1-Treffer; Marker normalisiert, naechste Pruefung

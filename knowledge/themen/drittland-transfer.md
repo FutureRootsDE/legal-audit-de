@@ -53,7 +53,7 @@ EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derz
 - **Organisations-spezifisch**: nur für Unternehmen, die sich aktiv über das US-Handelsministerium (DoC) unter DPF zertifizieren und auf der offiziellen Liste unter `dataprivacyframework.gov` geführt sind
 - **Rechtsbehelfs-Mechanismus**: Data Protection Review Court (DPRC); Exec. Order 14086/2022 regelt Bulk-Interception-Einschränkungen
 - **EuG T-553/23 (Latombe), 03.09.2025**: EuG hat die Nichtigkeitsklage des franzoesischen Abgeordneten Philippe Latombe gegen den DPF-Angemessenheitsbeschluss abgewiesen; DPF bleibt in Kraft.
-- **Rechtsmittel C-703/25 P (Latombe/Kommission), eingelegt am 31.10.2025**: Latombe hat gegen das EuG-Urteil Rechtsmittel beim EuGH eingelegt; Verfahren anhaengig. Primaerbeleg: Amtsblatt der EU, Mitteilung ueber das Rechtsmittel (EUR-Lex ELI `C/2025/6610`). Daneben noch anhaengig: NOYB-/Schrems-III-Verfahren gegen den DPF.
+- **Rechtsmittel C-703/25 P (Latombe/Kommission), eingelegt am 31.10.2025**: Latombe hat gegen das EuG-Urteil Rechtsmittel beim EuGH eingelegt; Verfahren anhaengig. Primaerbeleg: Amtsblatt der EU, Mitteilung ueber das Rechtsmittel (EUR-Lex ELI `C/2025/6610`). Eine gesonderte "Schrems III"-Klage von noyb gegen den DPF-Angemessenheitsbeschluss ist in der publizierten Curia-Verfahrensliste Stand 2026-11-14 nicht als eigener Verfahrensgegenstand nachgewiesen; die Formulierung "NOYB/Schrems III anhaengig" wurde deshalb gestrichen.
 - Safety-Net: SCCs + TIA parallel pflegen bleibt Best Practice, zumal die US-Rechtslage (Executive Order 14086, DPRC) von jedem Praesidentenwechsel beruehrt werden kann.
 - Praktisch: Fuer nicht-DPF-zertifizierte US-Anbieter gelten weiterhin SCCs + TIA + ggf. ergaenzende Massnahmen
 

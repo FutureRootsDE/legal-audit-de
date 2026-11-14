@@ -98,8 +98,15 @@ Werbekennzeichnung und verwandte Pflichten:
   "Nachhaltigkeitssiegel", "Zertifizierungssystem") sowie in § 2 Abs. 3
   ("Funktionalitaet", "Haltbarkeit").
 - § 5 Abs. 2 Nr. 1 und Abs. 3 Nr. 3/4 UWG: oekologische Merkmale,
-  Zirkularitaetsaspekte, irrelevante Vorteile, zukunftsbezogene
-  Umweltaussagen mit ueberpruefbarem Umsetzungsplan.
+  Zirkularitaetsaspekte, irrelevante Vorteile. Zukunftsbezogene
+  Umweltaussagen (z. B. "klimaneutral bis 2030") sind nach der
+  EmpCo-Umsetzung **irrefuehrend, wenn** sie nicht auf klaren, objektiven,
+  oeffentlich einsehbaren und ueberpruefbaren Verpflichtungen in einem
+  detaillierten und realistischen Umsetzungsplan mit messbaren, zeitgebundenen
+  Zielen und regelmaessiger Pruefung durch einen unabhaengigen externen
+  Sachverstaendigen beruhen (Richtlinie (EU) 2024/825 Art. 1 Nr. 2 Buchst. b,
+  Anfuegung Art. 6 Abs. 2 Buchst. d RL 2005/29/EG; nationale Umsetzung in
+  § 5 Abs. 3 Nr. 4 UWG n. F. zu den EmpCo-Anforderungen).
 - § 5b Abs. 3a UWG: Transparenzpflichten bei Vergleichsdiensten.
 - Erweiterung des Anhangs zu § 3 Abs. 3 UWG um Nrn. 2a, 4a-4c, 10a, 23d
   (Nachhaltigkeitssiegel ohne Zertifizierungssystem, irrefuehrende
@@ -196,5 +203,5 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   Drittes Gesetz zur Aenderung des UWG" durch primaer belegte Fundstelle
   **Art. 6 des Gesetzes vom 22.10.2026, BGBl. 2026 I Nr. 322** ersetzt
   (Quelle: Fussnote gesetze-im-internet.de/uwg_2004/BJNR141400004.html).
-  Fehlerhaftes `<<VERIFIKATION AUSSTEHEND>`-Markup (ohne schliessendes >)
+  Fehlerhaftes Markup des Verifikationsmarkers (ohne schliessendes >)
   entfernt; Aussage ist nun primaer belegt. Abgleich mit gesetze/uwg.md.

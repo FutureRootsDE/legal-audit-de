@@ -91,9 +91,14 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
   das EuG-Urteil Rechtsmittel eingelegt; Verfahren beim EuGH anhaengig,
   Entscheidung offen. Primaerbeleg: Mitteilung ueber das Rechtsmittel im
   Amtsblatt der EU, EUR-Lex ELI `C/2025/6610`.
-- **„Schrems III"** (noyb) weiter anhaengig gegen das DPF; die EuG-Entscheidung
-  T-553/23 betrifft eine parallele Klage und entfaltet keine Rechtskraft fuer
-  das noyb-Verfahren.
+- Eine haeufig als "Schrems III" bezeichnete gesonderte Nichtigkeitsklage gegen
+  den DPF-Angemessenheitsbeschluss (2023/1795) ist in der publizierten
+  Curia-Verfahrensliste Stand 2026-11-14 nicht als eigener Verfahrensgegenstand
+  nachweisbar; die Formulierung "Schrems III anhaengig" wurde deshalb hier
+  gestrichen. Belegte Verfahrenslage: EuG T-553/23 (Latombe/Kommission,
+  Urteil 03.09.2025, Klage abgewiesen) und das dagegen eingelegte Rechtsmittel
+  C-703/25 P (Mitteilung ABl. C/2025/6610, Rechtsmittel 31.10.2025), beide
+  beim EuGH anhaengig.
 
 ## Anwendung auf Codebases
 

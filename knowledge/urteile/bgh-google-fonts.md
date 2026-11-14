@@ -115,7 +115,13 @@ Verlust der Kontrolle" ueber personenbezogene Daten infolge einer
 DSGVO-Verletzung kann einen ersatzfaehigen immateriellen Schaden i.S.v.
 Art. 82 Abs. 1 DSGVO begruenden, ohne dass konkrete psychische
 Beeintraechtigungen dargelegt werden muessen. Folgerechtsprechung u.a.
-BGH VI ZR 109/23, 28.01.2025 (Werbung ohne Einwilligung, 500 EUR). Fuer
+BGH VI ZR 109/23, Urteil vom 28.01.2025 (Darlegung eines immateriellen Schadens
+nach Art. 82 Abs. 1 DSGVO bei Nutzung einer E-Mail-Adresse zu Werbezwecken;
+ECLI:DE:BGH:2025:280125UVIZR109.23.0, primaer bestaetigt ueber die
+Rechtsinformations-API des Bundes am 2026-11-14; die oft genannte konkrete
+Schadenssumme von 500 EUR ist in der Primaerquelle nicht wiedergegeben
+und daher hier mit Verifikationsmarker versehen <<VERIFIKATION AUSSTEHEND>>).
+Fuer
 Google-Fonts-Faelle bedeutet das: Die Art-82-Grundlage traegt im Prinzip,
 die Frage des Rechtsmissbrauchs bei provozierten Verstoessen bleibt aber
 offen bis zur EuGH-Entscheidung C-654/25. Quelle: BGH-Volltext VI ZR 10/24

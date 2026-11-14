@@ -84,6 +84,9 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
 
 ## Aenderungsvermerk
 
-- 2026-11-14: Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert; Inhalt
-  zum BGH-Urteil I ZR 7/16 vom 28.05.2020 unveraendert (keine neuen
-  BGH-Entscheidungen zu dieser Rechtsfrage seit 2026-05-08 bekannt).
+- 2026-11-14: geprueft gegen die Rechtsinformations-API des Bundes
+  (`/v1/rechtsprechung?fileNumber=I ZR 7/16&court=BGH`); Gericht, Datum
+  (28.05.2020, "Cookie-Einwilligung II") und Zuordnung zum I. Zivilsenat
+  bestaetigt, Vorlagebeschluss vom 05.10.2017 (ECLI:DE:BGH:2017:051017BIZR7.16.0)
+  als Zwischenstufe ergaenzt. Inhalt unveraendert — keine neuen
+  BGH-Entscheidungen zu dieser Rechtsfrage seit 2026-05-08 bekannt.

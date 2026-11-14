@@ -163,5 +163,5 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
 
 - Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14 vereinheitlicht
   (zuvor: `aktualisiert` 2026-05-08, Disclaimer-Stand 2026-04-19).
-- Marker-Variante zur OLG Muenchen 29 U 3698/20 auf einzeiliges
-  Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert.
+- Marker-Variante zur OLG Muenchen 29 U 3698/20 auf das einzeilige
+  Standardformat des Verifikationsmarkers normalisiert.

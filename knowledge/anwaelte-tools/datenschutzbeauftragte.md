@@ -188,7 +188,7 @@ Der DSB ist der zustaendigen Aufsichtsbehoerde zu melden:
 
 ## Aenderungsvermerk
 
-- **2026-11-14** (Batch E, stale-only): Platzhalter-Marker auf einheitliche Schreibweise `<<VERIFIKATION AUSSTEHEND>>` normiert (Budget-Ranges). Normative Aussagen zu § 38 Abs. 1 BDSG (Benennungspflicht ab 20 staendig mit automatisierter Verarbeitung beschaeftigten Personen) und Art. 37 DSGVO gegen Tier-1 (gesetze-im-internet.de, eur-lex.europa.eu) bestaetigt.
+- **2026-11-14** (Batch E, stale-only): Platzhalter-Marker auf einheitliche Schreibweise des Verifikationsmarkers normiert (Budget-Ranges). Normative Aussagen zu § 38 Abs. 1 BDSG (Benennungspflicht ab 20 staendig mit automatisierter Verarbeitung beschaeftigten Personen) und Art. 37 DSGVO gegen Tier-1 (gesetze-im-internet.de, eur-lex.europa.eu) bestaetigt.
 - **2026-11-14** (Batch E2, Live-Pruefung): Vollstaendiger URL-Abgleich aller gelisteten Zertifikats-Geber und DSB-Dienstleister. Aenderungen:
   - BvD-Sitz korrigiert: Gustav-Meyer-Allee 25, 13355 Berlin (zuvor fehlerhaft Budapester Str. 31, 10787 Berlin).
   - `Prolinkia / PROLIV` entfernt: Domain `prolinkia.de` loest nicht mehr auf (ENOTFOUND, 2026-11-14), keine Websearch-Treffer.

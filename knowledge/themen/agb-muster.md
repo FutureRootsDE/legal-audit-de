@@ -187,10 +187,15 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
 ## Aenderungsvermerk 2026-11-14
 
 - Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
-- Marker-Variante zu BGH III ZR 25/19 ("Clickwrap") auf einzeiliges
-  Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert.
+- Marker-Variante zu BGH III ZR 25/19 ("Clickwrap") auf das einzeilige
+  Standardformat des Verifikationsmarkers normalisiert.
 - Hinweis: Durch das Umsetzungsgesetz zur Richtlinie (EU) 2023/2673
-  (BGBl. 2026 I Nr. 28, Anwendung seit 19.06.2026) ergaenzt § 356a BGB n.F.
-  einen elektronischen Widerrufs-Button fuer Online-Vertragsschluesse — in
-  AGB-Verweisen auf das Widerrufsrecht sollte darauf verwiesen werden (siehe
-  [[themen/widerrufsbelehrung]], [[themen/button-loesung]]).
+  (Gesetz vom 03.02.2026, **BGBl. 2026 Teil I Nr. 28** vom 05.02.2026,
+  am 2026-11-14 ueber recht.bund.de bestaetigt; Anwendung seit 19.06.2026)
+  wird § 356a BGB n. F. um einen elektronischen Widerrufs-Button fuer
+  Online-Vertragsschluesse ergaenzt — in AGB-Verweisen auf das
+  Widerrufsrecht sollte darauf verwiesen werden (siehe
+  [[themen/widerrufsbelehrung]], [[themen/button-loesung]]). Der konkrete
+  Paragraphen-Wortlaut traegt in widerrufsbelehrung.md und button-loesung.md
+  weiter einen Verifikationsmarker, da die konsolidierte Fassung auf
+  gesetze-im-internet.de zum Stichtag 2026-11-14 noch nicht sichtbar ist.

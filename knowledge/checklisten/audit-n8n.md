@@ -174,7 +174,11 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 - [ ] **Disaster Recovery**: PostgreSQL-Backup-Restore-Test alle 3 Monate (Art. 32 Abs. 1 lit. c DSGVO)
 - [ ] **Datenpannen-Meldepflicht** (Art. 33 DSGVO 72h): Eskalations-Plan dokumentiert — siehe [[themen/meldepflicht-datenpanne]]
 - [ ] **NIS2-Bezug**: bei wesentlicher/wichtiger Einrichtung n8n-Infrastruktur als IT-Asset im NIS2-Risiko-Management — siehe [[gesetze/nis2-bsig]]
-- [ ] **Data Act (EU) 2023/2854** Kapitel VI (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten; Art. 29 Abbau der Wechselentgelte): bei n8n-Cloud oder sonstigen Datenverarbeitungsdiensten pruefen, ob die neuen Pflichten zum erleichterten Anbieterwechsel (Portabilitaet, Kuendigungs-/Uebergangsfristen, Kostenregime) greifen; **anwendbar seit 12.09.2025** (Art. 50; per Cellar CELEX:32023R2854 verifiziert); fuer Vertraege am oder vor 12.09.2025 geschlossen: ab 12.09.2027 — Severity MED
+- [ ] **Data Act (EU) 2023/2854** — zeitliche Staffelung pruefen (Art. 50, per Cellar CELEX:32023R2854 verifiziert):
+  - **Kapitel VI** (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten) **gilt seit 12.09.2025**. Bei n8n-Cloud oder sonstigen Datenverarbeitungsdiensten pruefen, ob Portabilitaets-, Kuendigungs- und Uebergangspflichten greifen.
+  - **Art. 29** (Wechselentgelte): vom 11.01.2024 bis **12.01.2027** nur ermaessigte Wechselentgelte (max. Selbstkosten); **ab 12.01.2027** vollstaendig verboten.
+  - **Kapitel IV** (Art. 13, missbraeuchliche B2B-Vertragsklauseln): fuer Neuvertraege seit 12.09.2025; fuer Altvertraege (geschlossen am oder vor 12.09.2025, unbefristet oder Laufzeitende fruehestens zehn Jahre nach dem 11.01.2024) **ab 12.09.2027**.
+  - Severity MED
 
 ## Typ-spezifische Besonderheiten
 
@@ -249,6 +253,6 @@ jq '.nodes[] | select(.type == "n8n-nodes-base.webhook") | .parameters' workflow
 ## Aenderungsvermerk (2026-11-14, Batch F stale-only)
 
 - Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
-- Pass 8 (Data Act): Marker aufgeloest. Primaerquelle Cellar CELEX:32023R2854, Art. 50 — anwendbar ab 12.09.2025, Altvertraege ab 12.09.2027. Kapitel VI (Wechsel Datenverarbeitungsdienste, Art. 23 ff., Art. 29 Wechselentgelte) verifiziert.
+- Pass 8 (Data Act): Darstellung an Art. 50 VO (EU) 2023/2854 (Cellar CELEX:32023R2854, am 2026-11-14 geprueft) angeglichen — Kapitel VI gilt seit 12.09.2025, Art. 29 reduziert bis 12.01.2027 und ab 12.01.2027 Wechselentgelt-Verbot, Kapitel IV fuer Neuvertraege seit 12.09.2025 und fuer bestimmte Altvertraege ab 12.09.2027. Die zuvor Kapitel VI zugeordnete Altvertrags-Frist war falsch zugeordnet.
 - Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate bestaetigt — Art. 6/13/26/28/30/32/33/35/46 DSGVO, § 59 UrhG (nicht zitiert, aber Kontext), § 38 BDSG; EuGH C-311/18 (Schrems II). Keine Aktenzeichen ausserhalb bestehender KB-Belege. Pass 5 unberuehrt.
 - Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.

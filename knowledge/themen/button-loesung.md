@@ -96,9 +96,15 @@ Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
 
 ### § 356a BGB — Widerrufs-Button (seit 19.06.2026, NEU)
 
-Durch das deutsche Umsetzungsgesetz zur Richtlinie (EU) 2023/2673 (BGBl. 2026 I
-Nr. 28, verkuendet Februar 2026) wurde der **neue § 356a BGB** eingefuehrt;
-Anwendung seit **19.06.2026**. Fuer Fernabsatzvertraege, die ueber eine
+Durch das "Gesetz zur Aenderung des Verbrauchervertrags- und des
+Versicherungsvertragsrechts sowie zur Aenderung des Behandlungsvertragsrechts"
+vom 03.02.2026 (**BGBl. 2026 Teil I Nr. 28**, veroeffentlicht am 05.02.2026,
+Umsetzung der Richtlinie (EU) 2023/2673; Fundstelle recht.bund.de am
+2026-11-14 bestaetigt) wird der **neue § 356a BGB** eingefuehrt;
+Anwendung seit **19.06.2026**. Die Konsolidierung auf
+gesetze-im-internet.de/bgb/__356a.html bildet zum Stichtag 2026-11-14 noch
+die Vorgaengerfassung ab; der konkrete Paragraphen-Wortlaut traegt hier
+daher einen Verifikationsmarker <<VERIFIKATION AUSSTEHEND>>. Fuer Fernabsatzvertraege, die ueber eine
 **Online-Benutzeroberflaeche** geschlossen werden, muss der Unternehmer eine
 **elektronische Widerrufsfunktion** bereitstellen:
 
@@ -111,9 +117,11 @@ Anwendung seit **19.06.2026**. Fuer Fernabsatzvertraege, die ueber eine
   dauerhaftem Datentraeger (Inhalt, Datum, Uhrzeit).
 
 Der bisherige § 356a BGB (Besondere Fristregelungen fuer Teilzeit-
-Wohnrechtsvertraege etc.) wurde verschoben; der Darlehens-Paragraph § 356b
-bleibt inhaltsgleich. (Quelle: gesetze-im-internet.de/bgb/__356a.html,
-Abruf 2026-11-14.)
+Wohnrechtsvertraege etc.) wird nach dem Umsetzungsgesetz verschoben; der
+Darlehens-Paragraph § 356b bleibt inhaltsgleich. (Primaerquelle Umsetzungsgesetz:
+recht.bund.de/bgbl/1/2026/28/VO.html, Abruf 2026-11-14; konsolidierte
+Fassung in gesetze-im-internet.de/bgb/__356a.html zum Stichtag 2026-11-14
+noch nicht sichtbar.)
 
 ## Typische Fallstricke in Codebases
 
@@ -193,6 +201,6 @@ Abruf 2026-11-14.)
 - Neuer Abschnitt "§ 356a BGB Widerrufs-Button" ergaenzt (Umsetzung
   Richtlinie (EU) 2023/2673, Anwendung seit 19.06.2026; verifiziert via
   gesetze-im-internet.de/bgb/__356a.html).
-- Drei Marker-Varianten (`<<VERIFIKATION AUSSTEHEND — ...>>`) auf das
-  einzeilige Standardformat `<<VERIFIKATION AUSSTEHEND>>` normalisiert.
+- Drei Marker-Varianten mit angehaengtem Grund auf das einzeilige
+  Standardformat des Verifikationsmarkers normalisiert.
 - Hinweis "kaufen"-Beschriftung umformuliert.
