@@ -171,5 +171,6 @@ Grundsatz: im Zweifel eine Stufe hoeher klassifizieren. Abmahnkosten sind asymme
 | `find-placeholders.py` | Listet alle `<<VERIFIKATION AUSSTEHEND>>`- und `<<UNVERIFIZIERT>>`-Stellen |
 | `legal-audit-pdf.py` | HTML/PDF-Briefing aus einem Audit-Ordner |
 | `legal-audit-pro-mode.py` | Pro-Mode-Marker setzen, loeschen, abfragen |
+| `verify-citations.py` | Prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional, nur Standardbibliothek; `--only-pending`, `--json`, `--offline`, `--write-ecli --dry-run`) |
 | `sync-pro-variants.py` | `-pro`-Agentenvarianten deterministisch aus den 1M-Varianten generieren |
 | `sync-platforms.py` | Codex- und Copilot-Adapter aus `.claude/` portieren |

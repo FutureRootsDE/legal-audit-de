@@ -7,6 +7,7 @@ import re
 import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Callable
 
 from .api import ApiClient
 from .classify import LookupMap, classify
@@ -18,6 +19,8 @@ from .text import short
 ECLI_WRITE_RE = re.compile(r"ECLI:DE:[A-Z]+:[0-9]{4}:[A-Z0-9.]+")  # strict: only this is ever written to the KB
 ECLI_COURT_CODES = {"BGH": "BGH", "BFH": "BFH", "BVerwG": "BVERWG", "BAG": "BAG",
                     "BSG": "BSG", "BVerfG": "BVERFG", "BPatG": "BPATG"}
+
+WARNING_LIMIT = 300
 
 
 class _Skip(Exception):
@@ -44,6 +47,7 @@ class ApplyResult:
     written: list[EcliUpdate] = field(default_factory=list)
     skipped: list[dict] = field(default_factory=list)
     failed: list[dict] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -103,7 +107,15 @@ def _unique_ecli(hits: list[dict], date: str | None, court: str) -> str:
     return matching.pop()
 
 
-def atomic_write(path: Path, data: bytes) -> None:
+def _warn(warnings: list[str] | None, message: str) -> None:
+    if warnings is not None:
+        warnings.append(short(message, WARNING_LIMIT))
+
+
+def atomic_write(path: Path, data: bytes, guard: Callable[[], None] | None = None,
+                 warnings: list[str] | None = None) -> None:
+    """Write `data` via a temp file. `guard` runs right before os.replace (after write and fsync)
+    and may raise _Skip; the temp file is then removed and the target stays untouched."""
     fd, tmp_name = tempfile.mkstemp(dir=path.parent, prefix=".tmp-ecli-")
     try:
         with os.fdopen(fd, "wb") as handle:
@@ -112,14 +124,16 @@ def atomic_write(path: Path, data: bytes) -> None:
             os.fsync(handle.fileno())
         try:
             os.chmod(tmp_name, path.stat().st_mode & 0o777)
-        except OSError:
-            pass
+        except OSError as exc:
+            _warn(warnings, f"{path.name}: Dateirechte nicht uebernommen (chmod): {exc}")
+        if guard is not None:
+            guard()
         os.replace(tmp_name, path)
     except BaseException:
         try:
             os.unlink(tmp_name)
-        except OSError:
-            pass
+        except OSError as exc:
+            _warn(warnings, f"{path.name}: Temp-Datei {Path(tmp_name).name} nicht entfernt: {exc}")
         raise
 
 
@@ -197,7 +211,10 @@ def plan_ecli_updates(kb_path: Path, client: ApiClient, fresh: bool = False,
     return updates, skipped
 
 
-def _apply_one(update: EcliUpdate, urteile: Path) -> None:
+def _final_guard(update: EcliUpdate, urteile: Path) -> None:
+    """Last check right before the replace: no link, still below urteile/, unchanged since planning."""
+    if is_link_like(urteile):
+        raise _Skip("urteile ist ein Symlink oder Verzeichnis-Link, nicht angefasst")
     _regular_file(update.path, urteile)
     try:
         current = update.path.read_bytes()
@@ -205,7 +222,6 @@ def _apply_one(update: EcliUpdate, urteile: Path) -> None:
         raise _Skip(f"nicht lesbar: {short(exc)}") from None
     if digest_of(current) != update.digest:
         raise _Skip("Datei seit der Planung geaendert, uebersprungen")
-    atomic_write(update.path, update.data)
 
 
 def apply_updates(updates: list[EcliUpdate], kb_path: Path) -> ApplyResult:
@@ -214,7 +230,8 @@ def apply_updates(updates: list[EcliUpdate], kb_path: Path) -> ApplyResult:
     urteile = kb_path / "urteile"
     for update in updates:
         try:
-            _apply_one(update, urteile)
+            atomic_write(update.path, update.data, guard=lambda u=update: _final_guard(u, urteile),
+                         warnings=result.warnings)
         except _Skip as skip:
             result.skipped.append({"file": update.file, "reason": skip.reason})
         except OSError as exc:

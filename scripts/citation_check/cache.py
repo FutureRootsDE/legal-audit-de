@@ -12,8 +12,10 @@ from typing import Callable
 
 from .fsutil import REPARSE_POINT, is_under
 from .hits import sanitize_hit
+from .text import short
 
 MAX_CACHE_ENTRY_BYTES = 5_000_000
+WARNING_LIMIT = 300
 
 
 class HitCache:
@@ -84,13 +86,13 @@ class HitCache:
             os.replace(tmp_name, path)
             tmp_name = None
         except OSError as exc:
-            self.warnings.append(f"Cache nicht schreibbar ({self.cache_dir}): {exc}")
+            self.warnings.append(short(f"Cache nicht schreibbar ({self.cache_dir}): {exc}", WARNING_LIMIT))
         finally:
             if tmp_name is not None:
                 try:
                     os.unlink(tmp_name)
-                except OSError:
-                    pass
+                except OSError as exc:
+                    self.warnings.append(short(f"Cache-Temp-Datei nicht entfernt ({tmp_name}): {exc}", WARNING_LIMIT))
 
 
 def default_cache_dir() -> Path:
