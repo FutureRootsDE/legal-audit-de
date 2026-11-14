@@ -151,7 +151,18 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
   Instagram-Business-Profilen. Aktenzeichen in Tier-1-Quellen nicht
   auffindbar; OLG-Muenchen-Linie zu Impressumspflicht auf Instagram-Profilen
   ist allgemein anerkannt. <<VERIFIKATION AUSSTEHEND>>
-- **BGH I ZR 118/12** (05.12.2013): Abgrenzung B2C / rein privater Web-Auftritt.
+- Aussage: Abgrenzung B2C / rein privater Web-Auftritt. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
+
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
+- **BGH I ZR 118/12** — in Vorgaengerfassungen als Impressum-/B2C-
+  Entscheidung vom 05.12.2013 gefuehrt. Gegenprobe ueber die
+  Rechtsinformations-API des Bundes am 2026-11-14: unter diesem Aktenzeichen
+  ist nur ein Beschluss des I. Zivilsenats vom **06.02.2013** gefuehrt
+  ("Umfang des Markenschutzes: Auswirkungen einer Teilloeschung durch
+  Teilverzicht" — Markenrecht). Keine Impressum-Entscheidung unter diesem
+  Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen; Aussage bleibt
+  mit Verifikationsmarker.
 
 ## Siehe auch
 
@@ -165,3 +176,8 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
   (zuvor: `aktualisiert` 2026-05-08, Disclaimer-Stand 2026-04-19).
 - Marker-Variante zur OLG Muenchen 29 U 3698/20 auf das einzeilige
   Standardformat des Verifikationsmarkers normalisiert.
+- **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BGH I ZR 118/12 ueber die
+  Rechtsinformations-API des Bundes abgefragt — Treffer: 06.02.2013
+  Markenschutz-Teilloeschung. Gegenstand passt nicht zum Impressum; Zitat
+  entfernt und in Hinweisblock "Nicht zitieren" dokumentiert, Aussage mit
+  Verifikationsmarker belassen.

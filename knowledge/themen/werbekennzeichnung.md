@@ -26,8 +26,16 @@ geltungsbereich: [DE, EU]
 Werbung muss als solche erkennbar sein ("Trennungs-" und "Kennzeichnungsgebot").
 Rechtsgrundlagen:
 
-- **§ 5a Abs. 4 UWG** — kommerziellen Zweck kenntlich machen (seit UWG-Novelle
-  2022 neu gefasst)
+- **§ 5a Abs. 4 UWG** — kommerziellen Zweck kenntlich machen (Fassung
+  seit 28.05.2022; vormals § 5a Abs. 6 UWG a. F.). Geltende Fassung:
+  "Ein kommerzieller Zweck liegt bei einer Handlung zugunsten eines
+  fremden Unternehmens nicht vor, wenn der Handelnde kein Entgelt
+  oder keine aehnliche Gegenleistung fuer die Handlung von dem
+  fremden Unternehmen erhaelt oder sich versprechen laesst. Der
+  Erhalt oder das Versprechen einer Gegenleistung wird vermutet,
+  es sei denn der Handelnde macht glaubhaft, dass er eine solche
+  nicht erhalten hat." (§ 5a Abs. 4 Saetze 2 und 3 UWG). Siehe
+  Abschnitt "Zitierbare Urteile".
 - **§ 6 TMG (a.F.) / § 6 DDG** — Kennzeichnungspflicht fuer kommerzielle
   Kommunikation
 - **§ 22 MStV** — Werbung und Sponsoring in Rundfunk/Telemedien
@@ -168,15 +176,38 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 90/20** (09.09.2021, "Influencer I" — Luisa-Maxime Huss):
-  Kennzeichnungspflicht auch ohne Entgelt, wenn Werbe-Uebergewicht gegeben.
-  (Hinweis: Pamela-Reif-Verfahren wurde vor dem BGH zurueckgenommen; OLG
-  Karlsruhe 6 U 38/19 vom 09.09.2020 blieb daher relevant.)
-- **BGH I ZR 125/20 + I ZR 126/20** (09.09.2021, "Influencer II/III"): ohne
-  Gegenleistung keine kommerzielle Kommunikation i.S.v. § 5a UWG (a.F.);
-  Wirkung von Tap-Tags.
-- **BGH I ZR 35/21** (13.01.2022, "Influencer III"): weitergehende
-  Kennzeichnungspflichten im Influencer-Marketing.
+- Die Urteile des BGH vom 09.09.2021 (I ZR 90/20 "Influencer I",
+  I ZR 125/20 "Influencer II", I ZR 126/20) ergingen zu § 5a Abs. 6
+  UWG a. F.; die Regelung steht seit dem 28.05.2022 in § 5a Abs. 4
+  UWG. Das Merkmal der Gegenleistung leitete der BGH aus § 6 Abs. 1
+  Nr. 1 TMG und § 22 Abs. 1 Satz 1 MStV ab, deren Wertung § 5a Abs. 6
+  UWG a. F. nicht unterlaufen darf (I ZR 125/20, Leitsaetze 1 und 2);
+  seit 28.05.2022 steht es in § 5a Abs. 4 Satz 2 UWG. Nach den
+  Urteilen vom 09.09.2021 war ein Beitrag ohne Gegenleistung nur bei
+  werblichem Ueberschuss eine geschaeftliche Handlung zugunsten des
+  fremden Unternehmens (I ZR 90/20, Leitsatz 4); nach § 5a Abs. 4
+  Satz 2 UWG n. F. kommt es darauf nicht mehr an. Eigenwerbung ist
+  regelmaessig eine geschaeftliche Handlung zugunsten des eigenen
+  Unternehmens; das Merkmal der Gegenleistung gilt dafuer nicht
+  (I ZR 125/20, Leitsatz 2). Zu "Tap Tags": Der Umstand, dass die
+  Influencerin Bilder mit "Tap Tags" versehen hat, um die Hersteller
+  der abgebildeten Waren zu bezeichnen, genuegt als solcher nicht,
+  um einen werblichen Ueberschuss anzunehmen; die Verlinkung auf
+  eine Internetseite des Herstellers des abgebildeten Produkts
+  beinhaltet hingegen regelmaessig einen werblichen Ueberschuss
+  (I ZR 90/20, Leitsatz 5). ECLI-Belege:
+  ECLI:DE:BGH:2021:090921UIZR90.20.0,
+  ECLI:DE:BGH:2021:090921UIZR125.20.0,
+  ECLI:DE:BGH:2021:090921UIZR126.20.0.
+- **BGH, Urteil vom 13.01.2022, I ZR 35/21** ("Influencer III",
+  ECLI:DE:BGH:2022:130122UIZR35.21.0): kostenlos ueberlassene Waren
+  begruenden kommerzielle Kommunikation (Leitsatz).
+- Alle vier Urteile und die Benennung als "Influencer I"
+  (I ZR 90/20) sowie "Influencer III" (I ZR 35/21) ueber die Rechts-
+  informations-API des Bundes am 2026-11-14 primaer bestaetigt;
+  I ZR 126/20 traegt im Titel keine amtliche Numerierung.
+- (Hinweis: Pamela-Reif-Verfahren wurde vor dem BGH zurueckgenommen;
+  OLG Karlsruhe 6 U 38/19 vom 09.09.2020 blieb daher relevant.)
 - **KG Berlin 5 U 51/18** (08.01.2019): "#ad" am Ende der Caption nicht
   ausreichend.
 - **OLG Frankfurt 6 W 35/19** (24.10.2019): Tap-Tags sind kennzeichnungs-
@@ -205,3 +236,22 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   (Quelle: Fussnote gesetze-im-internet.de/uwg_2004/BJNR141400004.html).
   Fehlerhaftes Markup des Verifikationsmarkers (ohne schliessendes >)
   entfernt; Aussage ist nun primaer belegt. Abgleich mit gesetze/uwg.md.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: § 5a UWG in
+  "Kurz-Ueberblick" an die geltende Fassung von § 5a Abs. 4 UWG
+  (seit 28.05.2022) angepasst und durch wortgleiches Zitat aus Satz 2
+  belegt (Quelle: gesetze-im-internet.de/uwg_2004/__5a.html, abgerufen
+  2026-11-14). Abschnitt "Zitierbare Urteile" fuer das Influencer-
+  Quartett neu gefasst: Trennung zwischen altem (§ 5a Abs. 6 UWG a. F.)
+  und neuem Massstab (§ 5a Abs. 4 UWG n. F.), ECLI ergaenzt, Benennung
+  "Influencer I/II/III" korrigiert (I ZR 90/20 = Influencer I,
+  I ZR 125/20 = Influencer II, I ZR 35/21 = Influencer III,
+  I ZR 126/20 ohne amtlichen Zusatz); alle vier Treffer ueber die
+  Rechtsinformations-API des Bundes am 2026-11-14 geprueft.
+- **2026-11-14 (Review-Korrekturlauf PR #17, Influencer-Absatz)**:
+  Darstellung der BGH-Influencer-Rechtsprechung und § 5a Abs. 4 UWG
+  in Kurz-Ueberblick und "Zitierbare Urteile" wortgleich am
+  Gesetzeswortlaut (§ 5a Abs. 4 Saetze 2 und 3 UWG) und an den
+  Leitsaetzen (I ZR 90/20 Leitsaetze 4 und 5; I ZR 125/20 Leitsaetze
+  1 und 2) ausgerichtet; unbelegte Aussage zur UGP-Richtlinie
+  gestrichen; I ZR 35/21-Formulierung am Leitsatz "Influencer III"
+  ausgerichtet; Tap-Tag-Aussage I ZR 90/20 Leitsatz 5 zugeordnet.

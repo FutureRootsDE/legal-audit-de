@@ -163,10 +163,48 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - **EuGH C-102/20** (25.11.2021): Vorabentscheidung zum Begriff "elektronische
   Post" — breit auszulegen.
 - **EuGH C-673/17** (01.10.2019, "Planet49"): Pre-ticked Checkboxen unwirksam.
-- **BGH I ZR 61/20** (09.09.2021, "Influencer I/II/III"): Kommerzielle
-  Kommunikation kennzeichnen.
+- Die Urteile des BGH vom 09.09.2021 (I ZR 90/20 "Influencer I",
+  I ZR 125/20 "Influencer II", I ZR 126/20) ergingen zu § 5a Abs. 6
+  UWG a. F.; die Regelung steht seit dem 28.05.2022 in § 5a Abs. 4
+  UWG. Das Merkmal der Gegenleistung leitete der BGH aus § 6 Abs. 1
+  Nr. 1 TMG und § 22 Abs. 1 Satz 1 MStV ab, deren Wertung § 5a Abs. 6
+  UWG a. F. nicht unterlaufen darf (I ZR 125/20, Leitsaetze 1 und 2);
+  seit 28.05.2022 steht es in § 5a Abs. 4 Satz 2 UWG. Geltende
+  Fassung: "Ein kommerzieller Zweck liegt bei einer Handlung zugunsten
+  eines fremden Unternehmens nicht vor, wenn der Handelnde kein
+  Entgelt oder keine aehnliche Gegenleistung fuer die Handlung von
+  dem fremden Unternehmen erhaelt oder sich versprechen laesst. Der
+  Erhalt oder das Versprechen einer Gegenleistung wird vermutet, es
+  sei denn der Handelnde macht glaubhaft, dass er eine solche nicht
+  erhalten hat." (§ 5a Abs. 4 Saetze 2 und 3 UWG). Nach den Urteilen
+  vom 09.09.2021 war ein Beitrag ohne Gegenleistung nur bei
+  werblichem Ueberschuss eine geschaeftliche Handlung zugunsten des
+  fremden Unternehmens (I ZR 90/20, Leitsatz 4); nach § 5a Abs. 4
+  Satz 2 UWG n. F. kommt es darauf nicht mehr an. Eigenwerbung ist
+  regelmaessig eine geschaeftliche Handlung zugunsten des eigenen
+  Unternehmens; das Merkmal der Gegenleistung gilt dafuer nicht
+  (I ZR 125/20, Leitsatz 2). ECLI-Belege:
+  ECLI:DE:BGH:2021:090921UIZR90.20.0,
+  ECLI:DE:BGH:2021:090921UIZR125.20.0,
+  ECLI:DE:BGH:2021:090921UIZR126.20.0,
+  ECLI:DE:BGH:2022:130122UIZR35.21.0 (ueber die Rechtsinformations-API
+  des Bundes am 2026-11-14 primaer bestaetigt). Vertiefung in
+  [[themen/werbekennzeichnung]].
 - **OLG Muenchen 29 U 1563/20**: Bestaetigungs-Mail darf keine Werbung
   enthalten.
+
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
+- **BGH I ZR 61/20** — in Vorgaengerfassungen als Teil der Influencer-
+  Rechtsprechung vom 09.09.2021 zitiert. Gegenprobe ueber die
+  Rechtsinformations-API des Bundes am 2026-11-14: unter diesem Aktenzeichen
+  ist nur das Urteil des I. Zivilsenats vom **06.05.2021** gefuehrt
+  ("Markenverletzungsstreit: Zurechnungszusammenhang; Die Filsbacher",
+  ECLI:DE:BGH:2021:060521UIZR61.20.0). Keine Influencer-Entscheidung unter
+  diesem Aktenzeichen nachweisbar; das Influencer-Trio vom 09.09.2021 ist
+  I ZR 90/20, I ZR 125/20 und I ZR 126/20 (bereits in
+  themen/werbekennzeichnung.md belegt). Zitat daher nicht uebernehmen;
+  Aussage bleibt mit Verifikationsmarker.
 
 ## Siehe auch
 
@@ -180,3 +218,30 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - Tier-3-Quelle (dr-schwenke.de) aus Frontmatter entfernt; war nicht zitierfaehig.
 - § 7 UWG gegen gesetze-im-internet.de verifiziert.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BGH I ZR 61/20 ueber die
+  Rechtsinformations-API des Bundes abgefragt — Treffer: 06.05.2021
+  "Die Filsbacher" (Markenrecht). Gegenstand passt nicht zum Influencer-
+  Trio; Zitat aus "Zitierbare Urteile" entfernt und in Hinweisblock
+  "Nicht zitieren" dokumentiert. Aussage mit Verifikationsmarker belassen;
+  Verweis auf das bereits belegte Trio in themen/werbekennzeichnung.md.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: Influencer-Trio (BGH
+  I ZR 90/20, I ZR 125/20, I ZR 126/20 vom 09.09.2021) per Rechts-
+  informations-API primaer bestaetigt (ECLI-Ketten
+  090921UIZR90.20.0 / 125.20.0 / 126.20.0); Aussage in "Zitierbare
+  Urteile" mit Belegen versehen, Verifikationsmarker dort entfernt.
+  Hinweisblock zu BGH I ZR 61/20 ("Die Filsbacher", Markenrecht) bleibt
+  bestehen.
+- **2026-11-14 (Review-Korrekturlauf PR #17, Nachtrag)**: Normangabe
+  zum Influencer-Trio richtig zugeordnet (§ 5a Abs. 6 UWG a. F. =
+  § 5a Abs. 4 UWG n. F., Fassung seit 28.05.2022), Aussage am
+  Gesetzeswortlaut von § 5a Abs. 4 Satz 2 und 3 UWG geschaerft; BGH
+  I ZR 35/21 (13.01.2022, "Influencer III", ECLI:DE:BGH:2022:
+  130122UIZR35.21.0) ergaenzt. Grundlage: § 5a UWG auf gesetze-im-
+  internet.de/uwg_2004/__5a.html (abgerufen 2026-11-14) sowie
+  Treffer der Rechtsinformations-API des Bundes.
+- **2026-11-14 (Review-Korrekturlauf PR #17, Influencer-Absatz)**:
+  Darstellung der BGH-Influencer-Rechtsprechung und von § 5a Abs. 4
+  UWG wortgleich am Gesetzeswortlaut (§ 5a Abs. 4 Saetze 2 und 3 UWG)
+  und an den Leitsaetzen von I ZR 90/20 (Leitsaetze 4 und 5) und
+  I ZR 125/20 (Leitsaetze 1 und 2) ausgerichtet; Aussagen ohne
+  Quellenbeleg entfernt.

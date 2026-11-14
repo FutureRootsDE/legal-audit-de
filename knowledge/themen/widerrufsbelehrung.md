@@ -195,8 +195,7 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
 
 - **EuGH C-649/17** (10.07.2019, "Amazon EU"): Informationen zur
   Widerrufsmoeglichkeit muessen leicht zugaenglich sein.
-- **BGH VIII ZR 21/19** (08.12.2020): Widerrufsbelehrung muss Fristbeginn
-  eindeutig bezeichnen.
+- Aussage: Widerrufsbelehrung muss Fristbeginn eindeutig bezeichnen. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
 - **BGH I ZR 123/16** (15.11.2017): Fehlende/fehlerhafte Belehrung ist
   wettbewerbsrechtlich relevant.
 - **EuGH C-641/19** (03.09.2020): Wertersatz bei Widerruf von
@@ -204,6 +203,23 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
 - **BGH VIII ZR 242/20** (27.04.2022): Belehrung im Video-Commerce.
 - **EuGH C-529/19** (21.10.2020, "Moebel Kraft"): Ausnahme "individuelle
   Anfertigung" eng auszulegen.
+
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
+- **BGH VIII ZR 21/19** — in Vorgaengerfassungen als Widerrufsbelehrungs-
+  Entscheidung vom 08.12.2020 gefuehrt. Gegenprobe ueber die
+  Rechtsinformations-API des Bundes am 2026-11-14: unter diesem Aktenzeichen
+  ist das **Urteil des VIII. Zivilsenats vom 09.10.2019** gefuehrt
+  ("Zumutbarkeit einer Mieterhoehung unter Beruecksichtigung der
+  wirtschaftlichen Verhaeltnisse des Mieters",
+  ECLI:DE:BGH:2019:091019UVIIIZR21.19.0 — Mietrecht). Der zuvor hier
+  einsortierte Abgasskandal-Beschluss (26.04.2022,
+  ECLI:DE:BGH:2022:260422BVIIIZR19.21.0) gehoert nicht zu VIII ZR 21/19,
+  sondern zu **BGH VIII ZR 19/21** (vertauschte Geschaeftsjahr-/
+  Nummernfolge). Keine Widerrufsbelehrungs-Entscheidung unter dem
+  Aktenzeichen VIII ZR 21/19 nachweisbar. Zitat daher nicht uebernehmen;
+  Aussage bleibt mit Verifikationsmarker. Deckungsgleich mit
+  themen/agb-muster.md.
 
 ## Siehe auch
 
@@ -225,6 +241,10 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
   gleichbedeutende eindeutige Formulierung"), Pflicht zur Eingangs-
   bestaetigung mit "Datum und Uhrzeit ihres Eingangs" sowie Fristwahrung
   durch rechtzeitige Absendung (Abs. 5) direkt am Gesetzestext belegt.
+- **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BGH VIII ZR 21/19 ueber die
+  Rechtsinformations-API des Bundes abgefragt; Treffer passt nicht zum
+  Widerrufsrecht. Zitat aus "Zitierbare Urteile" entfernt, in Hinweisblock
+  "Nicht zitieren" dokumentiert; Aussage mit Verifikationsmarker belassen.
 - **2026-11-14 (Review-Korrekturlauf PR #14)**: Verifikationsmarker zum
   § 356a-Wortlaut und zur Muster-Widerrufsbelehrung aufgeloest. Die
   konsolidierte Fassung auf gesetze-im-internet.de zeigt die neue
@@ -232,3 +252,9 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
   Anpassung von Gestaltungshinweis 33 der Muster-Widerrufsbelehrung
   (Anlage 1 EGBGB) ergibt sich aus Art. 2 Nr. 7 Buchst. a des
   Umsetzungsgesetzes (BGBl. 2026 I Nr. 28 vom 05.02.2026).
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: ECLI-Endung fuer VIII ZR
+  21/19 im Hinweisblock korrigiert (`…UVIIIZR21.19.0`, Mieterhoehungs-
+  Urteil 09.10.2019); der Abgasskandal-Beschluss vom 26.04.2022
+  (`…BVIIIZR19.21.0`) gehoert zu **BGH VIII ZR 19/21** und wurde
+  entsprechend abgegrenzt. Belege aus der Rechtsinformations-API des
+  Bundes.

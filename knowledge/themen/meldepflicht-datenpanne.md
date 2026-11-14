@@ -149,6 +149,7 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
 - [[themen/tom]]
 - [[themen/dsfa]]
 - [[themen/verarbeitungsverzeichnis]]
+- [[urteile/bgh-vi-zr-10-24-kontrollverlust]]
 
 ## Aenderungsvermerk 2026-11-14
 

@@ -8,6 +8,17 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
+### KB — Review-Korrekturlauf PR #17 (2026-11-14)
+
+- `knowledge/gesetze/bdsg.md` — verbleibende Erwaehnung von "BAG 2 AZR 133/18 zu Keylogger" in "Typische Fallstricke" durch das korrekte Aktenzeichen **BAG 2 AZR 681/16 vom 27.07.2017** inkl. ECLI ersetzt (primaer ueber die Rechtsinformations-API des Bundes belegt).
+- `knowledge/urteile/eugh-c-654-25-google-fonts-vorlage.md` — Abschnitt zum Vorlagebeschluss am Volltext neu gefasst: die unbelegte Anknuepfung an die vom EuG bestaetigte DPF-Angemessenheit entfernt (der Beschluss datiert vom 28.08.2025, vor dem EuG-Urteil vom 03.09.2025, und enthaelt keine DPF-Aussage). Rn. 30 zitiert nun die tatsaechliche Senats-Aussage; Arnsberg-Querverweis von Rn. 43 auf Rn. 42 korrigiert (C-526/24, AG Arnsberg 31.07.2024, ECLI:DE:AGAR:2024:0731.42C434.23.0, Frage 7).
+- `knowledge/urteile/bgh-vi-zr-10-24-kontrollverlust.md` — Randnummern nachgezogen: Darlegungsanforderungen auf **Rn. 35 f.** praezisiert; die Ausgleichsfunktions-Aussage mit Verweis auf **Rn. 18 und Rn. 25** sowie die zitierte EuGH-Entscheidung **C-741/21, NJW 2024, 1561 Rn. 59 f., 64 f.** gefuellt.
+- `knowledge/themen/email-marketing.md` — Influencer-Rechtsprechungstrio (BGH I ZR 90/20, I ZR 125/20, I ZR 126/20 vom 09.09.2021) in "Zitierbare Urteile" mit ECLI-Ketten belegt, Verifikationsmarker dort entfernt. Belege primaer ueber die Rechtsinformations-API des Bundes.
+- `knowledge/themen/agb-muster.md`, `knowledge/themen/widerrufsbelehrung.md` — Hinweisblock zu BGH VIII ZR 21/19 richtiggestellt: ECLI `…UVIIIZR21.19.0` (Mieterhoehungs-Urteil 09.10.2019); der zuvor miteinsortierte Abgasskandal-Beschluss vom 26.04.2022 (`…BVIIIZR19.21.0`) gehoert zu **BGH VIII ZR 19/21**.
+- `.claude/hooks/triggers.json` — zu breite Muster eingeengt: `omnibus` nur im Rechtskontext (digital/ki/ai + Verordnung/Paket/VO), Art. 82 nur mit DSGVO/GDPR-Bezug (plus `immaterielle[rn]? Schaden|Kontrollverlust`), `data act` mit Wortgrenzen, `empco` ebenfalls mit Wortgrenzen; der zuvor getrennte Widerrufsbutton-Eintrag wurde in den `widerruf`-Eintrag integriert (keine Reihenfolgen-Abhaengigkeit mehr).
+- `knowledge/INDEX.md` — Platzhalter-Angabe auf **53** nachgezogen (`git grep -c "<<VERIFIKATION AUSSTEHEND>>" -- knowledge/`).
+- `knowledge/themen/email-marketing.md`, `knowledge/themen/werbekennzeichnung.md`, `knowledge/gesetze/uwg.md` — Darstellung der BGH-Influencer-Rechtsprechung und § 5a Abs. 4 UWG wortgleich am Gesetzeswortlaut (§ 5a Abs. 4 Saetze 2 und 3 UWG) und an den Leitsaetzen (I ZR 90/20 Leitsaetze 4 und 5; I ZR 125/20 Leitsaetze 1 und 2; I ZR 35/21 "Influencer III" vom 13.01.2022) ausgerichtet; unbelegte UGP-Richtlinien-Aussage gestrichen, Fehlzuordnung "Influencer III = I ZR 126/20" beseitigt.
+
 ### KB-Update 2026-11-14 (stale-only)
 
 Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-Batches waren an den Vortagen bereits aktualisiert worden; dieser Abschlusslauf stellt KB-Konsistenz, Marker-Normierung und drei gezielte Rechts-Updates sicher.
@@ -71,6 +82,38 @@ Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-B
   Voraussetzungen ab 12. September 2027).
 - **Platzhalter-Stand**: `knowledge/INDEX.md` und CHANGELOG auf
   **46 Marker in 31 Dateien** (vorher 53 in 33) aktualisiert.
+- **KB-Nachlauf (Urteile, Trigger, Datumsabweichungen)**: drei neue
+  Urteils-Dateien in `knowledge/urteile/` ergaenzt — BGH VI ZR 10/24
+  vom 18.11.2024 (Kontrollverlust als immaterieller Schaden nach
+  Art. 82 DSGVO, Facebook-Scraping; Groessenordnung rund 100 EUR),
+  EuG T-553/23 „Latombe" vom 03.09.2025 (DPF-Angemessenheitsbeschluss
+  erstinstanzlich bestaetigt; Rechtsmittel C-703/25 P anhaengig),
+  EuGH C-654/25 (anhaengig; BGH-Vorlagebeschluss vom 28.08.2025,
+  VI ZR 258/24, zu Google Fonts und dynamischer IP-Adresse). Je neue
+  Datei Querverweise aus `urteile/bgh-google-fonts.md`,
+  `urteile/eugh-schrems-ii.md`, `themen/drittland-transfer.md`,
+  `themen/tracking-analytics.md`, `themen/datenschutzerklaerung.md`,
+  `themen/meldepflicht-datenpanne.md` und `themen/tom.md`.
+  Datumsabweichungen aus `scripts/verify-citations.py` geklaert: BGH
+  I ZR 7/16 in `checklisten/general-pre-launch.md` und
+  `checklisten/audit-saas.md` um das Datum 28.05.2020 ("Cookie-
+  Einwilligung II") disambiguiert; sieben Aktenzeichen sind nach
+  API-Gegenprobe nicht zuordnungsgleich und wurden in Hinweisbloecke
+  "Nicht zitieren: falsch zugeordnete Aktenzeichen" verschoben, die
+  tragende Aussage jeweils mit Verifikationsmarker belassen
+  (BAG 2 AZR 133/18 — Aktenzeichen auf **BAG 2 AZR 681/16**
+  korrigiert, Datum 27.07.2017 primaer belegt; BAG 8 AZR 253/20,
+  BGH I ZR 228/14, VIII ZR 21/19, VIII ZR 6/10, I ZR 61/20,
+  I ZR 118/12, I ZR 102/10). ECLI-Backfill ueber
+  `scripts/verify-citations.py --write-ecli`: `knowledge/urteile/bgh-inbox-werbung.md`
+  erhaelt `ecli: ECLI:DE:BGH:2022:130122UIZR25.19.0`. Neue Trigger in
+  `.claude/hooks/triggers.json` fuer Widerrufsbutton/§ 356a, EmpCo/
+  Greenwashing, Preisangabengesetz, Data Act, Produktsicherheit
+  (GPSR), Omnibus, Kontrollverlust/Art. 82 DSGVO, DPF/Latombe und
+  Google Fonts. Platzhalter-Stand entsprechend auf **53 Marker** in
+  `knowledge/INDEX.md` neu gezaehlt (nach Entfernen der Selbst-
+  Referenz auf die Marker-Schreibweise in INDEX.md Zeile 89 im
+  Review-Korrekturlauf PR #17).
 
 ### Hintergrund Zitatpruefung
 

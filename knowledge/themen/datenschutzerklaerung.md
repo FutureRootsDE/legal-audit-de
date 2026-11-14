@@ -94,6 +94,8 @@ Zusätzlich: Datenkategorien + Quelle (Abs. 2 lit. f). Frist: innerhalb eines Mo
 - [[themen/cookie-consent]]
 - [[themen/tracking-analytics]]
 - [[themen/drittland-transfer]]
+- [[urteile/bgh-vi-zr-10-24-kontrollverlust]]
+- [[urteile/eug-latombe-dpf]]
 
 ## Aenderungsvermerk 2026-11-14
 

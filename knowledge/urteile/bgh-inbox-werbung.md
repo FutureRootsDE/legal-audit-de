@@ -8,6 +8,7 @@ quellen-sekundaer:
   - https://www.heise.de/news/Bundesgerichtshof-Unerwuenschte-Inbox-Werbung-ist-genauso-rechtswidrig-wie-Spam-7132364.html
 verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
+ecli: ECLI:DE:BGH:2022:130122UIZR25.19.0
 ---
 
 > **Haftungsausschluss — Keine Rechtsberatung**

@@ -75,7 +75,7 @@ Verweis auf Art. 82 DSGVO für privatwirtschaftlichen Bereich.
 
 ## Typische Fallstricke in Codebases
 
-- **Überwachungssoftware am Arbeitsplatz** (Zeiterfassung, Activity-Monitoring, Keylogger): § 26 BDSG + BAG-Rechtsprechung (z. B. BAG 2 AZR 133/18 zu Keylogger — unzulässig).
+- **Überwachungssoftware am Arbeitsplatz** (Zeiterfassung, Activity-Monitoring, Keylogger): § 26 BDSG + BAG-Rechtsprechung (BAG, Urteil vom 27.07.2017 — 2 AZR 681/16 zu Keylogger: unzulässig; ECLI:DE:BAG:2017:270717.U.2AZR681.16.0).
 - **HR-Tools (Personio, BambooHR) ohne AVV:** Wenn US-gehostet zusätzlich Drittland-Problem.
 - **Videoüberwachung von Mitarbeiter-Bereichen** ohne Betriebsratsbeteiligung (§ 87 BetrVG) + Kennzeichnung: doppelt problematisch.
 - **Bewerbermanagement:** Unbegrenzte Speicherung von abgelehnten Bewerbern. Faustregel: max. 6 Monate nach Absage.
@@ -99,8 +99,33 @@ Verweis auf Art. 82 DSGVO für privatwirtschaftlichen Bereich.
 
 - **BVerwG 6 C 2.18, 27.03.2019** — § 4 BDSG für private Videoüberwachung unanwendbar
 - **EuGH C-34/21, 30.03.2023** — HDSIG § 23 gekippt; Implikationen für § 26 BDSG
-- **BAG 2 AZR 133/18, 27.07.2017** — Keylogger ohne konkreten Tatverdacht unzulässig
-- **BAG 8 AZR 253/20, 05.05.2022** — Auskunftsanspruch nach Art. 15 DSGVO auch für Beschäftigte
+- **BAG 2 AZR 681/16, 27.07.2017** — Keylogger ohne konkreten Tatverdacht unzulässig (ECLI:DE:BAG:2017:270717.U.2AZR681.16.0; über die Rechtsinformations-API des Bundes am 2026-11-14 primär bestätigt)
+- Aussage: Auskunftsanspruch nach Art. 15 DSGVO auch für Beschäftigte. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren: falsch zugeordnete Aktenzeichen")
+
+## Nicht zitieren: falsch zugeordnete Aktenzeichen
+
+- **BAG 2 AZR 133/18** — in Vorgaengerfassungen dieser KB als Keylogger-Entscheidung
+  vom 27.07.2017 zitiert. Gegenprobe ueber die Rechtsinformations-API des Bundes
+  am 2026-11-14: unter diesem Aktenzeichen ist nur das Urteil des 2. Senats
+  vom **23.08.2018** gefuehrt ("Offene Videoueberwachung — Anhoerung vor
+  Verdachtskuendigung — Beweisverwertungsverbot", ECLI:DE:BAG:2018:230818.U.2AZR133.18.0).
+  Das tatsaechlich gemeinte Urteil ist **BAG 2 AZR 681/16** vom 27.07.2017
+  ("Ueberwachung mittels Keylogger — Verwertungsverbot",
+  ECLI:DE:BAG:2017:270717.U.2AZR681.16.0); Aktenzeichen in der Liste oben
+  korrigiert.
+- **BAG 8 AZR 253/20** — in Vorgaengerfassungen dieser KB als Entscheidung
+  zum Auskunftsanspruch nach Art. 15 DSGVO vom 05.05.2022 zitiert. Gegenprobe
+  ueber die Rechtsinformations-API des Bundes am 2026-11-14: unter diesem
+  Aktenzeichen sind nur das Urteil des 8. Senats vom **20.06.2024**
+  ("Datenschutz — Gesundheitsdaten — Verarbeitung durch Arbeitgeber —
+  Medizinischer Dienst", ECLI:DE:BAG:2024:200624.U.8AZR253.20.0) und der
+  Vorlagebeschluss vom 26.08.2021 gefuehrt; beide betreffen die Verarbeitung
+  von Gesundheitsdaten im Arbeitsverhaeltnis, nicht den Auskunftsanspruch.
+  Ein BAG-Urteil vom 05.05.2022, das den zitierten Satz traegt, ist dort nicht
+  nachweisbar (am 05.05.2022 entschied der 2. Senat 2 AZR 483/21 zur
+  ausserordentlichen Kuendigung und 2 AZR 363/21 zum immateriellen
+  Schadenersatz nach Art. 82 DSGVO — beides nicht deckungsgleich). Zitat
+  daher nicht uebernehmen; Aussage bleibt mit Verifikationsmarker.
 
 ## Siehe auch
 
@@ -116,3 +141,16 @@ Verweis auf Art. 82 DSGVO für privatwirtschaftlichen Bereich.
   BGBl. 2026 I Nr. 139, textlich zudem G v. 03.07.2026 BGBl. 2026 I Nr. 199).
   Materielle Paragraphen (§§ 4, 26, 38, 42, 43) gegen gesetze-im-internet.de
   unveraendert; kein neues Beschaeftigtendatengesetz in Kraft.
+- **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BAG 2 AZR 133/18 (bisher
+  mit Datum 27.07.2017 fuer Keylogger-Entscheidung zitiert) ueber die
+  Rechtsinformations-API des Bundes abgefragt — Treffer: 23.08.2018,
+  Videoueberwachung. Aktenzeichen auf **BAG 2 AZR 681/16** korrigiert und
+  die eigentliche Keylogger-Entscheidung primaer belegt (ECLI
+  DE:BAG:2017:270717.U.2AZR681.16.0). BAG 8 AZR 253/20 ebenfalls geprueft —
+  Treffer passen inhaltlich nicht zur KB-Aussage "Auskunftsanspruch Art. 15
+  DSGVO auch fuer Beschaeftigte"; Zitat entfernt und in Hinweisblock
+  "Nicht zitieren" dokumentiert, Aussage mit Verifikationsmarker belassen.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: In "Typische Fallstricke"
+  wurde die verbleibende Erwaehnung von "BAG 2 AZR 133/18 zu Keylogger"
+  entfernt und durch das korrekte Aktenzeichen **BAG 2 AZR 681/16 vom
+  27.07.2017** (Keylogger) inklusive ECLI ersetzt.

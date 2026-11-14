@@ -148,6 +148,7 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
 - **EuGH C-330/23** (26.09.2024, "Aldi Sued"): Klarstellung, dass der
   30-Tage-Referenzpreis auch in Werbung (Prospekte, Online-Ads) gelten muss,
   nicht nur am Regal.
+
 ## Nicht zitieren: falsch zugeordnete Aktenzeichen
 
 - **BGH I ZR 173/16** — in Vorgaengerfassungen dieser KB als Preisangabe-

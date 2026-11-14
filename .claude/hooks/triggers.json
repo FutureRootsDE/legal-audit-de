@@ -27,8 +27,40 @@
       "files": ["themen/ki-transparenz.md", "gesetze/ai-act.md"]
     },
     {
-      "pattern": "(?i)(widerruf|fernabsatz|§\\s*31[23]|button[-\\s]*l[oö]sung)",
+      "pattern": "(?i)(widerruf|fernabsatz|§\\s*31[23]|button[-\\s]*l[oö]sung|widerrufsbutton|widerrufsfunktion|§\\s*356a|\\b356a\\b)",
       "files": ["themen/widerrufsbelehrung.md", "themen/button-loesung.md"]
+    },
+    {
+      "pattern": "(?i)(\\bempco\\b|greenwashing|umweltaussage|klimaneutral|nachhaltigkeitssiegel)",
+      "files": ["themen/werbekennzeichnung.md", "gesetze/uwg.md"]
+    },
+    {
+      "pattern": "(?i)(preisangabengesetz|\\bpangg\\b)",
+      "files": ["gesetze/pangv.md", "themen/preisangaben.md"]
+    },
+    {
+      "pattern": "(?i)(\\bdata\\s+act\\b|\\bdatenverordnung\\b|anbieterwechsel|cloud[-\\s]*wechsel)",
+      "files": ["checklisten/audit-saas.md", "checklisten/audit-ecommerce.md"]
+    },
+    {
+      "pattern": "(?i)(\\bgpsr\\b|produktsicherheit)",
+      "files": ["checklisten/audit-ecommerce.md"]
+    },
+    {
+      "pattern": "(?i)(digital[- ]?omnibus|omnibus[- ]?(verordnung|paket|vo)|ki[- ]?omnibus|ai[- ]?omnibus)",
+      "files": ["gesetze/ai-act.md", "gesetze/dsgvo.md"]
+    },
+    {
+      "pattern": "(?i)(art\\.?\\s*82\\s*(abs\\.?\\s*\\d+\\s*)?(ds-?gvo|gdpr)|immaterielle[rn]?\\s+schaden|kontrollverlust|(scraping|scraper)[^.]{0,60}(ds-?gvo|gdpr|schadensersatz|schaden|kontrollverlust)|(ds-?gvo|gdpr|schadensersatz|schaden|kontrollverlust)[^.]{0,60}(scraping|scraper))",
+      "files": ["urteile/bgh-vi-zr-10-24-kontrollverlust.md"]
+    },
+    {
+      "pattern": "(?i)(data\\s*privacy\\s*framework|\\bdpf\\b|latombe)",
+      "files": ["urteile/eug-latombe-dpf.md", "themen/drittland-transfer.md"]
+    },
+    {
+      "pattern": "(?i)(google[-\\s]*fonts?|webfonts?)",
+      "files": ["urteile/bgh-google-fonts.md", "urteile/eugh-c-654-25-google-fonts-vorlage.md"]
     },
     {
       "pattern": "(?i)(newsletter|email[-\\s]*marketing|§\\s*7\\s*UWG|double[-\\s]*opt[-\\s]*in|opt[-\\s]*out)",
