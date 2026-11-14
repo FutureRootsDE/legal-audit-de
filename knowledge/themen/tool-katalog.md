@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
 quellen-sekundaer:
   - https://www.edpb.europa.eu/
@@ -7,12 +7,14 @@ quellen-sekundaer:
   - https://www.dataprivacyframework.gov/list
   - https://www.gesetze-im-internet.de/tddg/
 verifiziert-am: 2026-05-08
+teilverifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
 > **Haftungsausschluss — Keine Rechtsberatung**
 > Dieses Dokument wurde mit Unterstützung KI-gestützter Recherche erstellt und dient ausschließlich der internen Orientierung. Es ersetzt keine anwaltliche Beratung. Rechtslage, Behörden-Praxis und Tool-Konfigurationen können sich jederzeit ändern — prüfe im Einzelfall mit aktueller Primärquelle. Die Einordnung einzelner Tools (Einwilligungspflicht, Drittland-Status) hängt stets von der konkreten Konfiguration und vom Einsatzkontext ab.
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14 (teilverifiziert; Anbieter-Einordnungen und
+> DPF-Status nicht vollstaendig neu geprueft)
 
 # Tool-Katalog — DSGVO-Einordnung gängiger Web-Tools
 
@@ -329,3 +331,12 @@ Zu Tools, die nicht hier gelistet sind: Einordnung per ad-hoc-Check. Ein Tool is
 - [[urteile/bgh-google-fonts]]
 - [[urteile/lg-muenchen-google-fonts]]
 - [[checklisten/tool-einfuehrung]]
+
+## Aenderungsvermerk 2026-11-14
+
+- Disclaimer-Stand auf 2026-11-14 aktualisiert, `teilverifiziert-am`-Feld
+  im Frontmatter gesetzt. `verifiziert-am` bleibt auf 2026-05-08, da eine
+  vollstaendige Primaerquellen-Pruefung aller ~100 Tool-Zeilen
+  (DPF-Status, Anbieter-Sitz, EU-Residency-Optionen, AVV-Links) im Rahmen
+  dieses Batches nicht erfolgen konnte. Spot-Checks ohne Befund von
+  Aenderungen; naechste Vollpruefung empfohlen zu Q1/2027.

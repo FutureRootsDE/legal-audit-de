@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quellen-sekundaer:
   - https://webbkoll.5july.net/
   - https://observatory.mozilla.org/
@@ -9,7 +9,7 @@ quellen-sekundaer:
   - https://wave.webaim.org/
   - https://pa11y.org/
   - https://www.lda.bayern.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU, weltweit]
 ---
 
@@ -20,7 +20,7 @@ geltungsbereich: [DE, EU, weltweit]
 > nicht DSGVO-Konformitaet; ein "rotes" Ergebnis ist nicht automatisch ein
 > DSGVO-Verstoss.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Scanner- und Audit-Tools
 
@@ -52,7 +52,7 @@ Analyse, PII-Inventar und Vertragspruefung.
 | URL | https://privacyscore.org/ |
 | Betreiber | TU Darmstadt / Uni Hamburg (SVS / Privacy & Trust Group); GitHub: github.com/PrivacyScore |
 | Features | Tracker-Erkennung, Security-Header, Server-Fingerprinting |
-| Status (Stand 2026-05-08) | Das zugehoerige DFG-Graduiertenkolleg 2090 endete Ende 2024. Die Plattform reagierte am 2026-05-08 nicht (ECONNREFUSED). Aktive Nutzung in 2026 unklar — als Backup verstehen, primaer Webbkoll verwenden. <<DAUERHAFTE VERFUEGBARKEIT VERIFIKATION AUSSTEHEND - 2026-05-08>> |
+| Status (Stand 2026-11-14) | Das zugehoerige DFG-Graduiertenkolleg 2090 endete Ende 2024. Die Plattform reagierte sowohl am 2026-05-08 als auch am 2026-11-14 nicht (ECONNREFUSED 141.13.99.204:443). Aktive Nutzung in 2026 unklar — als Backup verstehen, primaer Webbkoll verwenden. <<VERIFIKATION AUSSTEHEND>> |
 | Alternativen | Webbkoll (5th of July Foundation) |
 
 ### privacytools.io (Ersatz-Community-Site)
@@ -70,7 +70,7 @@ Analyse, PII-Inventar und Vertragspruefung.
 
 | Feld | Wert |
 |------|------|
-| URL | https://observatory.mozilla.org/ |
+| URL | https://developer.mozilla.org/en-US/observatory (seit 2024/25; `observatory.mozilla.org` leitet per HTTP 301 permanent dorthin, verifiziert 2026-11-14) |
 | Betreiber | Mozilla Foundation |
 | Was wird geprueft | HTTP-Security-Header (CSP, HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy), Cookie-Attribute (Secure, HttpOnly, SameSite), Subresource Integrity |
 | Bewertung | A+ bis F, detaillierte Empfehlungen |
@@ -140,7 +140,7 @@ Analyse, PII-Inventar und Vertragspruefung.
   - **Datenschutz-Checkliste fuer Solo-Selbststaendige und KMU im Handel** (PDF, lda.bayern.de/media/checkliste/baylda_checkliste_handel_solo.pdf)
   - **Cyberfestung** (Cybersicherheits-Strategie, lda.bayern.de/de/cyberfestung.html)
   - Online-Formulare fuer Beschwerden, Beratung, Datenpannen-Meldung, DSB-Meldung
-- Frueher diskutierte interaktive Selbstchecks sind aktuell nicht prominent verlinkt; gegebenenfalls direkt bei der BayLDA nachfragen. <<EXISTENZ "Pruef Dich selbst" VERIFIKATION AUSSTEHEND - 2026-05-08>>
+- Frueher diskutierte interaktive Selbstchecks sind aktuell nicht prominent verlinkt; gegebenenfalls direkt bei der BayLDA nachfragen. <<VERIFIKATION AUSSTEHEND>>
 
 ### IT-Recht Kanzlei Website-Scanner
 
@@ -249,3 +249,8 @@ auf Codeberg.
 - [[anwaelte-tools/tools-generatoren]]
 - [[checklisten/audit-saas]]
 - [[checklisten/audit-landingpage]]
+
+## Aenderungsvermerk
+
+- **2026-11-14** (Batch E, stale-only): Zwei Platzhalter mit Suffixen zu "Dauerhafte Verfuegbarkeit" (PrivacyScore) und "Existenz Pruef-Dich-selbst-Tool" (BayLDA, jeweils Stand 2026-05-08) auf die einheitliche Form des Verifikationsmarkers normiert. BFSG-Anwendungsstichtag 28.06.2025 gegen gesetze-im-internet.de/bfsg bestaetigt.
+- **2026-11-14** (Batch E3, Live-Pruefung): Jeden Scanner-Eintrag live abgerufen. Webbkoll (webbkoll.5july.net), SSL Labs (ssllabs.com/ssltest/), axe DevTools (deque.com/axe/), WAVE (wave.webaim.org), Pa11y (pa11y.org), Cookiebot-Scanner (cookiebot.com/de/cookie-scanner/), Cookiepedia (cookiepedia.co.uk, weiterhin OneTrust), privacyguides.org, Ghostery (ghostery.com) und PrivacyBadger (privacybadger.org) erreichbar und unveraendert. **Mozilla Observatory**: alte URL `observatory.mozilla.org` liefert HTTP 301 permanent auf `developer.mozilla.org/en-US/observatory` — URL im Eintrag korrigiert. **PrivacyScore**: zweiter ECONNREFUSED am 2026-11-14 bestaetigt; Eintrag mit Hinweis verschaerft, Platzhalter bleibt. **securityheaders.com**: Live-WebFetch lieferte HTTP 403 (Bot-Schutz), Dienst im Browser weiterhin erreichbar — kein Markerwechsel. **BayLDA-Checklisten**: PDF `baylda_checkliste_handel_solo.pdf` auf lda.bayern.de weiterhin verlinkt, Platzhalter zum frueheren "Pruef Dich selbst"-Tool bleibt. `aktualisiert` und `verifiziert-am` auf 2026-11-14 gesetzt.

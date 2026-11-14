@@ -1,12 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/
   - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-92022-personal-data-breach-notification-under_en
   - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-012021-examples-regarding-personal-data-breach_en
   - https://www.bfdi.bund.de/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Meldepflicht bei Datenpannen — Art. 33 / 34 DSGVO
 
@@ -138,8 +138,10 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
 
 - **EuGH C-340/21 (Natsionalna agentsia), 14.12.2023** — Cyberangriff führt nicht automatisch zu TOM-Verstoß; Beweislast liegt aber beim Verantwortlichen
 - **EuGH C-687/21 (MediaMarktSaturn), 25.01.2024** — Bloßer Kontrollverlust allein nicht automatisch immaterieller Schaden, aber Befürchtungen können genügen
-- **OLG Düsseldorf 16 U 275/20, 28.10.2021** — Schadenersatz bei unverschlüsseltem USB-Stick-Verlust
-- **LG Köln 28 O 328/21, 15.06.2022** — Bußgeld-Risiko bei verspäteter Meldung
+- **BGH VI ZR 10/24 (Facebook-Scraping), 18.11.2024** — Erste Leitentscheidung des BGH nach § 552b ZPO: bereits der kurzzeitige Verlust der Kontrolle ueber personenbezogene Daten kann einen immateriellen Schaden nach Art. 82 DSGVO begruenden; Groessenordnung im Ausgangsverfahren ca. 100 EUR
+- **EuGH C-655/23 (Quirin Privatbank/XING), 04.09.2025** — Auch negative Gefuehle nach unbefugter Weitergabe von Daten koennen immateriellen Schaden begruenden <<VERIFIKATION AUSSTEHEND>>
+- **OLG Düsseldorf 16 U 275/20, 28.10.2021** — Schadenersatz bei unverschlüsseltem USB-Stick-Verlust <<VERIFIKATION AUSSTEHEND>>
+- **LG Köln 28 O 328/21, 15.06.2022** — Bußgeld-Risiko bei verspäteter Meldung <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -147,3 +149,17 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
 - [[themen/tom]]
 - [[themen/dsfa]]
 - [[themen/verarbeitungsverzeichnis]]
+
+## Aenderungsvermerk 2026-11-14
+
+- BGH VI ZR 10/24 (18.11.2024) als neue Leitentscheidung zum Kontrollverlust
+  ergaenzt (Quelle: BGH-Pressemitteilung, ECLI:DE:BGH:2024:181124UVIZR10.24.0).
+- EuGH C-655/23 (04.09.2025, XING) als Hinweis aufgenommen, Aktenzeichen noch
+  verifikationsoffen.
+- Digital-Omnibus-Hinweis: Die Kommission hat am 19.11.2025 einen Vorschlag
+  vorgelegt, der u. a. die 72h-Frist in Art. 33 DSGVO zugunsten einer
+  risiko-triggered Meldung mit 96h anpassen moechte. Status 2026-11-14: **nur
+  Kommissionsvorschlag**, noch nicht verkuendet. Bis zur Verkuendung gilt die
+  72-Stunden-Frist aus Art. 33 Abs. 1 DSGVO unveraendert.
+- Zwei OLG-/LG-Aktenzeichen mit Verifikationsmarker versehen.
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.

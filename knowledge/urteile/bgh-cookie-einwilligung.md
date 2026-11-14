@@ -1,10 +1,10 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://juris.bundesgerichtshof.de/cgi-bin/rechtsprechung/document.py?Gericht=bgh&Art=en&nr=107623&pos=0&anz=1
 quellen-sekundaer:
   - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2020/2020067.html
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=28.05.2020&Aktenzeichen=I+ZR+7/16
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -15,7 +15,7 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # BGH I ZR 7/16 — „Cookie-Einwilligung II" (Planet49-Folgeurteil)
 
@@ -81,3 +81,12 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
 - [[themen/cookie-consent]]
 - [[urteile/eugh-planet49]]
 - [[behoerden/edsa-leitlinien]]
+
+## Aenderungsvermerk
+
+- 2026-11-14: geprueft gegen die Rechtsinformations-API des Bundes
+  (`/v1/rechtsprechung?fileNumber=I ZR 7/16&court=BGH`); Gericht, Datum
+  (28.05.2020, "Cookie-Einwilligung II") und Zuordnung zum I. Zivilsenat
+  bestaetigt, Vorlagebeschluss vom 05.10.2017 (ECLI:DE:BGH:2017:051017BIZR7.16.0)
+  als Zwischenstufe ergaenzt. Inhalt unveraendert — keine neuen
+  BGH-Entscheidungen zu dieser Rechtsfrage seit 2026-05-08 bekannt.

@@ -1,12 +1,13 @@
 ---
-aktualisiert: 2026-04-19
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/egbgb/anlage_1.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__355.html
   - https://www.gesetze-im-internet.de/bgb/__312g.html
   - https://www.gesetze-im-internet.de/bgb/__356.html
+  - https://www.gesetze-im-internet.de/bgb/__356a.html
   - https://www.gesetze-im-internet.de/bgb/__357.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +18,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Widerrufsbelehrung — 14-Tage-Frist, Muster, Ausnahmen
 
@@ -72,6 +73,49 @@ Kein Widerrufsrecht u.a. bei:
    festem Termin
 10. Notariell beurkundete Vertraege
 
+### § 356a BGB — Elektronische Widerrufsfunktion / Widerrufs-Button
+
+Nach dem Umsetzungsgesetz (BGBl. 2026 Teil I Nr. 28 vom 05.02.2026,
+recht.bund.de/bgbl/1/2026/28/VO.html am 2026-11-14 bestaetigt) gilt der neue
+§ 356a BGB fuer **Fernabsatzvertraege, die ueber eine
+Online-Benutzeroberflaeche geschlossen werden** (nicht auf Finanz-
+dienstleistungen beschraenkt). Der Unternehmer muss eine **elektronische
+Widerrufsfunktion** bereitstellen:
+
+- **Abs. 1/2:** Widerrufsfunktion auf der Oberflaeche. Beschriftung
+  **"Vertrag widerrufen"** oder eine gleichbedeutende, eindeutige
+  Formulierung. Waehrend der Widerrufsfrist staendig verfuegbar,
+  hervorgehoben platziert, leicht zugaenglich. Verbraucher gibt Name,
+  Vertragsidentifikation und elektronisches Kommunikationsmittel fuer
+  die Eingangsbestaetigung an.
+- **Abs. 3:** Bestaetigungsfunktion mit Beschriftung **"Widerruf bestaetigen"**
+  oder gleichbedeutend.
+- **Abs. 4:** Unverzuegliche Eingangsbestaetigung auf dauerhaftem
+  Datentraeger mit Inhalt der Widerrufserklaerung sowie Datum und Uhrzeit
+  des Eingangs.
+- **Abs. 5:** Rechtzeitige Absendung ueber Widerrufs- und
+  Bestaetigungsfunktion wahrt die Widerrufsfrist.
+
+Umsetzung der **Richtlinie (EU) 2023/2673**. Anwendung seit **19.06.2026**
+(BGBl. 2026 Teil I Nr. 28, Gesetz vom 03.02.2026, veroeffentlicht am
+05.02.2026, Art. 1 Nr. 8 und Inkrafttreten nach Art. 10 Abs. 1 am 19.06.2026;
+primaer bestaetigt am 2026-11-14 ueber den BGBl.-Volltext sowie die
+konsolidierte Fassung auf gesetze-im-internet.de/bgb/__356a.html, die
+zwischenzeitlich die neue Fassung ("Elektronische Widerrufsfunktion bei
+Fernabsatzvertraegen") abbildet). Die Schaltflaechen-Beschriftungen "Vertrag
+widerrufen" (Abs. 1 Satz 2) und "Widerruf bestaetigen" (Abs. 3 Satz 2) sind
+jeweils "oder [eine] andere gleichbedeutende eindeutige Formulierung"
+zugelassen; die Eingangsbestaetigung muss "Datum und Uhrzeit ihres Eingangs"
+enthalten (Abs. 4). Die Muster-Widerrufsbelehrung in Anlage 1 EGBGB ist durch
+**Art. 2 Nr. 7 Buchst. a** desselben Gesetzes (BGBl. 2026 I Nr. 28) angepasst
+worden: **Gestaltungshinweis 33 n. F.** sieht einen Pflicht-Einschub
+"Sie koennen Ihr Widerrufsrecht auch online unter ... [Internetadresse oder
+anderen geeigneten Hinweis darueber eingeben, wo die Widerrufsfunktion
+verfuegbar ist] ausueben. Wenn Sie diese Online-Funktion nutzen, uebermitteln
+wir Ihnen auf einem dauerhaften Datentraeger (z. B. durch eine E-Mail)
+unverzueglich eine Eingangsbestaetigung mit Informationen zum Inhalt der
+Widerrufserklaerung sowie dem Datum und der Uhrzeit ihres Eingangs." vor.
+
 ### § 357 BGB — Rechtsfolgen des Widerrufs
 
 - **Abs. 1:** Rueckgewaehr empfangener Leistungen binnen **14 Tagen**.
@@ -113,9 +157,12 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
 4. **Digitale Inhalte ohne Verzichtserklaerung + Bestaetigung:** Widerrufsrecht
    bleibt bestehen; Checkbox "Ich verzichte auf mein Widerrufsrecht, wenn
    Download beginnt" + Bestaetigungs-Mail erforderlich.
-5. **Widerrufs-Button nicht implementiert:** Unternehmen sind zwar NICHT
-   verpflichtet, einen Widerrufs-Button anzubieten (anders: Kuendigungs-
-   Button § 312k BGB), muessen aber Widerrufsformular zur Verfuegung stellen.
+5. **Widerrufs-Button nicht implementiert:** Seit 19.06.2026 ist der
+   elektronische Widerrufs-Button nach **§ 356a BGB n.F.** (Umsetzung
+   Richtlinie (EU) 2023/2673) fuer Online-abgeschlossene Fernabsatzvertraege
+   **Pflicht** — zusaetzlich zum Widerrufsformular. Fehlender Button loest
+   zwar nicht automatisch die 12-Monats-Verlaengerung aus (Belehrung bleibt
+   wirksam), ist aber eigenstaendig wettbewerbsrechtlich abmahnbar.
 6. **Rueckversand-Tracking + 14-Tage-Rueckzahlungsfrist:** Oft laeuft Frist
    bei Haendlern aus, bevor Ware zurueck ist — § 357 Abs. 4 erlaubt
    Zurueckbehaltung, aber Prozess muss konfiguriert sein.
@@ -163,3 +210,25 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
 - [[gesetze/bgb-agb]]
 - [[themen/button-loesung]]
 - [[themen/agb-muster]]
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
+- Neuer Abschnitt "§ 356a BGB — Elektronische Widerrufsfunktion" (Umsetzung
+  Richtlinie (EU) 2023/2673, BGBl. 2026 I Nr. 28, Anwendung seit 19.06.2026)
+  ergaenzt; Fallstrick Nr. 5 entsprechend aktualisiert.
+- **2026-11-14 (Abgleich)**: Wortlaut und Anwendungsbereich des § 356a BGB
+  primaer gegen gesetze-im-internet.de/bgb/__356a.html verifiziert. Geltung
+  fuer **alle** Fernabsatzvertraege ueber Online-Benutzeroberflaeche
+  (nicht nur Finanzdienstleistungen) bestaetigt; Schaltflaechen-Texte
+  "Vertrag widerrufen" / "Widerruf bestaetigen" (jeweils "oder [eine] andere
+  gleichbedeutende eindeutige Formulierung"), Pflicht zur Eingangs-
+  bestaetigung mit "Datum und Uhrzeit ihres Eingangs" sowie Fristwahrung
+  durch rechtzeitige Absendung (Abs. 5) direkt am Gesetzestext belegt.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Verifikationsmarker zum
+  § 356a-Wortlaut und zur Muster-Widerrufsbelehrung aufgeloest. Die
+  konsolidierte Fassung auf gesetze-im-internet.de zeigt die neue
+  Paragraphenueberschrift und den vollstaendigen Absatztext; die
+  Anpassung von Gestaltungshinweis 33 der Muster-Widerrufsbelehrung
+  (Anlage 1 EGBGB) ergibt sich aus Art. 2 Nr. 7 Buchst. a des
+  Umsetzungsgesetzes (BGBl. 2026 I Nr. 28 vom 05.02.2026).

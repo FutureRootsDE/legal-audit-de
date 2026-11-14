@@ -1,7 +1,7 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 gilt-fuer: Blog, Corporate-Blog, YouTube-Channel, Podcast, Social-Media-Content, Newsletter
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -11,7 +11,7 @@ geltungsbereich: [DE, EU]
 > **keine Rechtsberatung** im Sinne des § 2 RDG. Content-Produktion ist
 > urheberrechts-, wettbewerbs- und werbekennzeichnungsrechtlich anspruchsvoll.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Audit-Checkliste: Content / Blog / YouTube / Podcast
 
@@ -82,11 +82,12 @@ Content-Produktion beruehrt:
 
 ## Pass 5: KI-Spezifisch (AI Act-Stufung)
 
-Anwendbarkeit-Stufung: Verbotene Praktiken (Art. 5) und KI-Kompetenz (Art. 4) seit **02.02.2025**, GPAI-Pflichten seit **02.08.2025**, **Vollanwendung Art. 50 (Transparenz) ab 02.08.2026** mit maschinenlesbarem Wasserzeichen.
+Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI): Verbotene Praktiken (Art. 5) und KI-Kompetenz (Art. 4) seit **02.02.2025** (Art. 4 seit 27.07.2026 Verhaltenspflicht; zwei neue Verbote NCII/CSAM ab 02.12.2026), GPAI-Pflichten seit **02.08.2025**, **Art. 50 (Transparenz) seit 02.08.2026 anwendbar** mit maschinenlesbarer Markierung (Altbestand vor 02.08.2026 nachzuruesten bis 02.12.2026, Art. 111 Abs. 4).
 
-- [ ] **KI-Kompetenz** Art. 4 AI Act: Schulungs-/Sensibilisierungsnachweis fuer alle Redakteure mit KI-Einsatz
-- [ ] **KI-generierter Text** im Blog → Kennzeichnung empfohlen ("Dieser Artikel wurde mit Unterstuetzung von KI erstellt")
-- [ ] **KI-generierte Bilder/Audio/Video** im Artikel → Kennzeichnung Pflicht (Art. 50 Abs. 2 AI Act); Wasserzeichen-Pflicht ab 02.08.2026
+- [ ] **KI-Kompetenz** Art. 4 KI-VO n. F. (seit 27.07.2026 i. d. F. VO (EU) 2026/1744): "Massnahmen ergreifen" zur Unterstuetzung der KI-Kompetenz; **keine Pflicht** zur **Garantie** eines bestimmten Niveaus (Art. 4 Abs. 1 Satz 2 n. F.) — Nachweis geeigneter Foerdermassnahmen fuer alle Redakteure mit KI-Einsatz dennoch dokumentieren
+- [ ] **KI-generierter Text** zu Angelegenheiten von oeffentlichem Interesse → Kennzeichnungspflicht nach Art. 50 Abs. 4 S. 2 KI-VO, ausser menschliche Redaktion hat uebernommen
+- [ ] **KI-generierter Text** sonstig → Kennzeichnung empfohlen ("Dieser Artikel wurde mit Unterstuetzung von KI erstellt")
+- [ ] **KI-generierte Bilder/Audio/Video** im Artikel → Kennzeichnung Pflicht (Art. 50 Abs. 2 AI Act) seit 02.08.2026; Altbestand nachzuruesten bis 02.12.2026
 - [ ] **KI-Stimmen** im Podcast → Transparenzpflicht (Hoerer hat Recht zu wissen, dass keine menschliche Stimme)
 - [ ] **Deepfakes** von realen Personen → zwingend als kuenstlich erzeugt kennzeichnen (Art. 50 Abs. 4 AI Act) UND Einwilligung der Person noetig (Persoenlichkeitsrecht / KUG)
 - [ ] **Synthetische Avatare** als Sprecher → Kennzeichnung
@@ -197,6 +198,7 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 - [ ] Impressum in jeder Mail (§ 5 DDG)
 - [ ] Personalisierung nur nach Einwilligung
 - [ ] BGH "Inbox-Werbung II" I ZR 25/19 (13.01.2022) — Inbox-Werbung in E-Mail-Postfaechern bedarf Einwilligung
+- [ ] **Paid Newsletter / Abo-Modell**: Kuendigungsschaltflaeche § 312k BGB (Wortlaut "Vertraege hier kuendigen" + "jetzt kuendigen" auf Bestaetigungsseite, staendig verfuegbar; Folge bei Verstoss: fristlose Kuendigung jederzeit, § 312k Abs. 6 BGB) — Severity HIGH
 - [ ] [[themen/email-marketing]], [[urteile/bgh-inbox-werbung]], [[gesetze/uwg]]
 
 ### Social Media
@@ -253,3 +255,12 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 - [[themen/social-media-datenschutz]]
 - [[themen/tool-katalog]]
 - [[urteile/bgh-inbox-werbung]]
+
+---
+
+## Aenderungsvermerk (2026-11-14, Batch F stale-only)
+
+- Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
+- Pass 4 (Newsletter) um Kuendigungsschaltflaeche § 312k BGB erweitert; Tier-1-belegt gegen gesetze-im-internet.de/bgb/__312k.html.
+- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate und Aktenzeichen bestaetigt — § 5 DDG, § 18 Abs. 2+3/§ 22 MStV, Art. 6/26 DSGVO, § 22/§ 23 KUG, § 26 BDSG, § 5a Abs. 4 UWG, § 7 Abs. 2 Nr. 2/Abs. 3 UWG, § 51 UrhG, § 59 UrhG, §§ 87f ff. UrhG, § 1/§ 14 BFSG, DSA VO (EU) 2022/2065 (anwendbar seit 17.02.2024), § 312k BGB. BGH-Aktenzeichen I ZR 90/20, 125/20, 126/20 (09.09.2021 — Influencer-Trilogie) und I ZR 218/07 (10.02.2011 — Double-Opt-In II), I ZR 25/19 (13.01.2022 — Inbox-Werbung II) konsistent zu KB. Keine offenen Marker in dieser Datei.
+- Pass 5 (KI) und Datumsangaben zum AI Act durch anderen Agent am selben Tag separat aktualisiert; hier nicht angetastet.

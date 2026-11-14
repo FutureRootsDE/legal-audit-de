@@ -1,12 +1,14 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62018CJ0311
+ecli: ECLI:EU:C:2020:559
 quellen-sekundaer:
   - https://curia.europa.eu/juris/liste.jsf?num=C-311/18
   - https://noyb.eu/de/cjeu-schrems-ii
   - https://www.edpb.europa.eu/our-work-tools/our-documents/recommendations/recommendations-012020-measures-supplement-transfer_en
   - https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3721
-verifiziert-am: 2026-05-08
+  - https://curia.europa.eu/juris/liste.jsf?num=T-553/23
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +19,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # EuGH C-311/18 — „Schrems II"
 
@@ -77,7 +79,26 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
 - **2021/914/EU** (neue SCCs vom 04.06.2021) enthält explizite TIA-Pflicht in Klausel 14
 - **EDSA Empfehlungen 01/2020** zu ergänzenden Maßnahmen (finale Version 18.06.2021)
 - **EU-US Data Privacy Framework — Angemessenheitsbeschluss vom 10.07.2023** (Beschluss (EU) 2023/1795) ersetzt Privacy Shield — aber nur für DPF-zertifizierte Unternehmen (siehe https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3721)
-- **Schrems III** (NOYB) anhängig gegen das DPF; erste DPF-Periodenüberprüfung durch EU-Kommission abgeschlossen
+- **EuG T-553/23 „Latombe", Urteil vom 03.09.2025** — Das Europaeische Gericht
+  erster Instanz hat die Nichtigkeitsklage des franzoesischen Abgeordneten
+  Philippe Latombe gegen den DPF-Angemessenheitsbeschluss **abgewiesen** und
+  die Angemessenheit damit erstinstanzlich bestaetigt (insb. Data Protection
+  Review Court als wirksamer Rechtsbehelf, Bulk-Collection nach EO 14086
+  verhaeltnismaessig). Die Pruefung bezieht sich auf die Rechtslage **im
+  Zeitpunkt des Beschlusses 2023** und nicht auf spaetere US-Entwicklungen.
+  Quelle: curia.europa.eu/juris/liste.jsf?num=T-553/23.
+- **Rechtsmittel beim EuGH (C-703/25 P)** — Latombe hat am **31.10.2025** gegen
+  das EuG-Urteil Rechtsmittel eingelegt; Verfahren beim EuGH anhaengig,
+  Entscheidung offen. Primaerbeleg: Mitteilung ueber das Rechtsmittel im
+  Amtsblatt der EU, EUR-Lex ELI `C/2025/6610`.
+- Eine haeufig als "Schrems III" bezeichnete gesonderte Nichtigkeitsklage gegen
+  den DPF-Angemessenheitsbeschluss (2023/1795) ist in der publizierten
+  Curia-Verfahrensliste Stand 2026-11-14 nicht als eigener Verfahrensgegenstand
+  nachweisbar; die Formulierung "Schrems III anhaengig" wurde deshalb hier
+  gestrichen. Belegte Verfahrenslage: **EuG T-553/23 (Latombe/Kommission,
+  Urteil vom 03.09.2025, Klage abgewiesen)** — in erster Instanz abgeschlossen;
+  **anhaengig beim EuGH ist allein das Rechtsmittel C-703/25 P**
+  (eingelegt 31.10.2025, Mitteilung im Amtsblatt ABl. C/2025/6610).
 
 ## Anwendung auf Codebases
 
@@ -100,3 +121,18 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
 - [[themen/tracking-analytics]]
 - [[themen/avv-muster]]
 - [[behoerden/edsa-leitlinien]]
+
+## Aenderungsvermerk
+
+- 2026-11-14: EuG-Urteil T-553/23 „Latombe" vom 03.09.2025 (DPF
+  erstinstanzlich bestaetigt) sowie das anhaengige EuGH-Rechtsmittel
+  C-703/25 P ergaenzt; ECLI:EU:C:2020:559 in Frontmatter uebernommen.
+- **2026-11-14 (Abgleich)**: Aktenzeichen und Einlegungsdatum des
+  Rechtsmittels C-703/25 P (31.10.2025) primaer gegen die Mitteilung im
+  Amtsblatt der EU verifiziert (EUR-Lex ELI `C/2025/6610`); Marker
+  aufgeloest. Deckungsgleich mit themen/drittland-transfer.md.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Falsche Aussage
+  "T-553/23 ... und C-703/25 P ... beide beim EuGH anhaengig" korrigiert.
+  Richtig: T-553/23 hat das EuG am 03.09.2025 entschieden (Klage
+  abgewiesen); anhaengig beim EuGH ist nur das Rechtsmittel C-703/25 P
+  (31.10.2025). Wortlaut mit themen/drittland-transfer.md synchronisiert.

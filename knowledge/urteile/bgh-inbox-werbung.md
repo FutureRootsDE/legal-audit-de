@@ -1,12 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=13.01.2022&Aktenzeichen=I+ZR+25/19
 quellen-sekundaer:
   - https://curia.europa.eu/juris/liste.jsf?num=C-102/20
   - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3186
   - https://gdprhub.eu/index.php?title=BGH_-_I_ZR_25/19
   - https://www.heise.de/news/Bundesgerichtshof-Unerwuenschte-Inbox-Werbung-ist-genauso-rechtswidrig-wie-Spam-7132364.html
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # BGH I ZR 25/19 — "Inbox-Werbung II"
 
@@ -39,11 +39,11 @@ geltungsbereich: [DE, EU]
 - **Parteien:** Klaegerin StWL Staedtische Werke Lauf a. d. Pegnitz GmbH
   (Energieversorger) ./. Beklagte eprimo GmbH (Energieversorger)
 
-`<<VERIFIKATION AUSSTEHEND — Die exakte OLG-Nuernberg-Aktenzeichen-Nummer
-und das Datum der Vorinstanz-Entscheidung konnten in oeffentlichen
-Tier-1-Quellen nicht zweifelsfrei verifiziert werden; das frueher genannte
-"3 U 805/16, Urteil vom 15.08.2017" wurde entfernt, da nicht reproduzierbar.
-Querpruefung mit juris oder Heymanns-Verlag empfohlen.>>`
+Exakte OLG-Nuernberg-Aktenzeichen-Nummer und Datum der Vorinstanz-Entscheidung:
+<<VERIFIKATION AUSSTEHEND>>
+(Das frueher genannte „3 U 805/16, Urteil vom 15.08.2017" wurde entfernt, da
+in oeffentlichen Tier-1-Quellen nicht reproduzierbar. Querpruefung mit juris
+oder Heymanns empfohlen.)
 
 ## Sachverhalt
 
@@ -127,3 +127,15 @@ bestaetigt.
 - [[gesetze/uwg]] — § 7 UWG
 - [[themen/email-marketing]]
 - EuGH C-102/20 (25.11.2021) — Vorabentscheidung
+
+## Aenderungsvermerk
+
+- 2026-11-14: geprueft gegen die Rechtsinformations-API des Bundes
+  (`/v1/rechtsprechung?fileNumber=I ZR 25/19&court=BGH`); Urteil des I. Zivil-
+  senats vom 13.01.2022 "Inbox-Werbung II" mit ECLI:DE:BGH:2022:130122UIZR25.19.0
+  sowie der zugehoerige Vorlagebeschluss vom 30.01.2020
+  (ECLI:DE:BGH:2020:300120BIZR25.19.0) bestaetigt; das EuGH-Vorabentscheidungs-
+  verfahren wird auf curia.europa.eu als C-102/20 (Urteil vom 25.11.2021)
+  gefuehrt. Inhalt unveraendert. Vorhandener Marker zur OLG-Nuernberg-
+  Vorinstanz bleibt bestehen, da in Tier-1-Quellen weiterhin nicht zweifelsfrei
+  reproduzierbar.

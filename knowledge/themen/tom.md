@@ -1,11 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/it-grundschutz_node.html
   - https://www.iso.org/standard/27001
 praxis-beispiel: C:/Users/Philip/SaaS_Project/projects/ksk-automation/docs/ISMS-CONCEPT.md
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-11-14
 
 # TOM — Technische und organisatorische Maßnahmen (Art. 32 DSGVO)
 
@@ -134,9 +134,10 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 
 ## Zitierbare Urteile
 
-- **LG Köln 28 O 1/20, 18.03.2020** — Datenverlust durch fehlende Backups = Ersatzpflicht
+- **LG Köln 28 O 1/20, 18.03.2020** — Datenverlust durch fehlende Backups = Ersatzpflicht <<VERIFIKATION AUSSTEHEND>>
 - **EuGH C-340/21 (Natsionalna agentsia), 14.12.2023** — Auch nicht-absichtliche Offenlegung = DSGVO-Verstoß; Beweislast für angemessene TOM liegt beim Verantwortlichen
-- **LAG Hamm 14 Sa 545/21, 23.02.2022** — Schadenersatz bei unzureichender Zugriffskontrolle
+- **LAG Hamm 14 Sa 545/21, 23.02.2022** — Schadenersatz bei unzureichender Zugriffskontrolle <<VERIFIKATION AUSSTEHEND>>
+- **BGH VI ZR 10/24, 18.11.2024** — Leitentscheidung Facebook-Scraping: Kontrollverlust als immaterieller Schaden; verstaerkt den Druck auf dokumentierte TOM
 
 ## Siehe auch
 
@@ -144,3 +145,15 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 - [[themen/meldepflicht-datenpanne]]
 - [[themen/verarbeitungsverzeichnis]]
 - [[themen/avv-muster]]
+
+## Aenderungsvermerk 2026-11-14
+
+- NIS2-Hinweis: Die deutsche Umsetzung ("NIS2UmsuCG") war Stand 2026-11-14
+  weiterhin nicht verkuendet; der juengste Referentenentwurf stammt aus dem
+  BMI. Pflichten aus der NIS2-Richtlinie (EU 2022/2555) gelten unmittelbar nur
+  fuer die Mitgliedstaaten; Unternehmenspflichten in Deutschland leben erst
+  mit Verkuendung des Umsetzungsgesetzes auf. Detail in
+  [[gesetze/nis2-bsig]].
+- BGH VI ZR 10/24 ergaenzt.
+- Zwei LG-/LAG-Aktenzeichen mit Verifikationsmarker versehen.
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.

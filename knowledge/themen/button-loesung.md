@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/__312j.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__312k.html
+  - https://www.gesetze-im-internet.de/bgb/__356a.html
   - https://www.bmj.de/DE/themen/verbraucherrecht/faire_vertraege/
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=09.10.2025&Aktenzeichen=I+ZR+159/24
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -16,7 +17,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Button-Loesung — § 312j Abs. 3/4 BGB
 
@@ -60,8 +61,7 @@ einer entsprechenden eindeutigen Formulierung beschriftet ist."
 
 - "zahlungspflichtig bestellen" (gesetzeswortlaut)
 - "kostenpflichtig bestellen"
-- "kaufen" (Gesamtkontext unmissverstaendlich; pruefen — Aktenzeichen-
-  Verifikation ausstehend)
+- "kaufen" (Gesamtkontext unmissverstaendlich; Praxis-Verwendung umstritten) <<VERIFIKATION AUSSTEHEND>>
 - "zahlungspflichtigen Vertrag schliessen"
 - "Jetzt kaufen" (Tendenz: OK)
 - "Kostenpflichtig bestellen"
@@ -73,7 +73,7 @@ einer entsprechenden eindeutigen Formulierung beschriftet ist."
 - "Weiter zur Bezahlung"
 - "Bestellung abschicken"
 - "Bestellung abgeben" (umstritten, Tendenz: unzulaessig)
-- "Jetzt anmelden" (BGH VIII ZR 63/15)
+- "Jetzt anmelden" (BGH VIII ZR 63/15 <<VERIFIKATION AUSSTEHEND>>)
 - "Bestellen" (alleine)
 - "Buchen"
 - "Auftrag erteilen"
@@ -93,6 +93,42 @@ Bestaetigungsseite mit allen Pflichtangaben; nach Klick wird die Kuendigung
 sofort bestaetigt (Textform).
 
 Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
+
+### § 356a BGB — Widerrufs-Button (seit 19.06.2026, NEU)
+
+Durch das "Gesetz zur Aenderung des Verbrauchervertrags- und des
+Versicherungsvertragsrechts sowie zur Aenderung des Behandlungsvertragsrechts"
+vom 03.02.2026 (**BGBl. 2026 Teil I Nr. 28**, veroeffentlicht am 05.02.2026,
+Umsetzung der Richtlinie (EU) 2023/2673; Inkrafttreten nach Art. 10 Abs. 1
+am 19.06.2026) wird der **neue § 356a BGB** ("Elektronische Widerrufsfunktion
+bei Fernabsatzvertraegen") eingefuehrt. Primaerbelege am 2026-11-14:
+BGBl.-Volltext Art. 1 Nr. 8 und konsolidierte Fassung auf
+gesetze-im-internet.de/bgb/__356a.html mit dem vollstaendigen neuen
+Absatztext. Fuer Fernabsatzvertraege, die ueber eine
+**Online-Benutzeroberflaeche** geschlossen werden, muss der Unternehmer eine
+**elektronische Widerrufsfunktion** bereitstellen:
+
+- Schaltflaeche beschriftet "Vertrag widerrufen" (oder eine andere
+  gleichbedeutende eindeutige Formulierung), gut lesbar, waehrend der
+  gesamten Widerrufsfrist staendig verfuegbar und hervorgehoben platziert.
+- Eingabemoeglichkeit fuer Name, Vertragsidentifikation und elektronisches
+  Kommunikationsmittel fuer die Eingangsbestaetigung (Abs. 2).
+- Bestaetigungs-Schaltflaeche "Widerruf bestaetigen" (oder eine andere
+  gleichbedeutende eindeutige Formulierung, Abs. 3 Satz 2).
+- Unternehmer sendet unverzueglich elektronische Eingangsbestaetigung auf
+  dauerhaftem Datentraeger mit Inhalt der Widerrufserklaerung sowie
+  **"Datum und Uhrzeit ihres Eingangs"** (Abs. 4).
+
+Art. 1 Nr. 8 des Umsetzungsgesetzes ersetzt § 356a BGB; durch Art. 1
+Nr. 9 werden die bisherigen §§ 356c bis 356e durch die neuen §§ 356c
+bis 356f ersetzt: Teilzeit-Wohnrechte stehen jetzt in **§ 356c BGB**,
+Ratenlieferungsvertraege in **§ 356d BGB**, Verbraucherbauvertrag in
+**§ 356e BGB**, unentgeltliche Darlehensvertraege in **§ 356f BGB**;
+**§ 356b BGB** (Verbraucherdarlehen) bleibt inhaltsgleich.
+Die Muster-Widerrufsbelehrung in Anlage 1 EGBGB ist durch **Art. 2 Nr. 7
+Buchst. a** desselben Gesetzes angepasst (Gestaltungshinweis 33 n. F.:
+Pflicht-Einschub "Sie koennen Ihr Widerrufsrecht auch online unter ...
+ausueben ...").
 
 ## Typische Fallstricke in Codebases
 
@@ -149,16 +185,13 @@ Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
 - **EuGH C-249/21** (07.04.2022, "Fuhrmann-2"): Der Button-Text muss "aus
   sich heraus" die Zahlungsverpflichtung erkennbar machen; Gesamtumstaende
   reichen nicht.
-- **BGH VIII ZR 63/15** `<<VERIFIKATION AUSSTEHEND — Datum laut KB war
-  19.07.2017, in Tier-1-Suche nicht eindeutig auffindbar; Urteil zu "Jetzt
-  anmelden" beim naechsten Update gegen rechtsprechung-im-internet.de
-  abgleichen>>`.
-- **BGH VIII ZR 99/19** `<<VERIFIKATION AUSSTEHEND — Aktenzeichen / Datum /
-  Tenor zu "Buchen" pruefen>>`.
+- **BGH VIII ZR 63/15** — Zuordnung zu "Jetzt anmelden"-Button laesst sich
+  gegen Tier-1-Quellen nicht bestaetigen. <<VERIFIKATION AUSSTEHEND>>
+- **BGH VIII ZR 99/19** — Zuordnung zu Button-Beschriftung "Buchen" laesst
+  sich gegen Tier-1-Quellen nicht bestaetigen. <<VERIFIKATION AUSSTEHEND>>
 - **OLG Koeln 6 U 102/12** (10.05.2013): Fruehe Praezisierung zu
   Button-Labels.
-- **LG Berlin 52 O 157/20** zu § 312k (Kuendigungs-Button)
-  `<<VERIFIKATION AUSSTEHEND — Aktenzeichen/Datum pruefen>>`.
+- **LG Berlin 52 O 157/20** zu § 312k (Kuendigungs-Button) <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -166,3 +199,30 @@ Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
 - [[themen/widerrufsbelehrung]]
 - [[themen/agb-muster]]
 - [[themen/preisangaben]]
+- [[themen/widerrufsbelehrung]] — § 356a BGB Widerrufs-Button
+
+## Aenderungsvermerk 2026-11-14
+
+- Frontmatter `aktualisiert` + `verifiziert-am` + Disclaimer-Stand auf
+  2026-11-14 gesetzt.
+- Neuer Abschnitt "§ 356a BGB Widerrufs-Button" ergaenzt (Umsetzung
+  Richtlinie (EU) 2023/2673, Anwendung seit 19.06.2026; verifiziert via
+  gesetze-im-internet.de/bgb/__356a.html).
+- Drei Marker-Varianten mit angehaengtem Grund auf das einzeilige
+  Standardformat des Verifikationsmarkers normalisiert.
+- Hinweis "kaufen"-Beschriftung umformuliert.
+- **2026-11-14 (Review-Korrekturlauf PR #14)**: Verifikationsmarker zum
+  § 356a-Wortlaut aufgeloest (konsolidierte Fassung zeigt neue Fassung).
+  Schaltflaechen-Texte um Zusatz "oder [eine] andere gleichbedeutende
+  eindeutige Formulierung" ergaenzt. Paragraphenverschiebung durch
+  Art. 1 Nr. 8 des Umsetzungsgesetzes dokumentiert: Teilzeit-Wohnrechte
+  jetzt § 356c BGB, Ratenlieferungsvertrag § 356d BGB, Verbraucherbau-
+  vertrag § 356e BGB, unentgeltliches Darlehen § 356f BGB; § 356b BGB
+  (Verbraucherdarlehen) unveraendert. Anpassung von Gestaltungshinweis 33
+  der Muster-Widerrufsbelehrung (Anlage 1 EGBGB) durch Art. 2 Nr. 7
+  Buchst. a desselben Gesetzes ergaenzt.
+- **2026-11-14 (Review-Korrekturlauf PR #14, Nachtrag)**: Fundstelle der
+  Paragraphenverschiebung §§ 356c-f praezisiert — diese folgt aus Art. 1
+  Nr. 9 (Ersetzung der §§ 356c bis 356e durch §§ 356c bis 356f); Art. 1
+  Nr. 8 betrifft ausschliesslich die Neufassung des § 356a BGB. Beleg:
+  BGBl. 2026 Teil I Nr. 28, Art. 1 Nrn. 8 und 9.

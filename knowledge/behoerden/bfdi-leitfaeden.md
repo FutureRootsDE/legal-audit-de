@@ -1,11 +1,12 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://www.bfdi.bund.de/
 quellen-sekundaer:
   - https://www.bfdi.bund.de/DE/Fachthemen/Inhalte/fachthemen_node.html
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/Allgemein/FAQ/FAQ_node.html
   - https://www.bfdi.bund.de/SharedDocs/Pressemitteilungen/DE/2026/05_BfDI-R%C3%BCckzug.html
-verifiziert-am: 2026-05-08
+  - https://www.bundestag.de/dokumente/textarchiv/2026/kw26-de-wahl-datenschutzbeauftragter-1184320
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
 
@@ -16,17 +17,25 @@ geltungsbereich: [DE]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # BfDI — Bundesbeauftragte für den Datenschutz und die Informationsfreiheit
 
-## Aktueller Leitungsstand (2026-05-08)
+## Aktueller Leitungsstand (2026-11-14)
 
-- Amtsinhaberin: **Prof. Dr. Louisa Specht-Riemenschneider** (Wahl Bundestag 16.05.2024 mit 476 Ja-Stimmen, Amtsantritt 03.09.2024 als Nachfolgerin von Prof. Ulrich Kelber)
-- **Rücktritt angekündigt:** 17.03.2026 aus gesundheitlichen Gründen (BfDI-Pressemitteilung 17.03.2026)
-- Specht-Riemenschneider bleibt im Amt, bis Bundestag eine Nachfolge gewählt hat
-- Stand 2026-05-08: Nachfolge **noch nicht öffentlich bekannt** / nicht gewählt
-- Quelle: https://www.bfdi.bund.de/SharedDocs/Pressemitteilungen/DE/2026/05_BfDI-R%C3%BCckzug.html
+- **Nachfolgewahl:** Der Deutsche Bundestag hat am **25.06.2026** den
+  Freiburger Rechtswissenschaftler **Prof. Dr. Moritz Hennemann** zum neuen
+  BfDI gewaehlt (391 Ja, 122 Nein, 77 Enthaltungen; erforderliche Mehrheit
+  316). Vorschlag: Bundesregierung. Quelle:
+  bundestag.de/dokumente/textarchiv/2026/kw26-de-wahl-datenschutzbeauftragter-1184320.
+- **Amtsantritt Hennemann:** **01.10.2026** (bestaetigt ueber bfdi.bund.de;
+  Antrittspressekonferenz vor der Bundespressekonferenz am 06.10.2026).
+  Specht-Riemenschneider hatte die Amtsgeschaefte bis 30.09.2026 gefuehrt.
+- **Vorgaengerin:** Prof. Dr. Louisa Specht-Riemenschneider (Wahl Bundestag
+  16.05.2024, Amtsantritt 03.09.2024 als Nachfolgerin von Prof. Ulrich
+  Kelber; Ruecktrittsankuendigung 17.03.2026 aus gesundheitlichen Gruenden).
+- Quellen: BfDI-Pressemitteilung 17.03.2026
+  (bfdi.bund.de/.../05_BfDI-R%C3%BCckzug.html); Bundestag KW26/2026.
 
 ## Kurz-Überblick
 
@@ -148,3 +157,12 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
 - [[gesetze/bdsg]]
 - [[gesetze/tdddg]]
 - [[themen/meldepflicht-datenpanne]]
+
+## Aenderungsvermerk
+
+- 2026-11-14: Leitungsstand aktualisiert — Bundestag hat am 25.06.2026 Prof.
+  Dr. Moritz Hennemann als Nachfolger von Louisa Specht-Riemenschneider
+  gewaehlt; Amtsantritt Hennemanns zum 01.10.2026 ueber bfdi.bund.de
+  verifiziert (Antrittspressekonferenz 06.10.2026); Marker zur formalen
+  Ernennung/Amtsantritt entfernt. Quellen: bundestag.de KW26/2026-Textarchiv,
+  bfdi.bund.de (Startseite/Amtsleitung).

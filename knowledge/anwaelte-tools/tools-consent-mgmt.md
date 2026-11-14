@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quellen-sekundaer:
   - https://usercentrics.com/de/
   - https://www.cookiebot.com/de/
@@ -7,7 +7,7 @@ quellen-sekundaer:
   - https://www.osano.com/
   - https://borlabs.io/borlabs-cookie/
   - https://complianz.io/
-verifiziert-am: 2026-05-08
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -18,7 +18,7 @@ geltungsbereich: [DE, EU]
 > "zertifizierte" CMP kann durch falsche Konfiguration DSGVO-widrig sein
 > (z.B. Dark Patterns, Pre-Tick, fehlender Ablehnen-Button).
 >
-> **Stand:** 2026-05-08
+> **Stand:** 2026-11-14
 
 # Consent-Management-Platforms (CMP)
 
@@ -66,7 +66,7 @@ von Drittanbietern einsetzt.
 | Feld | Wert |
 |------|------|
 | URL | https://www.osano.com/ |
-| Sitz | USA (Austin, Texas) |
+| Sitz | USA (Osano, Inc., Public Benefit Corp); zusaetzliche Gesellschaften "Osano International Compliance Services LTD" und "Osano UK Compliance LTD". Konkrete Stadt-Adresse auf osano.com/plans am 2026-11-14 nicht oeffentlich ausgewiesen. |
 | Drittland-Thema | US-Anbieter — DPF-Status pruefen |
 | Zielgruppe | Mid-Market bis Enterprise |
 | Features | CMP + DSAR-Workflow-Automatisierung + Vendor-Risk-Management |
@@ -99,8 +99,8 @@ von Drittanbietern einsetzt.
 | Produktname | Borlabs Cookie(R) 3.0 |
 | Hersteller | Borlabs GmbH (Deutschland) |
 | Plattform | WordPress-Plugin (Premium, lizenzpflichtig) |
-| Aktuelle Version | 3.4 (veroeffentlicht Februar 2026, verifiziert 2026-05-08) |
-| Pricing (Stand 2026-05-08) | **Personal** 49 EUR/Jahr (1 Website) / **Business Medium** 109 EUR/Jahr (5 Websites) / **Agency Small** 229 EUR/Jahr (25 Websites) / **Agency** 499 EUR/Jahr (99 Websites). Inklusive 1 Jahr Updates und Support. Quelle: borlabs.io/pricing/. Keine Sonderaktionen. |
+| Aktuelle Version | 3.4 (veroeffentlicht Februar 2026, verifiziert 2026-05-08); Live-Abruf am 2026-11-14 zeigte auf der Produktseite nur noch den Changelog-Link, keine konkrete Versionsnummer — Versionsangabe gegen borlabs.io/borlabs-cookie/changelog/ gegenpruefen. <<VERIFIKATION AUSSTEHEND>> |
+| Pricing (Stand 2026-05-08) | **Personal** 49 EUR/Jahr (1 Website) / **Business Medium** 109 EUR/Jahr (5 Websites) / **Agency Small** 229 EUR/Jahr (25 Websites) / **Agency** 499 EUR/Jahr (99 Websites). Inklusive 1 Jahr Updates und Support. Quelle: borlabs.io/pricing/. Keine Sonderaktionen. Live-Abruf am 2026-11-14 zeigte auf borlabs.io/borlabs-cookie/ nur noch den Einstiegspreis "ab 49 EUR" — detaillierte Staffel nur unter borlabs.io/borlabs-cookie/prices/. <<VERIFIKATION AUSSTEHEND>> |
 | Besonders gut bei | WordPress-Sites mit komplexem Content (Videos, Maps, externe Widgets) |
 | Geo-Blocking | kein TCF-Provider, fuer Small-/Mid-Market ausreichend |
 
@@ -109,7 +109,7 @@ von Drittanbietern einsetzt.
 | Feld | Wert |
 |------|------|
 | URL | https://complianz.io/ |
-| Hersteller | Complianz BV |
+| Hersteller | Complianz BV (Teil von iubenda, verifiziert 2026-11-14) |
 | Sitz | Kalmarweg 14-5, 9723 JG Groningen, Niederlande |
 | Plattform | WordPress-Plugin (Free + Premium), Shopify-App |
 | Nutzer | > 1 Mio, Bewertung 4.8/5 (> 1500 Bewertungen) |
@@ -189,3 +189,7 @@ Wenn ein Wechsel ansteht:
 - [[urteile/bgh-google-fonts]]
 - [[anwaelte-tools/tools-scanner]]
 - [[anwaelte-tools/tools-generatoren]]
+
+## Aenderungsvermerk
+
+- **2026-11-14** (Batch E3, Live-Pruefung): Jeden CMP-Eintrag live abgerufen. Usercentrics-Preisstaffel (Free / 7 / 15 / 30 / 50 EUR + Corporate) gegen usercentrics.com/de/preise/ bestaetigt. Cookiebot-Staffel (Free / 7 / 15 / 30 / 50 / 90 EUR, Premium Small aufwaerts je Domain) gegen cookiebot.com/de/pricing/ bestaetigt; Zugehoerigkeit zu Usercentrics A/S erneut bestaetigt. Osano-Sitz prazisiert: osano.com/plans nennt nur "Osano, Inc., Public Benefit Corp" plus UK- und International-Compliance-Gesellschaft, keine Stadt mehr (alte Angabe "Austin, Texas" entfernt). Klaro (klaro.org): BSD-3-Lizenz, Maintainer KIProtect, keine IAB-TCF-Zertifizierung bestaetigt. Borlabs-Produktseite zeigt aktuell weder konkrete Version noch die Jahres-Staffel, nur "ab 49 EUR" — Markierung als VERIFIKATION AUSSTEHEND gesetzt. Complianz (complianz.io): Firmensitz Groningen bestaetigt, neu Zugehoerigkeit zu iubenda eingetragen. Consent-O-Matic (consentomatic.au.dk): erreichbar, Aarhus-University-Entwicklung bestaetigt.

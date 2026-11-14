@@ -1,10 +1,11 @@
 ---
-aktualisiert: 2026-05-08
+aktualisiert: 2026-11-14
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-072020-concepts-controller-and-processor-gdpr_en
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
-verifiziert-am: 2026-05-08
+  - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32021D0915
+verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
 
@@ -15,7 +16,7 @@ geltungsbereich: [DE, EU]
 > des § 2 RDG. Eine Pruefung durch einen zugelassenen Rechtsanwalt ist zwingend
 > erforderlich, bevor Inhalte produktiv eingesetzt werden.
 >
-> **Stand:** 2026-04-19
+> **Stand:** 2026-11-14
 
 # AVV — Auftragsverarbeitungsvertrag (Art. 28 DSGVO)
 
@@ -116,7 +117,19 @@ Wenn beide Parteien Zwecke und Mittel gemeinsam festlegen (z. B. Fashion ID / Fa
 - **EuGH C-683/21 (Nacionalinis visuomenės sveikatos centras), 05.12.2023** — Controller-Status setzt keinen tatsächlichen Datenzugriff voraus
 - **EuGH C-40/17 (Fashion ID), 29.07.2019** — Joint-Controller-Definition
 - **EuGH C-210/16 (Wirtschaftsakademie), 05.06.2018** — Facebook-Seiten-Betreiber als Mitverantwortliche
-- **OLG Frankfurt 6 U 119/23, 30.11.2023** — AVV-Mängel als Wettbewerbsverstoß (streitig)
+- **OLG Frankfurt 6 U 119/23, 30.11.2023** — AVV-Mängel als Wettbewerbsverstoß (streitig) <<VERIFIKATION AUSSTEHEND>>
+- **EuGH C-21/23 (Lindenapotheke), 04.10.2024** — Mitbewerber koennen DSGVO-Verstoesse nach UWG verfolgen (relevant fuer Abmahnrisiko bei AVV-Luecken)
+
+## Aenderungsvermerk 2026-11-14
+
+- OLG Frankfurt 6 U 119/23 mit Verifikationsmarker versehen (Aktenzeichen in
+  Tier-1-Datenbanken nicht direkt auffindbar).
+- EuGH C-21/23 (Lindenapotheke) ergaenzt: bestaetigt die Mitbewerber-
+  Klagebefugnis bei DSGVO-Verstoessen, damit auch bei fehlendem/mangelhaftem AVV
+  potenziell abmahnbar.
+- Standard-AVV (Durchfuehrungsbeschluss 2021/915/EU vom 04.06.2021) gegen
+  eur-lex.europa.eu verifiziert (CELEX 32021D0915).
+- Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
 
 ## Siehe auch
 
