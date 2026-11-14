@@ -163,13 +163,25 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - **EuGH C-102/20** (25.11.2021): Vorabentscheidung zum Begriff "elektronische
   Post" — breit auszulegen.
 - **EuGH C-673/17** (01.10.2019, "Planet49"): Pre-ticked Checkboxen unwirksam.
-- **BGH I ZR 90/20, I ZR 125/20 und I ZR 126/20** (jeweils 09.09.2021,
-  "Influencer I/II/III"): Kommerzielle Kommunikation in sozialen Medien
-  ist als geschaeftliche Handlung zu kennzeichnen; werblicher Ueberschuss
-  begruendet Kennzeichnungspflicht nach § 5a Abs. 4 UWG a. F. / § 5a
-  Abs. 6 UWG n. F. (ECLI:DE:BGH:2021:090921UIZR90.20.0,
+- **BGH I ZR 90/20 ("Influencer I"), I ZR 125/20 ("Influencer II")
+  und I ZR 126/20** (jeweils 09.09.2021) sowie **BGH I ZR 35/21**
+  (13.01.2022, "Influencer III"): Kommerzielle Kommunikation in
+  sozialen Medien ist als geschaeftliche Handlung kenntlich zu machen.
+  Bei einer Handlung zugunsten eines fremden Unternehmens knuepft die
+  Kennzeichnungspflicht an eine Gegenleistung an; nach § 5a Abs. 6
+  UWG a. F. (jetzt § 5a Abs. 4 UWG n. F., Fassung seit 28.05.2022)
+  liegt bei Handlungen zugunsten eines fremden Unternehmens kein
+  kommerzieller Zweck vor, "wenn der Handelnde kein Entgelt oder keine
+  aehnliche Gegenleistung … erhaelt oder sich versprechen laesst"
+  (§ 5a Abs. 4 Satz 2 UWG); Satz 3 enthaelt eine widerlegliche
+  Vermutung zugunsten einer Gegenleistung. Fuer Eigenwerbung bzw.
+  Beitraege ohne Gegenleistung bleibt eine Kennzeichnungspflicht nur
+  dann, wenn der Beitrag nach den Umstaenden einen uebertrieben
+  werblichen Charakter aufweist. ECLI-Belege:
+  ECLI:DE:BGH:2021:090921UIZR90.20.0,
   ECLI:DE:BGH:2021:090921UIZR125.20.0,
-  ECLI:DE:BGH:2021:090921UIZR126.20.0; ueber die Rechtsinformations-API
+  ECLI:DE:BGH:2021:090921UIZR126.20.0,
+  ECLI:DE:BGH:2022:130122UIZR35.21.0 (ueber die Rechtsinformations-API
   des Bundes am 2026-11-14 primaer bestaetigt). Vertiefung in
   [[themen/werbekennzeichnung]].
 - **OLG Muenchen 29 U 1563/20**: Bestaetigungs-Mail darf keine Werbung
@@ -213,3 +225,11 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
   Urteile" mit Belegen versehen, Verifikationsmarker dort entfernt.
   Hinweisblock zu BGH I ZR 61/20 ("Die Filsbacher", Markenrecht) bleibt
   bestehen.
+- **2026-11-14 (Review-Korrekturlauf PR #17, Nachtrag)**: Normangabe
+  zum Influencer-Trio richtig zugeordnet (§ 5a Abs. 6 UWG a. F. =
+  § 5a Abs. 4 UWG n. F., Fassung seit 28.05.2022), Aussage am
+  Gesetzeswortlaut von § 5a Abs. 4 Satz 2 und 3 UWG geschaerft; BGH
+  I ZR 35/21 (13.01.2022, "Influencer III", ECLI:DE:BGH:2022:
+  130122UIZR35.21.0) ergaenzt. Grundlage: § 5a UWG auf gesetze-im-
+  internet.de/uwg_2004/__5a.html (abgerufen 2026-11-14) sowie
+  Treffer der Rechtsinformations-API des Bundes.

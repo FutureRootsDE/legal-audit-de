@@ -109,8 +109,10 @@ Abschlusslauf des `/legal-update --stale-only`-Zyklus. Themen- und Checklisten-B
   `.claude/hooks/triggers.json` fuer Widerrufsbutton/§ 356a, EmpCo/
   Greenwashing, Preisangabengesetz, Data Act, Produktsicherheit
   (GPSR), Omnibus, Kontrollverlust/Art. 82 DSGVO, DPF/Latombe und
-  Google Fonts. Platzhalter-Stand entsprechend auf **54 Marker** in
-  `knowledge/INDEX.md` neu gezaehlt.
+  Google Fonts. Platzhalter-Stand entsprechend auf **53 Marker** in
+  `knowledge/INDEX.md` neu gezaehlt (nach Entfernen der Selbst-
+  Referenz auf die Marker-Schreibweise in INDEX.md Zeile 89 im
+  Review-Korrekturlauf PR #17).
 
 ### Hintergrund Zitatpruefung
 

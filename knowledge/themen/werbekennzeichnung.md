@@ -26,8 +26,13 @@ geltungsbereich: [DE, EU]
 Werbung muss als solche erkennbar sein ("Trennungs-" und "Kennzeichnungsgebot").
 Rechtsgrundlagen:
 
-- **§ 5a Abs. 4 UWG** — kommerziellen Zweck kenntlich machen (seit UWG-Novelle
-  2022 neu gefasst)
+- **§ 5a Abs. 4 UWG** — kommerziellen Zweck kenntlich machen (Fassung
+  seit 28.05.2022; vormals § 5a Abs. 6 UWG a. F.). Nach § 5a Abs. 4
+  Satz 2 UWG liegt bei einer Handlung zugunsten eines fremden
+  Unternehmens kein kommerzieller Zweck vor, "wenn der Handelnde kein
+  Entgelt oder keine aehnliche Gegenleistung … erhaelt oder sich
+  versprechen laesst"; Satz 3 enthaelt eine widerlegliche Vermutung
+  zugunsten einer Gegenleistung.
 - **§ 6 TMG (a.F.) / § 6 DDG** — Kennzeichnungspflicht fuer kommerzielle
   Kommunikation
 - **§ 22 MStV** — Werbung und Sponsoring in Rundfunk/Telemedien
@@ -168,15 +173,29 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 90/20** (09.09.2021, "Influencer I" — Luisa-Maxime Huss):
-  Kennzeichnungspflicht auch ohne Entgelt, wenn Werbe-Uebergewicht gegeben.
-  (Hinweis: Pamela-Reif-Verfahren wurde vor dem BGH zurueckgenommen; OLG
-  Karlsruhe 6 U 38/19 vom 09.09.2020 blieb daher relevant.)
-- **BGH I ZR 125/20 + I ZR 126/20** (09.09.2021, "Influencer II/III"): ohne
-  Gegenleistung keine kommerzielle Kommunikation i.S.v. § 5a UWG (a.F.);
-  Wirkung von Tap-Tags.
-- **BGH I ZR 35/21** (13.01.2022, "Influencer III"): weitergehende
-  Kennzeichnungspflichten im Influencer-Marketing.
+- **BGH I ZR 90/20** (09.09.2021, "Influencer I" — Luisa-Maxime Huss,
+  ECLI:DE:BGH:2021:090921UIZR90.20.0): zur Kennzeichnungspflicht bei
+  Instagram-Beitraegen; Massstab ist § 5a Abs. 6 UWG a. F. (= § 5a
+  Abs. 4 UWG n. F.).
+- **BGH I ZR 125/20** (09.09.2021, "Influencer II",
+  ECLI:DE:BGH:2021:090921UIZR125.20.0) und **BGH I ZR 126/20**
+  (09.09.2021, ECLI:DE:BGH:2021:090921UIZR126.20.0): Bei einer
+  Handlung zugunsten eines fremden Unternehmens liegt ein
+  kommerzieller Zweck nach § 5a Abs. 6 UWG a. F. nur vor, wenn der
+  Handelnde fuer die Handlung ein Entgelt oder eine aehnliche
+  Gegenleistung erhaelt oder sich versprechen laesst; die Entscheidung
+  gleicht den UWG-Tatbestand an die Rechtsprechung des EuGH zur
+  UGP-Richtlinie an. Wirkung von Tap-Tags.
+- **BGH I ZR 35/21** (13.01.2022, "Influencer III",
+  ECLI:DE:BGH:2022:130122UIZR35.21.0): weitergehende Fragen zur
+  Kennzeichnungspflicht im Influencer-Marketing; bestaetigt den
+  Massstab der Entscheidungen vom 09.09.2021.
+- Alle vier Urteile und die Benennung als "Influencer I"
+  (I ZR 90/20) sowie "Influencer III" (I ZR 35/21) ueber die Rechts-
+  informations-API des Bundes am 2026-11-14 primaer bestaetigt;
+  I ZR 126/20 traegt im Titel keine amtliche Numerierung.
+- (Hinweis: Pamela-Reif-Verfahren wurde vor dem BGH zurueckgenommen;
+  OLG Karlsruhe 6 U 38/19 vom 09.09.2020 blieb daher relevant.)
 - **KG Berlin 5 U 51/18** (08.01.2019): "#ad" am Ende der Caption nicht
   ausreichend.
 - **OLG Frankfurt 6 W 35/19** (24.10.2019): Tap-Tags sind kennzeichnungs-
@@ -205,3 +224,14 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   (Quelle: Fussnote gesetze-im-internet.de/uwg_2004/BJNR141400004.html).
   Fehlerhaftes Markup des Verifikationsmarkers (ohne schliessendes >)
   entfernt; Aussage ist nun primaer belegt. Abgleich mit gesetze/uwg.md.
+- **2026-11-14 (Review-Korrekturlauf PR #17)**: § 5a UWG in
+  "Kurz-Ueberblick" an die geltende Fassung von § 5a Abs. 4 UWG
+  (seit 28.05.2022) angepasst und durch wortgleiches Zitat aus Satz 2
+  belegt (Quelle: gesetze-im-internet.de/uwg_2004/__5a.html, abgerufen
+  2026-11-14). Abschnitt "Zitierbare Urteile" fuer das Influencer-
+  Quartett neu gefasst: Trennung zwischen altem (§ 5a Abs. 6 UWG a. F.)
+  und neuem Massstab (§ 5a Abs. 4 UWG n. F.), ECLI ergaenzt, Benennung
+  "Influencer I/II/III" korrigiert (I ZR 90/20 = Influencer I,
+  I ZR 125/20 = Influencer II, I ZR 35/21 = Influencer III,
+  I ZR 126/20 ohne amtlichen Zusatz); alle vier Treffer ueber die
+  Rechtsinformations-API des Bundes am 2026-11-14 geprueft.
