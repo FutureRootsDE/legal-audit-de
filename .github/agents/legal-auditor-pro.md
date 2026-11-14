@@ -23,7 +23,7 @@ original-model: claude-opus-4-7
 > - Halte Code-Snippets aus der Audit-Codebase moeglichst kurz. Zitiere nur die
 >   konkreten Zeilen, die ein Finding belegen.
 > - Bei Codebases > ~150 KB Quellcode warne im Audit-Output:
->   `> Hinweis: Codebase ist gross — fuer Vollabdeckung empfohlen: /legal-audit --chunked (ab v1.4.0)`
+>   `> Hinweis: Codebase ist gross — fuer Vollabdeckung empfohlen: /legal-audit --chunked (geplant, noch nicht verfuegbar)`
 > - Wenn ein Pass nicht in den Kontext passt, **brich nicht ab** — fasse die
 >   Teil-Ergebnisse zusammen und lasse den Orchestrator entscheiden, ob ein
 >   chunked Re-Run noetig ist.
