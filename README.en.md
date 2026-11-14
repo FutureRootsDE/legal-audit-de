@@ -293,6 +293,8 @@ legal-audit-de/
     ├── legal-status.py             # plugin health check
     ├── audit-compare.py            # audit diff tool
     ├── find-placeholders.py        # placeholder scanner
+    ├── verify-citations.py         # citation check against the federal legal-data API (optional)
+    ├── citation_check/             # modules of the citation check
     └── legal-audit-pdf.py          # PDF bundling
 ```
 

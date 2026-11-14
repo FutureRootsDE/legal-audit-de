@@ -1,0 +1,14 @@
+{
+  "@type": "hydra:Collection",
+  "@context": "https://testphase.rechtsinformationen.bund.de/v1/context.jsonld",
+  "@id": "/v1/rechtsprechung?pageIndex=0&size=100",
+  "totalItems": 0,
+  "member": [],
+  "view": {
+    "@type": "hydra:PartialCollectionView",
+    "first": "/v1/rechtsprechung?pageIndex=0&size=100",
+    "previous": null,
+    "next": null,
+    "last": "/v1/rechtsprechung?pageIndex=-1&size=100"
+  }
+}

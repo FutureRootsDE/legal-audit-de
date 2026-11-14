@@ -7,6 +7,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   sync-check:
     name: Platform-Adapter Sync-Check
@@ -19,6 +22,18 @@ jobs:
           python-version: "3.11"
       - name: Verify .codex/ and .github/prompts/ are in sync with .claude/
         run: python scripts/sync-platforms.py --check
+
+  citation-script-tests:
+    name: Zitatpruefung Unit-Tests (ohne Netzwerk)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run offline unit tests (scripts/verify-citations.py and scripts/citation_check/)
+        run: python -m unittest discover -s tests -v
 
   pro-variants-check:
     name: Pro-Mode Agent-Variant Drift-Check

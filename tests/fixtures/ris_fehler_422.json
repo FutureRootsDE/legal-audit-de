@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "invalid_parameter_value",
+      "message": "Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'pageIndex'; For input string: \"abc\"",
+      "parameter": "pageIndex"
+    }
+  ]
+}

@@ -27,6 +27,10 @@ Die Recherche- und Verifikations-Arbeit uebernimmt der `legal-researcher`-Agent 
 5. Log in .claude/logs/kb-updates.log
 ```
 
+## Optionaler Vorab-Schritt: API-Sammelpruefung
+
+`python scripts/verify-citations.py [--only-pending]` fragt Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes ab (optional, Testphase, nur sieben Bundesgerichte, gecacht und gedrosselt). Treffer mit ECLI und Datum gelten als Primaerbeleg; NOT_IN_DATASET und NOT_COVERED sind kein Gegenbeweis und fuehren zurueck auf die Tier-1-Kaskade. Das Skript schreibt nie in die KB (ausser explizit mit `--write-ecli`) und entfernt keine Marker.
+
 ## Stale-Detection
 
 Ein KB-Artikel gilt als "stale", wenn:

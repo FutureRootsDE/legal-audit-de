@@ -43,6 +43,7 @@ Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
 - `audit-compare.py` — Diff zwischen zwei Audits (`--auto <pfad>` findet vorheriges)
 - `find-placeholders.py` — listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen
 - `legal-audit-pdf.py` — bundled HTML/PDF-Briefing aus Audit-Ordner
+- `verify-citations.py` — prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--only-pending`, `--json`, `--offline`, `--write-ecli --dry-run`); duenner Einstiegspunkt, Logik im Paket `citation_check/` daneben (nur Standardbibliothek); Cache-Treffer sind im Bericht und JSON gekennzeichnet (`source: cache`) und gelten als ungeprueft; Exit 3 bei Schreibfehlern von `--write-ecli`
 
 ## Integration in Zielprojekte
 
@@ -184,6 +185,10 @@ Der `legal-researcher`-Agent verifiziert vor Publikation jedes Zitat gegen eine 
 ### Optional: MCP-Beschleunigung via `rechtsinformationen-bund-de-mcp`
 
 Wer den MCP-Server [`wolfgangihloff/rechtsinformationen-bund-de-mcp`](https://github.com/wolfgangihloff/rechtsinformationen-bund-de-mcp) lokal installiert und in `.mcp.json` (Projekt) oder `~/.claude.json` (User) registriert, bekommt strukturierten ELI/ECLI-Zugriff auf das offizielle Bundesportal `rechtsinformationen.bund.de` statt HTML-Scraping. Der `legal-researcher`-Agent erkennt den Server am Tool-Praefix `mcp__rechtsinformationen__*` und nutzt ihn dann bevorzugt; ohne den Server laeuft der WebFetch-Fallback unveraendert weiter. Setup-Anleitung: `templates/mcp/README.md`. Plugin-Root bleibt MCP-frei, damit der Default-Install ohne Node.js/Build-Schritt funktioniert.
+
+### Optional: direkte Abfrage der Rechtsinformations-API des Bundes
+
+Fuer Aktenzeichen der sieben Bundesgerichte (BGH, BFH, BVerwG, BPatG, BAG, BSG, BVerfG) kann der `legal-researcher` die offene API `https://testphase.rechtsinformationen.bund.de/v1` direkt abfragen, ohne MCP-Server und ohne Key; `python scripts/verify-citations.py` macht das als Sammelpruefung. Grenzen: Die API ist eine **Testphase** ohne Stabilitaetszusage und ohne dokumentierte Datenlizenz, BGH ist erst ab etwa 2010 enthalten, Landesgerichte, EU-Gerichte und viele Gesetze (BGB, UWG, EGBGB) fehlen. Ein Treffer (ECLI, Datum) zaehlt als Primaerbeleg; **kein Treffer ist nie ein Gegenbeweis** und fuehrt zurueck auf die Tier-1-Kaskade. Es gibt keine harte Abhaengigkeit: bei Ausfall laeuft alles wie bisher.
 
 KB-Frontmatter unterstuetzt seit dieser Integration die optionalen Felder `eli:` (ELI-URI fuer Gesetze) und `ecli:` (ECLI fuer Urteile). Beide sind nicht verpflichtend, aber bei Verfuegbarkeit stabiler als URLs allein.
 
