@@ -4,7 +4,7 @@ quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__7.html
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
-verifiziert-am: 2026-11-14
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

@@ -6,7 +6,7 @@ quellen-sekundaer:
   - https://curia.europa.eu/juris/liste.jsf?num=T-553/23
   - https://curia.europa.eu/juris/liste.jsf?num=C-703/25
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023D1795
-verifiziert-am: 2026-11-14
+verifiziert-am: 2026-11-15
 geltungsbereich: [EU, DE]
 ---
 

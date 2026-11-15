@@ -6,7 +6,7 @@ quellen-sekundaer:
   - https://medien-internet-und-recht.de/volltext.php?mir_dok_id=3186
   - https://gdprhub.eu/index.php?title=BGH_-_I_ZR_25/19
   - https://www.heise.de/news/Bundesgerichtshof-Unerwuenschte-Inbox-Werbung-ist-genauso-rechtswidrig-wie-Spam-7132364.html
-verifiziert-am: 2026-11-14
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ecli: ECLI:DE:BGH:2022:130122UIZR25.19.0
 ---

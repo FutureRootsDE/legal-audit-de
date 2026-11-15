@@ -8,6 +8,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__356a.html
   - https://www.gesetze-im-internet.de/bgb/__357.html
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

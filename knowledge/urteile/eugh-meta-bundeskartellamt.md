@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.bundeskartellamt.de/SharedDocs/Meldung/DE/Pressemitteilungen/2024/10_10_2024_Facebook.html
   - https://www.datenschutzkonferenz-online.de/
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [EU, DE]
 ecli: ECLI:EU:C:2023:537
 ---

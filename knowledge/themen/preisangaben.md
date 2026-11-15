@@ -6,6 +6,7 @@ quellen-sekundaer:
   - https://www.bmwk.de/Redaktion/DE/Artikel/Wirtschaft/preisangabenverordnung.html
   - https://www.wettbewerbszentrale.de/de/themen/preisangaben/
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

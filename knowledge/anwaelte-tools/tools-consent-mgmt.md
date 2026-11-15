@@ -7,7 +7,7 @@ quellen-sekundaer:
   - https://www.osano.com/
   - https://borlabs.io/borlabs-cookie/
   - https://complianz.io/
-verifiziert-am: 2026-11-14
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

@@ -5,6 +5,7 @@ quellen-sekundaer:
   - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2020/2020067.html
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=28.05.2020&Aktenzeichen=I+ZR+7/16
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 
