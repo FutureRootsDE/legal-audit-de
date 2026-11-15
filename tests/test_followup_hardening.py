@@ -180,7 +180,8 @@ class CacheAndExtractWarnings(unittest.TestCase):
                 mock.patch.object(cache.os, "unlink", side_effect=OSError("unlink kaputt")):
             hit_cache.write("BGH", "I ZR 1/20", [])
         self.assertEqual(len(warnings), 2)
-        self.assertTrue(any("unlink kaputt" in w for w in warnings))
+        self.assertTrue(any("Temp-Datei nicht entfernt" in w for w in warnings))
+        self.assertFalse(any("unlink kaputt" in w for w in warnings))  # fixed category, no exception text
         for warning in warnings:
             self.assertLessEqual(len(warning), 300)
             self.assertNotIn("\x1b", warning)

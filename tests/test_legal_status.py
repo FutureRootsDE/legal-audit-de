@@ -83,10 +83,46 @@ class FreshnessCriterion(MiniKb):
 
     def test_files_without_usable_frontmatter(self):
         self.write("f.md", "# Ohne Frontmatter\n")
-        self.write("g.md", doc("aktualisiert: kein-datum"))
         self.write("h.md", "# Titel\n\nverifiziert-am: 2026-11-14\n")  # field in the body does not count
-        for name in ("f.md", "g.md", "h.md"):
+        self.write("i.md", doc("titel: nur ein Titel"))  # frontmatter without any date field
+        for name in ("f.md", "h.md", "i.md"):
             self.assertEqual(self.state_of(name), "no_frontmatter", name)
+
+    def test_unusable_date_in_a_frontmatter_is_its_own_state(self):
+        self.write("g.md", doc("aktualisiert: kein-datum"))
+        self.write("j.md", doc("aktualisiert: 2026-11-10\nverifiziert-am:"))  # empty value: falls back
+        self.write("k.md", doc("aktualisiert: 2027-01-01"))  # future date
+        self.write("l.md", doc("aktualisiert: 2026-13-45\nverifiziert-am: gestern"))
+        self.assertEqual(self.state_of("g.md"), "invalid_date")
+        self.assertEqual(self.state_of("j.md"), "fresh")
+        self.assertEqual(self.state_of("k.md"), "invalid_date")
+        self.assertEqual(self.state_of("l.md"), "invalid_date")
+
+    def test_quotes_around_the_date_are_tolerated(self):
+        self.write("q.md", doc('aktualisiert: "2026-01-01"\nverifiziert-am: \'2026-11-01\''))
+        self.assertEqual(self.state_of("q.md"), "fresh")
+        self.write("r.md", doc('aktualisiert: "2026-11-01"\nverifiziert-am: "2026-01-01"'))
+        self.assertEqual(self.state_of("r.md"), "very_stale")
+
+    def test_invalid_verification_date_falls_back_to_aktualisiert(self):
+        self.write("m.md", doc("aktualisiert: 2026-11-01\nverifiziert-am: irgendwann"))
+        self.assertEqual(self.state_of("m.md"), "fresh")
+        self.write("n.md", doc("aktualisiert: 2026-11-01\nverifiziert-am: 2027-05-05"))  # future
+        self.assertEqual(self.state_of("n.md"), "fresh")
+
+    def test_partly_verified_with_a_broken_date_stays_partly_verified(self):
+        self.write("o.md", doc("aktualisiert: kaputt\nteilverifiziert-am: 2026-11-14"))
+        self.assertEqual(self.state_of("o.md"), "teilverifiziert")
+
+    def test_report_counts_and_lists_the_new_state_additively(self):
+        self.write("g.md", doc("aktualisiert: kein-datum"))
+        self.write("a.md", doc("aktualisiert: 2026-11-10\nverifiziert-am: 2026-11-10"))
+        report = self.report()
+        self.assertEqual(report["kb"]["aktualitaet"]["invalid_date"], 1)
+        self.assertEqual(report["kb"]["aktualitaet"]["no_frontmatter"], 0)
+        self.assertEqual(report["kb"]["aktualitaet"]["fresh_under_90d"], 1)
+        self.assertEqual(report["kb"]["invalid_date_files"][0]["path"], "knowledge/themen/g.md")
+        self.assertIn("Ungueltiges Datum:      1", STATUS.render_text(report))
 
 
 class JsonCompatibility(MiniKb):
@@ -118,6 +154,36 @@ class JsonCompatibility(MiniKb):
         done = subprocess.run([sys.executable, str(SCRIPT), "--json"], capture_output=True, text=True,
                               encoding="utf-8", check=True)
         self.assertIn("teilverifiziert", json.loads(done.stdout)["kb"]["aktualitaet"])
+
+
+GOLDEN_DOCS = {
+    "themen/a.md": "---\naktualisiert: 2026-11-10\nverifiziert-am: 2026-11-01\n---\n\n<<VERIFIKATION AUSSTEHEND>>\nText\n",
+    "themen/b.md": "---\naktualisiert: 2026-11-10\nverifiziert-am: 2026-05-08\n---\n\n<<VERIFIKATION AUSSTEHEND: Quelle>>\n",
+    "themen/c.md": "---\naktualisiert: 2026-01-01\nverifiziert-am: 2026-08-01\n---\n\nText\n",
+    "themen/d.md": "---\naktualisiert: 2026-11-14\nverifiziert-am: 2026-05-08\nteilverifiziert-am: 2026-11-14\n---\n\n<<UNVERIFIZIERT>>\n",
+    "themen/e.md": "# Ohne Frontmatter\n",
+    "gesetze/f.md": "---\naktualisiert: 2026-06-20\n---\n\nText\n",
+}
+
+
+class StructuralRefactorKeepsOutput(MiniKb):
+    """Golden files were produced by the code before build_report and render_text were split into helpers."""
+
+    def test_render_text_output_is_unchanged(self):
+        report = json.loads((support.FIXTURES / "legal_status_report.json").read_text(encoding="utf-8"))
+        golden = (support.FIXTURES / "legal_status_render.txt").read_text(encoding="utf-8")
+        self.assertEqual(STATUS.render_text(report), golden)
+
+    def test_build_report_sections_are_unchanged(self):
+        for rel, text in GOLDEN_DOCS.items():
+            self.write(Path(rel).name, text, Path(rel).parent.name)
+        golden = json.loads((support.FIXTURES / "legal_status_report.json").read_text(encoding="utf-8"))
+        report = self.report(verbose=True)
+        report["kb"]["aktualitaet"].pop("invalid_date")  # added later (additive key), the golden predates it
+        report["kb"].pop("invalid_date_files")
+        self.assertEqual(report["kb"], golden["kb"])
+        self.assertEqual(report["placeholders"], golden["placeholders"])
+        self.assertEqual(set(report), set(golden))
 
 
 if __name__ == "__main__":

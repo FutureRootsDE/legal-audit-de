@@ -8,6 +8,21 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
+<!-- BEGIN zitatpruefung-eu-und-normen: eigener Block, bei Merge mit dem Release-PR unter den neuen [Unreleased] setzen -->
+
+### Scripts — EU-Rechtsprechung und Normpruefung in der Zitatpruefung
+
+- `scripts/verify-citations.py` — neues Backend EU-Rechtsprechung: EuGH- und EuG-Aktenzeichen (`C-311/18`, `T-553/23`, mit Suffix `P`/`PPU`/`R`, verbundene Rechtssachen, alte Nummern ohne Praefix nur mit genanntem Gericht) werden ueber den SPARQL-Endpunkt des Cellar (Amt fuer Veroeffentlichungen) zu CELEX, ECLI, Datum und Dokumenttyp aufgeloest; feste Abfragevorlage mit streng validierten Parametern, hoechstens 1 Anfrage pro Sekunde, Cache pro Nutzer mit Validierung. Neuer Status `PENDING` (anhaengig oder nur Schlussantraege/Mitteilung), `name_hint` (match, no_match, none) als reiner Hinweis, keine Titel im JSON. `--no-eu` schaltet das Backend ab, `--write-ecli` traegt auch EU-ECLI ein.
+- `scripts/verify-citations.py --check-norms` — eigener Modus: Normzitate gegen die XML-Gesamtausgaben von gesetze-im-internet.de (Paragraph, Ueberschrift, Zahl der Absaetze, Satz nur wenn zuverlaessig zaehlbar, Stand je Gesetz, Hinweisliste "Gesetz nach verifiziert-am geaendert"), BGBl.-Fundstellen gegen recht.bund.de nur mit `--max-bgbl N` und dem Crawl-Delay der robots.txt; EU-Verordnungen werden nur gezaehlt; schreibt nie in die KB.
+- `scripts/citation_check/extract.py` — Datum vor oder nach einer Kurzform-Liste (`I ZR 90/20, 125/20, 126/20 vom 09.09.2021`) gilt fuer alle Glieder; EU-Aktenzeichen mit Suffix `P`, `PPU`, `R`; Kurznamen in Anfuehrungszeichen oder Klammern fuer den Namenshinweis.
+- `scripts/legal-status.py` — ungueltiges oder in der Zukunft liegendes Datum im Frontmatter ist ein eigener Zustand "ungueltiges Datum" (JSON: neuer Schluessel `kb.aktualitaet.invalid_date`, `kb.invalid_date_files` mit `--verbose`); ein ungueltiges `verifiziert-am` faellt auf `aktualisiert` zurueck, Anfuehrungszeichen um das Datum werden toleriert; `build_report` und `render_text` strukturell in kleine Funktionen zerlegt (Ausgabe unveraendert, durch Golden-Tests abgesichert).
+- `docs/knowledge-base.md` — Frische-Kriterium auf `verifiziert-am` (90 Tage stale, 180 Tage sehr stale, `teilverifiziert-am` eigener Zustand) umgestellt.
+- `tests/` — Offline-Tests (Fixtures aus echten, gekuerzten Antworten von Cellar und gesetze-im-internet.de), Grenzwerte-Test fuer Datei- und Funktionslaenge.
+
+<!-- END zitatpruefung-eu-und-normen -->
+
+---
+
 <!-- BEGIN restpunkte-zitatpruefung: eigener Block, bei Merge mit dem Release-PR unter den neuen [Unreleased] setzen -->
 
 ### Scripts — Restpunkte der Zitatpruefung und des Statusskripts

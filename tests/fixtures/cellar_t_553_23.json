@@ -1,0 +1,111 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "celex",
+   "ecli",
+   "date",
+   "title",
+   "joins"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62023TJ0553"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:T:2025:831"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2025-09-03"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Urteil des Gerichts (Zehnte erweiterte Kammer) vom 3. September 2025.#Philippe Latombe gegen Europäische Kommission.#Übermittlung personenbezogener Daten in die Vereinigt"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62023TN0553"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2023-09-06"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Rechtssache T-553/23: Klage, eingereicht am 6. September 2023 — Latombe/Kommission"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62023TO0553"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:T:2023:621"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2023-10-12"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Beschluss des Präsidenten des Gerichts vom 12. Oktober 2023.#Philippe Latombe gegen Europäische Kommission.#Vorläufiger Rechtsschutz – Schutz personenbezogener Daten – Da"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62023TO0553"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:T:2023:621"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2023-10-12"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62023TJ0553"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:T:2025:831"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2025-09-03"
+    }
+   }
+  ]
+ }
+}

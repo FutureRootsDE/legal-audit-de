@@ -18,12 +18,27 @@ MAX_CACHE_ENTRY_BYTES = 5_000_000
 WARNING_LIMIT = 300
 
 
+def os_error_category(exc: OSError) -> str:
+    """Fixed category of a filesystem error; never the exception text (it carries local paths)."""
+    if isinstance(exc, PermissionError):
+        return "keine Berechtigung"
+    if isinstance(exc, FileNotFoundError):
+        return "nicht vorhanden"
+    if isinstance(exc, (FileExistsError, NotADirectoryError, IsADirectoryError)):
+        return "Pfad belegt oder falscher Typ"
+    return "Ein-/Ausgabefehler"
+
+
 class HitCache:
     """Entries are untrusted input: validated on read, written atomically."""
 
     def __init__(self, cache_dir: Path | None, ttl_seconds: float, offline: bool = False,
                  warnings: list[str] | None = None,
-                 now: Callable[[], float] = time.time) -> None:
+                 now: Callable[[], float] = time.time,
+                 sanitize: Callable[[dict], dict] = sanitize_hit,
+                 token_sanitizer: Callable[[object], list | None] | None = None) -> None:
+        self.sanitize = sanitize
+        self.token_sanitizer = token_sanitizer  # set: entries carry a validated `tokens` list
         self.cache_dir = cache_dir
         self.ttl_seconds = ttl_seconds
         self.offline = offline
@@ -40,6 +55,11 @@ class HitCache:
         return self.cache_dir / f"{digest}.json"
 
     def read(self, court: str, az: str) -> list[dict] | None:
+        entry = self.read_entry(court, az)
+        return entry[0] if entry is not None else None
+
+    def read_entry(self, court: str, az: str) -> tuple[list[dict], list] | None:
+        """Validated (hits, tokens) of a cache entry; tokens are empty without a token sanitizer."""
         path = self.path(court, az)
         if path is None:
             return None
@@ -51,11 +71,12 @@ class HitCache:
             entry = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             return None
-        return self._validated_hits(entry, court, az)
+        return self._validated_entry(entry, court, az)
 
-    def _validated_hits(self, entry: object, court: str, az: str) -> list[dict] | None:
-        """Return hits of a cache entry, or None if it is malformed or stale."""
-        if not isinstance(entry, dict) or set(entry) != {"court", "az", "fetched_at", "hits"}:
+    def _validated_entry(self, entry: object, court: str, az: str) -> tuple[list[dict], list] | None:
+        """Return (hits, tokens) of a cache entry, or None if it is malformed or stale."""
+        keys = {"court", "az", "fetched_at", "hits"} | ({"tokens"} if self.token_sanitizer else set())
+        if not isinstance(entry, dict) or set(entry) != keys:
             return None
         if entry["court"] != court or entry["az"] != az:
             return None
@@ -68,31 +89,84 @@ class HitCache:
         hits = entry["hits"]
         if not isinstance(hits, list):
             return None
-        if any(not isinstance(h, dict) or sanitize_hit(h) != h for h in hits):
+        if any(not isinstance(h, dict) or self.sanitize(h) != h for h in hits):
             return None
-        return hits
+        tokens = self.token_sanitizer(entry["tokens"]) if self.token_sanitizer else []
+        return None if tokens is None else (hits, tokens)
 
-    def write(self, court: str, az: str, hits: list[dict]) -> None:
+    def write(self, court: str, az: str, hits: list[dict], tokens: list | None = None) -> None:
         path = self.path(court, az)
         if path is None:
             return
         entry = {"court": court, "az": az, "fetched_at": self.now_epoch(), "hits": hits}
+        if self.token_sanitizer:
+            entry["tokens"] = tokens or []
+        write_json_atomic(self.cache_dir, path, entry, self.warnings)
+
+
+def write_json_atomic(cache_dir: Path, path: Path, entry: dict, warnings: list[str]) -> None:
+    """Write a cache entry via a temp file; problems become short warnings, never exceptions."""
+    tmp_name = None
+    try:
+        cache_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+        fd, tmp_name = tempfile.mkstemp(dir=cache_dir, prefix=".tmp-cache-", suffix=".json")
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            handle.write(json.dumps(entry, ensure_ascii=False))
+        os.replace(tmp_name, path)
         tmp_name = None
+    except OSError as exc:
+        warnings.append(short(f"Cache nicht schreibbar (<cache>): {os_error_category(exc)}", WARNING_LIMIT))
+    finally:
+        if tmp_name is not None:
+            try:
+                os.unlink(tmp_name)
+            except OSError as exc:
+                warnings.append(short(f"Cache-Temp-Datei nicht entfernt (<cache>/{Path(tmp_name).name}): "
+                                      f"{os_error_category(exc)}", WARNING_LIMIT))
+
+
+class DocCache:
+    """Named JSON documents (law indexes, table of contents) with a time to live; entries are validated by the caller."""
+
+    def __init__(self, cache_dir: Path | None, ttl_seconds: float, offline: bool = False,
+                 warnings: list[str] | None = None, now: Callable[[], float] = time.time) -> None:
+        self.cache_dir = cache_dir
+        self.ttl_seconds = ttl_seconds
+        self.offline = offline
+        self.warnings = warnings if warnings is not None else []
+        self._now = now
+
+    def _path(self, name: str) -> Path | None:
+        if self.cache_dir is None:
+            return None
+        return self.cache_dir / f"doc-{hashlib.sha256(name.encode('utf-8')).hexdigest()[:32]}.json"
+
+    def read(self, name: str) -> object | None:
+        """The stored payload, or None if missing, stale, linked, too large or not valid JSON."""
+        path = self._path(name)
+        if path is None:
+            return None
         try:
-            self.cache_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
-            fd, tmp_name = tempfile.mkstemp(dir=self.cache_dir, prefix=".tmp-cache-", suffix=".json")
-            with os.fdopen(fd, "w", encoding="utf-8") as handle:
-                handle.write(json.dumps(entry, ensure_ascii=False))
-            os.replace(tmp_name, path)
-            tmp_name = None
-        except OSError as exc:
-            self.warnings.append(short(f"Cache nicht schreibbar ({self.cache_dir}): {exc}", WARNING_LIMIT))
-        finally:
-            if tmp_name is not None:
-                try:
-                    os.unlink(tmp_name)
-                except OSError as exc:
-                    self.warnings.append(short(f"Cache-Temp-Datei nicht entfernt ({tmp_name}): {exc}", WARNING_LIMIT))
+            if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_CACHE_ENTRY_BYTES * 4:
+                return None
+            entry = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return None
+        if not isinstance(entry, dict) or set(entry) != {"name", "fetched_at", "payload"} or entry["name"] != name:
+            return None
+        fetched = entry["fetched_at"]
+        if isinstance(fetched, bool) or not isinstance(fetched, (int, float)):
+            return None
+        age = self._now() - fetched
+        if age < -60 or (not self.offline and age > self.ttl_seconds):
+            return None
+        return entry["payload"]
+
+    def write(self, name: str, payload: object) -> None:
+        path = self._path(name)
+        if path is not None:
+            write_json_atomic(self.cache_dir, path, {"name": name, "fetched_at": self._now(),
+                                                      "payload": payload}, self.warnings)
 
 
 def default_cache_dir() -> Path:
@@ -112,7 +186,7 @@ def user_home() -> Path:
 def vet_default_dir(path: Path, home: Path, enforce: bool) -> tuple[Path | None, str | None]:
     """With `enforce`, the default cache dir must lie below the user profile (else cache off)."""
     if enforce and not is_under(path, home):
-        return None, f"Cache deaktiviert: Standardverzeichnis {path} liegt nicht im Nutzerprofil ({home})."
+        return None, "Cache deaktiviert: Standardverzeichnis liegt nicht im Nutzerprofil."
     return path, None
 
 
@@ -135,15 +209,15 @@ def prepare_cache_dir(path: Path) -> tuple[Path | None, str | None]:
         path.mkdir(mode=0o700, parents=True, exist_ok=True)
         info = os.lstat(path)
     except OSError as exc:
-        return None, f"Cache deaktiviert: {path} nicht nutzbar ({exc})."
+        return None, f"Cache deaktiviert: Cache-Verzeichnis nicht nutzbar ({os_error_category(exc)})."
     if stat.S_ISLNK(info.st_mode) or getattr(info, "st_file_attributes", 0) & REPARSE_POINT:
-        return None, f"Cache deaktiviert: {path} ist ein Symlink oder Verzeichnis-Link."
+        return None, "Cache deaktiviert: Cache-Verzeichnis ist ein Symlink oder Verzeichnis-Link."
     if not stat.S_ISDIR(info.st_mode):
-        return None, f"Cache deaktiviert: {path} ist kein Verzeichnis."
+        return None, "Cache deaktiviert: Cache-Verzeichnis ist kein Verzeichnis."
     uid = _current_uid()
     if uid is not None:
         if info.st_uid != uid:
-            return None, f"Cache deaktiviert: {path} gehoert einem anderen Nutzer."
+            return None, "Cache deaktiviert: Cache-Verzeichnis gehoert einem anderen Nutzer."
         if info.st_mode & 0o022:
-            return None, f"Cache deaktiviert: {path} ist fuer Gruppe oder Andere schreibbar."
+            return None, "Cache deaktiviert: Cache-Verzeichnis ist fuer Gruppe oder Andere schreibbar."
     return path, None

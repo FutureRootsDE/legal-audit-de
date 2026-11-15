@@ -177,4 +177,4 @@ Vollstaendiger Trigger-Katalog: `.claude/hooks/triggers.json`.
 
 Alle 90 Tage `/legal-update --stale-only` ausfuehren. Halbjaehrlich `/legal-update anwaelte-tools`, weil sich Fachanwalts-Profile und Tool-Landschaft langsamer aendern.
 
-Wenn `aktualisiert` und `verifiziert-am` mehr als 180 Tage zurueckliegen, markiert `/legal-status` die Datei als "sehr stale" und schlaegt `/legal-update --fix-pending` vor.
+`/legal-status` beurteilt die Frische nach `verifiziert-am` (ersatzweise `aktualisiert`, wenn `verifiziert-am` fehlt oder kein gueltiges Datum ist): aelter als 90 Tage gilt als stale, aelter als 180 Tage als "sehr stale" (Vorschlag `/legal-update --fix-pending`). Eine Datei mit `teilverifiziert-am` ist ein eigener Zustand "teilverifiziert" und nie frisch. Hat eine Datei Frontmatter mit Datumsfeldern, aber kein brauchbares (ungueltiges oder in der Zukunft liegendes) Datum, erscheint sie als "ungueltiges Datum" statt als "ohne Frontmatter". Anfuehrungszeichen um das Datum werden toleriert.

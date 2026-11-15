@@ -16,14 +16,16 @@ LABELS = {
     "ERROR": "ERROR: API nicht erreichbar oder Fehlerantwort",
     "UNCHECKED": "UNCHECKED: offline, kein Cache-Eintrag",
     "NOT_COVERED": "NOT_COVERED: Gericht nicht im Bestand der API (nicht abgefragt)",
+    "PENDING": "PENDING: EU-Verfahren anhaengig oder nur Schlussantraege/Mitteilung, keine Entscheidung",
 }
-GROUP_ORDER = ("DATE_MISMATCH", "VERIFIED", "NOT_IN_DATASET", "ERROR", "UNCHECKED", "NOT_COVERED")
+GROUP_ORDER = ("DATE_MISMATCH", "VERIFIED", "PENDING", "NOT_IN_DATASET", "ERROR", "UNCHECKED", "NOT_COVERED")
 CACHE_HINT = ("Hinweis: {n} Ergebnis(se) stammen aus dem lokalen Cache (Quelle: Cache). Die Echtheit lokaler "
               "Cache-Dateien ist nicht authentisch pruefbar; fuer einen Beleg mit --no-cache frisch abfragen.")
 
 
 def _format_hit(hit: dict) -> str:
-    return f"{hit.get('ecli') or '-'}  {hit.get('date') or '-'}  {hit.get('type') or '-'}"
+    text = f"{hit.get('ecli') or '-'}  {hit.get('date') or '-'}  {hit.get('type') or '-'}"
+    return f"{text}  {hit['celex']}" if hit.get("celex") else text
 
 
 def _render_entry(r: dict) -> list[str]:
@@ -36,6 +38,8 @@ def _render_entry(r: dict) -> list[str]:
         out.append(f"    ! {r['detail']}")
     if r.get("note"):
         out.append(f"    i {r['note']}")
+    if r.get("name_hint") == "no_match":
+        out.append("    i Namenshinweis: Kurzname der Zeile nicht im amtlichen Titel (nur Hinweis, kein Befund)")
     return out
 
 
@@ -44,9 +48,10 @@ def _clean(lines: list[str]) -> str:
 
 
 def render_report(results: list[dict], summary: dict, warnings: list[str]) -> str:
-    out = ["=== Zitatpruefung gegen Rechtsinformations-API des Bundes (Testphase) ===",
+    eu_part = f", {summary['eu_requests']} Cellar-Anfragen" if summary.get("eu_enabled") else ""
+    out = ["=== Zitatpruefung gegen Rechtsinformations-API des Bundes (Testphase) und EU-Cellar ===",
            f"{summary['citations']} Zitate, {summary['unique_az']} eindeutige Aktenzeichen, "
-           f"{summary['api_requests']} API-Anfragen"
+           f"{summary['api_requests']} API-Anfragen{eu_part}"
            + (" (offline)" if summary["offline"] else ""), ""]
     out.append("Zusammenfassung: " + ", ".join(f"{k}={v}" for k, v in summary["counts"].items() if v or k in STATUSES[:5]))
     out.append("")
@@ -64,7 +69,9 @@ def render_report(results: list[dict], summary: dict, warnings: list[str]) -> st
     if summary["cache_hits"]:
         out.append(CACHE_HINT.format(n=summary["cache_hits"]))
     out.append("Hinweis: NOT_IN_DATASET und NOT_COVERED sind kein Gegenbeweis. Die API deckt nur sieben "
-               "Bundesgerichte ab (BGH ab etwa 2010) und ist eine Testphase ohne Stabilitaetszusage.")
+               "Bundesgerichte ab (BGH ab etwa 2010) und ist eine Testphase ohne Stabilitaetszusage. "
+               "EU-Aktenzeichen werden im Cellar (Amt fuer Veroeffentlichungen) geprueft; PENDING und "
+               "Namenshinweise sind Hinweise, kein Verdikt.")
     out.extend(f"Warnung: {w}" for w in warnings)
     return _clean(out)
 

@@ -1,0 +1,33 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "celex",
+   "ecli",
+   "date",
+   "title",
+   "joins"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62025CN0703"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2025-10-31"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Rechtssache C-703/25 P: Rechtsmittel, eingelegt am 31. Oktober 2025 von Philippe Latombe gegen das Urteil des Gerichts (Zehnte erweiterte Kammer) vom 3. September 2025 in"
+    }
+   }
+  ]
+ }
+}

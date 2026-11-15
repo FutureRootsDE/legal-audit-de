@@ -1,0 +1,94 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "celex",
+   "ecli",
+   "date",
+   "title",
+   "joins"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62012CN0293"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2012-06-11"
+    },
+    "title": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "Rechtssache C-293/12: Vorabentscheidungsersuchen des High Court of Ireland (Irland), eingereicht am 11. Juni 2012 — Digital Rights Ireland Ltd/Minister for Communications"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62012CJ0293"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2014:238"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2014-04-08"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Urteil des Gerichtshofs (Große Kammer) vom 8. April 2014.#Digital Rights Ireland Ltd gegen Minister for Communications, Marine and Natural Resources u. a. und Kärntner La"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62012CC0293"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2013:845"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2013-12-12"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Schlussanträge des Generalanwalts P. Cruz Villalón vom 12. Dezember 2013.#Digital Rights Ireland Ltd gegen Minister for Communications, Marine and Natural Resources u. a."
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62012CJ0293"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2014:238"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2014-04-08"
+    }
+   }
+  ]
+ }
+}

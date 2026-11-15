@@ -1,0 +1,55 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "celex",
+   "ecli",
+   "date",
+   "title",
+   "joins"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62024CN0627"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2024-09-26"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Rechtssache C-627/24 P: Rechtsmittel, eingelegt am 26. September von der Bytedance Ltd gegen das Urteil des Gerichts (Achte erweiterte Kammer) vom 17. Juli 2024 in der Re"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62024CC0627"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2026:861"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2026-10-15"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Schlussanträge des Generalanwalts A. Biondi vom 15. Oktober 2026.###"
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,111 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "celex",
+   "ecli",
+   "date",
+   "title",
+   "joins"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CC0311"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2019:1145"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2019-12-19"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Schlussanträge des Generalanwalts H. Saugmandsgaard Øe vom 19. Dezember 2019.#Data Protection Commissioner gegen Facebook Ireland Limited und Maximillian Schrems.#Voraben"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CN0311"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2018-05-09"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Rechtssache C-311/18: Vorabentscheidungsersuchen des High Court (Irland), eingereicht am 9. Mai 2018 — Data Protection Commissioner/Facebook Ireland Limited, Maximilian S"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CC0311"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2019:1145"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2019-12-19"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CJ0311"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2020:559"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2020-07-16"
+    }
+   },
+   {
+    "celex": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "62018CJ0311"
+    },
+    "ecli": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#string",
+     "value": "ECLI:EU:C:2020:559"
+    },
+    "date": {
+     "type": "literal",
+     "datatype": "http://www.w3.org/2001/XMLSchema#date",
+     "value": "2020-07-16"
+    },
+    "title": {
+     "type": "literal",
+     "xml:lang": "de",
+     "value": "Urteil des Gerichtshofs (Große Kammer) vom 16. Juli 2020.#Data Protection Commissioner gegen Facebook Ireland Limited und Maximillian Schrems.#Vorabentscheidungsersuchen "
+    }
+   }
+  ]
+ }
+}

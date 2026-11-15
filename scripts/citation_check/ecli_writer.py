@@ -10,13 +10,16 @@ from pathlib import Path
 from typing import Callable
 
 from .api import ApiClient
-from .classify import LookupMap, classify
+from .classify import LookupMap, classify, lookup_citation
+from .eu_classify import decision_hits
+from .eu_client import EuClient
 from .extract import MAX_FILE_BYTES, _rel, extract_citations, find_dates
 from .fsutil import is_link_like, is_under
 from .models import Citation
 from .text import short
 
 ECLI_WRITE_RE = re.compile(r"ECLI:DE:[A-Z]+:[0-9]{4}:[A-Z0-9.]+")  # strict: only this is ever written to the KB
+ECLI_EU_WRITE_RE = re.compile(r"ECLI:EU:[CT]:[0-9]{4}:[0-9]+")  # strict: EU ECLI of Cellar hits
 ECLI_COURT_CODES = {"BGH": "BGH", "BFH": "BFH", "BVerwG": "BVERWG", "BAG": "BAG",
                     "BSG": "BSG", "BVerfG": "BVERFG", "BPatG": "BPATG"}
 
@@ -107,6 +110,19 @@ def _unique_ecli(hits: list[dict], date: str | None, court: str) -> str:
     return matching.pop()
 
 
+def _unique_eu_ecli(citation: Citation, hits: list[dict], date: str | None) -> str:
+    """The one strictly valid EU ECLI of the decision hits whose court letter fits the file number."""
+    decisions = [h for h in decision_hits(citation, hits) if date is None or h.get("date") == date]
+    letter = citation.az[0]
+    valid = {h["ecli"] for h in decisions if isinstance(h.get("ecli"), str)
+             and ECLI_EU_WRITE_RE.fullmatch(h["ecli"]) and h["ecli"].split(":")[2] == letter}
+    if not valid:
+        raise _Skip("kein passender EU-ECLI im Treffer")
+    if len(valid) > 1:
+        raise _Skip("mehrere Entscheidungen, ohne eindeutiges Datum nicht entscheidbar")
+    return valid.pop()
+
+
 def _warn(warnings: list[str] | None, message: str) -> None:
     if warnings is not None:
         warnings.append(short(message, WARNING_LIMIT))
@@ -158,7 +174,7 @@ def _read_for_plan(md: Path, urteile: Path) -> bytes:
 
 
 def _plan_file(md: Path, rel: str, urteile: Path, client: ApiClient, fresh: bool,
-               known: LookupMap) -> EcliUpdate:
+               known: LookupMap, eu: EuClient | None = None) -> EcliUpdate:
     raw = _read_for_plan(md, urteile)
     try:
         lines = _split_lines(raw.decode("utf-8"))
@@ -172,16 +188,15 @@ def _plan_file(md: Path, rel: str, urteile: Path, client: ApiClient, fresh: bool
     citation, date = _main_reference(lines, bounds[1] + 1)
     if citation is None:
         raise _Skip("kein Haupt-Aktenzeichen erkannt")
-    if not citation.covered:
+    citation, lookup = lookup_citation(citation, client, eu, fresh, known)
+    if lookup is None:
         raise _Skip(f"{short(citation.court)} nicht im Bestand der API")
-    key = (citation.court, citation.az)
-    if key not in known:
-        known[key] = client.lookup(*key, fresh=fresh)
-    lookup = known[key]
-    status = classify(Citation(rel, 0, citation.az, citation.court, True, date, False, ""), lookup)
+    checked = Citation(rel, 0, citation.az, citation.court, True, date, False, "")
+    status = classify(checked, lookup)
     if status != "VERIFIED":
         raise _Skip(f"{citation.az}: {status}")
-    ecli = _unique_ecli(lookup.hits, date, citation.court)
+    ecli = (_unique_eu_ecli(checked, lookup.hits, date) if lookup.backend == "cellar"
+            else _unique_ecli(lookup.hits, date, citation.court))
     eol = "\r\n" if lines[bounds[1]].endswith("\r\n") else "\n"
     new_lines = lines[:bounds[1]] + [f"ecli: {ecli}{eol}"] + lines[bounds[1]:]
     return EcliUpdate(rel, md, citation.az, ecli, "".join(new_lines).encode("utf-8"),
@@ -189,7 +204,7 @@ def _plan_file(md: Path, rel: str, urteile: Path, client: ApiClient, fresh: bool
 
 
 def plan_ecli_updates(kb_path: Path, client: ApiClient, fresh: bool = False,
-                      known: LookupMap | None = None) -> tuple[list[EcliUpdate], list[dict]]:
+                      known: LookupMap | None = None, eu: EuClient | None = None) -> tuple[list[EcliUpdate], list[dict]]:
     """Return (updates, skipped). Updates carry the new file bytes, never written here.
 
     `known` shares lookup results with the report step so no Aktenzeichen is queried twice.
@@ -205,7 +220,7 @@ def plan_ecli_updates(kb_path: Path, client: ApiClient, fresh: bool = False,
     for md in sorted(folder.glob("*.md")):
         rel = _rel(md, kb_path)
         try:
-            updates.append(_plan_file(md, rel, folder, client, fresh, known))
+            updates.append(_plan_file(md, rel, folder, client, fresh, known, eu))
         except _Skip as skip:
             skipped.append({"file": rel, "reason": skip.reason})
     return updates, skipped
