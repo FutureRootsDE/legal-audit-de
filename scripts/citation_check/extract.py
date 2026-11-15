@@ -5,6 +5,7 @@ import re
 from datetime import date
 from pathlib import Path
 
+from .fsutil import is_link_like
 from .models import Citation
 from .names import extract_names
 from .text import short
@@ -366,15 +367,29 @@ def _note(notes: list[str], message: str) -> None:
     notes.append(short(message, NOTE_LIMIT))
 
 
-def _read_limited(md: Path, rel: str, notes: list[str]) -> str | None:
-    if md.is_symlink():
-        _note(notes, f"{rel}: Symlink uebersprungen")
+def _linked(md: Path, base: Path | None) -> bool:
+    """True if the file or a directory between `base` and the file is a symlink or junction."""
+    if is_link_like(md):
+        return True
+    if base is None:
+        return False
+    try:
+        parents = md.relative_to(base).parents
+    except ValueError:
+        return True
+    return any(is_link_like(base / parent) for parent in parents if parent != Path("."))
+
+
+def read_limited(md: Path, rel: str, notes: list[str], base: Path | None = None) -> str | None:
+    """Text of one KB file, read at most MAX_FILE_BYTES + 1 bytes; links and junctions are skipped (noted)."""
+    if _linked(md, base):
+        _note(notes, f"{rel}: Symlink oder Verzeichnis-Link uebersprungen")
         return None
     try:
         with md.open("rb") as handle:
             data = handle.read(MAX_FILE_BYTES + 1)
     except OSError as exc:
-        _note(notes, f"{rel}: nicht lesbar ({exc})")
+        _note(notes, f"{rel}: nicht lesbar ({type(exc).__name__})")
         return None
     if len(data) > MAX_FILE_BYTES:
         _note(notes, f"{rel}: Datei groesser als {MAX_FILE_BYTES} Bytes uebersprungen")
@@ -390,7 +405,7 @@ def scan_kb(kb_path: Path, notes: list[str] | None = None, today: str | None = N
         return citations
     for md in sorted(kb_path.rglob("*.md")):
         rel = _rel(md, kb_path)
-        text = _read_limited(md, rel, notes)
+        text = read_limited(md, rel, notes, base=kb_path)
         if text is None:
             continue
         found, skipped = extract_with_notes(text, rel, today)

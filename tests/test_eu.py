@@ -101,7 +101,7 @@ class Parsing(unittest.TestCase):
     def test_hits_carry_only_whitelisted_fields(self):
         hits, _ = self.parse("t_553_23")
         for hit in hits:
-            self.assertEqual(set(hit), {"celex", "ecli", "date", "type", "court", "joined"})
+            self.assertEqual(set(hit), {"celex", "ecli", "date", "type", "court", "joined", "interim"})
             self.assertEqual(hit["court"], "EuG")
             self.assertEqual(hit, eu_sparql.sanitize_eu_hit(hit))
 

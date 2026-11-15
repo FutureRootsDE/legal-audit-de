@@ -9,9 +9,11 @@ from __future__ import annotations
 
 import io
 import re
-import xml.etree.ElementTree as ET  # input is size-limited, entity-free and has a fixed DOCTYPE (checked below)
+import xml.etree.ElementTree as ET  # only TreeBuilder; parsing runs through expat with rejecting handlers
 import zipfile
+import zlib
 from datetime import date
+from xml.parsers import expat
 
 MAX_ZIP_BYTES = 12_000_000
 MAX_XML_BYTES = 40_000_000
@@ -22,6 +24,10 @@ JURABK_RE = re.compile(r"^[A-Za-zÄÖÜäöüß0-9 \-]{1,30}$")
 KEY_RE = re.compile(r"^(?:Art [0-9]{1,4}[a-z]{0,2}\|)?(?:§|Art) [0-9]{1,4}[a-z]{0,2}$")
 BGBL_FUND_RE = re.compile(r"^BGBl\. [0-9]{4} I Nr\. [0-9]{1,4}$")
 DOCTYPE_OK = re.compile(rb'<!DOCTYPE dokumente SYSTEM "https?://www\.gesetze-im-internet\.de/dtd/[0-9.]+/gii-norm\.dtd">')
+SYSTEM_ID_OK = re.compile(r"^https?://www\.gesetze-im-internet\.de/dtd/[0-9.]+/gii-norm\.dtd$")
+MARK_RE = re.compile(r"^[0-9]{1,3}[a-z]?$")
+MAX_MARKS = 200
+ZIP_ERRORS = (zipfile.BadZipFile, zlib.error, EOFError, RuntimeError, NotImplementedError, OSError, ValueError)
 ENBEZ_SINGLE = re.compile(r"^(?:\(XXXX\)\s*)?(§|Art)\s+([0-9]{1,4})([a-z]{0,2})$")
 ENBEZ_RANGE = re.compile(r"^(?:\(XXXX\)\s*)?(?:§§|Art)\s+([0-9]{1,4})([a-z]{0,2})\s+bis\s+([0-9]{1,4})([a-z]{0,2})$")
 ABSATZ_MARK = re.compile(r"^\(([0-9]{1,3})([a-z]?)\)\s")
@@ -41,16 +47,58 @@ def _unzip(data: bytes) -> bytes:
         raise XmlRejected("Archiv zu gross")
     try:
         archive = zipfile.ZipFile(io.BytesIO(data))
-    except zipfile.BadZipFile:
+    except ZIP_ERRORS:
         raise XmlRejected("kein gueltiges Archiv") from None
     members = [i for i in archive.infolist() if i.filename.lower().endswith(".xml")]
     if len(members) != 1 or members[0].file_size > MAX_XML_BYTES:
         raise XmlRejected("unerwartete Archivstruktur")
-    with archive.open(members[0]) as handle:
-        raw = handle.read(MAX_XML_BYTES + 1)
+    try:
+        with archive.open(members[0]) as handle:
+            raw = handle.read(MAX_XML_BYTES + 1)
+    except ZIP_ERRORS:
+        # corrupt stream, CRC error, encryption or unsupported compression: one fixed category
+        raise XmlRejected("Archiv beschaedigt oder nicht lesbar") from None
     if len(raw) > MAX_XML_BYTES:
         raise XmlRejected("XML zu gross")
     return raw
+
+
+class _DeclarationFound(Exception):
+    """Raised from an expat handler: declarations or an unknown DOCTYPE, independent of the encoding."""
+
+
+def _reject_declaration(*_args: object) -> None:
+    raise _DeclarationFound("Entity- oder DTD-Deklaration nicht erlaubt")
+
+
+def _check_doctype(name: str, system_id: str | None, _public_id: str | None, has_internal_subset: int) -> None:
+    if has_internal_subset:
+        raise _DeclarationFound("interne DTD-Teilmenge nicht erlaubt")
+    if name != "dokumente" or system_id is None or not SYSTEM_ID_OK.match(system_id):
+        raise _DeclarationFound("unbekannter DOCTYPE")
+
+
+def _parse_tree(raw: bytes) -> ET.Element:
+    """Parse with expat; handlers reject every declaration before it can take effect (any encoding)."""
+    builder = ET.TreeBuilder()
+    parser = expat.ParserCreate()
+    parser.buffer_text = True
+    parser.StartDoctypeDeclHandler = _check_doctype
+    parser.EntityDeclHandler = _reject_declaration
+    parser.UnparsedEntityDeclHandler = _reject_declaration
+    parser.NotationDeclHandler = _reject_declaration
+    parser.ElementDeclHandler = _reject_declaration
+    parser.AttlistDeclHandler = _reject_declaration
+    parser.StartElementHandler = builder.start
+    parser.EndElementHandler = builder.end
+    parser.CharacterDataHandler = builder.data
+    try:
+        parser.Parse(raw, True)
+    except _DeclarationFound as exc:
+        raise XmlRejected(str(exc)) from None
+    except (expat.ExpatError, ValueError):
+        raise XmlRejected("XML nicht lesbar") from None
+    return builder.close()
 
 
 def _checked_root(raw: bytes) -> ET.Element:
@@ -59,10 +107,7 @@ def _checked_root(raw: bytes) -> ET.Element:
         raise XmlRejected("Entity- oder DTD-Deklaration nicht erlaubt")
     if b"<!DOCTYPE" in head and not DOCTYPE_OK.search(head):
         raise XmlRejected("unbekannter DOCTYPE")
-    try:
-        root = ET.fromstring(raw)
-    except ET.ParseError:
-        raise XmlRejected("XML nicht lesbar") from None
+    root = _parse_tree(raw)
     if root.tag != "dokumente":
         raise XmlRejected("Wurzelelement unerwartet")
     return root
@@ -81,16 +126,37 @@ def _heading(norm: ET.Element) -> str | None:
     return title[:160] if HEADING_RE.match(title[:160]) else None
 
 
-def _absatz_info(norm: ET.Element) -> tuple[int, list[int | None]]:
-    """Number of Absaetze and the (reliable or None) sentence count per Absatz."""
+def _sentences_of(p: ET.Element) -> int | None:
+    return count_sentences("".join(p.itertext())) if not list(p) else None
+
+
+def _absatz_info(norm: ET.Element) -> tuple[int, list[str], dict[str, int | None]]:
+    """Number of Absaetze, the Absatz marks ("1", "1a", ...) and the sentence count per mark.
+
+    Sentences are keyed by the mark, never by position. A count is None (not checkable) when the
+    assignment is not unambiguous: unmarked continuation paragraphs, duplicate marks, nested content.
+    """
     paragraphs = [p for p in norm.findall("textdaten/text/Content/P") if "".join(p.itertext()).strip()]
-    marks = [m for m in (ABSATZ_MARK.match("".join(p.itertext()).strip() + " ") for p in paragraphs) if m]
-    count = max((int(m.group(1)) for m in marks), default=1 if paragraphs else 0)
-    sentences: list[int | None] = []
-    for p in paragraphs:
-        plain = not list(p)
-        sentences.append(count_sentences("".join(p.itertext())) if plain else None)
-    return count, sentences[:count]
+    labelled = [(p, ABSATZ_MARK.match("".join(p.itertext()).strip() + " ")) for p in paragraphs]
+    if not any(m for _, m in labelled):
+        sentences = {"1": _sentences_of(paragraphs[0])} if len(paragraphs) == 1 else {}
+        return (1 if paragraphs else 0), [], sentences
+    marks: list[str] = []
+    sentences: dict[str, int | None] = {}
+    current: str | None = None
+    for p, match in labelled:
+        if match is None:
+            if current is not None:
+                sentences[current] = None  # continuation without a mark: count no longer reliable
+            continue
+        current = match.group(1) + match.group(2)
+        if current in sentences:
+            sentences[current] = None  # duplicate mark: ambiguous
+            continue
+        marks.append(current)
+        sentences[current] = _sentences_of(p)
+    count = max(int(m.group(1)) for _, m in labelled if m)
+    return count, marks[:MAX_MARKS], {k: v for k, v in sentences.items() if k in marks[:MAX_MARKS]}
 
 
 def _norm_key(norm: ET.Element) -> tuple[str, str] | None:
@@ -154,9 +220,9 @@ def parse_law_xml(raw: bytes) -> dict:
         keyed = _norm_key(norm)
         if keyed is None or len(norms) >= MAX_NORMS:
             continue
-        count, sentences = _absatz_info(norm)
+        count, marks, sentences = _absatz_info(norm)
         gone = (norm.findtext("metadaten/titel") or "").strip() == GONE
-        norms[keyed[0]] = {"t": _heading(norm), "a": count, "g": gone, "s": sentences}
+        norms[keyed[0]] = {"t": _heading(norm), "a": count, "g": gone, "m": marks, "s": sentences}
     stand_date, stand_bgbl = _stand(root)
     return {"jurabk": _jurabk(root), "builddate": (root.get("builddate") or "")[:8], "stand_date": stand_date,
             "stand_bgbl": stand_bgbl, "norms": norms, "ranges": ranges, "arts": sorted(arts)}
@@ -171,24 +237,39 @@ def validate_index(obj: object) -> dict | None:
     if not isinstance(obj, dict) or set(obj) != {"jurabk", "builddate", "stand_date", "stand_bgbl", "norms",
                                                   "ranges", "arts"}:
         return None
+    types = {"jurabk": list, "builddate": str, "norms": dict, "ranges": list, "arts": list}
+    if not all(isinstance(obj[key], kind) for key, kind in types.items()):
+        return None
     try:
         return _validated(obj)
-    except (TypeError, ValueError, KeyError):
+    except (TypeError, ValueError, KeyError, AttributeError):
         return None
+
+
+def _small_int(value: object) -> bool:
+    return isinstance(value, int) and not isinstance(value, bool) and 0 <= value <= 200
+
+
+def _valid_marks(marks: object, sat: object) -> bool:
+    if not isinstance(marks, list) or len(marks) > MAX_MARKS or len(set(marks)) != len(marks):
+        return False
+    if not all(isinstance(m, str) and MARK_RE.match(m) for m in marks):
+        return False
+    if not isinstance(sat, dict) or len(sat) > MAX_MARKS:
+        return False
+    allowed = set(marks) or {"1"}
+    return all(isinstance(k, str) and k in allowed and (v is None or _small_int(v)) for k, v in sat.items())
 
 
 def _valid_norm(key: object, value: object) -> bool:
     if not isinstance(key, str) or not KEY_RE.match(key) or not isinstance(value, dict):
         return False
-    heading, count, gone, sat = value.get("t"), value.get("a"), value.get("g"), value.get("s")
-    if set(value) != {"t", "a", "g", "s"} or not isinstance(gone, bool):
+    heading, count, gone = value.get("t"), value.get("a"), value.get("g")
+    if set(value) != {"t", "a", "g", "m", "s"} or not isinstance(gone, bool):
         return False
     if not (heading is None or (isinstance(heading, str) and HEADING_RE.match(heading))):
         return False
-    if isinstance(count, bool) or not isinstance(count, int) or not 0 <= count <= 200:
-        return False
-    return isinstance(sat, list) and len(sat) <= 200 and all(
-        s is None or (isinstance(s, int) and not isinstance(s, bool) and 0 <= s <= 200) for s in sat)
+    return _small_int(count) and _valid_marks(value.get("m"), value.get("s"))
 
 
 def _validated(obj: dict) -> dict | None:

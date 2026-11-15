@@ -30,6 +30,8 @@ def _error_detail(status: int) -> str:
 class EuClient(PoliteClient):
     """Looks up EU file numbers; hits carry only validated, pattern-checked fields."""
 
+    retry_timeouts = False  # up to 60 s per query: a timeout is not repeated
+
     def __init__(self, fetch: FetchFn | None = None, cache_dir: Path | None = None,
                  rate: float = EU_RATE, timeout: float = EU_TIMEOUT, offline: bool = False,
                  cache_ttl_seconds: float = DEFAULT_CACHE_TTL_DAYS * 24 * 3600,

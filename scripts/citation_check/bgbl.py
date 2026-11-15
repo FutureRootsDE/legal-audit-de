@@ -21,7 +21,7 @@ ROBOTS_AGENT = "citation-check"
 DEFAULT_DELAY = 30.0
 MAX_DELAY = 120.0
 DEFAULT_MAX_BGBL = 0  # opt-in: robots.txt asks for 30 s between requests, so the caller chooses the number
-TITLE_RE = re.compile(rb"<title>(.*?)</title>", re.DOTALL)
+TITLE_SCAN_BYTES = 65_536  # the <title> sits in the head; never search the whole body
 OK_TITLE = re.compile(rb"^\s*Bundesgesetzblatt Teil I")
 PART_PATH = {"I": "1"}  # the URL pattern was verified for Part I only
 MIN_YEAR = 2023
@@ -29,6 +29,16 @@ MIN_YEAR = 2023
 
 def bgbl_fetch(url: str, timeout: float) -> tuple:
     return default_fetch(url, timeout, accept="text/html,*/*", limit=1_000_000)
+
+
+def page_title(body: bytes) -> bytes | None:
+    """Content of the first <title> within the first 64 KB (linear str.find, no regex backtracking)."""
+    head = body[:TITLE_SCAN_BYTES]
+    start = head.find(b"<title>")
+    if start < 0:
+        return None
+    end = head.find(b"</title>", start + 7)
+    return head[start + 7:end] if end >= 0 else None
 
 
 def page_url(ref: BgblRef) -> str:
@@ -110,8 +120,8 @@ class BgblChecker(PoliteClient):
             return self._row(key, places, "BGBL_MISSING", "Seite nicht vorhanden (HTTP 404)")
         if status != 200:
             return self._row(key, places, "ERROR", detail or f"HTTP {status}")
-        title = TITLE_RE.search(body)
-        if title and OK_TITLE.match(title.group(1)):
+        title = page_title(body)
+        if title is not None and OK_TITLE.match(title):
             return self._row(key, places, "BGBL_OK", "")
         return self._row(key, places, "ERROR", "unerwartete Seite")
 

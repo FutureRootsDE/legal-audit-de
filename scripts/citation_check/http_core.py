@@ -145,6 +145,8 @@ class Attempt(NamedTuple):
 class PoliteClient:
     """Rate limit, exponential backoff with cap, Retry-After; shared by all backends."""
 
+    retry_timeouts = True  # a backend with long single requests (SPARQL) sets False: a timeout is final
+
     def __init__(self, fetch: FetchFn | None = None, rate: float = 2.0, timeout: float = 15.0,
                  max_retries: int = 4, max_backoff: float = 30.0,
                  sleep: Callable[[float], None] = time.sleep,
@@ -172,7 +174,9 @@ class PoliteClient:
         except NonRetryableError as exc:
             return Attempt(None, b"", {}, f"Netzwerkfehler: {error_category(exc)}", True)
         except (urllib.error.URLError, http.client.HTTPException, OSError) as exc:
-            return Attempt(None, b"", {}, f"Netzwerkfehler: {error_category(exc)}", False)
+            category = error_category(exc)
+            fatal = not self.retry_timeouts and category == "Zeitueberschreitung"
+            return Attempt(None, b"", {}, f"Netzwerkfehler: {category}", fatal)
         status, body, *rest = result
         headers = {str(k).lower(): v for k, v in (rest[0] if rest else {}).items()}
         return Attempt(status, body, headers, f"HTTP {status}" if status in RETRY_STATUSES else "", False)

@@ -40,6 +40,8 @@ QUERY_TEMPLATE = (
 
 class EuShapeError(ValueError):
     """The endpoint answered with JSON of an unexpected structure."""
+INTERIM_TITLE = re.compile(r"vorl(?:ä|ae)ufige[rn]? rechtsschutz|einstweilige[rn]? anordnung"
+                           r"|rechtssache [ct]-[0-9]+/[0-9]+(?:\s?p)?\s?r")
 
 
 def build_query(case: EuCase) -> str:
@@ -60,6 +62,7 @@ def sanitize_eu_hit(raw: dict) -> dict:
     """Canonical EU hit; invalid fields become None (so cache validation compares equal only for clean hits)."""
     celex, ecli, date = raw.get("celex"), raw.get("ecli"), raw.get("date")
     kind, court, joined = raw.get("type"), raw.get("court"), raw.get("joined")
+    interim = raw.get("interim")
     return {
         "celex": celex if isinstance(celex, str) and CELEX_RE.match(celex) else None,
         "ecli": ecli if isinstance(ecli, str) and ECLI_EU_RE.match(ecli) else None,
@@ -67,6 +70,7 @@ def sanitize_eu_hit(raw: dict) -> dict:
         "type": kind if kind in DOC_LABELS else None,
         "court": court if court in COURTS else None,
         "joined": joined if isinstance(joined, bool) else None,
+        "interim": interim if isinstance(interim, bool) else None,
     }
 
 
@@ -106,7 +110,14 @@ def _row_hit(row: dict) -> dict | None:
         return None
     return sanitize_eu_hit({"celex": celex, "ecli": _value(row, "ecli"), "date": _value(row, "date"),
                             "type": kind, "court": "EuGH" if celex[5] == "C" else "EuG",
-                            "joined": _value(row, "joins") is not None})
+                            "joined": _value(row, "joins") is not None,
+                            "interim": is_interim_title(_value(row, "title"))})
+
+
+def is_interim_title(title: str | None) -> bool:
+    """True for titles of interim relief orders (vorlaeufiger Rechtsschutz, file number with suffix R)."""
+    text = (title or "").lower()
+    return bool(INTERIM_TITLE.search(text))
 
 
 def _title_tokens(title: str | None) -> set[str]:
@@ -123,7 +134,9 @@ def parse_response(body: bytes) -> tuple[list[dict], list[str]]:
             continue
         tokens |= _title_tokens(_value(row, "title"))
         known = hits.get(hit["celex"])
-        if known is None or (known["joined"] and not hit["joined"]):
-            hits[hit["celex"]] = hit
+        winner = hit if known is None or (known["joined"] and not hit["joined"]) else known
+        # duplicate rows often lack the title: any interim row marks the whole CELEX
+        interim = bool(hit["interim"] or (known and known["interim"]))
+        hits[hit["celex"]] = {**winner, "interim": True} if interim else winner
     ordered = sorted(hits.values(), key=lambda h: (h["date"] or "", h["celex"]))
     return ordered, sorted(tokens)[:MAX_TOKENS]

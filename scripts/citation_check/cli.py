@@ -27,6 +27,10 @@ ROOT = Path(os.environ.get("CLAUDE_PROJECT_DIR") or Path(__file__).resolve().par
 MAX_RATE_PER_SECOND = 10.0
 EXIT_USAGE = 2
 EXIT_WRITE_FAILED = 3
+DEFAULT_TIMEOUT = 15.0
+TIMEOUT_HELP = (f"Gesamtzeit je Anfrage in Sekunden (inkl. Lesen der Antwort; Standard {DEFAULT_TIMEOUT:g}, mit "
+                "--check-norms 60 fuer gesetze-im-internet.de und 30 fuer recht.bund.de)")
+STRICT_HELP = "Exit 1 bei DATE_MISMATCH; mit --check-norms Exit 1 bei NORM_MISSING, ABSATZ_MISSING oder BGBL_MISSING"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -67,12 +71,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--no-cache", action="store_true", help="keinen Cache lesen oder schreiben")
     p.add_argument("--cache-ttl-days", type=float, default=DEFAULT_CACHE_TTL_DAYS,
                    help="maximales Alter von Cache-Eintraegen in Tagen (Standard 7)")
-    p.add_argument("--timeout", type=float, default=15.0,
-                   help="Gesamtzeit je Anfrage in Sekunden (inkl. Lesen der Antwort)")
+    p.add_argument("--timeout", type=float, default=None, help=TIMEOUT_HELP)
     p.add_argument("--today", default=None, metavar="YYYY-MM-DD",
                    help="Lauftag fuer die Regel 'Daten ab dem Lauftag sind keine Entscheidungsdaten' "
                         "(Standard: heute; fuer reproduzierbare Laeufe)")
-    p.add_argument("--strict", action="store_true", help="Exit 1 bei DATE_MISMATCH")
+    p.add_argument("--strict", action="store_true", help=STRICT_HELP)
     p.add_argument("--write-ecli", action="store_true",
                    help="ecli: in knowledge/urteile/*.md eintragen (nur eindeutig VERIFIED, frisch abgefragt; "
                         "Exit 3 bei Schreibfehlern)")
@@ -98,7 +101,7 @@ def _validate_args(parser: argparse.ArgumentParser, args: argparse.Namespace) ->
         parser.error("--max-bgbl muss >= 0 sein")
     if args.check_norms and (args.write_ecli or args.only_pending):
         parser.error("--check-norms ist ein eigener Modus und nicht mit --write-ecli oder --only-pending kombinierbar")
-    if args.timeout <= 0:
+    if args.timeout is not None and args.timeout <= 0:
         parser.error("--timeout muss > 0 sein")
     if args.cache_ttl_days <= 0:
         parser.error("--cache-ttl-days muss > 0 sein")
@@ -114,6 +117,14 @@ def _setup_streams(stdout, stderr):
     return stdout or sys.stdout, stderr or sys.stderr
 
 
+def _repo_relative(path: Path) -> str:
+    """Path relative to the repository (never the absolute local path with the user name)."""
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix() or "."
+    except (ValueError, OSError):
+        return "<repo>"
+
+
 def _resolve_cache(args: argparse.Namespace, err) -> tuple[Path | None, str | None, bool]:
     """Return (cache dir, warning, ok). ok is False for a fatal usage error."""
     if args.no_cache:
@@ -123,7 +134,7 @@ def _resolve_cache(args: argparse.Namespace, err) -> tuple[Path | None, str | No
     else:
         requested, warning = default_cache_dir_vetted()
     if requested is not None and is_under(requested, ROOT):
-        print(f"Fehler: --cache-dir darf nicht im Repo liegen ({requested}).", file=err)
+        print(f"Fehler: --cache-dir darf nicht im Repo liegen ({_repo_relative(requested)}).", file=err)
         return None, None, False
     if requested is not None:
         requested, warning = prepare_cache_dir(requested)
@@ -175,7 +186,8 @@ def main(argv: list[str] | None = None, fetch: FetchFn | None = None,
 
     if args.check_norms:
         return run_norm_mode(args, kb_path, cache_dir, cache_warning, fetch, sleep, out, err)
-    client = ApiClient(fetch=fetch, cache_dir=cache_dir, rate=args.rate, timeout=args.timeout,
+    timeout = args.timeout if args.timeout is not None else DEFAULT_TIMEOUT
+    client = ApiClient(fetch=fetch, cache_dir=cache_dir, rate=args.rate, timeout=timeout,
                        offline=args.offline, sleep=sleep,
                        cache_ttl_seconds=args.cache_ttl_days * 24 * 3600)
     client.warnings.extend([cache_warning] if cache_warning else [])
@@ -184,7 +196,7 @@ def main(argv: list[str] | None = None, fetch: FetchFn | None = None,
         citations = [c for c in citations if c.pending]
     known: LookupMap = {}
     eu = None if args.no_eu else EuClient(fetch=fetch, cache_dir=cache_dir, rate=args.eu_rate,
-                                          timeout=max(args.timeout, EU_TIMEOUT), offline=args.offline,
+                                          timeout=max(timeout, EU_TIMEOUT), offline=args.offline,
                                           cache_ttl_seconds=args.cache_ttl_days * 24 * 3600, sleep=sleep)
     results = build_results(citations, client, fresh=args.write_ecli and not args.dry_run, lookups=known, eu=eu)
     ecli = _write_phase(args, kb_path, client, known, eu) if args.write_ecli else None

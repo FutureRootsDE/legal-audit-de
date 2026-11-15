@@ -68,8 +68,8 @@ class LawIndex(unittest.TestCase):
 
     def test_sentence_counts_only_where_reliable(self):
         norms = self.index("gii_uwg")["norms"]
-        self.assertEqual(norms["§ 5a"]["s"][3], 3)
-        self.assertIsNone(norms["§ 5a"]["s"][0])  # truncated list text without a final period: not reliable
+        self.assertEqual(norms["§ 5a"]["s"]["4"], 3)
+        self.assertIsNone(norms["§ 5a"]["s"]["1"])  # truncated list text without a final period: not reliable
 
     def test_stand_is_date_and_bgbl_reference(self):
         uwg, bgb = self.index("gii_uwg"), self.index("gii_bgb")

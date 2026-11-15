@@ -5,6 +5,7 @@ from .norm_check import NORM_STATUSES
 from .text import clean_structure, strip_controls
 
 BGBL_STATUSES = ("BGBL_OK", "BGBL_MISSING", "BGBL_UNCHECKED", "ERROR")
+SOURCE_LABELS = {"cache": "Cache (ungeprueft)", "gii": "gesetze-im-internet.de", "none": "-"}
 PROBLEMS = ("NORM_MISSING", "ABSATZ_MISSING", "NORM_UNKNOWN_LAW", "ERROR", "NORM_OLD_VERSION")
 LABELS = {
     "NORM_MISSING": "NORM_MISSING: Paragraph nicht vorhanden oder weggefallen",
@@ -48,12 +49,26 @@ def json_payload(norms: list[dict], laws: dict, changed: list[dict], bgbl: list[
                             "warnings": warnings})
 
 
+def _unchecked_note(row: dict) -> str:
+    parts = row.get("unchecked") or []
+    return f"  [nicht geprueft: {', '.join(parts)}]" if parts else ""
+
+
 def _lines_of(norms: list[dict], status: str) -> list[str]:
     out = []
     for n in (r for r in norms if r["status"] == status):
         detail = f"  ({n['detail']})" if n["detail"] else ""
-        out.append(f"{n['file']}:{n['line']}  {n['ref']}{detail}")
+        out.append(f"{n['file']}:{n['line']}  {n['ref']}{detail}{_unchecked_note(n)}")
     return out
+
+
+def _partial_lines(norms: list[dict]) -> list[str]:
+    """NORM_OK citations with parts (Nr., lit., Satz, ...) that were not compared with the law text."""
+    rows = [n for n in norms if n["status"] == "NORM_OK" and n.get("unchecked")]
+    if not rows:
+        return []
+    head = f"--- NORM_OK, aber nur teilweise geprueft ({len(rows)}) ---"
+    return [head, *(f"{n['file']}:{n['line']}  {n['ref']}{_unchecked_note(n)}" for n in rows), ""]
 
 
 def _law_lines(laws: dict) -> list[str]:
@@ -62,7 +77,8 @@ def _law_lines(laws: dict) -> list[str]:
         stand = f"{law['stand_date']} {law['stand_bgbl'] or ''}".strip() if law["stand_date"] else "-"
         slug = law["slug"] or "-"
         note = f"  ({law['note']})" if law["note"] else ""
-        out.append(f"{law['law']}  [{slug}]  {law['state']}  Stand: {stand}{note}")
+        source = SOURCE_LABELS.get(law.get("source") or "none", "-")
+        out.append(f"{law['law']}  [{slug}]  {law['state']}  Stand: {stand}  Quelle: {source}{note}")
     return out
 
 
@@ -78,6 +94,7 @@ def render_text(payload: dict) -> str:
         lines = _lines_of(payload["norms"], status)
         if lines:
             out.extend([f"--- {LABELS[status]} ({len(lines)}) ---", *lines, ""])
+    out.extend(_partial_lines(payload["norms"]))
     out.extend(_law_lines({law["law"]: law for law in payload["laws"]}))
     out.extend(_changed_lines(payload["changed_after_verification"]))
     out.extend(_bgbl_lines(payload["bgbl"], summary))

@@ -49,7 +49,8 @@ def kb_categories(kb: Path = KB) -> dict[str, list[Path]]:
 
 
 FRONTMATTER_RE = re.compile(r"\A---[ \t]*\r?\n(.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
-DATE_FIELD_RE = re.compile(r"^(aktualisiert|verifiziert-am|teilverifiziert-am):[ \t]*(.*?)[ \t]*$", re.MULTILINE)
+DATE_FIELD_RE = re.compile(r"(aktualisiert|verifiziert-am|teilverifiziert-am):(.*)")
+MAX_FIELD_LINE = 500  # longer frontmatter lines are no date fields (bounds the work per line)
 PLACEHOLDER_RE = EXACT_RE
 
 
@@ -70,7 +71,15 @@ def age_days(aktualisiert_str: str, today: date) -> int:
 def frontmatter_fields(text: str) -> dict[str, str]:
     """Date fields of the YAML frontmatter (empty dict without frontmatter); only the first block counts."""
     block = FRONTMATTER_RE.match(text)
-    return {k: v for k, v in DATE_FIELD_RE.findall(block.group(1))} if block else {}
+    if not block:
+        return {}
+    fields: dict[str, str] = {}
+    for line in block.group(1).split("\n"):
+        line = line.rstrip("\r")
+        match = DATE_FIELD_RE.match(line) if len(line) <= MAX_FIELD_LINE else None
+        if match:
+            fields[match.group(1)] = match.group(2).strip(" \t")
+    return fields
 
 
 def usable_reference(fields: dict[str, str], today: date) -> date | None:

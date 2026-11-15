@@ -18,6 +18,17 @@ MAX_CACHE_ENTRY_BYTES = 5_000_000
 WARNING_LIMIT = 300
 
 
+def os_error_category(exc: OSError) -> str:
+    """Fixed category of a filesystem error; never the exception text (it carries local paths)."""
+    if isinstance(exc, PermissionError):
+        return "keine Berechtigung"
+    if isinstance(exc, FileNotFoundError):
+        return "nicht vorhanden"
+    if isinstance(exc, (FileExistsError, NotADirectoryError, IsADirectoryError)):
+        return "Pfad belegt oder falscher Typ"
+    return "Ein-/Ausgabefehler"
+
+
 class HitCache:
     """Entries are untrusted input: validated on read, written atomically."""
 
@@ -104,13 +115,14 @@ def write_json_atomic(cache_dir: Path, path: Path, entry: dict, warnings: list[s
         os.replace(tmp_name, path)
         tmp_name = None
     except OSError as exc:
-        warnings.append(short(f"Cache nicht schreibbar ({cache_dir}): {exc}", WARNING_LIMIT))
+        warnings.append(short(f"Cache nicht schreibbar (<cache>): {os_error_category(exc)}", WARNING_LIMIT))
     finally:
         if tmp_name is not None:
             try:
                 os.unlink(tmp_name)
             except OSError as exc:
-                warnings.append(short(f"Cache-Temp-Datei nicht entfernt ({tmp_name}): {exc}", WARNING_LIMIT))
+                warnings.append(short(f"Cache-Temp-Datei nicht entfernt (<cache>/{Path(tmp_name).name}): "
+                                      f"{os_error_category(exc)}", WARNING_LIMIT))
 
 
 class DocCache:
@@ -174,7 +186,7 @@ def user_home() -> Path:
 def vet_default_dir(path: Path, home: Path, enforce: bool) -> tuple[Path | None, str | None]:
     """With `enforce`, the default cache dir must lie below the user profile (else cache off)."""
     if enforce and not is_under(path, home):
-        return None, f"Cache deaktiviert: Standardverzeichnis {path} liegt nicht im Nutzerprofil ({home})."
+        return None, "Cache deaktiviert: Standardverzeichnis liegt nicht im Nutzerprofil."
     return path, None
 
 
@@ -197,15 +209,15 @@ def prepare_cache_dir(path: Path) -> tuple[Path | None, str | None]:
         path.mkdir(mode=0o700, parents=True, exist_ok=True)
         info = os.lstat(path)
     except OSError as exc:
-        return None, f"Cache deaktiviert: {path} nicht nutzbar ({exc})."
+        return None, f"Cache deaktiviert: Cache-Verzeichnis nicht nutzbar ({os_error_category(exc)})."
     if stat.S_ISLNK(info.st_mode) or getattr(info, "st_file_attributes", 0) & REPARSE_POINT:
-        return None, f"Cache deaktiviert: {path} ist ein Symlink oder Verzeichnis-Link."
+        return None, "Cache deaktiviert: Cache-Verzeichnis ist ein Symlink oder Verzeichnis-Link."
     if not stat.S_ISDIR(info.st_mode):
-        return None, f"Cache deaktiviert: {path} ist kein Verzeichnis."
+        return None, "Cache deaktiviert: Cache-Verzeichnis ist kein Verzeichnis."
     uid = _current_uid()
     if uid is not None:
         if info.st_uid != uid:
-            return None, f"Cache deaktiviert: {path} gehoert einem anderen Nutzer."
+            return None, "Cache deaktiviert: Cache-Verzeichnis gehoert einem anderen Nutzer."
         if info.st_mode & 0o022:
-            return None, f"Cache deaktiviert: {path} ist fuer Gruppe oder Andere schreibbar."
+            return None, "Cache deaktiviert: Cache-Verzeichnis ist fuer Gruppe oder Andere schreibbar."
     return path, None

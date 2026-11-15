@@ -18,17 +18,17 @@ class ParagraphForms(unittest.TestCase):
         self.assertEqual(refs("§ 25 TDDDG"), [("TDDDG", "§", None, "25", (), ())])
 
     def test_absatz_and_satz(self):
-        self.assertEqual(refs("§ 5a Abs. 4 Satz 2 UWG"), [("UWG", "§", None, "5a", (4,), (2,))])
-        self.assertEqual(refs("§ 5a Abs. 4 S. 3 UWG"), [("UWG", "§", None, "5a", (4,), (3,))])
-        self.assertEqual(refs("§ 312k Absatz 1 Satz 1 BGB"), [("BGB", "§", None, "312k", (1,), (1,))])
+        self.assertEqual(refs("§ 5a Abs. 4 Satz 2 UWG"), [("UWG", "§", None, "5a", ("4",), (2,))])
+        self.assertEqual(refs("§ 5a Abs. 4 S. 3 UWG"), [("UWG", "§", None, "5a", ("4",), (3,))])
+        self.assertEqual(refs("§ 312k Absatz 1 Satz 1 BGB"), [("BGB", "§", None, "312k", ("1",), (1,))])
 
     def test_number_lettered_items_and_literals_are_skipped(self):
-        self.assertEqual(refs("§ 3 Abs. 1 Nr. 2 lit. a UWG"), [("UWG", "§", None, "3", (1,), ())])
+        self.assertEqual(refs("§ 3 Abs. 1 Nr. 2 lit. a UWG"), [("UWG", "§", None, "3", ("1",), ())])
 
     def test_several_absaetze(self):
-        self.assertEqual(refs("§ 7 Abs. 2 Nr. 2/Abs. 3 UWG"), [("UWG", "§", None, "7", (2, 3), ())])
-        self.assertEqual(refs("§ 18 Abs. 2+3 MStV")[0][4], (2, 3))
-        self.assertEqual(refs("§ 1 Abs. 1 und 3 UWG")[0][4], (1, 3))
+        self.assertEqual(refs("§ 7 Abs. 2 Nr. 2/Abs. 3 UWG"), [("UWG", "§", None, "7", ("2", "3"), ())])
+        self.assertEqual(refs("§ 18 Abs. 2+3 MStV")[0][4], ("2", "3"))
+        self.assertEqual(refs("§ 1 Abs. 1 und 3 UWG")[0][4], ("1", "3"))
 
     def test_paragraph_lists(self):
         self.assertEqual([r[3] for r in refs("§§ 312j, 312k BGB")], ["312j", "312k"])
@@ -39,7 +39,7 @@ class ParagraphForms(unittest.TestCase):
 
     def test_article_with_paragraph(self):
         self.assertEqual(refs("Art. 246a § 1 EGBGB"), [("EGBGB", "§", "246a", "1", (), ())])
-        self.assertEqual(refs("Art. 246a § 1 Abs. 2 EGBGB"), [("EGBGB", "§", "246a", "1", (2,), ())])
+        self.assertEqual(refs("Art. 246a § 1 Abs. 2 EGBGB"), [("EGBGB", "§", "246a", "1", ("2",), ())])
 
     def test_german_article(self):
         self.assertEqual(refs("Art. 12 GG"), [("GG", "Art", None, "12", (), ())])

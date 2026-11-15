@@ -39,43 +39,109 @@ def _in_gone_range(ref: NormRef, ranges: list) -> bool:
     return any(span[0] == kind and (span[1], span[2]) <= value <= (span[3], span[4]) for span in ranges)
 
 
-def _absatz_problem(ref: NormRef, entry: dict) -> str | None:
-    if ref.absaetze and max(ref.absaetze) > entry["a"]:
-        return f"Absatz {max(ref.absaetze)} zitiert, Norm hat {entry['a']}"
+class Coverage:
+    """Which parts of one citation were actually compared with the law text."""
+
+    def __init__(self) -> None:
+        self.checked: list[str] = []
+        self.unchecked: list[str] = []
+
+    def mark(self, part: str, checked: bool) -> None:
+        target = self.checked if checked else self.unchecked
+        if part not in target:
+            target.append(part)
+
+    def as_dict(self) -> dict[str, list[str]]:
+        return {"checked": list(self.checked), "unchecked": [p for p in self.unchecked if p not in self.checked]}
+
+
+def _mark_parts(label: object) -> tuple[int, str]:
+    text = str(label)
+    digits = "".join(c for c in text if c.isdigit())
+    return int(digits), text[len(digits):]
+
+
+def _absatz_check(ref: NormRef, entry: dict, cover: Coverage) -> str | None:
+    """Problem text for a missing Absatz; lettered Absaetze are compared with the marks, else left unchecked."""
+    evaluated = True
+    for label in ref.absaetze:
+        number, letter = _mark_parts(label)
+        if not letter:
+            if number > entry["a"]:
+                cover.mark("absatz", True)
+                return f"Absatz {number} zitiert, Norm hat {entry['a']}"
+        elif entry["m"]:
+            if f"{number}{letter}" not in entry["m"]:
+                cover.mark("absatz", True)
+                return f"Absatz {number}{letter} zitiert, nicht vorhanden"
+        else:
+            evaluated = False
+    if ref.absaetze:
+        cover.mark("absatz", evaluated)
+    return None
+
+
+def _absatz_problem(ref: NormRef, entry: dict, cover: Coverage | None = None) -> str | None:
+    cover = cover if cover is not None else Coverage()
+    problem = _absatz_check(ref, entry, cover)
+    if problem or not ref.saetze:
+        return problem
     target = _satz_target(ref, entry)
-    if target is not None and ref.saetze and max(ref.saetze) > target:
+    cover.mark("satz", target is not None)
+    if target is not None and max(ref.saetze) > target:
         return f"Satz {max(ref.saetze)} zitiert, Absatz hat {target}"
     return None
 
 
 def _satz_target(ref: NormRef, entry: dict) -> int | None:
-    """Reliable sentence count of the cited Absatz, or None (not evaluated)."""
+    """Reliable sentence count of the cited Absatz (looked up by its mark), or None (not evaluated)."""
     sentences = entry["s"]
-    if len(ref.absaetze) == 1 and ref.absaetze[0] <= len(sentences):
-        return sentences[ref.absaetze[0] - 1]
-    if not ref.absaetze and entry["a"] == 1 and sentences:
-        return sentences[0]
+    if len(ref.absaetze) == 1:
+        return sentences.get(str(ref.absaetze[0]))
+    if not ref.absaetze and entry["a"] == 1 and len(sentences) == 1:
+        return next(iter(sentences.values()))
     return None
+
+
+def _unchecked_rest(ref: NormRef, cover: Coverage) -> None:
+    if ref.absaetze:
+        cover.mark("absatz", False)
+    if ref.saetze:
+        cover.mark("satz", False)
+    for part in ref.others:
+        cover.mark(part, False)
 
 
 def _exists_as_article(ref: NormRef, index: dict) -> bool:
     return ref.kind == "Art" and f"Art {ref.number}" in index["arts"]
 
 
-def check_norm(ref: NormRef, index: dict) -> tuple[str, str, dict | None]:
-    """(status, detail, index entry) of one citation against its law index."""
+def check_norm(ref: NormRef, index: dict) -> tuple[str, str, dict | None, dict[str, list[str]]]:
+    """(status, detail, index entry, coverage) of one citation against its law index.
+
+    coverage lists the checked parts (paragraph, absatz, satz) and the parts that were not compared
+    (Absatz/Satz without a reliable assignment; Nr., lit. and other qualifiers are never checked).
+    """
+    cover = Coverage()
     if ref.old_version:
-        return "NORM_OLD_VERSION", "alte Fassung (a. F.), nicht gegen die geltende Fassung geprueft", None
+        cover.mark("paragraph", False)
+        _unchecked_rest(ref, cover)
+        detail = "alte Fassung (a. F.), nicht gegen die geltende Fassung geprueft"
+        return "NORM_OLD_VERSION", detail, None, cover.as_dict()
+    cover.mark("paragraph", True)
     entry = index["norms"].get(_key(ref))
     if entry is None:
+        _unchecked_rest(ref, cover)
         if _exists_as_article(ref, index):
-            return "NORM_OK", "", None
+            return "NORM_OK", "", None, cover.as_dict()
         gone = _in_gone_range(ref, index["ranges"])
-        return "NORM_MISSING", "weggefallen (Bereich)" if gone else "nicht vorhanden", None
+        return "NORM_MISSING", "weggefallen (Bereich)" if gone else "nicht vorhanden", None, cover.as_dict()
     if entry["g"]:
-        return "NORM_MISSING", "weggefallen", entry
-    problem = _absatz_problem(ref, entry)
-    return ("ABSATZ_MISSING", problem, entry) if problem else ("NORM_OK", "", entry)
+        _unchecked_rest(ref, cover)
+        return "NORM_MISSING", "weggefallen", entry, cover.as_dict()
+    problem = _absatz_problem(ref, entry, cover)
+    _unchecked_rest(ref, cover)
+    return ("ABSATZ_MISSING" if problem else "NORM_OK"), problem or "", entry, cover.as_dict()
 
 
 def _law_record(abbr: str, slug: str | None, note: str, client: NormClient) -> dict:
@@ -109,15 +175,17 @@ def check_all(refs: list[NormRef], client: NormClient) -> tuple[list[dict], dict
 
 def _result(ref: NormRef, law: dict, client: NormClient) -> dict:
     base = {"file": ref.file, "line": ref.line, "law": ref.law, "ref": ref_text(ref), "heading": None,
-            "absaetze": None}
-    if law["state"] == "unknown":
-        return {**base, "status": "NORM_UNKNOWN_LAW", "detail": law["note"]}
-    if law["state"] == "error":
-        return {**base, "status": "ERROR", "detail": law["note"]}
-    status, detail, entry = check_norm(ref, client.law(law["slug"]).index)
+            "absaetze": None, "source": law["source"]}
+    if law["state"] in ("unknown", "error"):
+        cover = Coverage()
+        cover.mark("paragraph", False)
+        _unchecked_rest(ref, cover)
+        status = "NORM_UNKNOWN_LAW" if law["state"] == "unknown" else "ERROR"
+        return {**base, "status": status, "detail": law["note"], **cover.as_dict()}
+    status, detail, entry, coverage = check_norm(ref, client.law(law["slug"]).index)
     if entry is not None:
         base = {**base, "heading": entry["t"], "absaetze": entry["a"]}
-    return {**base, "status": status, "detail": detail}
+    return {**base, "status": status, "detail": detail, **coverage}
 
 
 def changed_after_verification(refs: list[NormRef], laws: dict[str, dict]) -> list[dict]:

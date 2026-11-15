@@ -20,7 +20,11 @@ def decision_hits(citation: Citation, hits: list[dict]) -> list[dict]:
     """The hits that count for the date comparison: judgment first, order as fallback (interim relief: order)."""
     judgments = [h for h in hits if h.get("type") in ("Urteil", "Gutachten")]
     orders = [h for h in hits if h.get("type") == "Beschluss"]
-    ordered = (orders or judgments) if _suffix(citation) == "R" else (judgments or orders)
+    if _suffix(citation) == "R":
+        ordered = orders or judgments
+    else:
+        # interim relief orders decide only the R proceedings; the main case stays pending without them
+        ordered = judgments or [h for h in orders if not h.get("interim")]
     return [h for h in ordered if h.get("date")]
 
 

@@ -10,9 +10,9 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .extract import read_limited
 from .text import short
 
-MAX_FILE_BYTES = 2_000_000
 MAX_LINE_CHARS = 5000
 TOKEN = re.compile(
     r"(?P<para>§§?)|(?P<art>\bArt\.|\bArtikel\b)"
@@ -36,7 +36,9 @@ BGBL = re.compile(
     r"BGBl\.?\s*(?:(?P<teil1>I{1,2})\s+)?(?P<y1>[0-9]{4})\s+(?P<teil2>I{1,2})\s+Nr\.\s*(?P<n1>[0-9]{1,4})"
     r"|BGBl\.?\s*(?P<teil3>I{1,2})\s+Nr\.\s*(?P<n2>[0-9]{1,4})\s*/\s*(?P<y2>[0-9]{4})"
     r"|BGBl\.?\s*(?P<teil4>I{1,2})\s+(?P<y3>[0-9]{4})\s+Nr\.\s*(?P<n3>[0-9]{1,4})")
-MIN_BGBL_YEAR = 2023  # numbered issues (Nr.) exist on recht.bund.de since the electronic Bundesgesetzblatt
+MIN_BGBL_YEAR = 2023
+OTHER_PARTS = (("nr", "nummer"), ("lit", "lit"), ("buchst", "lit"), ("alt", "alternative"), ("var", "alternative"),
+               ("hs", "halbsatz"), ("halbs", "halbsatz"))  # numbered issues (Nr.) exist on recht.bund.de since the electronic Bundesgesetzblatt
 
 
 @dataclass(frozen=True)
@@ -47,10 +49,11 @@ class NormRef:
     kind: str  # "§" or "Art"
     number: str  # paragraph or article number, e.g. "356a"
     art: str | None = None  # article of a paragraph below an article ("Art. 246a § 1 EGBGB")
-    absaetze: tuple[int, ...] = ()
+    absaetze: tuple[str, ...] = ()  # Absatz marks as cited, e.g. ("2",) or ("2a",)
     saetze: tuple[int, ...] = ()
     old_version: bool = False
     verified_on: str | None = None
+    others: tuple[str, ...] = ()  # further cited parts that are never checked: nummer, lit, halbsatz, alternative
 
 
 @dataclass(frozen=True)
@@ -68,8 +71,9 @@ class _Item:
     kind: str
     number: str
     art: str | None = None
-    absaetze: list[int] = field(default_factory=list)
+    absaetze: list[str] = field(default_factory=list)
     saetze: list[int] = field(default_factory=list)
+    others: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -131,6 +135,10 @@ class _Scanner:
         label = text.lower().rstrip(".")
         self.mode = "qual"
         self.qual = "abs" if label.startswith(("abs", "uabs")) else "satz" if label in ("s", "satz") else "other"
+        if self.qual == "other":
+            part = next((name for prefix, name in OTHER_PARTS if label.startswith(prefix)), "sonstiges")
+            if part not in self.items[-1].others:
+                self.items[-1].others.append(part)
 
     def _on_ivm(self, text: str) -> None:
         self.reset()
@@ -153,12 +161,11 @@ class _Scanner:
         self.num = True
 
     def _qualifier(self, text: str) -> None:
-        value = int(re.match(r"\d+", text).group(0))
         target = self.items[-1]
         if self.qual == "abs":
-            target.absaetze.append(value)
+            target.absaetze.append(text)
         elif self.qual == "satz":
-            target.saetze.append(value)
+            target.saetze.append(int(re.match(r"\d+", text).group(0)))
 
     def _on_word(self, text: str) -> str | None:
         if self.items and self.mode == "qual" and len(text) == 1 and text.islower():
@@ -191,7 +198,7 @@ def _emit(items: list[_Item], law: str, old: bool, rel: str, lineno: int, verifi
             out.eu_counts[law] = out.eu_counts.get(law, 0) + 1
             continue
         out.norms.append(NormRef(rel, lineno, law, item.kind, item.number, item.art, tuple(item.absaetze),
-                                 tuple(item.saetze), old, verified_on))
+                                 tuple(item.saetze), old, verified_on, tuple(item.others)))
 
 
 def frontmatter_verified_on(text: str) -> str | None:
@@ -231,16 +238,7 @@ def scan_kb_norms(kb_path: Path) -> Extraction:
     out = Extraction()
     for md in sorted(kb_path.rglob("*.md")):
         rel = md.relative_to(kb_path.parent).as_posix()
-        if md.is_symlink():
-            out.skipped.append(short(f"{rel}: Symlink uebersprungen", 300))
-            continue
-        try:
-            data = md.read_bytes()
-        except OSError as exc:
-            out.skipped.append(short(f"{rel}: nicht lesbar ({exc})", 300))
-            continue
-        if len(data) > MAX_FILE_BYTES:
-            out.skipped.append(short(f"{rel}: Datei zu gross uebersprungen", 300))
-            continue
-        extract_text(data.decode("utf-8", errors="replace"), rel, out)
+        text = read_limited(md, rel, out.skipped, base=kb_path)
+        if text is not None:
+            extract_text(text, rel, out)
     return out
