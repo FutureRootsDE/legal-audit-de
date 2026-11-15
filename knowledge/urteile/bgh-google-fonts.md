@@ -42,7 +42,7 @@ Das Landgericht München I hat am 20. Januar 2022 entschieden, dass die dynamisc
 | **Datum** | 20.01.2022 |
 | **Gericht** | Landgericht München I, 3. Zivilkammer |
 | **Parteien** | Privatkläger (Website-Besucher) gegen Website-Betreiber |
-| **Streitwert** | Unterlassung + 100 EUR Schadenersatz |
+| **Tenor** | Unterlassung (§ 823 Abs. 1 i.V.m. § 1004 BGB analog), Auskunft (Art. 15 DSGVO), 100 EUR Schadensersatz (Art. 82 Abs. 1 DSGVO) |
 
 ## Sachverhalt
 
@@ -55,6 +55,8 @@ Der Kläger besuchte die Website des Beklagten. Die Website hatte Google Fonts *
 3. **Schadenersatz nach Art. 82 DSGVO:** 100 EUR für immateriellen Schaden
 
 **Begründung:** Die automatische Weitergabe der IP-Adresse an Google stellt einen Eingriff in das allgemeine Persönlichkeitsrecht und Recht auf informationelle Selbstbestimmung dar, der nicht durch ein berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO gedeckt ist — weil die lokale Einbindung (self-hosted) gleichwertig möglich und damit erforderlich wäre.
+
+**Hinweis zum Datenschutzniveau (Stand 2026):** Die Erwägung „kein angemessenes Datenschutzniveau in den USA" (LG, Rn. 12) betrifft den Stand 2022. Seit 10.07.2023 gilt für Übermittlungen an DPF-zertifizierte US-Empfänger der Durchführungsbeschluss (EU) 2023/1795 (Art. 1); EuG T-553/23 (03.09.2025) hat die Nichtigkeitsklage abgewiesen, Rechtsmittel C-703/25 P anhängig. Der Einwilligungs- bzw. Erforderlichkeitsmangel (Rn. 7, 8; lokales Hosting möglich) bleibt unberührt.
 
 ## Kernaussagen
 
@@ -83,7 +85,6 @@ Kurz nach dem Urteil starteten mehrere Abmahnanwälte und angebliche „Betroffe
 ### Weitere Gerichte zur Thematik
 
 - **AG Charlottenburg 217 C 40/23, 09.11.2023** — bestätigt 100 EUR bei missbrauchsfreier Klage
-- **OLG Köln (verschiedene)** — differenzierte Betrachtung je nach Intensität
 
 ### EuGH-Einfluss (C-300/21, Österreichische Post, 04.05.2023)
 
@@ -103,8 +104,7 @@ Website-Besuchs allein zur Dokumentation des Verstosses) ueberhaupt einen
 ersatzfaehigen immateriellen Schaden i.S.v. Art. 82 DSGVO begruendet und wie
 das Konzept personenbezogener Daten bei dynamischen IP-Adressen in dieser
 Konstellation auszulegen ist. Volltext der Vorlagefragen: curia.europa.eu
-(vi_zr_258-24.pdf). Die EuGH-Entscheidung steht aus; bis dahin ist die
-LG-Muenchen-Linie fuer Massen-Abmahnungen rechtsunsicher.
+(vi_zr_258-24.pdf). EuGH, Urteil vom 19.03.2026, C-526/24 (ECLI:EU:C:2026:216): Ein (auch erster) Auskunftsantrag kann „exzessiv" i.S.v. Art. 12 Abs. 5 DSGVO sein, wenn der Verantwortliche nachweist, dass er in missbräuchlicher Absicht zur künstlichen Schaffung der Voraussetzungen für einen Vorteil gestellt wurde (Tenor 1); immaterieller Schaden (Kontrollverlust) nur, wenn tatsächlich entstanden und das Verhalten der betroffenen Person nicht dessen entscheidende Ursache war (Tenor 3). Für provozierte Google-Fonts-Abrufe ist die Missbrauchsfrage damit nicht mehr offen; nur die Übertragung auf provozierte Datenübermittlungen steht in C-654/25 aus.
 Verfahrensstatus (Stand 2026-11-14): anhaengig. Generalanwalt Szpunar hat am
 05.11.2026 Schlussantraege vorgelegt (ECLI:EU:C:2026:948); ein Urteil liegt
 noch nicht vor. Der Inhalt der Schlussantraege ist hier nicht ausgewertet
@@ -124,8 +124,9 @@ Klageforderung, nicht ein zugesprochener Betrag. Eine einzelne Werbe-E-Mail
 ohne Weitergabe an Dritte begruendet keinen Kontrollverlust (Rn. 18).
 Fuer
 Google-Fonts-Faelle bedeutet das: Die Art-82-Grundlage traegt im Prinzip,
-die Frage des Rechtsmissbrauchs bei provozierten Verstoessen bleibt aber
-offen bis zur EuGH-Entscheidung C-654/25. Quelle: BGH-Volltext VI ZR 10/24
+fuer provozierte Google-Fonts-Abrufe ist die Missbrauchsfrage seit EuGH
+C-526/24 (19.03.2026) nicht mehr offen; nur die Uebertragung auf provozierte
+Datenuebermittlungen steht in C-654/25 aus. Quelle: BGH-Volltext VI ZR 10/24
 ueber juris.bundesgerichtshof.de; Einordnung bei vzbv und
 beck-aktuell.
 
@@ -134,13 +135,13 @@ beck-aktuell.
 - **Google Fonts selbst hosten:** `@fontsource/...`, Next.js `next/font/google` (lädt zur Build-Zeit, keine Laufzeit-Requests an Google)
 - **Alle CDN-Fonts und -Assets prüfen:**
   - fonts.googleapis.com, fonts.gstatic.com
-  - use.fontawesome.com (Font Awesome CDN)
-  - jsDelivr, unpkg mit personenbezogenen Daten-Inhalten
+  - jsDelivr, unpkg und andere Dritt-CDNs (Übermittlung der IP-Adresse beim Abruf)
+  - Font Awesome: kit.fontawesome.com, use.fontawesome.com
 - **Google Maps, reCAPTCHA, YouTube:** gleiche Problematik — siehe Cookie-Consent
 - **Selbst gehostete Alternativen:**
   - **Fonts:** @fontsource, lokale Dateien
   - **Icons:** SVG-Sprites, Iconify selbst hosten
-  - **Captcha:** hCaptcha (CF-EU), Turnstile, Friendly Captcha
+  - **Captcha:** Keine der genannten Lösungen ist selbst gehostet. Friendly Captcha (deutscher Anbieter, Drittdienst; selbst gehosteter Endpunkt nur im Enterprise-Tarif). hCaptcha (Intuition Machines, Inc., USA) und Cloudflare Turnstile sind Drittdienste von US-Anbietern und brauchen dieselbe Prüfung wie reCAPTCHA.
   - **Maps:** MapLibre + OpenStreetMap
 - **Audit-Empfehlung:** Regelmäßig Network-Tab prüfen — welche externen Requests lädt die Seite vor Consent?
 
@@ -187,3 +188,8 @@ const inter = Inter({ subsets: ["latin"] });
   (ECLI:EU:C:2026:948), Inhalt noch nicht ausgewertet; "erstes"
   Leitentscheidungsverfahren gestrichen; VI ZR 109/23 richtiggestellt
   (Revision zurueckgewiesen, Marker entfernt).
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Feld "Tenor" statt "Streitwert"; DPF-Hinweis (Durchfuehrungsbeschluss
+  2023/1795, EuG T-553/23) ergaenzt; unbelegte OLG-Koeln-Angabe gestrichen;
+  EuGH C-526/24 (19.03.2026) zur Missbrauchsfrage eingearbeitet; CDN- und
+  Captcha-Angaben praezisiert.

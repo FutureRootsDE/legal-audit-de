@@ -131,8 +131,11 @@ muss nicht zahlen.
 
 Zulaessige Alternativen laut Gesetzesbegruendung / Rechtsprechung:
 "zahlungspflichtigen Vertrag schliessen", "kostenpflichtig bestellen", "kaufen".
-**Unzulaessig** sind neutrale Beschriftungen wie "Anmelden", "Weiter",
-"Bestellung abschicken", "Jetzt buchen", "Senden", "Bestellung abgeben". Aktuell
+**Unzulaessig** sind Beschriftungen, die fuer sich genommen keine Zahlungspflicht
+ausdruecken, etwa "Anmelden", "Weiter", "Senden", "Bestellung abschicken" oder
+"Bestellung abgeben"; bei Formulierungen wie "Jetzt buchen" kommt es allein auf
+die Worte der Schaltflaeche an (EuGH, Urt. v. 07.04.2022, C-249/21), es ist von
+hohem Risiko auszugehen. Aktuell
 bestaetigt durch **BGH I ZR 159/24, Urt. v. 09.10.2025** (Online-Maklervertrag
 ohne "zahlungspflichtig bestellen"-Button ist nach § 312j Abs. 4 BGB endgueltig
 unwirksam; ein Neuabschluss durch einseitige Bestaetigung des Verbrauchers
@@ -197,9 +200,14 @@ Kommunikationsweg (Abs. 2); es folgt eine Bestaetigungsfunktion **"Widerruf
 bestaetigen"** (Abs. 3). Der Unternehmer muss den Eingang unverzueglich auf
 einem dauerhaften Datentraeger bestaetigen (Abs. 4).
 
-**Anlage 1 EGBGB** enthaelt das verbindliche **Musterwiderrufsbelehrungs-Formular**,
-das bei korrekter Verwendung eine **Schutzwirkung** (Gesetzlichkeitsfiktion)
-entfaltet.
+**Anlage 1 EGBGB** enthaelt das Muster fuer die Widerrufsbelehrung; seine
+Verwendung ist freiwillig ("kann", Art. 246a § 1 Abs. 2 Satz 2 EGBGB), erfuellt
+bei zutreffender Ausfuellung aber die Informationspflicht. Das
+Muster-Widerrufsformular steht in Anlage 2. Seit 19.06.2026 enthaelt Anlage 1 den
+Gestaltungshinweis 3 zur Widerrufsfunktion nach § 356a BGB.
+
+Art. 246a § 1 Abs. 2 Nr. 1 EGBGB verlangt jetzt auch Information ueber "das
+Bestehen und die Platzierung der Widerrufsfunktion nach § 356a".
 
 ## Typische Fallstricke in Codebases
 
@@ -219,13 +227,16 @@ entfaltet.
 5. **Automatische Abo-Verlaengerung:** Stillschweigende Verlaengerung nur auf
    unbestimmte Zeit mit Kuendigungsfrist von hoechstens einem Monat (§ 309
    Nr. 9 Buchst. b BGB, fuer ab 01.03.2022 geschlossene Vertraege).
-6. **Kuendigungs-Button fehlt:** § 312k Abs. 2 BGB verpflichtet Anbieter von
-   Online-Dauerschuldverhaeltnissen zu einem zweistufigen Ablauf: eine
+6. **Kuendigungs-Button fehlt:** § 312k Abs. 2 BGB (seit 01.07.2022, auch fuer
+   vorher geschlossene Vertraege, Art. 229 § 60 Satz 3 EGBGB) verpflichtet
+   Anbieter von Online-Dauerschuldverhaeltnissen zu einem zweistufigen Ablauf: eine
    Kuendigungsschaltflaeche "Vertraege hier kuendigen" fuehrt den Verbraucher
    unmittelbar zu einer Bestaetigungsseite mit den Angaben nach Abs. 2 Satz 3
    Nr. 1 und einer Bestaetigungsschaltflaeche "jetzt kuendigen"; beide staendig
-   verfuegbar sowie unmittelbar und leicht zugaenglich. Verstoss: fristlose
-   Kuendigung jederzeit moeglich.
+   verfuegbar sowie unmittelbar und leicht zugaenglich. Ausgenommen sind
+   Vertraege, deren Kuendigung gesetzlich eine strengere Form als Textform
+   verlangt, sowie Webseiten und Vertraege ueber Finanzdienstleistungen (§ 312k
+   Abs. 1 Satz 2 BGB). Verstoss: fristlose Kuendigung jederzeit moeglich.
 7. **Widerrufsfunktion fehlt:** Seit 19.06.2026 muss bei online geschlossenen
    Fernabsatzvertraegen die Widerrufsfunktion "Vertrag widerrufen" nach § 356a
    BGB bereitstehen.
@@ -233,7 +244,8 @@ entfaltet.
 ## Relevanz fuer Codebase-Typen
 
 - **Next.js SaaS:** Subscription-Flow braucht sauberen Button "Jetzt
-  kostenpflichtig abonnieren" + Widerrufsbelehrung + Kuendigen-Button-Route.
+  kostenpflichtig abonnieren" + Widerrufsbelehrung + Widerrufsfunktion (§ 356a
+  BGB, seit 19.06.2026) + Kuendigen-Button-Route.
 - **Landingpage:** Ohne Bestellabschluss greift § 312j Abs. 2 bis 4 nicht.
   Eine AGB-Pflicht gibt es nicht; werden AGB verwendet und kommt ueber das
   Formular ein Vertrag zustande, sind sie nach § 305 Abs. 2 BGB einzubeziehen
@@ -249,7 +261,8 @@ entfaltet.
   Pflicht. Shopify/WooCommerce-Templates DE haeufig korrekt konfiguriert,
   Custom-Checkouts riskant.
 - **Content/Blog:** Im Kommentarbereich und Newsletter-Opt-In keine AGB noetig,
-  aber Datenschutzerklaerung + Impressum.
+  aber Datenschutzerklaerung + Impressum, soweit das Angebot geschaeftsmaessig
+  ist (§ 5 Abs. 1 DDG).
 
 ## Behoerden-Hinweise
 
@@ -266,6 +279,10 @@ entfaltet.
   einseitige Bestaetigung fuehrt nicht ohne Weiteres zu einem wirksamen
   Neuabschluss. Wegweisend fuer alle Online-Bestellprozesse mit
   Verbraucherbeteiligung.
+- **EuGH, Urt. v. 30.05.2024, C-400/22** ("Conny"): Die Button-Pflicht (Art. 8
+  Abs. 2 RL 2011/83/EU, § 312j Abs. 3 BGB) gilt auch, wenn die Zahlungspflicht
+  erst bei Eintritt einer weiteren Bedingung entsteht (z. B. erfolgsabhaengiges
+  Honorar).
 - **BGH, Urt. v. 27.04.2021 — XI ZR 26/20** (PM 88/2021): Klauseln in
   Banken-AGB, die eine fiktive Zustimmung des Kunden zu AGB-Aenderungen ohne
   inhaltliche Begrenzung vorsehen, sind nach § 307 Abs. 1 und 2 BGB

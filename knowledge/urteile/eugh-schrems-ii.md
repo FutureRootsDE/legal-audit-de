@@ -25,7 +25,7 @@ geltungsbereich: [DE, EU]
 
 ## Kurz-Überblick
 
-Der EuGH hat am 16. Juli 2020 in der Rechtssache C-311/18 (Data Protection Commissioner gegen Facebook Ireland und Maximillian Schrems) den EU-US-Privacy-Shield-Beschluss (2016/1250) wegen fehlenden angemessenen Schutzniveaus für ungültig erklärt. Gleichzeitig bestätigte er die grundsätzliche Gültigkeit der Standardvertragsklauseln (SCCs) — allerdings nur, wenn vor jeder Übermittlung die Rechtslage im Drittland geprüft wird (Transfer Impact Assessment, TIA). Das Urteil prägt bis heute jede Drittland-Übermittlung.
+Der EuGH hat am 16. Juli 2020 in der Rechtssache C-311/18 (Data Protection Commissioner gegen Facebook Ireland und Maximillian Schrems) den EU-US-Privacy-Shield-Beschluss (2016/1250) wegen fehlenden angemessenen Schutzniveaus für ungültig erklärt. Gleichzeitig bestätigte er die grundsätzliche Gültigkeit der Standardvertragsklauseln (SCCs), sofern Exporteur (und Importeur) bei Übermittlungen auf Grundlage von Art. 46 DSGVO (SCC, BCR) prüfen, ob im Drittland ein der Sache nach gleichwertiges Schutzniveau gewährleistet ist, und ggf. zusätzliche Maßnahmen ergreifen (Rn. 134 ff., Tenor 2). Bei gültigem Angemessenheitsbeschluss (Art. 45, z. B. DPF-zertifizierte US-Empfänger) entfällt diese Prüfung. Der Begriff „TIA" stammt aus der Praxis/EDSA-Empfehlungen 01/2020, nicht aus dem Urteil.
 
 ## Eckdaten
 
@@ -43,11 +43,13 @@ Der EuGH hat am 16. Juli 2020 in der Rechtssache C-311/18 (Data Protection Commi
 
 1. **Art. 2 Abs. 1 und 2 DSGVO** sind so auszulegen, dass Übermittlungen personenbezogener Daten zu kommerziellen Zwecken durch einen EU-Wirtschaftsakteur an einen anderen Wirtschaftsakteur in einem Drittland in den Anwendungsbereich der DSGVO fallen — **unabhängig davon**, ob die Daten von den Behörden des Drittlands zu Zwecken der nationalen Sicherheit weiterverarbeitet werden.
 
-2. **Durchführungsbeschluss 2016/1250 (Privacy Shield) ist ungültig.**
+2. **Art. 46 Abs. 1 und Abs. 2 lit. c DSGVO:** Die geeigneten Garantien müssen ein „der Sache nach gleichwertiges" Schutzniveau gewährleisten.
 
-3. **Beschluss 2010/87/EU (Standardvertragsklauseln Controller-to-Processor) ist gültig**, aber Datenexporteur und -importeur müssen **vor Übermittlung prüfen**, ob im Drittland ein Schutzniveau gewährleistet ist, das dem EU-Niveau im Wesentlichen gleichwertig ist. Andernfalls sind ergänzende Maßnahmen erforderlich oder die Übermittlung ist auszusetzen.
+3. **Art. 58 Abs. 2 lit. f und j DSGVO:** Die Aufsichtsbehörde ist verpflichtet, eine auf Standarddatenschutzklauseln gestützte Übermittlung auszusetzen oder zu verbieten, wenn kein gültiger Angemessenheitsbeschluss vorliegt und der Schutz nicht anders gewährleistet werden kann.
 
-4. **Aufsichtsbehörden sind verpflichtet**, eine SCC-gestützte Übermittlung zu untersagen oder auszusetzen, wenn kein angemessenes Schutzniveau gewährleistet werden kann.
+4. **Beschluss 2010/87/EU (Standardvertragsklauseln):** Die Prüfung hat nichts ergeben, was seine Gültigkeit berühren könnte.
+
+5. **Durchführungsbeschluss (EU) 2016/1250 (Privacy Shield) ist ungültig.**
 
 ## Kernaussagen
 
@@ -64,9 +66,9 @@ Der EuGH hat am 16. Juli 2020 in der Rechtssache C-311/18 (Data Protection Commi
 - Der Datenexporteur muss **Einzelfallprüfung** durchführen und ggf. ergänzende Maßnahmen ergreifen
 - Wenn keine ausreichende Abhilfe möglich: Übermittlung aussetzen
 
-### Zum Transfer Impact Assessment (neu etabliert)
+### Zum Transfer Impact Assessment (Begriff aus der Praxis, nicht aus dem Urteil)
 
-Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etabliert:
+Die Kernverpflichtung, die Schrems II für Übermittlungen auf Grundlage von Art. 46 DSGVO etabliert:
 
 1. Identifikation der Übermittlung + Rechtsgrundlage (SCCs / BCR / Derogation)
 2. Prüfung von Drittland-Recht und -Praxis (Government Access)
@@ -111,7 +113,7 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
 
 - **CNIL (FR), 10.02.2022** — Google Analytics Sanktion auf Basis Schrems II
 - **DSB Österreich, 22.04.2022** — Universal Analytics unvereinbar
-- **Garante (IT), 09.06.2022** — Bestätigung CNIL-Linie
+- **Garante (IT), 09.06.2022 (Caffeina Media, docweb 9782890)**: Übermittlung über Google Analytics in die USA rechtswidrig; Anpassung an Kap. V DSGVO binnen 90 Tagen angeordnet, andernfalls Aussetzung der Datenflüsse; zusätzlich Verwarnung.
 - **LfD Bayern** Orientierungshilfe Mailchimp (März 2021)
 
 ## Siehe auch
@@ -140,3 +142,8 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
 - **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
   Tenor 1 auf "Art. 2 Abs. 1 und 2 DSGVO" praezisiert; SCC-Rechtsakt als
   "Beschluss 2010/87/EU" (nicht Durchfuehrungsbeschluss) bezeichnet.
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Tenor in fuenf Punkten in amtlicher Reihenfolge; Pruefung des
+  Schutzniveaus nach Art. 46 DSGVO statt "jede Drittland-Uebermittlung",
+  Begriff TIA als Praxisbegriff gekennzeichnet; Garante (IT) 09.06.2022
+  nach Dispositiv gefasst.

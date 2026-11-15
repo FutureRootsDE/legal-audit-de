@@ -32,7 +32,7 @@ Das TDDDG (vormals TTDSG, umbenannt im Mai 2024 im Rahmen des Digitale-Dienste-G
 ## Schlüsselparagraphen
 
 ### § 1 — Anwendungsbereich
-Gilt für Anbieter von Telekommunikationsdiensten und Anbieter digitaler Dienste (vorher „Telemedien"). Geltungsbereich folgt Marktortprinzip analog DSGVO.
+Regelt Fernmeldegeheimnis, Datenschutz bei Telekommunikations- und digitalen Diensten sowie den Schutz der Endeinrichtungen (§ 1 Abs. 1). Es gilt für alle Unternehmen und Personen mit Niederlassung im Inland oder die hier Dienstleistungen erbringen oder Waren bereitstellen (§ 1 Abs. 3); § 25 trifft jeden, der auf Endeinrichtungen zugreift.
 
 ### § 2 — Begriffsbestimmungen
 Verweis auf TKG / DDG; „Endeinrichtung" = jedes Gerät mit Verbindung zu öffentlichem TK-Netz (Laptop, Smartphone, Smart-TV, IoT).
@@ -50,8 +50,8 @@ Anbieter digitaler Dienste haben ihre Pflichten nach § 19 Abs. 1 durch technisc
 
 Die Einwilligung muss **den Anforderungen der DSGVO** genügen (Art. 4 Nr. 11, Art. 7 DSGVO).
 
-**Abs. 2 — Ausnahmen (kumulativ oder alternativ zu prüfen):**
-- **Nr. 1:** Alleiniger Zweck ist die **Durchführung der Übermittlung einer Nachricht** über ein öffentliches TK-Netz (z. B. Load-Balancer-Cookie während Verbindungsaufbau).
+**Abs. 2: Ausnahmen (alternativ, eine genügt):**
+- **Nr. 1:** Alleiniger Zweck ist die **Durchführung der Übertragung einer Nachricht** über ein öffentliches TK-Netz (z. B. Load-Balancer-Cookie während Verbindungsaufbau).
 - **Nr. 2:** Speicherung/Zugriff ist **unbedingt erforderlich**, damit der Anbieter einen vom Nutzer **ausdrücklich gewünschten Dienst** bereitstellen kann (z. B. Session-Cookie für Login, Warenkorb-Cookie).
 
 **Nicht ausnahmefähig** (Einwilligung zwingend):
@@ -86,7 +86,7 @@ Nach § 29 Abs. 2 ist der BfDI nur bei Anbietern von TK-Diensten und öffentlich
 - **LocalStorage/SessionStorage-Fingerprinting ohne Consent:** § 25 TDDDG gilt technikneutral — nicht nur für HTTP-Cookies.
 - **Server-Side-Tracking mit Client-ID-Cookie:** Client-seitige Speicherung bleibt einwilligungspflichtig, auch wenn Data-Transfer serverseitig erfolgt.
 - **Page-Reload leert Consent-Status:** Einwilligung muss nachweisbar (Art. 7 Abs. 1 DSGVO) und so einfach widerrufbar sein wie erteilt (Art. 7 Abs. 3 DSGVO); geht der Status verloren, darf ohne erneute Einwilligung nichts Einwilligungspflichtiges gesetzt werden. Eine Persistenzpflicht als solche gibt es nicht.
-- **Cookie-Wall (Zugang nur bei Einwilligung):** EDSA sieht das überwiegend als unfreiwillig; Alternativen prüfen (Pur-Abo nach EDSA Opinion 08/2024, aber mit Auflagen).
+- **Cookie-Wall (Zugang nur bei Einwilligung):** nach EDSA-Leitlinien 05/2020 in der Regel keine freiwillige Einwilligung. „Consent or Pay": EDSA Opinion 08/2024 (17.04.2024) gilt nur für große Online-Plattformen; für andere Anbieter allenfalls sinngemäß, Einzelfallprüfung.
 - **Länger als 12 Monate gespeicherte Consent-Cookies:** Die DSK OH Digitale Dienste nennt keine 12-Monats-Grenze; die Angabe ist ein nicht behördlich belegter Praxiswert.
 
 ## Relevanz für Codebase-Typen
@@ -133,3 +133,7 @@ Nach § 29 Abs. 2 ist der BfDI nur bei Anbietern von TK-Diensten und öffentlich
   der DSK-OH, OH Digitale Dienste Version 1.2, EuGH C-252/21 auf Tenor 8
   beschraenkt, Fallstricke (Consent Mode, Button-Gestaltung, Reload,
   Landingpage, n8n) praezisiert.
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  § 1 (Abs. 1 und Abs. 3 nach Wortlaut), § 25 Abs. 2 (alternativ, Normwort
+  "Uebertragung einer Nachricht"), Cookie-Wall und "Consent or Pay" (EDSA
+  Leitlinien 05/2020, Opinion 08/2024 nur fuer grosse Online-Plattformen).

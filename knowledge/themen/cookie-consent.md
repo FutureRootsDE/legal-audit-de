@@ -36,7 +36,7 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 | Load-Balancer | Nein, nur ohne langfristig gespeicherte eindeutige ID (DSK, OH Digitale Dienste) | § 25 Abs. 2 Nr. 1 TDDDG |
 | Cookie-Consent-State selbst | Nein | § 25 Abs. 2 Nr. 2 TDDDG (unbedingt erforderlich für Consent-Funktion) |
 | Sprach-/Theme-Präferenz | Nein, wenn nur ein nicht identifizierender Wert gespeichert wird (z. B. „language: de“) und erst nach Nutzerwahl; Ja bei UID oder Drittanbieter | § 25 Abs. 2 Nr. 2 TDDDG; DSK OH Digitale Dienste Rn. 81 |
-| Analytics (GA4, Matomo, Plausible\*) | Ja (\*Plausible im Cookie-losen Modus: nein) | § 25 Abs. 1 TDDDG + Art. 6 Abs. 1 lit. a DSGVO |
+| Analytics (GA4, Matomo, Plausible\*) | Ja (\*cookielose Tools: nur einwilligungsfrei, wenn weder gespeichert noch per Skript auf Endgeräteeigenschaften zugegriffen wird; Einzelfallprüfung) | § 25 Abs. 1 TDDDG + Art. 6 Abs. 1 lit. a DSGVO |
 | Marketing-Pixel (Meta, TikTok, LinkedIn) | Ja | dito |
 | Retargeting (Google Ads, Criteo) | Ja | dito |
 | A/B-Test (VWO, Optimizely) | Ja | dito |
@@ -45,7 +45,7 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 
 ### Anforderungen an wirksame Einwilligung (EDSA 05/2020 + DSGVO Art. 4 Nr. 11 / Art. 7)
 
-1. **Freiwillig** — keine Nachteile bei Ablehnung, gleichwertige Ablehnen-Möglichkeit auf erster Ebene
+1. **Freiwillig** — keine Nachteile bei Ablehnung; Ablehnen-Möglichkeit auf erster Ebene, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (DSK, OH Digitale Dienste, Rn. 124 f.); Ablehnen darf nicht aufwendiger sein als Zustimmen
 2. **Für bestimmten Fall** — granular pro Zweck / Anbieter-Kategorie
 3. **Informiert**: vor Erteilung mindestens Identität des Verantwortlichen, Zweck jedes Vorgangs, Art der Daten, Widerrufsrecht, ggf. automatisierte Entscheidung und Drittlandrisiken (EDSA Leitlinien 05/2020 Rn. 64); die vollständigen Art.-13-Informationen zusätzlich leicht erreichbar
 4. **Unmissverständlich** — aktive Handlung: Klick auf „Akzeptieren", NICHT Scrollen, NICHT Weitersurfen, NICHT vorausgewählte Checkbox
@@ -55,7 +55,7 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 ### CMP-Anforderungen (Mindestpflichten)
 
 - Keine nicht-notwendigen Cookies/Scripts **vor** Einwilligung
-- Ablehnen-Button **gleichwertig prominent** auf erster Ebene (LG Rostock 3 O 762/19; OVG NRW-orientierte Aufsichtsbehörden)
+- Ablehnen-Möglichkeit auf erster Ebene, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (DSK, OH Digitale Dienste V1.2, Rn. 124 f.; in der Praxis meist der Fall); Ablehnen darf nicht schwerer sein als Zustimmen. LG Rostock 3 O 762/19 <<VERIFIKATION AUSSTEHEND>>
 - Zwei-Klick-Modell für Einzelentscheidungen pro Kategorie
 - Keine Dark Patterns (Farbgebung, Platzierung, Textmanipulation)
 - Consent-Log serverseitig speicherbar
@@ -133,6 +133,11 @@ zu verwalten.
   C-604/22 praezisiert; Technikneutralitaet auf § 25 Abs. 1 TDDDG gestuetzt;
   Load-Balancer-Vorbehalt, Sprach-/Theme-Praeferenz und Informationspflicht
   vor Einwilligung praezisiert.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Ablehnen-Moeglichkeit auf erster Ebene nach DSK OH Digitale Dienste V1.2
+  (Rn. 124 f.) statt pauschaler Pflicht, Halbsatz ohne Beleg gestrichen,
+  LG Rostock mit Marker; cookielose Tools nur bei fehlendem Endgeraetezugriff
+  einwilligungsfrei.
 
 ## Siehe auch
 

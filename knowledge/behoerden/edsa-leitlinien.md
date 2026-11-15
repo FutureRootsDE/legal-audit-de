@@ -2,9 +2,9 @@
 aktualisiert: 2026-11-15
 quelle-primaer: https://www.edpb.europa.eu/
 quellen-sekundaer:
-  - https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en
-  - https://www.edpb.europa.eu/our-work-tools/our-documents/type/guidelines_en
-  - https://www.edpb.europa.eu/system/files/2026-02/edpb_work-programme_2026-2027_en.pdf
+  - https://www.edpb.europa.eu/documents_en
+  - https://www.edpb.europa.eu/public-consultations_en
+  - https://www.edpb.europa.eu/system/files/documents/2026-02/edpb_work-programme_2026-2027_en.pdf
 verifiziert-am: 2026-11-14
 geltungsbereich: [EU]
 ---
@@ -22,15 +22,15 @@ geltungsbereich: [EU]
 
 ## Kurz-Überblick
 
-Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection Board, EDPB) ist ein unabhängiges EU-Organ mit Rechtspersönlichkeit (Art. 68 DSGVO). Er besteht aus den Leitern der Aufsichtsbehörden aller EU/EWR-Mitgliedstaaten sowie dem Europäischen Datenschutzbeauftragten (EDSB). Der EDSA veröffentlicht Leitlinien, Empfehlungen und Stellungnahmen zur einheitlichen Anwendung der DSGVO. Er ist Nachfolger der Art.-29-Datenschutzgruppe (WP29).
+Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection Board, EDPB) ist eine unabhängige Einrichtung der Union mit eigener Rechtspersönlichkeit (Art. 68, 69 DSGVO). Er besteht aus dem Leiter einer Aufsichtsbehörde jedes Mitgliedstaats und dem Europäischen Datenschutzbeauftragten (EDSB) (Art. 68 Abs. 3 DSGVO). Der EDSA veröffentlicht Leitlinien, Empfehlungen und Stellungnahmen zur einheitlichen Anwendung der DSGVO. Er ist Nachfolger der Art.-29-Datenschutzgruppe (WP29).
 
 ## Rolle und Aufgaben (Art. 70 DSGVO)
 
 1. **Einheitliche Anwendung** der DSGVO sicherstellen (Kohärenzverfahren Art. 63)
 2. **Leitlinien, Empfehlungen, Bewährte Verfahren** veröffentlichen
 3. **Verbindliche Beschlüsse** in Streit-Fällen zwischen federführender und betroffener Aufsichtsbehörde (Art. 65)
-4. **Beratung der Kommission** zu delegierten Rechtsakten
-5. **Stellungnahmen** zu Entwurf-Beschlüssen der Kommission (z. B. Angemessenheitsbeschlüsse, SCCs)
+4. **Beratung der Kommission** in allen Datenschutzfragen, einschließlich Änderungsvorschlägen zur DSGVO (Art. 70 Abs. 1 lit. b)
+5. **Stellungnahmen** für die Kommission zur Angemessenheit eines Drittlands (Art. 70 Abs. 1 lit. s) sowie im Kohärenzverfahren zu Standard-Datenschutzklauseln der Aufsichtsbehörden (Art. 64 Abs. 1 lit. d)
 
 ## Wichtige Leitlinien (Auswahl, Stand 2026)
 
@@ -103,11 +103,13 @@ Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection 
 - **Guidelines 02/2025 on Blockchain Technologies** (final 07.07.2026)
 - **Guidelines 3/2025 on DSA-GDPR Interplay** (final 17.09.2026)
 - **Leitlinien 1/2024 zu Art. 6 Abs. 1 lit. f DSGVO** (Fassung vom 10.11.2026)
+- **Leitlinien 01/2022 zum Auskunftsrecht** (final 17.04.2023, Version 2.1)
+- **Leitlinien 8/2020 zum Targeting von Social-Media-Nutzern** (final 13.04.2021)
 
-**Public Consultation abgeschlossen, finalisiert/in Finalisierung:**
+**Konsultation abgeschlossen, Endfassung noch nicht angenommen:**
 - **Guidelines 01/2025 on Pseudonymisation** (17.01.2025)
 - **Joint Guidelines on DMA-GDPR Interplay** (09.10.2025)
-- **Recommendations 2/2025 on E-commerce User Accounts** (04.12.2025)
+- **Recommendations 2/2025 on E-commerce User Accounts** (Konsultation 04.12.2025 bis 12.02.2026)
 
 **Public Consultations 2026:**
 - **Recommendations 1/2026 on Processor Binding Corporate Rules**: Konsultation 19.01. bis 02.03.2026, Fassung vom 10.11.2026 veroeffentlicht
@@ -123,6 +125,7 @@ verifiziert 2026-11-14):
   angenommen 07.07.2026, Konsultation bis 30.10.2026. Kernaussage: Einwilligung
   als Rechtsgrundlage fuer Massen-Scraping von Drittdaten praktisch
   unzureichend (fehlende direkte Beziehung zu Betroffenen).
+- **Konsultationen 2026:** Template Datenpannenmeldung (10.06. bis 05.08.2026), Template DSFA (14.04. bis 09.06.2026)
 - **Guidelines 04/2026 zur Bussgeldbefugnis im Verhaeltnis zu anderen
   Abhilfebefugnissen**: Konsultation 21.09. bis 13.11.2026 beendet.
 - **„Consent or Pay"-Guidelines** — im Arbeitsprogramm 2026-2027 als anstehend
@@ -178,3 +181,9 @@ verifiziert 2026-11-14):
   11.02.2026 (Datum 20.01.2026 gestrichen); Bindender Beschluss 01/2020
   betrifft Twitter; ergaenzt: Leitlinien 1/2024 (lit. f, 10.11.2026),
   03/2022 und 04/2022.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Quell-Links (documents_en, public-consultations_en, Arbeitsprogramm);
+  Zusammensetzung des EDSA nach Art. 68 DSGVO; Aufgaben nach Art. 70 Abs. 1
+  lit. b und s, Art. 64 Abs. 1 lit. d; Leitlinien 01/2022 und 8/2020 sowie
+  Templates 2026 ergaenzt; Status "Konsultation abgeschlossen, Endfassung
+  noch nicht angenommen".

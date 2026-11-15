@@ -37,7 +37,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 
 ## Bundesbehoerde (BfDI)
 
-### BfDI — Bundesbeauftragte fuer den Datenschutz und die Informationsfreiheit
+### BfDI: Der Bundesbeauftragte fuer den Datenschutz und die Informationsfreiheit
 
 | Feld | Wert |
 |------|------|
@@ -47,7 +47,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Website | https://www.bfdi.bund.de/ |
 | Online-Formulare | https://formulare.bfdi.bund.de/ |
 | Leitung | **Prof. Dr. Moritz Hennemann**, Amtsantritt **01.10.2026** (Antrittspressekonferenz am 06.10.2026). Wahl durch den Bundestag am 25.06.2026 (391 Ja, 122 Nein, 77 Enthaltungen). Vorgaengerin: Prof. Dr. Louisa Specht-Riemenschneider (bis 30.09.2026, Ruecktrittsankuendigung Maerz 2026). Quellen: bundestag.de KW26/2026-Textarchiv, bfdi.bund.de (Amtsleitungsseite). |
-| Zustaendigkeit | Bundesbehoerden, Telekommunikation, Post, Bundesnachrichtendienste, Sozialversicherungstraeger bundesweit |
+| Zustaendigkeit | Oeffentliche Stellen des Bundes einschliesslich bundesunmittelbarer Sozialversicherungstraeger und Nachrichtendienste des Bundes (§ 9 Abs. 1 BDSG); Telekommunikationsunternehmen, soweit sie Telekommunikationsdienste erbringen (§ 9 Abs. 1 BDSG, § 29 Abs. 1 TDDDG); Postdienstleister, soweit sie Postdienstleistungen erbringen (§ 71 Abs. 1 PostG) |
 | Meldung Datenpanne | Online-Formular "Meldung Datenschutzverstoss durch Verantwortliche" unter formulare.bfdi.bund.de |
 
 ## Uebersichtstabelle — 16 Landesbeauftragte
@@ -225,7 +225,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Postanschrift | Postfach 1947, 39009 Magdeburg |
 | Telefon | +49 391 81803-0 |
 | Fax | +49 391 81803-33 |
-| Leitung | Maria Christina Rost (Amtsantritt 01.08.2024; vorher Albert Cohaus kommissarisch ab 01.01.2021) |
+| Leitung | Maria Christina Rost (Amtsantritt 01.08.2024; Vorgaenger laut Behoerde: Dr. Harald von Bose, davor Kalk) |
 
 ### Schleswig-Holstein — ULD
 
@@ -263,7 +263,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 
 1. **Hauptniederlassung in DE** → LDA des Bundeslandes des Hauptsitzes
 2. **Mehrere Niederlassungen in DE** → Sitz des Hauptverwaltungs-/Hauptgeschaeftsortes
-3. **Niederlassung ausserhalb EU, aber EU-Vertreter in DE** (Art. 27 DSGVO) → LDA am Ort des EU-Vertreters
+3. **Niederlassung ausserhalb EU, aber EU-Vertreter in DE** (Art. 27 DSGVO): Ohne Niederlassung in der EU gibt es keine federfuehrende Behoerde (Art. 56 Abs. 1 setzt eine Niederlassung voraus); der Vertreter nach Art. 27 begruendet keine ausschliessliche Zustaendigkeit (Art. 27 Abs. 5). Zustaendig ist jede Aufsichtsbehoerde, in deren Gebiet Betroffene beruehrt sind (Art. 55 Abs. 1); innerdeutsche Zustaendigkeit gesetzlich nicht ausdruecklich geregelt, die Behoerde am Sitz des Vertreters ist praktischer Ansprechpartner (Praxisannahme).
 4. **One-Stop-Shop bei grenzueberschreitender Verarbeitung** → federfuehrende Behoerde nach Art. 56 DSGVO (haeufig am Sitz der Hauptniederlassung im EU-Ausland)
 
 ### Fuer oeffentliche Stellen
@@ -281,7 +281,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | BfDI | https://formulare.bfdi.bund.de/ (Formular "Meldung Datenschutzverstoss durch Verantwortliche") |
 | BayLDA | https://www.lda.bayern.de/de/datenpanne.html |
 | LDI NRW | https://www.ldi.nrw.de/kontakt/meldepflicht-fuer-verantwortliche-verletzungen-des-schutzes-personenbezogener-daten |
-| BlnBDI | https://www.datenschutz-berlin.de/ — Meldeformular im Kontakt-Bereich |
+| BlnBDI | https://www.datenschutz-berlin.de/datenschutz/datenschutzvorfall/datenschutzvorfall-als-verantwortlicher-melden/ (Service, Datenschutzvorfall melden) |
 | Andere | siehe jeweilige Behoerden-Website, Suchbegriff "Datenpanne" oder "Meldung Art. 33" |
 
 Allgemeine Regel: Wenn kein Online-Formular: per verschluesseltem Kontaktformular oder PGP-verschluesselter E-Mail (jede Aufsichtsbehoerde publiziert PGP-Key). **Niemals unverschluesselt E-Mail** fuer Pannen-Details.
@@ -290,9 +290,11 @@ Allgemeine Regel: Wenn kein Online-Formular: per verschluesseltem Kontaktformula
 
 1. **0 h** Panne entdeckt → Incident-Team aktivieren, Log-Sicherung
 2. **< 24 h** Risiko-Einschaetzung nach DSK-Kurzpapier 18 (Schwere x Eintrittswahrscheinlichkeit)
-3. **< 72 h** Meldung an zustaendige Aufsichtsbehoerde (Art. 33)
+3. **Unverzueglich, moeglichst binnen 72 Stunden ab Kenntnis:** Meldung an die zustaendige Aufsichtsbehoerde (Art. 33 Abs. 1), entfaellt nur, wenn voraussichtlich kein Risiko besteht
 4. **Ohne Verzug** Benachrichtigung betroffener Personen (Art. 34) — nur bei hohem Risiko
 5. **Dokumentation** intern auch wenn Risiko nicht hoch (Art. 33 Abs. 5 — Nachweispflicht)
+
+Ergaenzend: Der Auftragsverarbeiter meldet dem Verantwortlichen unverzueglich (Art. 33 Abs. 2). Eine Meldung nach 72 h ist nur mit Begruendung der Verzoegerung moeglich (Art. 33 Abs. 1 S. 2). Fehlende Angaben duerfen schrittweise nachgereicht werden (Art. 33 Abs. 4).
 
 ## Pflicht-Angaben in der Meldung (Art. 33 Abs. 3)
 
@@ -371,3 +373,9 @@ Die 18 Behoerden (BfDI und 17 Landesbehoerden, Bayern mit zwei) koordinieren sic
   01.08.2024; Schleswig-Holstein: Wahl Dr. Jens Ambrock am 07.10.2026 ueber
   ULD-Pressemitteilung belegt, Marker entfernt, dpa/t-online-Verweis und
   Angabe zur Ernennung ersetzt; DSK: BfDI und 17 Landesbehoerden.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Bezeichnung BfDI; Zustaendigkeit des BfDI nach § 9 Abs. 1 BDSG, § 29 Abs. 1
+  TDDDG und § 71 Abs. 1 PostG; Sachsen-Anhalt: Vorgaenger laut Behoerde
+  (Cohaus-Angabe gestrichen); EU-Vertreter nach Art. 27 DSGVO ohne
+  ausschliessliche Zustaendigkeit; Meldeweg BlnBDI; Meldepflicht-Ablauf nach
+  Art. 33 Abs. 1, 2 und 4.

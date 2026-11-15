@@ -47,7 +47,7 @@ AVV muss **schriftlich oder in elektronischer Form** abgeschlossen werden (elekt
 
 ### EU-Standardvertrag (Art. 28 Abs. 7/8)
 
-EU-Kommission hat Standard-Vertragsklauseln (SCC) für AVV veröffentlicht: **Durchführungsbeschluss 2021/915 vom 04.06.2021**. Bei Nutzung keine weitere Genehmigung durch Aufsichtsbehörde nötig.
+EU-Kommission hat Standardvertragsklauseln für AVV erlassen: **Durchführungsbeschluss (EU) 2021/915 vom 04.06.2021** (ABl. L 199 vom 7.6.2021, S. 18). Die Klauseln erfüllen nach Art. 1 des Beschlusses die Anforderungen des Art. 28 Abs. 3 und 4 DSGVO und können ganz oder teilweise Grundlage des Vertrags sein (Art. 28 Abs. 6, 7 DSGVO); eine aufsichtsbehördliche Genehmigung ist für AVV ohnehin nicht vorgesehen.
 
 ### Sub-Auftragsverarbeiter (Art. 28 Abs. 2, 4)
 
@@ -68,13 +68,13 @@ EU-Kommission hat Standard-Vertragsklauseln (SCC) für AVV veröffentlicht: **Du
 - HR-Tools (Personio, BambooHR)
 - Error-Monitoring (Sentry, Datadog)
 - Customer Support (Intercom, Zendesk)
-- Payment-Provider: oft **Controller** (eigener Compliance-Zweck) statt Processor
 
 **Nein — kein AVV (sondern eigene Rechtsgrundlage / Controller-Controller):**
 - Banken, Steuerberater, Wirtschaftsprüfer (eigene Berufs-/Geheimhaltungspflichten)
 - Paketdienstleister (teils)
 - Behörden
-- **Payment-Provider wie Stripe, PayPal:** Stripe sieht sich als „Independent Controller" — JCA oder Controller-Controller-Klauseln statt klassischem AVV
+
+**Zahlungsdienstleister:** häufig (auch) eigene Verantwortliche; Rollenverteilung dem Vertrag und der Datenschutzvereinbarung des Anbieters entnehmen.
 
 ### Gemeinsame Verantwortung (Art. 26 DSGVO, Joint Controller)
 
@@ -114,7 +114,7 @@ Wenn beide Parteien Zwecke und Mittel gemeinsam festlegen (z. B. Fashion ID / Fa
 
 ## Zitierbare Urteile
 
-- **EuGH C-683/21 (Nacionalinis visuomenės sveikatos centras), 05.12.2023** — Controller-Status setzt keinen tatsächlichen Datenzugriff voraus
+- **EuGH C-683/21 (Nacionalinis visuomenės sveikatos centras), 05.12.2023** — Controller-Status setzt keine eigenen Verarbeitungsvorgänge voraus (Tenor 1); Bußgeld nach Art. 83 DSGVO nur bei Vorsatz oder Fahrlässigkeit, kann aber gegen den Verantwortlichen auch für Verarbeitungen seines Auftragsverarbeiters verhängt werden, außer der Auftragsverarbeiter hat für eigene Zwecke oder außerhalb des vom Verantwortlichen festgelegten Rahmens verarbeitet (Tenor 4)
 - **EuGH C-40/17 (Fashion ID), 29.07.2019** — Joint-Controller-Definition
 - **EuGH C-210/16 (Wirtschaftsakademie), 05.06.2018** — Facebook-Seiten-Betreiber als Mitverantwortliche
 - **OLG Frankfurt 6 U 119/23, 30.11.2023** — AVV-Mängel als Wettbewerbsverstoß (streitig) <<VERIFIKATION AUSSTEHEND>>
@@ -135,6 +135,11 @@ Wenn beide Parteien Zwecke und Mittel gemeinsam festlegen (z. B. Fashion ID / Fa
   BayLDA-Ausnahme fuer rein statisches Hosting ergaenzt; nicht existente
   "BayLDA Checkliste AVV" durch BayLDA Formulierungshilfe und
   Abgrenzungshilfe ersetzt.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Genehmigungssatz zum Standard-AVV ersetzt (Art. 1 des Beschlusses,
+  Art. 28 Abs. 6, 7 DSGVO, ABl.-Fundstelle); EuGH C-683/21 um Tenor 1 und
+  Tenor 4 praezisiert; Zahlungsdienstleister als eigene Zeile statt in Ja-
+  und Nein-Liste.
 
 ## Siehe auch
 

@@ -102,30 +102,20 @@ Der BGH uebernahm die EuGH-Rechtsprechung und entschied:
   Nr. 2 UWG).
 - Ohne Einwilligung der betroffenen Nutzer ist die Werbung **unzulaessige
   unzumutbare Belaestigung**.
-- Unterlassungsanspruch des Mitbewerbers nach §§ 8, 3, 7 UWG ist begruendet.
+- Unterlassungsanspruch der Mitbewerberin nach § 8 Abs. 1 und 3 Nr. 1, § 7 Abs. 1 Satz 1, Abs. 2 Nr. 3 UWG a.F. (heute § 7 Abs. 2 Nr. 2 UWG) begründet (Rn. 14, 15).
 
-Damit war klargestellt: Inbox-Advertising in Freemail-Diensten (GMX, Web.de,
-T-Online, Yahoo) unterliegt denselben Einwilligungs-Anforderungen wie klassische
+Damit war für Inbox-Werbung in Freemail-Diensten (Streitfall: T-Online), die
+wie eine E-Mail in der Posteingangsliste erscheint, geklärt: Sie unterliegt denselben Einwilligungs-Anforderungen wie klassische
 Werbe-E-Mails.
 
 ## Bedeutung fuer Codebases
 
-1. **Display-Werbung mit E-Mail-Kontext** (Inbox-Ads, Push-Notifications im
-   Messenger) benoetigt ebenfalls Einwilligung des Empfaengers, wenn sie im
-   "persoenlichen" Kommunikationsraum erscheint.
-2. **Programmatic Advertising Networks** koennen nicht beliebig
-   E-Mail-Postfaecher monetarisieren — rechtliche Pruefung der Platzierungen
-   notwendig.
-3. **Transaktions-E-Mails mit Banner-Werbung** sind potenziell betroffen,
-   wenn Banner stark wirbt.
-4. **Push-Benachrichtigungen von Apps mit Werbeinhalt** sind auf § 7 UWG hin
-   zu pruefen (str., Tendenz: analog).
+Das Urteil trägt nur für Einblendungen in der Nachrichtenliste eines Postfachs, die wie E-Mails erscheinen (EuGH C-102/20 Tenor 1; BGH-Leitsatz). Messenger-Push, Programmatic Networks und Werbung in Transaktions-E-Mails sind nicht Gegenstand von EuGH/BGH; dort gilt § 7 Abs. 2 Nr. 2, Abs. 3 UWG unmittelbar bzw. ist gesondert zu prüfen (Analogieschluss, nicht entschieden).
 
 ## Relevanz fuer Codebase-Typen
 
-- **SaaS/Shop:** Keine unaufgeforderte Banner-Werbung in User-Postfaechern
-  des eigenen Produkts, wenn Drittwerbung.
-- **Newsletter-Tools:** Inbox-Native-Ads (z.B. Gmail Sponsored Promotions)
+- **SaaS/Shop mit Postfach-Funktion:** Werbeeinblendungen in der Inbox (eigene oder fremde) nur mit vorheriger, konkret über die Anzeige in der E-Mail-Liste informierter Einwilligung (BGH I ZR 25/19; § 7 Abs. 2 Nr. 3 UWG a. F., heute Nr. 2).
+- **Newsletter-Tools:** Inbox-Native-Ads (z.B. Gmail Sponsored Promotions, Übertragung des Falls T-Online; nicht entschieden)
   rechtlich problematisch fuer den buchenden Werbetreibenden.
 - **n8n-Workflows:** Workflows, die automatisiert E-Mails / In-App-Messages
   versenden, muessen sauber zwischen Transaktion und Werbung trennen.
@@ -161,3 +151,9 @@ stattgebende Urteil des LG wiederhergestellt.
   "Werbemittel-Beschraenkung"; amtlicher Leitsatz (Rn. 37) aufgenommen;
   Tenor richtiggestellt (Revision der Klaegerin erfolgreich, LG-Urteil
   wiederhergestellt).
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Anspruchsgrundlage des Unterlassungsanspruchs nach § 8 Abs. 1 und 3 Nr. 1,
+  § 7 UWG; Reichweite des Urteils auf Einblendungen in der Nachrichtenliste
+  begrenzt (Messenger-Push u.a. nicht entschieden); Streitfall T-Online
+  kenntlich gemacht; Normzitat und Gmail-Beispiel in den Codebase-Typen
+  praezisiert.

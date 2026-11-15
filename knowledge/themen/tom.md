@@ -80,6 +80,7 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 | **SOC 2 Type II** | AICPA | Security, Availability, Confidentiality | US-lastige SaaS |
 | **TISAX** | VDA | Automotive | Automotive-Lieferketten |
 | **CCM** | Cloud Security Alliance | Cloud Controls | Cross-Framework-Mapping |
+| **§ 30 BSIG (NIS-2)** | Gesetzgeber / BSI | Pflicht-Risikomanagementmaßnahmen (10 Mindestmaßnahmen, Abs. 2) | Für besonders wichtige und wichtige Einrichtungen verbindlich; für andere als Maßstab |
 
 ## Typische Fallstricke in Codebases
 
@@ -126,6 +127,7 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 ## Behörden-Hinweise
 
 - **BSI Leitfaden „Stand der Technik"** (jährlich aktualisiert)
+- **§ 30 BSIG** (BSI-Gesetz vom 02.12.2025, BGBl. 2025 I Nr. 301, in Kraft seit 06.12.2025): gesetzlicher Mindestkatalog
 - **DSK Kurzpapier Nr. 18** — Risiko für die Rechte und Freiheiten natürlicher Personen (Grundlage der Risikobewertung nach Art. 32)
 - **ENISA Guidelines for SMEs on the Security of Personal Data Processing**
 - **BSI C5 Kriterienkatalog** (für Cloud-Anbieter)
@@ -160,3 +162,6 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
   Fristen aufgeschluesselt; Fehlverweis DSK Kurzpapier Nr. 2 durch Nr. 18
   ersetzt; BSI C5 nicht auf deutsche Anbieter beschraenkt; Art. 32 Abs. 3
   am Wortlaut ausgerichtet.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  § 30 BSIG (Risikomanagementmassnahmen, in Kraft seit 06.12.2025) in die
+  Rahmenwerk-Tabelle und die Behoerden-Hinweise aufgenommen.

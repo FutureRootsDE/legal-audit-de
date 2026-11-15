@@ -68,6 +68,10 @@ C-703/25 P beim EuGH anhaengig (eingelegt am 31.10.2025).
   anderen Verfahren gleichwohl beeinflussen.
 - **Massgebliche Vorschriften**: Art. 45 DSGVO (Angemessenheitsbeschluss);
   GRCh Art. 7, 8, 47; EO 14086; AG Regulation 28 CFR Part 201 (DPRC).
+- **Gepruefte Klagegruende**: Geprueft wurden die Klagegruende 2 bis 5
+  (Art. 7/8 GRCh; Art. 47 GRCh i.V.m. Art. 45 Abs. 2 DSGVO; Art. 22 DSGVO;
+  Art. 32 i.V.m. Art. 45 Abs. 2 DSGVO); alle zurueckgewiesen (zum vierten
+  Rn. 187), Klagegrund 1 (Sprachenregelung VO 1/1958) zurueckgenommen.
 
 ## Bedeutung fuer Audits
 
@@ -126,3 +130,5 @@ C-703/25 P beim EuGH anhaengig (eingelegt am 31.10.2025).
   Sammelerhebung neu gefasst (keine vorherige Genehmigung erforderlich,
   nachtraegliche Kontrolle durch den DPRC, Rn. 94 ff., 105 f.); Angabe
   "zwoelf Zwecke" gestrichen (im Urteil nicht auffindbar).
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Uebersicht der geprueften Klagegruende (2 bis 5) ergaenzt.

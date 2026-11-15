@@ -84,7 +84,7 @@ Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) i
 ### Health / Telematikinfrastruktur (TI)
 
 - **Orientierungshilfen zu ePA (elektronische Patientenakte), E-Rezept, DiGA**
-- Relevante Stellungnahmen zu § 291a SGB V
+- Relevante Stellungnahmen zu §§ 341 ff. SGB V (elektronische Patientenakte); § 291a SGB V regelt nur noch die elektronische Gesundheitskarte als Versicherungsnachweis
 
 ### Bußgeldkatalog der DSK
 
@@ -106,7 +106,7 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
 
 ## Aktuelle Initiativen 2026
 
-- **ReguLab** — BfDI-Sandbox-Projekt für mehr Klarheit beim Datenschutz; Ausschreibung im April 2026 gestartet (Quelle: bfdi.bund.de Kurzmeldung 04_Ausschreibungsstart_ReguLab)
+- **ReguLab:** Beratungsformat der BfDI; erste Ausschreibung am 23.03.2026 gestartet, Bewerbungsfrist 15.05.2026, nur bundesunmittelbare gesetzliche Kranken- und Pflegekassen (Quelle: bfdi.bund.de Kurzmeldung 04_Ausschreibungsstart_ReguLab)
 
 ## Beschwerde-/Meldewege
 
@@ -139,7 +139,7 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
 
 1. **Öffentliche Bundesstellen / Bundesbehörden / TK-Anbieter:** BfDI
 2. **Privatwirtschaftliche Unternehmen:** Länder-Behörde am Sitz der Hauptniederlassung
-3. **Bei Niederlassungen in mehreren Ländern:** federführende Behörde nach Art. 56 DSGVO + Kohärenzverfahren
+3. **Bei Niederlassungen in mehreren Bundesländern:** Behörde am Ort der Hauptniederlassung (§ 40 Abs. 2 BDSG i.V.m. Art. 4 Nr. 16 DSGVO). Bei Niederlassungen in mehreren EU-Mitgliedstaaten (grenzüberschreitende Verarbeitung): federführende Behörde nach Art. 56 DSGVO und Verfahren nach Art. 60 ff. DSGVO.
 4. **Cross-border-Unternehmen (EU):** „Lead Supervisory Authority" (One-Stop-Shop) — z. B. DPC Ireland für Meta, Google Irland
 
 ## Praktischer Umgang
@@ -172,3 +172,8 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
   Abs. 3 BDSG); KI-Orientierungshilfe als DSK-Papier vom 06.05.2024;
   Bussgeldzumessung nach EDSA-Leitlinien 04/2022, DSK-Konzept 2019
   abgeloest; 34. (nicht 35.) Taetigkeitsbericht, BT-Drs. 21/5950.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Gesundheits-Stellungnahmen auf §§ 341 ff. SGB V (§ 291a SGB V nur noch
+  Gesundheitskarte); ReguLab nach Kurzmeldung (23.03.2026, Frist
+  15.05.2026); Zustaendigkeit bei mehreren Niederlassungen nach § 40 Abs. 2
+  BDSG und Art. 56 DSGVO getrennt.

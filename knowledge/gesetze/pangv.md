@@ -39,8 +39,10 @@ Preise auszuzeichnen haben. Die **Neufassung trat am 28.05.2022 in Kraft**
 (Umsetzung der EU-Omnibus-Richtlinie 2019/2161). Wichtigste Neuerung: § 11
 PAngV mit der **30-Tage-Streichpreis-Regel**.
 
-Die PAngV konkretisiert § 1 UKlaG / §§ 3, 5, 5a UWG und ist ueber § 3a UWG
-(Rechtsbruch) wettbewerbsrechtlich abmahnfaehig.
+Verstoesse gegen die PAngV sind wettbewerbsrechtlich abmahnfaehig. Fuer § 11
+Abs. 1 PAngV beurteilt der BGH die Unlauterkeit nach §§ 5a, 5b UWG und nicht
+nach § 3a UWG (BGH I ZR 183/24, LS 2); fuer andere PAngV-Pflichten im Einzelfall
+pruefen.
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -99,8 +101,11 @@ schriftlicher Einzelangebote).
 ## Typische Fallstricke in Codebases
 
 1. **Hardcoded Streichpreise ohne Audit-Trail:** Der "999 EUR statt 1999 EUR"-
-   Rabatt muss als **UVP-Vergleich** (nicht § 11) ODER **Streichpreis aus
-   30-Tage-Historie** (§ 11) klar gekennzeichnet werden. Ohne DB-Historie
+   Rabatt muss als **Vergleich mit der unverbindlichen Preisempfehlung des
+   Herstellers**, klar als UVP gekennzeichnet, ODER als **Streichpreis aus
+   30-Tage-Historie** (§ 11) klar gekennzeichnet werden. Ob § 11 PAngV beim
+   UVP-Vergleich greift, haengt davon ab, ob die Darstellung als Ermaessigung
+   des eigenen Preises verstanden wird; im Einzelfall pruefen. Ohne DB-Historie
    unmoeglich zu rechtfertigen.
 2. **Black-Friday-Pseudo-Rabatte:** Preise kurz vor Aktion erhoehen, dann
    "reduzieren" ist klassischer Verstoss.
@@ -220,3 +225,7 @@ schriftlicher Einzelangebote).
   § 20 PAngV mit 25.000 EUR bis 31.12.2026 und 100.000 EUR ab 01.01.2027;
   EuGH C-330/23 inhaltlich berichtigt; Versandkostenhinweis bereits beim
   Angebot (§ 6 PAngV).
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Abmahnfaehigkeit ohne "konkretisiert § 1 UKlaG"; fuer § 11 Abs. 1 PAngV
+  Beurteilung nach §§ 5a, 5b UWG (BGH I ZR 183/24, LS 2); UVP-Vergleich neutral
+  gefasst, Gleichung "(nicht § 11)" gestrichen.

@@ -95,7 +95,7 @@ T+1   Triage: Ist es eine Verletzung i.S.d. Art. 4 Nr. 12?
 T+2   Incident-Response-Team aktivieren, DSB/CISO einbeziehen
 T+4   Scope-Analyse: Welche Daten / Personen / Systeme?
 T+8   Containment + Forensics
-T+24  Risiko-Bewertung (Severity × Likelihood)
+T+24  Risiko-Bewertung (Severity × Likelihood); bei NIS-2-Einrichtungen zugleich frühe Erstmeldung nach § 32 Abs. 1 Nr. 1 BSIG
 T+48  Meldeentwurf (Behörde + ggf. Betroffene)
 T+72  Meldung über Portal der Aufsichtsbehoerde
 T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
@@ -121,8 +121,8 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
   - Credentials-Rotation-Plan wenn Zugriff kompromittiert
   - Workflow-Audit-Log analysieren
 - **E-Commerce:**
-  - Zahlungsdaten-Leaks = immer hohes Risiko → Art. 34; zusätzlich vertragliche Meldepflichten aus PCI DSS gegenüber Acquirer/Kartenorganisation
-  - PSD2/BaFin-Meldungen parallel
+  - Zahlungsdaten-Leaks begründen regelmäßig ein hohes Risiko; Benachrichtigung nach Art. 34 im Einzelfall prüfen (Ausnahme z. B. wirksam verschlüsselte Daten mit unkompromittiertem Schlüssel, EDSA-Leitlinien 9/2022); zusätzlich vertragliche Meldepflichten aus PCI DSS gegenüber Acquirer/Kartenorganisation
+  - Meldungen an die Finanzaufsicht treffen nur Unternehmen, die selbst Zahlungsdienstleister oder Finanzunternehmen sind: Zahlungsinstitute, E-Geld-Institute und CRR-Kreditinstitute melden schwerwiegende IKT-Vorfälle seit 17.01.2025 nach Art. 19 DORA; § 54 Abs. 1 bis 4 ZAG gilt für sie nicht mehr (§ 54 Abs. 7 ZAG). Händler und Shops, die Zahlungsdienste nur nutzen, trifft diese Meldepflicht nicht.
 - **Content/Blog:**
   - WP-Hack (häufig): Datenbank-Analyse erforderlich (wp_users, wp_comments)
 
@@ -134,9 +134,13 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
 - **EDSA Leitlinien 9/2022 zur Meldung von Verletzungen des Schutzes personenbezogener Daten, Version 2.0 vom 28.03.2023** (ersetzen WP 250 rev.01)
 - **BfDI Infoblatt „Meldung einer Datenschutzverletzung"**
 
+### Parallele Meldepflicht nach § 32 BSIG (seit 06.12.2025)
+
+Besonders wichtige und wichtige Einrichtungen (§ 28 BSIG) melden erhebliche Sicherheitsvorfälle zusätzlich zur Art.-33-Meldung an die gemeinsame Meldestelle von BSI und BBK: frühe Erstmeldung binnen 24 h, Meldung binnen 72 h, Zwischenmeldung auf Ersuchen, Abschlussmeldung spätestens einen Monat nach der 72-h-Meldung (bei andauerndem Vorfall Fortschrittsmeldung). Die Pflicht gilt ab Einrichtung des Meldewegs.
+
 ## Zitierbare Urteile
 
-- **EuGH C-340/21 (Natsionalna agentsia), 14.12.2023** — Cyberangriff führt nicht automatisch zu TOM-Verstoß; Beweislast liegt aber beim Verantwortlichen
+- **EuGH C-340/21 (Natsionalna agentsia), 14.12.2023** — Cyberangriff führt nicht automatisch zu TOM-Verstoß; Beweislast liegt aber beim Verantwortlichen; keine Haftungsbefreiung allein wegen Handelns Dritter, Entlastung nur bei Nachweis, dass der Verantwortliche in keinerlei Hinsicht verantwortlich ist (Tenor 5)
 - **EuGH C-687/21, 25.01.2024**: Irrtümliche Weitergabe an Dritte belegt für sich keine ungeeigneten TOM; hat der Dritte die Daten nachweislich nicht zur Kenntnis genommen, ist die bloße Befürchtung künftigen Missbrauchs kein immaterieller Schaden (Tenor 5). Befürchtung als möglicher Schaden: EuGH C-340/21, Tenor 6.
 - **BGH VI ZR 10/24 (Facebook-Scraping), 18.11.2024** — Urteil im nach § 552b ZPO bestimmten Leitentscheidungsverfahren: bereits der kurzzeitige Verlust der Kontrolle ueber personenbezogene Daten kann einen immateriellen Schaden nach Art. 82 DSGVO begruenden; Groessenordnung im Ausgangsverfahren ca. 100 EUR
 - **EuGH C-655/23 (IP/Quirin Privatbank), 04.09.2025** — Auch negative Gefuehle nach unbefugter Weitergabe von Daten koennen immateriellen Schaden begruenden <<VERIFIKATION AUSSTEHEND>>
@@ -173,3 +177,8 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
   28 O 328/21 (Datum 18.05.2022, Gegenstand) berichtigt, Marker dort
   entfernt; PCI-DSS-Pflichten als vertraglich gekennzeichnet; EDSA
   Leitlinien 9/2022 v2.0 statt WP 250; URL LDA Bayern korrigiert.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  parallele Meldepflicht nach § 32 BSIG ergaenzt (Workflow T+24);
+  EuGH C-340/21 um Tenor 5 ergaenzt; Zahlungsdaten-Leaks nicht mehr
+  "immer" hohes Risiko; Finanzaufsicht-Meldung nur fuer Zahlungsdienstleister
+  und Finanzunternehmen (DORA, § 54 Abs. 7 ZAG).

@@ -4,7 +4,6 @@ quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__7.html
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
-  - https://www.bmj.de/DE/themen/verbraucherrecht/lauterkeitsrecht/uwg_node.html
 verifiziert-am: 2026-11-14
 geltungsbereich: [DE]
 ---
@@ -98,8 +97,9 @@ Belaestigung liegt stets vor bei Werbung "unter Verwendung einer automatischen
 Anrufmaschine, eines Faxgeraetes oder elektronischer Post, ohne dass eine
 vorherige ausdrueckliche Einwilligung des Adressaten vorliegt".
 
-Konsequenz: Newsletter-Versand ohne dokumentierte **Double-Opt-In-Einwilligung**
-ist abmahnfaehig. Der Werbende traegt die Darlegungs- und Beweislast fuer die
+Konsequenz: Newsletter-Versand ohne vorherige ausdrueckliche Einwilligung
+(§ 7 Abs. 2 Nr. 2 UWG) ist abmahnfaehig; das Double-Opt-In-Verfahren ist das
+uebliche Nachweismittel, aber keine gesetzliche Formvorgabe. Der Werbende traegt die Darlegungs- und Beweislast fuer die
 Einwilligung (siehe BGH I ZR 218/07, Beschluss v. 20.05.2009 "E-Mail-Werbung II";
 zur Klausel-Wirksamkeit bei Kundenbindungsprogrammen siehe auch BGH VIII ZR 348/06,
 16.07.2008 "Payback").
@@ -151,6 +151,19 @@ fremden Unternehmen erhaelt oder sich versprechen laesst."
 Beweislast: Die Gegenleistung wird **vermutet**, sofern der Handelnde nicht
 glaubhaft macht, dass er keine erhalten hat.
 
+### § 5b Abs. 2, 3 UWG: Rankings und Verbraucherbewertungen
+
+§ 5b Abs. 2 UWG: Bei Suchfunktionen ueber Angebote verschiedener Anbieter sind die
+Hauptparameter des Rankings und ihre relative Gewichtung unmittelbar von der
+Ergebnisanzeige aus leicht zugaenglich anzugeben (nicht fuer Online-Suchmaschinen).
+
+§ 5b Abs. 3 UWG: Wer Verbraucherbewertungen zugaenglich macht, muss angeben, ob und
+wie er die Echtheit sicherstellt.
+
+Anhang zu § 3 Abs. 3 Nr. 11a (verdeckte bezahlte Platzierung in Suchergebnissen),
+Nr. 23b (Echtheitsbehauptung ohne angemessene Pruefung) und Nr. 23c (gefaelschte
+Bewertungen) sind per se unzulaessig.
+
 ### § 8 UWG — Unterlassungs-/Beseitigungsanspruch
 
 Aktivlegitimiert sind:
@@ -183,19 +196,24 @@ Einwilligung ist kein Anhang-Tatbestand, sondern § 7 Abs. 2 Nr. 1 UWG.
    Double-Opt-In ist gesetzlich nicht vorgeschrieben, aber anerkanntes
    Nachweisverfahren (LS 4). Zeitstempel und Einwilligungstext speichern; das
    Speichern der IP-Adresse ist keine gesetzliche Pflicht.
-2. **Pre-ticked Checkboxen:** Bereits angekreuzte Consent-Boxen sind unwirksam
-   (EuGH C-673/17 "Planet49", auf § 7 UWG uebertragen).
+2. **Pre-ticked Checkboxen:** Vorangekreuzte Einwilligungskaestchen begruenden
+   keine wirksame Einwilligung (EuGH, Urt. v. 01.10.2019, C-673/17 "Planet49",
+   zu Art. 5 Abs. 3 RL 2002/58 und DSGVO); fuer § 7 Abs. 2 Nr. 2 UWG folgt
+   dasselbe aus dem Erfordernis der vorherigen ausdruecklichen Einwilligung.
 3. **Fehlender Abmeldelink:** Jede Werbe-E-Mail muss einen funktionierenden
    Unsubscribe-Mechanismus enthalten (§ 7 Abs. 2 Nr. 3 Buchst. c UWG: gueltige
    Adresse fuer Widerspruch ohne ueber Basistarif hinausgehende Kosten; bei
    Bestandskundenwerbung zusaetzlich § 7 Abs. 3 Nr. 4 UWG; auch Art. 21 DSGVO
    als datenschutzrechtlicher Widerspruch).
-4. **Transaktions-Mails mit Cross-Selling:** "Ihre Bestellung #123 — Vielleicht
-   interessiert Sie auch..." ist Werbung i.S.v. § 7 UWG und braucht Einwilligung.
-5. **Influencer-Kooperationen ohne Kennzeichnung:** Automatisch generierte
-   Affiliate-Links, Creator-Codes oder Gifted-Product-Posts MUSSEN als
-   "#Werbung" / "#Anzeige" erkennbar sein. "#ad" reicht laut BGH-Rechtsprechung
-   nicht aus, wenn am Ende einer Hashtag-Liste versteckt.
+4. **Transaktions-Mails mit Cross-Selling** sind Werbung i. S. v. § 7 UWG; sie
+   brauchen eine Einwilligung, sofern nicht alle vier Voraussetzungen des § 7
+   Abs. 3 UWG (Adresse im Zusammenhang mit einem Verkauf erhalten, Direktwerbung
+   fuer eigene aehnliche Waren oder Dienstleistungen, kein Widerspruch,
+   Widerspruchshinweis bei Erhebung und bei jeder Verwendung) erfuellt sind.
+5. **Influencer-Kooperationen:** Affiliate-Links, Creator-Codes und Posts mit
+   Gegenleistung muessen den kommerziellen Zweck kenntlich machen (§ 5a Abs. 4
+   UWG), die Gegenleistung wird vermutet (§ 5a Abs. 4 Satz 3). Kennzeichnung klar
+   und am Beginn, z. B. "Werbung"/"Anzeige".
 6. **Tracking ohne Consent:** Zwar primaer DSGVO/TDDDG (frueher TTDSG), aber §§ 5, 5a UWG bei
    verschleierten Tracking-Hinweisen.
 
@@ -216,8 +234,13 @@ Einwilligung ist kein Anhang-Tatbestand, sondern § 7 Abs. 2 Nr. 1 UWG.
 
 ## Behoerden-Hinweise
 
-- **Zustaendig fuer Durchsetzung:** keine zentrale Bundesbehoerde — Zivilrechtsweg
-  ueber Abmahnung, einstweilige Verfuegung, Unterlassungsklage.
+- **Zustaendig fuer Durchsetzung:** ueberwiegend Zivilrechtsweg (Abmahnung,
+  einstweilige Verfuegung, Unterlassungsklage). Behoerdliche Bussgelder daneben:
+  Bundesnetzagentur fuer Telefonwerbung ohne Einwilligung und fehlende
+  Einwilligungsdokumentation (§ 20 Abs. 1 Nr. 1, 2, Abs. 3 UWG; bis 300.000 bzw.
+  50.000 EUR), Bundesamt fuer Justiz fuer weitverbreitete Verstoesse nach § 5c UWG
+  (§ 19 Abs. 6 UWG; nur im Rahmen koordinierter Durchsetzung nach Art. 21 VO (EU)
+  2017/2394).
 - **Bundeskartellamt:** keine Zustaendigkeit fuer das UWG; im kartellrechtlichen
   Missbrauchsverfahren darf es DSGVO-Verstoesse mitpruefen, in loyaler
   Zusammenarbeit mit den Aufsichtsbehoerden (EuGH, Urt. v. 04.07.2023, C-252/21,
@@ -300,3 +323,8 @@ Einwilligung ist kein Anhang-Tatbestand, sondern § 7 Abs. 2 Nr. 1 UWG.
   I ZR 164/09 und I ZR 186/17 ("App-Zentrum III") richtig wiedergegeben;
   Bundeskartellamt nach C-252/21 Tenor 1; TDDDG statt TTDSG; Mitbewerber-
   Befugnis bei DSGVO-Verstoessen mit I ZR 223/19 belegt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Double-Opt-In als Nachweismittel statt Formvorgabe; Planet49 mit Datum und
+  Rechtsgrundlage; § 7 Abs. 3 bei Transaktions-Mails; Influencer-Absatz ohne
+  BGH-Zuschreibung zu "#ad"; Durchsetzung um Bussgeldbehoerden (§ 19 Abs. 6,
+  § 20 UWG) ergaenzt; Abschnitt § 5b Abs. 2, 3 ergaenzt; toter BMJ-Link entfernt.

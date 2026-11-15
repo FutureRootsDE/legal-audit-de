@@ -118,7 +118,12 @@ vorgelegt:
 - **Rn. 42** — Querverweis auf die weitere Vorlage des AG Arnsberg vom
   31.07.2024 (Rechtssache C-526/24, ECLI:DE:AGAR:2024:0731.42C434.23.0,
   Frage 7); beide Verfahren betreffen das Thema Rechtsmissbrauch. Dieses
-  Verfahren hat der EuGH am 19.03.2026 entschieden (ECLI:EU:C:2026:216).
+  Verfahren hat der EuGH am 19.03.2026 entschieden (ECLI:EU:C:2026:216):
+  (1) Ein erster Auskunftsantrag kann bei nachgewiesener Missbrauchsabsicht
+  „exzessiv" i.S.v. Art. 12 Abs. 5 DSGVO sein; (2) Art. 82 Abs. 1 DSGVO gibt
+  einen Anspruch auch bei Verletzung von Art. 15 Abs. 1; (3) Kontrollverlust/
+  Ungewissheit ist immaterieller Schaden, sofern tatsaechlich entstanden und
+  das Verhalten der betroffenen Person nicht dessen entscheidende Ursache war.
 
 ## Bedeutung fuer Audits
 
@@ -127,9 +132,12 @@ vorgelegt:
   IP-Adresse** die sicherste Loesung. Self-Hosting (lokale Font-Dateien)
   bleibt das Audit-Soll (siehe [[urteile/bgh-google-fonts]],
   [[themen/tracking-analytics]]).
-- **Abmahn-Verteidigung**: Bei massenhaft "provozierten" Abmahnungen
-  (automatisierte Crawler) kann die Verteidigung auf die zu erwartende
-  EuGH-Klaerung verweisen; ein Urteil ist Stand 2026-11-14 nicht ergangen.
+- **Abmahn-Verteidigung**: Seit EuGH, 19.03.2026, C-526/24
+  (ECLI:EU:C:2026:216, Tenor 1 und 3) laesst sich bei provozierten Verstoessen
+  einwenden, (a) dass die Anspruchsvoraussetzungen kuenstlich geschaffen
+  wurden (Missbrauch) und (b) dass das eigene Verhalten des Anspruchstellers
+  die entscheidende Ursache des Schadens war. Die Uebertragung auf provozierte
+  Datenuebermittlungen ist Gegenstand von C-654/25 und noch nicht entschieden.
   Die Schlussantraege von Generalanwalt Szpunar vom 05.11.2026
   (ECLI:EU:C:2026:948) sind inhaltlich noch nicht ausgewertet
   <<VERIFIKATION AUSSTEHEND>>.
@@ -164,9 +172,10 @@ vorgelegt:
   (`https://testphase.rechtsinformationen.bund.de/v1/rechtsprechung/KORE723682025.html`,
   abgerufen 2026-11-14). ECLI, Datum, Dokumenttyp ("EuGH-Vorlage") und
   Vorlagefragen am Volltext belegt.
-- curia.europa.eu — Mitteilung des eingegangenen Vorabentscheidungs-
-  ersuchens mit EuGH-Fallnummer C-654/25, PDF des BGH-Beschlusses in der
-  Document-Repository (`curia.europa.eu/site/upload/docs/application/pdf/2026-02/vi_zr_258-24.pdf`).
+- curia.europa.eu: BGH-Beschluss VI ZR 258/24 (Seite und PDF; nennen keine
+  Rechtssachennummer, `curia.europa.eu/site/upload/docs/application/pdf/2026-02/vi_zr_258-24.pdf`);
+  Rechtssache C-654/25 (Undelam) belegt durch ABl. C/2026/444 vom 2.2.2026
+  (CELEX 62025CN0654), eingereicht am 6.10.2025.
 
 ## Aenderungsvermerk
 
@@ -193,3 +202,7 @@ vorgelegt:
   Vorinstanzen AG/LG Hannover ergaenzt; Randnummern zur IP-Frage auf
   Rn. 22 und Rn. 25 berichtigt; C-526/24 als am 19.03.2026 entschieden
   vermerkt (ECLI:EU:C:2026:216), Inhalt folgt nach Nachpruefung.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Tenor von EuGH C-526/24 (19.03.2026) eingearbeitet; Abmahn-Verteidigung
+  auf den Stand nach C-526/24 gebracht (Szpunar-Hinweis und Marker bleiben);
+  Quellenangabe zu curia und ABl. C/2026/444 praezisiert.

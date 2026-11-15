@@ -39,7 +39,7 @@ Die Datenschutz-Grundverordnung (DSGVO; englisch: GDPR) ist das zentrale europä
 ## Schlüsselartikel
 
 ### Art. 2 — Sachlicher Anwendungsbereich
-Gilt für ganz oder teilweise automatisierte Verarbeitung personenbezogener Daten natürlicher Personen. Ausnahmen: rein persönliche/familiäre Tätigkeit, nationale Sicherheit, Strafverfolgung (dort Richtlinie 2016/680).
+Gilt für die ganz oder teilweise automatisierte Verarbeitung personenbezogener Daten sowie für die nichtautomatisierte Verarbeitung, wenn die Daten in einem Dateisystem gespeichert sind oder werden sollen. Ausgenommen (Art. 2 Abs. 2): Tätigkeiten außerhalb des Unionsrechts (z. B. nationale Sicherheit), GASP-Tätigkeiten, ausschließlich persönliche oder familiäre Tätigkeiten, Verarbeitung durch zuständige Behörden zur Straftatenverfolgung und Gefahrenabwehr (dort Richtlinie (EU) 2016/680).
 
 ### Art. 3 — Räumlicher Anwendungsbereich (Marktortprinzip)
 Gilt auch für Verantwortliche und Auftragsverarbeiter **außerhalb** der EU, wenn sie betroffenen Personen, die sich in der Union befinden, Waren oder Dienstleistungen anbieten oder deren Verhalten in der Union beobachten (Art. 3 Abs. 2 lit. a, b; z. B. Tracking). Konsequenz: Ein US-SaaS, der deutsche Kunden hat, unterliegt der DSGVO.
@@ -67,7 +67,7 @@ Verarbeitung ist rechtmäßig bei **einer** der sechs Grundlagen:
 Nachweispflicht, verständliche Sprache, jederzeit widerrufbar (mit gleichem Aufwand wie erteilt), Kopplungsverbot (Abs. 4).
 
 ### Art. 9 — Besondere Datenkategorien
-Grundsätzliches Verbot für: Gesundheit, Genetik, Biometrie zu ID-Zwecken, Rasse/ethnische Herkunft, politische/religiöse/weltanschauliche Überzeugungen, Gewerkschaft, Sexualleben. Ausnahmen nur bei ausdrücklicher Einwilligung oder gesetzlicher Grundlage.
+Grundsätzliches Verbot für: rassische und ethnische Herkunft, politische Meinungen, religiöse oder weltanschauliche Überzeugungen, Gewerkschaftszugehörigkeit, genetische Daten, biometrische Daten zur eindeutigen Identifizierung, Gesundheitsdaten, Daten zum Sexualleben oder zur sexuellen Orientierung (Art. 9 Abs. 1 DSGVO). Ausnahmen abschließend in Art. 9 Abs. 2 lit. a bis j, u. a. ausdrückliche Einwilligung (lit. a), Arbeits- und Sozialrecht (lit. b), lebenswichtige Interessen (lit. c), Tendenzorganisationen (lit. d), offensichtlich öffentlich gemachte Daten (lit. e), Rechtsansprüche (lit. f), erhebliches öffentliches Interesse (lit. g), Gesundheitsvorsorge/Arbeitsmedizin (lit. h), öffentliche Gesundheit (lit. i), Archiv/Forschung/Statistik (lit. j).
 
 ### Art. 12–14 — Informationspflichten
 Wortlaut verständlich, präzise, transparent. Art. 13 (Daten direkt von Person erhoben) und Art. 14 (Daten nicht bei Person erhoben) listen Pflichtfelder (Verantwortlicher, Zwecke, Rechtsgrundlage, Empfänger, Drittland-Transfers, Speicherdauer, Betroffenenrechte ...).
@@ -81,7 +81,7 @@ Wortlaut verständlich, präzise, transparent. Art. 13 (Daten direkt von Person 
 | Einschränkung | 18 | Bei bestrittener Richtigkeit, unrechtmäßiger Verarbeitung statt Löschung, Bedarf für Rechtsansprüche, laufender Widerspruchsprüfung (Art. 18 Abs. 1 lit. a bis d) |
 | Datenübertragbarkeit | 20 | Selbst bereitgestellte Daten in strukturiertem, gängigem, maschinenlesbarem Format; nur bei Einwilligung oder Vertrag und automatisierter Verarbeitung |
 | Widerspruch | 21 | Gegen berechtigte Interessen / Direktwerbung (absolut) |
-| Keine automatisierte Einzelentscheidung | 22 | Inkl. Profiling |
+| Keine ausschließlich automatisierte Einzelentscheidung | 22 | Inkl. Profiling; nur bei rechtlicher oder ähnlich erheblicher Wirkung; Ausnahmen Abs. 2 (Vertrag, Rechtsvorschrift, ausdrückliche Einwilligung) |
 
 ### Art. 24–25 — Verantwortlichkeit, Privacy by Design/Default
 Art. 25: **Datenschutz durch Technikgestaltung** (by design) und **durch datenschutzfreundliche Voreinstellungen** (by default).
@@ -120,7 +120,7 @@ Zwei Stufen:
 
 - **IP-Adressen als personenbezogene Daten** (EuGH Breyer C-582/14, zum Personenbezug dynamischer IP-Adressen): Logs dürfen nicht beliebig lange gespeichert werden; die Grenze folgt aus dem Grundsatz der Speicherbegrenzung (Art. 5 Abs. 1 lit. e DSGVO), nicht aus Breyer.
 - **Cookies/LocalStorage ohne Rechtsgrundlage:** siehe TDDDG § 25 + Art. 6 DSGVO — **beide** Ebenen erforderlich.
-- **Third-Party-Scripts (Google Fonts, Analytics, Maps) ohne Consent:** LG München I, 3 O 17493/20.
+- **Google Fonts dynamisch von Google-Servern ohne Einwilligung:** LG München I, Endurteil v. 20.01.2022, 3 O 17493/20 (Instanzgericht, nur Google Fonts). Für Analytics und Maps gelten § 25 TDDDG und Art. 6 DSGVO; das Urteil betrifft sie nicht.
 - **Fehlende AVVs** mit Hosting-/Cloud-Dienstleistern (AWS, Vercel, Supabase): Art. 28 DSGVO verletzt.
 - **US-Hosting ohne DPF-Check:** Art. 44 ff. DSGVO, siehe Drittland-Transfer.
 - **Keine Datenlöschung nach Zweckerreichung:** Cron-Jobs für Retention fehlen.
@@ -131,7 +131,7 @@ Zwei Stufen:
 - **Next.js SaaS:** Auth-Flows (Art. 6 lit. b), Session-Cookies (§ 25 TDDDG Ausnahme "unbedingt erforderlich"), Logging (Art. 5 Datenminimierung), User-Data-Export-Endpoint (Art. 20), Delete-Account-Endpoint (Art. 17).
 - **Landingpage:** Tracking nur mit Consent (Art. 6 lit. a + § 25 TDDDG), Kontaktformular-Daten nur für Zweck (Art. 5 Abs. 1 lit. b), Datenschutzerklärung nach Art. 13.
 - **n8n:** Als Automatisierungstool oft Auftragsverarbeiter für Kunden-Workflows — AVV-Pflicht (Art. 28). Webhook-Endpoints: IP-Logging prüfen.
-- **E-Commerce:** Bestellabwicklung (Art. 6 lit. b), Zahlungsdienstleister (AVV + Drittland), Newsletter (Art. 6 lit. a, Double-Opt-In nach BGH).
+- **E-Commerce:** Bestellabwicklung (Art. 6 lit. b), Zahlungsdienstleister (AVV + Drittland), Newsletter (Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 7 Abs. 2 UWG; Double-Opt-In als anerkanntes Nachweisverfahren, BGH, Urt. v. 10.02.2011, I ZR 164/09, Double-opt-in-Verfahren; Nachweislast beim Werbenden).
 - **Content/Blog:** Kommentarfunktion (Art. 6 lit. f mit Interessenabwägung), Embeds (YouTube, Twitter) nur mit Einwilligung nach § 25 Abs. 1 TDDDG; für Erhebung und Übermittlung ist der Website-Betreiber gemeinsam mit dem Anbieter verantwortlich (vgl. Fashion ID, C-40/17).
 
 ## Behörden-Hinweise
@@ -177,3 +177,8 @@ Zwei Stufen:
   20); Art. 82 nach EuGH C-300/21 und BGH VI ZR 10/24 neu gefasst;
   Breyer, Fashion ID, Schrems II praezisiert; App-Zentrum III statt II,
   Mitbewerberbefugnis auf BGH I ZR 223/19 gestuetzt; BfDI-Broschuere Info 1.
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Art. 2 (Dateisystem, Ausnahmen nach Abs. 2), Art. 9 (Katalog nach Abs. 1,
+  Ausnahmen abschliessend Abs. 2 lit. a bis j), Art. 22 (ausschliesslich,
+  Wirkungsschwelle, Ausnahmen), Google-Fonts-Urteil auf Google Fonts
+  beschraenkt, Newsletter (Art. 6 Abs. 1 lit. a, § 7 Abs. 2 UWG, BGH I ZR 164/09).

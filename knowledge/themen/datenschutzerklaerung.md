@@ -49,16 +49,16 @@ Eine Datenschutzerklärung ist die öffentliche Informationspflicht gegenüber a
 Zusätzlich: Datenkategorien (Art. 14 Abs. 1 lit. d) und Quelle (Art. 14 Abs. 2 lit. f). Frist: innerhalb eines Monats, spätestens bei erster Kommunikation.
 
 ### Formatvorgaben (Art. 12 DSGVO)
-- Präzise, transparent, verständlich
-- Klare und einfache Sprache (laiengerecht)
-- Unentgeltlich
-- Schriftlich oder elektronisch
+- Präzise, transparent, verständlich und **leicht zugänglich** (Abs. 1 S. 1)
+- Klare und einfache Sprache
+- Schriftlich oder in anderer Form, gegebenenfalls elektronisch (Abs. 1 S. 2)
+- Unentgeltlich (Abs. 5 S. 1)
 
 ## Typische Fallstricke in Codebases
 
 - **Copy-Paste aus Generator ohne Anpassung:** Auflistung von Diensten, die gar nicht eingesetzt werden, oder umgekehrt fehlende reale Dienste.
 - **Fehlende Nennung aller Third-Party-Dienste:** CDN (Cloudflare), Fonts (Google Fonts — selbst hosten!), Maps (Google Maps), Analytics, CRM (HubSpot, Salesforce), Error-Tracking (Sentry, Datadog).
-- **Kein Link zu Datenschutzerklärung im Footer** auf jeder Seite: verstößt gegen „leichte Zugänglichkeit".
+- **Kein ständig erreichbarer Link zur Datenschutzerklärung** (üblich: Footer jeder Seite): Risiko eines Verstoßes gegen die „leicht zugängliche Form" (Art. 12 Abs. 1 S. 1 DSGVO).
 - **Datenschutzerklärung nur auf Deutsch** bei englischsprachigem Service / internationale Kundschaft: Sprache muss für Zielgruppe verständlich sein.
 - **Generische Speicherdauer „solange erforderlich":** DSK fordert konkrete Fristen oder wenigstens nachvollziehbare Kriterien.
 - **Keine Update-Historie / Stand-Datum:** Bei Änderungen muss Transparenz gewährleistet sein.
@@ -113,3 +113,7 @@ Zusätzlich: Datenkategorien (Art. 14 Abs. 1 lit. d) und Quelle (Art. 14 Abs. 2 
   LG Muenchen I 3 O 17493/20 praezisiert; BGH VI ZR 10/24 Rn. 100
   (Schadenshoehe, nicht Streitwert); Art. 14 Abs. 1 lit. d ergaenzt;
   WP260 rev.01 als Art.-29-Leitlinie mit EDSA-Endorsement bezeichnet.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Formatvorgaben nach Art. 12 Abs. 1 und 5 DSGVO (leicht zugaenglich,
+  Unentgeltlichkeit in Abs. 5); Footer-Link als uebliche Umsetzung statt
+  Pflicht formuliert.

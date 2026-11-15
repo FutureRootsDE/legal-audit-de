@@ -89,14 +89,14 @@ erreichbar und staendig verfuegbar** halten:
 
 ### § 18 Medienstaatsvertrag (MStV) — Verantwortlicher i.S. Presserecht
 
-Fuer **journalistisch-redaktionelle Angebote** (Blogs, News-Sites, Podcasts mit
-redaktionellem Inhalt) ist zusaetzlich ein **Verantwortlicher im Sinne des
-§ 18 Abs. 2 MStV** zu benennen:
-
-- Vor- und Zuname
-- Anschrift (ladungsfaehig, kein Postfach)
-
-Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
+Fuer journalistisch-redaktionell gestaltete Angebote (insbesondere solche, die
+Inhalte periodischer Druckerzeugnisse wiedergeben; bei Blogs, News-Sites und
+Podcasts im Einzelfall pruefen) ist zusaetzlich ein **Verantwortlicher nach
+§ 18 Abs. 2 MStV** mit Namen und Anschrift zu benennen. Er muss den
+staendigen Aufenthalt im Inland haben, unbeschraenkt geschaeftsfaehig und
+strafrechtlich verfolgbar sein und darf die Faehigkeit zur Bekleidung
+oeffentlicher Aemter nicht verloren haben. Bei mehreren Verantwortlichen ist
+die Zustaendigkeit je Teil kenntlich zu machen.
 
 ### Weitere Normen im DDG
 
@@ -112,10 +112,12 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
 
 ## Typische Fallstricke in Codebases
 
-1. **Impressum zu tief verlinkt:** Der Footer-Link muss mit **max. zwei Klicks**
-   erreichbar sein (BGH I ZR 228/03 "Anbieterkennzeichnung im Internet").
-2. **Nur "impressum@..."-Mailto:** E-Mail-Adresse + zweiter Kontaktweg
-   erforderlich (Telefon/Chat/Formular).
+1. **Impressum zu tief verlinkt:** Die Pflichtangaben muessen leicht erkennbar,
+   unmittelbar erreichbar und staendig verfuegbar sein (§ 5 Abs. 1 DDG).
+2. **Nur "impressum@..."-Mailto:** E-Mail-Adresse plus ein weiterer Weg, der
+   eine schnelle Kontaktaufnahme und unmittelbare, effiziente Kommunikation
+   ermoeglicht; eine Telefonnummer ist nicht zwingend, eine elektronische
+   Anfragemaske kann genuegen (EuGH C-298/07, Tenor).
 3. **Keine USt-IdNr trotz vorhandener:** Wenn eine USt-IdNr vorhanden ist, MUSS
    sie ins Impressum — "sofern vorhanden" heisst nicht "optional wenn egal".
 4. **Kein Impressum auf Landingpage-Varianten:** Jede oeffentlich erreichbare
@@ -129,6 +131,10 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
    genannten "verantwortlich nach § 18 Abs. 2 MStV" sind abmahnfaehig.
 7. **API-gesteuerte Impressumsdaten:** CMS-Feld "company_name" leer in
    Staging-/Preview-Builds → Impressum-Validator fehlt.
+8. **Bussgeld:** Ein fehlendes, unrichtiges oder unvollstaendiges Impressum
+   ist eine Ordnungswidrigkeit nach § 33 Abs. 2 Nr. 1 DDG, Geldbusse bis
+   50.000 EUR (§ 33 Abs. 6 Nr. 3 DDG); daneben wettbewerbsrechtliches
+   Abmahnrisiko.
 
 ## Relevanz fuer Codebase-Typen
 
@@ -159,8 +165,9 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 228/03** (20.07.2006, Anbieterkennzeichnung im Internet,
-  GRUR 2007, 159): "Zwei-Klick-Regel" fuer Impressum-Erreichbarkeit.
+- Aussage: Das Impressum muss leicht erkennbar, unmittelbar erreichbar und
+  staendig verfuegbar sein (§ 5 Abs. 1 DDG). Ob ein Weg ueber zwei Klicks
+  genuegt ("Zwei-Klick-Regel"), ist nicht primaer belegt. <<VERIFIKATION AUSSTEHEND>>
 - **EuGH C-298/07** (16.10.2008, "deutsche internet versicherung AG"):
   Zweiter Kommunikationsweg neben E-Mail erforderlich.
 - Aussage: Anforderung an verstaendliche, deutschsprachige Kontaktaufnahme
@@ -169,6 +176,10 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
   ECLI:DE:OLGD:2007:1218.I20U17.07.00): Auch wer eigene Angebotsseiten
   innerhalb eines fremden Portals betreibt, muss dort ein Impressum
   vorhalten; keine Aussage zu Mobilnummern.
+- **BGH, Urt. v. 25.02.2016, I ZR 238/14, Mehrwertdienstenummer**
+  (ECLI:DE:BGH:2016:250216UIZR238.14.0): Eine kostenpflichtige
+  Mehrwertdienstenummer neben der E-Mail-Adresse ist kein ausreichender
+  weiterer Kommunikationsweg i. S. d. § 5 Abs. 1 Nr. 2 TMG (jetzt DDG).
 - **OLG Muenchen 29 U 3698/20** zur Impressumspflicht bei
   Instagram-Business-Profilen. <<VERIFIKATION AUSSTEHEND>>
 
@@ -186,7 +197,7 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
 - **BGH I ZR 151/02**: in Vorgaengerfassungen dieser KB als Entscheidung
   zur Anbieterkennzeichnung im Internet vom 20.07.2006 gefuehrt. Das gemeinte
   Urteil ist **BGH I ZR 228/03** vom 20.07.2006 (Anbieterkennzeichnung im
-  Internet, GRUR 2007, 159); Aktenzeichen oben korrigiert.
+  Internet, GRUR 2007, 159).
 
 ## Siehe auch
 
@@ -215,3 +226,9 @@ Mehrere Verantwortliche moeglich, wenn nach Sachgebieten gegliedert.
   eingetragen); Zeile BGH I ZR 228/03 vom 14.07.2005 gestrichen; OLG
   Duesseldorf I-20 U 17/07 inhaltlich korrigiert; BNetzA seit 14.05.2024;
   Landesmedienanstalten (MStV); Fassungsangabe ergaenzt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  BGH I ZR 238/14 (Mehrwertdienstenummer) aufgenommen; Kontaktweg nach
+  EuGH C-298/07 ohne "Chat"; MStV-Verantwortlicher nach § 18 Abs. 2 MStV
+  (Voraussetzungen, kein "ladungsfaehig, kein Postfach"); Bussgeld nach § 33
+  DDG; Klick-Aussage ohne Aktenzeichen, Zwei-Klick-Aussage mit
+  Verifikationsmarker.

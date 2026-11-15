@@ -44,12 +44,12 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 
 - **Endgeräte-Cookie bleibt Einwilligungs-Trigger**: Server-Container schickt weiter First-Party-Cookie an Browser → § 25 TDDDG greift
 - **Vorteil:** bessere Kontrolle über Datenfluss, Drittland-Minimierung, Filterung vor Weitergabe
-- **Nachteil:** kein Consent-Bypass; Aufsichtsbehörden betonen, dass rechtlich entscheidend ist, was am Endgerät passiert, nicht wo der Server steht (DSK Stellungnahme 2023)
+- **Nachteil:** kein Consent-Bypass; Aufsichtsbehörden betonen, dass rechtlich entscheidend ist, was am Endgerät passiert, nicht wo der Server steht (DSK, Orientierungshilfe Digitale Dienste, Version 1.2, Nov. 2024, Rn. 22 ff.)
 
 ### Cookieless Analytics (Plausible, Fathom, SimpleAnalytics)
 
 - Werben mit „kein Consent nötig", technisch oft zutreffend (keine Cookies, aggregierte Daten)
-- **Aber:** Wenn IP temporär verarbeitet wird, bleibt DSGVO anwendbar → **Datenschutzerklärung ja**, **Consent nein** (Art. 6 Abs. 1 lit. f DSGVO)
+- **Aber:** Wird die IP (auch flüchtig) verarbeitet, bleibt die DSGVO anwendbar → **Datenschutzerklärung ja**, Rechtsgrundlage regelmäßig Art. 6 Abs. 1 lit. f DSGVO. Eine **Einwilligung nach § 25 TDDDG entfällt nur**, wenn weder gespeichert (Cookies, Local/Session Storage) noch Geräteeigenschaften per Skript ausgelesen werden (DSK OH Digitale Dienste V1.2, Rn. 22-24).
 - Rechtlich sicher, wenn tatsächlich: keine Fingerprints, IP nur flüchtig, keine Cookies/LocalStorage, keine Drittland-Übertragung oder EU-Hosting
 
 ### Microsoft Clarity / Hotjar / Session Recording
@@ -125,3 +125,7 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
   DSK OH Digitale Dienste als Version 1.2 (November 2024) zitiert;
   EuGH C-252/21 und C-604/22 praezisiert; DSFA-Aussage zu Session-Recording
   auf Einzelfallpruefung umgestellt.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Server-Side-Tracking mit DSK OH Digitale Dienste V1.2 belegt; cookielose
+  Analytics: Einwilligung nach § 25 TDDDG entfaellt nur ohne Speichern und
+  ohne Auslesen von Geraeteeigenschaften.

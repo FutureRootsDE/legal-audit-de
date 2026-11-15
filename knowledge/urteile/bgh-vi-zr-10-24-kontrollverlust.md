@@ -117,12 +117,27 @@ Uebrigen wird die Revision zurueckgewiesen.
 - **Konkurrenz zum gesetzlichen Unterlassungsanspruch**: Der BGH liess
   offen, ob neben der DSGVO auf § 1004 Abs. 1 Satz 2 i.V.m. § 823 BGB
   analog zurueckgegriffen werden darf (Rn. 83), und verwies auf den
-  vertraglichen Anspruch aus § 280 Abs. 1, § 241 Abs. 2 BGB.
+  vertraglichen Anspruch aus § 280 Abs. 1, § 241 Abs. 2 BGB. Die Frage ist
+  inzwischen geklaert: EuGH, Urteil vom 04.09.2025, C-655/23: Die DSGVO
+  gewaehrt keinen eigenen praeventiven Unterlassungsanspruch, hindert die
+  Mitgliedstaaten aber nicht, einen solchen vorzusehen (Tenor 1); ein
+  Unterlassungstitel mindert den Ersatz nach Art. 82 nicht (Tenor 4).
 - **Abgrenzung zur bloss abstrakten Gefahr**: Ein nachgewiesener
   Kontrollverlust ist selbst der Schaden (Rn. 31); ohne Nachweis kann eine
   begruendete Befuerchtung missbraeuchlicher Verwendung genuegen; eine bloss
   behauptete Befuerchtung oder ein rein hypothetisches Risiko genuegt nicht
   (Rn. 32).
+
+## Folgeentscheidungen
+
+- **BGH VI ZR 109/23, Urteil vom 28.01.2025** (ECLI:DE:BGH:2025:280125UVIZR109.23.0):
+  Werbe-E-Mail, Revision des Klaegers zurueckgewiesen.
+- **EuGH C-655/23, 04.09.2025**: Tenor 1: kein praeventiver Unterlassungs-
+  rechtsbehelf aus der DSGVO, Mitgliedstaaten duerfen ihn vorsehen; Tenor 2
+  bis 4: negative Gefuehle, Verschuldensgrad unbeachtlich, Unterlassungstitel
+  mindert den Ersatz nicht.
+- **EuGH C-526/24, 19.03.2026** (ECLI:EU:C:2026:216); Einzelheiten siehe
+  [[urteile/bgh-google-fonts]].
 
 ## Siehe auch
 
@@ -160,3 +175,6 @@ Uebrigen wird die Revision zurueckgewiesen.
   kein Regelsatz (Rn. 100 f.); Ausgleichsfunktion nur Rn. 25 (Rn. 18
   betrifft den Streitgegenstand); § 1004 BGB analog offen gelassen in
   Rn. 83 (statt Rn. 56 ff.); Kontrollverlust/Befuerchtung nach Rn. 31, 32.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Abschnitt Folgeentscheidungen (BGH VI ZR 109/23, EuGH C-655/23 und
+  C-526/24) ergaenzt; Unterlassungsfrage durch EuGH C-655/23 geklaert.

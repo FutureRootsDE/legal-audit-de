@@ -60,10 +60,10 @@ Ergaenzt wird das MarkenG durch die **Unionsmarkenverordnung (EU) 2017/1001** (U
 ### § 15 MarkenG — Geschaeftliche Bezeichnungen
 
 Schuetzt:
-- **Unternehmenskennzeichen** (Firma, besondere Geschaeftsabzeichen)
-- **Werktitel** (Buecher, Software, Apps, Zeitschriften)
+- **Unternehmenskennzeichen** (Name, Firma, besondere Geschaeftsbezeichnung; Geschaeftsabzeichen nur mit Verkehrsgeltung, § 5 Abs. 2 Satz 2)
+- **Werktitel** (Druckschriften, Film-, Ton-, Buehnenwerke und vergleichbare Werke, nach der Rechtsprechung auch Software/Apps)
 
-Voraussetzung: **Verkehrsgeltung** oder **originaere Unterscheidungskraft**. Kein DPMA-Eintrag noetig — Schutz entsteht mit Ingebrauchnahme im geschaeftlichen Verkehr.
+Namen und Titel brauchen originaere Unterscheidungskraft. Kein DPMA-Eintrag noetig; Schutz entsteht mit Benutzung im geschaeftlichen Verkehr.
 
 ### § 23 MarkenG — Benutzung von Namen, beschreibenden Angaben, Zubehoer/Ersatzteil
 
@@ -76,7 +76,7 @@ Voraussetzung: Benutzung **anstaendige Gepflogenheiten** in Gewerbe/Handel.
 
 ### § 24 MarkenG — Erschoepfung
 
-Nach erstem Inverkehrbringen im EWR durch oder mit Zustimmung des Markeninhabers ist die Marke erschoepft — Wiederverkauf grundsaetzlich frei. Ausnahme: Umpacken, Veraenderung, Schaedigung des Rufs.
+Nach erstem Inverkehrbringen im EWR durch oder mit Zustimmung des Markeninhabers ist die Marke erschoepft — Wiederverkauf grundsaetzlich frei. Ausnahme (§ 24 Abs. 2): berechtigte Gruende des Inhabers, insbesondere Veraenderung oder Verschlechterung der Ware.
 
 ### Wichtig fuer Online-Kontext: Marktplaetze und Lagerung
 
@@ -90,12 +90,12 @@ Nach erstem Inverkehrbringen im EWR durch oder mit Zustimmung des Markeninhabers
 - **Markenname im Meta-Title / Title-Tag** ohne Berechtigung → Verletzung nach § 14 Abs. 3 Nr. 6 MarkenG (Benutzung in der Werbung)
 - **Google Ads auf fremde Marken buchen**: Abhaengig von Darstellung (Interflora-Rsp.) — bei Verwechslungsgefahr problematisch
 - **Affiliate-Links** mit Marken-Keywords (gebrandet) — rechtliche Grauzone, oft unzulaessig
-- **Comparative Advertising** (vergleichende Werbung) muss § 6 UWG entsprechen (anstaendig, fair, nicht irrefuehrend)
+- **Comparative Advertising** (vergleichende Werbung) muss die Voraussetzungen des § 6 Abs. 2 UWG erfuellen (objektiver Vergleich wesentlicher, nachpruefbarer Eigenschaften; keine Verwechslungsgefahr, Rufausnutzung, Herabsetzung oder Imitationsdarstellung) und darf nicht irrefuehrend sein (§ 5 UWG)
 
 ### Domains / Subdomains
 
 - Eigene Domain mit fremder Marke → hohes Verletzungsrisiko
-- **Typosquatting** (apple.de vs. app1e.de) → kennzeichenrechtlich verletzend; lauterkeitsrechtlich gezielte/unlautere Behinderung nach § 4 Nr. 4 UWG (vormals § 4 Nr. 10), wenn Nutzer abgefangen und nicht sofort unuebersehbar aufgeklaert werden (BGH, 22.01.2014, I ZR 164/12, wetteronline.de); bei sofortigem deutlichem Hinweis regelmaessig nicht
+- **Typosquatting** (apple.de vs. app1e.de) → Tippfehler-Domains koennen Kennzeichenrechte verletzen; Voraussetzung sind Benutzung im geschaeftlichen Verkehr und Verwechslungsgefahr im Einzelfall (§§ 14 Abs. 2, 15 Abs. 2 MarkenG); lauterkeitsrechtlich gezielte/unlautere Behinderung nach § 4 Nr. 4 UWG (vormals § 4 Nr. 10), wenn Nutzer abgefangen und nicht sofort unuebersehbar aufgeklaert werden (BGH, 22.01.2014, I ZR 164/12, wetteronline.de); bei sofortigem deutlichem Hinweis regelmaessig nicht
 - **City-Marken**: "Berliner Currywurst" geschuetzt als geographische Herkunftsangabe
 
 ### Produktbezeichnungen
@@ -145,4 +145,4 @@ Nach erstem Inverkehrbringen im EWR durch oder mit Zustimmung des Markeninhabers
 ## Siehe auch
 
 - [[urhg]] — Urheberrecht, Abgrenzung
-- UWG (nicht in dieser KB) — lauterkeitsrechtliche Begleitverletzungen
+- [[uwg]]: lauterkeitsrechtliche Begleitverletzungen (u. a. § 4 Nr. 1-4, § 5 Abs. 3 Nr. 1, § 6 UWG)
