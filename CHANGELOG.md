@@ -14,6 +14,16 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ---
 
+## [1.4.3] (2026-11-15)
+
+Patch-Release: Plugin-Manifest.
+
+### Behoben
+
+- `.claude-plugin/plugin.json` deklariert jetzt die Komponentenpfade (`commands`, `skills`, `agents`). Claude Code sucht Komponenten standardmäßig nur in `commands/`, `skills/` und `agents/` im Plugin-Root; dieses Repo legt sie unter `.claude/` ab. Ohne die Deklaration wurden nach der Marketplace-Installation keine Slash-Befehle, Skills und Agents geladen. Agents werden einzeln als `.md`-Pfade aufgeführt, weil das Feld keine Verzeichnisse akzeptiert.
+
+---
+
 ## [1.4.2] (2026-11-15)
 
 Patch-Release: Runde 2 der doppelten unabhängigen Prüfung der Wissensdatenbank. Verifikationsmarker `<<VERIFIKATION AUSSTEHEND>>`: 52 bestehen weiter.
