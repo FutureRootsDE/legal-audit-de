@@ -27,7 +27,8 @@ geltungsbereich: [DE, EU]
 Eine CMP managt die Einwilligung fuer nicht-notwendige Cookies / Tracking. Sie
 erfuellt dabei zwei Pflichten gleichzeitig:
 - **§ 25 TDDDG** — Speicherung/Abruf von Informationen in Endgeraeten nur nach Einwilligung
-- **DSGVO Art. 6 Abs. 1 lit. a** — Einwilligung fuer PII-Verarbeitung
+- **DSGVO Art. 6 Abs. 1 lit. a i. V. m. Art. 7** — Einwilligung als Rechtsgrundlage fuer die anschliessende Verarbeitung personenbezogener Daten (Nachweispflicht Art. 7 Abs. 1)
+- **§ 26 TDDDG / EinwV** — anerkannte Dienste zur Einwilligungsverwaltung (Einwilligungsverwaltungsverordnung vom 6. Februar 2025, BGBl. 2025 I Nr. 32, in Kraft seit 01.04.2025); Einbindung fuer Website-Betreiber freiwillig
 
 Wer Tracking, Analytics, Marketing-Pixel oder Embeds mit Tracking (YouTube,
 Vimeo ohne Nocookie, Maps) einsetzt, muss die Einwilligung (§ 25 Abs. 1 TDDDG)
@@ -47,7 +48,7 @@ durch Selbst-Hosten ohne Einwilligung einbinden.
 | TCF-Unterstuetzung | IAB TCF laut Anbieter; unterstuetzte Version und Zertifizierungsstatus in der IAB-CMP-Liste pruefen |
 | Reichweite | 2.4 Mio Websites/Apps, 195 Laender, 8.8 Mrd. Consents/Monat |
 | Pricing Web CMP (Stand 2026-05-08) | **Free** (bis 1.000 Sitzungen/Monat, 1 Domain) / **Essential** 7 EUR/Monat (bis 1.500 Sessions) / **Plus** 15 EUR/Monat (bis 3.000) / **Pro** 30 EUR/Monat (bis 15.000) / **Business** 50 EUR/Monat (bis 50.000) / **Corporate** auf Anfrage (ab 1 Mio Sessions). App-CMP: ab 50 EUR/Monat. Quelle: usercentrics.com/de/preise/ |
-| Besonderheit | **TCF-v2.2/v2.3-zertifiziert** — Pflicht bei Ausspielung programmatischer Werbung |
+| Besonderheit | IAB TCF: keine gesetzliche Pflicht; ggf. von Werbeplattformen gefordert |
 | Google Consent Mode v2 | volle Unterstuetzung |
 | Integrationen | 1000+ vordefinierte Services |
 
@@ -128,7 +129,7 @@ uebergibt. Zwei Modi:
 - **Basic**: Tags laden bei Consent-Denied nicht
 - **Advanced**: Tags laden immer, aber uebermitteln cookie-freie Pings, die modelliert werden
 
-Pflicht seit 2024 fuer Google Ads in Europa. Muss mit jeder CMP zusammenarbeiten.
+Keine gesetzliche Pflicht, sondern Vorgabe von Google fuer Google-Tags im EWR; Einzelheiten laut Google-Hilfe zum Einwilligungsmodus pruefen. Die CMP muss die Signale uebergeben koennen.
 
 ### Consent-O-Matic
 
@@ -142,7 +143,7 @@ Pflicht seit 2024 fuer Google Ads in Europa. Muss mit jeder CMP zusammenarbeiten
 - [ ] **Plattform**: WordPress → Borlabs/Complianz; Headless/SaaS → Usercentrics/Cookiebot/Klaro
 - [ ] **TCF-Zertifizierung noetig?** (wenn programmatische Werbung ueber TCF-Vendoren) → Usercentrics, Cookiebot, Borlabs (Zertifizierungsstatus jeweils in der IAB-CMP-Liste pruefen)
 - [ ] **Open-Source-Praeferenz** → Klaro (selbst hosten)
-- [ ] **DPF/Drittland-Problematik minimieren** → EU-Anbieter bevorzugen (Usercentrics, Cookiebot, Klaro, Complianz, Borlabs)
+- [ ] **DPF/Drittland-Problematik minimieren** → Anbieter mit EU-Sitz (Usercentrics, Cookiebot, Klaro, Complianz, Borlabs) als Ausgangspunkt; Unterauftragsverarbeiter und Hosting im AVV pruefen, ein EU-Sitz schliesst Drittlanduebermittlungen nicht aus. Self-Hosting (Klaro, Borlabs) vermeidet den Auftragsverarbeiter ganz.
 - [ ] **Traffic-Volumen** — kleine Sites profitieren von Free-Tiers (Cookiebot, Complianz Free)
 - [ ] **Sprachen** — Internationale Websites brauchen i18n (Usercentrics, Klaro gut)
 - [ ] **Consent-Log-Speicherung** — Nachweis-Pflicht Art. 7 Abs. 1 DSGVO
@@ -155,21 +156,21 @@ Pflicht seit 2024 fuer Google Ads in Europa. Muss mit jeder CMP zusammenarbeiten
 - **Pre-Tick** bei Marketing-Kategorien → EuGH Planet49 C-673/17 verletzt
 - **Kein gleichwertiger Ablehnen-Weg auf der ersten Ebene**: Risiko fuer die Freiwilligkeit der Einwilligung (Art. 4 Nr. 11, Art. 7 DSGVO i. V. m. § 25 Abs. 1 TDDDG). BGH I ZR 7/16 betrifft das voreingestellte Haekchen und traegt diese Aussage nicht.
 - **Tracking-Scripts im `<head>` vor CMP-Init** (GA4 laedt vor Consent-Check)
-- **Consent-Mode nicht aktiviert** trotz Google-Services
 - **Widerruf schwieriger als Einwilligung** (Button versteckt)
 
 ### HIGH
 
 - **Cookie-Kategorien zu grob** ("Marketing-Cookies" ohne Erklaerung welcher Anbieter)
-- **Third-Party-Embeds vor Consent** (YouTube-iframe ohne Nocookie)
+- **Third-Party-Embeds vor Consent** (z. B. YouTube-iframe ohne Zwei-Klick- bzw. Vorschau-Loesung; der Nocookie-Modus allein genuegt nicht)
 - **Google Fonts direkt** (LG Muenchen I 3 O 17493/20, Endurteil vom 20.01.2022)
-- **Fonts per CDN geladen** (selbst wenn Google Consent Mode aktiv)
+- **Fonts von Drittservern ohne Rechtsgrundlage geladen** (unabhaengig vom Google Consent Mode)
 
 ### MED
 
-- Consent-Log nur clientseitig (LocalStorage ohne Server-Backup)
-- Cookie-Banner erscheint auf Legal-Pages (Impressum, DSE) — sollte i.d.R. nicht consent-pflichtig sein
-- Geo-Targeting: EU-User bekommen Banner, US-User nicht (das ist ok, wenn nur EU-DSGVO anwendbar)
+- Einwilligungsnachweis nicht gesichert (Art. 7 Abs. 1, Art. 5 Abs. 2 DSGVO), z. B. Consent-Log nur clientseitig und Einwilligungsprozess nicht dokumentiert
+- Cookie-Banner verdeckt Impressum oder Datenschutzerklaerung (leichte Erkennbarkeit und Erreichbarkeit der Pflichtangaben beeintraechtigt)
+- Geo-Targeting (Banner nur fuer EU-Nutzer): nur vertretbar, wenn weder die DSGVO noch § 25 TDDDG auf die uebrigen Nutzer anwendbar ist. Bei Niederlassung in der EU gilt die DSGVO unabhaengig vom Aufenthaltsort der Nutzer (Art. 3 Abs. 1 DSGVO).
+- **Consent Mode nicht aktiviert** trotz Google-Diensten: fuer sich kein Verstoss gegen § 25 Abs. 1 TDDDG oder die DSGVO, sondern Verstoss gegen Vorgaben von Google (Vertragsrisiko)
 
 ## Migration zwischen CMPs
 
@@ -196,3 +197,4 @@ Wenn ein Wechsel ansteht:
 
 - **2026-11-14** (Batch E3, Live-Pruefung): Jeden CMP-Eintrag live abgerufen. Usercentrics-Preisstaffel (Free / 7 / 15 / 30 / 50 EUR + Corporate) gegen usercentrics.com/de/preise/ bestaetigt. Cookiebot-Staffel (Free / 7 / 15 / 30 / 50 / 90 EUR, Premium Small aufwaerts je Domain) gegen cookiebot.com/de/pricing/ bestaetigt; Zugehoerigkeit zu Usercentrics A/S erneut bestaetigt. Osano-Sitz prazisiert: osano.com/plans nennt nur "Osano, Inc., Public Benefit Corp" plus UK- und International-Compliance-Gesellschaft, keine Stadt mehr (alte Angabe "Austin, Texas" entfernt). Klaro (klaro.org): BSD-3-Lizenz, Maintainer KIProtect, keine IAB-TCF-Zertifizierung bestaetigt. Borlabs-Produktseite zeigt aktuell weder konkrete Version noch die Jahres-Staffel, nur "ab 49 EUR" — Markierung als VERIFIKATION AUSSTEHEND gesetzt. Complianz (complianz.io): Firmensitz Groningen bestaetigt, neu Zugehoerigkeit zu iubenda eingetragen. Consent-O-Matic (consentomatic.au.dk): erreichbar, Aarhus-University-Entwicklung bestaetigt.
 - **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): CMP als uebliches Mittel statt Pflicht (§ 25 Abs. 1 TDDDG); Klaro-Tarife oeffentlich; Borlabs unterstuetzt IAB TCF 2.4 laut Hersteller und ist in der TCF-Auswahl ergaenzt; Borlabs-Versionsnummer durch Verweis auf den Changelog ersetzt, Preisstaffel auf sechs Stufen netto, beide Verifikationsmarker entfernt; Usercentrics-TCF-Version durch Verweis auf die IAB-CMP-Liste ersetzt; Ablehnen-Button nicht mehr BGH I ZR 7/16 zugeordnet; Datum zu LG Muenchen I 3 O 17493/20 ergaenzt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Art. 7 und § 26 TDDDG / EinwV ergaenzt; TCF als branchenueblich statt gesetzliche Pflicht gefasst; Consent Mode als Vorgabe von Google ohne gesetzliche Pflicht, Jahr und Reichweite entfernt, Einstufung CRIT aufgehoben (jetzt MED); Embeds, Fonts, Geo-Targeting, Einwilligungsnachweis und Cookie-Banner auf Impressum/Datenschutzerklaerung norm- bzw. wortnah gefasst; Hinweis zu EU-Sitz und Unterauftragsverarbeitern ergaenzt.

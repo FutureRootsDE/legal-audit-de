@@ -26,7 +26,7 @@ Das **Recht am eigenen Bild** ist in Deutschland seit 1907 im Kunsturhebergesetz
 (KUG, §§ 22, 23) geregelt. Es schuetzt die Abgebildeten davor, dass Fotos ohne
 ihre Einwilligung **verbreitet oder oeffentlich zur Schau gestellt** werden.
 
-Seit Inkrafttreten der DSGVO (25.05.2018) besteht Unsicherheit ueber das
+Seit Geltungsbeginn der DSGVO (25.05.2018, Art. 99 Abs. 2 DSGVO) besteht Unsicherheit ueber das
 Verhaeltnis von KUG zu DSGVO:
 
 - **DSGVO gilt fuer das Erstellen** und die allgemeine Verarbeitung des Fotos
@@ -106,11 +106,11 @@ umstritten und ungeklaert; dort sind auch Art. 6, 7 und 13 DSGVO zu pruefen.
 |---|---|---|
 | Team-Foto auf About-Seite ohne Einwilligung | § 22 KUG, Art. 6 DSGVO | Schriftliche Einwilligung **vor** Veroeffentlichung |
 | Ehemaliger Mitarbeiter weiterhin im Impressum/Team | Einwilligung erlischt nicht mit dem Ausscheiden; Widerruf nur mit plausibler Begruendung (BAG 8 AZR 1011/13); Verhaeltnis zu Art. 7 Abs. 3 DSGVO ungeklaert | Widerruf auf plausible Begruendung pruefen; Verhaeltnis zu Art. 7 Abs. 3 DSGVO anwaltlich klaeren |
-| Event-Fotos mit erkennbaren Gaesten | § 22 KUG | Hinweisschilder am Eingang + Opt-out-Moeglichkeit, oder § 23 Nr. 3 |
+| Event-Fotos mit erkennbaren Gaesten | § 22 KUG | Einwilligung einholen oder § 23 Abs. 1 Nr. 3 KUG (Versammlungen, Aufzuege und aehnliche Vorgaenge) pruefen; Hinweisschilder und Opt-out dienen der Information (Art. 13 DSGVO), ersetzen die Einwilligung nicht |
 | Kunden-Testimonial mit Foto | § 22 KUG + UWG (Authentizitaet) | Schriftliche, zweckgebundene Einwilligung |
 | Stock-Foto mit Model-Release fehlend | § 22 KUG | Nur Stock-Anbieter mit Model-Release nutzen, Lizenz archivieren |
 | KI-generierte Gesichter aehneln realen Personen | § 22 KUG analog + Persoenlichkeitsrecht | Sorgfaeltige Pruefung, siehe [[ki-content]] |
-| Hintergrund-Personen auf Social-Media-Foto erkennbar | § 22 KUG | Unkenntlich machen oder § 23 Nr. 2 (Beiwerk) pruefen |
+| Hintergrund-Personen auf Social-Media-Foto erkennbar | § 22 KUG | Unkenntlich machen oder § 23 Abs. 1 Nr. 2 KUG (Beiwerk neben einer Landschaft oder sonstigen Oertlichkeit) pruefen |
 
 ## Relevanz fuer Codebase-Typen
 
@@ -231,8 +231,9 @@ Delisting bei nicht mehr gerechtfertigter Verbreitung.
 > - [ ] Printmaterial (Broschuere, Visitenkarten)
 > - [ ] Pressearbeit
 >
-> Die Einwilligung erfolgt fuer [Dauer/unbefristet] und ist jederzeit
-> **schriftlich** gegenueber [Kontakt] widerrufbar mit Wirkung fuer die Zukunft.
+> Die Einwilligung erfolgt fuer [Dauer/unbefristet] und kann jederzeit
+> formlos, z. B. per E-Mail an [Kontakt], mit Wirkung fuer die Zukunft
+> widerrufen werden.
 > Rechtsgrundlage: § 22 KUG, Art. 6 Abs. 1 lit. a DSGVO.
 
 ## Siehe auch
@@ -270,3 +271,8 @@ Delisting bei nicht mehr gerechtfertigter Verbreitung.
   Abs. 3 DSGVO); Abschnitt "BGH VI ZR 160/18" gestrichen (Aktenzeichen
   in der Rechtsinformations-API des Bundes nicht nachweisbar; das Urteil
   zum Recht auf Auslistung ist VI ZR 405/18 und traegt keine KUG-Aussage).
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Widerruf der Einwilligung im Mustertext formlos (Art. 7 Abs. 3 DSGVO);
+  Event-Fotos: Hinweisschilder ersetzen die Einwilligung nicht, § 23 Abs. 1
+  Nr. 3 KUG; Beiwerk als § 23 Abs. 1 Nr. 2 KUG; Geltungsbeginn der DSGVO
+  mit Art. 99 Abs. 2 DSGVO.

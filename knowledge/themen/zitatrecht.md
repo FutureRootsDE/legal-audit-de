@@ -33,8 +33,9 @@ Voraussetzungen:
    **inhaltliche Auseinandersetzung** ermoeglichen. "Schmueckendes Beiwerk"
    ist kein Zitat.
 2. **Umfang gerechtfertigt**: Nicht mehr Umfang als noetig.
-3. **Eigener Werk-Charakter**: Das zitierende Werk muss ein **selbststaendiges
-   Werk** sein.
+3. **Eigener Werk-Charakter**: Ein selbstaendiges Werk verlangt § 51 Satz 2
+   UrhG nur in den Regelbeispielen Nr. 1 bis 3; stets erforderlich ist der
+   Zitatzweck (innere Verbindung zu eigenen Ausfuehrungen des Zitierenden).
 4. **Quellenangabe** (§ 63 UrhG) ist Pflicht.
 5. Veroeffentlichtes Werk: Nur bereits veroeffentlichte Werke duerfen zitiert
    werden.
@@ -102,10 +103,10 @@ zulaessiges Zitat** nach § 51 UrhG.
 |---|---|
 | Zitatzweck | Beleg, Auseinandersetzung, Erlaeuterung — NICHT Illustration/Schmuck |
 | Umfang | so wenig wie noetig |
-| Selbststaendigkeit | eigene geistige Leistung des Zitierenden erforderlich |
-| Werk veroeffentlicht | vorher legal erschienen |
+| Selbststaendigkeit | Bei den Regelbeispielen des § 51 Satz 2 Nr. 1 bis 3 UrhG muss das zitierende Werk selbstaendig sein; stets erforderlich sind eigene Ausfuehrungen, zu denen das Zitat in innerer Verbindung steht |
+| Werk veroeffentlicht | zuvor mit Zustimmung des Berechtigten der Oeffentlichkeit zugaenglich gemacht (§ 6 Abs. 1 UrhG); "erschienen" (§ 6 Abs. 2) verlangt nur § 51 Satz 2 Nr. 3 (Musikzitat) |
 | Erkennbarkeit | das zitierte Werk muss erkennbar sein (EuGH C-476/17, Tenor 4) |
-| Unveraendert | kein Eingriff in den Werkcharakter (Aenderungen offenlegen) |
+| Unveraendert | Aenderungsverbot (§ 62 Abs. 1 UrhG); Uebersetzungen und Auszuege nur, soweit der Benutzungszweck es erfordert (§ 62 Abs. 2); Kuerzungen und Aenderungen ganzer Sprach- und Musikwerke sind kenntlich zu machen (§ 63 Abs. 1 Satz 2) |
 | Quelle | § 63 UrhG: Urheber + Fundstelle |
 | Kein Verstoss gegen Urheberpersoenlichkeit | § 14 UrhG (Entstellung) |
 
@@ -113,27 +114,27 @@ zulaessiges Zitat** nach § 51 UrhG.
 
 | Problem | Risiko | Fix |
 |---|---|---|
-| Einstein-/Steve-Jobs-Zitat auf Landingpage | Kein Zitatzweck (§ 51), schmueckend | Eigene Aussage oder freie Inhalte (gemeinfrei) |
+| Einstein-/Steve-Jobs-Zitat auf Landingpage | Kein Zitatzweck (§ 51 UrhG), schmueckend, soweit der Text ueberhaupt (noch) geschuetzt ist (Werkqualitaet § 2 Abs. 2; Schutzdauer 70 Jahre nach dem Tod, §§ 64, 69; Uebersetzungen eigenstaendig geschuetzt, § 3 UrhG) | Eigene Aussage oder freie Inhalte (gemeinfrei) |
 | Foto eines Gemaeldes als Illustration im Blog | Reine Illustration ist kein Zitatzweck; § 51 Satz 3 erfasst die Abbildung nur, wenn ein zulaessiges Zitat vorliegt | Lizenz einholen oder Public-Domain-Bild |
-| Song-Snippet in Produktvideo | Regelmaessig kein Zitat, GEMA-Lizenz noetig | Royalty-free Musik oder Lizenz |
-| Wikipedia-Artikel copy/paste ohne Quelle | § 63 UrhG + CC-BY-SA-Lizenz verletzt | Quelle + Lizenzhinweis setzen |
+| Song-Snippet in Produktvideo | Regelmaessig kein Zitat; noetig sind die Rechte an der Komposition und zusaetzlich die des Tontraegerherstellers (§ 85 Abs. 1 UrhG) | Royalty-free Musik oder Lizenz |
+| Wikipedia-Artikel copy/paste ohne Quelle | Rechtsverletzung, wenn die Lizenzbedingungen (Namensnennung, Lizenzhinweis, Weitergabe unter gleichen Bedingungen) nicht eingehalten werden; § 63 UrhG greift nur bei Nutzung aufgrund einer Schranke | Quelle + Lizenzhinweis setzen |
 | Meme mit Filmszene auf Twitter | § 51a UrhG (Parodie oder Pastiche) nur im Rahmen der Schranke; Reichweite des Pastiche siehe EuGH C-590/23 | Pruefen: Parodie oder Pastiche im Sinne von § 51a? |
-| Interview-Auszug ohne Zustimmung | Interview = urheberrechtlich geschuetzt + KUG | Zustimmung + Quelle |
-| Forschungsabbildung ohne Nennung | § 51 Nr. 1 + § 63 UrhG | Vollstaendige Zitation mit Urheber/Verlag |
-| Promi-Zitat fuer Werbung | Kein § 51 UrhG + § 22 KUG Persoenlichkeitsrecht | Lizenzvertrag noetig |
+| Interview-Auszug ohne Zustimmung | Interview kann als Sprachwerk geschuetzt sein (§ 2 Abs. 1 Nr. 1, Abs. 2 UrhG); daneben allgemeines Persoenlichkeitsrecht; § 22 KUG nur fuer Bildnisse | Zustimmung + Quelle |
+| Forschungsabbildung ohne Nennung | § 51 Satz 2 Nr. 1 + § 63 UrhG | Vollstaendige Zitation mit Urheber/Verlag |
+| Promi-Zitat fuer Werbung | Kein Zitatzweck nach § 51 UrhG; allgemeines Persoenlichkeitsrecht; § 22 KUG nur, wenn ein Bildnis mitverwendet wird | Lizenzvertrag noetig |
 
 ## Relevanz fuer Codebase-Typen
 
 ### Content/Blog
 
-- CMS-Feld "Quelle" fuer jedes zitierte Werk Pflicht
-- Bild-Zitate nur in klar wissenschaftlichem oder kritischem Kontext
+- CMS-Feld "Quelle" fuer jedes zitierte Werk empfohlen (Quellenangabe nach § 63 UrhG)
+- Bild-Zitate nur mit Zitatzweck (Erlaeuterung, Meinungsverteidigung oder geistige Auseinandersetzung mit dem Bild, nicht blosse Illustration); ganze Werke nennt § 51 Satz 2 Nr. 1 UrhG als Regelbeispiel nur fuer wissenschaftliche Werke
 - Lizenz-Logo bei CC-Bildern automatisch ausgegeben
 
 ### E-Commerce
 
 - Produktbeschreibungen: kein fremder Text ohne Lizenz (Herstellerfreigabe)
-- Herstellerlogos: Lizenz (oft ok bei Produktverkauf, aber nicht fuer Werbung)
+- Herstellerlogos: Fuer Originalware, die vom Markeninhaber oder mit seiner Zustimmung im EWR in Verkehr gebracht wurde, darf die Marke ohne Lizenz fuer diese Waren benutzt werden (§ 24 Abs. 1 MarkenG); Grenze: berechtigte Gruende (§ 24 Abs. 2)
 
 ### Next.js SaaS / Landingpage
 
@@ -143,13 +144,13 @@ zulaessiges Zitat** nach § 51 UrhG.
 
 ### Video/Shorts
 
-- Filmzitate: strenger Massstab, EuGH Pelham + Spiegel Online beachten
+- Filmzitate: Zitatzweck erforderlich (Interaktion bzw. geistige Auseinandersetzung mit dem Werk; EuGH C-476/17, Rn. 71; C-516/17, Rn. 78; BGH I ZR 42/05, TV-Total); einen eigenen strengeren Massstab fuer Filme enthalten die EuGH-Urteile nicht
 - Kurze Samples in Musik: § 51a (Pastiche) pruefen; Reichweite nach EuGH C-590/23 (siehe § 51a oben)
 
 ## Behoerden-Hinweise / Gerichtspraxis
 
-- **Deutsches Patent- und Markenamt / ZPUe**: Zustaendig fuer
-  urheberrechtliche Verwertungsgesellschaften (GEMA, VG Wort, VG Bild-Kunst)
+- **Deutsches Patent- und Markenamt**: Aufsichtsbehoerde ueber die
+  Verwertungsgesellschaften (§ 75 Abs. 1 VGG), z. B. GEMA, VG Wort, VG Bild-Kunst
 - **BGH**: Strenge Linie bei "Zier-Zitaten"
 - **EuGH**: Art. 5 Abs. 3 Buchst. c Fall 2 und Buchst. d RL 2001/29/EG ist
   "keine Maßnahme zur vollständigen Harmonisierung der Reichweite der in ihm
@@ -229,7 +230,9 @@ Tenor 5 und 6 (Wortlaut):
 > einer gesetzlichen Erlaubnis zugänglich gemacht wurde."
 
 Kernfolge: Auch Links koennen als Zitat i.S.v. Art. 5 Abs. 3 lit. d InfoSoc-RL
-gelten. Werk muss rechtmaessig veroeffentlicht worden sein.
+gelten. Das zitierte Werk muss der Oeffentlichkeit zuvor in seiner konkreten
+Gestalt rechtmaessig zugaenglich gemacht worden sein (mit Zustimmung des
+Rechtsinhabers, aufgrund Zwangslizenz oder gesetzlicher Erlaubnis).
 
 ### EuGH C-469/17 (Funke Medien / Afghanistan Papiere), 29.07.2019
 
@@ -244,6 +247,14 @@ Folgeentscheidung zu EuGH C-469/17; Leitsaetze zu § 50 UrhG und zur
 Grundrechtsabwaegung. (Das frueher hier genannte Aktenzeichen I ZR 55/19
 war unzutreffend, siehe "Nicht zitieren".)
 
+### BGH, Urt. v. 30.04.2020, I ZR 228/15 (Reformistischer Aufbruch II)
+
+Folgeentscheidung zu EuGH C-516/17.
+
+### BGH, Urt. v. 30.04.2020, I ZR 115/16 (Metall auf Metall IV)
+
+Folgeentscheidung zu EuGH C-476/17.
+
 ## Praxis-Check (Was Code-Reviewer konkret pruefen)
 
 - [ ] Jedes Zitat hat einen klaren **Belegzweck** (nicht nur Illustration)
@@ -251,13 +262,13 @@ war unzutreffend, siehe "Nicht zitieren".)
 - [ ] Eigene inhaltliche Auseinandersetzung ist erkennbar (nicht bloss Listicle)
 - [ ] **Quellenangabe** vorhanden: Urheber + Werk + Fundstelle (URL, Buch-Seite)
 - [ ] Zitiertes Werk war zuvor **legal veroeffentlicht**
-- [ ] Bei Bildzitaten: strenger Massstab (wissenschaftlich/kritisch) geprueft
+- [ ] Bei Bildzitaten: Zitatzweck geprueft (Bild ist Gegenstand der Erlaeuterung oder Auseinandersetzung, nicht blosse Illustration)
 - [ ] Keine "Motivations-Zitate" von Steve Jobs/Einstein als Design-Element
       ohne gemeinfreie Basis
-- [ ] Musik-/Filmausschnitte: Lizenz + GEMA geklaert
+- [ ] Musik-/Filmausschnitte: Rechte der Urheber und der Tontraeger- bzw. Filmhersteller geklaert (§ 85 UrhG; Film: Leistungsschutzrecht des Filmherstellers)
 - [ ] CC-Lizenzen (CC-BY, CC-BY-SA): Namensnennung + Lizenzlink korrekt
 - [ ] Kuerzungen/Aenderungen sind gekennzeichnet ("[…]", "[Name]")
-- [ ] Promi-Zitate fuer Werbung: Lizenz + KUG-Zustimmung ([[fotos-dritter-kug]])
+- [ ] Promi-Zitate fuer Werbung: Zustimmung des Betroffenen (allgemeines Persoenlichkeitsrecht); KUG-Einwilligung nur bei Bildnisverwendung (§ 22 KUG) ([[fotos-dritter-kug]])
 
 ## Formatierung eines korrekten Zitats (Beispiel)
 
@@ -310,3 +321,11 @@ Quelle: https://de.wikipedia.org/wiki/Albert_Einstein
   "Stimmt's" (Markenrecht). Gegenstand passt nicht zum Zitatrecht; Zitat
   aus dem Abschnitt "Kernentscheidungen" entfernt und in Hinweisblock
   "Nicht zitieren" dokumentiert, Aussage mit Verifikationsmarker belassen.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2)**:
+  Selbstaendigkeit und Zitatzweck an § 51 Satz 2 Nr. 1 bis 3 UrhG
+  ausgerichtet; "veroeffentlicht" (§ 6 Abs. 1, 2 UrhG) und "rechtmaessig
+  zugaenglich gemacht" (EuGH C-516/17, Tenor 6) praezisiert;
+  Aenderungsverbot und Kenntlichmachung (§§ 62, 63); Schutzdauer und
+  Uebersetzungen (§§ 3, 64, 69); Tontraegerhersteller (§ 85); Marken-
+  Erschoepfung (§ 24 MarkenG); DPMA als Aufsichtsbehoerde (§ 75 Abs. 1 VGG);
+  Folgeentscheidungen BGH I ZR 228/15 und I ZR 115/16 aufgenommen.

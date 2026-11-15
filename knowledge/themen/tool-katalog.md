@@ -26,14 +26,14 @@ Katalog von rund 100 verbreiteten Web-/SaaS-Tools mit Einordnung nach Einwilligu
 
 | Einwilligung? | Erklärung |
 |---|---|
-| ✅ Nicht nötig | § 25 Abs. 2 Nr. 2 TDDDG — unbedingt erforderlich für den vom Nutzer angeforderten Dienst |
-| ⚠️ Bedingt | Abhängig von Konfiguration: einwilligungsfrei möglich (z. B. Self-Host ohne Cookies, Server-Side, anonymisiert) oder auf berechtigtes Interesse stützbar |
-| ❌ Pflicht | § 25 Abs. 1 TDDDG — immer Opt-In vor Ladung / Ausführung |
+| ✅ Nicht nötig | Nach Anbieterangaben ohne Speichern oder Auslesen auf dem Endgerät nutzbar oder unbedingt erforderlich im Sinne von § 25 Abs. 2 Nr. 2 TDDDG (Speicherung/Zugriff unbedingt erforderlich, damit der Anbieter einen vom Nutzer ausdrücklich gewünschten digitalen Dienst zur Verfügung stellen kann); im Einzelfall prüfen |
+| ⚠️ Bedingt | Abhängig von der Konfiguration. Ohne Einwilligung nach § 25 TDDDG nur, wenn nichts in der Endeinrichtung gespeichert oder ausgelesen wird oder § 25 Abs. 2 greift (z. B. Self-Host ohne Cookies, Server-Side). Ein berechtigtes Interesse ersetzt keine nach § 25 Abs. 1 nötige Einwilligung; Art. 6 Abs. 1 lit. f DSGVO trägt allenfalls die anschließende Datenverarbeitung |
+| ❌ Pflicht | Einwilligung nach § 25 Abs. 1 TDDDG nötig (Einwilligung vor jeder nicht erforderlichen Speicherung in der oder jedem Zugriff auf die Endeinrichtung); das Laden von Drittinhalten ist zusätzlich datenschutzrechtlich (Art. 6 DSGVO) zu prüfen |
 
 | Drittland | Erklärung |
 |---|---|
 | 🇪🇺 EU | Verarbeitung in EU/EWR |
-| 🇺🇸 US-DPF | USA mit EU-US Data Privacy Framework-Zertifizierung (seit 10.07.2023) |
+| 🇺🇸 US-DPF | USA mit EU-US Data Privacy Framework-Zertifizierung (Angemessenheitsbeschluss (EU) 2023/1795 vom 10.07.2023; Nichtigkeitsklage abgewiesen durch EuG, Urt. v. 03.09.2025, T-553/23 (Latombe ./. Kommission); Stand eines Rechtsmittels zum EuGH vor Verwendung prüfen) |
 | 🇺🇸 US-kritisch | USA ohne aktive DPF-Zertifizierung oder Tool außerhalb des Zertifizierungs-Scopes |
 | 🌐 Drittland | Sonstiges Drittland — SCCs + TIA erforderlich |
 | 🔀 Variabel | Anbieter bietet Region-Wahl (EU oder US) — hängt von Tenant-Konfiguration ab |
@@ -45,23 +45,23 @@ Katalog von rund 100 verbreiteten Web-/SaaS-Tools mit Einordnung nach Einwilligu
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
 | Google Analytics 4 | Google LLC | ❌ | 🇺🇸 US-DPF | `gtag`, `googletagmanager.com/gtag/js`, `@next/third-parties/google` | Einwilligungspflichtig (auch IP-anonymisiert); AVV + SCCs ergänzend; Consent Mode v2 nötig |
-| Plausible Analytics | Plausible Insights OÜ (Estland) | ✅ | 🇪🇺 EU (Hetzner DE) | `plausible.io/api/event`, `@plausible.io/tracker` | Cookie-frei, keine PII, laut Anbieter ohne Banner nutzbar; Self-Host (MIT) verfügbar |
-| Matomo (Self-Host) | InnoCraft Ltd (NZ, Software) | ⚠️ | 🇪🇺 EU (wenn selbst gehostet) | `matomo.js`, `piwik.js`, `_paq.push` | Cookie-less-Mode + IP-Anonymisierung + respectDoNotTrack → einwilligungsfrei möglich laut Aufsichtsbehörden |
+| Plausible Analytics | Plausible Insights OÜ (Estland) | ⚠️ | 🇪🇺 EU (Hetzner DE) | `plausible.io/api/event`, `@plausible.io/tracker` | Laut Anbieter cookie-frei, keine PII, ohne Banner nutzbar; Self-Host (MIT) verfügbar. Nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung |
+| Matomo (Self-Host) | InnoCraft Ltd (NZ, Software) | ⚠️ | 🇪🇺 EU (wenn selbst gehostet) | `matomo.js`, `piwik.js`, `_paq.push` | Cookie-less-Mode + IP-Anonymisierung + respectDoNotTrack; nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung |
 | Matomo Cloud | InnoCraft Ltd | ❌ | 🇪🇺 EU (Frankreich) | `*.matomo.cloud` | Cloud-Variante setzt Cookies standardmäßig |
-| Fathom Analytics | Conva Ventures Inc. (Kanada) | ✅ | 🌐 Drittland Kanada (Angemessenheitsbeschluss für PIPEDA-unterworfene Stellen prüfen); kein DPF-Teilnehmer (Abruf DPF-Liste 14.11.2026) | `usefathom.com/script.js`, `cdn.usefathom.com` | Cookie-frei; EU-Besucher-IPs nach Schrems II auf EU-Infrastruktur isoliert |
-| Simple Analytics | Simple Analytics B.V. (NL) | ✅ | 🇪🇺 EU (Niederlande) | `scripts.simpleanalyticscdn.com`, `queue.simpleanalyticscdn.com` | Cookie-frei, kein persönlicher Identifier |
+| Fathom Analytics | Conva Ventures Inc. (Kanada) | ⚠️ | 🌐 Drittland Kanada (Angemessenheitsbeschluss für PIPEDA-unterworfene Stellen prüfen); kein DPF-Teilnehmer (Abruf DPF-Liste 14.11.2026) | `usefathom.com/script.js`, `cdn.usefathom.com` | Laut Anbieter cookie-frei; EU-Besucher-IPs nach Schrems II auf EU-Infrastruktur isoliert. Nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung |
+| Simple Analytics | Simple Analytics B.V. (NL) | ⚠️ | 🇪🇺 EU (Niederlande) | `scripts.simpleanalyticscdn.com`, `queue.simpleanalyticscdn.com` | Laut Anbieter cookie-frei, kein persönlicher Identifier. Nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung |
 | PostHog | PostHog Inc. (US) | ❌ (Default) / ⚠️ (Self-Host, cookieless) | 🔀 US-DPF oder 🇪🇺 EU (Frankfurt) | `posthog-js`, `app.posthog.com`, `eu.i.posthog.com` | PostHog Cloud EU seit 2023; Self-Host + Cookieless möglich; sonst einwilligungspflichtig |
 | Mixpanel | Mixpanel Inc. | ❌ | 🇺🇸 US-DPF | `mixpanel-browser`, `api.mixpanel.com`, `api-eu.mixpanel.com` | EU-Residency via "EU Data Residency"-Tier buchbar |
 | Amplitude | Amplitude Inc. | ❌ | 🇺🇸 US-DPF | `@amplitude/analytics-browser`, `api2.amplitude.com`, `api.eu.amplitude.com` | EU-Endpoint verfügbar; trotzdem Einwilligung nötig |
 | Heap | Contentsquare (Heap integriert) | ❌ | 🇺🇸 US-DPF über Contentsquare aktiv (Abruf 14.11.2026); ob Heap erfasst ist, am DPA prüfen | `heap.js`, `heapanalytics.com` | Session-Recording möglich → ggf. DSFA nötig |
-| Pirsch Analytics | Emvi Software GmbH (DE) | ✅ | 🇪🇺 EU (Deutschland) | `pirsch.io/pirsch.js`, `api.pirsch.io` | Deutsches Unternehmen, Hetzner-Hosting, cookie-frei |
+| Pirsch Analytics | Emvi Software GmbH (DE) | ⚠️ | 🇪🇺 EU (Deutschland) | `pirsch.io/pirsch.js`, `api.pirsch.io` | Deutsches Unternehmen; laut Anbieter Hetzner-Hosting und cookie-frei. Nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung |
 
 ### Werbe- / Tracking-Pixel (10 Tools)
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
 | Meta Pixel (Facebook) | Meta Platforms Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `fbq(`, `connect.facebook.net/.../fbevents.js` | Gemeinsame Verantwortlichkeit (EuGH C-40/17 Fashion ID, 29.07.2019); Joint-Controller-Vertrag nötig |
-| Google Ads Conversion | Google Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `gtag('event', 'conversion'`, `googleadservices.com`, `google.com/pagead` | Consent Mode v2 seit 2024 Pflicht für EU-Traffic |
+| Google Ads Conversion | Google Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `gtag('event', 'conversion'`, `googleadservices.com`, `google.com/pagead` | Consent Mode v2: Anbietervorgabe von Google, keine gesetzliche Pflicht; maßgeblich bleibt § 25 Abs. 1 TDDDG (Angaben auf der Google-Seite prüfen) |
 | LinkedIn Insight Tag | LinkedIn Ireland | ❌ | 🇺🇸 US-DPF | `_linkedin_partner_id`, `snap.licdn.com/li.lms-analytics/insight.min.js` | |
 | TikTok Pixel | TikTok Technology Ltd. (IE) / ByteDance | ❌ | 🌐 Drittland (CN-Verbindung kritisch) | `ttq.`, `analytics.tiktok.com/i18n/pixel/events.js` | TikTok-Nutzung für Behörden z. T. untersagt; DSFA ratsam |
 | Pinterest Tag | Pinterest Europe Ltd. | ❌ | 🇺🇸 US-DPF | `pintrk(`, `s.pinimg.com/ct/core.js` | |
@@ -81,12 +81,12 @@ Katalog von rund 100 verbreiteten Web-/SaaS-Tools mit Einordnung nach Einwilligu
 
 ### Consent Management Platforms (10 Tools)
 
-Eine CMP selbst ist zur Einwilligungs-Erfüllung "unbedingt erforderlich" (§ 25 Abs. 2 Nr. 2 TDDDG) und benötigt keine eigene Einwilligung. Geprüft werden muss nur der Drittland-Transfer.
+Das Speichern der Einwilligungsentscheidung ist in der Regel unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG) und kann nach dieser Vorschrift einwilligungsfrei sein, soweit sich die CMP darauf beschränkt; keine unnötigen eindeutigen Nutzerkennungen, und weitere Zwecke sind davon nicht gedeckt (DSK, OH Digitale Dienste, Rn. 92). "✅" gilt in dieser Gruppe nur für die Speicherung des Einwilligungsstatus ohne eindeutige Kennung.
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| Usercentrics | Usercentrics GmbH (DE) | ✅ | 🇪🇺 EU | `app.usercentrics.eu`, `cookie/v2/accept` | Deutscher Anbieter, CNIL-anerkannt |
-| Cookiebot (by Usercentrics) | Cybot A/S (DK) | ✅ | 🇪🇺 EU | `consent.cookiebot.com`, `consentcloud.js` | LG Köln 23 O 172/22 zu Cookiebot + Google-Fonts-Problem prüfen (2023) |
+| Usercentrics | Usercentrics GmbH (DE) | ✅ | 🇪🇺 EU | `app.usercentrics.eu`, `cookie/v2/accept` | Deutscher Anbieter |
+| Cookiebot (by Usercentrics) | Cybot A/S (DK) | ✅ | 🇪🇺 EU | `consent.cookiebot.com`, `consentcloud.js` | LG Köln 23 O 172/22 <<VERIFIKATION AUSSTEHEND>> zu Cookiebot + Google-Fonts-Problem prüfen (2023) |
 | Klaro! | KIProtect GmbH (DE) | ✅ | 🇪🇺 EU (Self-Host) | `klaro.js`, `klaro-no-css.js` | Open-Source, self-hostbar |
 | Osano | Osano Inc. (US) | ✅ | 🇺🇸 US-DPF | `cmp.osano.com`, `osano.js` | |
 | Iubenda | iubenda s.r.l. (IT) | ✅ | 🇪🇺 EU | `cdn.iubenda.com`, `cs.iubenda.com` | |
@@ -109,6 +109,8 @@ Eine CMP selbst ist zur Einwilligungs-Erfüllung "unbedingt erforderlich" (§ 25
 
 ### Chat / Customer Support (8 Tools)
 
+Gruppenvermerk: ❌ bei Laden mit Seitenaufruf; ⚠️ bei Click-to-load (§ 25 Abs. 2 Nr. 2 TDDDG für die zum Chat nötigen Vorgänge; Tracking bleibt einwilligungspflichtig).
+
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
 | Intercom | Intercom Inc. (US) / Intercom R&D Ltd. (IE) | ❌ | 🔀 US-DPF / 🇪🇺 EU (EU-Data-Hosting buchbar) | `widget.intercom.io`, `Intercom(` | Cookies werden vor Chat-Nutzung gesetzt → Consent |
@@ -122,7 +124,7 @@ Eine CMP selbst ist zur Einwilligungs-Erfüllung "unbedingt erforderlich" (§ 25
 
 ### E-Mail-Marketing / CRM (10 Tools)
 
-Meist serverseitig → § 25 TDDDG nicht einschlägig. Einwilligung **für den Newsletter-Versand** folgt aus § 7 Abs. 2 Nr. 2 UWG (Double-Opt-In; Bestandskunden-Ausnahme nach § 7 Abs. 3 UWG). Spalte "Einwilligung" bezieht sich hier auf Embed-Scripts / Trackings.
+Meist serverseitig → § 25 TDDDG nicht einschlägig. Für Newsletter-Werbung per E-Mail ist eine vorherige ausdrückliche Einwilligung erforderlich (§ 7 Abs. 2 Nr. 2 UWG); Double-Opt-In ist kein gesetzliches Erfordernis, sondern dient dem Nachweis der Einwilligung. Ausnahme für Bestandskunden nur bei kumulativer Erfüllung aller vier Voraussetzungen des § 7 Abs. 3 UWG. Spalte "Einwilligung" bezieht sich hier auf Embed-Scripts / Trackings.
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
@@ -139,11 +141,11 @@ Meist serverseitig → § 25 TDDDG nicht einschlägig. Einwilligung **für den N
 
 ### Payment (6 Tools)
 
-Payment-Provider sind üblicherweise "zur Vertragsanbahnung unbedingt erforderlich" (§ 25 Abs. 2 Nr. 2 TDDDG) — dies umfasst allerdings nur die Zahlungsabwicklung selbst, nicht Anti-Fraud-/Advertising-Cookies.
+Payment-Provider fallen unter § 25 Abs. 2 Nr. 2 TDDDG, soweit Speicherung oder Zugriff unbedingt erforderlich ist, damit der vom Nutzer ausdrücklich gewünschte digitale Dienst (die Zahlung) bereitgestellt werden kann; "Vertragsanbahnung" ist kein Merkmal des § 25. Werbe-Cookies sind nicht erfasst.
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| Stripe | Stripe, LLC (US) / Stripe Payments Europe (IE) | ✅ (Checkout) / ❌ (Stripe Radar vor Checkout) | 🇺🇸 US-DPF (Stripe, LLC aktiv, Abruf 14.11.2026) | `js.stripe.com/v3/`, `@stripe/stripe-js`, `@stripe/react-stripe-js` | Stripe.js lädt Fraud-Detection-Fingerprint — LG Münster 016 O 103/24 (2024) zur Einwilligungsfrage beachten |
+| Stripe | Stripe, LLC (US) / Stripe Payments Europe (IE) | ✅ (Checkout) / ❌ (Stripe Radar vor Checkout) | 🇺🇸 US-DPF (Stripe, LLC aktiv, Abruf 14.11.2026) | `js.stripe.com/v3/`, `@stripe/stripe-js`, `@stripe/react-stripe-js` | Stripe.js lädt Fraud-Detection-Fingerprint; Stripe.js nur auf Seiten laden, auf denen bezahlt wird; ein globales Einbinden vor einer Einwilligung ist ein Zugriff auf das Endgerät (§ 25 Abs. 1 TDDDG), soweit er nicht unbedingt erforderlich ist |
 | PayPal | PayPal (Europe) S.à r.l. (LU) | ✅ (Checkout) / ❌ (Button-Tracking) | 🇪🇺 EU (Luxemburg, Transfers an US-Mutter) | `paypal.com/sdk/js`, `@paypal/react-paypal-js` | SDK lädt Tracking, vor Checkout-Klick Einwilligung empfohlen |
 | Mollie | Mollie B.V. (NL) | ✅ | 🇪🇺 EU (Niederlande) | `api.mollie.com`, Composer `mollie/mollie-api-php` | EU-Anbieter, DSGVO-freundlich |
 | Adyen | Adyen N.V. (NL) | ✅ | 🇪🇺 EU (Niederlande) | `checkoutshopper-live.adyen.com`, `@adyen/adyen-web` | EU-Anbieter |
@@ -154,12 +156,12 @@ Payment-Provider sind üblicherweise "zur Vertragsanbahnung unbedingt erforderli
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| Google Fonts (remote) | Google Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `fonts.googleapis.com`, `fonts.gstatic.com` | **LG München I 3 O 17493/20** (20.01.2022): 100 € Schmerzensgeld bei remote-Einbindung ohne Einwilligung — Self-Host Pflicht-Praxis |
+| Google Fonts (remote) | Google Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `fonts.googleapis.com`, `fonts.gstatic.com` | **LG München I 3 O 17493/20** (20.01.2022): 100 € Schmerzensgeld bei remote-Einbindung ohne Einwilligung — Self-Host Pflicht-Praxis. Die Offenlegung der IP-Adresse an Drittserver braucht eine Rechtsgrundlage nach Art. 6 Abs. 1 DSGVO, praktisch Einwilligung; § 25 Abs. 1 TDDDG nur, soweit auf das Endgerät zugegriffen wird |
 | Google Fonts (self-host) | lokal ausgeliefert | ✅ | 🇪🇺 EU (eigener Server) | `/fonts/*.woff2`, `@fontsource/*` (npm) | DSGVO-unkritisch |
 | Adobe Fonts (Typekit) | Adobe Inc. (US) | ❌ | 🇺🇸 US-DPF | `use.typekit.net/*.js`, `p.typekit.net` | Lädt Tracking-Kit; Einwilligung erforderlich |
 | Fontsource | Community / OSS | ✅ | 🇪🇺 EU (lokal) | `@fontsource/<font>` (npm) | 1500+ Fonts als npm-Paket, lokal gebundled |
 | Bunny Fonts | BunnyWay d.o.o. (SI) | ✅ | 🇪🇺 EU (Slowenien) | `fonts.bunny.net/css` | Google-Fonts-API-kompatibel, kein Logging |
-| jsDelivr | Prospect One (PL) | ⚠️ | 🇪🇺 EU (Polen) / Multi-CDN | `cdn.jsdelivr.net/*` | IP geht an CDN; für Libraries i. d. R. "unbedingt erforderlich" |
+| jsDelivr | Prospect One (PL) | ⚠️ | 🇪🇺 EU (Polen) / Multi-CDN | `cdn.jsdelivr.net/*` | IP-Adresse geht an das CDN: Offenlegung personenbezogener Daten, dafür ist eine Rechtsgrundlage nach Art. 6 Abs. 1 DSGVO nötig; § 25 TDDDG ("unbedingt erforderlich") ist nur für Speicherung oder Zugriff im Endgerät der Maßstab |
 | cdnjs (Cloudflare) | Cloudflare Inc. (US) | ⚠️ | 🇺🇸 US-DPF | `cdnjs.cloudflare.com/ajax/libs/*` | IP an Cloudflare; Self-Host empfohlen |
 
 ### Video- / Media-Embed (6 Tools)
@@ -187,7 +189,7 @@ Payment-Provider sind üblicherweise "zur Vertragsanbahnung unbedingt erforderli
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| Sentry | Functional Software Inc. (US) / Sentry GmbH (DE, EU-Tenant) | ⚠️ | 🔀 US-DPF / 🇪🇺 EU (de.sentry.io) | `@sentry/browser`, `@sentry/nextjs`, `Sentry.init` | Error-Monitoring kann als "unbedingt erforderlich" eingeordnet werden (Sicherheit), wenn `sendDefaultPii: false` und Session-Replay aus |
+| Sentry | Functional Software Inc. (US) / Sentry GmbH (DE, EU-Tenant) | ⚠️ | 🔀 US-DPF / 🇪🇺 EU (de.sentry.io) | `@sentry/browser`, `@sentry/nextjs`, `Sentry.init` | Error-Monitoring ist nur im Einzelfall einwilligungsfrei, wenn Speicherung oder Zugriff unbedingt erforderlich ist, damit der vom Nutzer ausdrücklich gewünschte Dienst bereitgestellt werden kann (§ 25 Abs. 2 Nr. 2 TDDDG), etwa mit `sendDefaultPii: false` und ohne Session-Replay; einen allgemeinen Sicherheitszweck nennt die Norm nicht |
 | Datadog RUM | Datadog Inc. (US) | ❌ | 🇺🇸 US-DPF | `@datadog/browser-rum`, `datadoghq.com`, `datadoghq.eu` | EU-Site als `.eu`-Domain |
 | Rollbar | Rollbar Inc. (US) | ⚠️ | 🇺🇸 US-DPF | `rollbar.com/rollbar.js`, `@rollbar/browser` | |
 | Bugsnag | SmartBear / Insight Hub | ⚠️ | 🇺🇸 US-kritisch (DPF-Eintrag SmartBear erloschen, Abruf 14.11.2026) | `@bugsnag/js`, `notify.bugsnag.com` | |
@@ -215,7 +217,7 @@ Alle Social Plugins setzen Cookies beim Laden und übertragen IP + User-Agent an
 |---|---|---|---|---|---|
 | Google Maps (Embed / API) | Google Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `maps.googleapis.com/maps/api/js`, `<iframe src="google.com/maps/embed">` | Lädt Google-Cookies; 2-Klick-Lösung oder Static-Map-Variante |
 | Mapbox | Mapbox Inc. (US) | ⚠️ | 🇺🇸 US-DPF | `api.mapbox.com`, `mapbox-gl.js`, `react-map-gl` | IP an Mapbox, Telemetry deaktivierbar |
-| Leaflet + OpenStreetMap | OpenStreetMap Foundation (UK) | ✅ | 🇪🇺 EU (Tile-Server in DE verfügbar) | `leaflet.js`, `tile.openstreetmap.org` | Tile-IP-Transfer; i. d. R. unproblematisch |
+| Leaflet + OpenStreetMap | OpenStreetMap Foundation (UK) | ✅ | 🌐 Drittland UK (Angemessenheitsbeschluss prüfen) | `leaflet.js`, `tile.openstreetmap.org` | Tile-IP-Transfer; i. d. R. unproblematisch. Speicherort laut Anbieter (OSMF Privacy Policy, Stand 2026-11-15): "stored in the United Kingdom and the Netherlands ... global network of cache servers" |
 | MapLibre GL JS | MapLibre Community / OSS | ✅ | 🇪🇺 EU (wenn EU-Tiles) | `maplibre-gl.js`, `maplibre-gl-js` | Fork von Mapbox GL JS; Tile-Provider konfigurierbar |
 
 ### A/B-Testing (4 Tools)
@@ -225,7 +227,7 @@ Alle Social Plugins setzen Cookies beim Laden und übertragen IP + User-Agent an
 | Google Optimize | Google (abgekündigt 30.09.2023) | — | — | `googleoptimize.com/optimize.js` | **Nicht mehr verfügbar** — bei Fund in Code: Dead-Code, entfernen |
 | VWO | Wingify Software Pvt. Ltd. (IN) | ❌ | 🌐 Drittland (Indien, kein Angemessenheitsbeschluss) | `dev.visualwebsiteoptimizer.com/lib/*.js`, `_vwo_code` | SCCs + TIA nötig |
 | Optimizely | Optimizely Inc. (US) | ❌ | 🇺🇸 US-DPF | `cdn.optimizely.com/js/*.js`, `optimizelyDataClient` | |
-| Unbounce | Unbounce Marketing Solutions Inc. (CA) | ❌ | 🌐 Drittland (Kanada hat EU-Angemessenheitsbeschluss, 2001/2019) | `unbouncepages.com`, `d3pkntwtp2ukl5.cloudfront.net` | Kanada-Angemessenheit erleichtert Transfer |
+| Unbounce | Unbounce Marketing Solutions Inc. (CA) | ❌ | 🌐 Drittland Kanada: Angemessenheitsentscheidung 2002/2/EG vom 20.12.2001, nur für Empfänger, die dem PIPEDA unterliegen | `unbouncepages.com`, `d3pkntwtp2ukl5.cloudfront.net` | |
 
 ### AI / ML APIs (6 Tools)
 
@@ -238,15 +240,17 @@ Alle AI-APIs sind **serverseitig** — § 25 TDDDG greift nur bei clientseitigem
 | Mistral AI | Mistral AI SAS (FR) | ⚠️ (serverseitig) | 🇪🇺 EU (Frankreich) | `@mistralai/mistralai`, `api.mistral.ai` | EU-Anbieter |
 | Azure OpenAI | Microsoft Ireland (EU-Region) | ⚠️ (serverseitig) | 🔀 🇪🇺 EU / 🇺🇸 US-DPF (Region-Wahl) | `openai.azure.com`, `@azure/openai` | EU-Regionen (`westeurope`, `germanywestcentral`) verfügbar |
 | Google Gemini / Vertex AI | Google Ireland | ⚠️ (serverseitig) | 🔀 🇪🇺 EU / 🇺🇸 US-DPF | `generativelanguage.googleapis.com`, `@google/generative-ai` | Vertex AI mit EU-Region; Gemini-API meist US |
-| Cohere | Cohere Inc. (CA) | ⚠️ (serverseitig) | 🌐 Drittland (Kanada angemessen) | `cohere-ai` (npm), `api.cohere.com` | |
+| Cohere | Cohere Inc. (CA) | ⚠️ (serverseitig) | 🌐 Drittland Kanada (Angemessenheitsentscheidung 2002/2/EG nur für Empfänger, die dem PIPEDA unterliegen) | `cohere-ai` (npm), `api.cohere.com` | |
 
 ## Nicht im Katalog (expliziter Verweis)
 
-Zu Tools, die nicht hier gelistet sind: Einordnung per ad-hoc-Check. Ein Tool ist **generell einwilligungsbedürftig**, wenn es mindestens eines der folgenden Kriterien erfüllt:
+Zu Tools, die nicht hier gelistet sind: Einordnung per ad-hoc-Check. Einwilligungsbedürftig nach § 25 Abs. 1 TDDDG ist jedes Speichern oder Auslesen von Informationen auf dem Endgerät, das nicht unbedingt erforderlich ist (§ 25 Abs. 2 TDDDG); die Einstufung einzelner Tools hängt von ihrer Konfiguration ab und ist im Einzelfall zu prüfen. Orientierung geben die folgenden Kriterien:
 
 1. Es setzt Cookies oder nutzt Local/Session-Storage vor einer expliziten Nutzer-Aktion (§ 25 Abs. 1 TDDDG)
 2. Es überträgt personenbezogene Daten (IP-Adresse, User-Agent, Client-ID, Fingerprint) an einen Drittanbieter, der nicht als Auftragsverarbeiter agiert
 3. Es greift **kein** Ausnahmetatbestand nach § 25 Abs. 2 Nr. 2 TDDDG (unbedingt erforderlich für den vom Nutzer angeforderten Dienst)
+
+Hinweis zu Kriterium 2: Die Übermittlung an Dritte, die nicht Auftragsverarbeiter sind, begründet keine Einwilligungspflicht nach § 25 TDDDG, sondern den Bedarf einer Rechtsgrundlage nach Art. 6 DSGVO (Einwilligung oder im Einzelfall Art. 6 Abs. 1 lit. f).
 
 **Prüf-Workflow für neues Tool:**
 1. Anbieter-URL / npm-Registry / Datenschutzerklärung des Anbieters lesen
@@ -262,7 +266,7 @@ Zu Tools, die nicht hier gelistet sind: Einordnung per ad-hoc-Check. Ein Tool is
 - **IP-Anonymisierung**: seit GA4 Default (nicht mehr abschaltbar); Vorgänger UA nutzte `anonymizeIp: true`.
 - **Google Signals**: in GA4 deaktivieren, wenn keine separate Einwilligung für Cross-Device-Tracking vorliegt.
 - **User-ID / User-Properties**: nur mit ausdrücklicher Einwilligung befüllen.
-- **Consent Mode v2**: seit März 2024 Pflicht; setzt die Default-Consent-Signale (`ad_storage`, `analytics_storage`, `ad_user_data`, `ad_personalization`) standardmäßig auf `denied` und erst nach CMP-Entscheidung auf `granted`.
+- **Consent Mode v2**: Anbietervorgabe von Google, keine gesetzliche Pflicht (Angaben auf der Google-Seite prüfen); setzt die Default-Consent-Signale (`ad_storage`, `analytics_storage`, `ad_user_data`, `ad_personalization`) standardmäßig auf `denied` und erst nach CMP-Entscheidung auf `granted`.
 - **AVV**: im GA4-Admin → "Konten-Einstellungen" → "Datenverarbeitung für Werbung" akzeptieren.
 - **Data-Retention**: auf 2 Monate reduzieren (Standard 14 Monate).
 
@@ -286,7 +290,7 @@ Zu Tools, die nicht hier gelistet sind: Einordnung per ad-hoc-Check. Ein Tool is
 - `js.stripe.com/v3/` erst auf der Checkout-Seite laden — nicht global einbetten. Stripe Radar (Fraud-Detection) sammelt Browser-Fingerprint bei jedem Load.
 - **Stripe Payment Element / Checkout Session**: primäre Nutzung ist "unbedingt erforderlich" (Art. 6 Abs. 1 lit. b DSGVO, Vertragsanbahnung).
 - DPA bei Stripe aktivieren: Dashboard → Settings → Legal → "Data Processing Agreement" akzeptieren.
-- **LG Münster 016 O 103/24** (Juli 2024): Zu globalem Stripe.js-Embed ohne Einwilligung siehe Urteils-Eintrag.
+- Stripe.js nur auf Seiten laden, auf denen bezahlt wird; ein globales Einbinden vor einer Einwilligung ist ein Zugriff auf das Endgerät (§ 25 Abs. 1 TDDDG), soweit er nicht unbedingt erforderlich ist.
 - SCCs sind Teil des Stripe-DPA (Modul 2, Controller→Processor).
 
 ### YouTube-Embed — privacy-enhanced
@@ -349,3 +353,14 @@ Zu Tools, die nicht hier gelistet sind: Einordnung per ad-hoc-Check. Ein Tool is
   (erloschen), Drift (Drift.com erloschen, Salesloft aktiv); Outbrain:
   widerspruechlicher Befund, Status gestrichen und Verweis auf
   dataprivacyframework.gov.
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
+  Legende zu Einwilligung (§ 25 Abs. 1 und 2 TDDDG, berechtigtes Interesse
+  ersetzt keine Einwilligung nach § 25 Abs. 1) und DPF (Beschluss (EU)
+  2023/1795, EuG T-553/23) berichtigt; cookielose Analyse-Tools auf "⚠️"
+  mit Einzelfallprüfung; CMP-Gruppe auf Speicherung des Einwilligungsstatus
+  beschränkt, "CNIL-anerkannt" gestrichen; Chat-Widgets (Gruppenvermerk),
+  Payment, CDN, Fonts und Error-Monitoring an § 25 bzw. Art. 6 DSGVO
+  ausgerichtet; Kanada (Entscheidung 2002/2/EG, PIPEDA); OSM-Tile-Server als
+  Drittland UK; Newsletter-Einwilligung nach § 7 UWG; Consent Mode v2 als
+  Anbietervorgabe; Stripe-Zeilen ohne Urteilszitat (LG Münster 016 O 103/24
+  nicht nachweisbar); LG Köln 23 O 172/22 mit Marker.

@@ -25,7 +25,7 @@ geltungsbereich: [DE, EU]
 
 Das **BFSG** (gilt seit 28.06.2025) verpflichtet Anbieter bestimmter B2C-Produkte und -Dienstleistungen zur Barrierefreiheit. Massgeblich ist § 4 BFSG: Bei Einhaltung harmonisierter Normen wird die Konformitaet vermutet. In der Praxis herangezogen werden **EN 301 549** (die ihrerseits auf **WCAG 2.1 Level AA** verweist) und die aktuellere W3C-Empfehlung **WCAG 2.2**; eine Vorgabe der BFSGV sind diese Standards nicht. Ob eine Fassung der EN 301 549 als harmonisierte Norm zur RL (EU) 2019/882 im Amtsblatt der EU veroeffentlicht ist: <<VERIFIKATION AUSSTEHEND>>
 
-**Stand 2026-11-14**: Abmahnwellen durch spezialisierte Kanzleien seit Sommer 2025 aktenkundig (CLAIM Rechtsanwalts GmbH u.a.); Marktueberwachungsbehoerden der Laender fuehren seit Januar 2026 aktiv Kontrollen durch. Bussgeld bis **100.000 EUR**, u. a. wenn eine Dienstleistung entgegen § 14 Abs. 1 angeboten wird (§ 37 Abs. 1 Nr. 8, Abs. 2 BFSG); bis **10.000 EUR** bei Verstoessen gegen Informations- und Auskunftspflichten (z. B. § 14 Abs. 4 Satz 2, Abs. 5 Satz 1). Zur UWG-Abmahnfaehigkeit siehe [[../gesetze/bfsg]].
+**Stand 2026-11-14**: Abmahnungen kommen vor. Die MLBF AoeR (gemeinsame Marktueberwachungsstelle der Laender, Magdeburg) hat zum Jahresbeginn 2026 ihre Raeume bezogen und am 29.01.2026 ihre Marktueberwachungsstrategien beschlossen; ein Beginn aktiver Kontrollen im Januar 2026 ist auf der Behoerdenseite nicht dokumentiert. Bussgeld bis **100.000 EUR**, u. a. wenn eine Dienstleistung entgegen § 14 Abs. 1 angeboten wird (§ 37 Abs. 1 Nr. 8, Abs. 2 BFSG); bis **10.000 EUR** bei Verstoessen gegen Informations- und Auskunftspflichten (z. B. § 14 Abs. 4 Satz 2, Abs. 5 Satz 1). Zur UWG-Abmahnfaehigkeit siehe [[../gesetze/bfsg]].
 
 ## BFSG-Scope — wer ist betroffen?
 
@@ -56,7 +56,7 @@ Dienste, die Zugang zu audiovisuellen Mediendiensten bieten, sind keine Dienstle
 
 | Mitarbeiter | Jahresumsatz | BFSG-pflichtig? |
 |---|---|---|
-| 3 | 3 Mio. EUR | JA |
+| 3 | 3 Mio. EUR Umsatz, Bilanzsumme > 2 Mio. EUR | JA (bei Bilanzsumme ≤ 2 Mio. EUR greift die Ausnahme trotz 3 Mio. EUR Umsatz) |
 | 15 | 1 Mio. EUR | JA |
 | 4 | 0,5 Mio. EUR | Nein (Ausnahme greift) |
 | 9 | 1,9 Mio. EUR | Nein (Ausnahme greift) |
@@ -78,12 +78,13 @@ In der Praxis wird EN 301 549 herangezogen, die auf WCAG 2.1 AA verweist; eine V
 3. **Verstaendlich (Understandable)** — Inhalte und Bedienung
 4. **Robust** — Kompatibilitaet mit assistiven Technologien
 
-### Level AA — Kern-Erfolgskriterien
+### Level A und AA — Kern-Erfolgskriterien
 
 **Wahrnehmbar:**
 - **1.1.1 Alt-Text** fuer Nicht-Text-Inhalte
 - **1.2.2 Untertitel** fuer Audio in Videos
 - **1.2.3 Transkript / Audiodeskription**
+- **1.2.5 Audiodeskription (aufgezeichnet)**, Stufe AA
 - **1.3.1 Informationen und Beziehungen** (Semantik: Ueberschriften, Listen, Tabellen, Labels)
 - **1.3.4 Ausrichtung** (kein Zwang zu Landscape/Portrait)
 - **1.4.3 Kontrast** 4.5:1 (Normal), 3:1 (Large Text >= 18pt oder 14pt bold)
@@ -96,7 +97,7 @@ In der Praxis wird EN 301 549 herangezogen, die auf WCAG 2.1 AA verweist; eine V
 **Bedienbar:**
 - **2.1.1 Tastatur** — alle Funktionen per Keyboard
 - **2.1.2 Keine Tastaturfalle** — Fokus kann aus Element heraus
-- **2.4.1 Skip-Link** zum Hauptinhalt (Block Bypass)
+- **2.4.1 Bloecke umgehen**: Mechanismus zum Ueberspringen wiederholter Inhaltsbloecke (z. B. Skip-Link, Landmarks, Ueberschriftenstruktur)
 - **2.4.3 Fokusreihenfolge** logisch
 - **2.4.4 Linkzweck** aus Kontext erkennbar
 - **2.4.7 Fokus sichtbar**
@@ -110,7 +111,7 @@ In der Praxis wird EN 301 549 herangezogen, die auf WCAG 2.1 AA verweist; eine V
 - **3.2.3 Konsistente Navigation**
 - **3.3.1 Fehler-Identifikation**
 - **3.3.3 Fehlerkorrektur-Vorschlaege**
-- **3.3.4 Fehlervermeidung** (bei Rechts-/Finanz-/Datenverarbeitung: Aufhebungs-/Aenderungsfunktion)
+- **3.3.4 Fehlervermeidung** (rechtliche Verpflichtungen, Finanztransaktionen, Aenderung/Loeschung von Nutzerdaten): mindestens eines von: umkehrbar, auf Fehler geprueft mit Korrekturmoeglichkeit, vor Abschluss ueberpruef-, bestaetig- und korrigierbar
 - **3.3.7 Redundante Eingaben (WCAG 2.2)** — bereits eingegebene Daten nicht wiederholt abfragen
 - **3.3.8 Accessible Authentication (WCAG 2.2)** — keine kognitiven Puzzles (Captchas, die Denken verlangen)
 
@@ -156,7 +157,7 @@ Ueblicher Link: Footer, erreichbar ueber "Barrierefreiheit" oder "Barrierefreihe
 ### 3. Semantische HTML-Struktur
 
 - `<header>`, `<nav>`, `<main>`, `<footer>`, `<aside>`
-- Genau **eine** `<h1>` pro Seite
+- Ueberschriftenstruktur programmatisch erkennbar und beschreibend (WCAG 1.3.1, 2.4.6); genau eine `<h1>` je Seite ist bewaehrte Praxis, keine WCAG-Anforderung
 - Ueberschriften-Hierarchie ohne Luecken
 
 ### 4. Kontrast
@@ -177,14 +178,14 @@ Ueblicher Link: Footer, erreichbar ueber "Barrierefreiheit" oder "Barrierefreihe
 - Untertitel (closed captions)
 - Transkript
 - Audiodeskription bei visuellen Informationen
-- Kein auto-play mit Audio
+- Automatisch abgespieltes Audio ueber 3 Sekunden nur mit Mechanismus zum Anhalten/Stoppen oder zur Lautstaerkeregelung (WCAG 1.4.2)
 
 ### 7. Cookie-Banner / Consent-UI
 
 Oft schwere Verstoesse:
 - Fokus-Management fehlt
-- "Akzeptieren"-Button per Tastatur schwer erreichbar
-- Zustimmung und Ablehnung gleichwertig gestaltet (DSGVO + BFSG)
+- Ablehnung nicht gleichwertig zur Zustimmung gestaltet (Einwilligungsrecht: § 25 Abs. 1 TDDDG, DSGVO; keine BFSG-Anforderung)
+- Schaltflaechen nicht per Tastatur bedienbar (WCAG 2.1.1)
 
 ## Typische Fallstricke in Codebases
 
@@ -210,7 +211,7 @@ Oft schwere Verstoesse:
 
 ### n8n-Portale / SaaS-Interfaces
 
-- Haeufig **B2B** und daher BFSG-frei, aber BITV 2.0 fuer oeffentliche Stellen; auch Good Practice
+- Haeufig **B2B** und daher nicht vom BFSG erfasst (§ 1 Abs. 3 BFSG: "fuer Verbraucher"); BITV 2.0 gilt fuer oeffentliche Stellen des Bundes (§ 12 BGG), fuer Laender und Kommunen gilt Landesrecht; sonst Good Practice
 - Drag-and-Drop Workflows ohne Tastatur-Alternative
 
 ## Relevanz fuer Codebase-Typen
@@ -218,8 +219,8 @@ Oft schwere Verstoesse:
 - **Next.js SaaS (B2C)**: **hochrelevant**, volle BFSG-Pflicht wenn nicht Kleinstunternehmen
 - **Next.js SaaS (B2B only)**: Nicht BFSG; optional BITV, ISO 30071-1, internationale Maerkte
 - **Landingpage (rein Werbe, keine Transaktion)**: typischerweise nicht BFSG, aber Good Practice
-- **n8n Kundenportal (B2C)**: BFSG-pflichtig
-- **E-Commerce**: Voll pflichtig; **abmahnrisikoreich**
+- **n8n Kundenportal (B2C)**: BFSG-pflichtig, wenn es eine Dienstleistung nach § 1 Abs. 3 BFSG ist (insbesondere elektronischer Geschaeftsverkehr, § 1 Abs. 3 Nr. 5 i. V. m. § 2 Nr. 26) und keine Kleinstunternehmen-Ausnahme (§ 3 Abs. 3) greift
+- **E-Commerce** gegenueber Verbrauchern: pflichtig (§ 1 Abs. 3 Nr. 5 BFSG), ausser Kleinstunternehmen (§ 3 Abs. 3 BFSG)
 - **Content/Blog**: Nicht im Kern betroffen, aber WCAG-Compliance ist SEO-/Reichweite-Faktor
 
 ## Behoerden-Hinweise
@@ -227,21 +228,22 @@ Oft schwere Verstoesse:
 - **Bundesfachstelle Barrierefreiheit** (FAQ, Praxishilfen): https://www.bundesfachstelle-barrierefreiheit.de/
 - **Marktueberwachung**: MLBF AoeR (Magdeburg), gemeinsame Stelle aller 16 Laender (mlbf-barrierefrei.de); in der Information nach Anlage 3 Nr. 1 Buchst. d BFSG anzugeben
 - **Verbraucher- und Verbandsantrag (§ 32 BFSG)**: Verbraucher koennen bei der Marktueberwachungsbehoerde beantragen, gegen einen Verstoss einzuschreiten (§ 32 Abs. 1 BFSG); Antragsweg ueber die MLBF
-- **BITV-Beratungsstelle** (fuer oeffentliche Stellen, nicht BFSG direkt)
+- **Bundesfachstelle Barrierefreiheit** (§ 13 Abs. 2 BGG: Erstberatung, auf Anfrage auch fuer die Wirtschaft); die Ueberwachungsstelle des Bundes fuer Barrierefreiheit von Informationstechnik (§ 13 Abs. 3 BGG) prueft nur oeffentliche Stellen des Bundes, nicht BFSG-Pflichtige
+- **Meldepflicht und Stichproben**: Genuegt die Dienstleistung den Barrierefreiheitsanforderungen nicht, informiert der Dienstleistungserbringer unverzueglich die Marktueberwachungsbehoerde (§ 14 Abs. 4 Satz 2 BFSG); der Verstoss ist bussgeldbewehrt (§ 37 Abs. 1 Nr. 2 BFSG). Die Marktueberwachungsbehoerde prueft Dienstleistungen auch ohne konkreten Anlass anhand angemessener Stichproben (§ 28 Abs. 2 BFSG).
 
 ## Zitierbare Urteile
 
-**Stand 2026-11-14: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Erste Abmahnwellen seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH) sind aktenkundig, aber ueberwiegend als abwehrfaehig eingeschaetzt. Erste OLG/BGH-Endurteile zu § 3a UWG i.V.m. BFSG sind fuer 2027 zu erwarten; naechste Pruefung: 2027-02. <<VERIFIKATION AUSSTEHEND>>
+**Stand 2026-11-14: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Abmahnungen kommen vor. Erste OLG/BGH-Endurteile zu § 3a UWG i.V.m. BFSG sind fuer 2027 zu erwarten; naechste Pruefung: 2027-02. <<VERIFIKATION AUSSTEHEND>>
 
 Relevant aus Nachbargebieten:
-- **LSG Nordrhein-Westfalen, Urt. v. 29.10.2019 — L 13 SB 55/19** (zu Barrierefreiheit im weiteren Sinne)
+- **LSG Nordrhein-Westfalen, Urt. v. 29.10.2019 — L 13 SB 55/19** <<VERIFIKATION AUSSTEHEND>> (zu Barrierefreiheit im weiteren Sinne)
 
 US-Parallele: **Robles v. Dominos Pizza** (9th Cir. 2019) — ADA Title III fuer Websites.
 
 ## Siehe auch
 
 - [[../gesetze/bfsg]]
-- [[../gesetze/dsa]] — Art. 14 DSA verlangt ebenfalls "verstaendliche" AGB
+- [[../gesetze/dsa]] — Art. 14 Abs. 1 DSA verlangt von Anbietern von Vermittlungsdiensten AGB in "klarer, einfacher, verstaendlicher, benutzerfreundlicher und eindeutiger Sprache" (nur Vermittlungsdienste, keine BFSG-Pflicht)
 - [[ki-transparenz]] — Art. 50 Abs. 5 AI Act verlangt zugaengliche Kennzeichnung
 
 ## Aenderungsvermerk 2026-11-14
@@ -268,3 +270,11 @@ US-Parallele: **Robles v. Dominos Pizza** (9th Cir. 2019) — ADA Title III fuer
   statt 2.5.5; Pflichtinformation nach § 14 i. V. m. Anlage 3 Nr. 1;
   Abschnitte zu § 1 Abs. 4 und § 38 ergaenzt; Widget-Pflicht beim
   Dienstleistungserbringer; MLBF als Marktueberwachung; § 32 BFSG.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Meldepflicht (§ 14 Abs. 4 Satz 2) und Stichproben (§ 28 Abs. 2) ergaenzt;
+  Kleinstunternehmen-Beispiel mit Bilanzsumme; WCAG-Kriterien 1.2.5, 2.4.1,
+  3.3.4, 1.4.2 und h1-Hinweis berichtigt; Consent-UI ohne BFSG-Zuordnung der
+  Gleichwertigkeit; B2B/BITV, Kundenportal und E-Commerce an § 1 Abs. 3
+  ausgerichtet; Bundesfachstelle und Ueberwachungsstelle (§ 13 BGG);
+  Art. 14 Abs. 1 DSA praezisiert; Kontrollbeginn laut MLBF-Seite praezisiert;
+  Kanzleinamen gestrichen; LSG-Aktenzeichen mit Marker versehen.

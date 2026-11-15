@@ -31,8 +31,9 @@ Bei redaktionell-journalistischen Angeboten zusaetzlich ein **Verantwortlicher
 nach § 18 Abs. 2 MStV**.
 
 Impressum muss **leicht erkennbar, unmittelbar erreichbar, staendig
-verfuegbar** sein (Zwei-Klick-Regel: BGH, Urteil vom 20.07.2006, I ZR 228/03,
-Anbieterkennzeichnung im Internet).
+verfuegbar** sein (BGH, Urteil vom 20.07.2006, I ZR 228/03,
+Anbieterkennzeichnung im Internet: eine Erreichbarkeit ueber zwei Links kann
+genuegen; eine starre Zwei-Klick-Regel stellt das Urteil nicht auf).
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -70,6 +71,9 @@ Anbieterkennzeichnung im Internet).
 
 16. Angaben zur zustaendigen **Aufsichtsbehoerde**, wenn die Taetigkeit
     einer behoerdlichen Zulassung bedarf (§ 5 Abs. 1 Nr. 3 DDG)
+17. Bei Anbietern audiovisueller Mediendienste: Mitgliedstaat, der Sitzland
+    ist oder als Sitzland gilt, und zustaendige Regulierungs- und
+    Aufsichtsbehoerden (§ 5 Abs. 1 Nr. 8 DDG)
 
 ### § 18 MStV — Verantwortlicher fuer redaktionelle Inhalte
 
@@ -90,19 +94,26 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
 
 ### Erreichbarkeit
 
-- **Zwei-Klick-Regel** (BGH I ZR 228/03, 20.07.2006): Impressum muss von
-  jeder Seite mit max. 2 Klicks erreichbar sein
-  ([Quelle dejure.org](https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=20.07.2006&Aktenzeichen=I+ZR+228/03))
+- **Zwei-Klick-Rechtsprechung** (BGH, Urteil vom 20.07.2006, I ZR 228/03,
+  Leitsatz a, Rn. 23): Eine ueber zwei Links ("Kontakt" und "Impressum")
+  erreichbare Anbieterkennzeichnung kann leicht erkennbar und unmittelbar
+  erreichbar sein; eine starre Regel "von jeder Seite hoechstens zwei
+  Klicks" stellt das Urteil nicht auf.
 - **Bezeichnung:** "Impressum", "Kontakt", "Anbieterkennzeichnung" —
   nicht: versteckt unter "About".
 - **Funktionierender Link** in sichtbarem Footer
 
 ## Typische Fallstricke in Codebases
 
-1. **Impressum nur im Footer einer bestimmten Landingpage:** Jede Route
-   inkl. 404, Fehlerseiten, Login/Signup-Seiten braucht Link.
-2. **Footer mit "dialog"-Impressum:** Popup/Modal nicht ausreichend, muss
-   dauerhaft als Seite abrufbar sein (BGH-Rechtsprechung).
+1. **Impressum nur im Footer einer bestimmten Landingpage:** § 5 Abs. 1 DDG
+   verlangt, dass die Angaben leicht erkennbar, unmittelbar erreichbar und
+   staendig verfuegbar sind; ein Link auf jeder Seite (inkl. 404, Fehler-,
+   Login-Seiten) ist die sichere Umsetzung, keine ausdrueckliche
+   Normvorgabe.
+2. **Footer mit "dialog"-Impressum:** riskant, weil § 5 Abs. 1 DDG staendige
+   Verfuegbarkeit und unmittelbare Erreichbarkeit verlangt; Impressum als
+   eigene, direkt verlinkbare Seite bereitstellen (eine BGH-Entscheidung zum
+   Modal ist nicht belegt).
 3. **USt-IdNr. fehlt** trotz Vorhandensein: klassische Abmahnung.
 4. **Mailto-Link ohne zweite Kontaktmoeglichkeit** (EuGH C-298/07):
    zusaetzliche Telefonnummer oder Formular erforderlich.
@@ -110,14 +121,18 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
    das Registergericht benannt werden.
 6. **Geschaeftsfuehrer falsch / veraltet:** Aktualitaet des Impressums ist
    Pflicht; automatische Sync mit CRM sinnvoll.
-7. **Fehlender MStV-Verantwortlicher** bei Blog/YouTube/Podcast: regelmaessig
-   abgemahnt.
+7. **Fehlender MStV-Verantwortlicher** bei journalistisch-redaktionell
+   gestalteten Angeboten (Blog/YouTube/Podcast nur, wenn redaktionell
+   gestaltet), § 18 Abs. 2 MStV.
 8. **Instagram/TikTok-Biolink-Impressum:** Link muss funktionieren und direkt
    aufs Impressum zeigen; Link-in-Bio-Tools (Linktree) akzeptabel, sofern
    Impressum-Link dort deutlich.
-9. **Impressum nur auf Englisch:** Fuer deutsche Zielgruppe unzulaessig.
-10. **"Koops.de" mit AGB-Link statt Impressum-Link im Footer:** alle
-    Pflichtseiten trennen.
+9. **Impressum nur auf Englisch:** § 5 DDG schreibt keine Sprache vor; die
+   Angaben muessen fuer die deutsche Zielgruppe aber leicht erkennbar sein.
+   Deutsche Fassung empfohlen.
+10. **AGB-Link statt Impressum-Link im Footer:** Anbieterkennzeichnung unter
+    verstaendlicher Bezeichnung ("Impressum", "Kontakt") erreichbar halten
+    (BGH I ZR 228/03, Rn. 19).
 
 ## Relevanz fuer Codebase-Typen
 
@@ -127,17 +142,21 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
   Kontext.
 - **n8n-Workflows:** Falls Trigger-Forms oeffentlich: Impressum-Link ins
   Form-Footer. Bei AI-generierten Landingpages: Template-Pflicht.
-- **E-Commerce:** Shopify / Shopware / WooCommerce-Templates DE haben
-  Impressum-Modul; USt-IdNr., Registerdaten manuell pflegen.
-- **Content/Blog:** Impressum + MStV-Verantwortlicher pro Artikel ggf.
-  Autor-Angabe (Autoren-Seite verlinken).
+- **E-Commerce:** Konfiguration im Shop-System pruefen; USt-IdNr.,
+  Registerdaten manuell pflegen.
+- **Content/Blog:** Impressum (§ 5 DDG); bei journalistisch-redaktionellen
+  Angeboten Verantwortlicher nach § 18 Abs. 2 MStV; bei mehreren
+  Verantwortlichen kenntlich machen, fuer welchen Teil jeder verantwortlich
+  ist (Satz 2). Eine Autorenangabe je Artikel verlangt die Norm nicht.
 
 ## Behoerden-Hinweise
 
 - **Bundesnetzagentur (BNetzA)** — zustaendige Behoerde nach Art. 49 DSA
   seit Inkrafttreten des DDG am 14.05.2024 (§ 12 Abs. 1 DDG); der DSA gilt
   seit 17.02.2024.
-- **Landesmedienanstalten** — Kontrolle bei redaktionellen Inhalten nach MStV.
+- **Landesmedienanstalten**: Aufsicht ueber Telemedien nach MStV (§ 104
+  Abs. 1, § 109 MStV); ausgenommen sind nach § 109 Abs. 1 Satz 1 MStV u. a.
+  § 18 Abs. 2 MStV (Verantwortlicher).
 - **Gewerbeaufsicht** — gewerberechtliche Flankierung.
 - **Ordnungswidrigkeiten** nach § 33 DDG (Bussgeldvorschriften, Teil 8 DDG):
   Verstoss gegen § 5 Abs. 1 DDG (fehlende/falsche Pflichtangaben) — Bussgeld
@@ -151,11 +170,19 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
 - **EuGH C-298/07** (16.10.2008, "deutsche internet versicherung AG"):
   Zweiter Kontaktweg neben E-Mail erforderlich (Telefon ist nicht zwingend;
   ein Online-Formular mit zeitnaher Reaktion genuegt).
+- **BGH I ZR 238/14** (25.02.2016): Eine kostenpflichtige
+  Mehrwertdienstenummer neben der E-Mail-Adresse ist kein weiterer
+  Kommunikationsweg, der § 5 Abs. 1 Nr. 2 TMG (heute § 5 Abs. 1 Nr. 2 DDG)
+  genuegt (Leitsatz 1).
 - **OLG Muenchen 29 U 3698/20** (14.01.2021): Impressumspflicht bei
   Instagram-Business-Profilen. Aktenzeichen in Tier-1-Quellen nicht
   auffindbar; OLG-Muenchen-Linie zu Impressumspflicht auf Instagram-Profilen
   ist allgemein anerkannt. <<VERIFIKATION AUSSTEHEND>>
-- Aussage: Abgrenzung B2C / rein privater Web-Auftritt. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
+- Abgrenzung privat/geschaeftsmaessig: § 5 Abs. 1 DDG erfasst
+  "geschaeftsmaessige, in der Regel gegen Entgelt angebotene digitale
+  Dienste"; fuer Telemedien, die nicht ausschliesslich persoenlichen oder
+  familiaeren Zwecken dienen, verlangt § 18 Abs. 1 MStV mindestens Name und
+  Anschrift (bei juristischen Personen auch des Vertretungsberechtigten).
 
 ## Nicht zitieren: falsch zugeordnete Aktenzeichen
 
@@ -165,8 +192,7 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
   ist nur ein Beschluss des I. Zivilsenats vom **06.02.2013** gefuehrt
   ("Umfang des Markenschutzes: Auswirkungen einer Teilloeschung durch
   Teilverzicht" — Markenrecht). Keine Impressum-Entscheidung unter diesem
-  Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen; Aussage bleibt
-  mit Verifikationsmarker.
+  Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen.
 
 ## Siehe auch
 
@@ -192,3 +218,10 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
   Aufsichtsbehoerde (§ 5 Abs. 1 Nr. 3 DDG) praezisiert; VSBG-Ausnahme fuer
   hoechstens zehn Beschaeftigte (§ 36 Abs. 3 VSBG) ergaenzt; Rolle der
   BNetzA nach Art. 49 DSA / § 12 Abs. 1 DDG berichtigt.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2)**:
+  BGH I ZR 228/03 als "kann genuegen" ohne starre Zwei-Klick-Regel gefasst
+  (Kurz-Ueberblick und Erreichbarkeit, dejure-Link entfernt); § 5 Abs. 1
+  Nr. 8 DDG ergaenzt; Fallstricke 1, 2, 7, 9 und 10 (Drittname gestrichen),
+  Content/Blog, Shop-Systeme und Landesmedienanstalten (§§ 104, 109 MStV)
+  neu gefasst; BGH I ZR 238/14 aufgenommen; Abgrenzung privat/
+  geschaeftsmaessig normgestuetzt (Marker entfernt).

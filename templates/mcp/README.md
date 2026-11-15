@@ -65,7 +65,7 @@ ls dist/index.js
 
 Es existiert ein Drittanbieter-Wrapper auf npm
 (`@iflow-mcp/wolfgangihloff-rechtsinformationen`). Aktuell sehr geringe
-Verbreitung (Stand 2026-06: ca. 23 monatliche Downloads), Single-Maintainer.
+Verbreitung, Single-Maintainer.
 **Supply-Chain-Risiko abschaetzen**, bevor du das nutzt.
 
 Wenn du dich dafuer entscheidest:

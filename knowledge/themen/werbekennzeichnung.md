@@ -65,7 +65,9 @@ Handelnde muss glaubhaft machen, dass er nichts erhalten hat.
 "Gegenleistung" umfasst:
 
 - Geld
-- kostenlose Produkte ("Gifted") — ueber Bagatellgrenze hinaus
+- kostenlos ueberlassene Waren oder Dienstleistungen ("Gifted") (BGH
+  I ZR 35/21, Leitsatz); eine Bagatellgrenze ist hoechstrichterlich nicht
+  belegt
 - Rabatte / Einladungen / Reisen
 - Affiliate-Links (Umsatzbeteiligung)
 - Tausch-/Kooperations-Leistungen
@@ -76,6 +78,10 @@ Per se unzulaessig: "der vom Unternehmer finanzierte Einsatz **redaktioneller
 Inhalte** zu Zwecken der Verkaufsfoerderung, ohne dass sich dieser Zusammenhang
 aus dem Inhalt oder aus der Art der optischen oder akustischen Darstellung
 eindeutig ergibt (als Information getarnte Werbung)".
+
+Ebenfalls im Anhang zu § 3 Abs. 3 UWG: Nr. 11a (verdeckte Werbung in
+Suchergebnissen), Nr. 23b (Irrefuehrung ueber die Echtheit von
+Verbraucherbewertungen), Nr. 23c (gefaelschte Verbraucherbewertungen).
 
 ### § 6 DDG (frueher § 6 TMG) — Kommerzielle Kommunikation
 
@@ -89,8 +95,9 @@ Fuer Diensteanbieter:
 
 ### § 22 MStV — Werbung / Sponsoring in Telemedien
 
-Journalistisch-redaktionelle Inhalte mit Werbung muessen durch geeignete
-Mittel vom redaktionellen Inhalt getrennt werden ("Trennungsgebot").
+Werbung muss als solche klar erkennbar und vom uebrigen Inhalt der Angebote
+eindeutig getrennt sein (§ 22 Abs. 1 Satz 1 MStV); das gilt fuer alle
+Telemedien, nicht nur journalistisch-redaktionelle.
 
 ### UWG-Novelle zur EmpCo-Richtlinie (Stichtag 27.09.2026)
 
@@ -128,6 +135,10 @@ Fuer vor dem 27.09.2026 in Verkehr gebrachte Waren sind Ansprueche nach
   Umweltleistung im Sinne des § 2 Abs. 2 Nr. 2 UWG nachgewiesen werden kann.
   "Klimaneutral" auf Kompensationsbasis faellt unter Anhang Nr. 4c;
   Aussagen, die nur einen Teilaspekt betreffen, unter Anhang Nr. 4b.
+- Bussgeld: § 19 Abs. 2, 3 UWG n. F. (BGBl. 2026 I Nr. 43, Art. 1 Nr. 6,
+  seit 27.09.2026): bis 50.000 EUR, bei hohem Jahresumsatz bis 4 % des
+  Jahresumsatzes. BGB/EGBGB: Art. 1 Nr. 5 und Art. 3 BGBl. 2026 I Nr. 28
+  setzen die RL (EU) 2024/825 im BGB/EGBGB um (seit 27.09.2026).
 
 Fuer Influencer-/Content-Marketing heisst das: Werbung mit Umwelt- oder
 Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
@@ -136,8 +147,7 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
 ## Typische Fallstricke in Codebases
 
 1. **Hashtag am Ende der Tag-Wolke:** `#produkt #style #foodie #werbung` am
-   Ende eines Instagram-Posts: NICHT ausreichend (KG Berlin 5 U 51/18,
-   OLG Frankfurt 6 W 35/19).
+   Ende eines Instagram-Posts: NICHT ausreichend. <<VERIFIKATION AUSSTEHEND>>
 2. **Englische Labels fuer deutsche Zielgruppe:** "#ad", "#sponsored",
    "#sp" ohne deutschen Zusatz: nicht gerichtsfest (Tendenz: "Werbung",
    "Anzeige" ausschreiben).
@@ -162,8 +172,9 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
 - **Next.js SaaS:** Falls SaaS einen Affiliate-/Referral-Link-Flow hat,
   Disclosure in Email-Templates der Partner-Kampagnen generieren (Template
   enthaelt "#Werbung" prominent).
-- **Landingpage:** Testimonials / Customer-Logos als Werbung kennzeichnen,
-  wenn diese zitiert bezahlt wurden.
+- **Landingpage:** Auf der eigenen Landingpage ergibt sich der kommerzielle
+  Zweck aus den Umstaenden (§ 5a Abs. 4 Satz 1 UWG); bezahlte Testimonials
+  offenlegen (Irrefuehrung, § 5 Abs. 1 UWG; Anhang Nr. 23c).
 - **n8n-Workflows (z.B. SmarteHuette42):** YouTube-Description-Generator
   muss bei Sponsoring-Deals automatisch "Werbung" + Transparenz-Hinweis
   einfuegen; Metadata-Workflow als Gate.
@@ -177,9 +188,9 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
 
 - **Landesmedienanstalten (LMA) / ZAK** — Werbeaufsicht fuer redaktionell-
   journalistische Inhalte inkl. Influencer.
-- **Wettbewerbszentrale** — regelmaessige Abmahnwelle 2018-2022 gegen
-  Influencer.
-- **VSW Verband Sozialer Wettbewerb** — typischer Abmahner.
+- **Wettbewerbszentrale**
+- **VSW Verband Sozialer Wettbewerb**: eingetragen in der Liste nach § 8b
+  UWG (BfJ, Stand 04.12.2025).
 
 ## Zitierbare Urteile
 
@@ -213,14 +224,22 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   (I ZR 90/20) sowie "Influencer III" (I ZR 35/21) ueber die Rechts-
   informations-API des Bundes am 2026-11-14 primaer bestaetigt;
   I ZR 126/20 traegt im Titel keine amtliche Numerierung.
-- (Hinweis: Pamela-Reif-Verfahren wurde vor dem BGH zurueckgenommen;
-  OLG Karlsruhe 6 U 38/19 vom 09.09.2020 blieb daher relevant.)
-- **KG Berlin 5 U 51/18** (08.01.2019): "#ad" am Ende der Caption nicht
-  ausreichend.
-- **OLG Frankfurt 6 W 35/19** (24.10.2019): Tap-Tags sind kennzeichnungs-
-  pflichtige Werbung.
-- **OLG Muenchen 6 U 1362/20** (25.06.2020): Kennzeichnung muss auf den ersten
-  Blick erkennbar sein.
+- (Hinweis: Pamela-Reif-Verfahren, OLG Karlsruhe 6 U 38/19 <<VERIFIKATION AUSSTEHEND>>
+  vom 09.09.2020.)
+- Tap-Tags allein genuegen nicht fuer einen werblichen Ueberschuss; anders
+  regelmaessig bei Verlinkung auf die Herstellerseite (BGH I ZR 90/20, siehe
+  oben). KG 5 U 51/18 / OLG Frankfurt
+  6 W 35/19: Aktenzeichen nicht primaer verifiziert, nicht zitieren.
+- Das OLG-Muenchen-Urteil vom 25.06.2020 traegt das Aktenzeichen
+  **29 U 2333/19** (Vorinstanz zu BGH I ZR 126/20; Berufung des Klaegers
+  zurueckgewiesen) und ist kein Beleg fuer eine Kennzeichnungsanforderung.
+  Tragende Fundstelle: BGH I ZR 90/20 (09.09.2021), Leitsatz 6: Der Hinweis
+  auf den kommerziellen Zweck muss "auf den ersten Blick und zweifelsfrei"
+  hervortreten; ein Hinweis nur im Textteil reicht regelmaessig nicht.
+- **BGH I ZR 98/23** (27.06.2024, "klimaneutral"): Ein mehrdeutiger
+  umweltbezogener Begriff wie "klimaneutral" muss in der Werbung selbst
+  erlaeutert werden; Vorrang der Reduktion vor der Kompensation
+  (Leitsaetze 2, 3).
 - **EuGH C-371/20** (02.09.2021, "Peek & Cloppenburg"): zu getarnten
   redaktionellen Werbeanzeigen.
 
@@ -276,3 +295,13 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   Nrn. 4a bis 4c zu Umweltaussagen differenziert; Zitat § 5a Abs. 4 Satz 1
   UWG um "oder sonstigen Marktteilnehmer" ergaenzt; Parteibezeichnung zu
   EuGH C-371/20 berichtigt.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2)**:
+  "Gifted" ohne Bagatellgrenze (I ZR 35/21); Anhang Nrn. 11a, 23b, 23c
+  ergaenzt; § 22 Abs. 1 Satz 1 MStV fuer alle Telemedien; Bussgeld nach
+  § 19 UWG n. F. und BGB/EGBGB-Umsetzung der RL (EU) 2024/825 ergaenzt;
+  Testimonials nach § 5a Abs. 4 Satz 1 UWG; OLG Muenchen auf 29 U 2333/19
+  berichtigt und "auf den ersten Blick" BGH I ZR 90/20 (Leitsatz 6)
+  zugeordnet; KG 5 U 51/18 und OLG Frankfurt 6 W 35/19 nicht mehr
+  zitiert; Ruecknahme-Hinweis zum Pamela-Reif-Verfahren gestrichen;
+  BGH I ZR 98/23 aufgenommen; Behoerden-Hinweise ohne unbelegte
+  Haeufigkeitsangaben.

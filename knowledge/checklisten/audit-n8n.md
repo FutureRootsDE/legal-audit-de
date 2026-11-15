@@ -55,13 +55,13 @@ Ziel: jeder Node und jede Expression identifizieren, die mit PII arbeitet.
 
 ### Ergebnis: Provider-Matrix aufstellen
 
-| Node-Typ | Anzahl | Provider | Drittland? | AVV? | Consent/Rechtsgrundlage? |
-|----------|--------|----------|-----------|------|-------------------------|
-| httpRequest → OpenAI | z.B. 3 | OpenAI Inc. | USA | ? | Art. 6/f + DPF |
-| httpRequest → Anthropic | 2 | Anthropic PBC | USA | ? | Art. 6/f + SCC |
-| httpRequest → FAL.ai | 1 | FAL Labs | USA | ? | SCC + TIA |
-| httpRequest → ElevenLabs | 1 | ElevenLabs Inc. | USA | ? | SCC + TIA |
-| postgres | 2 | Eigene DB (Hetzner) | DE | n/a | n/a |
+| Node-Typ | Anzahl | Provider | Drittland? | AVV? | Rechtsgrundlage (Art. 6 Abs. 1)? | Drittlandmechanismus (Kap. V)? |
+|----------|--------|----------|-----------|------|----------------------------------|--------------------------------|
+| httpRequest → OpenAI | z.B. 3 | OpenAI Inc. | USA | ? | Art. 6 Abs. 1 lit. f | DPF-Status am Audittag pruefen, sonst SCC mit Transferpruefung |
+| httpRequest → Anthropic | 2 | Anthropic PBC | USA | ? | Art. 6 Abs. 1 lit. f | DPF-Status am Audittag pruefen, sonst SCC mit Transferpruefung |
+| httpRequest → FAL.ai | 1 | FAL Labs | USA | ? | Art. 6 Abs. 1 festlegen | DPF-Status am Audittag pruefen, sonst SCC mit Transferpruefung |
+| httpRequest → ElevenLabs | 1 | ElevenLabs Inc. | USA | ? | Art. 6 Abs. 1 festlegen | DPF-Status am Audittag pruefen, sonst SCC mit Transferpruefung |
+| postgres | 2 | Eigene DB (Hetzner) | DE | n/a | n/a | n/a |
 
 ## Pass 2: Drittland-/Drittanbieter-Transfers
 
@@ -76,14 +76,14 @@ Ziel: jeder Node und jede Expression identifizieren, die mit PII arbeitet.
 
 | Provider | Land | Typische AVV | Besonderheit |
 |----------|------|-------------|--------------|
-| OpenAI | USA | ja (DPA/BAA) | DPF-zertifiziert |
-| Anthropic | USA | ja (DPA) | EU-Data-Processing-Addendum verfuegbar |
-| Mistral | FR | ja | EU-Provider, klarster Fall |
-| ElevenLabs | USA | ja (per Request) | kein DPF — SCC zwingend |
-| FAL.ai | USA | ja | SCC noetig |
+| OpenAI | USA | ja (DPA) | DPF-Status am Audittag pruefen (dataprivacyframework.gov) |
+| Anthropic | USA | ja (DPA) | Vertragsunterlagen und DPF-Status am Audittag pruefen |
+| Mistral | FR | ja | Sitz und Vertragsunterlagen am Audittag pruefen |
+| ElevenLabs | USA | ja | DPF-Status am Audittag pruefen; ohne Angemessenheitsgrundlage geeignete Garantien (Art. 46 DSGVO, i. d. R. SCC) |
+| FAL.ai | USA | ja | DPF-Status am Audittag pruefen; ohne Angemessenheitsgrundlage geeignete Garantien (Art. 46 DSGVO, i. d. R. SCC) |
 | Stability AI | UK/USA | ja | SCC/Ade-Abkommen UK |
-| Google Cloud (Vertex AI) | EU-Region waehlen | ja | DPF + SCC |
-| Azure OpenAI | EU-Region waehlen | ja | Microsoft DPA |
+| Google Cloud (Vertex AI) | EU-Region waehlen | ja | DPF-Status am Audittag pruefen; bei DPF keine SCC erforderlich |
+| Azure OpenAI | EU-Region waehlen | ja | Vertragsunterlagen und DPF-Status am Audittag pruefen |
 
 ## Pass 3: n8n-spezifische Datenpersistenz
 
@@ -97,8 +97,8 @@ n8n speichert Workflow-Executions in PostgreSQL — **jede Execution enthaelt di
 - [ ] **Execution-Data-Save-On-Error** — bei Fehlern: Full empfohlen fuer Debug, aber Retention kurz halten
 - [ ] **Execution-Data-Save-Manual-Executions** — Dev-Runs im Produktiv-DB: abschalten
 - [ ] **Binary-Data-Storage**: FS / S3 — Retention-Job noetig
-- [ ] **Credentials**: verschluesselt mit `N8N_ENCRYPTION_KEY` (Pflicht-Env-Var setzen, nicht Default!)
-- [ ] **PostgreSQL-Backups**: Retention max. 30 Tage, verschluesselt
+- [ ] **Credentials**: verschluesselt mit `N8N_ENCRYPTION_KEY` (laut n8n-Doku zufaelliger Schluessel in ~/.n8n, Stand 2026-11-14; Schluessel getrennt vom DB-Backup sichern)
+- [ ] **PostgreSQL-Backups**: verschluesselt (Art. 32 Abs. 1 lit. a DSGVO); Aufbewahrungsdauer nach Erforderlichkeit festlegen und begruenden (Art. 5 Abs. 1 lit. e); 30 Tage als Praxiswert
 
 ### PostgreSQL-Query fuer Execution-Payloads (Audit)
 
@@ -144,8 +144,8 @@ Bei KI-lastigen Workflows (Claude/GPT fuer Content-Generierung, Flux/Ideogram fu
 - [ ] Bei Chatbot-artigen Workflows (n8n Bot auf Social/Discord/Slack mit Nutzerinteraktion): **Art. 50 Abs. 1** Chatbot-Hinweis sicherstellen
 - [ ] **Verbotene Praktiken** Art. 5 AI Act ausgeschlossen (Social Scoring, Subliminal-Manipulation in Marketing-Workflows!)
 - [ ] **DSFA** bei systematischer und umfassender Bewertung persoenlicher Aspekte natuerlicher Personen auf Grundlage automatisierter Verarbeitung einschliesslich Profiling, die als Grundlage fuer Entscheidungen mit Rechtswirkung oder aehnlich erheblicher Beeintraechtigung dient (Art. 35 Abs. 3 lit. a DSGVO)
-- [ ] **Training auf Nutzerdaten** bei Provider ausschalten (OpenAI Business-Tier / API ist Default-Out, Consumer-ChatGPT ist Default-In; Anthropic API ist Default-Out)
-- [ ] **GPAI-Modell-Provider-Compliance**: Pruefen, dass Anbieter (OpenAI, Anthropic, Mistral, Google) GPAI-Pflichten Art. 53 ff. erfuellen (Trainings-Daten-Summary, Copyright-Konformitaet). Hinweis: Die direkten Durchsetzungsbefugnisse des **Bueros fuer Kuenstliche Intelligenz** nach Art. 75a bis 75d KI-VO n. F. treffen **nicht pauschal alle GPAI-Anbieter**, sondern **nur Akteure nach Art. 75 Abs. 1 KI-VO n. F.** (Anbieter bestimmter GPAI-basierter KI-Systeme, bei denen Modell und System aus derselben Hand stammen, sowie KI-Systeme, die eine VLOP/VLOSE i. S. v. VO (EU) 2022/2065 bilden oder darin integriert sind). Fuer alle uebrigen GPAI-Pflichtverletzungen bleibt die allgemeine Aufsicht zustaendig.
+- [ ] **Training auf Nutzerdaten** bei Provider ausschalten: Trainingseinstellung im Anbietervertrag/Konto pruefen
+- [ ] **GPAI-Modell-Provider-Compliance**: Pruefen, dass Anbieter (OpenAI, Anthropic, Mistral, Google) GPAI-Pflichten Art. 53 ff. erfuellen (Trainings-Daten-Summary, Copyright-Konformitaet). Hinweis: Die direkten Durchsetzungsbefugnisse des **Bueros fuer Kuenstliche Intelligenz** nach Art. 75a bis 75d KI-VO n. F. treffen **nicht pauschal alle GPAI-Anbieter**, sondern **nur Akteure nach Art. 75 Abs. 1 KI-VO n. F.** (Anbieter bestimmter GPAI-basierter KI-Systeme, bei denen Modell und System aus derselben Hand stammen, sowie KI-Systeme, die eine VLOP/VLOSE i. S. v. VO (EU) 2022/2065 bilden oder darin integriert sind). Die Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck (Art. 53 ff.) beaufsichtigt ausschliesslich die Kommission ueber das Buero fuer Kuenstliche Intelligenz (Art. 88 Abs. 1 KI-VO); Art. 75 Abs. 1 n. F. betrifft KI-Systeme, im Uebrigen die nationalen Marktueberwachungsbehoerden.
 - [ ] [[gesetze/ai-act]], [[themen/ki-transparenz]]
 
 ## Pass 6: Barrierefreiheit
@@ -169,21 +169,21 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 - [ ] n8n-Container-Logs (docker logs) — Rotation konfiguriert
 - [ ] **Fehler-Alerting**: bei Cron-Job-Fehler Admin-Benachrichtigung (Slack, E-Mail, Discord)
   - Referenz: ksk-automation OPS-01 Anti-Pattern — "stille" Cron-Fehler sind DSGVO-relevant (Art. 32 DSGVO Integritaet/Verfuegbarkeit)
-- [ ] **Workflow-Audit-Log** wer hat welchen Workflow geaendert (n8n User-Management Pflicht ab mehreren Entwicklern; Art. 32 Abs. 1 lit. b/d DSGVO)
+- [ ] **Workflow-Audit-Log** wer hat welchen Workflow geaendert, als risikoangemessene Massnahme (Art. 32 Abs. 1 lit. b) und zur regelmaessigen Ueberpruefung (lit. d); n8n-User-Management mit Rollen bei mehreren Entwicklern empfohlen
 - [ ] **Execution-Limits** (Timeout, Memory) konfiguriert — verhindert DoS
-- [ ] **Disaster Recovery**: PostgreSQL-Backup-Restore-Test alle 3 Monate (Art. 32 Abs. 1 lit. c DSGVO)
+- [ ] **Disaster Recovery**: regelmaessiger PostgreSQL-Restore-Test (Art. 32 Abs. 1 lit. c und d DSGVO); Intervall risikobasiert festlegen (interne Vorgabe z. B. quartalsweise)
 - [ ] **Datenpannen-Meldepflicht** (Art. 33 DSGVO 72h): Eskalations-Plan dokumentiert — siehe [[themen/meldepflicht-datenpanne]]
-- [ ] **NIS2-Bezug**: bei wesentlicher/wichtiger Einrichtung n8n-Infrastruktur als IT-Asset im NIS2-Risiko-Management — siehe [[gesetze/nis2-bsig]]
+- [ ] **NIS2-Bezug**: bei besonders wichtiger oder wichtiger Einrichtung (§ 28 BSIG) n8n-Infrastruktur als IT-Asset im NIS2-Risiko-Management — siehe [[gesetze/nis2-bsig]]
 - [ ] **Data Act (EU) 2023/2854** — zeitliche Staffelung pruefen (Art. 50, per Cellar CELEX:32023R2854 verifiziert):
-  - **Kapitel VI** (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten) **gilt seit 12.09.2025**. Bei n8n-Cloud oder sonstigen Datenverarbeitungsdiensten pruefen, ob Portabilitaets-, Kuendigungs- und Uebergangspflichten greifen.
+  - **Kapitel VI** (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten) **gilt seit 12.09.2025**. Bei n8n-Cloud oder sonstigen Datenverarbeitungsdiensten pruefen, ob Portabilitaets-, Kuendigungs- und Uebergangspflichten greifen. Bietet der Betreiber seine n8n-Automatisierung Kunden als Dienst an, kann er selbst Anbieter eines Datenverarbeitungsdienstes sein (Art. 2 Nr. 8 Data Act; Pflichten Art. 23 ff.).
   - **Art. 29** (Wechselentgelte): vom 11.01.2024 bis **12.01.2027** nur ermaessigte Wechselentgelte (max. Selbstkosten); **ab 12.01.2027** vollstaendig verboten.
   - **Kapitel IV** (Art. 13, missbraeuchliche B2B-Vertragsklauseln): fuer Vertraege, die **nach dem 12. September 2025** geschlossen wurden, unmittelbar; fuer Altvertraege, die am oder vor dem 12. September 2025 geschlossen wurden, **ab 12. September 2027** unter der in Art. 50 genannten Voraussetzung (Vertrag unbefristet oder Laufzeitende fruehestens zehn Jahre nach dem 11. Januar 2024).
   - Severity MED
 
 ## Typ-spezifische Besonderheiten
 
-- **n8n Cloud** (n8n.io SaaS) — Sitz in DE, aber unbedingt AVV mit n8n GmbH anfordern
-- **Self-hosted auf Hetzner** (wie SmarteHuette42): AVV mit Hetzner, volle Kontrolle ueber Logs/Retention
+- **n8n Cloud** (n8n.io SaaS) — Vertragspartner laut aktuellem n8n-DPA pruefen, AVV anfordern
+- **Self-hosted** (wie SmarteHuette42): AVV mit dem Hoster abschliessen, volle Kontrolle ueber Logs/Retention
 - **n8n auf Vercel/AWS** — Drittland-Pruefung Hosting-Provider zusaetzlich
 - **Mehrere Workflows als Sub-Workflows**: Datenfluesse zwischen Workflows dokumentieren (ein Workflow-Aufruf = interne Verarbeitung, kein neuer Drittanbieter-Transfer)
 
@@ -191,10 +191,9 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 
 ### CRIT
 
-- `N8N_ENCRYPTION_KEY` nicht gesetzt (Default-Key = Credentials-Leak-Risiko bei Backup-Kompromiss)
+- `N8N_ENCRYPTION_KEY` nicht getrennt vom DB-Backup gesichert (Credentials-Leak-Risiko bei Backup-Kompromiss)
 - Webhook-Endpunkt ohne Auth mit PII-Payload
 - httpRequest-Node sendet PII an US-API ohne AVV/SCC
-- Execution-Retention unendlich → wachsende Datenbank mit PII aus dem Jahr X
 - DB-Credentials im Klartext in Code-Node (nicht als Credential-Referenz)
 
 ### HIGH
@@ -207,6 +206,7 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 
 ### MED
 
+- Pruning-Einstellungen pruefen (laut n8n-Doku Standard: Pruning an, Stand 2026-11-14)
 - Execution-Data enthaelt vollstaendige E-Mail-Inhalte (PII-Minimisierung bei Save-Mode "Full")
 - Code-Node macht `console.log(item)` mit PII → Container-Logs wachsen unkontrolliert
 - Workflow-Versionskontrolle (Export zu Git) fehlt
@@ -214,7 +214,7 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 
 ### LOW
 
-- Workflow-Beschreibung / Node-Notes fehlen (Dokumentationspflicht indirekt aus Art. 30)
+- Workflow-Beschreibung / Node-Notes fehlen (Rechenschaftspflicht, Art. 5 Abs. 2 DSGVO)
 
 ## Empfohlene Workflow-Scans (halbautomatisch)
 
@@ -254,9 +254,10 @@ jq '.nodes[] | select(.type == "n8n-nodes-base.webhook") | .parameters' workflow
 
 - Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
 - Pass 8 (Data Act): Darstellung an Art. 50 VO (EU) 2023/2854 (Cellar CELEX:32023R2854, am 2026-11-14 geprueft) angeglichen — Kapitel VI gilt seit 12.09.2025, Art. 29 reduziert bis 12.01.2027 und ab 12.01.2027 Wechselentgelt-Verbot, Kapitel IV fuer Neuvertraege seit 12.09.2025 und fuer bestimmte Altvertraege ab 12.09.2027. Die zuvor Kapitel VI zugeordnete Altvertrags-Frist war falsch zugeordnet.
-- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate bestaetigt — Art. 6/13/26/28/30/32/33/35/46 DSGVO, § 59 UrhG (nicht zitiert, aber Kontext), § 38 BDSG; EuGH C-311/18 (Schrems II). Keine Aktenzeichen ausserhalb bestehender KB-Belege. Pass 5 unberuehrt.
+- Bestandspruefung (ausserhalb Pass 5): Normzitate durchgesehen; in der Datei zitiert werden Art. 5 Abs. 2, 6, 30, 32, 33, 35, 46 DSGVO sowie EuGH C-311/18 (Schrems II); "Art. 13" in Pass 8 meint den Data Act. Berichtigt am 2026-11-15: Die fruehere Aussage "alle Pflicht-Normzitate bestaetigt" und die Nennung von Art. 26, 28 DSGVO, § 59 UrhG und § 38 BDSG trafen nicht zu (im Text nicht verwendet). Keine Aktenzeichen ausserhalb bestehender KB-Belege. Pass 5 unberuehrt.
 - Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.
 
 ## Aenderungsvermerk (2026-11-15)
 
 - 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): n8n-Standard-Pruning (336 Stunden bzw. 10.000 Executions) statt "behalte alles"; Art. 50 Abs. 2 KI-VO als Anbieterpflicht, Workflow-Betreiber Art. 50 Abs. 4; DSFA-Tatbestand Art. 35 Abs. 3 lit. a vollstaendig.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Provider-Matrix in Rechtsgrundlage (Art. 6 Abs. 1) und Drittlandmechanismus (Kap. V) getrennt; Provider-Tabelle ohne feste DPF-Aussagen (am Audittag pruefen); Backups, Audit-Log und Restore-Test an Art. 32 Abs. 1, Art. 5 Abs. 1 lit. e ausgerichtet; Aufsicht ueber GPAI-Anbieter (Art. 88 Abs. 1 KI-VO); NIS2-Einrichtungsarten (§ 28 BSIG); Data-Act-Dienstanbieter (Art. 2 Nr. 8); Rechenschaftspflicht Art. 5 Abs. 2 statt Art. 30 fuer Workflow-Beschreibungen; Bestandsvermerk berichtigt; fluechtige Angaben (Encryption-Key-Default, Pruning-Default, Trainings-Defaults, n8n-Cloud-Sitz) durch Pruefhinweise ersetzt.

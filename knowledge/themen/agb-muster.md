@@ -45,7 +45,16 @@ Uebliche Gliederung:
 5. **Leistungserbringung / Lieferung** — Fristen, Teilleistungen
 6. **Widerrufsrecht** (B2C) — Verweis auf Widerrufsbelehrung
 7. **Eigentumsvorbehalt**
-8. **Gewaehrleistung / Maengelrechte** — nicht unter gesetzliches Niveau!
+8. **Gewaehrleistung / Maengelrechte**: nicht unter das gesetzliche Niveau
+   (bei Verbrauchern Verjaehrung nicht unter zwei Jahre, bei gebrauchten
+   Waren nicht unter ein Jahr und nur nach gesondertem Hinweis und
+   ausdruecklicher, gesonderter Vereinbarung, § 476 Abs. 2 BGB); seit
+   27.09.2026 vorvertraglich in hervorgehobener Weise: gesetzliches
+   Gewaehrleistungsrecht mit Mindestdauer zwei Jahre unter Verwendung der
+   harmonisierten Mitteilung (Art. 246a § 1 Abs. 1 Satz 1 Nr. 11 EGBGB), ggf.
+   gewerbliche Haltbarkeitsgarantie (Nr. 11a), Gewaehrleistung digitale
+   Inhalte/Dienstleistungen (Nr. 11b), Mindestdauer der
+   Softwareaktualisierungen (Nr. 11c)
 9. **Haftung / Haftungsbegrenzung** — Grenzen aus § 309 Nr. 7 BGB
 10. **Datenschutz** — Verweis auf Datenschutzerklaerung
 11. **Vertragslaufzeit / Kuendigung** (bei Dauerschuldverhaeltnissen)
@@ -60,14 +69,15 @@ Uebliche Gliederung:
 3. **Einverstaendnis** — meist durch Checkbox "Ich habe die AGB gelesen und
    akzeptiere sie".
 
-Zusaetzlich: AGB muessen in **zugaenglicher Sprache** (DE fuer DE-Shops)
-vorliegen.
+Zusaetzlich: Der Kunde muss in zumutbarer Weise von den AGB Kenntnis nehmen
+koennen (§ 305 Abs. 2 Nr. 2 BGB). Eine bestimmte Sprache schreibt das Gesetz
+nicht vor; massgeblich ist praktisch die Vertrags- bzw. Verhandlungssprache.
 
 ### § 305b BGB — Vorrang der Individualabrede
 
-Individualvereinbarungen haben immer Vorrang vor AGB. Klausel "Muendliche
-Nebenabreden sind unwirksam" ist SELBST unwirksam (doppeltes Schriftform-
-erfordernis in AGB ist zu eng).
+Individualvereinbarungen haben immer Vorrang vor AGB (§ 305b BGB). Eine
+Klausel, die muendliche Nebenabreden ausschliesst, kann eine (auch
+muendliche) Individualabrede nicht verdraengen.
 
 ### § 305c BGB — Ueberraschende Klauseln
 
@@ -91,7 +101,9 @@ Klauseln sind unwirksam bei:
 
 Bedarf Einzelfallabwaegung:
 
-- Nr. 1: uebermaessige Annahmefristen
+- Nr. 1: unangemessen lange oder nicht hinreichend bestimmte Fristen fuer
+  Annahme oder Ablehnung eines Angebots oder fuer die Leistungserbringung
+  (ausgenommen: Leistung erst nach Ablauf der Widerrufsfrist)
 - Nr. 1a: unangemessen lange Zahlungsfrist; ist der Verwender kein
   Verbraucher, im Zweifel mehr als 30 Tage
 - Nr. 1b: Ueberpruefungs- und Abnahmefrist, im Zweifel mehr als 15 Tage
@@ -99,6 +111,8 @@ Bedarf Einzelfallabwaegung:
 - Nr. 4: Einseitige Leistungsaenderungsvorbehalte
 - Nr. 5: Fingierte Erklaerungen
 - Nr. 6: Fingierte Zugangsfiktionen
+- Nr. 9: Abtretungsausschluss fuer Geldansprueche des Vertragspartners (fuer
+  Schuldverhaeltnisse ab 01.10.2021, Art. 229 § 60 EGBGB)
 
 ### § 309 BGB — Klauselverbote OHNE Wertungsmoeglichkeit (HART)
 
@@ -125,18 +139,28 @@ Immer unwirksam:
   gilt die Fassung bis 28.02.2022)
 - **Nr. 13** — Formerfordernis strenger als Textform (§ 126b BGB); in AGB
   darf nur Textform verlangt werden
+- **Nr. 14**: Klageverzicht
+- **Nr. 15**: Abschlagszahlungen und Sicherheitsleistung (Werkvertrag)
 
 ### § 310 BGB — Sonderregeln B2B
 
-In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
-§ 307 BGB "angewandt". Individualvereinbarungen in B2B leichter.
+Gegenueber Unternehmern gelten § 305 Abs. 2 und 3, § 308 Nr. 1, 2 bis 9 und
+§ 309 BGB nicht (§ 310 Abs. 1 Satz 1 BGB); § 308 Nr. 1a und 1b gelten. § 307
+Abs. 1 und 2 BGB gilt auch, soweit dies zur Unwirksamkeit der dort genannten
+Klauseln fuehrt (§ 310 Abs. 1 Satz 2 BGB).
 
 ## Typische Fallstricke in Codebases
 
-1. **AGB im Footer-Link**, ohne Checkbox-Acceptance: Einbeziehung fraglich
-   (§ 305 Abs. 2 Nr. 1 BGB).
-2. **Checkbox fuer AGB + Datenschutz + Newsletter kombiniert:** Unwirksam
-   (Kopplung), getrennte Checkboxen erforderlich.
+1. **AGB nur im Footer verlinkt**, ohne ausdruecklichen Hinweis im
+   Bestellvorgang: Einbeziehung fraglich (§ 305 Abs. 2 Nr. 1 BGB verlangt
+   einen ausdruecklichen Hinweis bei Vertragsschluss; eine Checkbox ist
+   gesetzlich nicht vorgeschrieben, erleichtert aber den Nachweis des
+   Einverstaendnisses).
+2. **Checkbox fuer AGB + Datenschutz + Newsletter kombiniert:** Die
+   Newsletter-Einwilligung ist so nicht wirksam erteilt (Art. 7 Abs. 2
+   DSGVO); die AGB-Einbeziehung wird dadurch nicht beruehrt; die
+   Datenschutzerklaerung ist Information und bedarf keiner Zustimmung.
+   Newsletter-Einwilligung getrennt einholen.
 3. **Haftungsausschluss "fuer leichte Fahrlaessigkeit ausgeschlossen":**
    Muss ausnehmen: Leben/Koerper/Gesundheit, Kardinalpflichten.
 4. **Verkuerzung der Gewaehrleistung:** Im Verbrauchsgueterkauf bei neuen
@@ -148,14 +172,22 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
    Doppelbuchst. ff BGB).
 5. **Automatische Verlaengerung "um 12 Monate":** Seit 01.03.2022 nur noch
    **unbestimmte Zeit + 1-Monats-Kuendigung** zulaessig (§ 309 Nr. 9 BGB n.F.).
-6. **"Aenderungsvorbehalt der AGB":** Muss klare Aenderungsvoraussetzungen,
-   Ankuendigungsfrist und Widerspruchsrecht enthalten (BGH XI ZR 26/20).
-7. **Gerichtsstandklausel gegen Verbraucher:** Unwirksam — Verbraucher kann
-   stets an seinem Wohnsitz klagen (Art. 17-19 EuGVVO, §§ 29c, 29 ZPO).
-8. **Pauschale Vertragsstrafen im SaaS:** B2C untersagt; B2B unter § 307
-   streng geprueft.
-9. **"Privacy Policy" nur auf Englisch** bei DE-Zielgruppe: ueberraschend /
-   intransparent.
+6. **"Aenderungsvorbehalt der AGB":** Zustimmungsfiktion bei AGB-Aenderungen:
+   gegenueber Verbrauchern unwirksam, wenn sie ohne inhaltliche Beschraenkung
+   jede Vertragsaenderung erfasst, auch bei zweimonatiger Ankuendigung und
+   Widerspruchs- bzw. Kuendigungsrecht (BGH, Urteil vom 27.04.2021,
+   XI ZR 26/20); fuer wesentliche Aenderungen ausdrueckliche Zustimmung
+   einholen.
+7. **Gerichtsstandklausel gegen Verbraucher:** vor Entstehen der Streitigkeit
+   grundsaetzlich unwirksam (§ 38 Abs. 1 und 3 ZPO); grenzueberschreitend
+   Art. 17 bis 19 EuGVVO.
+8. **Vertragsstrafen in AGB:** gegenueber Verbrauchern unwirksam fuer
+   Nichtabnahme, verspaetete Abnahme, Zahlungsverzug oder Loesung vom Vertrag
+   (§ 309 Nr. 6 BGB).
+9. **"Privacy Policy" nur auf Englisch** bei DE-Zielgruppe:
+   Transparenzverstoss nach Art. 12 Abs. 1 DSGVO ("in praeziser,
+   transparenter, verstaendlicher und leicht zugaenglicher Form in einer
+   klaren und einfachen Sprache").
 
 ## Relevanz fuer Codebase-Typen
 
@@ -165,31 +197,44 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
 - **Landingpage:** Contact-Form typisch KEIN Vertragsschluss → keine AGB-
   Pflicht, aber Datenschutz + Impressum.
 - **n8n-Workflows:** AGB-Versions-Bumps als CMS-Content; Workflow
-  benachrichtigt Bestandskunden 6 Wochen vor Inkrafttreten (aktive Zustimmung
-  oder Kuendigungsmoeglichkeit).
-- **E-Commerce:** Shopify / Shopware / WooCommerce-Templates haben B2C-Flow
-  meist korrekt; B2B-Shops brauchen getrennte AGB-Version.
+  benachrichtigt Bestandskunden mit angemessenem Vorlauf (gesetzliche
+  Sechs-Wochen-Frist gibt es nicht; zwei Monate nur bei
+  Zahlungsdiensterahmenvertraegen, § 675g Abs. 1 BGB); wesentliche
+  Aenderungen nur mit aktiver Zustimmung (BGH XI ZR 26/20).
+- **E-Commerce:** B2B-Shops brauchen getrennte AGB-Version (§ 310 Abs. 1
+  BGB).
 - **Content/Blog:** AGB nicht erforderlich, nur Nutzungsbedingungen fuer
   Mitglieder-Bereiche / Forum.
 
 ## Behoerden-Hinweise
 
-- **Keine praeventive Pruefung**, Kontrolle nachtraeglich durch Gerichte.
+- **Keine praeventive Pruefung**; Kontrolle nachtraeglich; bei
+  weitverbreiteten Verstoessen zusaetzlich behoerdliche Durchsetzung.
 - **vzbv, Verbraucherzentralen:** klagen nach UKlaG gegen unwirksame Klauseln
   (Verbandsklage).
-- **Wettbewerbszentrale, IDO:** wettbewerbsrechtliche Abmahnung (§ 3a UWG).
+- **Wettbewerbszentrale:** wettbewerbsrechtliche Abmahnung (§ 3a UWG).
+  Abmahnbefugt sind nur Verbaende, die in der Liste der qualifizierten
+  Wirtschaftsverbaende nach § 8b UWG eingetragen sind (§ 8 Abs. 3 Nr. 2
+  UWG); die aktuelle Liste fuehrt das Bundesamt fuer Justiz.
 
 ## Zitierbare Urteile
 
-- **BGH XI ZR 26/20** (27.04.2021): Klausel zur automatischen Zustimmung zu
-  AGB-Aenderungen unwirksam.
-- **BGH VIII ZR 268/19** (29.04.2020): Transparenzgebot in SaaS-AGB.
-- Aussage: Widerrufsbelehrung als Teil der AGB einzubeziehen. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
+- **BGH XI ZR 26/20** (27.04.2021): Klauseln einer Bank, nach denen die
+  Zustimmung zu Aenderungen der AGB und Entgelte bei fehlendem fristgerechtem
+  Widerspruch als erteilt gilt, sind im Verkehr mit Verbrauchern nach § 307
+  Abs. 1 Satz 1, Abs. 2 Nr. 1 BGB unwirksam.
+- Die Widerrufsbelehrung ist gesetzliche Informationspflicht (Art. 246a § 1
+  Abs. 2 EGBGB), keine Pflicht-AGB-Klausel; sie ist vor Abgabe der
+  Vertragserklaerung klar und verstaendlich bereitzustellen (Art. 246a § 4
+  Abs. 1 EGBGB) und mit der Bestaetigung auf dauerhaftem Datentraeger zu
+  wiederholen (§ 312f Abs. 2 BGB); eine Platzierung in den AGB ist zulaessig,
+  ersetzt das aber nicht.
 - **EuGH C-186/16** (20.09.2017, "Andriciuc"): Strenges Transparenzgebot im
   Verbraucherrecht.
-- **BGH III ZR 25/19** (16.01.2020, "Clickwrap"): Einbeziehung bei
-  Registrierung erfordert wahrnehmbare Zustimmung. <<VERIFIKATION AUSSTEHEND>>
-- Aussage: Salvatorische Klausel in AGB ist selbst in AGB unzulaessig. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
+- Eine salvatorische Erhaltungsklausel wiederholt nur § 306 Abs. 1 BGB. Eine
+  Ersetzungsklausel weicht von § 306 Abs. 2 BGB ab und ist gegenueber
+  Verbrauchern an § 307 Abs. 2 Nr. 1 BGB zu messen. Rechtsprechungsbeleg
+  offen.
 
 ## Nicht zitieren: falsch zugeordnete Aktenzeichen
 
@@ -204,8 +249,8 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
   ECLI:DE:BGH:2022:260422BVIIIZR19.21.0) gehoert nicht zu diesem
   Aktenzeichen, sondern zu **BGH VIII ZR 19/21** (Vertauschung von
   Geschaeftsjahr und laufender Nummer). Keine AGB-Entscheidung unter dem
-  Aktenzeichen VIII ZR 21/19 nachweisbar. Zitat daher nicht uebernehmen;
-  Aussage bleibt mit Verifikationsmarker. Dieselbe Streichung im
+  Aktenzeichen VIII ZR 21/19 nachweisbar. Zitat daher nicht uebernehmen.
+  Dieselbe Streichung im
   Hinweisblock von themen/widerrufsbelehrung.md.
 - **BGH VIII ZR 6/10** — in Vorgaengerfassungen als AGB-Entscheidung
   "Salvatorische Klausel" vom 10.11.2010 gefuehrt. Gegenprobe ueber die
@@ -214,8 +259,13 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
   ("Oeffentlich gefoerderter, preisgebundener Wohnraum: Einseitige Erhoehung
   der Kostenmiete bei Unwirksamkeit einer Schoenheitsreparaturklausel" —
   Mietrecht). Keine AGB-Entscheidung zur salvatorischen Klausel unter
-  diesem Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen; Aussage
-  bleibt mit Verifikationsmarker.
+  diesem Aktenzeichen nachweisbar. Zitat daher nicht uebernehmen.
+- **BGH III ZR 25/19** ist ein Beschluss vom 25.03.2020
+  (ECLI:DE:BGH:2020:250320BIIIZR25.19.0) ueber eine
+  Nichtzulassungsbeschwerde gegen OLG Naumburg, Urteil vom 16.01.2019,
+  5 U 107/18 (Anlageberatung, Gehoersruege). Keine Clickwrap- oder
+  AGB-Entscheidung.
+- **BGH VIII ZR 268/19**: in den amtlichen Datenbanken nicht auffindbar.
 
 ## Siehe auch
 
@@ -231,8 +281,9 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
   Standardformat des Verifikationsmarkers normalisiert.
 - Hinweis: Durch das Umsetzungsgesetz zur Richtlinie (EU) 2023/2673
   (Gesetz vom 03.02.2026, **BGBl. 2026 Teil I Nr. 28** vom 05.02.2026;
-  Anwendung seit 19.06.2026) wird § 356a BGB n. F. um die elektronische
-  Widerrufsfunktion fuer Online-Vertragsschluesse ergaenzt — in AGB-
+  Anwendung seit 19.06.2026) wird § 356a BGB durch eine Neufassung ersetzt
+  (elektronische Widerrufsfunktion bei Fernabsatzvertraegen ueber eine
+  Online-Benutzeroberflaeche) — in AGB-
   Verweisen auf das Widerrufsrecht sollte darauf verwiesen werden (siehe
   [[themen/widerrufsbelehrung]], [[themen/button-loesung]]).
 - **2026-11-14 (Nachlauf PR, API-Gegenprobe)**: BGH VIII ZR 21/19 und
@@ -264,3 +315,13 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
   mit ihren Tatbestaenden statt pauschalem Verbot; § 309 Nr. 9 auf die
   Fassung seit 01.03.2022 umgestellt; Fallstrick 4 ("> 6 Monate") durch
   § 476 BGB / § 309 Nr. 8 Buchst. b Doppelbuchst. ff BGB ersetzt.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2)**:
+  Gliederungspunkt 8 nach § 476 Abs. 2 BGB und Art. 246a § 1 Abs. 1 Satz 1
+  Nr. 11 bis 11c EGBGB praezisiert; § 308 Nr. 1 und 9, § 309 Nr. 14 und 15
+  ergaenzt; § 310 Abs. 1 BGB wortgenau; Sprache der AGB, § 305b BGB,
+  Fallstricke 1, 2 und 6 bis 9, Ankuendigungsfrist (§ 675g BGB) und
+  Behoerden-Hinweise neu gefasst ("IDO" gestrichen); XI ZR 26/20 nach
+  Leitsatz; Widerrufsbelehrung und salvatorische Klausel normgestuetzt
+  gefasst (Marker entfernt); BGH III ZR 25/19 (Beschluss vom 25.03.2020,
+  andere Sache) und VIII ZR 268/19 (nicht auffindbar) nach "Nicht zitieren"
+  verschoben; Produktaussage zu Shop-Templates gestrichen.

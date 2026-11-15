@@ -24,13 +24,13 @@ geltungsbereich: [DE]
 ## Kategorie-Ueberblick
 
 Fuer digitale Geschaeftsmodelle (SaaS / E-Commerce / Content / KI) ist der
-**"Fachanwalt fuer Informationstechnologierecht"** (FAIT) der spezialisierteste
+**"Fachanwalt fuer Informationstechnologierecht"** der spezialisierteste
 deutsche Anwalts-Titel. Daneben gibt es verwandte Fachanwaltstitel, die
 abgesehen vom IT-Schwerpunkt ebenfalls relevant sein koennen.
 
 ## Qualifikations-Kriterien
 
-### Fachanwalt fuer Informationstechnologierecht (FAIT)
+### Fachanwalt fuer Informationstechnologierecht
 
 Geregelt in der **Fachanwaltsordnung (FAO)**, Voraussetzungen:
 
@@ -43,7 +43,7 @@ Geregelt in der **Fachanwaltsordnung (FAO)**, Voraussetzungen:
 
 | Titel | Schwerpunkt | Wann relevant? |
 |-------|-------------|---------------|
-| Fachanwalt fuer IT-Recht (FAIT) | Softwarevertraege, IT-Projektrecht, Datenschutz, Telemedien | SaaS, IT-Projekte, Outsourcing |
+| Fachanwalt fuer IT-Recht | Softwarevertraege, IT-Projektrecht, Datenschutz, elektronischer Geschaeftsverkehr, Kommunikationsnetze und -dienste | SaaS, IT-Projekte, Outsourcing |
 | Fachanwalt fuer Urheber- und Medienrecht | Urheberrecht, Persoenlichkeitsrecht, Medienrecht | Content, Publishing, Plattformen |
 | Fachanwalt fuer Gewerblichen Rechtsschutz | Marken, Wettbewerb, Design, Patente | Markenanmeldung, UWG-Faelle |
 | Fachanwalt fuer Handels- und Gesellschaftsrecht | AGB im Handelsverkehr, Gesellschaftsrecht | B2B-SaaS, Investor-Deals |
@@ -94,7 +94,7 @@ Fachanwaltsbezeichnungen: BRAK-Statistik (brak.de) und Fachanwaltsordnung (FAO).
 1. **Kammerregister pruefen** (amtliches Verzeichnis BRAV, https://bravsearch.bea-brak.de/bravsearch, § 31 BRAO) — ist der Anwalt zugelassen?
 2. **Fachanwalt-Titel verifizieren** — steht er im offiziellen Kammer-Register?
 3. **Referenzen anfragen** — aktuelle vergleichbare Mandate (unter NDA moeglich)
-4. **Stunden-Satz / Pauschal-Preis** vorab klaeren (VV RVG oder Honorarvereinbarung)
+4. **Verguetung** vorab klaeren: Verguetungsvereinbarung in Textform (§ 3a RVG); bei reiner Beratung Gebuehrenvereinbarung (§ 34 Abs. 1 RVG), sonst buergerliches Recht, gegenueber Verbrauchern hoechstens 250 EUR, Erstberatung hoechstens 190 EUR
 5. **Mandatsvertrag** pruefen — Haftpflichtversicherung muss bestehen (Pflicht § 51 BRAO)
 6. **Zweitmeinung** bei strategischen Entscheidungen (Architektur, AGB, Lizenzmodell)
 
@@ -124,8 +124,8 @@ Nicht jeder Fachanwalt fuer IT-Recht ist fuer jede Fragestellung optimal. Kriter
 
 Wenn kein klassisches Mandat gewuenscht ist:
 
-- **Syndikus-Anwalt** als Angestellter mit Kanzlei-Background (wenn eigenes Personal gewuenscht)
-- **Externer DSB** nach BDSG ueber Zertifikats-Trainings (udis, TUEV, BvD-Zertifikate) — siehe [[anwaelte-tools/datenschutzbeauftragte]]
+- **Syndikusrechtsanwalt** (§ 46 Abs. 2 BRAO): beim Unternehmen angestellt, Zulassung nach § 46a BRAO erforderlich; Beratung und Vertretung nur in Rechtsangelegenheiten des Arbeitgebers (§ 46 Abs. 5 BRAO)
+- **Externer DSB** (Art. 37 Abs. 6 DSGVO) ueber Zertifikats-Trainings (udis, TUEV, BvD-Zertifikate) — siehe [[anwaelte-tools/datenschutzbeauftragte]]
 - **Legal-Engineer** fuer Skalierung (Kanzlei-Software wie Legalfly, LegalOps-Tools)
 
 ## Auswahl-Kriterien (Checkliste)
@@ -154,3 +154,4 @@ Wenn kein klassisches Mandat gewuenscht ist:
   - anwaltauskunft.de, davit.de, brak.de, juve.de, legal500.com/c/germany/, anwalt.de, 123recht.de: OK (anwalt.de blockt WebFetch mit HTTP 403, Existenz von anwalt.de services AG Nuernberg per Websearch bestaetigt).
   - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.
 - **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Zulassungs- und Fallvoraussetzungen nach §§ 3, 5 Abs. 1 lit. r FAO korrigiert; Werbeverbot auf § 7 Abs. 2 BORA, § 43c Abs. 1 BRAO gestuetzt; Pruefschritt 1 auf das amtliche Verzeichnis BRAV umgestellt; Haftpflicht-Mindestsumme nach § 51 Abs. 4 BRAO (250.000 EUR); Spezialisierungsabschnitt auf Kriterien ohne Kanzleinamen umgestellt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Kuerzel "FAIT" gestrichen, Schwerpunktangabe an § 14k FAO angeglichen; Verguetungshinweis auf §§ 3a, 34 Abs. 1 RVG gestuetzt; Syndikusrechtsanwalt nach § 46 BRAO beschrieben; externer DSB mit Art. 37 Abs. 6 DSGVO statt "nach BDSG".

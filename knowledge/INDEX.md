@@ -13,7 +13,7 @@ Diese Knowledge Base ist ein **Obsidian-kompatibler Markdown-Vault** mit Primaer
 | Gebiet | Verzeichnis | Kern-Dateien |
 |--------|-------------|--------------|
 | Datenschutz (DSGVO/BDSG/TDDDG) | `gesetze/`, `themen/` | `dsgvo.md`, `bdsg.md`, `tdddg.md`, `avv-muster.md`, `verarbeitungsverzeichnis.md`, `tom.md`, `dsfa.md`, `drittland-transfer.md`, `datenschutzerklaerung.md`, `cookie-consent.md`, `tracking-analytics.md`, `meldepflicht-datenpanne.md` |
-| Marketing (UWG/PAngV) | `gesetze/`, `themen/` | `uwg.md` (inkl. EmpCo-Richtlinie (EU) 2024/825 / Greenwashing-Umsetzung), `pangv.md` (Preisangabengesetz ab 01.01.2027), `email-marketing.md`, `werbekennzeichnung.md`, `preisangaben.md` |
+| Marketing (UWG/PAngV) | `gesetze/`, `themen/` | `uwg.md` (inkl. EmpCo-Richtlinie (EU) 2024/825 / Greenwashing-Umsetzung), `pangv.md` (Preisangabengesetz vom 03.12.1984, geaendert durch BGBl. 2026 I Nr. 314; Aenderungen in Kraft ab 01.01.2027), `email-marketing.md`, `werbekennzeichnung.md`, `preisangaben.md` |
 | Vertragsrecht (BGB) | `gesetze/`, `themen/` | `bgb-agb.md`, `agb-muster.md`, `widerrufsbelehrung.md` (§ 356a BGB elektronische Widerrufsfunktion), `button-loesung.md` (§ 312j Abs. 3 + § 312k + § 356a BGB) |
 | Telemedien/Plattform (DDG/DSA/DMA) | `gesetze/`, `themen/` | `ddg.md`, `dsa.md`, `dma.md`, `impressum.md` |
 | KI / Barrierefreiheit (AI Act / BFSG) | `gesetze/`, `themen/` | `ai-act.md` (VO (EU) 2024/1689 i. d. F. VO (EU) 2026/1744 "Digital Omnibus on AI" seit 27.07.2026), `bfsg.md`, `ki-transparenz.md`, `barrierefreiheit.md`, `ki-content.md` |
@@ -28,8 +28,8 @@ Diese Knowledge Base ist ein **Obsidian-kompatibler Markdown-Vault** mit Primaer
 Unter `urteile/`:
 - `eugh-schrems-ii.md` — C-311/18, Drittland-Transfer USA (DPF-Beschluss 10.07.2023 verifiziert)
 - `eugh-planet49.md` — C-673/17, Cookie-Einwilligung
-- `bgh-cookie-einwilligung.md` — I ZR 7/16, VI ZR 225/20
-- `bgh-google-fonts.md` — LG Muenchen I 3 O 17493/20 (+ EuGH C-340/21 Folge-Anker)
+- `bgh-cookie-einwilligung.md` — BGH I ZR 7/16, 28.05.2020 (Cookie-Einwilligung II, Planet49-Folgeurteil)
+- `bgh-google-fonts.md` — LG Muenchen I, Endurteil v. 20.01.2022, 3 O 17493/20 (kein BGH-Urteil) + EuGH C-340/21, 14.12.2023
 - `bgh-inbox-werbung.md` — **I ZR 25/19, 13.01.2022** (zuvor faelschlich I ZR 186/17 zitiert — am 2026-05-08 ueberall korrigiert)
 - `eugh-meta-bundeskartellamt.md` — C-252/21 (+ OLG Duesseldorf-Verfahrensende 10.10.2024)
 - `bgh-vi-zr-10-24-kontrollverlust.md` — BGH VI ZR 10/24, 18.11.2024 (Leitentscheidung Kontrollverlust als immaterieller Schaden Art. 82 DSGVO, Facebook-Scraping)
@@ -87,3 +87,4 @@ Unter `anwaelte-tools/`:
 - **2026-11-14:** `/legal-update --stale-only` ueber Themen- und Checklisten-Batches; Abschlusslauf mit Konsistenz-Normierung der Aktenzeichen-Marker, Aufloesen des ODR-Markers (VO (EU) 2024/3228) und KI-Kompetenz-Angleichung (Art. 4 KI-VO n. F.). Logs:
   - `.claude/logs/kb-update-2026-11-14-abschluss.log`
 - **Verbleibende Platzhalter (Stand 2026-11-14, nach Review-Korrekturlauf PR #17):** 53 Verifikationsmarker laut `git grep -c` nach dem Verifikationsmarker in `knowledge/`; die jeweils aktuelle Zahl liefert `python scripts/find-placeholders.py` (inkl. der neu in Hinweisbloecke verschobenen Aussagen zu BAG 2 AZR 133/18 bzw. 8 AZR 253/20, BGH VIII ZR 21/19, VIII ZR 6/10, I ZR 61/20, I ZR 118/12, I ZR 102/10, I ZR 228/14). Schwerpunkte: strittige Aktenzeichen und Pricing-Angaben. Der zuvor gemeldete Verifikationsmarker zum neuen § 356a BGB-Wortlaut ist aufgeloest — die konsolidierte Fassung auf gesetze-im-internet.de zeigt jetzt die neue Paragraphenfassung (Umsetzung RL (EU) 2023/2673, BGBl. 2026 I Nr. 28 vom 05.02.2026, Anwendung seit 19.06.2026). Fehlzitate BGH I ZR 173/16 und I ZR 143/19 aus "Zitierbare Urteile" von preisangaben.md und pangv.md entfernt; der Befund ist in einem Hinweisblock dokumentiert. Naechster Recheck: `/legal-update --fix-pending`.
+- **2026-11-15:** Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Zeile zu `bgh-google-fonts.md` als LG-Muenchen-Endurteil (kein BGH-Urteil) mit EuGH C-340/21 vom 14.12.2023 gefasst; Zeile zu `bgh-cookie-einwilligung.md` auf BGH I ZR 7/16 vom 28.05.2020 beschraenkt (Aktenzeichen VI ZR 225/20 entfernt, in der Zieldatei nicht behandelt); `pangv.md` mit Fundstelle der Aenderung (BGBl. 2026 I Nr. 314).

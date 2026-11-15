@@ -50,7 +50,7 @@ Ziel: jeder ausgehende API-Call rechtlich abgesichert.
 - [ ] Provider-Liste vollstaendig (inkl. Sub-Prozessoren!)
 - [ ] Fuer jeden Provider: **AVV vorhanden** und unterzeichnet?
 - [ ] Fuer jeden USA-Provider: **DPF-Zertifizierung** pruefen (dataprivacyframework.gov) — falls ja, zusaetzlich SCC als Fallback
-- [ ] Fuer jeden Nicht-EU-Provider ohne DPF: **SCC Modul 2 (C2P) oder Modul 3 (P2P)** + TIA (Transfer Impact Assessment)
+- [ ] Fuer jeden Provider in einem Drittland ohne Angemessenheitsbeschluss (bei US-Providern: ohne DPF-Zertifizierung): **SCC** nach DB (EU) 2021/914 im passenden Modul + Transferpruefung (Klausel 14)
 - [ ] Schrems-II-Konformitaet: **Zusatz-Massnahmen** dokumentiert? (Verschluesselung at rest/in transit, Pseudonymisierung, technische Zugriffs-Sperren)
 - [ ] Informationspflicht nach Art. 13 Abs. 1 lit. f DSGVO in der Datenschutzerklaerung erfuellt?
 - [ ] Sub-Prozessor-Liste des Providers gepflegt und **Veraenderungs-Benachrichtigungs-Klausel** im AVV?
@@ -62,11 +62,11 @@ Ziel: jeder ausgehende API-Call rechtlich abgesichert.
 |-----------|----------|---------------------|-----------------|
 | Hosting (EU) | Hetzner, Scaleway | AVV (Art. 28) | Art. 6 Abs. 1 lit. b/f |
 | Hosting (US mit EU-Region) | Vercel, AWS-Frankfurt | AVV + SCC + DPF (falls zertifiziert) | siehe oben |
-| Payment | Stripe | **Getrennte Verantwortlichkeit** (PCI-DSS-Zone + aufsichtsrechtliche Pflichten) | Art. 6 Abs. 1 lit. b/c |
+| Payment | Stripe | Rolle je Verarbeitung bestimmen (Art. 4 Nr. 7, 8 DSGVO); laut Stripe-Datenverarbeitungsvertrag (stripe.com/de/legal/dpa, Stand 2026-11-15): Auftragsverarbeiter, fuer eigene Zwecke (u. a. Geldwaeschepruefung) eigener Verantwortlicher | Art. 6 Abs. 1 lit. b/c |
 | Transactional Mail | Brevo (FR), Postmark (US) | AVV (Art. 28) | lit. b/f |
-| Marketing Mail | Mailchimp (US) | AVV + Opt-In-Nachweise | lit. a (Einwilligung) |
+| Marketing Mail | Mailchimp (US) | AVV + Drittlandmechanismus (DPF, falls zertifiziert, sonst SCC) + Einwilligungsnachweise | lit. a (Einwilligung) |
 | KI-API | Mistral (FR, EU), OpenAI (US), Anthropic (US) | AVV + SCC (falls US) + DPF-Pruefung | lit. b/f + ggf. Art. 9 bei besonderen Kategorien |
-| Analytics | PostHog self-hosted, Plausible | meist AVV Art. 28; Plausible cookie-frei | lit. f |
+| Analytics | PostHog self-hosted, Plausible | Eigenbetrieb (PostHog self-hosted): kein AVV fuer das Tool, nur mit dem Hoster; gehosteter Dienst: AVV Art. 28; ohne Zugriff auf die Endeinrichtung keine Einwilligung nach § 25 TDDDG | lit. f |
 | Error-Tracking | Sentry SaaS | AVV + PII-Minimisierung (Masking!) | lit. f |
 
 ## Pass 3: Cookie-/Consent-Analyse
@@ -75,11 +75,11 @@ Ziel: § 25 TDDDG + DSGVO sauber umgesetzt.
 
 - [ ] **Technisch notwendige** Cookies/Storage identifiziert (Session, CSRF, Language-Pref) — **kein Consent** noetig
 - [ ] **Nicht-notwendige** Cookies/Scripts (Analytics, Marketing, Pixel) — ausschliesslich **nach Einwilligung**
-- [ ] **Consent-Banner** vorhanden, **ablehnen gleichrangig zu akzeptieren** (Art. 4 Nr. 11, Art. 7 DSGVO i. V. m. § 25 Abs. 1 TDDDG)
+- [ ] **Consent-Banner** vorhanden; Ablehnen-Moeglichkeit auf erster Ebene, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (DSK, OH Digitale Dienste, Rn. 124 f.; in der Praxis meist der Fall); Ablehnen als gleichwertige Alternative erkennbar, in Groesse, Farbe, Kontrast und Schriftbild vergleichbar (Rn. 135); Einwilligung nach Art. 4 Nr. 11, Art. 7 DSGVO i. V. m. § 25 Abs. 1 TDDDG
 - [ ] **Granulare Kategorien** statt "Alle oder nichts" (kein Dark Pattern)
 - [ ] **Pre-ticked Boxes** VERBOTEN (Planet49 EuGH C-673/17)
 - [ ] **Widerruf genauso einfach** wie Einwilligung (Art. 7 Abs. 3 DSGVO)
-- [ ] Consent-Log mit Zeitstempel, Version, Wahl pro Kategorie — 2-Jahres-Aufbewahrung ueblich
+- [ ] Consent-Nachweis (Art. 7 Abs. 1 DSGVO) mit Zeitstempel, Version, Wahl pro Kategorie; Aufbewahrung nach Erforderlichkeit, keine gesetzliche Zweijahresfrist
 - [ ] **Google Consent Mode v2** korrekt eingebunden (falls Google-Services)
 - [ ] Fonts lokal self-hosted (nicht via fonts.googleapis.com — LG Muenchen I 3 O 17493/20 "Google Fonts")
 - [ ] Embeds (YouTube, Vimeo, Maps, Twitter/X) nur mit 2-Klick-Loesung oder Consent
@@ -95,7 +95,8 @@ Ziel: § 25 TDDDG + DSGVO sauber umgesetzt.
 - [ ] **Kuendigungsbutton § 312k BGB** bei Abo-/SaaS-Vertraegen mit Verbrauchern: Schaltflaeche "Vertraege hier kuendigen" (oder gleichwertig) + Bestaetigungsseite mit Button "jetzt kuendigen", staendig verfuegbar und leicht zugaenglich (§ 312k Abs. 2 BGB); Bestaetigung sofort auf elektronischem Wege in Textform (§ 312k Abs. 4 BGB); Folge bei Verstoss: jederzeitige fristlose Kuendigung durch Verbraucher moeglich (§ 312k Abs. 6 BGB) — Severity CRIT
 - [ ] **Preisangaben-Transparenz** (PAngV — Gesamtpreis inkl. USt, monatlich/jaehrlich)
 - [ ] **Erloeschen des Widerrufsrechts**: Bei Dienstleistungen (z. B. SaaS) erlischt das Widerrufsrecht erst mit vollstaendiger Erbringung der Dienstleistung, wenn der Verbraucher vor Beginn ausdruecklich zugestimmt und seine Kenntnis bestaetigt hat (§ 356 Abs. 5 BGB); fuer digitale Inhalte gilt § 356 Abs. 6 BGB
-- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** bei B2C-Vertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht auf Finanzdienstleistungen beschraenkt): Pflichtschaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung) waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Eingangsbestaetigung auf dauerhaftem Datentraeger mit Datum und Uhrzeit (§ 356a Abs. 1-4 BGB; gesetze-im-internet.de/bgb/__356a.html); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity HIGH
+- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** bei B2C-Vertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht auf Finanzdienstleistungen beschraenkt): Pflichtschaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung) waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Eingangsbestaetigung auf dauerhaftem Datentraeger mit Datum und Uhrzeit (§ 356a Abs. 1-4 BGB; gesetze-im-internet.de/bgb/__356a.html); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity CRIT
+- [ ] **DSA** (VO (EU) 2022/2065, anwendbar seit 17.02.2024): Speichert das SaaS Nutzerinhalte, gelten Kontaktstellen (Art. 11, 12), AGB-Angaben (Art. 14), Melde- und Abhilfeverfahren (Art. 16), Begruendung (Art. 17) groessenunabhaengig; Art. 19 nimmt Kleinst-/Kleinunternehmen nur von den Online-Plattform-Pflichten aus
 
 ## Pass 5: KI-Spezifisch (AI Act — Verordnung (EU) 2024/1689)
 
@@ -103,7 +104,7 @@ Anwendbarkeit (Stand 2026-11-14, inkl. Digital Omnibus on AI VO (EU) 2026/1744):
 
 Falls das SaaS KI-Komponenten enthaelt (LLM-Integration, Klassifikation, Empfehlungen, Generierung):
 
-- [ ] **Verbotene Praktiken** (Art. 5) ausgeschlossen? (Social Scoring, biometrische Echtzeit-Identifizierung, manipulative Subliminal-Techniken, Emotion-Recognition am Arbeitsplatz/Bildung)
+- [ ] **Verbotene Praktiken** (Art. 5) ausgeschlossen? (u. a. manipulative/unterschwellige Techniken, Ausnutzung von Schutzbeduerftigkeit, Social Scoring, Emotionserkennung am Arbeitsplatz und in Bildungseinrichtungen, biometrische Kategorisierung, biometrische Echtzeit-Fernidentifizierung in oeffentlich zugaenglichen Raeumen zu Strafverfolgungszwecken)
 - [ ] **KI-Kompetenz** Art. 4 KI-VO n. F.: "Massnahmen ergreifen" statt Erfolgspflicht — Schulungs-/Sensibilisierungsnachweis fuer alle Mitarbeiter mit KI-Beruehrung dokumentieren (Nachweispflicht im Streitfall)
 - [ ] **Risiko-Klasse** bestimmt (Verboten / Hoch / Begrenzt / Minimal)
 - [ ] Bei **Limited Risk** (Chatbot, generative KI-Outputs): **Transparenzpflicht** Art. 50 AI Act
@@ -142,19 +143,20 @@ BFSG ist seit **28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Angebote (O
 ## Pass 8: Logs / Retention / Loeschkonzept
 
 - [ ] **Access Logs** — Retention max. 7-14 Tage bei IP-Logging ohne Einwilligung (Art. 6 Abs. 1 lit. f + Erwaegungsgrund 49)
-- [ ] **Application Logs** — PII minimieren (IDs statt Emails), Retention max. 30-90 Tage
-- [ ] **DB-Backups** — Retention max. 30 Tage (laenger nur bei begruendetem Zweck)
-- [ ] **Account-Loeschung**: Klarer Ablauf nach § 35 BDSG + Art. 17 DSGVO
+- [ ] **Application Logs** — PII minimieren (Art. 5 Abs. 1 lit. c DSGVO); Speicherdauer festlegen und begruenden (lit. e); 30 bis 90 Tage als Praxiswert
+- [ ] **DB-Backups** — Aufbewahrungsdauer festlegen und begruenden (Art. 5 Abs. 1 lit. e DSGVO); 30 Tage als Praxiswert
+- [ ] **Account-Loeschung**: Ablauf nach Art. 17 DSGVO; gesetzliche Aufbewahrungspflichten ueber Art. 17 Abs. 3 lit. b; satzungsmaessige oder vertragliche Aufbewahrungsfristen ueber § 35 Abs. 3 BDSG (Einschraenkung statt Loeschung)
   - Sofort-Loeschung: Profildaten, Inhalte ohne rechtliche Aufbewahrungspflicht
   - **Anonymisierung** statt Loeschung bei Daten mit Aufbewahrungspflicht
   - **Aufbewahrungsfristen**: Rechnungen/Buchungsbelege 8 Jahre (§ 257 Abs. 1 Nr. 4, Abs. 4 HGB; § 147 Abs. 1 Nr. 4, Abs. 3 AO; § 14b Abs. 1 UStG); Buecher, Inventare, Abschluesse 10 Jahre; Handels- und Geschaeftsbriefe (auch steuerrelevante E-Mails) 6 Jahre; Ausnahme 10 Jahre fuer Kredit-, Versicherungs- und Wertpapierinstitute (§ 257 Abs. 4 Satz 2 HGB)
 - [ ] **Retention-Tabelle** im Verarbeitungsverzeichnis dokumentiert (fuer jede Kategorie)
 - [ ] **Automatisierte Loesch-Jobs** (Cron/Scheduler) mit Fehler-Alert (siehe OPS-01 Anti-Pattern in ksk-automation)
-- [ ] **Data Act (EU) 2023/2854** — zeitliche Staffelung pruefen (Art. 50 i. d. F. der konsolidierten Fassung, per Cellar CELEX:32023R2854 verifiziert):
+- [ ] **Data Act (EU) 2023/2854**: Ist das SaaS selbst Datenverarbeitungsdienst (Art. 2 Nr. 8 Data Act), treffen den Anbieter seit 12.09.2025 die Pflichten nach Kapitel VI (Art. 23 ff.); Pruefpunkt auf die eigenen Kundenvertraege richten. Zeitliche Staffelung pruefen (Art. 50 i. d. F. der konsolidierten Fassung, per Cellar CELEX:32023R2854 verifiziert):
   - **Kapitel VI** (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten) **gilt seit 12.09.2025**. SaaS-/Cloud-Vertraege auf Pflichten zum erleichterten Anbieterwechsel pruefen (Portabilitaet, Kuendigungs- und Uebergangsfristen).
   - **Art. 29** (schrittweise Abschaffung der Wechselentgelte): vom 11.01.2024 bis **12.01.2027** nur ermaessigte Wechselentgelte (max. Selbstkosten); **ab 12.01.2027** sind Wechselentgelte vollstaendig verboten.
   - **Kapitel IV** (Art. 13, missbraeuchliche Vertragsklauseln in B2B-Datenvertraegen): gilt fuer Vertraege, die **nach dem 12. September 2025** geschlossen wurden, unmittelbar; fuer Altvertraege, die am oder vor dem 12. September 2025 geschlossen wurden, gilt Kapitel IV **ab 12. September 2027** unter der in Art. 50 genannten Voraussetzung, dass der Vertrag unbefristet ist oder seine Geltungsdauer fruehestens zehn Jahre nach dem 11. Januar 2024 endet.
-  - Severity MED
+  - Severity HIGH
+- [ ] **NIS2/BSIG**: SaaS als Cloud-Computing-Dienst (Anlage 1 Nr. 6.1.4 BSIG); wichtige Einrichtung ab 50 Beschaeftigten oder Jahresumsatz und Jahresbilanzsumme jeweils ueber 10 Mio. EUR (§ 28 Abs. 2 Nr. 3), besonders wichtige ab 250 Beschaeftigten (§ 28 Abs. 1 Nr. 4); Pflichten §§ 30, 32, 33 (Registrierung binnen drei Monaten)
 
 ## Pass 9: Social-Media & Drittinhalte
 
@@ -169,7 +171,7 @@ Fast jedes SaaS-Produkt hat Marketing-Teile mit Social-Media-Icons, Embeds oder 
 ## Pass 10: Werbung mit Siegeln / Trust-Badges / Zitaten
 
 - [ ] "Testsieger"- / "TUeV-geprueft"-Badges auf Landing: nur mit nachpruefbarem, aktuellem Siegel (OLG Frankfurt 6 U 184/13) <<VERIFIKATION AUSSTEHEND>> — siehe [[themen/siegel-werbung]]
-- [ ] Zitate aus Presse / Analysten-Reports: § 51 UrhG-Konformitaet (Zweck, Umfang, Quelle) — siehe [[themen/zitatrecht]]
+- [ ] Zitate aus Presse / Analysten-Reports: Zitatzweck und Umfang (§ 51 Satz 1 UrhG), Quellenangabe (§ 63 UrhG); fehlt ein Zitatzweck, Nutzungsrecht einholen — siehe [[themen/zitatrecht]]
 - [ ] Kundenfotos / Mitarbeiterfotos auf Team-Seite: KUG-Einwilligung + Art. 6 DSGVO — siehe [[themen/fotos-dritter-kug]]
 - [ ] Testimonial-Texte: Freigabe dokumentiert, Person tatsaechlich existierend (keine Fake-Testimonials)
 
@@ -179,7 +181,7 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 
 - [ ] Pre-Consent: keine Requests an `fonts.googleapis.com`, `google-analytics.com`, `facebook.com/tr`, `connect.facebook.net`, etc.
 - [ ] Post-Reject: tatsaechlich KEINE Tracker (oft Bug: Banner blockt Consent-Flag, aber Scripts laden trotzdem)
-- [ ] Cookie-Banner: Ablehnen gleichrangig zu Akzeptieren (visuelle Pruefung)
+- [ ] Cookie-Banner: Ablehnen-Moeglichkeit auf erster Ebene, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (DSK, OH Digitale Dienste, Rn. 124 f.); Ablehnen als gleichwertige Alternative erkennbar (Rn. 135; visuelle Pruefung)
 - [ ] Mobile-Viewport: Banner und Buttons weiterhin bedienbar
 - [ ] Tool-Liste aus DSE cross-pruefen gegen tatsaechlich geladene Third-Party-Hosts — Liste siehe [[themen/tool-katalog]]
 
@@ -190,12 +192,14 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 - **API-Keys / Webhooks**: Geheimhaltungspflicht, Rotation, kein Logging im Klartext
 - **Betroffenen-Rechte-Portal**: Self-Service fuer Auskunft (Art. 15), Loeschung (Art. 17), Datenuebertragbarkeit (Art. 20)
 - **Impersonate-Feature** (Admin loggt sich als Kunde ein): Sonder-Log, Einwilligung, Missbrauchs-Sperren
-- **KI-Klassifikation** auf Kunden-Inhalten (siehe ksk-automation GA-5): **DSFA zwingend**, da systematische automatisierte Bewertung
+- **KI-Klassifikation** auf Kunden-Inhalten (siehe ksk-automation GA-5): DSFA nach Art. 35 Abs. 3 lit. a DSGVO nur bei systematischer und umfassender Bewertung persoenlicher Aspekte als Grundlage fuer Entscheidungen mit Rechtswirkung oder aehnlich erheblicher Beeintraechtigung; sonst Schwellwertpruefung (Art. 35 Abs. 1) dokumentieren
 
 ## Typische Findings (Erwartungswerte bei SaaS-Audit)
 
 ### CRIT
 
+- Kuendigungsbutton fehlt bei B2C-Abo (§ 312k Abs. 2 BGB; Folge § 312k Abs. 6 BGB)
+- Elektronische Widerrufsfunktion fehlt bei B2C-Vertragsschluss ueber die Online-Oberflaeche (§ 356a BGB)
 - AVV fehlt fuer einen oder mehrere aktive Provider
 - Google Fonts ohne Consent im Frontend geladen (LG Muenchen I, 20.01.2022, 3 O 17493/20); Google Maps ohne Consent (§ 25 TDDDG / Art. 6 DSGVO)
 - Session-Cookie als "notwendig" deklariert, aber enthaelt Tracking-ID
@@ -205,18 +209,18 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 
 ### HIGH
 
-- Consent-Banner ohne gleichrangigen Ablehnen-Button
+- Consent-Banner, das Inhalte versperrt, ohne gleichwertige Ablehnen-Moeglichkeit auf erster Ebene
 - Datenschutzerklaerung nennt nicht alle Drittanbieter
 - PII im Sentry-Stacktrace (User-E-Mail im Breadcrumb)
 - Keine DSFA bei KI-gestuetzter Nutzer-Klassifikation
-- Keine Fachanwalt-Pruefung vor Launch (empfohlenes Budget 500-1.500 EUR, siehe ksk-automation GA-6)
+- Keine Fachanwalt-Pruefung vor Launch (Kosten vorab erfragen, siehe ksk-automation GA-6)
 - Sub-Prozessor-Liste im AVV nicht aktuell
 
 ### MED
 
 - Impressum fehlt USt-ID obwohl Firma ust-pflichtig
 - Cookie-Kategorie-Beschreibungen zu generisch ("Marketing-Cookies" statt konkret)
-- Retention-Zeiten nicht dokumentiert (Art. 13 Abs. 2 lit. a DSGVO)
+- Speicherdauer in der Datenschutzerklaerung nicht angegeben (Art. 13 Abs. 2 lit. a DSGVO) bzw. Loeschfristen nicht im Verarbeitungsverzeichnis (Art. 30 Abs. 1 Satz 2 lit. f DSGVO)
 - DSB nicht benannt, obwohl in der Regel mindestens 20 Personen staendig mit der automatisierten Verarbeitung personenbezogener Daten beschaeftigt sind oder unabhaengig davon eine DSFA-pflichtige Verarbeitung vorliegt (§ 38 Abs. 1 BDSG)
 - Keine Admin-Benachrichtigung bei Cron-Job-Fehlern (OPS-01 aus ksk-automation)
 
@@ -238,10 +242,10 @@ Bei Mandatierung folgendes liefern lassen:
 6. **Architektur-Skizze** (Provider, Dataflows, Drittland-Marker)
 7. **DSFA-Entwurf** falls KI-Kernkomponente
 
-Budget-Range (grobe, oeffentlich kommunizierte Marktspannen; Tier-3-Marktinfo, keine belastbare Kanzlei-Preisstatistik; unverbindliche ca.-Angaben, immer individuell einholen):
-- Review eines fertigen Pakets: ca. 500-1.500 EUR
-- Vollstaendige Erstellung: ca. 1.500-5.000 EUR
-- Laufende DSB-Funktion extern: ca. 150-500 EUR/Monat abhaengig vom Umfang
+Kosten (Honorare vorab individuell erfragen, keine pauschalen Spannen):
+- Review eines fertigen Pakets
+- Vollstaendige Erstellung
+- Laufende DSB-Funktion extern (abhaengig vom Umfang)
 
 Siehe [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-saas-spezialisiert]].
 
@@ -289,3 +293,4 @@ Siehe [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-sa
 ## Aenderungsvermerk (2026-11-15)
 
 - 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Consent-Gleichrangigkeit auf Art. 4 Nr. 11, Art. 7 DSGVO i. V. m. § 25 Abs. 1 TDDDG gestuetzt; I ZR 159/24 nur fuer die endgueltige Unwirksamkeit nach § 312j Abs. 4 BGB; § 312k Abs. 4 "sofort"; Erloeschen des Widerrufsrechts nach § 356 Abs. 5 und 6 BGB; Art. 50 Abs. 2 KI-VO als Anbieterpflicht; DSFA-Tatbestand Art. 35 Abs. 3 lit. a vollstaendig; BFSG-Kleinstunternehmen, BFSGV § 3 und Fundstelle der vier Prinzipien berichtigt; Aufbewahrungsfristen 8/10/6 Jahre; DSB-Schwelle § 38 Abs. 1 BDSG; Google-Fonts-Urteil auf Google Fonts beschraenkt; I ZR 163/19 gestrichen und mit Marker versehen.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Consent-Banner-Ablehnoption einheitlich nach DSK, OH Digitale Dienste, Rn. 124, 125, 135 (Pruefpunkte und Finding; ersetzt die Formulierung des Vermerks oben); Widerrufsfunktion § 356a BGB auf CRIT, CRIT-Findings Kuendigungsbutton und Widerrufsfunktion; neue Pruefpunkte DSA (Art. 11 ff., 19) und NIS2/BSIG (Anlage 1 Nr. 6.1.4, § 28); Data Act mit Art. 2 Nr. 8 und Severity HIGH; SCC-Module nach DB (EU) 2021/914 statt fester Modulwahl; Drittlandspalte (Stripe, Mailchimp, PostHog); Consent-Nachweis, Logs, Backups und Account-Loeschung ohne gesetzliche Fristbehauptung (Art. 5 Abs. 1 lit. e, § 35 Abs. 3 BDSG); Verbote Art. 5 Abs. 1 KI-VO; DSFA-Hinweis Art. 35 Abs. 3 lit. a; Zitate § 51, § 63 UrhG; Honorarspannen gestrichen.

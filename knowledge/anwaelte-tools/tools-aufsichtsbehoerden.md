@@ -24,7 +24,10 @@ geltungsbereich: [DE]
 
 Meldungen nach Art. 33 DSGVO (Datenpanne) und Art. 34 DSGVO (Benachrichtigung
 Betroffene) sind **fristgebunden**. Eine bestimmte Form schreibt die DSGVO
-nicht vor, wohl aber einen gesetzlichen Mindestinhalt (Art. 33 Abs. 3 DSGVO).
+nicht vor, wohl aber einen gesetzlichen Mindestinhalt (Art. 33 Abs. 3 DSGVO). Erfolgt die Meldung nicht binnen 72
+Stunden, ist eine Begruendung fuer die Verzoegerung beizufuegen (Art. 33
+Abs. 1 Satz 2 DSGVO). Auftragsverarbeiter melden Verletzungen unverzueglich
+dem Verantwortlichen (Art. 33 Abs. 2 DSGVO).
 Alle deutschen Aufsichtsbehoerden haben dafuer eigene Online-Formulare eingerichtet — deren
 Nutzung ist in der Regel die **erste Wahl** gegenueber E-Mail/Post.
 
@@ -37,7 +40,7 @@ Nutzung ist in der Regel die **erste Wahl** gegenueber E-Mail/Post.
 - **Oeffentliche Stelle Land** → Landesbeauftragter
 - **Oeffentliche Stelle Bund / TK / Post** → **BfDI**
 - **Grenzueberschreitend** → federfuehrende Behoerde nach Art. 56 DSGVO (One-Stop-Shop)
-- **Kirchliche Stelle** → KDSA / DSG-EKD
+- **Kirchliche Stelle** → eigene kirchliche Datenschutzaufsicht (Art. 91 Abs. 2 DSGVO): evangelisch die Datenschutzaufsicht nach dem DSG-EKD, katholisch die zustaendige Dioezesan-Datenschutzaufsicht nach dem KDG
 
 Volle Liste in [[behoerden/landesbeauftragte-kontakte]].
 
@@ -152,7 +155,7 @@ die Betroffenen noetig.
 
 ### Ausnahmen von der Benachrichtigungspflicht (Art. 34 Abs. 3)
 
-- Daten waren verschluesselt (und Schluessel nicht kompromittiert)
+- Daten fuer Unbefugte unzugaenglich gemacht, etwa durch Verschluesselung mit nicht kompromittiertem Schluessel (Art. 34 Abs. 3 lit. a DSGVO)
 - Nachfolgende Massnahmen stellen sicher, dass das hohe Risiko aller Wahrscheinlichkeit nach nicht mehr besteht (Art. 34 Abs. 3 lit. b)
 - Benachrichtigung waere **unverhaeltnismaessig aufwendig** → oeffentliche Bekanntmachung
 
@@ -217,7 +220,7 @@ Verfahren siehe die DSK-Musterrichtlinien (MRiDaVG) vom 16.06.2025. <<VERIFIKATI
 
 ## Hinweis: ODR-Plattform abgeschaltet (2025-07-20)
 
-Die EU-**Online-Streitbeilegungsplattform (ODR/OS)** unter `ec.europa.eu/consumers/odr` ist seit dem **20.07.2025** eingestellt; die Rechtsgrundlage (VO (EU) 524/2013) wurde durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 aufgehoben (CELEX 32024R3228; am 2026-11-14 am Cellar-Volltext verifiziert). Pflichten zur Verlinkung aus AGB / Impressum / Footer sind damit weggefallen. Verbraucherstreitbeilegung erfolgt seither ueber nationale Schlichtungsstellen (z.B. Universalschlichtungsstelle des Bundes / Allgemeine Verbraucherschlichtungsstelle des Zentrums fuer Schlichtung e.V., Kehl). Hinweis hier nur fuer Cross-Ref — ODR betrifft UWG/E-Commerce-Pflichten, **nicht** den Art.-33/34-DSGVO-Meldeweg, der hier dokumentiert ist.
+Die EU-**Online-Streitbeilegungsplattform (ODR/OS)** unter `ec.europa.eu/consumers/odr` ist seit dem **20.07.2025** eingestellt; die Rechtsgrundlage (VO (EU) 524/2013) wurde durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 aufgehoben (CELEX 32024R3228; am 2026-11-14 am Cellar-Volltext verifiziert). Pflichten zur Verlinkung aus AGB / Impressum / Footer sind damit weggefallen. Verbraucherstreitbeilegung erfolgt seither ueber nationale Schlichtungsstellen (z.B. Universalschlichtungsstelle des Bundes / Allgemeine Verbraucherschlichtungsstelle des Zentrums fuer Schlichtung e.V., Kehl). Unberuehrt bleibt die Informationspflicht nach § 36 Abs. 1 VSBG (Angabe, ob der Unternehmer zur Teilnahme an einem Verfahren vor einer Verbraucherschlichtungsstelle bereit oder verpflichtet ist); ausgenommen sind Unternehmer mit zehn oder weniger Beschaeftigten (§ 36 Abs. 3 VSBG). Hinweis hier nur fuer Cross-Ref — ODR betrifft UWG/E-Commerce-Pflichten, **nicht** den Art.-33/34-DSGVO-Meldeweg, der hier dokumentiert ist.
 
 ## Siehe auch
 
@@ -235,3 +238,4 @@ Die EU-**Online-Streitbeilegungsplattform (ODR/OS)** unter `ec.europa.eu/consume
 - **2026-11-14** (Batch E, stale-only): Freitext-Marker fuer die Deep-Link-Tabelle der 14 Landesaufsichtsbehoerden auf die einheitliche Form des Verifikationsmarkers (einzeilig, am Ende des Hinweises) normiert. Normative Aussagen gegen Tier-1 bestaetigt: 72-Stunden-Frist (Art. 33 Abs. 1 DSGVO), Benachrichtigungspflicht (Art. 34 DSGVO), Bussgeldrahmen 10 Mio EUR / 2 % (Art. 83 Abs. 4 lit. a DSGVO).
 - **2026-11-14** (Batch E3, Live-Pruefung): Portale aktiv abgerufen. BfDI-Formular-Portal `formulare.bfdi.bund.de` erreichbar, aber Anwendung meldete "aktuell nicht zur Verfuegung" — Hinweis in Eintrag ergaenzt. BayLDA-Datenpanne-Seite (`lda.bayern.de/de/datenpanne.html`) und LDI-NRW-Meldeseite erreichbar und Formular-Links aktiv (LDI-Formular jetzt unter `ldi-fms.nrw.de/lip/action/invoke.do?id=Datenschutzverletzung`). ODR-Abschaltung 20.07.2025 gegen `consumer-redress.ec.europa.eu/site-relocation_en` bestaetigt (Rechtsgrundlage VO (EU) 2024/3228). `verifiziert-am` auf 2026-11-14 aktualisiert. Deep-Links der Landesaufsichtsbehoerden-Tabelle bleiben nicht einzeln reverifiziert und tragen weiterhin den Sammel-Marker.
 - **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): keine Formbindung, aber Mindestinhalt nach Art. 33 Abs. 3; Abschnitt "Inhalte der Meldung" trennt Pflichtinhalte nach lit. a bis d von Formular-Zusatzfeldern; Benachrichtigungsinhalt an Art. 33 Abs. 3 lit. d angeglichen; Ausnahme Art. 34 Abs. 3 lit. b wortnah gefasst; Kurzpapier 18 statt 19; BfDI-Einstieg ueber die Formularuebersicht, unbelegte Angaben zu Speicherung und Rueckmeldung entfernt; Hinweis auf EDSA-Leitlinien 04/2022 und DSK-Musterrichtlinien ergaenzt (Daten mit Verifikationsmarker, Nachpruefung offen).
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Begruendungspflicht bei verspaeteter Meldung (Art. 33 Abs. 1 Satz 2) und Meldung des Auftragsverarbeiters (Art. 33 Abs. 2) ergaenzt; kirchliche Aufsicht nach Art. 91 Abs. 2 DSGVO gefasst; Ausnahme Art. 34 Abs. 3 lit. a wortnah; Hinweis auf § 36 VSBG beim ODR-Wegfall ergaenzt.
