@@ -32,10 +32,14 @@ Wichtigste Korrekturen:
 - Falsch zugeordnete oder nicht auffindbare Aktenzeichen gestrichen oder in Abschnitte „Nicht zitieren“ verschoben.
 - Tool-Katalog: Einwilligungsbewertung unter dem Vorbehalt der Einzelfallprüfung; Consent Mode ist keine gesetzliche Pflicht.
 
+### Verifikationsstand und Checklisten
+
+- Verifikationsstand nachgeführt: Dateien ohne Platzhalter tragen `verifiziert-am: 2026-11-15`, Dateien mit Platzhalter `teilverifiziert-am: 2026-11-15` (28 und 37 Dateien).
+- Projektbezogene Verweise in zwei Checklisten neutral gefasst.
+
 ### Bekannte Grenzen
 
 - 52 Platzhalter `<<VERIFIKATION AUSSTEHEND>>` bestehen weiter.
-- Das Feld `verifiziert-am` wird in einem eigenen PR nachgeführt und wurde in diesem Release nicht angehoben.
 
 ---
 
