@@ -10,6 +10,7 @@ quellen-sekundaer:
   - https://www.cmshs-bloggt.de/rechtsthemen/kuenstliche-intelligenz/erstes-urteil-deutschlands-zur-urheberrechtlichen-zulaessigkeit-des-ki-trainings-ergangen/
   - https://www.dr-bahr.com/news/nutzung-von-fotos-durch-ki-urheberrechtlich-erlaubt-laion-fall.html
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 eli: http://data.europa.eu/eli/reg/2024/1689/oj
 eli-aendvo: http://data.europa.eu/eli/reg/2026/1744/oj

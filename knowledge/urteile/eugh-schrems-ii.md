@@ -9,6 +9,7 @@ quellen-sekundaer:
   - https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3721
   - https://curia.europa.eu/juris/liste.jsf?num=T-553/23
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

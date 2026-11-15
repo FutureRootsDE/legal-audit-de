@@ -6,6 +6,7 @@ quellen-sekundaer:
   - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2024/2024218.html
   - https://curia.europa.eu/juris/liste.jsf?num=C-182/22
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

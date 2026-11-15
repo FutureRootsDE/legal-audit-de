@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.bmj.de/DE/themen/verbraucherrecht/faire_vertraege/
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=09.10.2025&Aktenzeichen=I+ZR+159/24
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

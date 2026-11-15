@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.bmj.de/DE/themen/verbraucherrecht/lauterkeitsrecht/
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024L0825
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

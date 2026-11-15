@@ -6,6 +6,7 @@ quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=LG+Frankfurt/Main&Datum=26.09.2019&Aktenzeichen=2-03+O+402/18
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

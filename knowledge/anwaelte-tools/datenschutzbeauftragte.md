@@ -11,6 +11,7 @@ quellen-sekundaer:
   - https://www.althammer-kill.de/
   - https://www.isico.de/
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

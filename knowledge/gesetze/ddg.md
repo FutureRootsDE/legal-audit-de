@@ -5,6 +5,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/ddg/__5.html
   - https://www.bmj.de/DE/themen/digitales/digitale_dienste/DDG/DDG_node.html
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

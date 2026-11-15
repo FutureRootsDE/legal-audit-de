@@ -2,6 +2,7 @@
 aktualisiert: 2026-11-15
 gilt-fuer: n8n-Workflow-Exports (JSON), self-hosted und Cloud
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

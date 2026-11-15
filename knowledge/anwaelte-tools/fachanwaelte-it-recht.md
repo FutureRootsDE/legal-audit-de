@@ -5,7 +5,7 @@ quellen-sekundaer:
   - https://bravsearch.bea-brak.de/bravsearch
   - https://www.davit.de/
   - https://anwaltauskunft.de/
-verifiziert-am: 2026-11-14
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

@@ -6,6 +6,7 @@ quellen-sekundaer:
   - https://curia.europa.eu/juris/liste.jsf?num=C-673/17
   - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

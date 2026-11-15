@@ -10,6 +10,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bsig_2025/__33.html
   - https://www.gesetze-im-internet.de/bsig_2025/__65.html
 verifiziert-am: 2026-10-24
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

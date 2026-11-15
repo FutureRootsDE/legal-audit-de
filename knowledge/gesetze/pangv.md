@@ -5,6 +5,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/pangv_2022/__11.html
   - https://www.bmwk.de/Redaktion/DE/Artikel/Wirtschaft/preisangabenverordnung.html
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

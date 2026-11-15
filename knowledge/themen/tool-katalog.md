@@ -7,7 +7,7 @@ quellen-sekundaer:
   - https://www.dataprivacyframework.gov/list
   - https://www.gesetze-im-internet.de/tddg/
 verifiziert-am: 2026-05-08
-teilverifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

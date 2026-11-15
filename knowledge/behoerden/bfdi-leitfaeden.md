@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.bfdi.bund.de/SharedDocs/Pressemitteilungen/DE/2026/05_BfDI-R%C3%BCckzug.html
   - https://www.bundestag.de/dokumente/textarchiv/2026/kw26-de-wahl-datenschutzbeauftragter-1184320
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

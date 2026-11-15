@@ -6,6 +6,7 @@ quellen-sekundaer:
   - https://curia.europa.eu/site/jcms/p1_1000070156/de/bundesgerichtshof-beschluss-vom-28-august-2025-vi-zr-258-24
   - https://curia.europa.eu/site/upload/docs/application/pdf/2026-02/vi_zr_258-24.pdf
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

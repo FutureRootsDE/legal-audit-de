@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/
   - https://www.bfdi.bund.de/DE/Home/home_node.html
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

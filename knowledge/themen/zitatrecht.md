@@ -9,6 +9,7 @@ quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0469
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=20.12.2007&Aktenzeichen=I+ZR+42/05
 verifiziert-am: 2026-10-24
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

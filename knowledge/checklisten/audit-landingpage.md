@@ -2,6 +2,7 @@
 aktualisiert: 2026-11-15
 gilt-fuer: statische Marketing-Sites (Astro, Next.js-SSG, HTML, WordPress, Jekyll, Hugo)
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

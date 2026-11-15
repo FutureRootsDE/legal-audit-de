@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.edpb.europa.eu/
   - https://curia.europa.eu/juris/liste.jsf?num=C-21/23
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

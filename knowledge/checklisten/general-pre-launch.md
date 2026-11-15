@@ -2,6 +2,7 @@
 aktualisiert: 2026-11-15
 gilt-fuer: generische Pre-Launch-Pruefung (jedes Web-Projekt in DE/EU)
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

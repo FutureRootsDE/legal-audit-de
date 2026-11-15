@@ -9,6 +9,7 @@ quellen-sekundaer:
   - https://pa11y.org/
   - https://www.lda.bayern.de/
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU, weltweit]
 ---
 

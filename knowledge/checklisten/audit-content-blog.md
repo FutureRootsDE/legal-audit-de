@@ -2,6 +2,7 @@
 aktualisiert: 2026-11-15
 gilt-fuer: Blog, Corporate-Blog, YouTube-Channel, Podcast, Social-Media-Content, Newsletter
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

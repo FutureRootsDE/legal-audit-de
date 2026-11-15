@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/Telemedien/DDG/Digitale_Dienste_Gesetz.html
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=OLG+N%C3%BCrnberg&Datum=23.07.2024&Aktenzeichen=3+U+2469/23
 verifiziert-am: 2026-10-24
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

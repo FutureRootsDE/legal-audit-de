@@ -6,6 +6,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/mstv/
   - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/DSA_node.html
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

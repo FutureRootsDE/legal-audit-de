@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/ah/230904_DSK_Ah_EU_US.pdf
   - https://curia.europa.eu/juris/liste.jsf?num=T-553/23
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

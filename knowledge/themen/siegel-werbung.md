@@ -10,6 +10,7 @@ quellen-sekundaer:
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=21.07.2016&Aktenzeichen=I+ZR+26/15
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=OLG+Frankfurt&Datum=09.06.2022&Aktenzeichen=6+U+12/22
 verifiziert-am: 2026-10-24
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

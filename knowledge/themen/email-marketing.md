@@ -5,6 +5,7 @@ quellen-sekundaer:
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/DatenschutzAZ/Werbung/Werbung-node.html
   - https://www.datenschutzkonferenz-online.de/
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

@@ -8,6 +8,7 @@ quellen-sekundaer:
   - https://www.ldi.nrw.de/
   - https://www.datenschutz-berlin.de/
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

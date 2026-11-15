@@ -8,6 +8,7 @@ quellen-sekundaer:
   - https://curia.europa.eu/site/jcms/p1_1000083469/de/mundliche-verhandlung-c-627/24-p-bytedance-/-kommission
   - https://curia.europa.eu/site/upload/docs/application/pdf/2026-06/cp260077de.pdf
 verifiziert-am: 2026-10-24
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 
