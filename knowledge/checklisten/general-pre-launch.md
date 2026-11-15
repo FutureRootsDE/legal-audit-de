@@ -38,12 +38,15 @@ Pflichtenkatalog.
 - [ ] **Rechtsform**: Einzelunternehmer / GbR / GmbH / UG / AG / Verein
 - [ ] **USt-pflichtig**: ja / nein (Kleinunternehmer-Regelung § 19 UStG)
 - [ ] **Branche mit Sonder-Compliance**: Finanz / Gesundheit / Kinder / Glueck / Recht
+- [ ] **Hosting-/Vermittlungsdienst (DSA)**: Speichert oder vermittelt das Projekt Nutzerinhalte (Art. 3 lit. g DSA)?
+- [ ] **Datenverarbeitungsdienst (Data Act)**: Wird Kunden ein skalierbarer Cloud-Dienst bereitgestellt (Art. 2 Nr. 8)?
+- [ ] **NIS2**: Einrichtungsart nach Anlage 1/2 BSIG und Schwellen nach § 28 BSIG?
 
 ## 1. Rechtstraeger + Impressum
 
 - [ ] Rechtstraeger gegruendet + Handelsregister-Eintrag
 - [ ] USt-ID beantragt (bei Pflicht)
-- [ ] Geschaeftsadresse **ladungsfaehig** (kein Postfach, Co-Working nur mit Vertrag)
+- [ ] Anschrift der Niederlassung angegeben (§ 5 Abs. 1 Nr. 1 DDG), kein Postfach; bei Co-Working muss dort tatsaechlich eine Niederlassung bestehen
 - [ ] Impressum nach § 5 DDG fertig und verlinkt — [[themen/impressum]]
 - [ ] Bei journalistischen Angeboten: § 18 MStV verantwortliche Person benannt
 - [ ] Aufsichtsbehoerde bei regulierten Berufen genannt
@@ -52,7 +55,7 @@ Pflichtenkatalog.
 ## 2. Datenschutz-Grundpaket
 
 - [ ] **Verarbeitungsverzeichnis** (Art. 30 DSGVO) erstellt — [[themen/verarbeitungsverzeichnis]]
-- [ ] **TOM-Dokument** (Art. 32 DSGVO) erstellt — [[themen/tom]]
+- [ ] **TOM-Dokument** erstellt (Massnahmen nach Art. 32 DSGVO; Beschreibung im Verarbeitungsverzeichnis nach Art. 30 Abs. 1 Satz 2 lit. g; Nachweis nach Art. 5 Abs. 2 DSGVO) — [[themen/tom]]
 - [ ] **AVVs** fuer alle aktiven Drittanbieter unterschrieben — [[themen/avv-muster]]
 - [ ] **Datenschutzerklaerung** nach Art. 13 DSGVO fertig — [[themen/datenschutzerklaerung]]
 - [ ] **DSB** benannt falls Pflicht (§ 38 Abs. 1 Satz 1 BDSG: in der Regel mindestens 20 Personen staendig mit automatisierter Verarbeitung personenbezogener Daten beschaeftigt; Satz 2: unabhaengig davon bei DSFA-pflichtiger Verarbeitung; ODER Kerntaetigkeit Scoring/Profiling/Artikel-9-Daten nach Art. 37 Abs. 1 lit. b, c DSGVO) — siehe [[anwaelte-tools/datenschutzbeauftragte]]
@@ -65,7 +68,7 @@ Pflichtenkatalog.
 - [ ] Alle Cookies/LocalStorage/SessionStorage inventarisiert
 - [ ] Kategorisierung: notwendig / praeferenz / statistik / marketing
 - [ ] Consent-Banner DSGVO- + BGH-konform (Planet49, Cookie-Einwilligung I/II)
-- [ ] Ablehnen-Button gleichrangig zu Akzeptieren
+- [ ] Ablehnen-Moeglichkeit auf erster Ebene, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (DSK, OH Digitale Dienste, Rn. 124 f.; in der Praxis meist der Fall); Ablehnen als gleichwertige Alternative erkennbar, in Groesse, Farbe, Kontrast und Schriftbild vergleichbar (Rn. 135)
 - [ ] Widerruf jederzeit moeglich
 - [ ] Consent-Log persistent (Server oder clientseitig mit TTL)
 - [ ] Keine Fonts/Maps/Embeds von Drittanbietern ohne Consent
@@ -77,8 +80,9 @@ Pflichtenkatalog.
 - [ ] **Widerrufsbelehrung** bei B2C nach § 355 BGB + Art. 246a EGBGB — [[themen/widerrufsbelehrung]]
 - [ ] **Button-Loesung** (§ 312j Abs. 3 BGB) bei entgeltlichen Services: Pflichtwortlaut nach § 312j Abs. 3 Satz 2 BGB; bei Verstoss ist der Vertrag endgueltig unwirksam (§ 312j Abs. 4 BGB; BGH, Urt. v. 09.10.2025, I ZR 159/24) — [[themen/button-loesung]]
 - [ ] **Kuendigungsbutton § 312k BGB** bei entgeltlichen Dauerschuldverhaeltnissen mit Verbrauchern: Schaltflaeche "Vertraege hier kuendigen" + Bestaetigungsseite mit "jetzt kuendigen", staendig verfuegbar; Folge bei Verstoss: fristlose Kuendigung jederzeit (§ 312k Abs. 6 BGB) — Severity CRIT
-- [ ] **Elektronische Widerrufsfunktion / "Widerrufsbutton" nach § 356a BGB** (gesetze-im-internet.de/bgb/__356a.html) bei **allen** Fernabsatzvertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht nur Finanzdienstleistungen): Schaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung), waehrend der gesamten Widerrufsfrist erreichbar, mit Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) und Eingangsbestaetigung auf dauerhaftem Datentraeger inkl. Datum und Uhrzeit (§ 356a Abs. 1 bis 4 BGB); anzuwenden seit **19.06.2026** (Umsetzung der RL (EU) 2023/2673, CELEX:32023L2673 — Umsetzung bis 19.12.2025, Anwendung ab 19.06.2026) — Severity HIGH
-- [ ] **Preisangaben** transparent (PAngV; § 11 PAngV: 30-Tage-Tiefstpreis bei Reduzierungen; EuGH, Urt. v. 26.09.2024, C-330/23 (Aldi Sued); BGH, Urt. v. 09.10.2025, I ZR 183/24 (Jacobs Kroenung)) — [[themen/preisangaben]]
+- [ ] **Elektronische Widerrufsfunktion / "Widerrufsbutton" nach § 356a BGB** (gesetze-im-internet.de/bgb/__356a.html) bei **allen** Fernabsatzvertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht nur Finanzdienstleistungen): Schaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung), waehrend der gesamten Widerrufsfrist erreichbar, mit Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) und Eingangsbestaetigung auf dauerhaftem Datentraeger inkl. Datum und Uhrzeit (§ 356a Abs. 1 bis 4 BGB); anzuwenden seit **19.06.2026** (Umsetzung der RL (EU) 2023/2673, CELEX:32023L2673 — Umsetzung bis 19.12.2025, Anwendung ab 19.06.2026) — Severity CRIT
+- [ ] **Harmonisierte Mitteilung zum gesetzlichen Gewaehrleistungsrecht** bei Fernabsatz-Warenkauf mit Verbrauchern (Art. 246a § 1 Abs. 1 Satz 1 Nr. 11 EGBGB i. V. m. Anhang I DVO (EU) 2025/1960); bei Haltbarkeitsgarantie ggf. Nr. 11a
+- [ ] **Preisangaben** transparent (PAngV; § 11 PAngV: 30-Tage-Tiefstpreis bei Preisermaessigungen fuer **Waren** (gilt nicht fuer Dienstleistungen); EuGH, Urt. v. 26.09.2024, C-330/23 (Aldi Sued); BGH, Urt. v. 09.10.2025, I ZR 183/24 (Jacobs Kroenung)) — [[themen/preisangaben]]
 - [ ] **VSBG-Hinweis** bei Online-Verkauf (§ 36 VSBG; Ausnahme fuer die Hinweispflicht nach § 36 Abs. 1 Nr. 1 bei hoechstens zehn Beschaeftigten am 31.12. des Vorjahres, § 36 Abs. 3 VSBG; darunter Hinweispflicht nur bei Teilnahmepflicht, § 36 Abs. 1 Nr. 2 VSBG); die **Pflicht zur Verlinkung der EU-OS-Plattform** nach Art. 14 Abs. 1 VO (EU) 524/2013 ist mit Wirkung vom **20.07.2025** entfallen — Aufhebung durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 (CELEX 32024R3228; verifiziert am Cellar-Volltext 2026-11-14). Die OS-Plattform wurde eingestellt; vorhandene Hinweise/Links auf https://ec.europa.eu/consumers/odr/ entfernen.
 - [ ] **SLA** bei B2B-Services (optional, aber empfohlen)
 
@@ -112,7 +116,7 @@ Je nach Branche weitere Pflichten:
 - [ ] **Arzneimittel**: AMG, HWG
 - [ ] **Immobilien**: WoVermRG, MaBV
 - [ ] **Telekommunikation**: TKG, BNetzA-Meldung
-- [ ] **Kritische Infrastruktur (KRITIS)**: BSI-Meldung, NIS2 — [[gesetze/nis2-bsig]]
+- [ ] **NIS2/BSIG**: nicht nur KRITIS. Betroffenheit nach § 28 BSIG pruefen: Einrichtungsart nach Anlage 1 oder 2 (u. a. Cloud-Computing, Rechenzentrum) ab 50 Beschaeftigten oder Jahresumsatz und Jahresbilanzsumme jeweils ueber 10 Mio. EUR; Pflichten: Risikomanagement (§ 30), Meldepflichten (§ 32), Registrierung (§ 33); siehe [[gesetze/nis2-bsig]]
 
 ## 8. KI / AI Act (Verordnung (EU) 2024/1689)
 
@@ -155,7 +159,7 @@ BFSG ist **seit 28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Online-Dien
 
 ## 12. Rechtsanwalt-/DSB-Review
 
-- [ ] Fachanwalt fuer IT-Recht gebucht (Budget 500-1.500 EUR Review, Liste in [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-saas-spezialisiert]])
+- [ ] Fachanwalt fuer IT-Recht gebucht (Kosten vorab erfragen, Liste in [[anwaelte-tools/fachanwaelte-it-recht]] und [[anwaelte-tools/kanzleien-saas-spezialisiert]])
 - [ ] DSB extern oder intern (falls Pflicht) — [[anwaelte-tools/datenschutzbeauftragte]]
 - [ ] Review-Protokoll als PDF archiviert (Beweis der Sorgfalt)
 
@@ -192,7 +196,7 @@ Wenn alles andere zurueckgestellt werden muss, aber **ohne diese sechs Punkte NI
 3. Cookie-Banner (ohne Pre-Tick, mit Ablehnen)
 4. AVVs mit allen Drittanbietern
 5. Verarbeitungsverzeichnis (intern)
-6. Widerrufsbelehrung + Button-Loesung (bei B2C-Verkauf)
+6. Widerrufsbelehrung + Button-Loesung, elektronische Widerrufsfunktion (§ 356a BGB) und Kuendigungsbutton bei entgeltlichen Dauerschuldverhaeltnissen (§ 312k BGB) (bei B2C-Verkauf)
 
 Alles andere ist stark empfehlenswert, aber der Minimum-Satz reduziert
 das Abmahn-Risiko auf ein beherrschbares Niveau.
@@ -239,3 +243,4 @@ das Abmahn-Risiko auf ein beherrschbares Niveau.
 ## Aenderungsvermerk (2026-11-15)
 
 - 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Kleinstunternehmen-Definition (§ 2 Nr. 17 BFSG) und BFSGV § 3 berichtigt; DSB-Pflicht nach § 38 Abs. 1 BDSG und Art. 37 Abs. 1 lit. b, c DSGVO; I ZR 159/24 nur fuer die endgueltige Unwirksamkeit nach § 312j Abs. 4 BGB; 30-Tage-Tiefstpreis mit EuGH C-330/23 und BGH I ZR 183/24 statt I ZR 183/22; VSBG-Ausnahme § 36 Abs. 3; Influencer-Kennzeichnung nur bei Gegenleistung bzw. eigenem kommerziellen Zweck; EmpCo-Umsetzung durch G v. 12.02.2026 (BGBl. 2026 I Nr. 43), § 15b UWG nur Uebergangsvorschrift (berichtigt den EmpCo-Vermerk oben); Art. 50 KI-VO nach Anbieter und Betreiber getrennt; Aufbewahrungsfristen 8/10/6 Jahre; Crossposting-Hinweis nur bei personenaehnlichen Konten. Die Bestandspruefung oben ("alle bestaetigt", "konsistent zu KB") traf insoweit nicht zu.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Projekt-Klassifikation um DSA, Data Act und NIS2 ergaenzt; Anschrift der Niederlassung (§ 5 Abs. 1 Nr. 1 DDG); TOM-Dokument mit Art. 32, Art. 30 Abs. 1 Satz 2 lit. g, Art. 5 Abs. 2; Ablehnoption einheitlich nach DSK, OH Digitale Dienste, Rn. 124, 125, 135; Widerrufsfunktion § 356a BGB auf CRIT; neuer Punkt harmonisierte Gewaehrleistungsmitteilung (DVO (EU) 2025/1960); 30-Tage-Tiefstpreis nur fuer Waren; NIS2/BSIG nach § 28 BSIG statt nur KRITIS; Kuendigungsbutton und Widerrufsfunktion im Go-Live-Block; Anwaltsbudget gestrichen.

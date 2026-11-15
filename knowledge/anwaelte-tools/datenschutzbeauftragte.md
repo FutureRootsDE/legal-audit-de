@@ -36,7 +36,7 @@ Alternativ Art. 37 Abs. 1 DSGVO direkt: Behoerden und oeffentliche Stellen (lit.
 **Optionen:**
 1. **Interner DSB** (Mitarbeiter mit Zusatz-Qualifikation)
 2. **Externer DSB** (Dienstleister mit Zertifikat)
-3. **Konzern-DSB** (bei Unternehmensgruppen einheitlich)
+3. **Konzern-DSB** (gemeinsamer DSB einer Unternehmensgruppe, Art. 37 Abs. 2 DSGVO; Voraussetzung: leichte Erreichbarkeit von jeder Niederlassung)
 
 ## Qualifikations-Kriterien
 
@@ -46,6 +46,7 @@ Gesetzlich (Art. 37 Abs. 5 DSGVO) sind nur **"berufliche Qualifikation und insbe
 - **Technisches Wissen**: IT-Sicherheit, TOM, Pseudonymisierung, Verschluesselung
 - **Organisatorisches Wissen**: Prozess-Design, Schulung, Audit
 - **Unabhaengigkeit** (Art. 38 DSGVO): keine Weisung, keine Interessenkonflikte
+- **Abberufungs- und Kuendigungsschutz** bei verpflichtender Benennung (§ 38 Abs. 2 i. V. m. § 6 Abs. 4 BDSG)
 
 ## Zertifikats-Geber in Deutschland (Tier 1)
 
@@ -196,3 +197,4 @@ Die Kontaktdaten des DSB sind der zustaendigen Aufsichtsbehoerde mitzuteilen und
   - udis, GDD, TUEV NORD, TUEV SUED (per Suchmaschine bestaetigt, Direktabruf vom Bot geblockt), TUEV Rheinland, DEKRA, activeMind, Althammer & Kill, ISiCO: OK, Inhalte decken Eintrag.
   - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.
 - **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): "in der Regel" bei § 38 Abs. 1 Satz 1 BDSG ergaenzt; Art. 37 Abs. 1 lit. a bis c praezisiert; Benennung und Mitteilung nach Art. 37 Abs. 7 DSGVO statt § 38 Abs. 1 Satz 2 BDSG, Veroeffentlichungspflicht ergaenzt, keine gesetzliche Frist; Weisungsfreiheit gilt fuer interne und externe DSB; GDDcert. EU nach GDD-Bezeichnung; activeMind-Sitz aus Impressum; ISiCO als Unternehmensverbund mit SRD, Hinweis auf alte URL entfernt; TUEV-Rheinland-URL aktualisiert.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Konzern-DSB mit Art. 37 Abs. 2 DSGVO und Erreichbarkeitsvoraussetzung praezisiert; Abberufungs- und Kuendigungsschutz (§ 38 Abs. 2 i. V. m. § 6 Abs. 4 BDSG) ergaenzt.

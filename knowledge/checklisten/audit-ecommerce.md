@@ -18,12 +18,12 @@ geltungsbereich: [DE, EU]
 
 ## Kurz-Ueberblick
 
-E-Commerce-Shops haben die **hoechste Abmahnfrequenz** — v.a. wegen PAngV, Widerrufsbelehrung, Button-Loesung. Wettbewerber und Abmahnvereine (z.B. IDO Interessenverband, Wettbewerbszentrale) scannen systematisch.
+E-Commerce-Shops haben die **hoechste Abmahnfrequenz** — v.a. wegen PAngV, Widerrufsbelehrung, Button-Loesung. Mitbewerber (§ 8 Abs. 3 Nr. 1 UWG), in die Liste nach § 8b UWG eingetragene qualifizierte Wirtschaftsverbaende (§ 8 Abs. 3 Nr. 2; z. B. Wettbewerbszentrale) und qualifizierte Verbraucherverbaende mahnen systematisch ab.
 
 **Minimum-Schutz-Schichten:**
-1. Rechtstexte-Schutzpaket (IT-Recht Kanzlei ~25 EUR/Monat oder Haendlerbund)
+1. Rechtstexte-Schutzpaket (z. B. IT-Recht Kanzlei oder Haendlerbund; Preise auf den Anbieterseiten pruefen)
 2. Trusted Shops / Trustedshops-Kaeuferschutz fuer Vertrauen
-3. SSL/TLS (Pflicht wegen PCI-DSS + Art. 32 DSGVO)
+3. TLS-Verschluesselung (Pflicht nach § 19 Abs. 4 TDDDG und Art. 32 Abs. 1 lit. a DSGVO; Anforderungen nach PCI DSS gesondert nach Vertrag mit dem Zahlungsdienstleister)
 
 ## Pass 1: PII-Identifikation
 
@@ -41,11 +41,11 @@ E-Commerce-Shops haben die **hoechste Abmahnfrequenz** — v.a. wegen PAngV, Wid
 
 ### Payment
 
-- [ ] **Stripe** — getrennte Verantwortlichkeit; AVV + Stripe Data Processing Agreement
-- [ ] **PayPal** — LU-Sitz, EU-Konform, aber bei bestimmten Funktionen JCA
-- [ ] **Klarna / AfterPay / Ratepay** — AVV + Bonitaetspruefung erfordert eigene Informationspflicht Art. 14
+- [ ] **Stripe**: Rolle je Verarbeitung bestimmen (Art. 4 Nr. 7, 8 DSGVO); AVV nach Art. 28 DSGVO nur fuer den Teil, den Stripe im Auftrag verarbeitet
+- [ ] **PayPal**: Rolle und Sitz anhand der aktuellen PayPal-Datenschutzerklaerung pruefen
+- [ ] **Klarna / AfterPay / Ratepay**: Rolle bestimmen; soweit der Anbieter die Bonitaetspruefung fuer eigene Zwecke durchfuehrt, ist er eigener Verantwortlicher (kein AVV) und traegt die Informationspflicht nach Art. 14 DSGVO; der Shop nennt ihn als Empfaenger (Art. 13 Abs. 1 lit. e)
 - [ ] **SOFORT / giropay / EPS** — AVV pruefen
-- [ ] Kreditkarten-Daten: **niemals** selbst hosten — PCI-DSS-Level 1 Anforderungen extrem hoch
+- [ ] Kreditkarten-Daten: **niemals** selbst hosten; PCI-DSS-Pflichten ergeben sich aus dem Vertrag, nicht aus Gesetz
 
 ### Versand
 
@@ -94,7 +94,7 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 - [ ] **Muster-Widerrufsbelehrung** nach Anlage 1 zu Art. 246a § 1 Abs. 2 EGBGB in der seit 19.06.2026 geltenden Fassung: informiert gegebenenfalls ueber das Bestehen und die Platzierung der Widerrufsfunktion nach § 356a BGB (Art. 246a § 1 Abs. 2 Satz 1 Nr. 1 EGBGB n. F., BGBl. 2026 I Nr. 28)
 - [ ] **Muster-Widerrufsformular** als PDF oder separate HTML-Seite
 - [ ] 14-Tage-Frist korrekt formuliert
-- [ ] Ausnahmen konkret aufgelistet (digitaler Content nach Einwilligung, versiegelte Waren, etc. § 312g BGB)
+- [ ] Ausnahmen vom Widerrufsrecht konkret aufgelistet (§ 312g Abs. 2 BGB, z. B. Nr. 1, Nr. 3, Nr. 6); Erloeschen bei digitalen Inhalten nach § 356 Abs. 6 BGB und bei Dienstleistungen nach § 356 Abs. 5 BGB
 - [ ] Bestaetigungs-Mail nach Kauf enthaelt Widerrufsbelehrung in **Textform** (nicht nur Link!)
 - [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** (gesetze-im-internet.de/bgb/__356a.html) bei allen Fernabsatzvertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht nur Finanzdienstleistungen): Pflichtschaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung) waehrend der gesamten Widerrufsfrist erreichbar + Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Eingangsbestaetigung auf dauerhaftem Datentraeger inkl. Datum und Uhrzeit (§ 356a Abs. 1-4 BGB); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity CRIT bei B2C-Shop ohne Widerrufsbutton
 - [ ] **Harmonisierte Mitteilung zum gesetzlichen Gewaehrleistungsrecht** nach DVO (EU) 2025/1960 in den vorvertraglichen Informationen (Art. 246a § 1 Abs. 1 EGBGB)
@@ -102,7 +102,7 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 
 ### Button-Loesung (§ 312j Abs. 3 BGB)
 
-- [ ] Bestell-Button-Text: **"zahlungspflichtig bestellen"** oder gleichbedeutender Wortlaut (z.B. "jetzt kaufen", "kostenpflichtig bestellen")
+- [ ] Bestell-Button-Text: **"zahlungspflichtig bestellen"** oder eine entsprechend eindeutige Formulierung (§ 312j Abs. 3 Satz 2 BGB; die Gesetzesbegruendung nennt etwa "kostenpflichtig bestellen", "zahlungspflichtigen Vertrag schliessen", "kaufen")
 - [ ] Keine kreativen Varianten wie "Bestellung abschicken", "Weiter", "Anmelden" (abmahnrelevant; bei Verstoss kommt kein Vertrag zustande, § 312j Abs. 4 BGB)
 - [ ] **BGH, Urt. v. 09.10.2025, I ZR 159/24** (ECLI:DE:BGH:2025:091025UIZR159.24.0): Bei Verstoss gegen § 312j Abs. 3 BGB ist der Vertrag nach § 312j Abs. 4 BGB nicht schwebend, sondern endgueltig unwirksam; ein Neuabschluss ist durch Bestaetigung nach § 141 BGB moeglich. Den Pflichtwortlaut der Schaltflaeche regelt § 312j Abs. 3 Satz 2 BGB, nicht dieses Urteil.
 - [ ] Checkout-Seite: Wesentliche Produktmerkmale, Gesamtpreis, Versand, Laufzeit unmittelbar vor dem Button (§ 312j Abs. 2 BGB)
@@ -112,11 +112,12 @@ Besonderheit Shop: **Warenkorb-Cookie ist technisch notwendig** (kein Consent). 
 
 ### AGB
 
-- [ ] **AGB** mit Einbeziehungsklausel im Checkout ("Ich habe die AGB gelesen und akzeptiere sie")
-- [ ] Pre-Tick VERBOTEN — User muss aktiv bestaetigen
+- [ ] **AGB** wirksam einbezogen: ausdruecklicher Hinweis bei Vertragsschluss und zumutbare Moeglichkeit der Kenntnisnahme (§ 305 Abs. 2 BGB); eine Lesebestaetigung ist nicht vorgeschrieben
+- [ ] Keine Voreinstellung bei entgeltlichen Zusatzleistungen (§ 312a Abs. 3 Satz 2 BGB) und bei Einwilligungen; fuer die AGB-Einbeziehung gilt § 305 Abs. 2 BGB (kein gesetzliches Pre-Tick-Verbot fuer AGB)
 - [ ] Klauselkontrolle (§§ 305-309 BGB) — keine ueberraschenden oder unklaren Klauseln
 - [ ] **Streitbeilegungs-Hinweis** nach Art. 14 Abs. 1 VO (EU) 524/2013 ist entfallen: Die **OS-Plattform der EU wurde am 20.07.2025 eingestellt** und die VO (EU) 524/2013 mit Wirkung vom **20.07.2025** durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 aufgehoben (CELEX 32024R3228; am 2026-11-14 am Cellar-Volltext verifiziert). Links auf https://ec.europa.eu/consumers/odr/ sowie entsprechende AGB-/Impressumsklauseln entfernen. **Unberuehrt:** VSBG-Hinweis nach § 36 VSBG (Teilnahme an nationaler Verbraucherschlichtungsstelle) bleibt bestehen.
 - [ ] **VSBG-Hinweis** (§ 36 VSBG): Verbraucherschlichtungsstelle-Bereitschaft JA/NEIN. Ausnahme: Die Hinweispflicht nach § 36 Abs. 1 Nr. 1 VSBG entfaellt fuer Unternehmer, die am 31.12. des Vorjahres hoechstens zehn Personen beschaeftigt haben (§ 36 Abs. 3 VSBG); darunter besteht die Hinweispflicht nur bei Teilnahmepflicht (§ 36 Abs. 1 Nr. 2 VSBG)
+- [ ] **Kaufrecht nach Umsetzung der RL (EU) 2024/1799** (Kaufvertraege ab 31.07.2026, Art. 229 § 72 EGBGB): Gewaehrleistungsinformationen und -klauseln an §§ 434 ff. BGB n. F. angepasst?
 - [ ] [[themen/agb-muster]], [[gesetze/bgb-agb]]
 
 ### Impressum + Datenschutzerklaerung
@@ -163,18 +164,18 @@ BFSG ist **seit 28.06.2025 in Anwendung**. Es betrifft B2C-Online-Shops, sofern 
 
 - [ ] Produktbilder: Herstellerfreigabe oder eigene Fotos; Stockbilder mit Lizenz
 - [ ] Produktbeschreibungen: keine woertlichen Uebernahmen von Hersteller ohne Freigabe (Urheberrecht)
-- [ ] Marken der Hersteller korrekt zitiert (Nominatives Fair Use ok, aber Logo-Nutzung oft Lizenz noetig)
+- [ ] Herstellermarken nur zur Identifizierung bzw. als Hinweis auf die Bestimmung der Ware (§ 23 Abs. 1 Nr. 3 MarkenG)
 - [ ] **Keine Kopien/Markenfaelschungen** — strafrechtlich relevant
 - [ ] Vergleichende Werbung nach § 6 UWG zulaessig, aber Grenzen
-- [ ] **Keine Lockvogelangebote** (§ 5 UWG — Produkt muss verfuegbar sein in angemessener Menge)
+- [ ] **Keine Lockangebote** (§ 3 Abs. 3 UWG i. V. m. Nr. 5 des Anhangs)
 
 ## Pass 8: Logs / Retention / Buchhaltung
 
 - [ ] **Rechnungen/Buchungsbelege** → 8 Jahre (§ 257 Abs. 1 Nr. 4, Abs. 4 HGB; § 147 Abs. 1 Nr. 4, Abs. 3 AO; § 14b Abs. 1 UStG); Buecher, Inventare, Abschluesse → 10 Jahre; Handels- und Geschaeftsbriefe → 6 Jahre; Ausnahme 10 Jahre fuer Kredit-, Versicherungs- und Wertpapierinstitute (§ 257 Abs. 4 Satz 2 HGB)
-- [ ] **Bestelldaten** (fuer Garantie/Gewaehrleistung) → typ. 3 Jahre (Verjaehrung); buchhaltungsrelevante Teile: 8 Jahre als Buchungsbeleg, 6 Jahre als Handelsbrief (§ 257 Abs. 4 HGB, § 147 Abs. 3 AO)
+- [ ] **Bestelldaten** (fuer Garantie/Gewaehrleistung) → Maengelansprueche beim Kauf verjaehren in zwei Jahren ab Ablieferung (§ 438 Abs. 1 Nr. 3, Abs. 2 BGB); regelmaessige Verjaehrung drei Jahre (§ 195 BGB); buchhaltungsrelevante Teile: 8 Jahre als Buchungsbeleg, 6 Jahre als Handelsbrief (§ 257 Abs. 4 HGB, § 147 Abs. 3 AO)
 - [ ] **Kunden-Konten**: Loeschung auf Wunsch, aber Buchhaltungsdaten anonymisieren statt loeschen
-- [ ] **Server-Logs** wie SaaS (7-14 Tage IP)
-- [ ] **Payment-Transaction-Logs** — nach Payment-Provider-Vorgabe, meist 10 Jahre
+- [ ] **Server-Logs**: Speicherdauer nach Erforderlichkeit festlegen und begruenden (Art. 5 Abs. 1 lit. e DSGVO); 7 bis 14 Tage als Praxiswert, keine gesetzliche Frist
+- [ ] **Payment-Transaction-Logs**: soweit Buchungsbeleg 8 Jahre (§ 257 Abs. 1 Nr. 4, Abs. 4 HGB; § 147 Abs. 1 Nr. 4, Abs. 3 AO), soweit Handelsbrief 6 Jahre
 - [ ] **Newsletter** — bei Abmeldung sofort deaktivieren, aber Double-Opt-In-Log archivieren
 
 ## Pass 9: Trust-Badges / Siegel / Bewertungs-Widgets
@@ -191,7 +192,7 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 
 ## Pass 10: Social-Media-Verknuepfung
 
-- [ ] Instagram-Shop / Facebook-Shop synchronisiert? — Produktdaten-Austausch via Meta Commerce Manager + JCA Art. 26
+- [ ] Instagram-Shop / Facebook-Shop synchronisiert? Produktdaten-Feed ohne personenbezogene Daten begruendet keine gemeinsame Verantwortlichkeit; Art. 26 DSGVO nur, soweit Shop und Meta gemeinsam ueber Zwecke und Mittel der Verarbeitung entscheiden (z. B. Pixel, Conversion API)
 - [ ] Pinterest-Tag: nur mit Consent
 - [ ] Social-Share-Buttons auf Produkt-Seite: Shariff statt Live-Plugins
 - [ ] Eigene Social-Profile mit Impressum-Link + DSE-Link — siehe [[themen/social-media-datenschutz]]
@@ -204,7 +205,7 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 
 ## Pass 12: Pressestimmen / Zitate
 
-- [ ] Pressezitate auf Homepage: § 51 UrhG + Quelle — siehe [[themen/zitatrecht]]
+- [ ] Pressezitate auf Homepage: Zitatzweck nach § 51 Satz 1 UrhG pruefen (sonst Nutzungsrecht einholen); Quellenangabe nach § 63 UrhG — siehe [[themen/zitatrecht]]
 - [ ] "Empfohlen von [Influencer]": Werbekennzeichnung (siehe Pass 4 UWG)
 
 ## Pass 13: Live-Browser-Check (Shop-kritisch!)
@@ -221,14 +222,17 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 
 - **WooCommerce**: Plugin-Wildwuchs — jedes aktive Plugin pruefen auf Datenabfluss (WooCommerce Google Analytics, Facebook for WooCommerce etc.)
 - **Shopware 6**: Built-in-Consent-Manager nutzen oder CMP-Integration (Usercentrics, Cookiebot)
-- **Shopify**: US-basiert — AVV mit Shopify International Ltd. (Irland), aber Sub-Prozessoren (CA, US) ueber SCC
+- **Shopify**: Vertragspartner und Sub-Prozessoren laut aktuellem Shopify-DPA pruefen (AVV, Drittlandmechanismus)
 - **Headless Commerce** (Shopify + Next.js Frontend): Checkout-Daten bei Shopify, aber Tracking im Frontend — Consent muss beides abdecken
 - **Marktplaetze** (eBay, Amazon): Eigene Pflichten — Amazon-AGB, aber trotzdem **eigene** Rechtstexte noetig
+- **Betreiber eines Online-Marktplatzes**: Betroffenheit nach BSIG pruefen (Anlage 2 Nr. 6.1.1, § 28 BSIG), siehe [[gesetze/nis2-bsig]]
 
 ## Typische Findings
 
 ### CRIT
 
+- Elektronische Widerrufsfunktion fehlt oder unvollstaendig (§ 356a BGB)
+- Kuendigungsbutton fehlt bei Abo-/Dauerschuldvertraegen (§ 312k Abs. 2 BGB; Folge § 312k Abs. 6 BGB)
 - 30-Tage-Tiefstpreis-Anzeige fehlt bei reduzierten Artikeln (§ 11 PAngV; EuGH C-330/23; BGH I ZR 183/24)
 - Button-Text "Weiter" oder "Bestaetigen" statt "zahlungspflichtig bestellen" (§ 312j Abs. 3 Satz 2 BGB; Folge: Vertrag endgueltig unwirksam, § 312j Abs. 4 BGB, BGH I ZR 159/24)
 - Widerrufsbelehrung nicht in Bestaetigungs-Mail als Textform mitgeschickt
@@ -258,10 +262,10 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 
 ## Empfohlene Schutzpakete
 
-- **IT-Recht Kanzlei Muenchen** (it-recht-kanzlei.de) — Starter ~10 EUR / Premium ~25 EUR / Unlimited ~55 EUR pro Monat — siehe [[anwaelte-tools/tools-generatoren]]
-- **Haendlerbund** (haendlerbund.de) — Starter ab ca. 9,90 EUR/Monat, Business ab ca. 57,90 EUR/Monat, Professional ab ca. 119,90 EUR/Monat (Anbieterangaben Stand 2026-07-08; Tier-3-Marktinfo, keine Rechtsquelle)
-- **Trusted Shops Legal-Texte** (trustedshops.de) — Basis-Rechtstexter kostenlos; kostenpflichtige Abmahnschutz- und Legal-Services-Pakete mit variabler Preisstruktur (Anbieterangaben Stand 2026-07-08; Tier-3-Marktinfo)
-- **eRecht24 Premium** (e-recht24.de) ab ~15 EUR/Monat
+- **IT-Recht Kanzlei Muenchen** (it-recht-kanzlei.de): Leistungen und Preise auf der Anbieterseite pruefen, siehe [[anwaelte-tools/tools-generatoren]]
+- **Haendlerbund** (haendlerbund.de): Leistungen und Preise auf der Anbieterseite pruefen
+- **Trusted Shops Legal-Texte** (trustedshops.de): Leistungen und Preise auf der Anbieterseite pruefen
+- **eRecht24 Premium** (e-recht24.de): Leistungen und Preise auf der Anbieterseite pruefen
 
 ## Siehe auch
 
@@ -304,3 +308,4 @@ E-Commerce lebt von Trust-Signalen — Abmahn-HOT-Zone. Siehe [[themen/siegel-we
 ## Aenderungsvermerk (2026-11-15)
 
 - 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Aufbewahrungsfristen auf 8/10/6 Jahre berichtigt; 30-Tage-Tiefstpreis mit EuGH C-330/23 und BGH I ZR 183/24 statt I ZR 183/22; I ZR 159/24 nur noch fuer die endgueltige Unwirksamkeit nach § 312j Abs. 4 BGB; Abo-Fallen auf Art. 246a EGBGB; § 312k Abs. 4 "sofort"; VSBG-Ausnahme § 36 Abs. 3; Widerrufsbelehrung in der Fassung seit 19.06.2026; Pruefpunkt harmonisierte Gewaehrleistungsmitteilung (DVO (EU) 2025/1960); GPSR Art. 52 und § 3 Abs. 5 ProdSG eingeordnet; EmpCo-Umsetzung durch G v. 12.02.2026 (BGBl. 2026 I Nr. 43), § 15b UWG nur Uebergangsvorschrift (berichtigt auch den EmpCo-Vermerk oben); Art. 50 Abs. 2 KI-VO als Anbieterpflicht, Shop nur Art. 50 Abs. 4; § 5b Abs. 3 UWG als Informationspflicht; Bussgeld § 19 UWG eingegrenzt; BFSG-Kleinstunternehmen und BFSGV § 3 berichtigt; I ZR 163/19 gestrichen und mit Marker versehen.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Abmahnberechtigte nach § 8 Abs. 3 UWG (IDO gestrichen); TLS-Pflicht § 19 Abs. 4 TDDDG, PCI DSS nur vertraglich; Stripe und Klarna: Rollenbestimmung statt pauschalem AVV; Widerrufsausnahmen § 312g Abs. 2, § 356 Abs. 5 und 6 BGB; Bestell-Button nach § 312j Abs. 3 Satz 2 BGB und Gesetzesbegruendung; AGB-Einbeziehung § 305 Abs. 2 BGB, Voreinstellung § 312a Abs. 3 Satz 2 BGB; neuer Pruefpunkt Kaufrecht RL (EU) 2024/1799; Lockangebote Nr. 5 Anhang UWG; Herstellermarken § 23 Abs. 1 Nr. 3 MarkenG; Verjaehrung § 438, § 195 BGB; Server-Logs nach Erforderlichkeit; Payment-Logs 8/6 Jahre; JCA nur bei gemeinsamer Entscheidung; Presse-Zitate § 51, § 63 UrhG; NIS2-Hinweis fuer Online-Marktplaetze; CRIT-Findings Widerrufsfunktion und Kuendigungsbutton; fluechtige Anbieterangaben (PayPal, Shopify, Preise) durch Pruefhinweise ersetzt.

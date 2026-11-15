@@ -66,7 +66,7 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 
 - **„Akzeptieren" grün/groß vs. „Ablehnen" grau/klein** → Nudging-Problem
 - **„Nur essenzielle" nur im Zwei-Klick** während „Alle akzeptieren" im Ein-Klick → unausgewogen
-- **Ablehnen nur über „Einstellungen"-Menü** → unzulässig (vgl. Noyb-Beschwerden, CNIL-Bußgelder gegen Google/Facebook 2022)
+- **Ablehnen nur über „Einstellungen"-Menü** → riskant, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (DSK, OH Digitale Dienste, Rn. 124 f.; vgl. Noyb-Beschwerden, CNIL-Bußgelder gegen Google/Facebook 2022)
 - **„Legitimes Interesse" als Vorauswahl** im TCF-Standard → EuGH C-252/21 (Meta Platforms/Bundeskartellamt), 04.07.2023: Art. 6 Abs. 1 lit. f DSGVO trägt die Zusammenführung von Off-Site- und Konzerndaten nur unter engen Voraussetzungen (Tenor 5); für die Personalisierung von Werbung durch den Betreiber eines sozialen Netzwerks überwiegen die Interessen der Nutzer (Rn. 117). Das TCF war nicht Gegenstand; dazu EuGH C-604/22.
 - **Cookie-Wall** (Zugang nur bei Consent) → grundsätzlich unfreiwillig (EDSA 05/2020)
 

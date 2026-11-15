@@ -34,7 +34,10 @@ einer entsprechenden eindeutigen Formulierung beschriftet" sein.
 **Rechtsfolge bei Verstoss (§ 312j Abs. 4 BGB):** Es **kommt kein Vertrag
 zustande**. Der Vertrag ist endgueltig unwirksam (BGH, Urteil vom 09.10.2025,
 I ZR 159/24, Leitsatz 2). Der Verbraucher kann den Vertrag durch einseitige
-Bestaetigung neu abschliessen (§ 141 Abs. 1 BGB).
+Bestaetigung neu abschliessen (§ 141 Abs. 1 BGB); die Bestaetigung muss
+ihrerseits § 312j Abs. 3 BGB genuegen, der Verbraucher muss also
+ausdruecklich bestaetigen, sich zu einer Zahlung zu verpflichten (BGH I ZR
+159/24, Leitsatz 3).
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -49,6 +52,14 @@ bereitstellen (Nr. 11a seit 27.09.2026), u. a.:
 - Gesamtpreis inkl. Steuern und Abgaben
 - ggf. Liefer- und Versandkosten
 - Laufzeit / Mindestlaufzeit / Kuendigungsbedingungen
+
+Unabhaengig von § 312j Abs. 2 BGB gelten fuer Fernabsatzvertraege seit
+27.09.2026 (§ 312d Abs. 1 BGB i. V. m. Art. 246a § 1 Abs. 1 Satz 1 EGBGB)
+u. a.: Nr. 10 (Zahlungs-, Liefer- und Leistungsbedingungen einschliesslich
+umweltfreundlicher Liefermoeglichkeiten), Nr. 11 (gesetzliches
+Gewaehrleistungsrecht, harmonisierte Mitteilung), Nr. 11c
+(Softwareaktualisierungen), Nr. 20 (Reparierbarkeitswert), Nr. 21
+(Ersatzteile, Reparatur).
 
 Diese "Kontroll-Seite" / "Bestellzusammenfassung" muss zwingend VOR dem
 Button kommen. Der Verbraucher muss aus der Bildschirmmaske mit der
@@ -78,9 +89,13 @@ einer entsprechenden eindeutigen Formulierung beschriftet ist."
 - "Weiter zur Bezahlung"
 - "Bestellung abschicken"
 - "Bestellung abgeben" (umstritten, Tendenz: unzulaessig)
-- "Jetzt anmelden" (BGH VIII ZR 63/15 <<VERIFIKATION AUSSTEHEND>>)
+- "Jetzt anmelden"
 - "Bestellen" (alleine)
-- "Buchen"
+- "Buchen" / "Buchung abschliessen": nicht abschliessend entschieden;
+  massgeblich sind allein die Worte der Schaltflaeche; ob "Buchung" im
+  Deutschen zwangslaeufig und systematisch mit einer Zahlungspflicht
+  verbunden wird, hat das nationale Gericht zu pruefen (EuGH C-249/21,
+  Rn. 32 f.).
 - "Auftrag erteilen"
 
 ### § 312j Abs. 4 BGB — Rechtsfolge
@@ -147,65 +162,96 @@ ausueben ...").
 1. **"Anmelden" / "Registrieren" als Finaler-Button** bei SaaS-Paid-Plans:
    klassischer Verstoss. Must be: "Kostenpflichtig abonnieren" /
    "zahlungspflichtig bestellen".
-2. **Stripe-Checkout-Default-Button** "Pay" / "Bezahlen": gerichtsfest
-   meistens OK; dennoch pruefen, ob deutscher Kontext konfiguriert ist.
+2. **Stripe-Checkout-Default-Button** "Pay" / "Bezahlen" / "Abonnieren":
+   keine gesicherte Rechtsprechung; massgeblich ist allein, ob die Worte auf
+   der Schaltflaeche im deutschen Sprachgebrauch zwingend eine
+   Zahlungspflicht ausdruecken (EuGH C-249/21, Rn. 33). Englische
+   Beschriftung ("Pay") bei deutscher Zielgruppe vermeiden; Label auf
+   "zahlungspflichtig bestellen" / "kaufen" konfigurieren.
 3. **Icons ohne Text** ("Shopping-Cart"-Icon): nicht gut lesbar → Verstoss.
 4. **Zusaetzliche Woerter neben Button** ("Jetzt zahlungspflichtig bestellen
    und Bonus sichern"): "nichts anderes als" → Verstoss.
 5. **Bestellzusammenfassung nach Button:** Fatal. Abs. 2 verlangt Summary
    VOR Button.
-6. **Upsell-Flow**: Jeder zusaetzliche Kauf braucht eigenen
-   Button-Loesung-konformen Schritt. Werden mit einem Bestellvorgang mehrere
-   unabhaengige Vertraege geschlossen, braucht die Bildschirmmaske einen
-   eindeutigen Hinweis darauf (BGH, Urt. v. 04.06.2024, X ZR 81/23,
-   Leitsatz 2).
+6. **Upsell-Flow**: Werden mit einem Bestellvorgang mehrere Vertraege
+   geschlossen, muss die Maske mit der Bestell-Schaltflaeche eindeutig darauf
+   hinweisen, dass die Erklaerung auf den Abschluss aller dieser Vertraege
+   gerichtet ist (BGH, Urt. v. 04.06.2024, X ZR 81/23, Leitsatz 2).
 7. **Mobile-Viewport** Button abgeschnitten oder verdeckt durch Sticky-
    Footer: nicht "gut lesbar".
-8. **Double-Submit-Prevention:** Klick soll nicht mehrfach auswerten; aber
-   technisches Detail, rechtlich irrelevant.
-9. **Kuendigungs-Button nach Login versteckt** (§ 312k): Button muss
-   unmittelbar aufrufbar sein, Authentifizierung ist zulaessig, muss aber
-   niedrigschwellig bleiben.
+8. **Double-Submit-Prevention:** Klick soll nicht mehrfach auswerten;
+   technische Absicherung gegen Mehrfachklicks empfohlen (Mittel zur
+   Korrektur von Eingabefehlern, § 312i Abs. 1 Satz 1 Nr. 1 BGB).
+9. **Kuendigungs-Button nach Login versteckt** (§ 312k): Schaltflaechen und
+   Bestaetigungsseite muessen staendig verfuegbar sowie unmittelbar und leicht
+   zugaenglich sein (§ 312k Abs. 2 Satz 4 BGB); die Identifizierung erfolgt
+   ueber die Angaben auf der Bestaetigungsseite. Ein vorgeschalteter Login ist
+   vom Gesetz nicht vorgesehen und hoechstrichterlich nicht gebilligt; im
+   Zweifel ohne Login-Pflicht umsetzen.
 10. **SaaS-Upgrades innerhalb App:** Jeder kostenpflichtige Upgrade-Button
     braucht seine eigene Button-Loesung.
 
 ## Relevanz fuer Codebase-Typen
 
 - **Next.js SaaS:** Checkout-Page muss Summary-Section + Final-Button
-  "Kostenpflichtig abonnieren" als primary Button. Kuendigen-Button auf
-  Account-Settings-Page prominent.
+  "Kostenpflichtig abonnieren" als primary Button. Kuendigungsschaltflaeche
+  "Vertraege hier kuendigen" auf der Webseite staendig verfuegbar sowie
+  unmittelbar und leicht zugaenglich (§ 312k Abs. 2 Satz 2 und 4 BGB), nicht
+  nur hinter dem Login in den Account-Settings.
 - **Landingpage:** Nur relevant, wenn Verkauf direkt ohne separaten Checkout
   stattfindet (One-Click-Buy).
-- **n8n-Workflows:** n8n-Forms werden **nicht** direkt fuer B2C-Verkaufs-
-  abschluss verwendet — aber wenn Embedded in Shop, muss Integration-Flow
-  die Button-Pflicht erfuellen.
-- **E-Commerce:** Kernfunktion; alle gaengigen Shop-Systeme DE-konfiguriert
-  korrekt. Custom-Checkouts pruefen.
+- **n8n-Workflows:** Wird ein n8n-Formular als Bestellschritt eingebettet,
+  muss dieser Schritt § 312j Abs. 2 und 3 BGB erfuellen.
+- **E-Commerce:** Kernfunktion; Konfiguration im Shop-System pruefen.
+  Custom-Checkouts pruefen.
 - **Content/Blog:** Relevant bei kostenpflichtigem Content-Zugang (Paywall).
 
 ## Behoerden-Hinweise
 
-- Keine zentrale Aufsicht; Abmahnung durch Wettbewerbsverbaende.
+- Keine zentrale Aufsicht; Durchsetzung durch Mitbewerber und qualifizierte
+  Wirtschaftsverbaende (§ 8 Abs. 3 UWG) sowie qualifizierte
+  Verbraucherverbaende (§ 2 Abs. 1, Abs. 2 Nr. 1 Buchst. c UKlaG i. V. m.
+  § 312j BGB; vgl. BGH I ZR 260/24).
 - Verbraucher koennen Zahlungen zurueckverlangen / nicht zahlen und auf
   § 312j Abs. 4 berufen.
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 159/24** (09.10.2025, "Online-Maklervertrag"): NEU — Online-
-  Maklervertraege ohne "zahlungspflichtig bestellen"-Button (oder eindeutige
-  Formulierung) sind **endgueltig unwirksam**. Der BGH lehnt
-  Bereicherungsansprueche kategorisch ab; Schutzzweck des § 312j Abs. 3 BGB
-  geht vor. Button-Beschriftung "Senden" reicht nicht. (Primaerbeleg:
+- **BGH I ZR 159/24** (09.10.2025, Maklervertrag): Ist die Annahmeerklaerung
+  entgegen § 312j Abs. 3 BGB nicht als ausdrueckliche Bestaetigung der
+  Provisionspflicht gestaltet (hier Schaltflaeche "Senden"), ist der
+  Maklervertrag nach § 312j Abs. 4 BGB endgueltig unwirksam (Leitsatz 2,
+  Rn. 27); einem Wertersatzanspruch aus §§ 812, 818 Abs. 2 BGB steht der
+  Schutzzweck des § 312j Abs. 4 BGB entgegen (Rn. 51). (Primaerbeleg:
   rechtsinformationen.bund.de, ECLI:DE:BGH:2025:091025UIZR159.24.0)
 - **EuGH C-249/21** (07.04.2022, "Fuhrmann-2"): Der Button-Text muss "aus
   sich heraus" die Zahlungsverpflichtung erkennbar machen; Gesamtumstaende
   reichen nicht.
-- **BGH VIII ZR 63/15** — Zuordnung zu "Jetzt anmelden"-Button laesst sich
-  gegen Tier-1-Quellen nicht bestaetigen. <<VERIFIKATION AUSSTEHEND>>
-- **BGH VIII ZR 99/19** — Zuordnung zu Button-Beschriftung "Buchen" laesst
-  sich gegen Tier-1-Quellen nicht bestaetigen. <<VERIFIKATION AUSSTEHEND>>
-- **OLG Koeln 6 U 102/12** (10.05.2013): Fruehe Praezisierung zu
-  Button-Labels.
+- **EuGH C-400/22** (30.05.2024, "Conny"): Die Pflicht nach Art. 8 Abs. 2
+  RL 2011/83/EU gilt auch, wenn der Verbraucher erst nach Erfuellung einer
+  weiteren Bedingung zur Zahlung verpflichtet ist.
+- **BGH I ZR 161/24** (Urteil vom 22.05.2025, "Kuendigungsschaltflaeche",
+  ECLI:DE:BGH:2025:220525UIZR161.24.0): Die Kuendigungsschaltflaeche ist auch
+  bereitzustellen, wenn der Verbraucher ein einmaliges Entgelt zahlt und der
+  Vertrag nach der vereinbarten Laufzeit automatisch endet.
+- **BGH I ZR 200/25** (Urteil vom 16.07.2026, "Bestaetigungsseite",
+  ECLI:DE:BGH:2026:160726UIZR200.25.0): Die Bestaetigungsseite nach § 312k
+  Abs. 2 Satz 3 BGB darf ueber die Pflichtangaben und die
+  Bestaetigungsschaltflaeche hinaus keine weiteren Angaben, Angebote oder
+  Informationen enthalten (im Fall: Angebot, den Vertrag kostenlos zu
+  pausieren).
+- **BGH I ZR 243/25** (Urteil vom 21.10.2026, "Kuendigungsschaltflaeche II",
+  ECLI:DE:BGH:2026:211026UIZR243.25.0): Eine Smartphone-App ist eine Webseite
+  im Sinne von § 312k Abs. 1 Satz 1, Abs. 2 Satz 1 BGB (Leitsatz 1).
+  Entgeltlich ist die Leistung nur bei Geldzahlung; die Ueberlassung
+  personenbezogener Daten genuegt nicht (Leitsatz 2).
+- **BGH I ZR 260/24** (Beschluss vom 12.02.2026,
+  ECLI:DE:BGH:2026:120226BIZR260.24.0, Hinweisbeschluss ohne amtlichen
+  Leitsatz; betrifft die Beschriftung "Kostenloses Probeabo starten"
+  (§ 312j Abs. 3 BGB), Inhalt noch nicht am Volltext geprueft)
+  <<VERIFIKATION AUSSTEHEND>>
+- **OLG Koeln 6 U 102/12** <<VERIFIKATION AUSSTEHEND>> (10.05.2013): Fruehe
+  Praezisierung zu Button-Labels.
 - **LG Berlin 52 O 157/20** zu § 312k (Kuendigungs-Button) <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
@@ -250,3 +296,13 @@ ausueben ...").
   hinweis 3 (nicht 33); Quellenvermerk zu I ZR 159/24 auf Primaerbeleg
   umgestellt; BGH X ZR 81/23 (Leitsaetze 1 und 2) zu Bestellmaske und
   mehreren Vertraegen ergaenzt.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2)**:
+  Bestaetigung nach § 141 BGB an § 312j Abs. 3 BGB gebunden (I ZR 159/24,
+  Leitsatz 3); Informationspflichten nach Art. 246a § 1 Abs. 1 Satz 1 EGBGB
+  seit 27.09.2026 ergaenzt; "Buchen" nach EuGH C-249/21 eingeordnet;
+  Fallstricke 2, 6, 8 und 9 sowie Codebase-Typen (Kuendigungsschaltflaeche,
+  n8n, Shop-Systeme) neu gefasst; Durchsetzung nach § 8 Abs. 3 UWG und UKlaG;
+  I ZR 159/24 auf Leitsatz 2, Rn. 27 und 51 (§ 312j Abs. 4 BGB) umgestellt;
+  EuGH C-400/22, BGH I ZR 161/24, I ZR 200/25, I ZR 243/25 und I ZR 260/24
+  aufgenommen; BGH VIII ZR 63/15 und VIII ZR 99/19 gestrichen (in den
+  amtlichen Datenbanken nicht auffindbar).

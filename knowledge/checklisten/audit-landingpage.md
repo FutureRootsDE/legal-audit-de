@@ -17,7 +17,7 @@ geltungsbereich: [DE, EU]
 
 ## Kurz-Ueberblick
 
-Eine "Landingpage" im Rechts-Sinne ist **jede oeffentlich erreichbare Website**, die Diensteanbieter-Informationspflichten (DDG) und Datenschutz-Pflichten (DSGVO, TDDDG) unterliegt — auch reine Marketing-/Coming-Soon-Seiten. Typische Architekturen: Astro, Next.js-SSG, WordPress, Jekyll/Hugo, Webflow, Wix.
+Eine "Landingpage" im Rechts-Sinne ist eine oeffentlich erreichbare Website; sie unterliegt § 5 DDG, wenn geschaeftsmaessig angeboten, bzw. § 18 Abs. 1 MStV, wenn nicht ausschliesslich persoenlichen oder familiaeren Zwecken dienend, sowie bei Verarbeitung personenbezogener Daten DSGVO/TDDDG; nicht jede oeffentlich erreichbare Website ist erfasst. Typische Architekturen: Astro, Next.js-SSG, WordPress, Jekyll/Hugo, Webflow, Wix.
 
 Im Vergleich zu SaaS: Weniger Backend-PII, aber **gleichzeitig hoeheres Tracking-/Werbekennzeichnungs-Risiko** wegen Analytics/Conversion-Pixel/Retargeting.
 
@@ -35,14 +35,14 @@ Im Vergleich zu SaaS: Weniger Backend-PII, aber **gleichzeitig hoeheres Tracking
 
 Landingpages sind der **Haupt-Angriffspunkt** in DSGVO-Abmahnungen, weil sie typisch viele Third-Party-Scripts laden.
 
-- [ ] **Google Analytics 4** — Einwilligung zwingend; IP-Anonymisierung; Consent Mode v2; DPF-zertifiziert (Google LLC)
-- [ ] **Google Tag Manager** — selbst i.d.R. einwilligungsfrei fuer reinen GTM-Load, aber getriggerte Tags natuerlich consent-pflichtig
+- [ ] **Google Analytics 4** — Einwilligung zwingend (§ 25 Abs. 1 TDDDG); DPF-Status am Audittag in der DPF-Liste (dataprivacyframework.gov) pruefen
+- [ ] **Google Tag Manager**: Bereits das Laden des Skripts von Google-Servern uebermittelt die IP-Adresse an Google. Rechtsgrundlage nach Art. 6 Abs. 1 DSGVO und § 25 TDDDG pruefen; im Zweifel erst nach Einwilligung oder serverseitig laden (vgl. LG Muenchen I, Endurteil vom 20.01.2022, 3 O 17493/20 (zu Google Fonts)). Ausgeloeste Tags nur nach Einwilligung
 - [ ] **Meta Pixel / Conversion API** — Einwilligung; gemeinsame Verantwortlichkeit mit Meta (Art. 26 DSGVO) — **Joint Controller Agreement** (JCA) noetig
-- [ ] **Google Ads Conversion** — ueber Consent Mode v2 konfigurieren
+- [ ] **Google Ads Conversion**: nur nach Einwilligung (§ 25 Abs. 1 TDDDG; Art. 6 Abs. 1 lit. a DSGVO); Consent Mode v2 ist ein Google-Werkzeug zur Signaluebermittlung, keine Rechtsgrundlage
 - [ ] **LinkedIn Insight Tag** — Einwilligung
-- [ ] **YouTube Embed** — nano-cookie-free via youtube-nocookie.com; oder Consent
+- [ ] **YouTube Embed** — YouTube-Einbindung erst nach Einwilligung laden (z. B. Zwei-Klick-Loesung); der Nocookie-Modus allein genuegt nicht; Einbindung vor Einwilligung technisch pruefen
 - [ ] **Google Fonts** — lokal self-hosted (LG Muenchen I 3 O 17493/20)
-- [ ] **reCAPTCHA** — Einwilligung oder Wechsel zu hCaptcha (EU-Anbieter) / Cloudflare Turnstile
+- [ ] **reCAPTCHA** — Einwilligung oder Wechsel zu hCaptcha (laut Anbieter US-Unternehmen Intuition Machines, Inc., Stand 2026-11-14; Drittlandtransfer pruefen) / Cloudflare Turnstile
 - [ ] **Calendly / Typeform** — AVV (beide US, Calendly DPF-zertifiziert pruefen)
 - [ ] **Mailchimp / ConvertKit** (Newsletter) — AVV + SCC + DPF-Pruefung
 - [ ] Hoster in EU? (Hetzner, Netlify-EU-Region, Vercel mit EU-Edge)
@@ -52,11 +52,10 @@ Landingpages sind der **Haupt-Angriffspunkt** in DSGVO-Abmahnungen, weil sie typ
 Landingpages stehen im Fokus der Aufsichtsbehoerden wegen **Cookie-Banner-Mustern**.
 
 - [ ] **Ohne Interaktion kein Tracking** (Cookie-Banner laedt NICHTS ausser sich selbst und essentielle Scripts)
-- [ ] "Ablehnen" **gleichrangig** zu "Akzeptieren" (gleiche Farbe, gleiche Position-Prominenz)
-- [ ] Kein "Alle akzeptieren" ohne Gegen-Button auf oberster Ebene
+- [ ] Ablehnen-Moeglichkeit auf erster Ebene, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (DSK, OH Digitale Dienste, Rn. 124 f.; in der Praxis meist der Fall); Ablehnen als gleichwertige Alternative erkennbar, in Groesse, Farbe, Kontrast und Schriftbild vergleichbar (Rn. 135)
 - [ ] Kategorien: Notwendig / Statistik / Marketing / Funktional (keine Pre-Tick)
 - [ ] Widerruf per Fingertip wieder erreichbar (Floating-Button / Footer-Link "Cookie-Einstellungen")
-- [ ] **Consent-Log** persistiert (Server oder IndexedDB mit TTL)
+- [ ] Einwilligung nachweisbar (Art. 7 Abs. 1 DSGVO): Consent-Log persistiert, Einwilligungsprozess und Banner-Fassungen dokumentiert
 - [ ] Technisch: Banner rendert **vor** Tracking-Scripts (kein GA4 in `<head>` vor Consent)
 - [ ] Mehr Details in [[themen/cookie-consent]] und [[urteile/eugh-planet49]]
 
@@ -64,12 +63,12 @@ Landingpages stehen im Fokus der Aufsichtsbehoerden wegen **Cookie-Banner-Muster
 
 Landingpages sind hier typisch schlampig — teuerster Abmahn-Vektor.
 
-- [ ] **Impressum** nach § 5 DDG (geaendert 14.05.2024 — DDG ersetzt TMG) + § 18 MStV: Firma/Name, ladungsfaehige Anschrift (KEIN Postfach), E-Mail-Adresse und ein weiterer Weg zur schnellen unmittelbaren Kommunikation (z. B. Telefon), § 5 Abs. 1 Nr. 2 DDG, Vertretungsberechtigte, Registergericht + HRB, USt-ID, Aufsichtsbehoerde bei regulierten Berufen, journalistisch-redaktionelle Verantwortliche (bei Blog)
+- [ ] **Impressum** nach § 5 DDG (DDG in Kraft seit 14.05.2024, ersetzt das TMG) + § 18 MStV: Firma/Name, ladungsfaehige Anschrift (KEIN Postfach), E-Mail-Adresse und ein weiterer Weg zur schnellen unmittelbaren Kommunikation (z. B. Telefon), § 5 Abs. 1 Nr. 2 DDG, Vertretungsberechtigte, Registergericht + HRB, USt-ID, Aufsichtsbehoerde bei regulierten Berufen, journalistisch-redaktionelle Verantwortliche (bei Blog)
 - [ ] **Datenschutzerklaerung** nach Art. 13 DSGVO: jede Drittanbieter-Kategorie genannt, Rechtsgrundlagen, Speicherdauer, Betroffenenrechte, Beschwerderecht an Aufsichtsbehoerde
 - [ ] **Werbekennzeichnung** § 5a Abs. 4 UWG bei kommerziellen Inhalten ohne klare Werbe-Indizes
 - [ ] **Barrierefreiheitserklaerung** falls B2C-Online-Dienstleistung im Anwendungsbereich des BFSG (seit 28.06.2025 anwendbar)
 - [ ] **Kuendigungsbutton § 312k BGB** falls die Landingpage den Abschluss eines entgeltlichen Dauerschuldverhaeltnisses mit Verbrauchern ermoeglicht (Abo, Mitgliedschaft, SaaS-Plan): Schaltflaeche "Vertraege hier kuendigen" + Bestaetigungsseite mit "jetzt kuendigen", staendig verfuegbar; Folge bei Verstoss: jederzeitige fristlose Kuendigung (§ 312k Abs. 6 BGB) — Severity CRIT
-- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** falls die Landingpage einen Verbraucher-Fernabsatzvertrag ueber eine Online-Benutzeroberflaeche ermoeglicht (nicht nur Finanzdienstleistungen): Pflichtschaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Eingangsbestaetigung auf dauerhaftem Datentraeger mit Datum und Uhrzeit (§ 356a Abs. 1-4 BGB; gesetze-im-internet.de/bgb/__356a.html); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity HIGH
+- [ ] **Elektronische Widerrufsfunktion nach § 356a BGB** falls die Landingpage einen Verbraucher-Fernabsatzvertrag ueber eine Online-Benutzeroberflaeche ermoeglicht (nicht nur Finanzdienstleistungen): Pflichtschaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) + Eingangsbestaetigung auf dauerhaftem Datentraeger mit Datum und Uhrzeit (§ 356a Abs. 1-4 BGB; gesetze-im-internet.de/bgb/__356a.html); anzuwenden seit **19.06.2026** (Umsetzung RL (EU) 2023/2673, CELEX:32023L2673) — Severity CRIT
 - [ ] Kein AGB-Pflicht bei reiner Marketing-Landingpage ohne Kaufoption
 
 ## Pass 5: KI-Spezifisch (AI Act-Stufung)
@@ -106,9 +105,9 @@ BFSG ist seit **28.06.2025 in Anwendung**. Gilt fuer B2C-Online-Dienstleistungen
 
 ## Pass 8: Logs / Retention
 
-- [ ] Hoster-Access-Logs max. 7-14 Tage
+- [ ] Hoster-Access-Logs: Speicherdauer nach Erforderlichkeit festlegen und begruenden (Art. 5 Abs. 1 lit. e DSGVO); 7 bis 14 Tage als Praxiswert
 - [ ] Form-Submissions in Admin-Panel mit Retention-Regel
-- [ ] Newsletter-Double-Opt-In-Bestaetigungs-Mail min. 2 Jahre archivieren (Nachweis fuer Abmahnschutz!)
+- [ ] Double-Opt-In-Nachweis aufbewahren, solange die Einwilligung genutzt wird, und danach bis zum Ablauf moeglicher Anspruchsfristen (Art. 7 Abs. 1 DSGVO); keine gesetzliche Zweijahresfrist
 
 ## Pass 9: Social-Media / Plugins / Embeds
 
@@ -127,10 +126,10 @@ Landingpages sind der haeufigste Plugin-Fundort — hier passiert Fashion-ID-Ris
 
 Auf Landingpages stehen Team-, Kunden- und Testimonial-Fotos im Mittelpunkt — hohes Abmahnrisiko. Siehe [[themen/fotos-dritter-kug]].
 
-- [ ] **Team-Fotos**: schriftliche Einwilligung jedes Mitarbeiters (Art. 6 DSGVO lit. a + § 22 KUG, bei Beschaeftigten auch § 26 BDSG)
+- [ ] **Team-Fotos**: Einwilligung jedes Mitarbeiters (§ 22 KUG; Art. 6 Abs. 1 lit. a DSGVO); bei Beschaeftigten § 26 BDSG, Tragfaehigkeit nach EuGH C-34/21 offen
 - [ ] **Ausgeschiedene Mitarbeiter**: nach Austritt Foto entfernt (Widerruf der Einwilligung)
 - [ ] **Kundenzitate mit Foto**: separate Freigabe fuer Foto + Zitat, idealerweise mit Verwendungs-Scope (Website / Print / Social)
-- [ ] **Stock-Testimonials** (gekaufte Fotos mit anderem Text beschriftet): Model-Release pruefen — viele Stock-Lizenzen verbieten "endorsement"-Kontext
+- [ ] **Stock-Testimonials** (gekaufte Fotos mit anderem Text beschriftet): Lizenzbedingungen des Bildanbieters zur Nutzung in Testimonials pruefen; Einwilligung des Abgebildeten (§ 22 KUG)
 - [ ] **Team-Schnappschuesse** mit Passanten im Hintergrund: Beiwerk-Ausnahme § 23 Abs. 1 Nr. 2 KUG pruefen
 - [ ] Personen der Zeitgeschichte (Gast-Speaker, Keynotes): § 23 Abs. 1 Nr. 1 KUG — Ausnahme dennoch eng auslegen
 
@@ -138,7 +137,7 @@ Auf Landingpages stehen Team-, Kunden- und Testimonial-Fotos im Mittelpunkt — 
 
 Gerade B2C-LPs werben stark mit Siegeln — haeufig abmahnbar. Siehe [[themen/siegel-werbung]].
 
-- [ ] "TUeV-geprueft" / "DEKRA-zertifiziert" / "ISO 27001": Siegel **aktuell** (nicht abgelaufen), pruefbare Zertifikat-Nummer verlinkt
+- [ ] "TUeV-geprueft" / "DEKRA-zertifiziert" / "ISO 27001": Siegel nur mit gueltigem, aktuellem Zertifikat; eine Pflicht, die Zertifikatsnummer zu verlinken, besteht nicht
 - [ ] "Testsieger Stiftung Warentest 03/2024": Jahr + Heft angegeben, Vergleichstest-Feld erkennbar <<VERIFIKATION AUSSTEHEND>>
 - [ ] Trusted Shops / eKomi / Trustpilot: Widget laedt **vor** Consent? → Finding; nach Consent erlaubt
 - [ ] Branchen-Siegel / "Ausgezeichnet.org" / "ProvenExpert": Verlinkung auf Zertifizierungsseite Pflicht
@@ -149,9 +148,9 @@ Gerade B2C-LPs werben stark mit Siegeln — haeufig abmahnbar. Siehe [[themen/si
 Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht kritisch. Siehe [[themen/zitatrecht]].
 
 - [ ] Presse-Logos (FAZ, Handelsblatt, TechCrunch) mit Genehmigung oder nur als Namenszug (kein Markenlogo ohne Erlaubnis)
-- [ ] Pressezitate: Quellenangabe Pflicht (Autor, Medium, Datum)
+- [ ] Pressezitate: Quelle deutlich angeben einschliesslich des Urhebers (§ 63 UrhG); ein Datum verlangt das Gesetz nicht
 - [ ] Umfang der Zitate nicht ueber das fuer Auseinandersetzung Noetige hinaus
-- [ ] "Als vom X. beraten"-Hinweis nur mit schriftlicher Freigabe der genannten Partner
+- [ ] Hinweis "beraten von X" nur, wenn zutreffend (Irrefuehrungsverbot, § 5 UWG); Freigabe empfohlen, keine gesetzliche Schriftform
 
 ## Pass 13: Live-Browser-Verhalten
 
@@ -178,15 +177,15 @@ Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht k
 - Google Fonts direkt via fonts.googleapis.com (ohne Consent, ohne Self-Hosting; LG Muenchen I 3 O 17493/20)
 - GA4 oder Meta Pixel laden vor Consent (§ 25 Abs. 1 TDDDG; zur Einwilligung vgl. BGH, Urt. v. 28.05.2020, I ZR 7/16 (Cookie-Einwilligung II), Gegenstand: vorangekreuzte Checkbox)
 - Impressum fehlt oder hat Postfach statt Anschrift (§ 5 DDG)
-- Meta Pixel ohne Joint Controller Agreement mit Meta Platforms Ireland (Art. 26 DSGVO; EuGH C-40/17 Fashion ID)
+- Meta Pixel ohne Joint Controller Agreement mit Meta Platforms Ireland (Art. 26 DSGVO; vgl. EuGH, Urt. v. 29.07.2019, C-40/17 Fashion ID, zum Social Plugin: gemeinsame Verantwortung fuer Erhebung und Uebermittlung)
 - Newsletter-Versand ohne nachweisbare vorherige ausdrueckliche Einwilligung (§ 7 Abs. 2 Nr. 2 UWG); fehlendes Double-Opt-In = Nachweisrisiko
 - BFSG-Pflichten komplett ignoriert bei B2C-Angebot ab 10 Beschaeftigten oder Jahresumsatz und Bilanzsumme jeweils ueber 2 Mio EUR (seit 28.06.2025 anwendbar)
 
 ### HIGH
 
-- Cookie-Banner ohne Ablehnen-Button auf oberster Ebene
+- Cookie-Banner, das Inhalte versperrt, ohne gleichwertige Ablehnen-Moeglichkeit auf erster Ebene
 - Datenschutzerklaerung erwaehnt Provider nicht konkret (nur "ggf. Dritte")
-- YouTube-Embed ohne Consent oder ohne Nocookie-Domain
+- YouTube-Embed vor Einwilligung geladen (der Nocookie-Modus allein genuegt nicht)
 - reCAPTCHA v3 ohne Consent (laedt Google-Scripts)
 - Formular-Daten gehen per HTTP POST ueber US-Service ohne AVV
 
@@ -240,3 +239,4 @@ Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht k
 ## Aenderungsvermerk (2026-11-15)
 
 - 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Double-Opt-In mit BGH I ZR 164/09 statt I ZR 218/07, I ZR 25/19 dort gestrichen; Impressum-Kontaktangaben nach § 5 Abs. 1 Nr. 2 DDG; KI-Content: Betreiber nur Art. 50 Abs. 4, Abs. 2 trifft den Anbieter; BFSG-Schwelle und BFSGV § 3 berichtigt; Cookie-Einwilligung II ist I ZR 7/16; Newsletter-Finding auf nachweisbare Einwilligung umgestellt; I ZR 163/19 gestrichen und mit Marker versehen.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Landingpage-Begriff an § 5 DDG, § 18 Abs. 1 MStV angelehnt; Cookie-Banner-Ablehnoption einheitlich nach DSK, OH Digitale Dienste, Rn. 124, 125, 135 (Pruefpunkte zusammengefasst, Finding angepasst); Einwilligungsnachweis neutral nach Art. 7 Abs. 1 DSGVO; GTM, Google Ads Conversion, Fashion ID, Impressum-Datum, Team-Fotos, Pressezitate (§ 63 UrhG), Siegel und Aufbewahrungsangaben berichtigt; Widerrufsfunktion § 356a BGB auf CRIT; fluechtige Anbieterangaben (GA4, hCaptcha, Stock-Lizenzen) durch Pruefhinweise ersetzt.

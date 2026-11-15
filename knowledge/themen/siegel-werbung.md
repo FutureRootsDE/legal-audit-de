@@ -34,11 +34,14 @@ Fundstelle und zum Zeitpunkt.
 Kernsaetze:
 
 1. Jede Siegel-/Testsieger-Werbung ohne **Fundstelle** ist in der Regel
-   irrefuehrend nach § 5 UWG.
+   unlauter nach § 5a Abs. 1 UWG (Vorenthalten einer wesentlichen
+   Information; BGH I ZR 134/20, Leitsatz 2, ergangen zu § 5a Abs. 2 UWG
+   a. F.).
 2. Selbst-erfundene, gekaufte ohne Pruefung, oder laengst abgelaufene Siegel
    sind irrefuehrend.
-3. Auch bei "Testsieger"-Aussagen muss die konkrete Ausgabe/Zeitpunkt und die
-   Vergleichsbasis erkennbar sein.
+3. Auch bei "Testsieger"-Aussagen muss die konkrete Fundstelle
+   (Erscheinungsjahr und Ausgabe) deutlich erkennbar sein (BGH I ZR 134/20);
+   eine eigene Angabe der Vergleichsbasis verlangt die Entscheidung nicht.
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -98,15 +101,18 @@ ohne Muehe erkennbar sein:
 4. **Wo findet sich die Fundstelle?** (Heft, URL, Pruefbericht)
 5. **Vergleichsbasis:** bei "Testsieger" — gegen wen / wie viele Produkte?
 
-Die Angaben muessen beim Siegel **unmittelbar** stehen, nicht erst durch
-Klick-Kaskaden erreichbar sein.
+Am Siegel muss eine deutlich erkennbare, leicht zugaengliche Fundstelle
+stehen, die eine eindeutige Zuordnung zu einem bestimmten Test erlaubt (BGH
+I ZR 134/20, Leitsatz 2). Fuer die Pruefkriterien eines Pruefzeichens
+genuegt der Verweis auf eine Internetseite mit Kurzzusammenfassungen (BGH
+I ZR 26/15).
 
 ## Typische Fallstricke in Codebases / Webseiten
 
 | Problem | Risiko | Fix |
 |---|---|---|
 | "Testsieger" ohne Ausgabe / Datum / Fundstelle | § 5 / § 5a UWG | Direkt am Siegel: "Stiftung Warentest, Heft 11/2024, Note 'Gut'" |
-| TUEV-Logo ohne genaues Pruefprodukt + Datum | § 5 UWG | Pruefzertifikat-Nr. + Ablaufdatum neben Siegel |
+| TUEV-Logo ohne genaues Pruefprodukt + Datum | § 5a Abs. 1 UWG (Vorenthalten einer wesentlichen Information zur Pruefgrundlage) | Link auf Pruefgrundlage bzw. Pruefkriterien neben dem Siegel |
 | "Trusted Shops zertifiziert" mit abgelaufenem Zertifikat | § 5 UWG | Automatisierter Check gegen TS-API |
 | Eigene "5-Sterne-Bewertung" auf Homepage | Anhang Nr. 23b, 23c; § 5b Abs. 3 UWG | Nur echte Bewertungen (ggf. von Google Reviews, Trustpilot) |
 | Self-branded "Nr. 1"-Badges ohne Quelle | § 5 UWG | Seriöse Studie mit Datum und Vergleichsbasis nennen |
@@ -135,7 +141,7 @@ Klick-Kaskaden erreichbar sein.
 <img src="/trusted-shops.png" alt="Trusted Shops" />
 
 // GOOD — Kontext direkt am Siegel + Deeplink
-<a href="https://www.trustedshops.de/bewertung/info_XYZ.html">
+<a href="<Deeplink auf den Pruefbericht laut Anbieterdokumentation>">
   <img src="/trusted-shops.png" alt="Trusted Shops Kaeufersiegel 2026" />
   <span>Trusted Shops zertifiziert seit 2020 — Zertifikat-Nr. XYZ,
     gueltig bis 31.12.2026</span>
@@ -144,11 +150,10 @@ Klick-Kaskaden erreichbar sein.
 
 ## Behoerden-Hinweise / Gerichtspraxis
 
-- **Wettbewerbszentrale** (Bad Homburg): fuehrt Abmahnprotokolle, regelmaessig
-  Siegel-Werbung Thema des Jahres
+- **Wettbewerbszentrale** (Bad Homburg vor der Hoehe, laut BfJ-Liste, Stand
+  04.12.2025)
 - **Verbraucherzentrale NRW / Bundesverband**: Klaeger in vielen Siegel-Fall-
   Verfahren (u.a. als Verbraucherschutzverband, § 8 UWG)
-- **IHK-Merkblaetter**: Werbung mit Testergebnissen und Pruefzeichen
 
 ## Zitierbare Urteile
 
@@ -168,15 +173,18 @@ loesen die volle Fundstellen-Pflicht aus.
 
 ### Fundstelle bei Web-Darstellung
 
-Aussage: Bei Werbung mit einem Testsiegel muss die Fundstelle des Tests leicht
-auffindbar sein; auf einer Web-Darstellung reicht kein versteckter Link.
-<<VERIFIKATION AUSSTEHEND>>
+Bei Werbung mit einem Testsiegel muss eine Fundstelle des Tests deutlich
+erkennbar angegeben werden, die leicht zugaenglich ist und eine eindeutige
+Zuordnung zu einem bestimmten Test erlaubt (BGH I ZR 134/20, Leitsatz 2).
 
 Nicht zitieren: Das frueher hier genannte BGH I ZR 50/14 ist das Urteil vom
 05.11.2015 "ConText" (Unterlassungsantrag, Firmenbestandteil) und traegt
 diese Aussage nicht.
 
-### OLG Frankfurt 6 U 12/22 "Ausgezeichnete Matratze", 09.06.2022
+Nicht zitieren: BGH I ZR 183/15: in den amtlichen Datenbanken nicht
+auffindbar.
+
+### OLG Frankfurt 6 U 12/22 <<VERIFIKATION AUSSTEHEND>> "Ausgezeichnete Matratze", 09.06.2022
 
 Der urspruenglich hier gelistete Verweis "OLG Frankfurt 6 U 169/23" liess sich
 gegen Tier-1-Quellen nicht verifizieren und wurde im Update 2026-07-08 durch
@@ -193,10 +201,6 @@ ueber dem originalen Stiftung-Warentest-Siegel ist irrefuehrende Blickfangwerbun
 Stiftung Warentest habe dem Produkt eine zusaetzliche Auszeichnung verliehen.
 
 Quelle: medien-internet-und-recht.de, dejure.org.
-
-### BGH I ZR 183/15 (Warnhinweis Nahrungsergaenzung), 11.05.2017
-
-Fuer Transparenz bei Werbeaussagen, auf die sich Siegel-Werbung mit-stuetzt.
 
 ### BGH I ZR 26/15 "LGA tested" (Pruefzeichen-Werbung), 21.07.2016
 
@@ -236,7 +240,8 @@ verifiziert. Anwalts-Review empfohlen.
       (CI-Check oder Cronjob); bei Ablauf: Siegel automatisch entfernen
 - [ ] Keine selbst-erfundenen "Qualitaetssiegel" wie "Bestellen mit Sicherheit"
       mit Gold-Sternen ohne neutralen Aussteller
-- [ ] "Testsieger"-Aussagen nennen: Ausgabe, Heft, Jahr, Vergleichsbasis
+- [ ] "Testsieger"-Aussagen nennen die Fundstelle (Erscheinungsjahr und
+      Ausgabe/Heft) deutlich erkennbar (BGH I ZR 134/20, Rn. 21)
 - [ ] Affiliate-"Empfehlungs-Badges": Hinweis auf bezahlte Partnerschaft
       (siehe [[werbekennzeichnung]])
 - [ ] "von 95% der Kunden empfohlen" — Studie benennen: n, Methode, Zeitraum
@@ -254,7 +259,7 @@ verifiziert. Anwalts-Review empfohlen.
   pruefgegenstand: "Online-Shop <domain>"
   vergeben_am: "2025-02-01"
   gueltig_bis: "2026-02-01"
-  fundstelle: "https://www.trustedshops.de/bewertung/info_XYZ1234.html"
+  fundstelle: "<Deeplink auf den Pruefbericht laut Anbieterdokumentation>"
   letzte_pruefung: "2026-04-19"
 ```
 

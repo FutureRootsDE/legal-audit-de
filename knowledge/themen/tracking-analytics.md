@@ -29,7 +29,7 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 
 - **Einwilligung nach § 25 Abs. 1 TDDDG erforderlich** (Client-ID wird im LocalStorage gesetzt)
 - **Drittland:** Google LLC (USA) — unter DPF **selbstzertifiziert**; Übertragung legal, wenn DPF-Listung geprüft und Transparenz in Datenschutzerklärung
-- **Consent Mode v2:** Pflicht ab März 2024 für Ads-Features; technischer Mechanismus, ersetzt keine Einwilligung
+- **Consent Mode v2:** Vorgabe von Google für bestimmte Werbefunktionen, keine gesetzliche Pflicht; technischer Mechanismus, ersetzt keine Einwilligung; maßgeblich ist die Einwilligung nach § 25 Abs. 1 TDDDG
 - **IP-Anonymisierung:** in GA4 Standard (nicht mehr abschaltbar), aber allein nicht ausreichend für Consent-Verzicht
 - **Aufsichtsbehörden-Einschätzung:** CNIL (FR), Garante (IT), DSB (AT) haben GA Universal als unvereinbar mit SCCs erklärt (vor DPF); seit DPF entspannte Lage — aber granulare Einwilligung weiter Pflicht
 
@@ -48,7 +48,7 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 
 ### Cookieless Analytics (Plausible, Fathom, SimpleAnalytics)
 
-- Werben mit „kein Consent nötig", technisch oft zutreffend (keine Cookies, aggregierte Daten)
+- Werben mit „kein Consent nötig", nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung
 - **Aber:** Wird die IP (auch flüchtig) verarbeitet, bleibt die DSGVO anwendbar → **Datenschutzerklärung ja**, Rechtsgrundlage regelmäßig Art. 6 Abs. 1 lit. f DSGVO. Eine **Einwilligung nach § 25 TDDDG entfällt nur**, wenn weder gespeichert (Cookies, Local/Session Storage) noch Geräteeigenschaften per Skript ausgelesen werden (DSK OH Digitale Dienste V1.2, Rn. 22-24).
 - Rechtlich sicher, wenn tatsächlich: keine Fingerprints, IP nur flüchtig, keine Cookies/LocalStorage, keine Drittland-Übertragung oder EU-Hosting
 
@@ -78,7 +78,7 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 - **Landingpage:**
   - Standardstack: GTM + GA4 + Meta Pixel + Google Ads Tag + LinkedIn Insight
   - Alle über CMP (Cookiebot/Usercentrics) gated
-  - **Fallback-Analytics:** Plausible/Fathom ohne Consent als Ergänzung für Basis-Metriken
+  - **Fallback-Analytics:** Plausible/Fathom als Ergänzung für Basis-Metriken, nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung
 - **n8n:** Oft Empfänger von Tracking-Events via Webhook — auf Quellseite ist Consent zu prüfen.
 - **E-Commerce:** Conversion-Tracking im Checkout — granulare Ereignis-Flags (purchase, add_to_cart); Enhanced E-Commerce nur mit Consent.
 - **Content/Blog:** Meist weniger aggressiv; oft reichen Plausible + Search Console.

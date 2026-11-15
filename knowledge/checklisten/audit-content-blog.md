@@ -23,34 +23,34 @@ Content-Produktion beruehrt:
 3. **MStV § 18** — Impressum fuer journalistisch-redaktionelle Telemedien
 4. **DSGVO** — wenn erkennbare Personen gezeigt werden (KUG + Art. 6 DSGVO)
 5. **AI Act** — bei KI-generierten Inhalten
-6. **MStV / JMStV** — Jugendmedienschutz (Altersfreigaben, v.a. YouTube)
+6. **JMStV** — Jugendmedienschutz (u. a. entwicklungsbeeintraechtigende Angebote § 5 JMStV; v. a. YouTube)
 
 ## Pass 1: PII-Identifikation (Personen im Content)
 
 - [ ] Erkennbare Personen im Bild-/Video-Material?
-  - Einwilligung nach § 22 KUG **und** Art. 6 DSGVO dokumentiert (Model Release)
+  - Einwilligung nach § 22 Satz 1 KUG dokumentiert (Model Release); datenschutzrechtliche Rechtsgrundlage nach Art. 6 Abs. 1 DSGVO festgelegt, bei Einwilligung (lit. a) nachweisbar (Art. 7 Abs. 1 DSGVO)
   - Ausnahmen § 23 KUG: Personen der Zeitgeschichte, Beiwerk, Versammlungen — dennoch DSGVO pruefen
   - Details und Muster-Freigabe siehe [[themen/fotos-dritter-kug]]
 - [ ] Stimmen im Podcast identifizierbar? Gast-Einwilligung schriftlich
-- [ ] Interviews: Freigabe vor Veroeffentlichung (Gegenlesen-Pflicht bei journalistisch, sonst aus AVV)
+- [ ] Interviews: Freigabe vor Veroeffentlichung vereinbaren und dokumentieren (keine gesetzliche Gegenlese-/Autorisierungspflicht; ein AVV regelt dies nicht)
 - [ ] Kommentarfunktion / User-Generated-Content → DSGVO-Pflichten fuer User-Daten
 - [ ] Newsletter-Verteiler / Podcast-Hosting-Analytics (Spotify, Apple Podcasts)
 
 ## Pass 2: Drittland-/Drittanbieter-Transfers
 
-- [ ] **YouTube** (Google LLC USA) — bei eigener Einbettung auf Website: YT-Nocookie oder Consent
+- [ ] **YouTube** — bei eigener Einbettung auf Website: YouTube-Einbindung erst nach Einwilligung laden (z. B. Zwei-Klick-Loesung); der Nocookie-Modus allein genuegt nicht; Einbindung vor Einwilligung technisch pruefen
 - [ ] **Spotify for Podcasters / Podigee / Libsyn** — Podcast-Hosting mit Analytics
 - [ ] **Apple Podcasts Analytics** — Daten-Austausch mit Apple
 - [ ] **Transcription-Services** (Whisper-API, Descript, Rev) — PII in Transkripten
-- [ ] **Newsletter-Tools** (Substack US, Buttondown US, Brevo FR, Mailchimp US) — AVV + ggf. SCC/DPF
-- [ ] **Video-Hosting** (Vimeo US, Mux US) — AVV
+- [ ] **Newsletter-Tools** (Substack, Buttondown, Brevo, Mailchimp) — AVV + ggf. SCC/DPF
+- [ ] **Video-Hosting** (Vimeo, Mux) — AVV
 - [ ] **Social-Media-APIs** (Meta Graph API, X API, TikTok API, LinkedIn API) — Drittland
 
 ## Pass 3: Cookie-/Consent-Analyse
 
-- [ ] YouTube-Embed mit Consent (youtube-nocookie.com ist besser, aber nicht 100% cookiefrei)
+- [ ] YouTube-Embed mit Consent (Einbindung vor Einwilligung technisch pruefen, auch bei youtube-nocookie.com)
 - [ ] Spotify-Player-Embed mit Consent
-- [ ] Kommentar-Systeme (Disqus, Giscus) — Disqus ist US/Tracking-intensiv, Giscus (GitHub) besser
+- [ ] Kommentar-Systeme (Disqus, Giscus): Einbindung vor Einwilligung technisch pruefen
 - [ ] Social-Share-Buttons nur als statische Links, nicht als iframes (Shariff-Loesung)
 - [ ] Newsletter-Anmeldeformular: Double-Opt-In + Checkbox fuer DSE
 
@@ -90,7 +90,7 @@ Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI):
 - [ ] **KI-generierte Bilder/Audio/Video** im Artikel → Als Betreiber Offenlegungspflicht nur bei Deepfakes (Art. 50 Abs. 4 UAbs. 1 AI Act); sonst Kennzeichnung empfohlen. Die maschinenlesbare Markierung nach Art. 50 Abs. 2 AI Act trifft den Anbieter des KI-Systems
 - [ ] **KI-Stimmen** im Podcast → Offenlegungspflicht nur, wenn es sich um einen Deepfake handelt (Art. 50 Abs. 4 UAbs. 1 AI Act); sonst Kennzeichnung empfohlen
 - [ ] **Deepfakes** von realen Personen → zwingend als kuenstlich erzeugt kennzeichnen (Art. 50 Abs. 4 AI Act) UND Einwilligung der Person noetig (Persoenlichkeitsrecht / KUG)
-- [ ] **Synthetische Avatare** als Sprecher → Kennzeichnung
+- [ ] **Synthetische Avatare** als Sprecher: Offenlegungspflicht nur, wenn der Avatar ein Deepfake ist (Art. 50 Abs. 4 UAbs. 1 i. V. m. Art. 3 Nr. 60 KI-VO) oder bei direkter Interaktion (Art. 50 Abs. 1); sonst Kennzeichnung empfohlen
 - [ ] **Verbotene Praktiken** Art. 5: keine manipulativen Subliminal-Techniken, kein Social-Scoring-Content
 - [ ] [[gesetze/ai-act]], [[themen/ki-content]], [[themen/ki-transparenz]]
 
@@ -110,21 +110,21 @@ BFSG ist seit **28.06.2025 in Anwendung**. Reine redaktionelle Inhalte sind oft 
 ### Bild- und Video-Material
 
 - [ ] **Eigene Aufnahmen**: Model-Release-Formular (Einwilligung Person, Nutzungsrechte)
-- [ ] **Stock-Bilder**: Shutterstock, Adobe Stock, Getty — Lizenz-ID im CMS hinterlegt
+- [ ] **Stock-Bilder**: Shutterstock, Adobe Stock, Getty — Lizenz-ID im CMS hinterlegt, Lizenzbedingungen des Anbieters pruefen
 - [ ] **Creative Commons**: Lizenz korrekt zitieren (CC-BY bedeutet Namensnennung!)
-- [ ] **Unsplash**: erlaubt kommerziell, aber keine trademarked faces
-- [ ] **Screenshots** fremder Websites: kurze Erkennung meist zulaessig (Zitatrecht § 51 UrhG), aber Vorsicht bei Logos
+- [ ] **Unsplash**: Lizenzbedingungen des Anbieters pruefen
+- [ ] **Screenshots** fremder Websites: nur mit Zitatzweck zulaessig, Umfang durch den Zweck gerechtfertigt (§ 51 Satz 1 und 3 UrhG), Quellenangabe (§ 63 UrhG); Logos zusaetzlich markenrechtlich pruefen
 - [ ] **Panoramafreiheit** bei Architektur (§ 59 UrhG) — nur oeffentlicher Raum, nicht Innenraeume
-- [ ] **KI-generierte Bilder**: Copyright-Frage komplex — oft kein Urheberrecht (Schoepfungshoehe fehlt), aber moegliche Unterlassung bei Stil-Nachahmung lebender Kuenstler
+- [ ] **KI-generierte Bilder**: ohne persoenliche geistige Schoepfung kein Werk (§ 2 Abs. 2 UrhG); ein Stil als solcher ist nicht geschuetzt; Risiko bei Uebernahme konkreter geschuetzter Werke oder Werkteile (§ 23 UrhG)
 
 ### Musik (kritisch bei YouTube/Podcast!)
 
 - [ ] **GEMA-Lizenz** bei deutscher/europaeischer Musik
-- [ ] **YouTube Audio Library** (Royalty-Free) — erlaubt bei YouTube
-- [ ] **Epidemic Sound / Artlist / Soundstripe** — kommerzielle Abo-Lizenz dokumentiert
-- [ ] **Podcast**: GEMA-Musik braucht Podcast-Lizenz (GEMA Musicautor-Vertrag) — oft teurer als angenommen
+- [ ] **YouTube Audio Library**: Lizenzbedingungen des Anbieters pruefen (Nutzungsumfang)
+- [ ] **Epidemic Sound / Artlist / Soundstripe** — Lizenzbedingungen des Anbieters pruefen, Lizenz dokumentieren
+- [ ] **Podcast**: GEMA-Musik braucht eine Lizenz (GEMA-Tarif VR-OD 14 (Podcasts), laut GEMA, Stand 2026-11-14)
 - [ ] **Copyright-Claims** auf YouTube: Monitoring + Streitverfahren-Kenntnis
-- [ ] **KI-generierte Musik** (Suno, Udio, Mubert): Lizenz-Status pruefen; Trainingsdaten-Klagen laufen
+- [ ] **KI-generierte Musik** (Suno, Udio, Mubert): Lizenz-Status pruefen; erste deutsche Entscheidung zu KI-Training und Ausgabe geschuetzter Liedtexte: LG Muenchen I, Urt. v. 11.11.2025, 42 O 14139/24 (GEMA gegen OpenAI), laut Pressemitteilung des Gerichts; weitere Verfahren anhaengig
 
 ### Text-Zitate
 
@@ -142,7 +142,7 @@ BFSG ist seit **28.06.2025 in Anwendung**. Reine redaktionelle Inhalte sind oft 
 ## Pass 8: Logs / Retention
 
 - [ ] Blog-Kommentare: Retention-Regel (z.B. Loeschung bei User-Anfrage, sonst unbegrenzt)
-- [ ] Newsletter-Verteiler: bei Abmeldung sofort entfernen, Double-Opt-In-Bestaetigung archivieren (min. 2 Jahre)
+- [ ] Newsletter-Verteiler: nach Abmeldung keine Werbung mehr (Art. 7 Abs. 3, Art. 21 Abs. 3 DSGVO); Einwilligungsnachweis (Double-Opt-In) aufbewahren, solange die Einwilligung genutzt wird, und danach bis zum Ablauf moeglicher Anspruchsfristen (Art. 7 Abs. 1 DSGVO); keine gesetzliche Zweijahresfrist
 - [ ] YouTube-Analytics-Daten: bei Google gespeichert, eigene Retention nur in Exports
 - [ ] Podcast-Analytics: beim Hoster
 
@@ -180,7 +180,7 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 - [ ] Kanal-Impressum unter "Details" hinterlegt (Pflicht!)
 - [ ] Community-Guidelines eingehalten
 - [ ] Altersbeschraenkungen korrekt gesetzt
-- [ ] Bei "gemacht fuer Kinder" COPPA-Hinweise beachten
+- [ ] Bei "gemacht fuer Kinder": YouTube-Einstellung korrekt setzen (COPPA ist US-Recht); fuer DE/EU massgeblich Art. 8 DSGVO und § 5 JMStV
 - [ ] Paid Promotion korrekt deklariert
 - [ ] Musik aus YT Audio Library oder mit Lizenz
 
@@ -206,7 +206,7 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 - [ ] Plattform-AGB einhalten (Meta, TikTok, X)
 - [ ] Keine trademarked Hashtags als Post-Marker
 - [ ] **Jede Plattform** eigenes Impressum / "Link in Bio"
-- [ ] User-Reaktionen moderieren bei beleidigenden Kommentaren — **DSA** Verordnung (EU) 2022/2065 vollanwendbar seit 17.02.2024 (NetzDG besteht fort: §§ 2 bis 3f weggefallen, §§ 1, 4, 4a, 5, 6 gelten fort); Notice-and-Action-Mechanismus fuer Hostingdienste
+- [ ] User-Reaktionen moderieren bei beleidigenden Kommentaren — **DSA** Verordnung (EU) 2022/2065 vollanwendbar seit 17.02.2024 (NetzDG besteht fort: §§ 2 bis 3f weggefallen, §§ 1, 4, 4a, 5, 6 gelten fort); Melde- und Abhilfeverfahren (Art. 16 DSA) trifft den Hostingdiensteanbieter, auf fremder Plattform also den Plattformbetreiber, nicht den Kanalinhaber; bei eigener Kommentarfunktion (Blog) ist der Betreiber insoweit selbst Hostingdiensteanbieter
 - [ ] [[gesetze/dsa]]
 
 ## Typische Findings
@@ -216,7 +216,7 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 - Kein Impressum im YouTube-Kanal (Abmahn-Garant)
 - Bezahlter Post auf Instagram ohne "Werbung"-Kennzeichnung
 - Fremde Bilder im Blog ohne Lizenznachweis (und ohne Quellenangabe)
-- Newsletter ohne Double-Opt-In + ohne Abmelde-Link (UWG + DSGVO doppelter Verstoss)
+- Newsletter ohne nachweisbare vorherige ausdrueckliche Einwilligung (§ 7 Abs. 2 Nr. 2 UWG, Art. 7 Abs. 1 DSGVO) bzw. ohne gueltige Abmeldeadresse (§ 7 Abs. 2 Nr. 3 lit. c UWG); fehlendes Double-Opt-In ist Nachweisrisiko, kein eigener Verstoss
 - KI-Voice-Clone ohne Einwilligung der realen Person (+Persoenlichkeitsrecht)
 
 ### HIGH
@@ -228,7 +228,7 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 
 ### MED
 
-- Kein Transkript fuer Podcast (BFSG-Relevanz)
+- Kein Transkript fuer Podcast, wenn der Podcast Teil einer BFSG-pflichtigen Dienstleistung ist (§ 1 Abs. 3 BFSG) und nicht vor dem 28.06.2025 veroeffentlicht wurde (§ 1 Abs. 4 Nr. 1 BFSG)
 - Screenshots fremder Marken zu gross / ohne klare Zitat-Funktion
 - Kommentar-Funktion speichert IP unlimited
 
@@ -268,3 +268,4 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 ## Aenderungsvermerk (2026-11-15)
 
 - 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Werbekennzeichnung an § 5a Abs. 4 Saetze 2 und 3 UWG und [[themen/werbekennzeichnung]] angeglichen (keine allgemeine Kennzeichnungspflicht); KI-Texte Art. 50 Abs. 4 UAbs. 2 mit vollstaendiger Ausnahme; KI-Bilder/Audio/Video und KI-Stimmen: Betreiberpflicht nur bei Deepfakes, Art. 50 Abs. 2 trifft den Anbieter; BFSG-Ausnahmen § 1 Abs. 4; Crossposting-Hinweis § 18 Abs. 3 MStV nur bei personenaehnlichen Konten; Double-Opt-In mit I ZR 164/09; Absenderidentitaet statt Impressum in jeder Mail; Paid Newsletter § 312k auf CRIT; NetzDG besteht fort.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): JMStV statt MStV/JMStV; Model Release § 22 Satz 1 KUG, Art. 6 Abs. 1 und Art. 7 Abs. 1 DSGVO; Interview-Freigabe ohne gesetzliche Pflicht; Screenshots § 51 Satz 1 und 3, § 63 UrhG; KI-Bilder § 2 Abs. 2, § 23 UrhG; Avatare Art. 50 Abs. 4 UAbs. 1 i. V. m. Art. 3 Nr. 60; Melde- und Abhilfeverfahren Art. 16 DSA; Newsletter-Nachweis Art. 7 Abs. 1 DSGVO ohne gesetzliche Zweijahresfrist; COPPA als US-Recht; BFSG-Podcast-Transkript; LG Muenchen I 42 O 14139/24 laut Pressemitteilung; fluechtige Anbieterangaben (Sitz, Lizenzinhalte, Cookie-Verhalten) durch Pruefhinweise ersetzt.

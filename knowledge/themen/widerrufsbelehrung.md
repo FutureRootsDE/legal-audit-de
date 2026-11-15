@@ -86,6 +86,13 @@ Kein Ausnahmetatbestand des § 312g Abs. 2 BGB, sondern Erloeschensgruende:
   § 312f BGB.
 - **Dienstleistungen**, die vollstaendig erbracht wurden (§ 356 Abs. 5 BGB).
 
+### Unterrichtung ueber fehlendes oder erloeschendes Widerrufsrecht
+
+Art. 246a § 1 Abs. 3 EGBGB: Besteht nach § 312g Abs. 2 Nr. 1, 2, 5 und 7 bis
+13 BGB kein Widerrufsrecht, ist darueber zu informieren (Nr. 1); kann es nach
+§ 312g Abs. 2 Nr. 3, 4 und 6 sowie § 356 Abs. 5 und 6 BGB vorzeitig
+erloeschen, ueber die Umstaende des Verlusts (Nr. 2).
+
 ### § 356a BGB — Elektronische Widerrufsfunktion / Widerrufs-Button
 
 Nach dem Umsetzungsgesetz (BGBl. 2026 Teil I Nr. 28 vom 05.02.2026,
@@ -149,14 +156,16 @@ Widerrufserklaerung sowie dem Datum und der Uhrzeit ihres Eingangs." vor.
 
 Platzhalter:
 
-- Name/Anschrift/Kontakt des Unternehmers
+- Name, Anschrift, Telefonnummer und E-Mail-Adresse des Unternehmers
+  (Gestaltungshinweis 2)
 - Frist-Beginn (Warenkauf / Dienstleistung / digitaler Inhalt)
 - Art und Weise des Widerrufs
 - Folgen (Rueckerstattung, Rueckversandkosten, Wertersatz)
 
 Gestaltungshinweise (in Anlage 1 enthalten) erlaeutern, welche Varianten fuer
-welchen Vertragstyp einzusetzen sind. Bei sachgerechter Verwendung:
-**Gesetzlichkeitsfiktion** — Belehrung gilt als ordnungsgemaess.
+welchen Vertragstyp einzusetzen sind. Wird das Muster zutreffend ausgefuellt
+in Textform uebermittelt, sind die Informationspflichten nach Art. 246a § 1
+Abs. 2 Satz 1 EGBGB erfuellt (Art. 246a § 1 Abs. 2 Satz 2 EGBGB).
 
 ### Anlage 2 EGBGB — Muster-Widerrufsformular
 
@@ -171,10 +180,15 @@ EGBGB).
    § 312f Abs. 2 BGB (Vertragsbestaetigung auf dauerhaftem Datentraeger mit
    den Angaben nach Art. 246a EGBGB, spaetestens bei Lieferung bzw. vor
    Beginn der Dienstleistung).
-2. **Platzhalter im Template nicht ersetzt** ("[Firma einfuegen]"): sofortige
-   Unwirksamkeit, Frist verlaengert sich.
+2. **Platzhalter im Template nicht ersetzt** ("[Firma einfuegen]"): Das Muster
+   ist nicht "zutreffend ausgefuellt" (Art. 246a § 1 Abs. 2 Satz 2 EGBGB);
+   fehlt dadurch eine nach Art. 246a § 1 Abs. 2 Satz 1 Nr. 1 EGBGB noetige
+   Angabe, beginnt die Widerrufsfrist nicht (§ 356 Abs. 3 Satz 1 BGB) und das
+   Widerrufsrecht erlischt erst nach § 356 Abs. 4 BGB.
 3. **Fristberechnung falsch** in Code ("14 Werktage" statt "14 Kalendertage"):
-   materieller Rechtsverlust-Risiko.
+   § 355 Abs. 2 Satz 1 BGB nennt 14 Tage (Kalendertage); Berechnung nach
+   §§ 187, 188 BGB, Fristende an Samstag, Sonntag oder Feiertag verschiebt
+   sich auf den naechsten Werktag (§ 193 BGB).
 4. **Kein Verzicht:** Bei digitalen Inhalten erlischt das Widerrufsrecht
    unter den vier Voraussetzungen des § 356 Abs. 6 Nr. 2 BGB; bei
    (digitalen) Dienstleistungen wie SaaS-Abos erlischt es erst mit
@@ -194,26 +208,45 @@ EGBGB).
    Zurueckbehaltung, aber Prozess muss konfiguriert sein.
 7. **Dienstleistung vor Fristablauf begonnen:** ohne ausdruecklichen
    Wunsch + Belehrung: Wertersatz entfaellt trotz Leistung.
-8. **Belehrung nur im PDF-Anhang der Bestaetigungsmail:** E-Mail-Inline-
-   Fassung plus Anhang sicherer.
+8. **Belehrung nur im PDF-Anhang der Bestaetigungsmail:** Die Bestaetigung
+   auf dauerhaftem Datentraeger (§ 312f Abs. 2 BGB) kann als E-Mail-Text oder
+   PDF-Anhang erfolgen; die Inline-Fassung ist zusaetzliche Absicherung, keine
+   Pflicht.
+9. **Belehrung im Video-Commerce:** Hinweis zur Widerrufsbelehrung im
+   Video-Commerce. <<VERIFIKATION AUSSTEHEND>>
 
 ## Relevanz fuer Codebase-Typen
 
-- **Next.js SaaS:** Bei SaaS mit Verbrauchernutzung: Widerrufsverzicht bei
-  sofortiger Nutzung im Signup-Flow erforderlich. Abo vs. Einmalkauf trennen.
+- **Next.js SaaS:** Bei SaaS mit Verbrauchernutzung: Ein "Widerrufsverzicht"
+  ist nicht vorgesehen. Bei SaaS-Abos (Dienstleistung) erlischt das
+  Widerrufsrecht erst mit vollstaendiger Erbringung (§ 356 Abs. 5 Nr. 2 BGB);
+  Wertersatz bei Beginn vor Fristablauf nur nach ausdruecklichem Verlangen
+  und Belehrung (§ 357a Abs. 2 BGB); digitale Inhalte ohne Datentraeger:
+  § 356 Abs. 6 Nr. 2 BGB. Abo vs. Einmalkauf trennen.
   Klasse `WithdrawalInfo` im Checkout + Copy aus Template.
 - **Landingpage:** Reine Lead-Generation → kein Widerruf relevant; bei
-  verbindlicher Buchung (Kalender/Booking-Tool) wieder Pflicht.
-- **n8n-Workflows:** Post-Order-Workflow sendet Bestellbestaetigung +
-  Widerrufsbelehrung (PDF + Inline); Template-Versioning Pflicht
-  (Belehrung alt vs. neu).
-- **E-Commerce:** Shopify Germany / Shopware liefern Belehrung standardmaessig;
-  Custom-Shops muessen Muster aus Anlage 1 EGBGB einbauen.
-- **Content/Blog:** Nur relevant bei kostenpflichtigen Mitgliedschaften.
+  verbindlicher entgeltlicher Buchung im Fernabsatz grundsaetzlich
+  Widerrufsrecht (§ 312g Abs. 1 BGB), aber nicht bei termingebundenen
+  Leistungen nach § 312g Abs. 2 Nr. 9 BGB (u. a. Beherbergung,
+  Freizeitbetaetigungen).
+- **n8n-Workflows:** Post-Order-Workflow sendet Bestellbestaetigung mit
+  Widerrufsbelehrung auf dauerhaftem Datentraeger (§ 312f Abs. 2 BGB);
+  Template-Versionierung als Nachweis dringend empfohlen, keine gesetzliche
+  Pflicht.
+- **E-Commerce:** Konfiguration im Shop-System pruefen. Custom-Shops koennen
+  die Informationspflicht durch das zutreffend ausgefuellte, in Textform
+  uebermittelte Muster der Anlage 1 erfuellen (Art. 246a § 1 Abs. 2 Satz 2
+  EGBGB); das Muster ist freiwillig.
+- **Content/Blog:** Relevant bei jedem entgeltlichen Fernabsatzvertrag mit
+  Verbrauchern (Mitgliedschaft, Einzelkauf digitaler Inhalte, Kurse) und bei
+  Vertraegen gegen Bereitstellung personenbezogener Daten (§ 312 Abs. 1, 1a
+  BGB).
 
 ## Behoerden-Hinweise
 
-- Keine zentrale Aufsicht; Wettbewerbszentrale / IDO / vzbv mahnen ab.
+- Keine allgemeine Aufsicht; Durchsetzung durch Mitbewerber und
+  klagebefugte Verbaende (z. B. Wettbewerbszentrale, vzbv); bei
+  weitverbreiteten Verstoessen behoerdliche Durchsetzung.
 - Haftungsrisiko: bei fehlender Belehrung 12 Monate + 14 Tage Widerrufs-
   fenster → erhebliche Rueckabwicklungsrisiken.
 
@@ -223,13 +256,37 @@ EGBGB).
   Angabe einer Telefonnummer; geschuldet ist ein Kommunikationsmittel fuer
   direkte und effiziente Kommunikation (Art. 6 Abs. 1 Buchst. c
   RL 2011/83/EU).
-- Aussage: Widerrufsbelehrung muss Fristbeginn eindeutig bezeichnen. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
-- **BGH I ZR 123/16** (15.11.2017): Fehlende/fehlerhafte Belehrung ist
-  wettbewerbsrechtlich relevant.
+- Die Belehrung muss ueber die Fristen des Widerrufsrechts informieren
+  (Art. 246a § 1 Abs. 2 Satz 1 Nr. 1 EGBGB); andernfalls beginnt die Frist
+  nicht (§ 356 Abs. 3 Satz 1 BGB). Das Muster sieht je Vertragstyp einen
+  eigenen Textbaustein zum Fristbeginn vor (Anlage 1, Gestaltungshinweis 1 a
+  bis e).
+- Aussage: Fehlende/fehlerhafte Belehrung ist wettbewerbsrechtlich relevant.
+  <<VERIFIKATION AUSSTEHEND>>
 - **EuGH C-641/19** (08.10.2020, "PE Digital"): Wertersatz bei Widerruf von
   Dienstleistungen grundsaetzlich zeitanteilig auf Basis des vereinbarten
   (Gesamt-)Preises.
-- **BGH VIII ZR 242/20** (27.04.2022): Belehrung im Video-Commerce.
+- **BGH VIII ZR 143/24** (Beschluss vom 25.02.2025,
+  ECLI:DE:BGH:2025:250225BVIIIZR143.24.0, Leitsatz): zur Frage, ob in einer
+  vom Muster abweichenden Belehrung zusaetzlich eine Telefonnummer
+  mitgeteilt werden muss, wenn Postanschrift und E-Mail-Adresse genannt
+  sind; zur Fortfuehrung siehe BGH VIII ZR 5/25.
+- **BGH VIII ZR 5/25** (Beschluss vom 22.07.2025,
+  ECLI:DE:BGH:2025:220725BVIIIZR5.25.0, Leitsatz 1): Wer eine vom Muster
+  abweichende Belehrung verwendet, muss dort nicht seine Telefaxnummer
+  mitteilen, wenn er beispielhaft Postanschrift und E-Mail-Adresse nennt,
+  ueber die der Verbraucher schnell Kontakt aufnehmen und effizient
+  kommunizieren kann (Fortfuehrung von VIII ZR 143/24 zur Telefonnummer).
+- **BGH VIII ZR 62/25** (Urteil vom 07.01.2026,
+  ECLI:DE:BGH:2026:070126UVIIIZR62.25.0): Die Widerrufsfrist laeuft auch an,
+  wenn die Belehrung das Widerrufsrecht abstrakt an die
+  Verbrauchereigenschaft und den ausschliesslichen Einsatz von
+  Fernkommunikationsmitteln knuepft; eine einzelfallbezogene Belehrung ist
+  nicht geschuldet.
+- **BGH I ZR 192/24** (EuGH-Vorlage vom 22.10.2025,
+  ECLI:DE:BGH:2025:221025BIZR192.24.0, anhaengig, Frage offen):
+  Vorlagefrage 1, ob die Widerrufsfrist zu laufen beginnt, wenn der
+  Unternehmer das Muster-Widerrufsformular nicht zur Verfuegung gestellt hat.
 - **EuGH C-529/19** (21.10.2020, "Moebel Kraft"): Die Ausnahme fuer nach
   Verbraucherspezifikation herzustellende Waren (§ 312g Abs. 2 Nr. 1 BGB)
   greift unabhaengig davon, ob der Unternehmer mit der Herstellung bereits
@@ -248,9 +305,11 @@ EGBGB).
   ECLI:DE:BGH:2022:260422BVIIIZR19.21.0) gehoert nicht zu VIII ZR 21/19,
   sondern zu **BGH VIII ZR 19/21** (vertauschte Geschaeftsjahr-/
   Nummernfolge). Keine Widerrufsbelehrungs-Entscheidung unter dem
-  Aktenzeichen VIII ZR 21/19 nachweisbar. Zitat daher nicht uebernehmen;
-  Aussage bleibt mit Verifikationsmarker. Deckungsgleich mit
+  Aktenzeichen VIII ZR 21/19 nachweisbar. Zitat daher nicht uebernehmen.
+  Deckungsgleich mit
   themen/agb-muster.md.
+- **BGH I ZR 123/16**: in den amtlichen Datenbanken nicht auffindbar.
+- **BGH VIII ZR 242/20**: in den amtlichen Datenbanken nicht auffindbar.
 
 ## Siehe auch
 
@@ -300,3 +359,12 @@ EGBGB).
   Ruecksendekosten auf § 357 Abs. 5, Wertersatz auf § 357a BGB; § 312f
   Abs. 2 BGB praezisiert; Fallstricke 4 und 5 neu gefasst; EuGH C-649/17,
   C-641/19 (Datum 08.10.2020) und C-529/19 inhaltlich berichtigt.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2)**:
+  Unterrichtung nach Art. 246a § 1 Abs. 3 EGBGB ergaenzt; Muster-Platzhalter
+  nach Gestaltungshinweis 2; "Gesetzlichkeitsfiktion" im Musterabschnitt
+  durch Art. 246a § 1 Abs. 2 Satz 2 EGBGB (Textform) ersetzt; Fallstricke 2,
+  3 und 8 sowie Codebase-Typen (kein "Widerrufsverzicht", § 312g Abs. 2 Nr. 9,
+  § 312 Abs. 1a BGB, Versionierung und Muster als Empfehlung) neu gefasst;
+  Behoerden-Hinweis ohne "IDO"; BGH VIII ZR 143/24, VIII ZR 5/25,
+  VIII ZR 62/25 und I ZR 192/24 (anhaengig) aufgenommen; BGH I ZR 123/16 und
+  VIII ZR 242/20 als nicht auffindbar in "Nicht zitieren" verschoben.

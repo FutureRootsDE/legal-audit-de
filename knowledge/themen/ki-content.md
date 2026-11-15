@@ -55,16 +55,18 @@ Privilegierte Forschungsorganisationen; **kein Opt-Out** moeglich (zwingende Sch
 ### LG Hamburg Urt. v. 27.09.2024 — LAION/Kneschke (Az. 310 O 227/23)
 
 - Erstes deutsches Urteil zur urheberrechtlichen Zulaessigkeit von KI-Trainingsdatensaetzen.
-- **Ergebnis**: LAION durfte das streitgegenstaendliche Foto fuer den LAION-5B-Datensatz nutzen — **aufgrund § 60d UrhG** (Forschungsprivileg), nicht wegen § 44b.
-- Gericht bestaetigt allgemein: Erstellung von KI-Trainingsdaten IST TDM.
+- **Ergebnis**: LAION durfte das streitgegenstaendliche Foto fuer den LAION-5B-Datensatz nutzen — **aufgrund § 60d UrhG** (Forschungsprivileg); ob auch § 44b UrhG greift, liess das LG offen (obiter).
+- Das Gericht bewertete nur den Download und Abgleich fuer den Datensatz als TDM (laut Pressemitteilung des Gerichts).
 - AI Act (Art. 53) wird zur Auslegungshilfe herangezogen.
-- **Grenze**: Die Entscheidung gilt fuer Forschungskontext; kommerzielles Training bleibt an § 44b Abs. 3 Opt-Out gebunden.
+- **Grenze**: Ueber die anschliessende Verwendung zum KI-Training hat die Kammer ausdruecklich nicht entschieden (laut Pressemitteilung des Gerichts); kommerzielles TDM bleibt an den Nutzungsvorbehalt nach § 44b Abs. 3 UrhG gebunden.
 
 **Berufungsinstanz**: **OLG Hamburg, Urt. v. 10.12.2025 — 5 U 104/24** —
 Berufung des Klaegers zurueckgewiesen, erstinstanzliches Urteil bestaetigt.
-Das OLG bejaht TDM auch nach **§ 60d UrhG** (Forschungsprivileg, da LAION
-gemeinnuetzig) und § 44b UrhG. **Revision zugelassen**, weil grundsaetzliche
-Bedeutung — BGH-Verfahren wahrscheinlich. (Beleg: Pressemitteilung des
+Laut Pressemitteilung des Gerichts: Tragend ist § 44b UrhG, weil der
+Nutzungsvorbehalt nicht maschinenlesbar war (§ 44b Abs. 3 Satz 2 UrhG);
+zusaetzlich § 60d UrhG, weil kein bestimmender Einfluss eines privaten
+Unternehmens bestehe (§ 60d Abs. 2 Satz 3 UrhG). Nicht rechtskraeftig,
+**Revision zum BGH zugelassen**. (Beleg: Pressemitteilung des
 Hanseatischen OLG).
 
 ### Art. 53 AI Act (seit 02.08.2025)
@@ -94,11 +96,13 @@ Da § 44b Abs. 3 "maschinenlesbar" verlangt, haben sich verschiedene technische 
 - **W3C TDMRep** (TDM Reservation Protocol) — HTTP-Header `TDM-Reservation: 1` und `tdmrep.json`
 - EPUB-Metadaten fuer Verlage
 
-### Tier 3 — nicht "maschinenlesbar" i.S.v. § 44b Abs. 3
+### Tier 3 — umstritten: rein natuerlichsprachliche Vorbehalte
 
 - Reine natuerlichsprachliche AGB-Klauseln ohne technisches Label
 - Nur-Mensch-lesbare Urheberhinweise in PDFs
 - Allgemeine Nutzungsbedingungen ohne technisches Format
+
+Das OLG Hamburg (10.12.2025, 5 U 104/24, nicht rechtskraeftig) hielt einen solchen Vorbehalt laut Pressemitteilung des Gerichts fuer nicht maschinenlesbar; das LG Hamburg (27.09.2024, obiter) neigte laut Pressemitteilung des Gerichts zur Gegenansicht; ErwG 18 DSM-RL nennt ausdruecklich auch "Geschaeftsbedingungen einer Website". Bis zur BGH-Entscheidung zusaetzlich technisches Format setzen.
 
 **Empfehlung fuer eigene Webseiten** (Opt-Out als Urheber):
 ```text
@@ -135,13 +139,14 @@ KI-generierte Werke ohne menschliche Schoepfungshoehe sind **NICHT urheberrechtl
 ### Risiko: KI-Output verletzt Dritt-Urheberrechte
 
 - KI-Modell kann Trainingsdaten **reproduzieren** → "Memorization"-Problem
+- LG Muenchen I, Urt. v. 11.11.2025, 42 O 14139/24 (GEMA ./. OpenAI), nicht rechtskraeftig (laut Pressemitteilung des Gerichts): Memorisierung von Liedtexten im Modell und ihre Wiedergabe in Outputs greifen in Verwertungsrechte ein und sind nicht durch die TDM-Schranke (§ 44b UrhG) gedeckt
 - Wenn KI-Bild Logos/Markenzeichen/Charaktere erkennbar enthaelt, kann das **Verletzung sein** — unabhaengig davon, dass KI es "generiert" hat
 - Empfehlung: **KI-Output auf bekannte Markenzeichen/Werke pruefen**, insbesondere bei gewerblicher Nutzung
 
 ## Typische Fallstricke in Codebases
 
 - **Eigenes Scraping fuer Inhouse-KI-Training** ohne Opt-Out-Check
-- **Kein Audit-Log** der Trainingsdatenquellen (Art. 53 Abs. 1 lit. d AI Act: Training-Content-Summary)
+- **Zusammenfassung der Trainingsinhalte**: Die Pflicht zur oeffentlichen Zusammenfassung der Trainingsinhalte (Art. 53 Abs. 1 Buchst. d KI-VO) trifft nur Anbieter von KI-Modellen mit allgemeinem Verwendungszweck; wer Drittmodelle per API nutzt, ist nicht Adressat
 - **KI-Output ohne Content-Filter** auf Markenverletzungen
 - **Code-Assistenten** (Copilot, Claude Code) koennen lizenzgeschuetzten Open-Source-Code reproduzieren → GPL-Ansteckung-Risiko
 - **Keine eigene Opt-Out-Mechanismen** auf eigener Seite, wodurch Inhalte unkontrolliert in Trainingsdatensaetze fliessen
@@ -157,15 +162,17 @@ KI-generierte Werke ohne menschliche Schoepfungshoehe sind **NICHT urheberrechtl
 
 ## Behoerden-Hinweise
 
-- **BMJ (Bundesjustizministerium)**: Gesetzgebungsstand § 44b UrhG
-- **EU-Kommission (DG CNECT)**: Art. 53 AI Act Guidelines, Template fuer Training Data Summary (veroeffentlicht ca. 2025)
+- **BMJV (Bundesministerium der Justiz und fuer Verbraucherschutz)**: Gesetzgebungsstand § 44b UrhG
+- **EU-Kommission**: Leitlinien fuer Anbieter von KI-Modellen mit allgemeinem Verwendungszweck; Vorlage fuer die oeffentliche Zusammenfassung der Trainingsinhalte (veroeffentlicht 24.07.2025)
 - **VG Wort / VG Bild-Kunst**: Vertreten kollektive Rechte — Diskussion ueber KI-Training-Lizenzen laeuft
 
 ## Zitierbare Urteile
 
 - **LG Hamburg, Urt. v. 27.09.2024 — 310 O 227/23 (LAION/Kneschke)** (siehe oben)
 - **OLG Hamburg, Urt. v. 10.12.2025 — 5 U 104/24 (LAION-Berufung)**: bestaetigt
-  Erstinstanz; § 44b und § 60d UrhG anwendbar; Revision zum BGH zugelassen.
+  Erstinstanz; tragend § 44b UrhG (Nutzungsvorbehalt nicht maschinenlesbar),
+  zusaetzlich § 60d UrhG; nicht rechtskraeftig, Revision zum BGH zugelassen
+  (laut Pressemitteilung des Gerichts).
 - **US: Thomson Reuters v. ROSS Intelligence** (Februar 2025) — US-Court: kein
   Fair Use fuer kommerzielles KI-Training auf Westlaw-Daten (US-Recht, nicht
   direkt anwendbar, aber Signal).
@@ -194,3 +201,4 @@ KI-generierte Werke ohne menschliche Schoepfungshoehe sind **NICHT urheberrechtl
 - **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**: § 60d-Privilegierung nach Abs. 2 Satz 2 und 3 praezisiert; Art. 75c Abs. 5 im Wortlaut; Erwaegungsgrund 31 (nicht 19) der VO (EU) 2026/1744; dejure.org nicht mehr als Tier-1-Beleg; Inkrafttreten der VO (EU) 2026/1744 nach Art. 4; Zeichnerzahl GPAI-Kodex mit Quelle und Abrufdatum, Marker aufgeloest.
 - **2026-11-14 (Korrekturlauf nach Gegenprobe am Volltext VO 2026/1744)**: Art. 75a bis 75d KI-VO n. F. am Verordnungs-Wortlaut präzisiert (Adressatenkreis "Akteure nach Art. 75 Abs. 1", nicht "GPAI-Anbieter" pauschal; Zwangsgeld-Bemessung; Art. 75d bestätigt); Platzhalter aufgelöst. Getty Images v. Stability AI [2025] EWHC 2863 (Ch) vom 04.11.2025 als Urteil (nicht mehr "laufend") übernommen.
 - **2026-11-14 (Voraufnahme)**: Art. 53-Darstellung aktualisiert; Hochrisiko-Daten (Anhang III 02.12.2027, Anhang I 02.08.2028).
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2)**: LG Muenchen I (GEMA ./. OpenAI, 42 O 14139/24) zur Memorisierung ergaenzt; Art. 53 Abs. 1 Buchst. d: Adressatenkreis klargestellt; LG und OLG Hamburg (LAION) nach der Pressemitteilung des Gerichts praezisiert (tragende Gruende, Reichweite); Tier 3 der Opt-Out-Mechanismen als umstritten; BMJV und Kommissionsangaben berichtigt.

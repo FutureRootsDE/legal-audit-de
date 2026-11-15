@@ -35,8 +35,9 @@ Dazu treten unveraendert:
   1 m³ / 1 m / 1 m²
 - Versandkosten-Hinweis (§ 6)
 
-Verstoss = Ordnungswidrigkeit nach § 20 PAngV; Bussgeld bis 31.12.2026 nach
-dem WiStG 1954 (Betragsrahmen <<VERIFIKATION AUSSTEHEND>>), ab 01.01.2027 bis
+Verstoss = Ordnungswidrigkeit nach § 20 PAngV i. V. m. § 3 Abs. 1 Satz 1 Nr. 2
+WiStG 1954; Bussgeld bis 31.12.2026 bis zu 25.000 EUR (§ 3 Abs. 2 WiStG
+1954), ab 01.01.2027 bis
 100.000 EUR (§ 3 Abs. 3 PAngG n. F., BGBl. 2026 I Nr. 314). Daneben
 UWG-Abmahnung; bei Verstoessen gegen § 11 PAngV lauterkeitsrechtlich ueber
 §§ 5a, 5b UWG, nicht ueber § 3a UWG (BGH I ZR 183/24, Leitsatz 2, zu § 11
@@ -77,8 +78,8 @@ werden.
 - Endpreis **inkl. USt.** und sonstigen Preisbestandteilen
 - Bei Online-Angeboten: neben dem Preis zusaetzliche Angabe, ob Liefer- und
   Versandkosten anfallen und in welcher Hoehe (§ 6)
-- "ab X EUR" nur zulaessig, wenn "ab" deutlich erkennbar und Preisbereich
-  realistisch
+- "ab X EUR" regelt § 3 PAngV nicht (Praxishinweis ohne Normbezug: "ab"
+  deutlich erkennbar und Preisbereich realistisch)
 
 ### § 4 PAngV — Grundpreis
 
@@ -116,16 +117,21 @@ am Ort des Leistungsangebots (§ 12 Abs. 1, 2 PAngV).
    Rabatt"). Price-History muss sauber gefuehrt werden.
 4. **Grundpreis in Kategorielisten fehlt:** Auch Produktkarten in
    Suchergebnissen benoetigen Grundpreis.
-5. **"statt"-Preise bei neuen Produkten:** Neue Produkte ohne 30-Tage-Historie
-   koennen keinen Streichpreis haben.
+5. **"statt"-Preise bei neuen Produkten:** § 11 Abs. 1 PAngV verbietet
+   Streichpreise bei neuen Produkten nicht; wird die Ware seit weniger als
+   30 Tagen angeboten, ist der niedrigste Gesamtpreis seit Angebotsbeginn
+   anzugeben.
 6. **Dynamic Pricing / A/B Tests:** Wenn unterschiedlichen Nutzergruppen
    unterschiedliche Preise angezeigt werden, muss die 30-Tage-Berechnung auf
    **alle** gezeigten Preise zurueckgreifen — nicht nur "der offizielle Preis".
 7. **Rabatt-Prozentsatz und Vorteilshervorhebung:** Eine in Prozent oder als
    Werbeaussage bekannt gegebene Ermaessigung ist am 30-Tage-Preis zu
    bemessen (EuGH C-330/23 Aldi Sued, 26.09.2024).
-8. **Grundpreis bei Mengenrabatten:** Kauf 3 zahle 2 → Grundpreis je Stueck
-   bleibt angegeben.
+8. **Grundpreis bei Mengenrabatten:** Der Grundpreis bezieht sich auf die
+   Mengeneinheit nach § 5 Abs. 1 PAngV (1 kg, 1 l, 1 m³, 1 m, 1 m²), nicht
+   auf das Stueck; er bleibt bei Mengenaktionen anzugeben.
+9. **Angabe "inkl. MwSt." bei B2B-/Hybrid-Angeboten:** Hinweis zur Angabe bei
+   Angeboten, die sich auch an Unternehmer richten. <<VERIFIKATION AUSSTEHEND>>
 
 ## Relevanz fuer Codebase-Typen
 
@@ -133,24 +139,35 @@ am Ort des Leistungsangebots (§ 12 Abs. 1, 2 PAngV).
   § 11 PAngV gilt nur fuer Waren, nicht fuer Dienstleistungen und
   SaaS-Abos. Rabattwerbung fuer Leistungen ("statt 99 EUR, jetzt 79 EUR")
   an § 5 Abs. 2 Nr. 2, Abs. 5 UWG messen.
-- **Landingpage:** Bei Aktion-Pricing "50 % statt 100 EUR" Price-Log-Endpoint
-  (DB-Tabelle `price_history` mit timestamp, valid_from, valid_to) Pflicht.
+- **Landingpage:** Bei Aktionspreisen fuer Waren den niedrigsten
+  30-Tage-Preis angeben (§ 11 Abs. 1 PAngV); eine Preis-Historie (z. B.
+  DB-Tabelle `price_history` mit timestamp, valid_from, valid_to) ist als
+  Nachweis dringend zu empfehlen (Beweislast, § 5 Abs. 5 Satz 2 UWG), aber
+  keine gesetzliche Pflicht.
 - **n8n-Workflows:** Product-Sync-Workflows (Shopify/Shopware) sollten
   Preiseintraege in eine Archiv-Tabelle schreiben. Rabatt-Bestaetigung vor
   Marketing-Versand via DB-Query.
-- **E-Commerce:** Shopify "compare_at_price" oder Shopware "listPrice" =
-  rechtlich nur dann OK, wenn Preis tatsaechlich binnen 30 Tagen verlangt
-  wurde. Plugin-Ecosystem (z.B. Trusted Shops PriceGuard) verfuegbar.
-- **Content/Blog:** Deal-Portale muessen Vergleichspreis korrekt deklarieren,
-  Quelle + Timestamp nennen; Haftung bei Affiliates eingeschraenkt, aber
-  Mitwirken an Irrefuehrung moeglich.
+- **E-Commerce:** Shopify "compare_at_price" / Shopware "listPrice" als
+  Streichpreis einer Preisermaessigung nur zulaessig, wenn er den niedrigsten
+  Gesamtpreis der letzten 30 Tage vor der Ermaessigung wiedergibt (§ 11
+  Abs. 1 PAngV); dass der Preis irgendwann in diesen 30 Tagen verlangt
+  wurde, genuegt nicht.
+- **Content/Blog:** Deal-Portale: Preisvergleiche duerfen nicht irrefuehren
+  (§ 5 UWG); Quelle und Zeitpunkt des Vergleichspreises anzugeben ist
+  Empfehlung, keine Normpflicht. § 11 PAngV trifft nur, wer selbst zur
+  Angabe des Gesamtpreises verpflichtet ist. Haftung bei Affiliates
+  eingeschraenkt, aber Mitwirken an Irrefuehrung moeglich.
 
 ## Behoerden-Hinweise
 
 - **Gewerbeaufsicht / Marktueberwachung** der Bundeslaender: Ordnungs-
   widrigkeiten nach § 20 PAngV (Bussgeldrahmen siehe Kurz-Ueberblick).
 - **Eichbehoerden** (Preis- und Grundpreis-Pruefungen).
-- **Wettbewerbszentrale / vzbv / IDO** — haeufige Abmahner.
+- **Wettbewerbszentrale / vzbv:** haeufige Abmahner. Wirtschaftsverbaende
+  nur, wenn sie in der Liste nach § 8b UWG eingetragen sind (§ 8 Abs. 3 Nr. 2
+  UWG), z. B. die Wettbewerbszentrale; Verbraucherverbaende wie der vzbv als
+  qualifizierte Verbraucherverbaende (§ 8 Abs. 3 Nr. 3 UWG). Die aktuelle
+  Liste nach § 8b UWG fuehrt das Bundesamt fuer Justiz.
 
 ## Zitierbare Urteile
 
@@ -166,8 +183,13 @@ am Ort des Leistungsangebots (§ 12 Abs. 1, 2 PAngV).
   Preisangabenrichtlinie 98/6/EG (nicht UGP-Richtlinie) verlangt, dass eine
   in Prozent oder als Werbeaussage bekannt gegebene Ermaessigung auf
   Grundlage des vorherigen (30-Tage-)Preises berechnet wird.
+- **BGH I ZR 49/24** (03.06.2026, "Bearbeitungspauschale II", nach EuGH
+  C-62/25 vom 26.03.2026): Pauschale unterhalb eines Mindestbestellwerts
+  nicht in den Gesamtpreis einzurechnen, sofern klar angegeben und
+  Mindestbetrag die Zahlung nicht praktisch unvermeidbar macht.
+- **BGH I ZR 135/20** (26.10.2023, "Flaschenpfand IV", nach EuGH C-543/21):
+  Gesamtpreis enthaelt nicht den Pfandbetrag (§ 7 PAngV).
 - **OLG Hamm 4 U 85/22** (unzulaessiger Streichpreis ohne 30-Tage-Basis) <<VERIFIKATION AUSSTEHEND>>
-- **BGH I ZR 85/21** (Angabe "inkl. MwSt." bei B2B-/Hybrid-Angeboten) <<VERIFIKATION AUSSTEHEND>>
 
 ### Nicht zitieren — nachweislich falsch zugeordnete Aktenzeichen
 
@@ -184,6 +206,7 @@ am Ort des Leistungsangebots (§ 12 Abs. 1, 2 PAngV).
   ECLI:DE:BGH:2022:070422UIZR143.19.0). Aktenzeichen nachweislich falsch
   zugeordnet, nicht zitieren; die behauptete Aussage zu Preisangaben ist
   damit unbelegt.
+- **BGH I ZR 85/21**: in den amtlichen Datenbanken nicht auffindbar.
 
 ## Siehe auch
 
@@ -234,3 +257,9 @@ am Ort des Leistungsangebots (§ 12 Abs. 1, 2 PAngV).
   verwiesen; § 6, § 11 Abs. 3 und § 12 praezisiert; BGH I ZR 183/24 mit
   Leitsatzwortlaut und ECLI; EuGH C-330/23 auf Art. 6a RL 98/6/EG
   umgestellt, Fallstrick 7 neu gefasst.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2)**:
+  Bussgeldrahmen bis 31.12.2026 nach § 3 Abs. 2 WiStG 1954 (25.000 EUR,
+  Marker entfernt); "ab X EUR" als Praxishinweis ohne Normbezug; Fallstricke
+  5 und 8, Preis-Historie, compare_at_price und Deal-Portale neu gefasst;
+  Plugin-Hinweis und "IDO" gestrichen; BGH I ZR 49/24 und I ZR 135/20
+  aufgenommen; BGH I ZR 85/21 als nicht auffindbar nach "Nicht zitieren".

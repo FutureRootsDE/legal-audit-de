@@ -100,6 +100,7 @@ haengt von den Update-Zusagen des jeweiligen Anbieters ab; diese pruefen.
 
 - Teil der o.g. Pakete
 - Amtliche Muster-Belehrung (Anlage 1 zu Art. 246a § 1 EGBGB) — kostenlos direkt vom Gesetzgeber, aber Anpassung pro Anbieter noetig
+- Seit 19.06.2026: elektronische Widerrufsfunktion nach § 356a BGB; Generator-Texte und Muster auf diesen Stand pruefen
 
 ## Auswahl-Kriterien
 
@@ -109,7 +110,7 @@ haengt von den Update-Zusagen des jeweiligen Anbieters ab; diese pruefen.
 - [ ] **Abmahn-Schutz** inklusive? (nicht alle Anbieter)
 - [ ] **Response-Zeit im Abmahn-Fall** — wie schnell reagiert der Anbieter bei einer Abmahnung?
 - [ ] **Customizing-Moeglichkeiten** fuer nicht-Standard-Setups
-- [ ] **Barrierefreiheit der DSE** selbst (nach BFSG)
+- [ ] **Barrierefreiheit der DSE** selbst (nur soweit das BFSG greift: Dienstleistungen im elektronischen Geschaeftsverkehr, § 1 Abs. 3 Nr. 5 BFSG; nicht fuer Kleinstunternehmen, § 3 Abs. 3 BFSG)
 
 ## Wichtige Einschraenkungen
 
@@ -159,3 +160,4 @@ haengt von den Update-Zusagen des jeweiligen Anbieters ab; diese pruefen.
 - **2026-11-14** (Batch E, stale-only): Mehrere Platzhalter-Varianten mit Suffixen (Pricing, URL, konkrete IHK-URL, Anbieter, jeweils Stand 2026-05-08) auf die einheitliche Form des Verifikationsmarkers normiert.
 - **2026-11-14** (Batch E3, Live-Pruefung): Jeden Generator-Eintrag live abgerufen. eRecht24 (e-recht24.de/mitglieder): Preisstaffel Basic 15 EUR / Business 40 EUR / Enterprise 90 EUR / Ultimate 800 EUR pro Monat bei Jahres-Zahlung (regulaer 30 / 80 / 180 / 1.600 EUR) bestaetigt — 50 % Rabatt bei Jahreszahlung. IT-Recht Kanzlei (it-recht-kanzlei.de): Datenschutz 5,90 / Starter 9,90 / Premium 24,90 / Unlimited 54,90 EUR/Monat bestaetigt; Muenchener Vorwahl erneut festgestellt. datenschutz-generator.de: Premium einmalig 99,90 EUR netto, Free-Grenze 5.000 EUR Jahresumsatz, Anbieter Dr. Thomas Schwenke LL.M. bestaetigt. Trusted Shops (trustedshops.de): Impressum verweist auf Trusted Shops SE; Pricing weiterhin nicht oeffentlich — Marker bleibt. **Haendlerbund (haendlerbund.de/de/leistungen)**: Paketstruktur komplett geaendert — alte Bezeichnungen Basic / Premium / Unlimited / Professional durch Website & Content Creator (ab 4,90 EUR) / Starter (ab 9,90 EUR) / Business (ab 57,90 EUR) / Enterprise / Enterprise Plus ersetzt; Eintrag korrigiert. Sitz Leipzig (Kohlgartenstrasse 11-13) bestaetigt und ergaenzt. `aktualisiert` und `verifiziert-am` auf 2026-11-14 gesetzt.
 - **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Generatoren als hilfreich statt unverzichtbar, Update-Zusagen je Anbieter pruefen; eRecht24-Sitz Berlin ohne Potsdam; Haendlerbund-Checkout-Hinweis entfernt; Nutzerzahl bei datenschutz-generator.de entfernt; activeMind-Generator-URL eingetragen, Marker entfernt; agb.de-Eintrag gestrichen (Impressum ohne Anbieter), Marker entfernt; KI-Rechtssuche ohne Qualitaetsurteil.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2): Hinweis auf die elektronische Widerrufsfunktion (§ 356a BGB, seit 19.06.2026) beim Widerrufs-Generator ergaenzt; Barrierefreiheit der DSE auf den Anwendungsbereich des BFSG (§ 1 Abs. 3 Nr. 5, § 3 Abs. 3) eingegrenzt.
