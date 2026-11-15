@@ -10,6 +10,39 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ---
 
+## [1.4.2] (2026-11-15)
+
+Patch-Release: Runde 2 der doppelten unabhängigen Prüfung der Wissensdatenbank. Verifikationsmarker `<<VERIFIKATION AUSSTEHEND>>`: 52 bestehen weiter.
+
+### Wissensdatenbank: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2)
+
+Runde 2 ist für alle acht Gruppen abgeschlossen. Aussagen, die in Runde 1 nur einseitig oder gar nicht geprüft waren, wurden blind nachgeprüft; Differenzen zwischen den beiden Prüfungen wurden an Primärquellen entschieden. Betroffen sind 65 Dateien der Wissensdatenbank.
+
+Wichtigste Korrekturen:
+
+- LG Köln 33 O 376/22: richtig eingeordnet (verurteilt wurde nur wegen der Drittlandübermittlung; der Antrag auf eine gleichwertige Ablehnungsoption auf erster Ebene wurde abgewiesen), das Urteil belegt den Ablehnen-Button nicht mehr.
+- Ablehnen-Button: Beleg nach DSK, Orientierungshilfe Digitale Dienste, Rn. 124 f., in Themen und Checklisten vereinheitlicht.
+- NIS2: Zuordnung der Sektoren nach den Anlagen 1 und 2 BSIG korrigiert.
+- Datenpannen: Meldungen an die BaFin nach DORA nur für die betroffenen Finanzunternehmen.
+- Preisangaben: PAngV § 11 sowie §§ 5a, 5b UWG richtig zugeordnet.
+- BGH XI ZR 26/20 (Zustimmungsfiktion) korrigiert eingeordnet.
+- BGH I ZR 90/20 (Tap-Tags, Erkennbarkeit): Leitsatz präzisiert.
+- Neue BGH-Entscheidungen zur Kündigungsschaltfläche nach § 312k BGB: I ZR 161/24, I ZR 200/25, I ZR 243/25.
+- Neue BGH-Entscheidungen zur Widerrufsbelehrung: VIII ZR 143/24, VIII ZR 5/25, VIII ZR 62/25 sowie die Vorlage I ZR 192/24.
+- Falsch zugeordnete oder nicht auffindbare Aktenzeichen gestrichen oder in Abschnitte „Nicht zitieren“ verschoben.
+- Tool-Katalog: Einwilligungsbewertung unter dem Vorbehalt der Einzelfallprüfung; Consent Mode ist keine gesetzliche Pflicht.
+
+### Verifikationsstand und Checklisten
+
+- Verifikationsstand nachgeführt: Dateien ohne Platzhalter tragen `verifiziert-am: 2026-11-15`, Dateien mit Platzhalter `teilverifiziert-am: 2026-11-15` (28 und 37 Dateien).
+- Projektbezogene Verweise in zwei Checklisten neutral gefasst.
+
+### Bekannte Grenzen
+
+- 52 Platzhalter `<<VERIFIKATION AUSSTEHEND>>` bestehen weiter.
+
+---
+
 ## [1.4.1] (2026-11-15)
 
 Patch-Release: Korrekturen der Wissensdatenbank nach doppelter unabhängiger Prüfung (Runde 1), Entfernung lokaler Dateipfade aus ausgelieferten Dateien und Erweiterungen der Zitatprüfung (EU-Rechtsprechung über den Cellar, Normprüfung, Härtungen). Verifikationsmarker `<<VERIFIKATION AUSSTEHEND>>`: 50 (vorher 53).
