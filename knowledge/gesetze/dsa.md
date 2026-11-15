@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-10-24
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
 quellen-sekundaer:
   - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/start.html
@@ -25,7 +25,7 @@ geltungsbereich: [DE, EU]
 
 Die Verordnung (EU) 2022/2065 ueber einen Binnenmarkt fuer digitale Dienste (Digital Services Act, DSA) schafft ein gestuftes Pflichtenregime fuer Vermittlungsdienste im Internet. Sie ist am 16.11.2022 in Kraft getreten und **seit 17.02.2024 fuer alle Anbieter voll anwendbar** (fuer VLOPs/VLOSEs bereits seit 25.08.2023).
 
-In Deutschland wird der DSA durch das **Digitale-Dienste-Gesetz (DDG)** vom 14.05.2024 flankiert. Zustaendig ist die **Bundesnetzagentur** als Digital Services Coordinator (DSC).
+In Deutschland wird der DSA durch das **Digitale-Dienste-Gesetz (DDG)** vom 06.05.2024 (in Kraft seit 14.05.2024) flankiert. Zustaendig ist die **Bundesnetzagentur** als Digital Services Coordinator (DSC).
 
 Der DSA regelt in einem Stufenmodell Pflichten fuer:
 - **Vermittlungsdienste** allgemein (Mere Conduit, Caching, Hosting)
@@ -37,7 +37,7 @@ Der DSA regelt in einem Stufenmodell Pflichten fuer:
 
 ### Art. 12 DSA — Kontaktstellen fuer Nutzer
 
-Anbieter von Vermittlungsdiensten muessen eine einzige Kontaktstelle einrichten, die **Nutzern eine rasche, direkte und effiziente Kommunikation** ermoeglicht. Zulaessige Mittel: Telefon, E-Mail, Formular, Chatbot. Der Anbieter muss **ausreichende menschliche und finanzielle Ressourcen** fuer zeitnahe Antworten vorhalten.
+Anbieter von Vermittlungsdiensten muessen eine **zentrale Kontaktstelle** fuer die direkte und schnelle elektronische Kommunikation mit Nutzern benennen. Nutzer muessen ein Kommunikationsmittel waehlen koennen, das nicht ausschliesslich automatisiert ist (ein Chatbot allein genuegt nicht). Die Angaben sind leicht zugaenglich und aktuell zu halten (Art. 12 Abs. 2).
 
 Zusaetzlich (Art. 11) ist eine elektronische Kontaktstelle fuer Behoerden und die Kommission zu benennen.
 
@@ -48,7 +48,7 @@ Anbieter muessen in ihren AGB **"klar, einfach, verstaendlich, benutzerfreundlic
 - Ihre Content-Moderation-Politik, Verfahren, Massnahmen und Werkzeuge
 - Regeln zur algorithmischen Entscheidungsfindung und menschlichen Ueberpruefung
 
-VLOPs/VLOSEs muessen AGB **in den Amtssprachen aller EU-Mitgliedstaaten** bereitstellen, in denen sie Dienste anbieten, sowie **pruefnahe Zusammenfassungen** zur Verfuegung stellen.
+VLOPs/VLOSEs muessen AGB **in den Amtssprachen aller EU-Mitgliedstaaten** bereitstellen, in denen sie Dienste anbieten, sowie eine **kompakte, leicht zugaengliche und maschinenlesbare Zusammenfassung** (Art. 14 Abs. 5) zur Verfuegung stellen.
 
 ### Art. 16 DSA — Melde- und Abhilfeverfahren (Notice-and-Action)
 
@@ -60,20 +60,21 @@ Hosting-Diensteanbieter muessen **leicht zugaengliche Meldemechanismen** einrich
 Der Anbieter muss:
 - Den Eingang bestaetigen
 - **Zeitnah** entscheiden
-- Bei dringenden Faellen (Lebensgefahr, Sicherheitsbedrohung) **ohne Verzoegerung** handeln
 - Die Entscheidung und die Begruendung mitteilen (Art. 17)
 
 ### Weitere zentrale Pflichten
 
-- **Art. 15**: Transparenzberichte (jaehrlich fuer Plattformen; halbjaehrlich fuer VLOPs/VLOSEs)
+- **Art. 15**: Transparenzberichte aller Vermittlungsdienste mindestens jaehrlich, ausgenommen Kleinst- und Kleinunternehmen (Abs. 2); Zusatzangaben fuer Online-Plattformen (Art. 24); VLOPs/VLOSEs halbjaehrlich (Art. 42)
+- **Art. 18**: Verdacht auf Straftaten mit Gefahr fuer Leben oder Sicherheit **unverzueglich** den Strafverfolgungs- oder Justizbehoerden melden (in Deutschland BKA, § 13 DDG)
 - **Art. 20**: Internes Beschwerdemanagement bei Plattformen
 - **Art. 21**: Aussergerichtliche Streitbeilegung
 - **Art. 22**: Bevorzugte Behandlung vertrauenswuerdiger Hinweisgeber (Trusted Flagger)
 - **Art. 26–28**: Werbetransparenz, Verbot auf Profiling sensibler Daten, Minderjaehrigenschutz
-- **Art. 34/35**: Systemische-Risiko-Bewertung bei VLOPs
+- **Art. 34/35**: Bewertung systemischer Risiken (Art. 34) und Risikominderung (Art. 35) bei VLOPs und VLOSEs
 
 ## Typische Fallstricke in Codebases
 
+- **KMU-Ausnahme nicht geprueft**: Kleinst- und Kleinunternehmen im Sinne der Empfehlung 2003/361/EG sind von Art. 20 bis 28 DSA ausgenommen, ausser Art. 24 Abs. 3 (Art. 19 Abs. 1), und vom Transparenzbericht nach Art. 15 (Abs. 2)
 - **Fehlende Kontaktstelle** nach Art. 12 (nicht im Impressum sichtbar oder kein Formular) → Bussgeldrisiko
 - **AGB nicht DSA-konform**: Content-Moderation-Praxis nicht offengelegt, keine klare Regelung zur algorithmischen Entscheidung
 - **Notice-and-Action-Mechanismus fehlt oder ist zu tief versteckt** (muss leicht zugaenglich sein)
@@ -94,7 +95,8 @@ Der Anbieter muss:
 ## Behoerden-Hinweise
 
 - **Bundesnetzagentur (Digital Services Coordinator, DSC)**: Zentrale deutsche Aufsicht, angesiedelt beim BNetzA. Informationen: https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/start.html
-- **BfDI**: Zustaendig fuer datenschutzrechtliche Schnittmengen (insb. Werbung, Profiling, Art. 26–28)
+- **BfDI**: Zustaendig fuer Art. 26 Abs. 3 und Art. 28 Abs. 2, 3 DSA (§ 12 Abs. 3 DDG)
+- **BzKJ**: Zustaendig fuer Art. 14 Abs. 3 und Art. 28 Abs. 1 DSA (§ 12 Abs. 2 DDG)
 - **EU-Kommission (DG CNECT)**: Direkte Aufsicht ueber VLOPs/VLOSEs
 - **DDG** (nationales Durchfuehrungsgesetz): https://gesetz-digitale-dienste.de/
 

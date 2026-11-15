@@ -1,6 +1,6 @@
 ---
-aktualisiert: 2026-11-14
-quelle-primaer: https://rewis.io/urteile/urteil/lhm-20-01-2022-3-o-1749320/
+aktualisiert: 2026-11-15
+quelle-primaer: https://www.gesetze-bayern.de/Content/Document/Y-300-Z-GRURRS-B-2022-N-612
 quellen-sekundaer:
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Text=3+O+17493/20
   - https://www.ra-plutte.de/lg-muenchen-dynamische-einbindung-google-web-fonts-ist-dsgvo/
@@ -51,25 +51,26 @@ Der Kläger besuchte die Website des Beklagten. Die Website hatte Google Fonts *
 ## Tenor / Ergebnis
 
 1. **Unterlassungsanspruch** bejaht: Beklagter muss die dynamische Einbindung ohne Einwilligung unterlassen
-2. **Schadenersatz nach Art. 82 DSGVO:** 100 EUR für immateriellen Schaden
-3. **Begründung:** Die automatische Weitergabe der IP-Adresse an Google stellt einen Eingriff in das allgemeine Persönlichkeitsrecht und Recht auf informationelle Selbstbestimmung dar, der nicht durch ein berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO gedeckt ist — weil die lokale Einbindung (self-hosted) gleichwertig möglich und damit erforderlich wäre.
+2. **Auskunft:** Beklagter muss dem Kläger Auskunft erteilen, ob den Kläger betreffende personenbezogene Daten verarbeitet werden
+3. **Schadenersatz nach Art. 82 DSGVO:** 100 EUR für immateriellen Schaden
+
+**Begründung:** Die automatische Weitergabe der IP-Adresse an Google stellt einen Eingriff in das allgemeine Persönlichkeitsrecht und Recht auf informationelle Selbstbestimmung dar, der nicht durch ein berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO gedeckt ist — weil die lokale Einbindung (self-hosted) gleichwertig möglich und damit erforderlich wäre.
 
 ## Kernaussagen
 
 ### Personenbezug der IP-Adresse
 
-- Bestätigt EuGH C-582/14 (Breyer): IP-Adresse ist personenbezogenes Datum
+- Stützt sich auf BGH, Urteil vom 16.05.2017, VI ZR 135/13 (Folgeentscheidung zu EuGH C-582/14, Breyer): IP-Adresse ist personenbezogenes Datum
 - Auch dynamische IP genügt, wenn Verknüpfung mit zusätzlichen Infos möglich
 
 ### Fehlendes berechtigtes Interesse (Art. 6 Abs. 1 lit. f)
 
 - **Erforderlichkeit fehlt:** Google Fonts können ohne IP-Übertragung bezogen werden (Download und lokales Hosting)
-- Kontrollverlust über eigene Daten durch Übertragung an Google („unternehmen, das dafür bekannt ist, Nutzerdaten zu sammeln") ist unverhältnismäßig
 
 ### Immaterieller Schaden
 
-- „**Individuelles Unwohlsein**" durch Kontrollverlust genügt
-- 100 EUR als Mindestbetrag zur Abschreckung / Prävention
+- „**Individuelles Unwohlsein**" durch Kontrollverlust genügt; das LG stellt ab auf den „Kontrollverlust des Klägers über ein personenbezogenes Datum an Google, ein Unternehmen, das bekanntermaßen Daten über seine Nutzer sammelt" (Rn. 12)
+- Das LG hielt 100 EUR für angemessen und stützte sich auch auf Sanktion und Prävention (Rn. 12). Diese Begründung ist überholt: Art. 82 DSGVO hat ausschließlich Ausgleichsfunktion (BGH VI ZR 10/24, Rn. 25, unter Verweis auf EuGH C-741/21).
 
 ## Kritik und spätere Entwicklungen
 
@@ -88,7 +89,7 @@ Kurz nach dem Urteil starteten mehrere Abmahnanwälte und angebliche „Betroffe
 
 Der EuGH hat klargestellt, dass der **bloße Verstoß gegen die DSGVO nicht automatisch** einen Schadenersatzanspruch begründet — die negative Folge muss nachgewiesen werden. Allerdings gibt es **keine Erheblichkeitsschwelle** (kein Bagatellausschluss).
 
-### EuGH-Einfluss (C-340/21, Bulgarische Post, 14.12.2023)
+### EuGH-Einfluss (C-340/21, Natsionalna agentsia za prihodite [bulgarische Nationale Agentur für Einnahmen], 14.12.2023)
 
 Der EuGH hat in einer weiteren Entscheidung klargestellt, dass die **Befürchtung eines Datenmissbrauchs** durch Dritte nach einer DSGVO-Verletzung einen immateriellen Schaden darstellen kann (Hacking-Fall). Damit bleibt die LG-München-Linie für Google-Fonts-Verfahren grundsätzlich anschlussfähig, sofern der konkrete Kontrollverlust dargelegt wird.
 
@@ -103,24 +104,24 @@ ersatzfaehigen immateriellen Schaden i.S.v. Art. 82 DSGVO begruendet und wie
 das Konzept personenbezogener Daten bei dynamischen IP-Adressen in dieser
 Konstellation auszulegen ist. Volltext der Vorlagefragen: curia.europa.eu
 (vi_zr_258-24.pdf). Die EuGH-Entscheidung steht aus; bis dahin ist die
-LG-Muenchen-Linie fuer Massen-Abmahnungen rechtsunsicher. Die Schlussantraege
-von Generalanwalt Szpunar werden fuer 2026 erwartet, waren zum Stand
-2026-11-14 noch nicht veroeffentlicht <<VERIFIKATION AUSSTEHEND>>.
+LG-Muenchen-Linie fuer Massen-Abmahnungen rechtsunsicher.
+Verfahrensstatus (Stand 2026-11-14): anhaengig. Generalanwalt Szpunar hat am
+05.11.2026 Schlussantraege vorgelegt (ECLI:EU:C:2026:948); ein Urteil liegt
+noch nicht vor. Der Inhalt der Schlussantraege ist hier nicht ausgewertet
+(Volltext beim Abruf noch nicht verfuegbar) <<VERIFIKATION AUSSTEHEND>>.
 
 ### BGH VI ZR 10/24 „Facebook-Scraping" (18.11.2024) als Leitentscheidung Art. 82 DSGVO
 
-Der VI. Zivilsenat hat im ersten foermlichen Leitentscheidungsverfahren
+Der VI. Zivilsenat hat im Leitentscheidungsverfahren
 (§ 552b ZPO) am **18.11.2024** entschieden: Der „blosse und kurzzeitige
 Verlust der Kontrolle" ueber personenbezogene Daten infolge einer
 DSGVO-Verletzung kann einen ersatzfaehigen immateriellen Schaden i.S.v.
 Art. 82 Abs. 1 DSGVO begruenden, ohne dass konkrete psychische
-Beeintraechtigungen dargelegt werden muessen. Folgerechtsprechung u.a.
-BGH VI ZR 109/23, Urteil vom 28.01.2025 (Darlegung eines immateriellen Schadens
-nach Art. 82 Abs. 1 DSGVO bei Nutzung einer E-Mail-Adresse zu Werbezwecken;
-ECLI:DE:BGH:2025:280125UVIZR109.23.0, primaer bestaetigt ueber die
-Rechtsinformations-API des Bundes am 2026-11-14; die oft genannte konkrete
-Schadenssumme von 500 EUR ist in der Primaerquelle nicht wiedergegeben
-und daher hier mit Verifikationsmarker versehen <<VERIFIKATION AUSSTEHEND>>).
+Beeintraechtigungen dargelegt werden muessen. Ferner
+BGH VI ZR 109/23, Urteil vom 28.01.2025 (ECLI:DE:BGH:2025:280125UVIZR109.23.0):
+Revision des Klaegers zurueckgewiesen; die 500 EUR waren nur die
+Klageforderung, nicht ein zugesprochener Betrag. Eine einzelne Werbe-E-Mail
+ohne Weitergabe an Dritte begruendet keinen Kontrollverlust (Rn. 18).
 Fuer
 Google-Fonts-Faelle bedeutet das: Die Art-82-Grundlage traegt im Prinzip,
 die Frage des Rechtsmissbrauchs bei provozierten Verstoessen bleibt aber
@@ -177,3 +178,12 @@ const inter = Inter({ subsets: ["latin"] });
   2025"). BGH VI ZR 10/24 (Facebook-Scraping, 18.11.2024) als Leitentscheidung
   zu Art. 82 Abs. 1 DSGVO ergaenzt. Status der Schlussantraege Szpunar noch
   nicht verifizierbar, Marker gesetzt.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  quelle-primaer auf gesetze-bayern.de umgestellt; Tenor dreigliedrig
+  (Unterlassung, Auskunft, 100 EUR); Rn.-12-Zitat woertlich und beim
+  immateriellen Schaden; Praeventionsbegruendung als ueberholt
+  gekennzeichnet; Breyer-Bezug ueber BGH VI ZR 135/13; C-340/21 richtig
+  benannt; Stand C-654/25: Schlussantraege Szpunar vom 05.11.2026
+  (ECLI:EU:C:2026:948), Inhalt noch nicht ausgewertet; "erstes"
+  Leitentscheidungsverfahren gestrichen; VI ZR 109/23 richtiggestellt
+  (Revision zurueckgewiesen, Marker entfernt).

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-10-24
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/markeng/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/markeng/__14.html
@@ -37,15 +37,16 @@ Ergaenzt wird das MarkenG durch die **Unionsmarkenverordnung (EU) 2017/1001** (U
 
 1. **Identitaetsschutz** (Doppelidentitaet): Identisches Zeichen fuer identische Waren/Dienstleistungen
 2. **Verwechslungsgefahr**: Identisches oder aehnliches Zeichen fuer identische oder aehnliche Waren/Dienstleistungen, wenn Verwechslungsgefahr besteht
-3. **Bekanntheitsschutz**: Identisches oder aehnliches Zeichen fuer NICHT-aehnliche Waren, wenn die Marke **im Inland bekannt** ist und die Benutzung die **Unterscheidungskraft oder Wertschaetzung** ohne rechtfertigenden Grund in unlauterer Weise ausnutzt oder beeintraechtigt (Verwaesserung, Ausbeutung)
+3. **Bekanntheitsschutz**: Identisches oder aehnliches Zeichen fuer Waren oder Dienstleistungen jeder Art, wenn die Marke **im Inland bekannt** ist und die Benutzung die **Unterscheidungskraft oder Wertschaetzung** ohne rechtfertigenden Grund in unlauterer Weise ausnutzt oder beeintraechtigt (Verwaesserung, Ausbeutung)
 
 **Abs. 3 — Benutzungshandlungen** (nicht abschliessend):
 - Anbringen auf Waren, Verpackung
 - Anbieten, Inverkehrbringen, Lagern
+- Anbieten oder Erbringen von Dienstleistungen unter dem Zeichen (Nr. 3)
 - Einfuehren, Ausfuehren
 - **Als Handelsname / Geschaeftsbezeichnung verwenden**
-- **Benutzung in Geschaeftspapieren und in der Werbung** — inkl. Online-Werbung, Google Ads, Meta Keywords
-- **Benutzung in vergleichender Werbung** entgegen UWG
+- **Benutzung in Geschaeftspapieren und in der Werbung** (Nr. 6), nach Auslegung auch Online-Werbung, Google Ads, Meta Keywords (Beispiele, nicht Normbestandteil)
+- **Benutzung in vergleichender Werbung** entgegen der Richtlinie 2006/114/EG (Nr. 7; national § 6 UWG)
 
 **Abs. 5 — Unterlassungsanspruch** bei Wiederholungsgefahr (nach erfolgter Verletzung vermutet) oder Erstbegehungsgefahr.
 
@@ -54,7 +55,7 @@ Ergaenzt wird das MarkenG durch die **Unionsmarkenverordnung (EU) 2017/1001** (U
 2. **Verletzergewinn** (Herausgabe)
 3. **Lizenzanalogie** — uebliche Lizenzgebuehr (haeufigste Praxis!)
 
-**Abs. 7** — Haftung von Organen (GmbH-Geschaeftsfuehrer, Vorstand) persoenlich.
+**Abs. 7** — Haftung des Betriebsinhabers fuer Verletzungen durch Angestellte oder Beauftragte (Unterlassung; Schadensersatz bei deren Verschulden).
 
 ### § 15 MarkenG — Geschaeftliche Bezeichnungen
 
@@ -77,16 +78,16 @@ Voraussetzung: Benutzung **anstaendige Gepflogenheiten** in Gewerbe/Handel.
 
 Nach erstem Inverkehrbringen im EWR durch oder mit Zustimmung des Markeninhabers ist die Marke erschoepft — Wiederverkauf grundsaetzlich frei. Ausnahme: Umpacken, Veraenderung, Schaedigung des Rufs.
 
-### Wichtig fuer Online-Kontext: § 14a, § 14b
+### Wichtig fuer Online-Kontext: Marktplaetze und Lagerung
 
-- **§ 14a** — Haftung von Host-Providern/Marktplaetzen (nach LOreal/eBay-Rechtsprechung)
-- **§ 14b** — Lagerung von markenverletzenden Waren (nach Coty-Urteil EuGH)
+- **§ 14a MarkenG** betrifft Transitwaren unter zollamtlicher Ueberwachung. Die Verantwortlichkeit von Marktplaetzen ist nicht in einem eigenen Paragrafen geregelt, sondern folgt aus der Rechtsprechung (u. a. EuGH C-324/09, C-148/21 und C-184/21).
+- **Lagerung/Besitz markenverletzender Ware**: einen § 14b MarkenG gibt es nicht; zu behandeln ueber § 14 MarkenG in Auslegung von EuGH C-567/18 (Coty).
 
 ## Typische Fallstricke in Codebases
 
 ### Marketing / SEO / Ads
 
-- **Markenname im Meta-Title / Title-Tag** ohne Berechtigung → Verletzung nach § 14 Abs. 3 Nr. 5
+- **Markenname im Meta-Title / Title-Tag** ohne Berechtigung → Verletzung nach § 14 Abs. 3 Nr. 6 MarkenG (Benutzung in der Werbung)
 - **Google Ads auf fremde Marken buchen**: Abhaengig von Darstellung (Interflora-Rsp.) — bei Verwechslungsgefahr problematisch
 - **Affiliate-Links** mit Marken-Keywords (gebrandet) — rechtliche Grauzone, oft unzulaessig
 - **Comparative Advertising** (vergleichende Werbung) muss § 6 UWG entsprechen (anstaendig, fair, nicht irrefuehrend)
@@ -94,7 +95,7 @@ Nach erstem Inverkehrbringen im EWR durch oder mit Zustimmung des Markeninhabers
 ### Domains / Subdomains
 
 - Eigene Domain mit fremder Marke → hohes Verletzungsrisiko
-- **Typosquatting** (apple.de vs. app1e.de) → kennzeichenrechtlich + UWG-verletzend
+- **Typosquatting** (apple.de vs. app1e.de) → kennzeichenrechtlich verletzend; lauterkeitsrechtlich gezielte/unlautere Behinderung nach § 4 Nr. 4 UWG (vormals § 4 Nr. 10), wenn Nutzer abgefangen und nicht sofort unuebersehbar aufgeklaert werden (BGH, 22.01.2014, I ZR 164/12, wetteronline.de); bei sofortigem deutlichem Hinweis regelmaessig nicht
 - **City-Marken**: "Berliner Currywurst" geschuetzt als geographische Herkunftsangabe
 
 ### Produktbezeichnungen

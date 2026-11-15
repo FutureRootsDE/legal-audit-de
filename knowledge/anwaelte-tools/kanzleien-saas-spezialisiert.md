@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quellen-sekundaer:
   - https://haerting.de/
   - https://www.srd-rechtsanwaelte.de/
@@ -34,8 +34,9 @@ Fuer digitale Geschaeftsmodelle gibt es drei Kanzlei-Typen:
 2. **Mittlere Wirtschaftskanzleien** — breites Service-Portfolio, moderate Preise
 3. **Grosskanzleien** (CMS, Noerr, Osborne Clarke) — fuer Scale-Ups, M&A, Investoren-Deals
 
-Alle unten genannten Daten stammen von oeffentlich erreichbaren Kanzlei-
-Websites. Verifiziert am 2026-11-14.
+Standorte und Firmierungen stammen von oeffentlich erreichbaren Kanzlei-
+Websites (verifiziert am 2026-11-14). Honorarangaben sind dort nicht belegt
+und nur Marktindikationen.
 
 ## Boutique-Kanzleien mit IT-/Datenschutz-Fokus
 
@@ -60,8 +61,8 @@ Websites. Verifiziert am 2026-11-14.
 | Standorte | Berlin (Am Hamburger Bahnhof 4, 10557), Muenchen (Elsenheimerstr. 59, 80687), Duesseldorf (Uerdinger Str. 62, 40474), Koeln (Breite Str. 100, 50667) |
 | Spezialisierung | AI / KI-Recht, IT-Recht, Datenschutz, Datenrecht, Informationssicherheit, Gewerblicher Rechtsschutz, Urheber-/Medienrecht, Litigation |
 | Eigen-Bezeichnung | "Boutique law firm for digital projects" |
-| AI Act / KI-Recht | Ja, Schwerpunkt — relevant seit AI Act in Kraft (Mai 2026) |
-| Verbindung | Konzern-Verbund mit ISiCO (externer DSB) |
+| AI Act / KI-Recht | Ja, Schwerpunkt; AI Act in Kraft seit 01.08.2024, gestaffelte Geltung ab 02.02.2025, 02.08.2025 und 02.08.2026 (Art. 113), siehe [[gesetze/ai-act]] |
+| Verbindung | Unternehmensverbund mit ISiCO (externer DSB) |
 | Budget-Range | Boutique-Preise — konkrete Honorare auf Anfrage |
 
 ### Dr. Thomas Schwenke
@@ -74,7 +75,7 @@ Websites. Verifiziert am 2026-11-14.
 | Spezialisierung | Datenschutz (DSGVO), Online-Marketing-Recht, KI-Recht, E-Commerce / Vertraege, IT-/Technologie-Recht |
 | Erfahrung | ca. 20 Jahre als Anwalt |
 | Zielgruppen | Unternehmen, Freelancer, oeffentliche Verwaltung — international |
-| Besonderheit | Breite oeffentliche Praesenz (Blog, Podcast "Rechtsbelehrung", Generator datenschutz-generator.de mit > 500.000 Nutzern) |
+| Besonderheit | Breite oeffentliche Praesenz (Blog, Podcast, Generator datenschutz-generator.de; Nutzungszahlen laut Anbieterseite) |
 | Budget-Range | Boutique-Preise — konkrete Honorare auf Anfrage |
 
 ### IT-Recht Kanzlei (Muenchen)
@@ -103,7 +104,7 @@ Websites. Verifiziert am 2026-11-14.
 | Praxisbereiche relevant | Datenschutz & Datenrecht, Informationstechnologie & Telekommunikation, Informationssicherheit, Kuenstliche Intelligenz, Cyber Security |
 | AI Act / KI-Recht | Ja, eigene Praxisgruppe |
 | Ideal fuer | Mittelstand bis Konzern, Cross-Border-Mandate, KI-Governance, NIS2-Compliance |
-| Anerkennungen | JUVE Handbuch 2025/26 |
+| Anerkennungen | JUVE Handbuch Wirtschaftskanzleien 2025/26 (laut heuking.de/de/home.html) |
 
 ### Bartsch Rechtsanwaelte (Karlsruhe / Frankfurt / Muenchen / Pforzheim)
 
@@ -150,7 +151,7 @@ Websites. Verifiziert am 2026-11-14.
 | Feld | Wert |
 |------|------|
 | URL | https://www.osborneclarke.com/de |
-| Standorte DE | Berlin, Koeln, Hamburg, Muenchen |
+| Standorte DE | Berlin, Frankfurt, Hamburg, Koeln, Muenchen (osborneclarke.com/locations/germany) |
 | Praxisbereiche | IT and data, Intellectual Property, Regulatory & Compliance, Competition / Antitrust / Trade, Tech Media Comms (Sektor) |
 | Benannte Partner (oeffentlich) | Nicolas Gabrysch (Managing Partner Koeln), Gereon Abendroth (Koeln), Anne Wittmann (Muenchen) |
 | Eigen-Bezeichnung | "one of the most dynamic commercial law firms in Germany" |
@@ -179,21 +180,12 @@ Websites. Verifiziert am 2026-11-14.
 ## Typischer Ablauf eines ersten Mandats
 
 1. **Kontakt** via Kanzlei-Kontaktformular oder DAV-Anwaltauskunft
-2. **Erstgespraech** (30-60 Min., oft kostenfrei oder pauschal 100-250 EUR)
+2. **Erstgespraech** (30-60 Min.): Ohne Gebuehrenvereinbarung ist die Verguetung fuer Verbraucher begrenzt: Beratung hoechstens 250 EUR, erstes Beratungsgespraech hoechstens 190 EUR (§ 34 Abs. 1 Satz 3 RVG). Fuer Unternehmer gilt die vereinbarte Verguetung. Kosten vorab erfragen.
 3. **Mandats-Vereinbarung** (schriftlich, mit Honorar-Vereinbarung)
 4. **Bestandsaufnahme** — Zusendung aktueller Dokumente (Verarbeitungsverzeichnis, AGB-Entwurf, DSE-Entwurf, Provider-Liste)
 5. **Gutachten / Review** (Pauschale oder Stunden)
 6. **Besprechung und Iteration**
 7. **Finale Freigabe** mit schriftlichem Memo (Haftungs-Relevanz!)
-
-## Referenz zu konkretem Beispiel (ksk-automation)
-
-Die Phase-10-Planung des ksk-automation-Projekts (C:\Users\Philip\SaaS_Project\projects\ksk-automation\.planning\phases\10-testing-dsgvo-dokumentation-launch-readiness\) hat folgendes Setup dokumentiert:
-- Gray Area GA-6: **Fachanwalt-Review mit Budget-Range 500-1.500 EUR** fuer fertig ausgearbeitete Rechtstexte
-- Gray Area GA-1 bis GA-8: Pre-Review-Arbeit (AVV-Pflege, Verarbeitungsverzeichnis, DSFA) moeglichst selbststaendig erledigt, dann Pauschal-Review durch Fachanwalt.
-
-Dieser Ansatz ("Vor-Arbeit maximal automatisieren, finale Freigabe juristisch")
-minimiert die Kosten und ist fuer Solo-Gruender / kleine Teams empfehlenswert.
 
 ## Verifizierte URLs (Stand 2026-11-14)
 
@@ -206,7 +198,7 @@ erwartete Inhalte:
 | SRD | https://www.srd-rechtsanwaelte.de/ | OK, 4 Standorte (Berlin, Duesseldorf, Muenchen, Koeln) bestaetigt; die frueher gelistete Kurz-URL `srd.law` war 2026-11-14 ECONNREFUSED |
 | Dr. Schwenke | https://drschwenke.de/ | OK |
 | CMS DE | https://cms.law/de/deu/ | OK, 8 dt. Standorte bestaetigt |
-| Osborne Clarke DE | https://www.osborneclarke.com/de | OK, Partner Gabrysch/Abendroth/Wittmann mit Durchwahl bestaetigt |
+| Osborne Clarke DE | https://www.osborneclarke.com/de | OK, Partner Gabrysch/Abendroth/Wittmann mit Durchwahl bestaetigt; Standorte Berlin, Frankfurt, Hamburg, Koeln, Muenchen laut osborneclarke.com/locations/germany |
 | Noerr | https://www.noerr.com/de | OK |
 | IT-Recht Kanzlei | https://www.it-recht-kanzlei.de/ | OK, Pricing-Tiers (5,90 / 9,90 / 24,90 / 54,90 EUR/Monat) 2026-11-14 bestaetigt |
 | Heuking | https://www.heuking.de/ | OK, 8 dt. Standorte + KI-/Datenschutz-Praxis bestaetigt |
@@ -229,3 +221,4 @@ erwartete Inhalte:
   - Haerting, Dr. Schwenke, IT-Recht Kanzlei (Pricing bestaetigt), Heuking, Bartsch, Menold Bezler/Dr. Ulbricht, CMS, Osborne Clarke, Noerr: Live-Abruf OK, Firmierung und Standorte decken Eintrag.
   - Dr. Ronald Kandelhard: weiter nicht belegbar, Eintrag mit Verifikationsmarker belassen.
   - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): AI-Act-Daten (in Kraft seit 01.08.2024, gestaffelte Geltung nach Art. 113) korrigiert; Quellenhinweis auf belegte Felder beschraenkt; SRD/ISiCO als Unternehmensverbund; Osborne-Clarke-Standorte um Frankfurt ergaenzt; Erstgespraech nach § 34 Abs. 1 Satz 3 RVG; Nutzerzahl und Podcasttitel bei Dr. Schwenke entfernt; JUVE-Angabe bei Heuking mit Quelle; Abschnitt mit lokalem Projektbezug entfernt.

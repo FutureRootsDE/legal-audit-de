@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quellen-sekundaer:
   - https://www.bvdnet.de/
   - https://www.udis.de/
@@ -27,11 +27,11 @@ geltungsbereich: [DE]
 ## Kategorie-Ueberblick
 
 Nach § 38 Abs. 1 BDSG ist ein **Datenschutzbeauftragter (DSB)** zu benennen, wenn
-- mindestens **20 Personen** staendig mit automatisierter Verarbeitung personenbezogener Daten beschaeftigt sind, ODER
+- in der Regel mindestens **20 Personen** staendig mit automatisierter Verarbeitung personenbezogener Daten beschaeftigt sind, ODER
 - Verarbeitungen durchgefuehrt werden, fuer die eine DSFA nach Art. 35 DSGVO vorgeschrieben ist, ODER
 - personenbezogene Daten geschaeftsmaessig zum Zweck der Uebermittlung / anonymisierten Uebermittlung / fuer Markt- oder Meinungsforschung verarbeitet werden.
 
-Alternativ Art. 37 DSGVO direkt (im Kerngeschaeft Profilbildung, Verarbeitung besonderer Kategorien Art. 9, etc.)
+Alternativ Art. 37 Abs. 1 DSGVO direkt: Behoerden und oeffentliche Stellen (lit. a), Kerntaetigkeit mit umfangreicher regelmaessiger und systematischer Ueberwachung betroffener Personen (lit. b) oder umfangreiche Verarbeitung besonderer Kategorien nach Art. 9 bzw. von Daten nach Art. 10 (lit. c).
 
 **Optionen:**
 1. **Interner DSB** (Mitarbeiter mit Zusatz-Qualifikation)
@@ -75,7 +75,7 @@ Gesetzlich (Art. 37 Abs. 5 DSGVO) sind nur **"berufliche Qualifikation und insbe
 - URL: https://www.gdd.de/
 - Einer der aeltesten Datenschutz-Verbaende Deutschlands
 - GDDcert.®-Familie (verifiziert 2026-05-08, gdd.de/qualifizierung):
-  - **GDDcert. EU** (Datenschutz-Grundlagen-Zertifikat, mit Prep-Repetitorium)
+  - **GDDcert. EU** (Zertifizierung zum/zur "betrieblichen Datenschutzbeauftragten (GDDcert. EU)", Bezeichnung laut gdd.de)
   - **GDDcert. Datenschutzauditor/in** (2-Tages-Schulung + Pruefung)
   - Weitere Spezialisierungen werden saisonal angeboten — aktuelle Liste auf gdd.de.
 - Fortbildungen + GDD-Pruefungs-Zentrum
@@ -86,7 +86,7 @@ Gesetzlich (Art. 37 Abs. 5 DSGVO) sind nur **"berufliche Qualifikation und insbe
 |----------|-----------|-----|
 | TUEV NORD | "Datenschutzbeauftragter (TUEV®)" | https://www.tuev-nord.de/ |
 | TUEV SUED | "Datenschutzbeauftragter (TUEV SUED Akademie)" | https://www.tuvsud.com/ |
-| TUEV Rheinland | Datenschutz-Zertifizierungen | https://www.tuv.com/germany/de/ |
+| TUEV Rheinland | Datenschutz-Zertifizierungen | https://tuv.com/de-de |
 
 TUEV-Zertifikate haben breite Marktakzeptanz, sind aber nicht das **einzige**
 anerkannte Zertifikat — Art. 37 DSGVO nennt kein verbindliches Zertifikat.
@@ -107,14 +107,14 @@ Diese sind Beispiele fuer externe DSB-Services; es gibt hunderte mehr — die Li
 - **activeMind AG** — https://www.activemind.de/ (verifiziert 2026-05-08)
   - Voller Name: activeMind AG Management- und Technologieberatung
   - Schwerpunkte: Datenschutz, Informationssicherheit, KI-Beratung — bietet ausdruecklich externe DSB-Dienste an
-  - Partnerunternehmen in CH und UK; konkreter dt. HQ-Standort nicht prominent ausgewiesen
+  - Partnerunternehmen in CH und UK; Sitz: Potsdamer Strasse 3, 80802 Muenchen (Impressum)
 - **Althammer & Kill GmbH & Co. KG** — https://www.althammer-kill.de/ (verifiziert 2026-05-08)
   - Standorte: Hannover (HQ, Roscherstr. 7, 30161), Duesseldorf, Mannheim
   - Schwerpunkte: Datenschutz, Informationssicherheit, KI, Compliance
   - Setzt zertifizierte DSB / Juristen ein; externer-DSB-Mandate ueber Datenschutz-Beratung abdeckbar
-- **ISiCO** — https://www.isico.de/ (verifiziert 2026-05-08; alte URL `isico-datenschutz.de` redirected auf isico.de)
+- **ISiCO** — https://www.isico.de/ (verifiziert 2026-05-08)
   - Externer DSB explizit angeboten; Standorte: Berlin, Koeln, Muenchen
-  - Konzern-Verbund mit SRD (Schuermann Rosenthal Dreyer) — Logo im Footer als "Unternehmensverbund"
+  - Unternehmensverbund mit SRD (Schuermann Rosenthal Dreyer), so auf der Website bezeichnet; eine gesellschaftsrechtliche Verbindung ist nicht ausgewiesen
   - Schwerpunkte: Datenschutz, Informationssicherheit (ISO 27001, NIS2/DORA), KI-Governance (ISO 42001), Datenstrategie
 **Wichtig:** Bei der Auswahl immer pruefen:
 - Referenzen im eigenen Industriezweig
@@ -125,7 +125,7 @@ Diese sind Beispiele fuer externe DSB-Services; es gibt hunderte mehr — die Li
 
 ### Vorteile externer DSB
 
-- **Keine Interessenkonflikte** (Art. 38 DSGVO) — der externe DSB ist nicht Weisungsgebunden
+- **Interessenkonflikte leichter auszuschliessen** (Art. 38 Abs. 6 DSGVO); die Weisungsfreiheit (Art. 38 Abs. 3 DSGVO) gilt fuer interne und externe DSB gleichermassen
 - **Breite Erfahrung** aus verschiedenen Branchen
 - **Weiterbildungs-Kosten** traegt der Dienstleister
 - **Skalierung**: bei Krisen Mehrpersonen-Support
@@ -165,16 +165,16 @@ Typische Leistungen im Abo:
 2. **Gap-Analyse** (1-3 Wochen) mit Verarbeitungsverzeichnis + TOM + AVV-Review
 3. **Massnahmen-Plan** mit Prioritaet
 4. **Schulung** der verantwortlichen Personen (einmalig + Auffrischung)
-5. **Benennung** via Formular an Aufsichtsbehoerde (Pflicht § 38 Abs. 1 Satz 2 BDSG)
+5. **Benennung** und Mitteilung der Kontaktdaten an die Aufsichtsbehoerde, ueblich per Online-Formular (Art. 37 Abs. 7 DSGVO); die Kontaktdaten sind zudem zu veroeffentlichen
 6. **Laufender Betrieb** monatliche Taetigkeiten + ad-hoc bei Aenderungen
 
 ## Benennungspflicht — offizielle Anzeige
 
-Der DSB ist der zustaendigen Aufsichtsbehoerde zu melden:
+Die Kontaktdaten des DSB sind der zustaendigen Aufsichtsbehoerde mitzuteilen und zu veroeffentlichen (Art. 37 Abs. 7 DSGVO); in der Datenschutzerklaerung sind sie zudem nach Art. 13 Abs. 1 lit. b DSGVO anzugeben:
 
 - Online-Formulare der Landesbeauftragten (z.B. BayLDA, LDI NRW)
 - Siehe [[behoerden/landesbeauftragte-kontakte]]
-- Anzeige binnen angemessener Frist nach Benennung (Praxis: direkt)
+- Eine Frist nennt Art. 37 Abs. 7 DSGVO nicht (Praxis: Mitteilung direkt mit der Benennung)
 
 ## Siehe auch
 
@@ -195,3 +195,4 @@ Der DSB ist der zustaendigen Aufsichtsbehoerde zu melden:
   - `externer-datenschutzbeauftragter.com` entfernt: TLS-Fehler beim Abruf (unrecognized-name, 2026-11-14), keine belegbare Anbieter-Struktur ueber Websearch auffindbar.
   - udis, GDD, TUEV NORD, TUEV SUED (per Suchmaschine bestaetigt, Direktabruf vom Bot geblockt), TUEV Rheinland, DEKRA, activeMind, Althammer & Kill, ISiCO: OK, Inhalte decken Eintrag.
   - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): "in der Regel" bei § 38 Abs. 1 Satz 1 BDSG ergaenzt; Art. 37 Abs. 1 lit. a bis c praezisiert; Benennung und Mitteilung nach Art. 37 Abs. 7 DSGVO statt § 38 Abs. 1 Satz 2 BDSG, Veroeffentlichungspflicht ergaenzt, keine gesetzliche Frist; Weisungsfreiheit gilt fuer interne und externe DSB; GDDcert. EU nach GDD-Bezeichnung; activeMind-Sitz aus Impressum; ISiCO als Unternehmensverbund mit SRD, Hinweis auf alte URL entfernt; TUEV-Rheinland-URL aktualisiert.

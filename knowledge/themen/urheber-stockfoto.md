@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/
 quellen-sekundaer:
   - https://unsplash.com/license
@@ -126,7 +126,7 @@ Zentrale Regel: **Eine Plattform-Lizenz bindet nur, wenn der Hochladende der wah
 
 ### Nach der Nutzung
 
-- [ ] **Lizenznachweis mind. 3 Jahre archivieren** (Verjaehrungsfrist § 102 UrhG)
+- [ ] **Lizenznachweis waehrend der gesamten Nutzung und mindestens 10 Jahre danach archivieren**: § 102 UrhG verweist auf die Verjaehrungsvorschriften des BGB (§§ 195, 199 BGB: 3 Jahre ab Schluss des Jahres der Kenntnis, kenntnisunabhaengige Hoechstfristen bis 10 bzw. 30 Jahre) und in Satz 2 auf § 852 BGB (Restschadensersatz verjaehrt erst nach zehn Jahren von seiner Entstehung an); der Unterlassungsanspruch entsteht bei fortdauernder Nutzung laufend neu. 10 Jahre sind ein Mindestwert.
 - [ ] Bei Loeschung: Caches / CDN / Archive ebenfalls leeren
 - [ ] Bei Plattform-Lizenz-Aenderungen: Migration dokumentieren
 
@@ -159,12 +159,11 @@ Empfohlene Hierarchie nach Rechtssicherheit:
 
 - **BGH, Urt. v. 15.01.2015 — I ZR 148/13 "Motorradteile"** — Haftung des Webseiteninhabers fuer Bildnutzung ohne Lizenz
 - **BGH, Urt. v. 13.09.2018 — I ZR 187/17 "Reformistischer Aufbruch"** — Urhebernennung und 100 %-Zuschlag
-- **LG Koeln, Urt. v. 30.01.2014 — 14 O 427/13** — CC-Lizenz und kommerzielle Nutzung
-- **OLG Koeln, Urt. v. 31.10.2014 — 6 U 60/14** — MFM-Tabelle als Schadensersatzgrundlage
+- **LG Koeln, Urt. v. 30.01.2014, 14 O 427/13** (ECLI:DE:LGK:2014:0130.14O427.13.00): Stockfoto-Plattform, Urheberbenennung nach § 13 UrhG auch bei Abruf der Bilddatei ueber die Direkt-URL (einstweilige Verfuegung bestaetigt)
+- **OLG Koeln, Urt. v. 31.10.2014, 6 U 60/14** (ECLI:DE:OLGK:2014:1031.6U60.14.00; Vorinstanz LG Koeln 28 O 232/13): CC-BY-NC-Lizenz; der Lizenzverstoss (Bearbeitung, Urheberbezeichnung) begruendet einen Unterlassungsanspruch; Lizenzschaden null, MFM-Tabelle nicht anwendbar (Rn. 104)
 
 ### Speziell zu Gratis-Plattformen
 
-- **LG Koeln, Urt. v. 20.04.2023 — 14 O 41/22** — Unsplash-CC0-Lizenz erloschen, neuer Vertragsrahmen nach Policy-Change
 - Bisher kein hoechst- oder obergerichtliches Endurteil gezielt zum
   "gutglaeubigen Nutzer-Schutz bei falsch hochgeladenen Pexels/Pixabay-
   Bildern" identifiziert; Einzelfallentscheidungen auf LG-Ebene. Belastbarer
@@ -193,3 +192,10 @@ Empfohlene Hierarchie nach Rechtssicherheit:
   ergab weiterhin nur LG-Einzelfallentscheidungen. Marker auf das einzeilige
   Standardformat des Verifikationsmarkers normalisiert, naechste Pruefung
   2027-02.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Archivierungsfrist fuer Lizenznachweise von "3 Jahre" auf Nutzung plus
+  mindestens 10 Jahre (§ 102 UrhG, §§ 195, 199, 852 BGB); LG Koeln
+  14 O 427/13 und OLG Koeln 6 U 60/14 inhaltlich berichtigt (mit ECLI;
+  OLG Koeln: Lizenzschaden null, MFM nicht anwendbar); Eintrag "LG Koeln
+  14 O 41/22 (Unsplash-CC0)" gestrichen (das Aktenzeichen betrifft ein
+  Urteil vom 11.05.2023 zu Sandalen).

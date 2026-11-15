@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
@@ -38,10 +38,10 @@ Gilt für Anbieter von Telekommunikationsdiensten und Anbieter digitaler Dienste
 Verweis auf TKG / DDG; „Endeinrichtung" = jedes Gerät mit Verbindung zu öffentlichem TK-Netz (Laptop, Smartphone, Smart-TV, IoT).
 
 ### § 3 — Fernmeldegeheimnis
-Inhalte und nähere Umstände der TK unterliegen dem Fernmeldegeheimnis. Verletzung kann strafbar nach § 27 TDDDG sein.
+Inhalte und nähere Umstände der TK unterliegen dem Fernmeldegeheimnis. § 3 ist in § 27 TDDDG nicht genannt; § 27 stellt Verstöße gegen das Abhörverbot (§ 5) und gegen § 8 (getarnte Sendeanlagen) unter Strafe.
 
 ### § 19 — Technische und organisatorische Vorkehrungen
-Anbieter digitaler Dienste müssen geeignete TOM treffen (ergänzt Art. 32 DSGVO für Kommunikations-Kontext).
+Anbieter digitaler Dienste haben ihre Pflichten nach § 19 Abs. 1 durch technische und organisatorische Vorkehrungen sicherzustellen; nach Abs. 2 ist die anonyme oder pseudonyme Nutzung zu ermöglichen, soweit dies technisch möglich und zumutbar ist (ergänzt Art. 32 DSGVO für Kommunikations-Kontext).
 
 ### § 25 — Schutz der Privatsphäre bei Endeinrichtungen (zentrale Norm)
 
@@ -71,44 +71,44 @@ anerkannte Dienst ("Consenter", Law & Innovation Technology GmbH) wurde am
 **17.10.2025** registriert <<VERIFIKATION AUSSTEHEND>>
 
 ### § 27 — Strafvorschriften
-Bis zu **2 Jahre Freiheitsstrafe** bei Verletzung des Fernmeldegeheimnisses.
+Bis zu **2 Jahre Freiheitsstrafe** für Verstöße gegen das Abhörverbot (§ 5) und gegen § 8 (getarnte Sendeanlagen); § 3 ist in § 27 nicht genannt.
 
 ### § 28 — Bußgeldvorschriften
 Bis zu **300.000 EUR** bei Verstoß gegen § 25 (parallele Zuständigkeit zur Bußgeldmacht der DSGVO-Aufsicht!).
 
 ### § 29 — Zuständigkeit BfDI
-Der Bundesbeauftragte für den Datenschutz überwacht § 25 TDDDG.
+Nach § 29 Abs. 2 ist der BfDI nur bei Anbietern von TK-Diensten und öffentlichen Stellen des Bundes zuständig. Für private Anbieter digitaler Dienste (Websites, Apps, SaaS) überwachen die Landesdatenschutzbehörden § 25 TDDDG (§ 1 Abs. 1 Nr. 8 TDDDG, § 40 BDSG).
 
 ## Typische Fallstricke in Codebases
 
-- **Cookie-Banner lädt Tracking-Skripte VOR Consent:** Ganz klassischer Fehler — Tags müssen gated sein (Google Tag Manager Consent Mode v2, Cookiebot, Usercentrics).
-- **„Nur notwendige" / „Alle akzeptieren" ungleich groß/prominent:** verstößt gegen Freiwilligkeit (vgl. EDSA Leitlinie 05/2020, nudging).
+- **Cookie-Banner lädt Tracking-Skripte VOR Consent:** Ganz klassischer Fehler; Tags dürfen erst nach Einwilligung laden (Blockierung über die CMP, z. B. Cookiebot, Usercentrics, oder Google Consent Mode v2 im Basic-Modus; der Advanced-Modus lädt Google-Tags schon vor der Einwilligung und sendet cookielose Pings, er ist kein Gating).
+- **„Nur notwendige"/„Alle akzeptieren" ungleich prominent:** kann die Freiwilligkeit/Unmissverständlichkeit der Einwilligung (Art. 4 Nr. 11, Art. 7 DSGVO i. V. m. § 25 Abs. 1 TDDDG) entfallen lassen; Prüfung im Einzelfall (vgl. EDSA Cookie Banner Taskforce Report vom 18.01.2023, Nr. 15 bis 17).
 - **LocalStorage/SessionStorage-Fingerprinting ohne Consent:** § 25 TDDDG gilt technikneutral — nicht nur für HTTP-Cookies.
 - **Server-Side-Tracking mit Client-ID-Cookie:** Client-seitige Speicherung bleibt einwilligungspflichtig, auch wenn Data-Transfer serverseitig erfolgt.
-- **Page-Reload leert Consent-Status:** Consent muss persistent und widerrufbar sein.
+- **Page-Reload leert Consent-Status:** Einwilligung muss nachweisbar (Art. 7 Abs. 1 DSGVO) und so einfach widerrufbar sein wie erteilt (Art. 7 Abs. 3 DSGVO); geht der Status verloren, darf ohne erneute Einwilligung nichts Einwilligungspflichtiges gesetzt werden. Eine Persistenzpflicht als solche gibt es nicht.
 - **Cookie-Wall (Zugang nur bei Einwilligung):** EDSA sieht das überwiegend als unfreiwillig; Alternativen prüfen (Pur-Abo nach EDSA Opinion 08/2024, aber mit Auflagen).
-- **Länger als 12 Monate gespeicherte Consent-Cookies:** DSK Orientierungshilfe sieht ~12 Monate als Grenze.
+- **Länger als 12 Monate gespeicherte Consent-Cookies:** Die DSK OH Digitale Dienste nennt keine 12-Monats-Grenze; die Angabe ist ein nicht behördlich belegter Praxiswert.
 
 ## Relevanz für Codebase-Typen
 
 - **Next.js SaaS:** `next/script` mit Strategy `afterInteractive` für Tracking-Scripts **nur** nach Consent laden. Empfehlung: Dynamic Import gated durch Consent-State (z. B. via Zustand/Context).
-- **Landingpage:** Absolut zentral — fast jede Landingpage hat Marketing-Pixel. Consent-Tool (Cookiebot, Usercentrics, Borlabs, Klaro) Pflicht.
-- **n8n:** Selbst kaum betroffen. Betroffen wenn Webhooks von Marketing-Tools Daten einsammeln — dann ist Quell-Seite verantwortlich.
+- **Landingpage:** Absolut zentral, fast jede Landingpage hat Marketing-Pixel. Werden nicht unbedingt erforderliche Cookies/Pixel eingesetzt, ist vorher eine Einwilligung nach § 25 Abs. 1 TDDDG einzuholen (praktisch über ein Consent-Tool wie Cookiebot, Usercentrics, Borlabs, Klaro); ohne solche Vorgänge besteht keine Tool-Pflicht.
+- **n8n:** § 25 TDDDG trifft die Quell-Seite (Speicherung/Zugriff im Endgerät). Wer die Daten per Webhook im Workflow weiterverarbeitet, bleibt dafür nach DSGVO selbst Verantwortlicher oder Auftragsverarbeiter (Art. 6, 28 DSGVO).
 - **E-Commerce:** Warenkorb-Cookie = unbedingt erforderlich (§ 25 Abs. 2 Nr. 2). Conversion-Tracking = einwilligungspflichtig.
 - **Content/Blog:** YouTube/Vimeo-Embeds mit Cookies = einwilligungspflichtig; Lösung: „Click to load"-Pattern oder youtube-nocookie.com (trotzdem prüfen).
 
 ## Behörden-Hinweise
 
-- **DSK Orientierungshilfe für Anbieter:innen von Telemedien ab dem 1.12.2021** (OH Telemedien, aktualisiert 2023 als „OH Digitale Dienste")
+- **DSK Orientierungshilfe Digitale Dienste** (OH Digitale Dienste), Version 1.2, Stand November 2024; Vorgänger: OH Telemedien vom 20.12.2021, Version 1.1 vom 30.11.2022
 - **EDSA Leitlinien 05/2020** zur Einwilligung (Scrolling, Cookie-Walls)
 - **EDSA Opinion 08/2024** — „Consent or Pay"-Modelle für Large Online Platforms
-- **BfDI** ist nationale Aufsichtsbehörde für § 25 TDDDG
+- **Aufsicht über § 25 TDDDG:** Landesdatenschutzbehörden bei privaten Anbietern digitaler Dienste; BfDI nur für TK-Anbieter und öffentliche Stellen des Bundes (§ 29 Abs. 2)
 
 ## Zitierbare Urteile
 
 - **EuGH C-673/17 (Planet49), 01.10.2019** — Vorangekreuzte Checkbox ungültig
 - **BGH I ZR 7/16 (Cookie II), 28.05.2020** — Umsetzung Planet49 in deutsches Recht
-- **EuGH C-252/21 (Meta Platforms / Bundeskartellamt), 04.07.2023** — Personalisierte Werbung braucht Einwilligung, nicht nur „berechtigtes Interesse"
+- **EuGH C-252/21 (Meta Platforms / Bundeskartellamt), 04.07.2023** — Eine marktbeherrschende Stellung schließt eine wirksame Einwilligung nicht aus, ist aber ein wichtiger Aspekt bei der Beurteilung der Freiwilligkeit; die Beweislast liegt beim Betreiber (Tenor 8)
 
 ## Siehe auch
 
@@ -127,3 +127,9 @@ Der Bundesbeauftragte für den Datenschutz überwacht § 25 TDDDG.
   Anerkennung des ersten Dienstes "Consenter" am 17.10.2025 mit
   Verifikationsmarker versehen, da bislang nur ueber Sekundaerquellen
   belegt (BfDI-Register nicht direkt abgerufen).
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  § 27 (nur §§ 5, 8, nicht § 3), § 19 nach Wortlaut, Aufsicht ueber § 25
+  bei Landesdatenschutzbehoerden (§ 29 Abs. 2), 12-Monats-Grenze nicht aus
+  der DSK-OH, OH Digitale Dienste Version 1.2, EuGH C-252/21 auf Tenor 8
+  beschraenkt, Fallstricke (Consent Mode, Button-Gestaltung, Reload,
+  Landingpage, n8n) praezisiert.

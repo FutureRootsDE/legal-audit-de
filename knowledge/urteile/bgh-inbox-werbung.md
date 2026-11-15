@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=13.01.2022&Aktenzeichen=I+ZR+25/19
 quellen-sekundaer:
   - https://curia.europa.eu/juris/liste.jsf?num=C-102/20
@@ -36,15 +36,10 @@ ecli: ECLI:DE:BGH:2022:130122UIZR25.19.0
   des EuGH)
 - **EuGH-Vorlage:** C-102/20, Urteil vom **25.11.2021**
 - **Vorlagebeschluss des BGH:** 30.01.2020 (Aussetzung und EuGH-Vorlage)
-- **Vorinstanz:** OLG Nuernberg
+- **Vorinstanzen:** LG Nuernberg-Fuerth, Urteil vom 22.03.2018, 3 HKO 4495/17;
+  OLG Nuernberg, Urteil vom 15.01.2019, 3 U 724/18
 - **Parteien:** Klaegerin StWL Staedtische Werke Lauf a. d. Pegnitz GmbH
   (Energieversorger) ./. Beklagte eprimo GmbH (Energieversorger)
-
-Exakte OLG-Nuernberg-Aktenzeichen-Nummer und Datum der Vorinstanz-Entscheidung:
-<<VERIFIKATION AUSSTEHEND>>
-(Das frueher genannte „3 U 805/16, Urteil vom 15.08.2017" wurde entfernt, da
-in oeffentlichen Tier-1-Quellen nicht reproduzierbar. Querpruefung mit juris
-oder Heymanns empfohlen.)
 
 ## Sachverhalt
 
@@ -52,7 +47,8 @@ Die Beklagte **eprimo** liess ueber einen externen Dienstleister Werbung im
 E-Mail-Posteingang von **T-Online-Freemail-Nutzern** einblenden. Die Werbung
 erschien **als eingeblendeter Eintrag innerhalb der regulaeren E-Mail-Liste**
 (Inbox-Advertising), war optisch aehnlich aufgebaut wie eine normale E-Mail,
-jedoch mit Kennzeichen "Anzeige" / "Werbung".
+jedoch mit dem Wort "Anzeige" gekennzeichnet, grau unterlegt, ohne Datum und
+Absender (BGH Rn. 4).
 
 Die Klaegerin **StWL** (Mitbewerberin im Strommarkt) sah darin eine
 wettbewerbsrechtlich unzulaessige E-Mail-Werbung ohne Einwilligung der
@@ -62,7 +58,7 @@ Adressaten und klagte auf Unterlassung.
 
 1. Ist in das Postfach eingeblendete Werbung "elektronische Post" im Sinne
    von **Art. 13 Abs. 1 RL 2002/58/EG** (ePrivacy-Richtlinie) und damit von
-   **§ 7 Abs. 2 Nr. 2 UWG**?
+   **§ 7 Abs. 2 Nr. 3 UWG a.F. (heute § 7 Abs. 2 Nr. 2 UWG)**?
 2. Stellt das bloße Anzeigen in der Inbox eine "Nachricht" dar, deren
    Absenden an den Nutzer ohne dessen Einwilligung verboten ist?
 3. Greift das Verbot "hartnaeckige unerwuenschte Ansprache" nach Anhang I
@@ -75,18 +71,35 @@ Der EuGH entschied:
 - **Inbox-Placements sind "Verwendung elektronischer Post" i.S.v. Art. 13
   Abs. 1 RL 2002/58/EG.** Entscheidend: Werbung wird an einem Ort angezeigt,
   der fuer persoenliche Nachrichten reserviert ist.
-- Eine Einwilligung des Nutzers ist erforderlich, wenn die Werbung sich
-  optisch als private E-Mail aussert und mit gleichen Mitteln der
-  Aufmerksamkeit rechnet.
-- Ob eine **"Werbemittel-Beschraenkung"** vorliegt, ist im Einzelfall am
-  Erscheinungsbild zu messen.
+- Zulaessig nur, wenn der Nutzer klar und praezise ueber die Modalitaeten der
+  Verbreitung informiert wurde und fuer den konkreten Fall in voller Kenntnis
+  der Sachlage eingewilligt hat (Tenor 1).
+- **Anhang I Nr. 26 UGP-RL:** hartnaeckiges und unerwuenschtes Ansprechen, wenn
+  die Einblendung haeufig und regelmaessig erfolgt und keine vorherige
+  Einwilligung vorliegt (C-102/20, Tenor 2).
+
+## Leitsatz (amtlich, BGH I ZR 25/19)
+
+"Eine wirksame Einwilligung in eine Inbox-Werbung (automatisierte
+Werbeeinblendung auf bestimmten dafür vorgesehenen Flächen in der E-Mail-Inbox
+des Nutzers), die eine Werbung unter Verwendung elektronischer Post im Sinne
+von § 7 Abs. 2 Nr. 3 UWG darstellt, liegt nicht vor, wenn der Nutzer, der eine
+unentgeltliche, durch Werbung finanzierte Variante eines E-Mail-Dienstes
+gewählt hat, sich allgemein damit einverstanden erklärt, Werbeeinblendungen zu
+erhalten, um kein Entgelt für die Nutzung des E-Mail-Dienstes zahlen zu
+müssen. Erforderlich ist vielmehr, dass der betroffene Nutzer vor einer
+Einwilligungserklärung klar und präzise über die genauen Modalitäten der
+Verbreitung einer solchen Werbung und insbesondere darüber informiert wird,
+dass Werbenachrichten in der Liste der empfangenen privaten E-Mails angezeigt
+werden." (Rn. 37; § 7 Abs. 2 Nr. 3 UWG a.F., heute § 7 Abs. 2 Nr. 2 UWG)
 
 ## BGH-Urteil 13.01.2022
 
 Der BGH uebernahm die EuGH-Rechtsprechung und entschied:
 
 - Die konkrete Form der eprimo-Inbox-Werbung ist **Werbung mittels
-  elektronischer Post** i.S.v. § 7 Abs. 2 Nr. 2 UWG.
+  elektronischer Post** i.S.v. § 7 Abs. 2 Nr. 3 UWG a.F. (heute § 7 Abs. 2
+  Nr. 2 UWG).
 - Ohne Einwilligung der betroffenen Nutzer ist die Werbung **unzulaessige
   unzumutbare Belaestigung**.
 - Unterlassungsanspruch des Mitbewerbers nach §§ 8, 3, 7 UWG ist begruendet.
@@ -119,9 +132,10 @@ Werbe-E-Mails.
 
 ## Tenor (sinngemaess)
 
-Die Revision der Beklagten gegen das Urteil des OLG Nuernberg wird
-zurueckgewiesen. Unterlassungsanspruch der Klaegerin wegen Inbox-Werbung
-bestaetigt.
+Auf die Revision der Klaegerin wurde das Urteil des OLG Nuernberg vom
+15.01.2019 aufgehoben und die Berufung der Beklagten gegen das Urteil des
+LG Nuernberg-Fuerth vom 22.03.2018 zurueckgewiesen. Damit ist das
+stattgebende Urteil des LG wiederhergestellt.
 
 ## Siehe auch
 
@@ -140,3 +154,10 @@ bestaetigt.
   gefuehrt. Inhalt unveraendert. Vorhandener Marker zur OLG-Nuernberg-
   Vorinstanz bleibt bestehen, da in Tier-1-Quellen weiterhin nicht zweifelsfrei
   reproduzierbar.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Vorinstanzen (LG Nuernberg-Fuerth 3 HKO 4495/17, OLG Nuernberg 3 U 724/18)
+  ergaenzt, Marker entfernt; Kennzeichnung nur "Anzeige"; Norm § 7 Abs. 2
+  Nr. 3 UWG a.F. (heute Nr. 2); EuGH-Tenor 1 und 2 statt
+  "Werbemittel-Beschraenkung"; amtlicher Leitsatz (Rn. 37) aufgenommen;
+  Tenor richtiggestellt (Revision der Klaegerin erfolgreich, LG-Urteil
+  wiederhergestellt).

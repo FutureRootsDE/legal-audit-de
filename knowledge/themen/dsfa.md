@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
@@ -46,39 +46,41 @@ Optional — Verarbeitungen, bei denen DSFA **nicht** erforderlich ist.
 - (d) Abhilfemaßnahmen (TOM, Garantien, Schutzmechanismen)
 
 ### Abs. 9 — Einholen der Ansichten der Betroffenen
-Soweit möglich sollten Meinungen Betroffener eingeholt werden (z. B. über Interessenvertretungen, Betriebsrat).
+„Der Verantwortliche holt gegebenenfalls den Standpunkt der betroffenen Personen oder ihrer Vertreter […] ein" (z. B. über Interessenvertretungen, Betriebsrat).
 
 ### Art. 36 — Vorherige Konsultation
-Bleibt trotz Maßnahmen ein hohes Restrisiko: vorherige Konsultation der Aufsichtsbehörde **vor** Verarbeitungsbeginn (Antwort innerhalb 8 Wochen).
+Bleibt trotz Maßnahmen ein hohes Restrisiko: vorherige Konsultation der Aufsichtsbehörde **vor** Verarbeitungsbeginn (Antwort bis zu acht Wochen, verlängerbar um sechs Wochen (Art. 36 Abs. 2)).
 
-## DSK-Muss-Liste (Auszug — 17 Fallgruppen für nichtöffentliche Stellen)
+## DSK-Muss-Liste (Kurzfassung der 17 Fallgruppen für nichtöffentliche Stellen, Version 1.1)
 
-1. **Umfangreiche Verarbeitung biometrischer Daten** zum Zweck der Identifikation
-2. **Umfangreiche Verarbeitung genetischer Daten**
-3. **Verarbeitung öffentlich zugänglicher Daten in erheblichem Umfang mit AI**
-4. **KI-/Big-Data-gestützte Analyse von Bewerber-/Mitarbeiter-Profilen**
-5. **Anonymisierungsverfahren** besonderer Kategorien in großem Umfang
-6. **Automatisiertes Scoring** für Kreditwürdigkeit / Versicherungstarife
-7. **Umfangreiches Tracking** in Ladengeschäften (z. B. durch WLAN-Scanner)
-8. **Erstellung umfassender Profile zum Bewegungsverhalten**
-9. **Zusammenführung** von Daten aus mehreren Quellen mit Profilbildung
-10. **Massenhafte Verarbeitung mit Portalen** zur E-Mobility, Smart-Metering
-11. **Umfangreiche Fernsteuerung von Endgeräten**, Smart-Home / IoT-Plattformen
-12. **Kameras, Drohnen** mit Gesichtserkennung / Verhaltenserkennung
-13. **Telematik-Systeme** mit Geolokalisierung von Fahrzeugen
-14. **Lernanalyse-Software (Learning Analytics)** mit Leistungsprofilen
-15. **Mobile Apps mit Sensorik** zu Gesundheits- / Bewegungsdaten
-16. **Videoüberwachung großer Publikumsbereiche** (Flughäfen, Stadien)
-17. **Automatisierte Entscheidungen im Einstellungsverfahren**
+Kurztitel; maßgeblich ist der Wortlaut der DSK-Muss-Liste V1.1.
+
+1. **Biometrische Daten** (umfangreiche Verarbeitung)
+2. **Genetische Daten** (umfangreiche Verarbeitung)
+3. **Daten, die einem Sozial-, Berufs- oder Amtsgeheimnis unterliegen**
+4. **Aufenthaltsdaten**
+5. **Zusammenführung von Daten** (z. B. Fraud-Prevention, Scoring)
+6. **Mobile optisch-elektronische Erfassung öffentlicher Bereiche**
+7. **Bewertungsportale / Inkasso**
+8. **Verhalten von Beschäftigten**
+9. **Profile zu Interessen und Beziehungen**
+10. **Big-Data-Analysen**
+11. **Einsatz von Künstlicher Intelligenz**
+12. **Auswertung von Mobilfunk-Sensoren und Funksignalen**
+13. **Automatisierte Auswertung von Video- oder Audio-Aufnahmen zur Bewertung der Persönlichkeit**
+14. **Profile zum Bewegungs- und Kaufverhalten**
+15. **Anonymisierung** besonderer Kategorien
+16. **Telemedizin** (Art.-9-Daten mit Sensoren oder mobilen Anwendungen)
+17. **Art.-9-Daten aus Sensoren mit zentraler Speicherung** (z. B. Daten aus Fitnessarmbändern)
 
 ## Typische Fallstricke in Codebases
 
-- **SaaS mit KI-gestütztem Scoring / Automation:** AI-Features oft DSFA-pflichtig (Art. 35 Abs. 3 lit. a). Zusatzpflichten aus der KI-VO greifen stufenweise: Art. 50 KI-VO (Transparenz von Chatbots, synthetischen Medien, Deepfakes) ist seit **02.08.2026** anwendbar; die Hochrisiko-Pflichten nach **Anhang III ab 02.12.2027** und nach **Anhang I ab 02.08.2028** (Art. 113 Abs. 3 Buchst. c KI-VO i. d. F. des Art. 1 Nr. 40 Buchst. b VO (EU) 2026/1744). Die **Grundrechte-Folgenabschätzung nach Art. 27 KI-VO** betrifft nur Hochrisiko-KI-Systeme nach Art. 6 Abs. 2 (Anhang III), ausgenommen den Bereich Anhang III Nr. 2; verpflichtet sind Betreiber, die Einrichtungen des öffentlichen Rechts sind oder private Einrichtungen, die öffentliche Dienste erbringen, sowie Betreiber von Systemen nach Anhang III Nr. 5 Buchst. b und c (Kreditwürdigkeitsprüfung sowie Risikobewertung und Preisbildung bei Lebens- und Krankenversicherung); für Anhang-I-Systeme gilt Art. 27 nicht. Zeitlich greift die Pflicht mit der Anwendbarkeit der Anhang-III-Hochrisiko-Pflichten (02.12.2027 nach Art. 113 Abs. 3 n. F.). Abgrenzung zur DSFA nach Art. 35 DSGVO beachten.
+- **SaaS mit KI-gestütztem Scoring / Automation:** AI-Features oft DSFA-pflichtig (Art. 35 Abs. 3 lit. a). Zusatzpflichten aus der KI-VO greifen stufenweise: Art. 50 KI-VO (Transparenz von Chatbots, synthetischen Medien, Deepfakes) ist seit **02.08.2026** anwendbar; für vor dem 02.08.2026 in Verkehr gebrachte generative Systeme gilt Art. 50 Abs. 2 erst ab **02.12.2026** (Art. 111 Abs. 4 KI-VO n. F.); die Hochrisiko-Pflichten nach **Anhang III ab 02.12.2027** und nach **Anhang I ab 02.08.2028** (Art. 113 Abs. 3 Buchst. c KI-VO i. d. F. des Art. 1 Nr. 40 Buchst. b VO (EU) 2026/1744). Die **Grundrechte-Folgenabschätzung nach Art. 27 KI-VO** betrifft nur Hochrisiko-KI-Systeme nach Art. 6 Abs. 2 (Anhang III), ausgenommen den Bereich Anhang III Nr. 2; verpflichtet sind Betreiber, die Einrichtungen des öffentlichen Rechts sind oder private Einrichtungen, die öffentliche Dienste erbringen, sowie Betreiber von Systemen nach Anhang III Nr. 5 Buchst. b und c (Kreditwürdigkeitsprüfung sowie Risikobewertung und Preisbildung bei Lebens- und Krankenversicherung); für Anhang-I-Systeme gilt Art. 27 nicht. Zeitlich greift die Pflicht mit der Anwendbarkeit der Anhang-III-Hochrisiko-Pflichten (02.12.2027 nach Art. 113 Abs. 3 n. F.). Abgrenzung zur DSFA nach Art. 35 DSGVO beachten.
 - **Tracking-heavy Landingpage:** bei breitem Drittland-Transfer + umfassendem Profiling (TCF-String-Fall, EuGH C-604/22): DSFA empfohlen.
-- **HR-Tool mit Analytics / People-Analytics:** Mustertyp für DSFA-Pflicht (Punkt 4 DSK-Liste).
-- **Fitness-Tracker / Health-Apps:** Art. 9 + Punkt 15 Muss-Liste.
-- **CCTV / Smart-Camera in Ladengeschäft:** Punkt 7, 12, 16.
-- **Unternehmens-Chatbot mit Konversationsanalyse:** je nach Umfang Profiling (Punkt 4, 8).
+- **HR-Tool mit Analytics / People-Analytics:** Mustertyp für DSFA-Pflicht (Nr. 8 DSK-Muss-Liste).
+- **Fitness-Tracker / Health-Apps:** Art. 9 + Nr. 16 und 17 der Muss-Liste.
+- **CCTV / Smart-Camera im Ladengeschäft:** Art. 35 Abs. 3 lit. c DSGVO; Muss-Liste Nr. 13 bei automatisierter Videoauswertung zur Bewertung der Persönlichkeit, Nr. 12 nur bei Offline-Tracking über Funksignale. Nr. 6 betrifft mobile Erfassung im öffentlichen Bereich.
+- **Unternehmens-Chatbot mit Konversationsanalyse:** je nach Umfang Profiling (Nr. 11 DSK-Muss-Liste).
 - **Produkt-Experimentation-Plattformen** (A/B mit Kohorten-Analyse + PII): Grenzfall, Prüfung empfohlen.
 - **DSFA als einmaliges Dokument:** muss bei relevanten Änderungen aktualisiert werden (Art. 35 Abs. 11).
 
@@ -114,8 +116,8 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
 
 ## Zitierbare Urteile
 
-- **EuGH C-26/22, C-64/22 (SCHUFA), 07.12.2023** — Scoring ist automatisierte Entscheidung nach Art. 22 DSGVO
-- **EuGH C-634/21 (SCHUFA), 07.12.2023** — Weitere Präzisierung Scoring
+- **EuGH C-634/21 (SCHUFA, Scoring), 07.12.2023**: Scoring ist automatisierte Entscheidung im Einzelfall nach Art. 22 Abs. 1 DSGVO, sofern der Wert für die Entscheidung des Dritten maßgeblich ist
+- **EuGH C-26/22 und C-64/22 (SCHUFA), 07.12.2023**: Speicherdauer von Informationen über eine Restschuldbefreiung bei Auskunfteien über das öffentliche Register hinaus; volle gerichtliche Überprüfbarkeit der Beschlüsse der Aufsichtsbehörde
 - **OVG NRW 16 A 2805/20, 07.05.2024** — Aufsichtsbehörden-Anordnung bei fehlender DSFA <<VERIFIKATION AUSSTEHEND>>
 - **VG Wiesbaden 6 K 1164/21.WI, 19.01.2022** — Keylogger-Einsatz DSFA-pflichtig <<VERIFIKATION AUSSTEHEND>>
 
@@ -141,7 +143,7 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
   ("Digital Omnibus on AI"), verkuendet 24.07.2026, in Kraft seit 27.07.2026;
   Primaerquelle: Cellar-Volltext CELEX:32026R1744). Der am 19.11.2025 von der
   Kommission vorgelegte **Digital-Omnibus-Vorschlag zur DSGVO**
-  (COM(2025) 501 final) befindet sich dagegen noch im ordentlichen
+  (COM(2025) 837 final) befindet sich dagegen noch im ordentlichen
   Gesetzgebungsverfahren und ist Stand 2026-11-14 nicht verkuendet.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
 - **2026-11-14 (Review-Korrekturlauf PR #14)**: Fliesstext bei
@@ -154,3 +156,12 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
   CELEX:32024R1689); die Omnibus-Verordnung (EU) 2026/1744 aendert
   Art. 27 nur in Abs. 4 und Abs. 5 (Querverweis auf Abschnitte einer
   DSFA bzw. Fragebogenmuster), nicht den Anwendungsbereich in Abs. 1.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  Liste der 17 Fallgruppen durch Kurzfassung der DSK-Muss-Liste V1.1
+  ersetzt und Verweise darauf korrigiert (HR Nr. 8, KI-Chatbot Nr. 11,
+  Fitness Nr. 16 und 17, CCTV Art. 35 Abs. 3 lit. c und Nr. 12/13);
+  Scoring-Aussage (Art. 22) EuGH C-634/21 zugeordnet, C-26/22 und C-64/22
+  betreffen die Restschuldbefreiung; Uebergangsfrist Art. 50 Abs. 2 KI-VO
+  (Art. 111 Abs. 4 n. F.) ergaenzt; Omnibus-Aktenzeichen COM(2025) 837;
+  Art. 35 Abs. 9 und Art. 36 Abs. 2 am Wortlaut ausgerichtet. Der obige
+  Vermerk, die Aussage zu C-26/22 bleibe korrekt, ist damit ueberholt.

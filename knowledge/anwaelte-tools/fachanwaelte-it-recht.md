@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quellen-sekundaer:
   - https://www.brak.de/
   - https://bravsearch.bea-brak.de/bravsearch
@@ -34,9 +34,9 @@ abgesehen vom IT-Schwerpunkt ebenfalls relevant sein koennen.
 
 Geregelt in der **Fachanwaltsordnung (FAO)**, Voraussetzungen:
 
-- **Zulassung zum Anwalt** (seit mind. 3 Jahren davon 2 zuletzt im Fachgebiet aktiv)
+- **Zulassung und Taetigkeit**: dreijaehrige Zulassung und Taetigkeit innerhalb der letzten sechs Jahre vor Antragstellung (§ 3 FAO)
 - **Theoretischer Lehrgang** (Mindestumfang 120 Zeitstunden) mit 3 Klausuren
-- **Praktische Erfahrung**: 50 Faelle in den letzten 3 Jahren, davon mind. 5 gerichtlich, im IT-Rechtsgebiet
+- **Praktische Erfahrung**: 50 Faelle innerhalb der letzten fuenf Jahre aus den Bereichen des § 14k FAO (Nr. 1, Nr. 2 und ein weiterer Bereich, je mind. 3 Faelle), davon mind. 10 rechtsfoermliche Verfahren (§ 5 Abs. 1 lit. r FAO, Fassung 01.10.2026)
 - **Fortbildung** jaehrlich mind. 15 Zeitstunden (§ 15 FAO)
 
 ### Abgrenzung zu anderen Fachanwaltstiteln
@@ -61,8 +61,8 @@ Im Katalog der Fachanwaltschaften (§ 1 FAO) gibt es **keinen eigenstaendigen
 typischerweise den Titel **"Fachanwalt fuer IT-Recht"** und/oder ein
 **externes/internes Datenschutzbeauftragten-Zertifikat** (udis, BvD, GDD, TUEV,
 DEKRA — siehe [[anwaelte-tools/datenschutzbeauftragte]]). Werbeaussagen wie
-"Fachanwalt fuer Datenschutz" sind irrefuehrend und unzulaessig (§ 7 Abs. 1
-BORA i.V.m. § 43b BRAO). Aktualisierte Liste der zugelassenen
+"Fachanwalt fuer Datenschutz" sind irrefuehrend und unzulaessig (§ 7 Abs. 2
+BORA, § 43c Abs. 1 BRAO; allgemein § 43b BRAO). Aktualisierte Liste der zugelassenen
 Fachanwaltsbezeichnungen: BRAK-Statistik (brak.de) und Fachanwaltsordnung (FAO).
 
 ## Suchportale
@@ -91,7 +91,7 @@ Fachanwaltsbezeichnungen: BRAK-Statistik (brak.de) und Fachanwaltsordnung (FAO).
 
 ## Empfohlene Pruef-Schritte bei Mandats-Vergabe
 
-1. **Kammerregister pruefen** (rechtsanwaltsregister.org) — ist der Anwalt zugelassen?
+1. **Kammerregister pruefen** (amtliches Verzeichnis BRAV, https://bravsearch.bea-brak.de/bravsearch, § 31 BRAO) — ist der Anwalt zugelassen?
 2. **Fachanwalt-Titel verifizieren** — steht er im offiziellen Kammer-Register?
 3. **Referenzen anfragen** — aktuelle vergleichbare Mandate (unter NDA moeglich)
 4. **Stunden-Satz / Pauschal-Preis** vorab klaeren (VV RVG oder Honorarvereinbarung)
@@ -110,13 +110,13 @@ Hinweis: Die folgenden Werte sind **nicht-verbindliche Markt-Indikationen** aus 
 
 ## Spezialisierungen — Hinweise fuer die Kanzlei-Wahl
 
-Nicht jeder Fachanwalt fuer IT-Recht ist fuer jede Fragestellung optimal:
+Nicht jeder Fachanwalt fuer IT-Recht ist fuer jede Fragestellung optimal. Kriterien je Fragestellung (keine Empfehlung bestimmter Kanzleien):
 
-- **AGB / Klauselkontrolle**: Haendler-orientierte Kanzleien (IT-Recht Kanzlei Muenchen, Haendlerbund-Partnerkanzleien)
-- **DSGVO / Drittland-Transfer**: Datenschutz-Boutiquen (Haerting Berlin, SRD Berlin, Dr. Schwenke)
-- **KI-Recht / AI Act**: Neue Spezialisten-Nische (SRD, CMS, Osborne Clarke)
-- **Plattform-/DSA-Recht**: Medien-erfahrene Kanzleien (Haerting, Noerr)
-- **Investoren-/Beteiligungs-Deals mit SaaS**: Grosskanzleien (CMS, Noerr, Hengeler Mueller)
+- **AGB / Klauselkontrolle**: Erfahrung mit Online-Handel und Klauselkontrolle
+- **DSGVO / Drittland-Transfer**: ausgewiesener Datenschutz-Schwerpunkt
+- **KI-Recht / AI Act**: ausgewiesene Praxis zu KI-Regulierung
+- **Plattform-/DSA-Recht**: Erfahrung im Medien- und Plattformrecht
+- **Investoren-/Beteiligungs-Deals mit SaaS**: Erfahrung mit Transaktionen und Gesellschaftsrecht
 - **IT-Sicherheit / NIS2**: Spezialisten mit BSI-Bezug
 - **Startups mit Budget-Limits**: Boutique-Kanzleien mit Startup-Paketen
 
@@ -134,7 +134,7 @@ Wenn kein klassisches Mandat gewuenscht ist:
 - [ ] Mandanten-Portfolio passt zu eigener Branche (SaaS / E-Commerce / Content / Agentur)
 - [ ] Reaktionszeit auf erste E-Mail max. 2 Arbeitstage
 - [ ] Klare Honorar-Vereinbarung vorab schriftlich
-- [ ] Haftpflicht-Versicherung ausreichend (min. 500.000 EUR, besser 2.5 Mio bei groesseren Projekten)
+- [ ] Haftpflichtdeckung erfragen (gesetzliches Minimum 250.000 EUR je Versicherungsfall, § 51 Abs. 4 BRAO)
 - [ ] Deutsch + Englisch (bei internationalen Drittlaender-Fragen)
 - [ ] Referenzen im eigenen Technologie-Stack (Next.js, Serverless, AWS, etc.)
 
@@ -153,3 +153,4 @@ Wenn kein klassisches Mandat gewuenscht ist:
   - `chambers.com/legal-guide/europe` ergab HTTP 404 — ersetzt durch `chambers.com/legal-guide/germany-122`.
   - anwaltauskunft.de, davit.de, brak.de, juve.de, legal500.com/c/germany/, anwalt.de, 123recht.de: OK (anwalt.de blockt WebFetch mit HTTP 403, Existenz von anwalt.de services AG Nuernberg per Websearch bestaetigt).
   - Frontmatter `aktualisiert` und `verifiziert-am` sowie Stand-Datum auf 2026-11-14 gesetzt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Zulassungs- und Fallvoraussetzungen nach §§ 3, 5 Abs. 1 lit. r FAO korrigiert; Werbeverbot auf § 7 Abs. 2 BORA, § 43c Abs. 1 BRAO gestuetzt; Pruefschritt 1 auf das amtliche Verzeichnis BRAV umgestellt; Haftpflicht-Mindestsumme nach § 51 Abs. 4 BRAO (250.000 EUR); Spezialisierungsabschnitt auf Kriterien ohne Kanzleinamen umgestellt.

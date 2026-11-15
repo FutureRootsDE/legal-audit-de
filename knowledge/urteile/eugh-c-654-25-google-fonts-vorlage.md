@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://testphase.rechtsinformationen.bund.de/v1/rechtsprechung/KORE723682025.html
 ecli: ECLI:DE:BGH:2025:280825BVIZR258.24.0
 quellen-sekundaer:
@@ -20,10 +20,13 @@ geltungsbereich: [DE, EU]
 
 # EuGH C-654/25 — Vorabentscheidungsersuchen des BGH zu Google Fonts (anhaengig)
 
-> **Verfahrensstatus (Stand 2026-11-14): anhaengig.** Es liegt weder ein
-> Urteil noch Schlussantraege des Generalanwalts vor. Das Verfahren wurde
-> durch Beschluss des BGH vom 28.08.2025, VI ZR 258/24, ausgesetzt und
-> dem EuGH zur Vorabentscheidung vorgelegt.
+> **Verfahrensstatus (Stand 2026-11-14): anhaengig.** Generalanwalt Szpunar
+> hat am 05.11.2026 Schlussantraege vorgelegt (ECLI:EU:C:2026:948); ein
+> Urteil liegt noch nicht vor. Der Inhalt der Schlussantraege ist hier nicht
+> ausgewertet (Volltext beim Abruf noch nicht verfuegbar)
+> <<VERIFIKATION AUSSTEHEND>>. Das Verfahren wurde durch Beschluss des BGH
+> vom 28.08.2025, VI ZR 258/24, ausgesetzt und dem EuGH zur
+> Vorabentscheidung vorgelegt.
 
 ## Kurz-Ueberblick
 
@@ -32,6 +35,8 @@ geltungsbereich: [DE, EU]
 - **ECLI Vorlagebeschluss:** ECLI:DE:BGH:2025:280825BVIZR258.24.0
 - **Datum Vorlagebeschluss:** 28.08.2025 (Dokumenttyp "EuGH-Vorlage")
 - **EuGH-Fallnummer:** C-654/25 (Verfahrensstand: anhaengig)
+- **Vorinstanzen:** AG Hannover, 12.07.2023, 525 C 8451/22; LG Hannover,
+  01.07.2024, 18 S 10/23
 - **Kontext:** Streit um Rueckerstattung einer Zahlung, die ein Website-
   Betreiber auf einen behaupteten DSGVO-Verstoss wegen eingebundener
   **Google Fonts** geleistet hat. Der BGH thematisiert insbesondere die
@@ -92,7 +97,7 @@ vorgelegt:
 
 ## Kernaussagen des BGH (mit Randnummern)
 
-- **Rn. 23 / Rn. 26** — Die dynamische IP-Adresse wird vom BGH ausdruecklich
+- **Rn. 22 und Rn. 25** — Die dynamische IP-Adresse wird vom BGH ausdruecklich
   als mehrdeutiger Anknuepfungspunkt vorgelegt; der 6. Zivilsenat deutet
   eine Praeferenz fuer einen objektiv-generellen Massstab an, laesst die
   endgueltige Beurteilung aber beim EuGH.
@@ -112,7 +117,8 @@ vorgelegt:
   nicht.
 - **Rn. 42** — Querverweis auf die weitere Vorlage des AG Arnsberg vom
   31.07.2024 (Rechtssache C-526/24, ECLI:DE:AGAR:2024:0731.42C434.23.0,
-  Frage 7); beide Verfahren betreffen das Thema Rechtsmissbrauch.
+  Frage 7); beide Verfahren betreffen das Thema Rechtsmissbrauch. Dieses
+  Verfahren hat der EuGH am 19.03.2026 entschieden (ECLI:EU:C:2026:216).
 
 ## Bedeutung fuer Audits
 
@@ -123,8 +129,10 @@ vorgelegt:
   [[themen/tracking-analytics]]).
 - **Abmahn-Verteidigung**: Bei massenhaft "provozierten" Abmahnungen
   (automatisierte Crawler) kann die Verteidigung auf die zu erwartende
-  EuGH-Klaerung verweisen; eine hoechstrichterliche Entscheidung
-  (Urteil + ggf. Schlussantraege) ist Stand 2026-11-14 nicht ergangen.
+  EuGH-Klaerung verweisen; ein Urteil ist Stand 2026-11-14 nicht ergangen.
+  Die Schlussantraege von Generalanwalt Szpunar vom 05.11.2026
+  (ECLI:EU:C:2026:948) sind inhaltlich noch nicht ausgewertet
+  <<VERIFIKATION AUSSTEHEND>>.
 - **Kein belastbarer Zitat-Ersatz fuer Schrems II**: Fragen zur
   Drittlandsuebermittlung werden im Verfahren zwar gestreift, aber nicht
   entschieden; fuer die TIA-Pflicht bleibt EuGH C-311/18 (Schrems II)
@@ -165,8 +173,9 @@ vorgelegt:
 - **2026-11-14**: Datei neu angelegt. Vorlagebeschluss primaer ueber die
   Rechtsinformations-API des Bundes belegt. EuGH-Fallnummer C-654/25 und
   Verfahrensstand "anhaengig" ueber curia.europa.eu gegengeprueft; Stand
-  2026-11-14 liegt weder Urteil noch Schlussantraege des Generalanwalts
-  vor.
+  2026-11-14 liegt kein Urteil vor (die urspruengliche Angabe, es lagen
+  auch keine Schlussantraege vor, war unzutreffend; siehe Vermerk
+  2026-11-15).
 - **2026-11-14 (Review-Korrekturlauf PR #17)**: Abschnitt "Rn. 29 / 30"
   am Volltext des Vorlagebeschlusses neu gefasst. Die zuvor behauptete
   Anknuepfung an die vom EuG bestaetigte DPF-Angemessenheit wurde
@@ -178,3 +187,9 @@ vorgelegt:
   Arnsberg-Querverweis von "Rn. 43" auf Rn. 42 korrigiert
   (C-526/24, AG Arnsberg 31.07.2024,
   ECLI:DE:AGAR:2024:0731.42C434.23.0, Frage 7).
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Verfahrensstatus berichtigt (Schlussantraege GA Szpunar vom 05.11.2026,
+  ECLI:EU:C:2026:948; Inhalt noch nicht ausgewertet, Marker gesetzt);
+  Vorinstanzen AG/LG Hannover ergaenzt; Randnummern zur IP-Frage auf
+  Rn. 22 und Rn. 25 berichtigt; C-526/24 als am 19.03.2026 entschieden
+  vermerkt (ECLI:EU:C:2026:216), Inhalt folgt nach Nachpruefung.

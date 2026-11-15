@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-10-24
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__44b.html
@@ -42,8 +42,9 @@ Die Nutzung ist nur erlaubt, "wenn der Rechtsinhaber sich diese nicht vorbehalte
 
 Praktische Umsetzungen des Opt-Out:
 - `robots.txt` (strittig, aber haeufig)
-- **`ai.txt`** (TDM Reservation Protocol)
-- `Content-Usage`/`TDM-Reservation` HTTP-Header
+- `ai.txt` (herstellerspezifisches Format, kein Standard)
+- **TDMRep** (TDM Reservation Protocol): `/.well-known/tdmrep.json`, HTTP-Header `tdm-reservation`, HTML-Meta-Angaben
+- HTTP-Header `tdm-reservation` (TDMRep); `Content-Usage` (IETF-Entwurf, ungeprueft)
 - **C2PA-Metadaten** in Bildern
 - Textuelle AGB-Klauseln (streitig, ob "maschinenlesbar")
 - **TDMRep** (W3C-Entwurf)
@@ -62,7 +63,7 @@ Das **LG Hamburg (LAION-Urteil)** hat § 60d auf die LAION-Datensatzerstellung a
 - **§ 72 UrhG** — Schutz einfacher Lichtbilder (50 Jahre ab Erscheinen; Untergrenze: mehr als bloss technische Reproduktion)
 - **§ 97 UrhG** — Unterlassungs- und Schadensersatzanspruch; **Lizenzanalogie** als Schadensberechnung etabliert
 - **§ 95a UrhG** — Umgehung technischer Schutzmassnahmen verboten
-- **§ 97a UrhG** — Abmahnung; **Deckelung auf 1.000 EUR Gegenstandswert** bei einfach gelagerten Faellen gegen Privatpersonen ausserhalb gewerblicher Taetigkeit
+- **§ 97a UrhG** — Abmahnung; **Deckelung auf 1.000 EUR Gegenstandswert** (Abs. 3 Satz 2), wenn der Abgemahnte eine natuerliche Person ist, die nicht fuer ihre gewerbliche oder selbstaendige berufliche Taetigkeit handelt (Nr. 1), und nicht bereits zur Unterlassung verpflichtet ist (Nr. 2); gilt nicht, wenn der Wert nach den besonderen Umstaenden des Einzelfalles unbillig ist (Satz 4)
 
 ## Typische Fallstricke in Codebases
 
@@ -78,14 +79,14 @@ Das **LG Hamburg (LAION-Urteil)** hat § 60d auf die LAION-Datensatzerstellung a
 - **Bildnutzung ohne Lizenznachweis** (selbst wenn "gefundene" Bilder verwendet werden)
 - **Keine Dokumentation der Lizenzen** fuer verwendete Assets (Stockfotos, Icons, Fonts)
 - **Framework-Templates**: Themes/Plugins koennen eigene Urheberrechte haben
-- **Embedding vs. Hotlinking**: OEmbed von YouTube typisch zulaessig; **Inline-Hotlinking** fremder Bilder ist oft Urheberrechtsverletzung
+- **Embedding/Framing/Inline-Linking**: Einbetten eines mit Zustimmung des Rechtsinhabers frei zugaenglichen Werks ist grundsaetzlich keine oeffentliche Wiedergabe (EuGH, 21.10.2014, C-348/13; BGH, 09.07.2015, I ZR 46/12). Rechtsverletzend wird es, wenn Schutzmassnahmen gegen Framing umgangen werden (EuGH, 09.03.2021, C-392/19) oder die Quelle selbst rechtswidrig eingestellt ist. Kopieren auf den eigenen Server ist stets Vervielfaeltigung.
 - **Eigener KI-generierter Content**: Kein Schutz durch UrhG (kein Schoepfer), aber evtl. wettbewerbsrechtlicher Leistungsschutz
 - **Trainingsdaten fuer Inhouse-KI**: Opt-Out der Quelle pruefen!
 
 ### Marketplace / UGC
 
-- **Safe Harbor nach § 10 UrhG** nur bei Hostprovider-Status; bei aktiver Rolle (Redaktion) haftet Provider selbst
-- **Art. 17 DSM-RL / § 1 UrhDaG** — Upload-Filter-Pflicht fuer "Diensteanbieter fuer das Teilen von Online-Inhalten"
+- **Haftungsprivileg fuer Hosting-Diensteanbieter** nur bei neutraler Rolle; bei aktiver Rolle (Redaktion) haftet der Anbieter selbst. § 10 UrhG betrifft nicht die Haftung, sondern die Vermutung der Urheberschaft.
+- **Art. 17 DSM-RL / §§ 1, 2, 4, 7 bis 11 UrhDaG** — Diensteanbieter fuer das Teilen von Online-Inhalten (§ 2 Abs. 1) geben hochgeladene Werke selbst oeffentlich wieder; Enthaftung nur bei Lizenzbemuehungen (§ 4) und Blockierung auf Verlangen des Rechtsinhabers (§§ 7, 8). Ausnahmen: Startup-Diensteanbieter (§ 7 Abs. 4), kleine Diensteanbieter (§ 7 Abs. 5).
 
 ## Relevanz fuer Codebase-Typen
 
@@ -126,8 +127,8 @@ Quelle: dejure.org (Verfahrensgang mit GRUR-Fundstelle und BGH-Az.), Normtext §
 ### BGH und EuGH zum Lichtbildschutz und Werkbegriff
 
 - **EuGH, Cofemel (C-683/17)** — Werkbegriff harmonisiert
-- **BGH "Reformistischer Aufbruch"** — Zitatrecht § 51 UrhG
-- **BGH, Urt. v. 20.09.2012 — I ZR 90/09 "UsedSoft II"** — Erschoepfung bei Software
+- **BGH, Urt. v. 30.04.2020 — I ZR 228/15 "Reformistischer Aufbruch II"** (ECLI:DE:BGH:2020:300420UIZR228.15.0) — Berichterstattung ueber Tagesereignisse (§ 50 UrhG), Verhaeltnismaessigkeit
+- **BGH, Urt. v. 17.07.2013 — I ZR 129/08 "UsedSoft II"** — Erschoepfung bei heruntergeladenen Programmkopien
 
 ## Siehe auch
 

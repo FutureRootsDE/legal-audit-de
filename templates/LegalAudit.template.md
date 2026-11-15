@@ -19,7 +19,7 @@
 | **Git-Commit** | `<sha>` |
 | **Codebase-Typ** | Next.js SaaS / Landingpage / n8n / E-Commerce / Content |
 | **Geprueft auf** | DSGVO · BDSG · TDDDG · UWG · PAngV · BGB/AGB · DDG · DSA · DMA · AI Act · BFSG · UrhG · MarkenG · NIS2 |
-| **NICHT geprueft** | Strafrecht, Arbeitsrecht, Steuerrecht (ausser HGB § 257), Gesellschaftsrecht, Nicht-EU-Rechtsordnungen |
+| **NICHT geprueft** | Strafrecht, Arbeitsrecht, Steuerrecht (ausser Aufbewahrungsfristen § 257 HGB, § 147 AO, § 14b UStG), Gesellschaftsrecht, Nicht-EU-Rechtsordnungen |
 | **Gesamt-Severity** | CRIT: N · HIGH: N · MED: N · LOW: N |
 | **Audit-Engine** | legal-audit-de v1.0 / legal-auditor (haiku) + legal-researcher (sonnet) + legal-text-writer (sonnet) |
 | **Zitat-Verifikations-Log** | `.claude/logs/zitate-verifikation-<YYYY-MM-DD>.log` |

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-10-24
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__305.html
@@ -76,27 +76,31 @@ unangemessen benachteiligen**. Dazu gehoert insbesondere Intransparenz
 Enthaelt u.a. Verbote von:
 
 - uebermaessig langen Annahme-/Leistungsfristen (Nr. 1)
-- einseitigen Leistungsaenderungsrechten ohne sachlichen Grund (Nr. 4)
+- einseitigen Leistungsaenderungsvorbehalten, die fuer den anderen
+  Vertragsteil nicht zumutbar sind (Nr. 4)
 - fingierten Erklaerungen (Nr. 5)
-- kurzen Ruecksendefristen bei Ruecktritt
+- unangemessen hoher Verguetung oder Aufwendungsersatz bei Ruecktritt oder
+  Kuendigung (Nr. 7)
 
 ### § 309 BGB — Klauselverbote **ohne** Wertungsmoeglichkeit (HART)
 
 Wichtigste fuer Codebases:
 
-- **Nr. 1** — Preiserhoehungen binnen 4 Monaten nach Vertragsschluss unzulaessig.
+- **Nr. 1** — Preiserhoehungen fuer Leistungen, die binnen vier Monaten nach
+  Vertragsschluss zu erbringen sind; gilt nicht fuer Dauerschuldverhaeltnisse
+  (z. B. Abos/SaaS; dort Kontrolle nach § 307).
 - **Nr. 2** — Ausschluss von Leistungsverweigerungs-/Zurueckbehaltungsrechten.
 - **Nr. 3** — Ausschluss des Aufrechnungsrechts bei unbestrittenen/
   rechtskraeftigen Forderungen.
 - **Nr. 7** — Haftungsausschluss fuer Verletzung von Leben, Koerper,
   Gesundheit UND fuer grobe Fahrlaessigkeit/Vorsatz ist verboten.
-- **Nr. 8b** — Beschraenkung von Maengelrechten (Gewaehrleistung) ist
-  unzulaessig.
-- **Nr. 9** — Vertragslaufzeit > 2 Jahre, automatische Verlaengerung > 1 Jahr,
-  Kuendigungsfrist > 3 Monate bei Dauerschuldverhaeltnissen = unzulaessig.
-  **Seit 01.03.2022** (Gesetz fuer faire Verbrauchervertraege) gilt zusaetzlich:
-  Nach Ablauf der Erstlaufzeit duerfen Vertraege nur noch **auf unbestimmte
-  Zeit** verlaengert werden, Kuendigungsfrist max. **1 Monat**.
+- **Nr. 8 Buchst. b** — bestimmte Beschraenkungen der Maengelrechte bei
+  Vertraegen ueber neu hergestellte Sachen und Werkleistungen (aa bis ff).
+- **Nr. 9** (fuer ab 01.03.2022 entstandene Schuldverhaeltnisse, Art. 229 § 60
+  EGBGB; Gesetz fuer faire Verbrauchervertraege): a) Erstlaufzeit hoechstens
+  **zwei Jahre**; b) stillschweigende Verlaengerung nur **auf unbestimmte Zeit**
+  mit jederzeitigem Kuendigungsrecht (Frist hoechstens **ein Monat**);
+  c) Kuendigungsfrist zum Ende der Erstlaufzeit hoechstens **ein Monat**.
 - **Nr. 13** — Formerfordernisse strenger als Textform (z.B. Schriftform
   fuer Kuendigung) sind unzulaessig. **Seit 01.10.2016** ist fuer AGB nur
   Textform zulaessig.
@@ -112,10 +116,11 @@ Infos klar und verstaendlich, hervorgehoben bereitstellen:
 - alle zusaetzlichen Kosten (Versand)
 - ggf. Laufzeit / Mindestlaufzeit / Kuendigungsbedingungen
 
-**Abs. 3 (Button-Loesung):** "Der Unternehmer hat die Bestellsituation so zu
-gestalten, dass der Verbraucher mit seiner Bestellung **ausdruecklich bestaetigt**,
-dass er sich zu einer **Zahlung verpflichtet**. Erfolgt die Bestellung ueber
-eine Schaltflaeche, ist die Pflicht nur erfuellt, wenn diese Schaltflaeche gut
+**Abs. 3 (Button-Loesung):** "Der Unternehmer hat die Bestellsituation bei einem
+Vertrag nach Absatz 2 so zu gestalten, dass der Verbraucher mit seiner Bestellung
+**ausdruecklich bestaetigt**, dass er sich zu einer **Zahlung verpflichtet**.
+Erfolgt die Bestellung ueber eine Schaltflaeche, ist die Pflicht des Unternehmers
+aus Satz 1 nur erfuellt, wenn diese Schaltflaeche gut
 lesbar **mit nichts anderem als den Woertern 'zahlungspflichtig bestellen'**
 oder mit einer entsprechenden eindeutigen Formulierung beschriftet ist."
 
@@ -129,8 +134,10 @@ Zulaessige Alternativen laut Gesetzesbegruendung / Rechtsprechung:
 **Unzulaessig** sind neutrale Beschriftungen wie "Anmelden", "Weiter",
 "Bestellung abschicken", "Jetzt buchen", "Senden", "Bestellung abgeben". Aktuell
 bestaetigt durch **BGH I ZR 159/24, Urt. v. 09.10.2025** (Online-Maklervertrag
-ohne "zahlungspflichtig bestellen"-Button kommt nach § 312j Abs. 4 BGB nicht
-zustande; keine Heilung durch nachtraegliche einseitige Bestaetigung).
+ohne "zahlungspflichtig bestellen"-Button ist nach § 312j Abs. 4 BGB endgueltig
+unwirksam; ein Neuabschluss durch einseitige Bestaetigung des Verbrauchers
+(§ 141 Abs. 1 BGB) ist moeglich, setzt aber selbst die ausdrueckliche
+Bestaetigung der Zahlungspflicht nach § 312j Abs. 3 BGB voraus).
 
 ### §§ 355-361 BGB — Widerrufsrecht
 
@@ -154,7 +161,7 @@ zustande; keine Heilung durch nachtraegliche einseitige Bestaetigung).
 - Bei Waren: Unternehmer kann Rueckzahlung zurueckhalten, bis Ware zurueck.
 - Verbraucher traegt Rueckversandkosten NUR, wenn darueber belehrt wurde.
 - **Wertersatz** nur bei Wertverlust durch einen nicht zur Pruefung
-  notwendigen Umgang mit der Ware.
+  notwendigen Umgang mit der Ware (§ 357a Abs. 1 BGB).
 
 **§ 312g BGB — Widerrufsrecht im Fernabsatz:**
 
@@ -162,19 +169,33 @@ zustande; keine Heilung durch nachtraegliche einseitige Bestaetigung).
 geschlossenen Vertraegen und bei Fernabsatzvertraegen ein Widerrufsrecht
 gemaess § 355 zu."
 
-**Abs. 2 — Ausnahmen** (nicht erschoepfend):
+**Abs. 2 — Ausnahmen** (Auswahl, mit gesetzlicher Nummerierung):
 
-1. Individuell nach Kundenwunsch angefertigte Waren (z.B. Konfigurator-Moebel).
-2. Schnell verderbliche Waren.
-3. Versiegelte Hygieneartikel nach Oeffnung.
-4. Waren, die untrennbar mit anderen vermischt wurden.
-5. Versiegelte Ton-/Video-/Software-Aufzeichnungen nach Oeffnung.
-6. Zeitungen/Zeitschriften (ausser Abos).
-7. Digitale Inhalte nicht auf koerperlichem Datentraeger: Widerrufsrecht
-   erlischt nur bei vorheriger Zustimmung + Hinweis auf Erloeschen + Bestaetigung
-   (§ 356 Abs. 5 BGB).
-8. Dienstleistungen, die vollstaendig erbracht wurden (bei ausdruecklicher
-   Zustimmung und Kenntnis).
+- **Nr. 1:** Individuell nach Kundenwunsch angefertigte Waren (z.B.
+  Konfigurator-Moebel).
+- **Nr. 2:** Schnell verderbliche Waren.
+- **Nr. 3:** Versiegelte Hygieneartikel nach Oeffnung.
+- **Nr. 4:** Waren, die untrennbar mit anderen vermischt wurden.
+- **Nr. 6:** Versiegelte Ton-/Video-/Software-Aufzeichnungen nach Oeffnung.
+- **Nr. 7:** Zeitungen/Zeitschriften (ausser Abos).
+
+**Erloeschen des Widerrufsrechts (keine Ausnahme nach § 312g Abs. 2):**
+
+- Digitale Inhalte nicht auf koerperlichem Datentraeger: Widerrufsrecht
+  erlischt nur bei vorheriger Zustimmung + Hinweis auf Erloeschen + Bestaetigung
+  (§ 356 Abs. 6 BGB).
+- Dienstleistungen, die vollstaendig erbracht wurden (bei ausdruecklicher
+  Zustimmung und Kenntnis; § 356 Abs. 5 BGB).
+
+### § 356a BGB: Widerrufsfunktion (seit 19.06.2026)
+
+Bei ueber eine Online-Benutzeroberflaeche geschlossenen Fernabsatzvertraegen
+muss der Unternehmer eine Widerrufsfunktion bereitstellen, gut lesbar mit
+**"Vertrag widerrufen"** beschriftet und waehrend der Widerrufsfrist staendig
+verfuegbar (Abs. 1). Abzufragen sind Name, Identifikation des Vertrags und
+Kommunikationsweg (Abs. 2); es folgt eine Bestaetigungsfunktion **"Widerruf
+bestaetigen"** (Abs. 3). Der Unternehmer muss den Eingang unverzueglich auf
+einem dauerhaften Datentraeger bestaetigen (Abs. 4).
 
 **Anlage 1 EGBGB** enthaelt das verbindliche **Musterwiderrufsbelehrungs-Formular**,
 das bei korrekter Verwendung eine **Schutzwirkung** (Gesetzlichkeitsfiktion)
@@ -182,30 +203,48 @@ entfaltet.
 
 ## Typische Fallstricke in Codebases
 
-1. **AGB nur per Link im Footer:** Checkbox "Ich akzeptiere AGB" mit anklickbarem
-   Link erforderlich — § 305 Abs. 2 BGB. Linktext "AGB" reicht nicht, besser:
-   Checkbox mit Link zur PDF/Unterseite.
+1. **AGB nur per Link im Footer:** § 305 Abs. 2 BGB verlangt einen
+   ausdruecklichen Hinweis bei Vertragsschluss, die zumutbare Moeglichkeit der
+   Kenntnisnahme und das Einverstaendnis; eine Checkbox ist nicht gesetzlich
+   vorgeschrieben, aber ein gaengiges Nachweismittel.
 2. **Button mit "Anmelden" / "Weiter":** KLASSISCHER Verstoss gegen § 312j
    Abs. 3 BGB. Nur "zahlungspflichtig bestellen", "kaufen", "kostenpflichtig
    bestellen" sind gerichtsfest.
 3. **Widerrufsbelehrung fehlerhaft oder fehlt:** Verlaengerte Widerrufsfrist
    12 Monate + 14 Tage → erheblicher Schaden.
 4. **Pre-ticked Marketing-Consent:** Nicht nur DSGVO-, sondern auch AGB-
-   widrig (§ 307 BGB Transparenz).
-5. **Automatische Abo-Verlaengerung > 1 Monat:** Seit dem "Gesetz fuer faire
-   Verbrauchervertraege" (01.03.2022) unzulaessig.
-6. **Kuendigungs-Button fehlt:** § 312k BGB verpflichtet Anbieter von Online-
-   Dauerschuldverhaeltnissen zu einem "Kuendigen-Button", der direkt zur
-   Kuendigung fuehrt. Verstoss: fristlose Kuendigung jederzeit moeglich.
+   widrig: unangemessene Benachteiligung nach § 307 Abs. 1 Satz 1, Abs. 2 Nr. 1
+   BGB wegen Abweichung vom gesetzlichen Einwilligungserfordernis (BGH, Urt.
+   v. 28.05.2020, I ZR 7/16, Cookie-Einwilligung II).
+5. **Automatische Abo-Verlaengerung:** Stillschweigende Verlaengerung nur auf
+   unbestimmte Zeit mit Kuendigungsfrist von hoechstens einem Monat (§ 309
+   Nr. 9 Buchst. b BGB, fuer ab 01.03.2022 geschlossene Vertraege).
+6. **Kuendigungs-Button fehlt:** § 312k Abs. 2 BGB verpflichtet Anbieter von
+   Online-Dauerschuldverhaeltnissen zu einem zweistufigen Ablauf: eine
+   Kuendigungsschaltflaeche "Vertraege hier kuendigen" fuehrt den Verbraucher
+   unmittelbar zu einer Bestaetigungsseite mit den Angaben nach Abs. 2 Satz 3
+   Nr. 1 und einer Bestaetigungsschaltflaeche "jetzt kuendigen"; beide staendig
+   verfuegbar sowie unmittelbar und leicht zugaenglich. Verstoss: fristlose
+   Kuendigung jederzeit moeglich.
+7. **Widerrufsfunktion fehlt:** Seit 19.06.2026 muss bei online geschlossenen
+   Fernabsatzvertraegen die Widerrufsfunktion "Vertrag widerrufen" nach § 356a
+   BGB bereitstehen.
 
 ## Relevanz fuer Codebase-Typen
 
 - **Next.js SaaS:** Subscription-Flow braucht sauberen Button "Jetzt
   kostenpflichtig abonnieren" + Widerrufsbelehrung + Kuendigen-Button-Route.
-- **Landingpage:** Kein Kaufabschluss → § 312j irrelevant, aber AGB-Pflicht
-  bei Anfrageformularen, wenn Vertragsschluss moeglich.
-- **n8n-Workflows:** Automatische Vertragsbestaetigungs-E-Mails muessen
-  Widerrufsbelehrung + AGB als PDF-Anhang enthalten; Trigger bei Order-Create.
+- **Landingpage:** Ohne Bestellabschluss greift § 312j Abs. 2 bis 4 nicht.
+  Eine AGB-Pflicht gibt es nicht; werden AGB verwendet und kommt ueber das
+  Formular ein Vertrag zustande, sind sie nach § 305 Abs. 2 BGB einzubeziehen
+  und nach § 312i Abs. 1 Satz 1 Nr. 4 BGB abruf- und speicherbar zu machen; bei
+  Vertraegen mit Verbrauchern gelten die vorvertraglichen Informationspflichten
+  (§ 312d BGB, Art. 246a EGBGB).
+- **n8n-Workflows:** Automatische Vertragsbestaetigungs-E-Mails: Bestaetigung
+  auf dauerhaftem Datentraeger (E-Mail genuegt, PDF ueblich, nicht
+  vorgeschrieben) mit Vertragsinhalt und Angaben nach Art. 246a EGBGB
+  einschliesslich Widerrufsbelehrung, soweit nicht schon vorher auf dauerhaftem
+  Datentraeger erteilt (§ 312f Abs. 2 BGB); Trigger bei Order-Create.
 - **E-Commerce:** Vollstaendige Implementation aller genannten Punkte
   Pflicht. Shopify/WooCommerce-Templates DE haeufig korrekt konfiguriert,
   Custom-Checkouts riskant.
@@ -246,7 +285,10 @@ entfaltet.
   nicht passten: "BGH VIII ZR 63/15 (Button 'Jetzt anmelden')" — nicht
   auffindbar; "BGH VIII ZR 21/19 (Widerrufsbelehrung)" — Az. existiert
   (09.10.2019), betrifft aber Mieterhoehung nach Modernisierung, nicht die
-  Widerrufsbelehrung; "EuGH C-543/19 Amazon EU" — nicht auffindbar;
+  Widerrufsbelehrung; "EuGH C-543/19 Amazon EU" — Az. existiert
+  (Urt. v. 15.10.2020, Jebsen & Jessen, Vorlage FG Hamburg, Zoll-/
+  Antidumpingrecht), betrifft nicht Amazon; einschlaegig ist EuGH C-649/17
+  (10.07.2019);
   "LG Berlin 52 O 157/20 (Kuendigungsbutton)" — Az. so nicht auffindbar
   (das verwandte 52 O 157/21 betrifft Netflix-Preisanpassung, kein
   Kuendigungsbutton). Ersatz siehe LG Berlin 52 O 333/22.

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__7.html
 quellen-sekundaer:
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/DatenschutzAZ/Werbung/Werbung-node.html
@@ -32,7 +32,7 @@ Drei Saeulen der Compliance:
 1. **Double-Opt-In** — zweistufige Einwilligung als Beweisstandard.
 2. **Bestandskundenausnahme** — § 7 Abs. 3 UWG fuer bestehende Kundenbeziehungen.
 3. **Abmelde-/Widerspruchslink** — in jeder einzelnen Werbemail (Art. 21 DSGVO,
-   § 7 Abs. 2 Nr. 4 UWG).
+   § 7 Abs. 2 Nr. 3 Buchst. c UWG).
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -44,7 +44,7 @@ Einwilligung. Die Einwilligung muss in unmittelbarem Zusammenhang mit der
 Werbemassnahme erfolgen und der Werbende muss sie nachweisen koennen
 (Beweislast beim Versender).
 
-**Konkrete Anforderungen (Double-Opt-In laut BGH I ZR 164/09, 10.02.2011 — "Double-opt-in-Verfahren"):**
+**Konkrete Anforderungen (Double-Opt-In; zur Rechtsprechung BGH I ZR 164/09, 10.02.2011, "Double-opt-in-Verfahren", siehe unten):**
 
 1. Formular-Eintrag (Single Opt-In) mit aktiver Handlung (leere Checkbox,
    die der Nutzer anhaken muss, oder expliziter "Anmelden"-Klick).
@@ -52,7 +52,8 @@ Werbemassnahme erfolgen und der Werbende muss sie nachweisen koennen
    **eindeutigen Bestaetigungslink**.
 3. Klick auf den Link dokumentiert = Einwilligung.
 4. **Logging** des Vorgangs: IP, User-Agent, Timestamp des Eintrags +
-   Timestamp der Bestaetigung + genauer Einwilligungstext.
+   Timestamp der Bestaetigung + genauer Einwilligungstext. Das Logging von IP
+   und User-Agent ist Praxisempfehlung, keine Vorgabe des Urteils.
 
 ### § 7 Abs. 3 UWG — Bestandskundenausnahme
 
@@ -70,9 +71,10 @@ Vier kumulative Voraussetzungen:
 ### Art. 21 DSGVO — Widerspruchsrecht bei Direktwerbung
 
 Jede betroffene Person hat das Recht, jederzeit der Verarbeitung
-personenbezogener Daten zu Zwecken der Direktwerbung zu widersprechen. Der
-Widerspruch muss **einfach und kostenfrei** moeglich sein — praktische
-Umsetzung: One-Click-Unsubscribe-Link im Footer jeder Werbemail.
+personenbezogener Daten zu Zwecken der Direktwerbung zu widersprechen
+(Art. 21 Abs. 2, 3 DSGVO; unentgeltlich nach Art. 12 Abs. 5 DSGVO).
+Praxisempfehlung (keine ausdrueckliche gesetzliche Vorgabe):
+One-Click-Unsubscribe-Link im Footer jeder Werbemail.
 
 ### § 6 DDG / § 5 DDG — Identitaet & Kennzeichnung
 
@@ -86,6 +88,9 @@ pflicht fuer kommerzielle Kommunikation ergibt sich daher aus **§ 6 DDG**
 - Impressum / Link zum Impressum (§ 5 DDG)
 - bei Werbe-Mails zusaetzlich: Kennzeichnungspflicht nach § 6 DDG, Auftraggeber
   identifizierbar
+- keine Verschleierung von Absender oder kommerziellem Charakter in Kopf- und
+  Betreffzeile (§ 6 Abs. 1 DDG; Verstoss zugleich § 7 Abs. 2 Nr. 3 Buchst. a,
+  b UWG)
 
 ### Art. 13 DSGVO — Informationspflichten beim Opt-In
 
@@ -109,18 +114,22 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 3. **Pre-checked Checkbox** bei Signup: nach Planet49 (EuGH C-673/17) unwirksam.
 4. **Kopplung mit anderer Leistung** ("Erhalten Sie 10% Rabatt, wenn Sie
    unseren Newsletter abonnieren"): kann zulaessig sein, aber nicht an Vertrag
-   koppeln (Art. 7 Abs. 4 DSGVO Kopplungsverbot).
+   koppeln (Art. 7 Abs. 4 DSGVO, sogenanntes Kopplungsverbot; nach dem
+   Wortlaut ein Beruecksichtigungsgebot, kein absolutes Verbot).
 5. **Forward-/Tell-a-Friend-Funktion:** Nachricht an Dritten ohne dessen
-   Einwilligung → Direktwerbung des Versenders, abmahnfaehig (BGH I ZR 218/07).
+   Einwilligung → Direktwerbung des Versenders, abmahnfaehig (BGH, Urteil vom
+   12.09.2013, I ZR 208/12, Empfehlungs-E-Mail).
 6. **Logging luecken:** Kein Audit-Log → keine Einwilligung nachweisbar →
    Prozess verloren.
 7. **Abmeldelink fuehrt zu 404 oder erfordert Login:** verstoesst gegen
-   Art. 21 DSGVO / § 7 Abs. 2 Nr. 4 UWG; ein-Klick-Abmeldung Pflicht.
+   Art. 21 Abs. 2, 3 DSGVO / § 7 Abs. 2 Nr. 3 Buchst. c, Abs. 3 Nr. 4 UWG: Die
+   Abmeldung muss jederzeit moeglich sein. Ein Abmeldelink mit einem Klick ist
+   Praxisempfehlung, keine gesetzliche Pflicht.
 8. **Transaktions-Mail mit Marketing:** "Ihre Rechnung + 'passende Produkte'"
    ist rechtlich Werbung, nicht Transaktion.
-9. **Re-Engagement-Kampagnen an alte Listen:** Opt-In > 24 Monate alt? Gefahr,
-   dass Einwilligung verfristet / nicht mehr zeitgemaess ist (str., Tendenz
-   Aufsicht: ja).
+9. **Re-Engagement-Kampagnen an alte Listen:** Eine Einwilligung erlischt
+   grundsaetzlich nicht allein durch Zeitablauf (BGH, Urt. v. 01.02.2018,
+   III ZR 196/17, Rn. 31). Eine feste 24-Monats-Frist gibt es nicht.
 10. **Purchased Lists / Lead-Boersen:** Nahezu immer rechtswidrig (keine
     direkte Einwilligung gegenueber dem Werbenden).
 
@@ -149,19 +158,29 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - **BfDI (Bundesbeauftragter):** nur fuer Telekom-/Post-Unternehmen und
   Bundesbehoerden zustaendig.
 - **Konferenz der unabhaengigen Datenschutzaufsichtsbehoerden (DSK):**
-  Orientierungshilfen: "Werbung" (2022), "Direktwerbung" (FAQ).
+  Orientierungshilfe der Aufsichtsbehoerden zur Verarbeitung von
+  personenbezogenen Daten fuer Zwecke der Direktwerbung unter Geltung der
+  DS-GVO (18.02.2022).
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 164/09** (10.02.2011 / Folgeurteil 2012, "Double-Opt-In"):
-  Anerkennung des DOI-Standards.
-- **BGH I ZR 218/07** (10.02.2011, "Payback"): Einwilligung muss bewusst und
-  eindeutig sein; Opt-Out-Loesungen nicht ausreichend.
+- **BGH I ZR 164/09** (10.02.2011, "Double-opt-in-Verfahren"): vollstaendige
+  Dokumentation jeder Einwilligung erforderlich (LS 2); die DOI-Bestaetigung
+  belegt keine Einwilligung in Telefonwerbung (LS 3); bei E-Mail-Werbung ist
+  die Einwilligung nach bestaetigter Adresse grundsaetzlich hinreichend
+  dokumentiert (Rn. 37), der Verbraucher traegt die Darlegungslast, wenn er
+  sie bestreitet (LS 4). Logging von IP und User-Agent ist
+  Praxisempfehlung, keine Vorgabe des Urteils.
+- **BGH, Beschl. v. 20.05.2009, I ZR 218/07** ("E-Mail-Werbung II"): Werbung
+  per E-Mail ohne vorherige ausdrueckliche Einwilligung ist stets unzumutbare
+  Belaestigung (so zitiert in BGH VI ZR 225/17).
+- **BGH, Urt. v. 16.07.2008, VIII ZR 348/06** (BGHZ 177, 253): Opt-Out-Loesungen
+  nicht ausreichend. <<VERIFIKATION AUSSTEHEND>>
 - **BGH I ZR 25/19** (13.01.2022, "Inbox-Werbung II"): Auch Inbox-Placements
   in Freemail-Postfaechern sind Werbung; Einwilligung muss konkrete
   Modalitaeten der Werbe-Einblendung umfassen. Siehe [[urteile/bgh-inbox-werbung]].
-- **EuGH C-102/20** (25.11.2021): Vorabentscheidung zum Begriff "elektronische
-  Post" — breit auszulegen.
+- **EuGH C-102/20** (25.11.2021): Inbox-Werbung ist Verwendung elektronischer
+  Post fuer Direktwerbung (Tenor 1).
 - **EuGH C-673/17** (01.10.2019, "Planet49"): Pre-ticked Checkboxen unwirksam.
 - Die Urteile des BGH vom 09.09.2021 (I ZR 90/20 "Influencer I",
   I ZR 125/20 "Influencer II", I ZR 126/20) ergingen zu § 5a Abs. 6
@@ -203,8 +222,11 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
   ECLI:DE:BGH:2021:060521UIZR61.20.0). Keine Influencer-Entscheidung unter
   diesem Aktenzeichen nachweisbar; das Influencer-Trio vom 09.09.2021 ist
   I ZR 90/20, I ZR 125/20 und I ZR 126/20 (bereits in
-  themen/werbekennzeichnung.md belegt). Zitat daher nicht uebernehmen;
-  Aussage bleibt mit Verifikationsmarker.
+  themen/werbekennzeichnung.md belegt). Zitat daher nicht uebernehmen.
+- **BGH I ZR 218/07**: in Vorgaengerfassungen als Beleg fuer Tell-a-Friend-
+  Werbung und mit Datum 10.02.2011 / "Payback" zitiert. Tatsaechlich: Beschluss
+  vom 20.05.2009, "E-Mail-Werbung II". Beleg fuer Empfehlungs-E-Mails ist
+  BGH I ZR 208/12 (12.09.2013).
 
 ## Siehe auch
 
@@ -246,3 +268,11 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
   I ZR 125/20 (Leitsaetze 1 und 2) ausgerichtet; Aussagen ohne
   Quellenbeleg entfernt.
 - **2026-11-14 (Nachzug Review, Leitsatz-Zuordnung)**: Eigenwerbung-Beleg auf I ZR 90/20 Leitsatz 2 und I ZR 125/20 Leitsatz 2 getrennt, Vermutung der Gegenleistung auf § 5a Abs. 4 Satz 3 UWG gestellt (statt Satz 2), Formulierung am Gesetzeswortlaut ausgerichtet.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  Abmeldeadresse auf § 7 Abs. 2 Nr. 3 Buchst. c UWG umgestellt; § 6 Abs. 2
+  DDG ergaenzt; Tell-a-Friend auf BGH I ZR 208/12 umgestellt, I ZR 218/07
+  richtig als E-Mail-Werbung II (20.05.2009) zugeordnet; VIII ZR 348/06 mit
+  Verifikationsmarker; I ZR 164/09 und EuGH C-102/20 praezisiert; feste
+  24-Monats-Frist fuer Einwilligungen gestrichen (BGH III ZR 196/17, Rn. 31);
+  Art. 7 Abs. 4, Art. 21, Art. 12 Abs. 5 DSGVO praezisiert; DSK OH
+  Direktwerbung (18.02.2022) zitiert.

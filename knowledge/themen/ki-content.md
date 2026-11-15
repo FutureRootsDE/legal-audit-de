@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/urhg/__44b.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__60d.html
@@ -28,7 +28,7 @@ eli-aendvo: http://data.europa.eu/eli/reg/2026/1744/oj
 > (Urheber-Policy + Trainingsdaten-Summary) seit 02.08.2025. Die ursprünglich
 > fuer 02.08.2026 (Anhang III) bzw. 02.08.2027 (Anhang I) vorgesehenen
 > Hochrisiko-Pflichten wurden durch den **Digital Omnibus on AI
-> (VO (EU) 2026/1744, in Kraft 27.07.2026)** auf **02.12.2027** bzw.
+> (VO (EU) 2026/1744, in Kraft 27.07.2026 nach ihrem Art. 4)** auf **02.12.2027** bzw.
 > **02.08.2028** verschoben. Die Transparenzpflichten des Art. 50 (Chatbot,
 > synthetische Inhalte, Deepfakes) gelten planmaessig seit **02.08.2026**.
 
@@ -50,7 +50,7 @@ Seit **02.08.2025** verlangt **Art. 53 AI Act** zusaetzlich, dass GPAI-Anbieter 
 
 ### § 60d UrhG (Forschungs-TDM)
 
-Privilegierte Forschungsorganisationen; **kein Opt-Out** moeglich (zwingende Schranke). Die Privilegierung entfaellt bei kommerziellem Charakter der Aktivitaet.
+Privilegierte Forschungsorganisationen; **kein Opt-Out** moeglich (zwingende Schranke). Privilegiert sind Forschungsorganisationen, die eine der drei Alternativen des § 60d Abs. 2 Satz 2 UrhG erfuellen; ausgeschlossen bei bestimmendem Einfluss und bevorzugtem Ergebniszugang eines privaten Unternehmens (§ 60d Abs. 2 Satz 3 UrhG).
 
 ### LG Hamburg Urt. v. 27.09.2024 — LAION/Kneschke (Az. 310 O 227/23)
 
@@ -64,8 +64,8 @@ Privilegierte Forschungsorganisationen; **kein Opt-Out** moeglich (zwingende Sch
 Berufung des Klaegers zurueckgewiesen, erstinstanzliches Urteil bestaetigt.
 Das OLG bejaht TDM auch nach **§ 60d UrhG** (Forschungsprivileg, da LAION
 gemeinnuetzig) und § 44b UrhG. **Revision zugelassen**, weil grundsaetzliche
-Bedeutung — BGH-Verfahren wahrscheinlich. (Tier-1-Verifikation: Pressemitteilung
-des Hanseatischen OLG, dejure.org).
+Bedeutung — BGH-Verfahren wahrscheinlich. (Beleg: Pressemitteilung des
+Hanseatischen OLG).
 
 ### Art. 53 AI Act (seit 02.08.2025)
 
@@ -74,9 +74,9 @@ GPAI-Anbieter (= Anbieter von Foundation Models) muessen:
 - Insbesondere **maschinenlesbare Opt-Outs nach Art. 4 DSM-RL / § 44b Abs. 3 UrhG respektieren**
 - Eine **oeffentliche, hinreichend detaillierte Zusammenfassung** der Trainingsdaten bereitstellen (Template Summary durch Kommission)
 
-Der **General-Purpose AI Code of Practice** wurde in finaler Fassung am **10.07.2025** veroeffentlicht und liefert einen praxisnahen Konformitaetspfad fuer Art. 53 (Safety-, Transparenz- und Copyright-Kapitel). Signatoren laut Kommissionsseite "Signatories of the GPAI Code of Practice" (digital-strategy.ec.europa.eu): u.a. Anthropic, OpenAI, Google, Microsoft, Mistral, Cohere, IBM, Aleph Alpha, Black Forest Labs; xAI nur Safety-Kapitel. <<VERIFIKATION AUSSTEHEND>> — genaue Zahl und exaktes Veroeffentlichungsdatum der Zeichnerliste; die Kommissionsseite nennt keine konsolidierte Zaehlung mit Datum.
+Der **General-Purpose AI Code of Practice** wurde in finaler Fassung am **10.07.2025** veroeffentlicht und liefert einen praxisnahen Konformitaetspfad fuer Art. 53 (Safety-, Transparenz- und Copyright-Kapitel). Signatoren laut Kommissionsseite "Signatories of the GPAI Code of Practice" (digital-strategy.ec.europa.eu, abgerufen 2026-11-14): 22 Unterzeichner laut Kommission, u.a. Anthropic, OpenAI, Google, Microsoft, Mistral, Cohere, IBM, Aleph Alpha, Black Forest Labs; xAI hat nur das Safety-Kapitel gezeichnet. Die Seite nennt kein Datum je Zeichnung; Zahl vor Verwendung neu abrufen.
 
-Durch die **VO (EU) 2026/1744 (Digital Omnibus on AI, in Kraft 27.07.2026)** erhält das Büro für Künstliche Intelligenz nach den neuen Art. 75a bis 75d KI-VO eigenständige Aufsichts- und Durchsetzungsbefugnisse — allerdings nicht gegen "GPAI-Anbieter" pauschal, sondern nur gegen die **Akteure nach Art. 75 Abs. 1 KI-VO n. F.** (Anbieter von KI-Systemen auf Grundlage eines GPAI-Modells desselben Anbieters bzw. Konzernanbieters, mit Ausnahmen für Anhang-I-Produkte, bestimmte Anhang-III-Systeme und Strafverfolgung; zudem KI-Systeme, die VLOP/VLOSE i. S. v. VO (EU) 2022/2065 bilden oder in sie integriert sind). Dazu zählen nach Art. 75a Informationsersuchen und Inspektionen, nach Art. 75b Verpflichtungszusagen, nach Art. 75c Geldbußen (sinngemäß Art. 99 Abs. 3 bis 7) und Zwangsgelder "in Höhe von höchstens 5 % der durchschnittlichen Tageseinnahmen oder des durchschnittlichen weltweiten Jahresumsatzes im vorangegangenen Geschäftsjahr pro Tag" (Art. 75c Abs. 5 KI-VO n. F.). Fünfjährige Verjährung (Art. 75c Abs. 8). Art. 75d regelt Verteidigungs- und Akteneinsichtsrechte. Die Aufsicht und Durchsetzung **gegenüber Anbietern von KI-Modellen mit allgemeinem Verwendungszweck** (GPAI-Modelle) liegt dagegen nach **Art. 88 KI-VO** weiterhin bei der Kommission / beim Büro für Künstliche Intelligenz als **ausschließlicher Zuständigkeit**; Erwägungsgrund 19 der VO (EU) 2026/1744 stellt klar, dass die neuen Art. 75a bis 75d den Umfang der ausschließlichen Art.-88-Befugnisse nicht verdrängen, sondern für bestimmte GPAI-basierte KI-Systeme ergänzen.
+Durch die **VO (EU) 2026/1744 (Digital Omnibus on AI, in Kraft 27.07.2026)** erhält das Büro für Künstliche Intelligenz nach den neuen Art. 75a bis 75d KI-VO eigenständige Aufsichts- und Durchsetzungsbefugnisse — allerdings nicht gegen "GPAI-Anbieter" pauschal, sondern nur gegen die **Akteure nach Art. 75 Abs. 1 KI-VO n. F.** (Anbieter von KI-Systemen auf Grundlage eines GPAI-Modells desselben Anbieters bzw. Konzernanbieters, mit Ausnahmen für Anhang-I-Produkte, bestimmte Anhang-III-Systeme und Strafverfolgung; zudem KI-Systeme, die VLOP/VLOSE i. S. v. VO (EU) 2022/2065 bilden oder in sie integriert sind). Dazu zählen nach Art. 75a Informationsersuchen und Inspektionen, nach Art. 75b Verpflichtungszusagen, nach Art. 75c Geldbußen (sinngemäß Art. 99 Abs. 3 bis 7) und Zwangsgelder; diese "dürfen gegebenenfalls 5 % der durchschnittlichen Tageseinnahmen oder des durchschnittlichen weltweiten Jahresumsatzes im vorangegangenen Geschäftsjahr pro Tag, berechnet ab dem durch den Beschluss bestimmten Tag, nicht übersteigen" (Art. 75c Abs. 5 KI-VO n. F.). Fünfjährige Verjährung (Art. 75c Abs. 8). Art. 75d regelt Verteidigungs- und Akteneinsichtsrechte. Die Aufsicht und Durchsetzung **gegenüber Anbietern von KI-Modellen mit allgemeinem Verwendungszweck** (GPAI-Modelle) liegt dagegen nach **Art. 88 KI-VO** weiterhin bei der Kommission / beim Büro für Künstliche Intelligenz als **ausschließlicher Zuständigkeit**; Erwägungsgrund 31 der VO (EU) 2026/1744 verweist auf die ausschließliche Befugnis nach Art. 88 und präzisiert den Umfang der ausschließlichen Systemaufsicht des Büros für KI.
 
 ## Opt-Out-Mechanismen in der Praxis
 
@@ -191,5 +191,6 @@ KI-generierte Werke ohne menschliche Schoepfungshoehe sind **NICHT urheberrechtl
 
 ## Aenderungsvermerk
 
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**: § 60d-Privilegierung nach Abs. 2 Satz 2 und 3 praezisiert; Art. 75c Abs. 5 im Wortlaut; Erwaegungsgrund 31 (nicht 19) der VO (EU) 2026/1744; dejure.org nicht mehr als Tier-1-Beleg; Inkrafttreten der VO (EU) 2026/1744 nach Art. 4; Zeichnerzahl GPAI-Kodex mit Quelle und Abrufdatum, Marker aufgeloest.
 - **2026-11-14 (Korrekturlauf nach Gegenprobe am Volltext VO 2026/1744)**: Art. 75a bis 75d KI-VO n. F. am Verordnungs-Wortlaut präzisiert (Adressatenkreis "Akteure nach Art. 75 Abs. 1", nicht "GPAI-Anbieter" pauschal; Zwangsgeld-Bemessung; Art. 75d bestätigt); Platzhalter aufgelöst. Getty Images v. Stability AI [2025] EWHC 2863 (Ch) vom 04.11.2025 als Urteil (nicht mehr "laufend") übernommen.
 - **2026-11-14 (Voraufnahme)**: Art. 53-Darstellung aktualisiert; Hochrisiko-Daten (Anhang III 02.12.2027, Anhang I 02.08.2028).

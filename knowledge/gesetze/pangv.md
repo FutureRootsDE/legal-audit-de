@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/pangv_2022/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/pangv_2022/__11.html
@@ -22,7 +22,8 @@ geltungsbereich: [DE]
 > des Preisangabenrechts zur Sanktionierung von Verstoessen gegen
 > nationale und europaeische Regelungen ueber Preisangaben vom 19.10.2026
 > (BGBl. 2026 I Nr. 314, verkuendet 22.10.2026)**. Art. 3 aendert allein
-> **§ 20 PAngV** (Verweis auf das neue Preisangabengesetz statt auf
+> **§ 20 PAngV** (Verweis auf das geaenderte Preisangabengesetz (PAngG vom
+> 03.12.1984; durch Art. 1 geaendert) statt auf
 > § 3 Abs. 1 Satz 1 Nr. 2 WiStG 1954); die materiellen Vorschriften zu
 > Gesamtpreis, Grundpreis, Versandkosten, 30-Tage-Referenzpreis (§ 11)
 > und Dienstleistungen bleiben unveraendert. Inkrafttreten der Aenderung:
@@ -45,9 +46,9 @@ Die PAngV konkretisiert § 1 UKlaG / §§ 3, 5, 5a UWG und ist ueber § 3a UWG
 
 ### § 1 PAngV — Anwendungsbereich, Grundsatz
 
-Wer Verbrauchern Waren oder Dienstleistungen anbietet oder als Anbieter
-adressiert Werbung unter Angabe von Preisen betreibt, muss Gesamtpreise angeben
-(inkl. USt. und aller sonstigen Preisbestandteile).
+§ 1 PAngV regelt den Anwendungsbereich (Unternehmer gegenueber Verbrauchern)
+sowie Preisklarheit und Preiswahrheit (Abs. 3); die Pflicht zur
+Gesamtpreisangabe folgt aus § 3 Abs. 1.
 
 ### § 3 PAngV — Pflicht zur Angabe des Gesamtpreises
 
@@ -62,12 +63,11 @@ Umhuellung **nach Gewicht, Volumen, Laenge oder Flaeche** anbietet, muss
 neben dem Gesamtpreis auch den **Grundpreis** (je 1 kg / 1 l / 1 m / 1 m²)
 angeben.
 
-Ausnahmen u.a. fuer:
+Ausnahmen nach § 4 Abs. 3 Nrn. 1 bis 8 PAngV, u.a. fuer:
 
-- Waren, deren Nenngewicht/-volumen in §§ 4-6 MessEinhG-Anlage geregelt ist
-  (z.B. Aerosol-Deodorants in Gramm)
 - Waren < 10 g/10 ml
-- Einzelportionen in Gastronomie
+- Waren, die im Rahmen einer Dienstleistung angeboten werden (§ 4 Abs. 3
+  Nr. 4)
 
 ### § 11 PAngV — Streichpreis-Regel (30-Tage)
 
@@ -92,8 +92,9 @@ die Regel entsprechend.
 
 ### § 12 PAngV — Leistungen (DL)
 
-Preisangabe fuer Dienstleistungen (Handwerker, Friseur, Steuerberater etc.):
-entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
+§ 12 PAngV: Preisverzeichnis ueber die wesentlichen Leistungen oder ueber
+Verrechnungssaetze; Ausnahmen nach Abs. 4 (u. a. Leistungen auf Grund
+schriftlicher Einzelangebote).
 
 ## Typische Fallstricke in Codebases
 
@@ -108,9 +109,10 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
    muss sich daran orientieren.
 4. **Grundpreis fehlt in Produktkachel:** Suchergebnislisten, Kategorieseiten,
    Social-Ads muessen Grundpreis enthalten, wenn § 4 greift.
-5. **Versandkosten-Hinweis zu spaet im Checkout:** Gesamtpreis inkl.
-   Versandinfo muss **vor** Bestellabschluss sichtbar sein (§ 6 PAngV;
-   flankiert von § 312j Abs. 2 BGB).
+5. **Versandkosten-Hinweis zu spaet im Checkout:** Der Hinweis auf
+   Umsatzsteuer und Versandkosten ist bereits beim Angebot zu geben (§ 6
+   Abs. 1, 2 PAngV), nicht erst im Checkout; zusaetzlich unmittelbar vor der
+   Bestellung nach § 312j Abs. 2 BGB.
 6. **Abo-Preise / Aktions-Zeitraum:** Bei "erster Monat gratis, dann X EUR"
    muss der regulaere Preis klar erkennbar sein.
 
@@ -132,7 +134,9 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
 ## Behoerden-Hinweise
 
 - **Zustaendige Behoerde:** Landes-Eichbehoerden / Gewerbeaufsicht; Ordnungs-
-  widrigkeiten nach § 19 PAngV bis **100.000 EUR Bussgeld**.
+  widrigkeiten nach § 20 PAngV: bis 31.12.2026 Geldbusse bis **25.000 EUR**
+  (§ 3 Abs. 2 WiStG 1954); ab 01.01.2027 bis **100.000 EUR** (§ 3 Abs. 3
+  PAngG n. F., G v. 19.10.2026, BGBl. 2026 I Nr. 314).
 - **Abmahnungen:** regelmaessig durch Wettbewerbszentrale, IDO, vzbv.
 
 ## Zitierbare Urteile
@@ -145,9 +149,10 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   (Hinweis: Vorgaengerfassung dieser KB nannte fehlerhaft "OLG Hamburg
   3 U 37/22" — diese Zitation war nicht gegen rechtsprechung-im-internet
   belegbar; korrigiert am 2026-05-08.)
-- **EuGH C-330/23** (26.09.2024, "Aldi Sued"): Klarstellung, dass der
-  30-Tage-Referenzpreis auch in Werbung (Prospekte, Online-Ads) gelten muss,
-  nicht nur am Regal.
+- **EuGH C-330/23** (Urt. v. 26.09.2024, "Aldi Sued"): Wird eine
+  Preisermaessigung als Prozentsatz oder mit einer Werbeaussage zur
+  Vorteilhaftigkeit bekanntgegeben, muss sie auf Grundlage des "vorherigen
+  Preises", d. h. des niedrigsten Preises der letzten 30 Tage, berechnet sein.
 
 ## Nicht zitieren: falsch zugeordnete Aktenzeichen
 
@@ -187,7 +192,8 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   **ausschliesslich § 20 PAngV** (Sanktionsverweis); § 11 (30-Tage-
   Streichpreis), § 4 (Grundpreis), § 6 (Versandkosten) sowie Pfand- und
   Energieangaben sind nicht betroffen. Kern des Artikelgesetzes ist das
-  neue Preisangabengesetz (PAngG, Art. 1) mit eigenem Bussgeldrahmen bis
+  geaenderte Preisangabengesetz (PAngG vom 03.12.1984; durch Art. 1
+  geaendert) mit eigenem Bussgeldrahmen bis
   **100.000 EUR** (§ 3 Abs. 3 PAngG). Inkrafttreten 01.01.2027 (Art. 4).
   Vorheriger Hinweis "Betroffenheit einzelner Paragraphen nicht einzeln
   gegenverifiziert" damit aufgeloest.
@@ -207,3 +213,10 @@ entweder Festpreis oder nach Preisverzeichnis / Stundensatz.
   ("Nicht zitieren: falsch zugeordnete Aktenzeichen") ausserhalb von
   "Zitierbare Urteile" verschoben; Inhalt unveraendert. Analog zur
   bestehenden Struktur in themen/preisangaben.md.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  PAngG als geaendertes Gesetz von 1984; § 1 als Anwendungsbereich, Gesamtpreis
+  aus § 3 Abs. 1; Grundpreis-Ausnahmen nach § 4 Abs. 3 (MessEinhG-Bullet und
+  "Einzelportionen in Gastronomie" gestrichen); § 12 Preisverzeichnis; OWi nach
+  § 20 PAngV mit 25.000 EUR bis 31.12.2026 und 100.000 EUR ab 01.01.2027;
+  EuGH C-330/23 inhaltlich berichtigt; Versandkostenhinweis bereits beim
+  Angebot (§ 6 PAngV).

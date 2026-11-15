@@ -1,9 +1,8 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quellen-sekundaer:
   - https://webbkoll.5july.net/
   - https://observatory.mozilla.org/
-  - https://privacyscore.org/
   - https://www.ssllabs.com/
   - https://www.deque.com/axe/
   - https://wave.webaim.org/
@@ -45,25 +44,6 @@ Analyse, PII-Inventar und Vertragspruefung.
 | Nutzbarkeit | Single-URL-Scan, kostenlos, kein Account noetig |
 | Alte URL-Hinweis | Wer Links zu `webbkoll.dataskydd.net` hat, bitte auf `webbkoll.5july.net` migrieren |
 
-### PrivacyScore (Community-Projekt)
-
-| Feld | Wert |
-|------|------|
-| URL | https://privacyscore.org/ |
-| Betreiber | TU Darmstadt / Uni Hamburg (SVS / Privacy & Trust Group); GitHub: github.com/PrivacyScore |
-| Features | Tracker-Erkennung, Security-Header, Server-Fingerprinting |
-| Status (Stand 2026-11-14) | Das zugehoerige DFG-Graduiertenkolleg 2090 endete Ende 2024. Die Plattform reagierte sowohl am 2026-05-08 als auch am 2026-11-14 nicht (ECONNREFUSED 141.13.99.204:443). Aktive Nutzung in 2026 unklar — als Backup verstehen, primaer Webbkoll verwenden. <<VERIFIKATION AUSSTEHEND>> |
-| Alternativen | Webbkoll (5th of July Foundation) |
-
-### privacytools.io (Ersatz-Community-Site)
-
-| Feld | Wert |
-|------|------|
-| Status | Originale privacytools.io wurde 2021 aufgespalten; die aktive Community-Alternative ist **privacyguides.org** |
-| URL Nachfolger | https://www.privacyguides.org/ |
-| Inhalt | Empfehlungen fuer datenschutzfreundliche Tools (Browser, VPN, E-Mail, Cloud, etc.) |
-| Hinweis | **Kein Scanner**, sondern kuratierte Tool-Liste |
-
 ## Tier 2: Security-Scanner (Server/TLS/HTTP-Header)
 
 ### Mozilla Observatory
@@ -74,7 +54,7 @@ Analyse, PII-Inventar und Vertragspruefung.
 | Betreiber | Mozilla Foundation |
 | Was wird geprueft | HTTP-Security-Header (CSP, HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy), Cookie-Attribute (Secure, HttpOnly, SameSite), Subresource Integrity |
 | Bewertung | A+ bis F, detaillierte Empfehlungen |
-| Relevanz fuer DSGVO | hoher — Art. 32 "Integritaet/Vertraulichkeit" verlangt Security-Standards |
+| Relevanz fuer DSGVO | Art. 32 DSGVO nennt den Stand der Technik als Abwaegungskriterium; fehlende Header sind ein Indiz fuer unzureichende TOM, Art. 32 schreibt aber keinen Header-Standard vor |
 
 ### SSL Labs (Qualys)
 
@@ -83,13 +63,14 @@ Analyse, PII-Inventar und Vertragspruefung.
 | URL | https://www.ssllabs.com/ssltest/ |
 | Was wird geprueft | TLS-Konfiguration, Cipher-Suites, Zertifikats-Kette, Vulnerabilitaeten (Heartbleed, POODLE, etc.) |
 | Bewertung | A+ bis F |
-| Relevanz | Art. 32 — TLS muss state-of-the-art sein |
+| Relevanz | Art. 32 DSGVO: Stand der Technik ist ein Abwaegungskriterium; eine schwache TLS-Konfiguration ist ein Indiz fuer unzureichende TOM |
 
 ### Security Headers (securityheaders.com)
 
 | Feld | Wert |
 |------|------|
 | URL | https://securityheaders.com/ |
+| Betreiber | Snyk (laut Seitenfuss) |
 | Was wird geprueft | HTTP-Security-Header (CSP, X-Content-Type-Options, HSTS, etc.) |
 | Bewertung | A+ bis F |
 | Besonderheit | Einfach, fokussiert, schnell |
@@ -102,8 +83,8 @@ Analyse, PII-Inventar und Vertragspruefung.
 |------|------|
 | URL | https://www.deque.com/axe/ |
 | Verfuegbarkeit | Chrome-/Firefox-Extension (kostenlos), Pro-Version, CLI, CI-Integration |
-| Was wird geprueft | WCAG 2.1 A/AA/AAA Automated Checks (deckt ca. 30-50% ab), manuelle Pruefungen noetig |
-| Relevanz | BFSG-Pflicht ab 2025-06-28 (bei B2C + > 10 MA / > 2 Mio EUR Umsatz) |
+| Was wird geprueft | WCAG 2.1 A/AA/AAA Automated Checks (decken nur einen Teil der Anforderungen ab), manuelle Pruefungen noetig |
+| Relevanz | BFSG-Pflicht ab 2025-06-28 (Stichtage nach § 1 Abs. 2, 3 BFSG); ausgenommen sind nur Kleinstunternehmen, die Dienstleistungen anbieten oder erbringen (weniger als 10 Beschaeftigte und Jahresumsatz oder Jahresbilanzsumme hoechstens 2 Mio EUR, § 2 Nr. 17, § 3 Abs. 3 BFSG). Fuer Produkte gilt keine Kleinstunternehmen-Ausnahme. |
 
 ### Lighthouse Accessibility (Google)
 
@@ -128,8 +109,8 @@ Analyse, PII-Inventar und Vertragspruefung.
 | URL | https://pa11y.org/ |
 | Was ist es | CLI- und CI-orientiertes A11y-Test-Tool (npm), automatisierbar in Build-Pipelines |
 | Was wird geprueft | WCAG 2.1 / 2.2 Konformitaet (per HTML CodeSniffer / axe-core) |
-| Relevanz | BFSG-Pflicht ab 2025-06-28 — automatisierte Regress-Tests in CI moeglich |
-| Pricing | Open-Source, kostenlos (MIT) |
+| Relevanz | BFSG-Pflicht ab 2025-06-28 (Ausnahme nur fuer Kleinstunternehmen bei Dienstleistungen, § 2 Nr. 17, § 3 Abs. 3 BFSG; siehe axe DevTools); automatisierte Regress-Tests in CI moeglich |
+| Pricing | Open Source, kostenlos (LGPL-3.0) |
 
 ## Tier 4: DSGVO-Checklisten-Tools
 
@@ -150,7 +131,7 @@ Analyse, PII-Inventar und Vertragspruefung.
 
 ### Cookiebot Free Cookie-Scan
 
-- URL: https://www.cookiebot.com/de/cookie-scanner/
+- URL: https://www.cookiebot.com/de/cookie-checker/
 - Single-URL-Scan als Teaser fuer das Abo
 - Listet erkannte Cookies + Zwecke
 
@@ -254,3 +235,4 @@ auf Codeberg.
 
 - **2026-11-14** (Batch E, stale-only): Zwei Platzhalter mit Suffixen zu "Dauerhafte Verfuegbarkeit" (PrivacyScore) und "Existenz Pruef-Dich-selbst-Tool" (BayLDA, jeweils Stand 2026-05-08) auf die einheitliche Form des Verifikationsmarkers normiert. BFSG-Anwendungsstichtag 28.06.2025 gegen gesetze-im-internet.de/bfsg bestaetigt.
 - **2026-11-14** (Batch E3, Live-Pruefung): Jeden Scanner-Eintrag live abgerufen. Webbkoll (webbkoll.5july.net), SSL Labs (ssllabs.com/ssltest/), axe DevTools (deque.com/axe/), WAVE (wave.webaim.org), Pa11y (pa11y.org), Cookiebot-Scanner (cookiebot.com/de/cookie-scanner/), Cookiepedia (cookiepedia.co.uk, weiterhin OneTrust), privacyguides.org, Ghostery (ghostery.com) und PrivacyBadger (privacybadger.org) erreichbar und unveraendert. **Mozilla Observatory**: alte URL `observatory.mozilla.org` liefert HTTP 301 permanent auf `developer.mozilla.org/en-US/observatory` — URL im Eintrag korrigiert. **PrivacyScore**: zweiter ECONNREFUSED am 2026-11-14 bestaetigt; Eintrag mit Hinweis verschaerft, Platzhalter bleibt. **securityheaders.com**: Live-WebFetch lieferte HTTP 403 (Bot-Schutz), Dienst im Browser weiterhin erreichbar — kein Markerwechsel. **BayLDA-Checklisten**: PDF `baylda_checkliste_handel_solo.pdf` auf lda.bayern.de weiterhin verlinkt, Platzhalter zum frueheren "Pruef Dich selbst"-Tool bleibt. `aktualisiert` und `verifiziert-am` auf 2026-11-14 gesetzt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): BFSG-Ausnahme auf Kleinstunternehmen bei Dienstleistungen beschraenkt (§ 2 Nr. 17, § 3 Abs. 3 BFSG); Art. 32 DSGVO als Abwaegungsmassstab statt Header-/TLS-Standard; Pa11y-Lizenz LGPL-3.0; Cookiebot-Scanner-URL auf /de/cookie-checker/; Betreiber Snyk bei securityheaders.com; Prozentangabe zur axe-Abdeckung entfernt; Abschnitt privacytools.io (kein Scanner) gestrichen; Abschnitt PrivacyScore samt Marker entfernt (Dienst nicht erreichbar).

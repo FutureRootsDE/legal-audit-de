@@ -60,9 +60,9 @@ Unter `anwaelte-tools/`:
 - `fachanwaelte-it-recht.md` — Qualifikationen, Zertifikate
 - `datenschutzbeauftragte.md` — BvD, udis, TUEV-zertifiziert
 - `kanzleien-saas-spezialisiert.md` — konkrete Empfehlungen
-- `tools-generatoren.md` — eRecht24, IT-Recht-KL, Trusted Shops
+- `tools-generatoren.md` — eRecht24, IT-Recht Kanzlei, Trusted Shops, Haendlerbund
 - `tools-consent-mgmt.md` — Usercentrics, Cookiebot, Klaro, Osano
-- `tools-scanner.md` — webbkoll, PrivacyScore, privacytools.io
+- `tools-scanner.md` — Webbkoll, Mozilla Observatory, SSL Labs, axe/Pa11y (Barrierefreiheit)
 - `tools-aufsichtsbehoerden.md` — Meldewege
 
 ## Cross-Ref-Konventionen
@@ -79,11 +79,11 @@ Unter `anwaelte-tools/`:
 
 ## Update-Historie (letzter `--all`-Run)
 
-- **2026-05-08:** `/legal-update --all` ueber alle 63 KB-Dateien. Logs:
+- **2026-05-08:** `/legal-update --all` ueber alle damals 63 KB-Dateien (historischer Wert, Stichtag 2026-05-08; heute 65 Dateien plus INDEX). Logs:
   - `.claude/logs/kb-updates.log` (62 Eintraege)
   - `.claude/logs/zitate-verifikation-2026-05-08.log` (134 Eintraege)
   - Schatten-Report: `audits/legal-update-2026-05-08-summary.md`
 - **Hauptfunde:** 6 schwerwiegende Aktenzeichen-Korrekturen (I ZR 186/17 → I ZR 25/19; I ZR 93/20 → I ZR 134/20; I ZR 151/02 → I ZR 228/03; OLG Koeln 15 U 66/18 → 15 U 110/18; LG Mainz 3 O 12/20 falsche Zuordnung; OLG Hamburg 3 U 37/22 → 3 W 38/22). § 7 UWG Abs. 4 entfernt (existiert nicht). NEU ergaenzt: BGH I ZR 159/24 (Button-Loesung 09.10.2025), BGH I ZR 183/24 (Streichpreis 09.10.2025), OLG Hamburg 5 U 104/24 (LAION-Berufung 10.12.2025), EuGH C-604/22 (IAB Europe). ODR-Plattform-Pflicht aus Checklisten entfernt (abgeschaltet 20.07.2025).
 - **2026-11-14:** `/legal-update --stale-only` ueber Themen- und Checklisten-Batches; Abschlusslauf mit Konsistenz-Normierung der Aktenzeichen-Marker, Aufloesen des ODR-Markers (VO (EU) 2024/3228) und KI-Kompetenz-Angleichung (Art. 4 KI-VO n. F.). Logs:
   - `.claude/logs/kb-update-2026-11-14-abschluss.log`
-- **Verbleibende Platzhalter (Stand 2026-11-14, nach Review-Korrekturlauf PR #17):** 53 Verifikationsmarker laut `git grep -c` nach dem Verifikationsmarker in `knowledge/`; `scripts/find-placeholders.py` zaehlt zusaetzlich sonstige Markerarten (insgesamt 91 Report-Zeilen) (inkl. der neu in Hinweisbloecke verschobenen Aussagen zu BAG 2 AZR 133/18 bzw. 8 AZR 253/20, BGH VIII ZR 21/19, VIII ZR 6/10, I ZR 61/20, I ZR 118/12, I ZR 102/10, I ZR 228/14). Schwerpunkte: strittige Aktenzeichen und Pricing-Angaben. Der zuvor gemeldete Verifikationsmarker zum neuen § 356a BGB-Wortlaut ist aufgeloest — die konsolidierte Fassung auf gesetze-im-internet.de zeigt jetzt die neue Paragraphenfassung (Umsetzung RL (EU) 2023/2673, BGBl. 2026 I Nr. 28 vom 05.02.2026, Anwendung seit 19.06.2026). Fehlzitate BGH I ZR 173/16 und I ZR 143/19 aus "Zitierbare Urteile" von preisangaben.md und pangv.md entfernt; der Befund ist in einem Hinweisblock dokumentiert. Naechster Recheck: `/legal-update --fix-pending`.
+- **Verbleibende Platzhalter (Stand 2026-11-14, nach Review-Korrekturlauf PR #17):** 53 Verifikationsmarker laut `git grep -c` nach dem Verifikationsmarker in `knowledge/`; die jeweils aktuelle Zahl liefert `python scripts/find-placeholders.py` (inkl. der neu in Hinweisbloecke verschobenen Aussagen zu BAG 2 AZR 133/18 bzw. 8 AZR 253/20, BGH VIII ZR 21/19, VIII ZR 6/10, I ZR 61/20, I ZR 118/12, I ZR 102/10, I ZR 228/14). Schwerpunkte: strittige Aktenzeichen und Pricing-Angaben. Der zuvor gemeldete Verifikationsmarker zum neuen § 356a BGB-Wortlaut ist aufgeloest — die konsolidierte Fassung auf gesetze-im-internet.de zeigt jetzt die neue Paragraphenfassung (Umsetzung RL (EU) 2023/2673, BGBl. 2026 I Nr. 28 vom 05.02.2026, Anwendung seit 19.06.2026). Fehlzitate BGH I ZR 173/16 und I ZR 143/19 aus "Zitierbare Urteile" von preisangaben.md und pangv.md entfernt; der Befund ist in einem Hinweisblock dokumentiert. Naechster Recheck: `/legal-update --fix-pending`.

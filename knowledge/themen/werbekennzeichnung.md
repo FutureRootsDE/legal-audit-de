@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__5a.html
 quellen-sekundaer:
   - https://www.die-medienanstalten.de/themen/werbung
@@ -52,7 +52,7 @@ Podcast-Werbung, Native Ads, Advertorials, Affiliate-Content.
 "Unlauter handelt auch, wer den **kommerziellen Zweck einer geschaeftlichen
 Handlung** nicht kenntlich macht, sofern sich dieser nicht unmittelbar aus den
 Umstaenden ergibt, und das Nichtkenntlichmachen geeignet ist, den Verbraucher
-zu einer geschaeftlichen Entscheidung zu veranlassen, die er andernfalls nicht
+oder sonstigen Marktteilnehmer zu einer geschaeftlichen Entscheidung zu veranlassen, die er andernfalls nicht
 getroffen haette."
 
 **Ausnahme bei kostenloser Handlung:** Kein kommerzieller Zweck bei einer
@@ -95,12 +95,16 @@ Mittel vom redaktionellen Inhalt getrennt werden ("Trennungsgebot").
 ### UWG-Novelle zur EmpCo-Richtlinie (Stichtag 27.09.2026)
 
 Die **Richtlinie (EU) 2024/825** ("Empowering Consumers for the Green
-Transition", EmpCo) wurde durch **Art. 6 des Gesetzes vom 22.10.2026
-(BGBl. 2026 I Nr. 322)** in das UWG umgesetzt (Fussnote auf
-gesetze-im-internet.de/uwg_2004/BJNR141400004.html, CELEX 32024L0825).
-Fuer bereits in Verkehr gebrachte Waren gilt die Uebergangsregelung
-in § 15b UWG mit **Stichtag 27. September 2026**. Wesentlich fuer
-Werbekennzeichnung und verwandte Pflichten:
+Transition", EmpCo, CELEX 32024L0825) wurde materiell durch das **Dritte
+Gesetz zur Aenderung des UWG vom 12.02.2026 (BGBl. 2026 I Nr. 43,
+ausgegeben 19.02.2026)** umgesetzt; Inkrafttreten 27.09.2026 (Art. 2
+Abs. 1). Ergaenzend fuegt Art. 5 des Gesetzes vom 22.10.2026 (BGBl. 2026 I
+Nr. 322) nur die Uebergangsvorschrift § 15b UWG ein; Art. 6 desselben
+Gesetzes streicht § 15b wieder (Wegfall am 27.09.2028, Art. 7 Abs. 3).
+Fuer vor dem 27.09.2026 in Verkehr gebrachte Waren sind Ansprueche nach
+§ 8 UWG nur nach Treu und Glauben und Verhaeltnismaessigkeit durchsetzbar
+(keine Freistellung); § 15b gilt bis 26.09.2028 (Streichung zum
+27.09.2028). Wesentlich fuer Werbekennzeichnung und verwandte Pflichten:
 
 - Neue Begriffe in § 2 Abs. 2 UWG ("allgemeine Umweltaussage",
   "Nachhaltigkeitssiegel", "Zertifizierungssystem") sowie in § 2 Abs. 3
@@ -119,8 +123,11 @@ Werbekennzeichnung und verwandte Pflichten:
 - Erweiterung des Anhangs zu § 3 Abs. 3 UWG um Nrn. 2a, 4a-4c, 10a, 23d
   (Nachhaltigkeitssiegel ohne Zertifizierungssystem, irrefuehrende
   Umweltaussagen, Software-/Haltbarkeits-/Reparierbarkeitsbezug).
-- Pauschale Aussagen wie "klimaneutral", "oekologisch", "gruen" ohne
-  nachweisbare Grundlage sind per se unlauter (Anhang Nr. 4a).
+- Allgemeine Umweltaussagen wie "oekologisch" oder "gruen" sind nach Anhang
+  Nr. 4a nur dann stets unzulaessig, wenn keine anerkannte hervorragende
+  Umweltleistung im Sinne des § 2 Abs. 2 Nr. 2 UWG nachgewiesen werden kann.
+  "Klimaneutral" auf Kompensationsbasis faellt unter Anhang Nr. 4c;
+  Aussagen, die nur einen Teilaspekt betreffen, unter Anhang Nr. 4b.
 
 Fuer Influencer-/Content-Marketing heisst das: Werbung mit Umwelt- oder
 Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
@@ -214,7 +221,7 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   pflichtige Werbung.
 - **OLG Muenchen 6 U 1362/20** (25.06.2020): Kennzeichnung muss auf den ersten
   Blick erkennbar sein.
-- **EuGH C-371/20** (02.09.2021, "Peek & Cloppenburg/Gotha"): zu getarnten
+- **EuGH C-371/20** (02.09.2021, "Peek & Cloppenburg"): zu getarnten
   redaktionellen Werbeanzeigen.
 
 ## Siehe auch
@@ -236,6 +243,10 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   (Quelle: Fussnote gesetze-im-internet.de/uwg_2004/BJNR141400004.html).
   Fehlerhaftes Markup des Verifikationsmarkers (ohne schliessendes >)
   entfernt; Aussage ist nun primaer belegt. Abgleich mit gesetze/uwg.md.
+  **Berichtigt 2026-11-15:** Die fruehere Angabe (Drittes Gesetz zur
+  Aenderung des UWG, BGBl. 2026 I Nr. 43) war richtig; das Gesetz vom
+  22.10.2026 (BGBl. 2026 I Nr. 322) fuegt mit Art. 5 nur § 15b UWG ein,
+  Art. 6 streicht ihn wieder.
 - **2026-11-14 (Review-Korrekturlauf PR #17)**: § 5a UWG in
   "Kurz-Ueberblick" an die geltende Fassung von § 5a Abs. 4 UWG
   (seit 28.05.2022) angepasst und durch wortgleiches Zitat aus Satz 2
@@ -256,3 +267,12 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
   gestrichen; I ZR 35/21-Formulierung am Leitsatz "Influencer III"
   ausgerichtet; Tap-Tag-Aussage I ZR 90/20 Leitsatz 5 zugeordnet.
 - **2026-11-14 (Nachzug Review, Leitsatz-Zuordnung)**: Eigenwerbung-Beleg auf I ZR 90/20 Leitsatz 2 und I ZR 125/20 Leitsatz 2 getrennt, Vermutung der Gegenleistung auf § 5a Abs. 4 Satz 3 UWG gestellt (statt Satz 2), Formulierung am Gesetzeswortlaut ausgerichtet.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  EmpCo-Fundstelle berichtigt: Umsetzung durch das Dritte Gesetz zur
+  Aenderung des UWG vom 12.02.2026 (BGBl. 2026 I Nr. 43, in Kraft
+  27.09.2026); das Gesetz vom 22.10.2026 (BGBl. 2026 I Nr. 322) fuegt mit
+  Art. 5 nur § 15b UWG ein, Art. 6 streicht ihn wieder. Inhalt des § 15b
+  UWG (keine Freistellung, Geltung bis 26.09.2028) praezisiert; Anhang
+  Nrn. 4a bis 4c zu Umweltaussagen differenziert; Zitat § 5a Abs. 4 Satz 1
+  UWG um "oder sonstigen Marktteilnehmer" ergaenzt; Parteibezeichnung zu
+  EuGH C-371/20 berichtigt.

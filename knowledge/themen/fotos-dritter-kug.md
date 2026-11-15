@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/kunsturhg/BJNR000070907.html
 quellen-sekundaer:
   - https://www.rechtsprechung-im-internet.de/
@@ -27,11 +27,14 @@ Das **Recht am eigenen Bild** ist in Deutschland seit 1907 im Kunsturhebergesetz
 ihre Einwilligung **verbreitet oder oeffentlich zur Schau gestellt** werden.
 
 Seit Inkrafttreten der DSGVO (25.05.2018) besteht Unsicherheit ueber das
-Verhaeltnis von KUG zu DSGVO. Die h.M. und Rechtsprechung gehen davon aus:
+Verhaeltnis von KUG zu DSGVO:
 
 - **DSGVO gilt fuer das Erstellen** und die allgemeine Verarbeitung des Fotos
-- **KUG gilt (fort) fuer Verbreitung/Zurschaustellung** — ueber Art. 85 DSGVO
-  ("Oeffnungsklausel Medien") oder als Ausdruck nationaler Regelungskompetenz
+- **Fortgeltung des KUG fuer Verbreitung/Zurschaustellung** ist nur im
+  journalistischen (sowie kuenstlerischen, wissenschaftlichen,
+  literarischen) Bereich ueber Art. 85 DSGVO gesichert (OLG Koeln
+  15 W 27/18, 15 U 110/18). Ausserhalb dieses Bereichs ist sie umstritten
+  und ungeklaert; dort sind auch Art. 6, 7 und 13 DSGVO zu beachten.
 
 Fuer **Codebase-Relevanz** heisst das: Fotos von Mitarbeitenden, Kunden,
 Veranstaltungen, Team-Fotos, Testimonials, Social-Media-Posts — alle brauchen
@@ -50,10 +53,20 @@ gesetzlicher Ausnahmetatbestand).
 
 **Kernpunkte:**
 - Geschuetzt ist das Bildnis (Erkennbarkeit, nicht nur Gesicht)
-- Einwilligung ist **formfrei** moeglich (auch konkludent), aber aus
-  Beweisgruenden stets schriftlich/elektronisch dokumentieren
-- Einwilligung ist **widerruflich** (BAG, st.Rspr. — fuer Mitarbeitende
-  insbesondere bei Ausscheiden)
+- Ausserhalb des Arbeitsverhaeltnisses ist die Einwilligung nach § 22 KUG
+  **formfrei** (auch konkludent), aber aus Beweisgruenden stets
+  schriftlich/elektronisch dokumentieren
+- Fotos von Beschaeftigten: Einwilligung schriftlich oder elektronisch
+  (§ 26 Abs. 2 Satz 3 BDSG; BAG 19.02.2015, 8 AZR 1011/13: Schriftform),
+  dazu Aufklaerung in Textform (§ 26 Abs. 2 Satz 4 BDSG)
+- Im Arbeitsverhaeltnis bedarf die Einwilligung nach § 22 KUG der
+  Schriftform (BAG 8 AZR 1011/13, Rn. 25). Sie erlischt nicht automatisch
+  mit dem Ende des Arbeitsverhaeltnisses (Rn. 32). Ein spaeterer Widerruf
+  braucht eine plausible Begruendung (Rn. 37 f.); ohne sie darf der
+  Arbeitgeber Aufnahmen, die nur der Illustration dienen, weiter nutzen.
+- Hinweis: Das BAG-Urteil erging zum BDSG a. F.; das Verhaeltnis zu
+  Art. 7 Abs. 3 DSGVO (jederzeitiger Widerruf) ist seither nicht
+  hoechstrichterlich geklaert, anwaltlich pruefen.
 - Postmortaler Schutz fuer 10 Jahre
 
 ### § 23 KUG (Ausnahmen)
@@ -83,15 +96,16 @@ Persoenlichkeitsrecht vorzunehmen.
 - Art. 6 Abs. 1 lit. f DSGVO — berechtigte Interessen (mit Abwaegung)
 - Art. 85 DSGVO — Oeffnungsklausel fuer Journalismus/Kunst/Wissenschaft
 
-Die Rechtsprechung (OLG Koeln, LG Frankfurt, KG Berlin) wendet KUG weiterhin
-an, ergaenzt durch DSGVO-Informations- und Loeschpflichten.
+Gesichert ist die Fortgeltung des KUG nur im journalistischen Bereich
+(OLG Koeln 15 W 27/18, 15 U 110/18). Ausserhalb dieses Bereichs ist sie
+umstritten und ungeklaert; dort sind auch Art. 6, 7 und 13 DSGVO zu pruefen.
 
 ## Typische Fallstricke in Codebases / Webseiten
 
 | Problem | Risiko | Fix |
 |---|---|---|
 | Team-Foto auf About-Seite ohne Einwilligung | § 22 KUG, Art. 6 DSGVO | Schriftliche Einwilligung **vor** Veroeffentlichung |
-| Ehemaliger Mitarbeiter weiterhin im Impressum/Team | Widerruf nach Ausscheiden wirksam | 30-Tage-Prozess: Ausscheiden -> Foto runter |
+| Ehemaliger Mitarbeiter weiterhin im Impressum/Team | Einwilligung erlischt nicht mit dem Ausscheiden; Widerruf nur mit plausibler Begruendung (BAG 8 AZR 1011/13); Verhaeltnis zu Art. 7 Abs. 3 DSGVO ungeklaert | Widerruf auf plausible Begruendung pruefen; Verhaeltnis zu Art. 7 Abs. 3 DSGVO anwaltlich klaeren |
 | Event-Fotos mit erkennbaren Gaesten | § 22 KUG | Hinweisschilder am Eingang + Opt-out-Moeglichkeit, oder § 23 Nr. 3 |
 | Kunden-Testimonial mit Foto | § 22 KUG + UWG (Authentizitaet) | Schriftliche, zweckgebundene Einwilligung |
 | Stock-Foto mit Model-Release fehlend | § 22 KUG | Nur Stock-Anbieter mit Model-Release nutzen, Lizenz archivieren |
@@ -161,25 +175,24 @@ Kernaussage:
 Foto ohne Einwilligung → Unterlassungsanspruch + Schadensersatz (§ 823 BGB
 i.V.m. § 22 KUG; Art. 82 DSGVO).
 
-Quelle: dejure.org, rechtambild.de, beckmannundnorda.de. Hinweis 2026-10-24:
-Die dejure-Verlinkung war bei der Stichprobe nicht abrufbar (kein Treffer unter
-LG Frankfurt/Main); Aktenzeichen und Datum vor Verwendung in einem Audit gegen
-den Volltext (z. B. Landesrecht Hessen) pruefen.
+Sekundaerquellen: dejure.org, rechtambild.de, beckmannundnorda.de. LG
+Frankfurt a. M. 2-03 O 402/18 nicht am Primaertext verifiziert (die
+dejure-Verlinkung war bei der Stichprobe 2026-10-24 nicht abrufbar);
+Aktenzeichen und Datum vor Verwendung in einem Audit gegen den Volltext
+(z. B. Landesrecht Hessen) pruefen.
 
-### BAG, 8 AZR 1011/13, 19.02.2015
+### BAG, Urt. v. 19.02.2015, 8 AZR 1011/13 (ECLI:DE:BAG:2015:190215.U.8AZR1011.13.0)
 
-> "Die nach § 22 KUG erteilte Einwilligung eines Arbeitnehmers in die
-> Verbreitung seines Bildnisses zu Werbezwecken erlischt nicht automatisch mit
-> dem Ende des Arbeitsverhaeltnisses; sie kann jedoch bei plausiblen Gruenden
-> widerrufen werden."
+Sinngemaess (kein woertliches Zitat): Im Arbeitsverhaeltnis bedarf die
+Einwilligung nach § 22 KUG der Schriftform (Rn. 24 bis 26). Sie erlischt
+nicht automatisch mit dem Ende des Arbeitsverhaeltnisses (Rn. 32 bis 34).
+Ein spaeterer Widerruf braucht eine plausible Begruendung (Rn. 37 f.).
 
-Praxisfolge: Nach Ausscheiden einer Person reicht pauschaler Widerruf fuer
-Loeschpflicht des Arbeitgebers.
-
-### BGH VI ZR 160/18, 07.07.2020 (Google-Recht auf Vergessen II)
-
-Grundsatz: Abwaegung zwischen Recht auf Vergessen und Recht auf Information
-bei dauerhaft online auffindbaren Bildnissen.
+Praxisfolge: Das blosse Ausscheiden genuegt fuer einen Widerruf nicht. Ohne
+plausible Begruendung darf der Arbeitgeber Aufnahmen, die nur der
+Illustration dienen, weiter nutzen. Hinweis: Das Urteil erging zum BDSG
+a. F.; das Verhaeltnis zu Art. 7 Abs. 3 DSGVO (jederzeitiger Widerruf) ist
+seither nicht hoechstrichterlich geklaert, anwaltlich pruefen.
 
 ### EuGH C-131/12 (Google Spain), 13.05.2014
 
@@ -242,7 +255,18 @@ Delisting bei nicht mehr gerechtfertigter Verbreitung.
   Kernaussagen (Einwilligungserfordernis, Ausnahmen Bildnis der
   Zeitgeschichte / Beiwerk / Versammlungen / hoeheres Interesse der Kunst)
   bestaetigt.
-- Zitate verifiziert: LG Frankfurt a.M. 2-03 O 402/18 (26.09.2019) ueber
-  dejure.org bestaetigt; BAG 8 AZR 1011/13 (19.02.2015) breit rezipiert.
+- Zitate: LG Frankfurt a. M. 2-03 O 402/18 (26.09.2019) nicht am
+  Primaertext verifiziert (berichtigt am 2026-11-15; die fruehere Angabe
+  "ueber dejure.org bestaetigt" traf nicht zu); BAG 8 AZR 1011/13
+  (19.02.2015) breit rezipiert.
 - Keine neue BGH-/OLG-Rechtsprechung zu KUG/DSGVO-Verhaeltnis seit
   2026-07-08 identifiziert.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  KUG-Fortgeltung nur im journalistischen Bereich gesichert (OLG Koeln
+  15 W 27/18, 15 U 110/18), ausserhalb ungeklaert; Form der Einwilligung
+  bei Beschaeftigten (Schriftform, § 26 Abs. 2 Satz 3 und 4 BDSG);
+  BAG 8 AZR 1011/13 berichtigt (kein Erloeschen mit Ausscheiden, Widerruf
+  nur mit plausibler Begruendung, Randnummern, ECLI, Hinweis zu Art. 7
+  Abs. 3 DSGVO); Abschnitt "BGH VI ZR 160/18" gestrichen (Aktenzeichen
+  in der Rechtsinformations-API des Bundes nicht nachweisbar; das Urteil
+  zum Recht auf Auslistung ist VI ZR 405/18 und traegt keine KUG-Aussage).

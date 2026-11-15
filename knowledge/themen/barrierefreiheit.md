@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/bfsg/
 quellen-sekundaer:
   - https://www.bundesfachstelle-barrierefreiheit.de/DE/Fachwissen/Produkte-und-Dienstleistungen/Barrierefreiheitsstaerkungsgesetz/FAQ/faq_node.html
@@ -23,25 +23,26 @@ geltungsbereich: [DE, EU]
 
 ## Kurz-Ueberblick
 
-Das **BFSG** (gilt seit 28.06.2025) verpflichtet Anbieter bestimmter B2C-Produkte und -Dienstleistungen zur Barrierefreiheit. Technische Referenz sind die **harmonisierten Normen**, insbesondere **EN 301 549** (die ihrerseits auf **WCAG 2.1 Level AA** verweist; **WCAG 2.2** ist die aktuellere W3C-Empfehlung).
+Das **BFSG** (gilt seit 28.06.2025) verpflichtet Anbieter bestimmter B2C-Produkte und -Dienstleistungen zur Barrierefreiheit. Massgeblich ist § 4 BFSG: Bei Einhaltung harmonisierter Normen wird die Konformitaet vermutet. In der Praxis herangezogen werden **EN 301 549** (die ihrerseits auf **WCAG 2.1 Level AA** verweist) und die aktuellere W3C-Empfehlung **WCAG 2.2**; eine Vorgabe der BFSGV sind diese Standards nicht. Ob eine Fassung der EN 301 549 als harmonisierte Norm zur RL (EU) 2019/882 im Amtsblatt der EU veroeffentlicht ist: <<VERIFIKATION AUSSTEHEND>>
 
-**Stand 2026-11-14**: Abmahnwellen durch spezialisierte Kanzleien seit Sommer 2025 aktenkundig (CLAIM Rechtsanwalts GmbH u.a.); Marktueberwachungsbehoerden der Laender fuehren seit Januar 2026 aktiv Kontrollen durch. Bussgelder bis **100.000 EUR** pro Verstoss. Zur UWG-Abmahnfaehigkeit siehe [[../gesetze/bfsg]].
+**Stand 2026-11-14**: Abmahnwellen durch spezialisierte Kanzleien seit Sommer 2025 aktenkundig (CLAIM Rechtsanwalts GmbH u.a.); Marktueberwachungsbehoerden der Laender fuehren seit Januar 2026 aktiv Kontrollen durch. Bussgeld bis **100.000 EUR**, u. a. wenn eine Dienstleistung entgegen § 14 Abs. 1 angeboten wird (§ 37 Abs. 1 Nr. 8, Abs. 2 BFSG); bis **10.000 EUR** bei Verstoessen gegen Informations- und Auskunftspflichten (z. B. § 14 Abs. 4 Satz 2, Abs. 5 Satz 1). Zur UWG-Abmahnfaehigkeit siehe [[../gesetze/bfsg]].
 
 ## BFSG-Scope — wer ist betroffen?
 
 ### Betroffene Dienstleistungen (§ 1 Abs. 3 BFSG, B2C-orientiert)
 
 1. **Telekommunikationsdienste** (z. B. Messenger, VoIP)
-2. **Elemente von Personenbefoerderung** (Webseiten, Apps, elektronische Tickets)
+2. **Elemente von Personenbefoerderungsdiensten** im Luft-, Bus-, Schienen- und Schiffsverkehr (Webseiten, Apps, elektronische Tickets); im Stadt-, Vorort- und Regionalverkehr nur Selbstbedienungsterminals
 3. **Bankdienstleistungen fuer Verbraucher** (Online-Banking, Kreditkartenservices)
 4. **E-Books und dafuer bestimmte Software**
 5. **Dienstleistungen im elektronischen Geschaeftsverkehr (E-Commerce)** — Websites/Apps gegenueber Verbrauchern mit Bestell-/Vertragsabschluss-Funktion
-6. **Zugang zu audiovisuellen Medien**
+
+Dienste, die Zugang zu audiovisuellen Mediendiensten bieten, sind keine Dienstleistung nach § 1 Abs. 3 BFSG; erfasst sind insoweit nur Verbraucherendgeraete (§ 1 Abs. 2 Nr. 4 BFSG).
 
 ### Betroffene Produkte (§ 1 Abs. 2 BFSG)
 
 - Hardwaresysteme/Betriebssysteme fuer Universalrechner (Smartphones, Laptops)
-- Selbstbedienungsterminals (ATM, Fahrkarten-, Check-in-Automaten)
+- Selbstbedienungsterminals, darunter Zahlungsterminals (§ 1 Abs. 2 Nr. 2 Buchst. a BFSG), ATM, Fahrkarten-, Check-in-Automaten
 - Verbraucherendgeraete (Telekom, audiovisuell)
 - E-Book-Lesegeraete
 
@@ -60,7 +61,7 @@ Das **BFSG** (gilt seit 28.06.2025) verpflichtet Anbieter bestimmter B2C-Produkt
 | 4 | 0,5 Mio. EUR | Nein (Ausnahme greift) |
 | 9 | 1,9 Mio. EUR | Nein (Ausnahme greift) |
 
-**Achtung**: Wer Produkte in Verkehr bringt, ist nie befreit.
+**Achtung**: Die Kleinstunternehmen-Ausnahme gilt nicht fuer Produkte. Unabhaengig davon gelten die Ausnahmen nach §§ 16, 17 BFSG: Die Barrierefreiheitsanforderungen gelten nur, soweit sie keine grundlegende Veraenderung der Wesensmerkmale bewirken (§ 16 Abs. 1) und nicht zu einer unverhaeltnismaessigen Belastung nach Anlage 4 fuehren (§ 17 Abs. 1). Voraussetzung ist eine eigene Beurteilung, deren Dokumentation (Aufbewahrung fuenf Jahre, § 17 Abs. 2) und die Unterrichtung der Marktueberwachungsbehoerde.
 
 ### B2B-Befreiung
 
@@ -68,7 +69,7 @@ Reine B2B-Dienstleistungen fallen **nicht** unter das BFSG. Entscheidend ist die
 
 ## WCAG 2.1 / 2.2 AA — Pflicht-Elemente
 
-Das BFSG verweist ueber die BFSGV auf EN 301 549, die wiederum auf WCAG 2.1 AA verweist. **WCAG 2.2** hat 9 neue Kriterien; praktisch sollte man auf 2.2 abzielen.
+In der Praxis wird EN 301 549 herangezogen, die auf WCAG 2.1 AA verweist; eine Vorgabe der BFSGV ist das nicht (zur Konformitaetsvermutung nach § 4 BFSG siehe Kurz-Ueberblick). **WCAG 2.2** hat 9 neue Kriterien; praktisch sollte man auf 2.2 abzielen.
 
 ### 4 Prinzipien
 
@@ -100,7 +101,7 @@ Das BFSG verweist ueber die BFSGV auf EN 301 549, die wiederum auf WCAG 2.1 AA v
 - **2.4.4 Linkzweck** aus Kontext erkennbar
 - **2.4.7 Fokus sichtbar**
 - **2.4.11 (WCAG 2.2)** — Fokus NICHT verdeckt durch sticky headers etc.
-- **2.5.5** — Klickflaechen mind. 24x24 CSS-Pixel (WCAG 2.2: Zielgroesse)
+- **2.5.8 Target Size (Minimum)** (WCAG 2.2, AA): Zielgroesse mind. 24x24 CSS-Pixel oder ausreichender Abstand (2.5.5 = AAA, 44x44)
 - **2.5.7 Dragging Movements** (WCAG 2.2) — alternative nicht-draggable Bedienung
 
 **Verstaendlich:**
@@ -121,12 +122,27 @@ Das BFSG verweist ueber die BFSGV auf EN 301 549, die wiederum auf WCAG 2.1 AA v
 
 ### 1. Barrierefreiheitserklaerung
 
-Pflichtinhalte (nach BFSG + BFSGV):
+Pflichtinhalte: Information nach § 14 Abs. 1 Nr. 2 i. V. m. Anlage 3 Nr. 1 BFSG (in den AGB oder auf andere deutlich wahrnehmbare Weise, selbst barrierefrei; Aufbewahrung nach § 14 Abs. 2):
+- a) **allgemeine Beschreibung** der Dienstleistung
+- b) **Erlaeuterungen zur Durchfuehrung** der Dienstleistung
+- c) Beschreibung, wie die Dienstleistung die **Barrierefreiheitsanforderungen erfuellt**
+- d) **zustaendige Marktueberwachungsbehoerde** (MLBF, siehe Behoerden-Hinweise)
+
+Good Practice, gesetzlich nicht vorgeschrieben:
 - **Vereinbarkeit** der Website mit den Anforderungen (vollstaendig / teilweise / nicht)
-- **Nicht barrierefreie Inhalte** mit Begruendung (z. B. "Archiv-PDFs vor 2020")
-- **Erstellung** der Erklaerung (Datum, Methode: Selbst- oder Fremdbewertung)
+- **Nicht barrierefreie Inhalte** mit Begruendung (z. B. Archiv-PDFs, die vor dem 28.06.2025 veroeffentlicht wurden; Ausnahmen nach § 1 Abs. 4 BFSG pruefen)
+- **Erstellungsdatum** der Information
 - **Feedback-Kontakt** fuer Barrierefreiheitsbeschwerden
-- **Durchsetzungsverfahren** / zustaendige Marktueberwachungsbehoerde
+
+### Ausgenommene Inhalte (§ 1 Abs. 4 BFSG)
+
+§ 1 Abs. 4 Nr. 1 bis 5 BFSG nimmt bestimmte Inhalte aus. Fuer Websites besonders relevant ist Nr. 4: Inhalte Dritter, die vom Dienstleistungserbringer weder finanziert noch entwickelt werden und nicht seiner Kontrolle unterliegen. Die uebrigen Ausnahmen vor Verwendung am Gesetzestext pruefen.
+
+### Uebergangsbestimmungen (§ 38 BFSG)
+
+- **§ 38 Abs. 1**: Uebergang bis 27.06.2030 fuer bereits eingesetzte Produkte und fuer Altvertraege.
+- **§ 38 Abs. 2**: Selbstbedienungsterminals laengstens bis 15 Jahre nach ihrer Ingebrauchnahme.
+- **Kein allgemeiner Aufschub fuer Websites und Apps**: fuer sie gelten die Anforderungen seit 28.06.2025.
 
 Ueblicher Link: Footer, erreichbar ueber "Barrierefreiheit" oder "Barrierefreiheitserklaerung".
 
@@ -182,7 +198,7 @@ Oft schwere Verstoesse:
 - Icon-Buttons ohne `aria-label` oder `<span class="sr-only">`
 - **Dark Mode** mit unzureichendem Kontrast
 - **next/image** ohne `alt`
-- **Drittanbieter-Widgets** (Chat, Booking, Payment) — oft NICHT barrierefrei; Anbieter-Pflicht nach § 14 BFSG
+- **Drittanbieter-Widgets** (Chat, Booking, Payment): oft NICHT barrierefrei. Verpflichtet ist der Dienstleistungserbringer (Betreiber der Website), nicht der Widget-Hersteller; ausgenommen sind nur Inhalte Dritter, die der Betreiber weder finanziert noch entwickelt noch kontrolliert (§ 1 Abs. 4 Nr. 4 BFSG)
 
 ### E-Commerce spezifisch
 
@@ -209,7 +225,8 @@ Oft schwere Verstoesse:
 ## Behoerden-Hinweise
 
 - **Bundesfachstelle Barrierefreiheit** (FAQ, Praxishilfen): https://www.bundesfachstelle-barrierefreiheit.de/
-- **Marktueberwachung Laender**: Zustaendige Behoerde je nach Bundesland (z. B. Regierung von Mittelfranken fuer Bayern; Bezirksregierung Arnsberg fuer NRW)
+- **Marktueberwachung**: MLBF AoeR (Magdeburg), gemeinsame Stelle aller 16 Laender (mlbf-barrierefrei.de); in der Information nach Anlage 3 Nr. 1 Buchst. d BFSG anzugeben
+- **Verbraucher- und Verbandsantrag (§ 32 BFSG)**: Verbraucher koennen bei der Marktueberwachungsbehoerde beantragen, gegen einen Verstoss einzuschreiten (§ 32 Abs. 1 BFSG); Antragsweg ueber die MLBF
 - **BITV-Beratungsstelle** (fuer oeffentliche Stellen, nicht BFSG direkt)
 
 ## Zitierbare Urteile
@@ -231,11 +248,23 @@ US-Parallele: **Robles v. Dominos Pizza** (9th Cir. 2019) — ADA Title III fuer
 
 - Frontmatter-Daten und Disclaimer-Stand auf 2026-11-14.
 - 2026-11-14: geprueft am Primaertext BFSG
-  (gesetze-im-internet.de/bfsg/BJNR097010021.html) und am
-  Anwendungsstichtag 28.06.2025 (§ 38 BFSG); § 3 (Anwendungsbereich),
-  § 14 (Ausnahmen Kleinstunternehmen) und § 37 (B2B-Ausnahme) im Volltext
-  bestaetigt; die Verweise auf EN 301 549 / WCAG 2.2 bleiben unveraendert.
+  (gesetze-im-internet.de/bfsg/BJNR297010021.html) und am
+  Anwendungsstichtag 28.06.2025; § 1 (Anwendungsbereich), § 2 Nr. 17
+  und § 3 Abs. 3 (Kleinstunternehmen), § 14 mit Anlage 3
+  (Dienstleistungsanforderungen, Information), § 37 (Bussgeld) und § 38
+  (Uebergang) im Volltext bestaetigt. (Berichtigt am 2026-11-15: die
+  fruehere Fassung nannte die URL BJNR097010021 und ordnete §§ 3, 14, 37
+  falsch zu.)
 - Platzhalter zur BFSG-Rechtsprechung (§ 3a UWG i.V.m. BFSG) bleibt bestehen:
   gezielte Suche nach ersten OLG/BGH-Endurteilen ergab bis 2026-11-14 keinen
   belastbaren Tier-1-Treffer; Marker normalisiert, naechste Pruefung
   2027-02.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  EN 301 549 / WCAG nicht mehr als Vorgabe der BFSGV, sondern als
+  Praxisstandard mit Verweis auf § 4 BFSG (Amtsblatt-Listung offen, Marker);
+  Bussgeldrahmen nach § 37 differenziert; Personenbefoerderung praezisiert,
+  "Zugang zu audiovisuellen Medien" als Dienstleistung gestrichen,
+  Zahlungsterminals ergaenzt; §§ 16, 17 statt "nie befreit"; WCAG 2.5.8
+  statt 2.5.5; Pflichtinformation nach § 14 i. V. m. Anlage 3 Nr. 1;
+  Abschnitte zu § 1 Abs. 4 und § 38 ergaenzt; Widget-Pflicht beim
+  Dienstleistungserbringer; MLBF als Marktueberwachung; § 32 BFSG.

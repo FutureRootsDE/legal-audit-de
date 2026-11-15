@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/__312j.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__312k.html
@@ -32,15 +32,18 @@ nichts anderem als den Woertern '**zahlungspflichtig bestellen**' oder mit
 einer entsprechenden eindeutigen Formulierung beschriftet" sein.
 
 **Rechtsfolge bei Verstoss (§ 312j Abs. 4 BGB):** Es **kommt kein Vertrag
-zustande**. Der Verbraucher muss nicht zahlen und kann Leistung dennoch
-verlangen (str.), jedenfalls erhaelt er keine Pflicht zur Gegenleistung.
+zustande**. Der Vertrag ist endgueltig unwirksam (BGH, Urteil vom 09.10.2025,
+I ZR 159/24, Leitsatz 2). Der Verbraucher kann den Vertrag durch einseitige
+Bestaetigung neu abschliessen (§ 141 Abs. 1 BGB).
 
 ## Schluesselparagraphen / Kernaussagen
 
 ### § 312j Abs. 2 BGB — Transparenzpflichten VOR dem Button
 
 Unmittelbar bevor der Verbraucher seine Bestellung abgibt, muss der
-Unternehmer klar und verstaendlich **hervorgehoben** bereitstellen:
+Unternehmer klar und verstaendlich **hervorgehoben** die Informationen nach
+Art. 246a § 1 Abs. 1 Satz 1 Nr. 1, 5 bis 8, 11a, 14 und 15 EGBGB
+bereitstellen (Nr. 11a seit 27.09.2026), u. a.:
 
 - wesentliche Merkmale der Ware/Dienstleistung
 - Gesamtpreis inkl. Steuern und Abgaben
@@ -48,7 +51,9 @@ Unternehmer klar und verstaendlich **hervorgehoben** bereitstellen:
 - Laufzeit / Mindestlaufzeit / Kuendigungsbedingungen
 
 Diese "Kontroll-Seite" / "Bestellzusammenfassung" muss zwingend VOR dem
-Button kommen.
+Button kommen. Der Verbraucher muss aus der Bildschirmmaske mit der
+Bestell-Schaltflaeche ersehen koennen, fuer welche Leistungen er eine
+Zahlungspflicht eingeht (BGH, Urt. v. 04.06.2024, X ZR 81/23, Leitsatz 1).
 
 ### § 312j Abs. 3 BGB — Button-Beschriftung
 
@@ -81,16 +86,22 @@ einer entsprechenden eindeutigen Formulierung beschriftet ist."
 ### § 312j Abs. 4 BGB — Rechtsfolge
 
 "Ein Vertrag [...] kommt nur zustande, wenn der Unternehmer seine Pflicht aus
-Absatz 3 erfuellt." → **Vertrag unwirksam**, Verbraucher zahlt nicht, hat aber
-Anspruch auf Ausgleich erhaltener Leistungen (§ 812 BGB Bereicherungsrecht).
+Absatz 3 erfuellt." → Der Vertrag ist **endgueltig unwirksam**; der
+Verbraucher schuldet kein Entgelt. Ein Wertersatzanspruch des Unternehmers aus
+§§ 812, 818 Abs. 2 BGB scheidet wegen des Schutzzwecks des § 312j Abs. 4 BGB
+aus (BGH I ZR 159/24, Leitsatz 2, Rn. 51).
 
 ### § 312k BGB — Kuendigungs-Button (seit 01.07.2022)
 
 Analog zur Button-Loesung fuer Vertragsabschluss **muessen Anbieter von
-Dauerschuldverhaeltnissen** (Abos, SaaS, Telko, Streaming) einen **"Vertrage
-hier kuendigen"-Button** gut sichtbar einbauen. Der Button fuehrt zu einer
-Bestaetigungsseite mit allen Pflichtangaben; nach Klick wird die Kuendigung
-sofort bestaetigt (Textform).
+Dauerschuldverhaeltnissen** (Abos, SaaS, Telko, Streaming) einen **"Vertraege
+hier kuendigen"-Button** gut sichtbar einbauen. Die Pflicht besteht nur,
+wenn der Vertragsschluss ueber die Webseite ermoeglicht wird und der Vertrag
+eine entgeltliche Leistung betrifft (§ 312k Abs. 1 BGB). Der Button fuehrt
+zu einer Bestaetigungsseite mit allen Pflichtangaben und einer
+Bestaetigungsschaltflaeche "**jetzt kuendigen**" (oder entsprechende
+eindeutige Formulierung); nach Klick wird die Kuendigung sofort bestaetigt
+(Textform).
 
 Verstoss → Verbraucher kann **jederzeit fristlos** kuendigen (§ 312k Abs. 6).
 
@@ -126,8 +137,9 @@ Ratenlieferungsvertraege in **§ 356d BGB**, Verbraucherbauvertrag in
 **§ 356e BGB**, unentgeltliche Darlehensvertraege in **§ 356f BGB**;
 **§ 356b BGB** (Verbraucherdarlehen) bleibt inhaltsgleich.
 Die Muster-Widerrufsbelehrung in Anlage 1 EGBGB ist durch **Art. 2 Nr. 7
-Buchst. a** desselben Gesetzes angepasst (Gestaltungshinweis 33 n. F.:
-Pflicht-Einschub "Sie koennen Ihr Widerrufsrecht auch online unter ...
+Buchst. a** desselben Gesetzes angepasst (Gestaltungshinweis 3 n. F.:
+Einschub, "wenn Sie dazu verpflichtet sind, eine Funktion bereitzustellen",
+"Sie koennen Ihr Widerrufsrecht auch online unter ...
 ausueben ...").
 
 ## Typische Fallstricke in Codebases
@@ -143,7 +155,10 @@ ausueben ...").
 5. **Bestellzusammenfassung nach Button:** Fatal. Abs. 2 verlangt Summary
    VOR Button.
 6. **Upsell-Flow**: Jeder zusaetzliche Kauf braucht eigenen
-   Button-Loesung-konformen Schritt.
+   Button-Loesung-konformen Schritt. Werden mit einem Bestellvorgang mehrere
+   unabhaengige Vertraege geschlossen, braucht die Bildschirmmaske einen
+   eindeutigen Hinweis darauf (BGH, Urt. v. 04.06.2024, X ZR 81/23,
+   Leitsatz 2).
 7. **Mobile-Viewport** Button abgeschnitten oder verdeckt durch Sticky-
    Footer: nicht "gut lesbar".
 8. **Double-Submit-Prevention:** Klick soll nicht mehrfach auswerten; aber
@@ -180,8 +195,8 @@ ausueben ...").
   Maklervertraege ohne "zahlungspflichtig bestellen"-Button (oder eindeutige
   Formulierung) sind **endgueltig unwirksam**. Der BGH lehnt
   Bereicherungsansprueche kategorisch ab; Schutzzweck des § 312j Abs. 3 BGB
-  geht vor. Button-Beschriftung "Senden" reicht nicht. (Tier-1-Verifikation
-  ueber bundesgerichtshof.de + dejure.org).
+  geht vor. Button-Beschriftung "Senden" reicht nicht. (Primaerbeleg:
+  rechtsinformationen.bund.de, ECLI:DE:BGH:2025:091025UIZR159.24.0)
 - **EuGH C-249/21** (07.04.2022, "Fuhrmann-2"): Der Button-Text muss "aus
   sich heraus" die Zahlungsverpflichtung erkennbar machen; Gesamtumstaende
   reichen nicht.
@@ -218,11 +233,20 @@ ausueben ...").
   Art. 1 Nr. 8 des Umsetzungsgesetzes dokumentiert: Teilzeit-Wohnrechte
   jetzt § 356c BGB, Ratenlieferungsvertrag § 356d BGB, Verbraucherbau-
   vertrag § 356e BGB, unentgeltliches Darlehen § 356f BGB; § 356b BGB
-  (Verbraucherdarlehen) unveraendert. Anpassung von Gestaltungshinweis 33
-  der Muster-Widerrufsbelehrung (Anlage 1 EGBGB) durch Art. 2 Nr. 7
+  (Verbraucherdarlehen) unveraendert. Anpassung von Gestaltungshinweis 3
+  (berichtigt 2026-11-15, zuvor faelschlich "33") der Muster-Widerrufsbelehrung (Anlage 1 EGBGB) durch Art. 2 Nr. 7
   Buchst. a desselben Gesetzes ergaenzt.
 - **2026-11-14 (Review-Korrekturlauf PR #14, Nachtrag)**: Fundstelle der
   Paragraphenverschiebung §§ 356c-f praezisiert — diese folgt aus Art. 1
   Nr. 9 (Ersetzung der §§ 356c bis 356e durch §§ 356c bis 356f); Art. 1
   Nr. 8 betrifft ausschliesslich die Neufassung des § 356a BGB. Beleg:
   BGBl. 2026 Teil I Nr. 28, Art. 1 Nrn. 8 und 9.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  Rechtsfolge des § 312j Abs. 4 BGB nach BGH I ZR 159/24 (Leitsatz 2,
+  Rn. 51) neu gefasst ("str." und Bereicherungsanspruch gestrichen);
+  Verweisung des § 312j Abs. 2 BGB vollstaendig (Nr. 1, 5 bis 8, 11a, 14,
+  15); § 312k: Tippfehler "Vertraege", Anwendungsbereich (Abs. 1) und
+  Bestaetigungsschaltflaeche "jetzt kuendigen" ergaenzt; Gestaltungs-
+  hinweis 3 (nicht 33); Quellenvermerk zu I ZR 159/24 auf Primaerbeleg
+  umgestellt; BGH X ZR 81/23 (Leitsaetze 1 und 2) zu Bestellmaske und
+  mehreren Vertraegen ergaenzt.
