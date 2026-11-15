@@ -177,7 +177,7 @@ Besonders wichtige und wichtige Einrichtungen (§ 28 BSIG) melden erhebliche Sic
   28 O 328/21 (Datum 18.05.2022, Gegenstand) berichtigt, Marker dort
   entfernt; PCI-DSS-Pflichten als vertraglich gekennzeichnet; EDSA
   Leitlinien 9/2022 v2.0 statt WP 250; URL LDA Bayern korrigiert.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   parallele Meldepflicht nach § 32 BSIG ergaenzt (Workflow T+24);
   EuGH C-340/21 um Tenor 5 ergaenzt; Zahlungsdaten-Leaks nicht mehr
   "immer" hohes Risiko; Finanzaufsicht-Meldung nur fuer Zahlungsdienstleister

@@ -162,6 +162,6 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
   Fristen aufgeschluesselt; Fehlverweis DSK Kurzpapier Nr. 2 durch Nr. 18
   ersetzt; BSI C5 nicht auf deutsche Anbieter beschraenkt; Art. 32 Abs. 3
   am Wortlaut ausgerichtet.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   § 30 BSIG (Risikomanagementmassnahmen, in Kraft seit 06.12.2025) in die
   Rahmenwerk-Tabelle und die Behoerden-Hinweise aufgenommen.

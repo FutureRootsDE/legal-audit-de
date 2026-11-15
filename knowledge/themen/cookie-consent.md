@@ -133,7 +133,7 @@ zu verwalten.
   C-604/22 praezisiert; Technikneutralitaet auf § 25 Abs. 1 TDDDG gestuetzt;
   Load-Balancer-Vorbehalt, Sprach-/Theme-Praeferenz und Informationspflicht
   vor Einwilligung praezisiert.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Ablehnen-Moeglichkeit auf erster Ebene nach DSK OH Digitale Dienste V1.2
   (Rn. 124 f.) statt pauschaler Pflicht, Halbsatz ohne Beleg gestrichen,
   LG Rostock mit Marker; cookielose Tools nur bei fehlendem Endgeraetezugriff

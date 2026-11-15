@@ -125,7 +125,7 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
   DSK OH Digitale Dienste als Version 1.2 (November 2024) zitiert;
   EuGH C-252/21 und C-604/22 praezisiert; DSFA-Aussage zu Session-Recording
   auf Einzelfallpruefung umgestellt.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Server-Side-Tracking mit DSK OH Digitale Dienste V1.2 belegt; cookielose
   Analytics: Einwilligung nach § 25 TDDDG entfaellt nur ohne Speichern und
   ohne Auslesen von Geraeteeigenschaften.

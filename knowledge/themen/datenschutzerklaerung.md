@@ -113,7 +113,7 @@ Zusätzlich: Datenkategorien (Art. 14 Abs. 1 lit. d) und Quelle (Art. 14 Abs. 2 
   LG Muenchen I 3 O 17493/20 praezisiert; BGH VI ZR 10/24 Rn. 100
   (Schadenshoehe, nicht Streitwert); Art. 14 Abs. 1 lit. d ergaenzt;
   WP260 rev.01 als Art.-29-Leitlinie mit EDSA-Endorsement bezeichnet.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Formatvorgaben nach Art. 12 Abs. 1 und 5 DSGVO (leicht zugaenglich,
   Unentgeltlichkeit in Abs. 5); Footer-Link als uebliche Umsetzung statt
   Pflicht formuliert.

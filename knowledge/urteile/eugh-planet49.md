@@ -83,7 +83,7 @@ Die Frage, ob die Koppelung der Gewinnspielteilnahme an eine Werbeeinwilligung m
 
 ## Folgerechtsprechung
 
-- **LG Rostock 3 O 762/19, 15.09.2020** — Ablehnen-Button gleichwertig zu Akzeptieren
+- **LG Rostock 3 O 762/19 <<VERIFIKATION AUSSTEHEND>>, 15.09.2020** — Ablehnen-Button gleichwertig zu Akzeptieren, nach der DSK nur, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (OH Digitale Dienste, Rn. 124 f.)
 - **EuGH C-252/21 (Meta Platforms/Bundeskartellamt), 04.07.2023:** Art. 6 Abs. 1 lit. f DSGVO trägt die Zusammenführung von Off-Site- und Konzerndaten nur unter engen Voraussetzungen (Tenor 5); für die Personalisierung von Werbung durch den Betreiber eines sozialen Netzwerks überwiegen die Interessen der Nutzer (Rn. 117).
 - **EuGH C-604/22 (IAB Europe), 07.03.2024** — TC-String als personenbezogenes Datum
 
@@ -116,7 +116,7 @@ Die Frage, ob die Koppelung der Gewinnspielteilnahme an eine Werbeeinwilligung m
   Sachverhalt der beiden Kaestchen nach Rn. 26 bis 28 (Remintrex,
   interessengerichtete Werbung statt Reichweitenmessung); Koppelung als vom
   EuGH ausdruecklich nicht entschieden gekennzeichnet (Rn. 64).
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Praktische Folgen nach Tenor gefasst (aktive Einwilligung, Scrollen nicht
   Gegenstand); Abmahnbarkeit ersetzt durch UKlaG-Verbandsklage; Ablehnen-
   Option nicht aus Planet49, sondern aus TDDDG/DSGVO.

@@ -151,7 +151,7 @@ stattgebende Urteil des LG wiederhergestellt.
   "Werbemittel-Beschraenkung"; amtlicher Leitsatz (Rn. 37) aufgenommen;
   Tenor richtiggestellt (Revision der Klaegerin erfolgreich, LG-Urteil
   wiederhergestellt).
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Anspruchsgrundlage des Unterlassungsanspruchs nach § 8 Abs. 1 und 3 Nr. 1,
   § 7 UWG; Reichweite des Urteils auf Einblendungen in der Nachrichtenliste
   begrenzt (Messenger-Push u.a. nicht entschieden); Streitfall T-Online

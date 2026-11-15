@@ -144,7 +144,7 @@ Pflicht-Bestandteile: **Klausel 14** (Erklärung zur TIA), **Anhang II** (techni
   TIA-Aussagen am Tenor von C-311/18 ausgerichtet; Omnibus-Zuordnung
   (Art. 33: COM(2025) 837; Art. 30 Abs. 5: COM(2025) 501) korrigiert;
   hCaptcha-Anbieter berichtigt (Intuition Machines, Inc., USA).
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Art. 44 S. 2 wortgetreu (Schutzniveau nach der DSGVO nicht untergraben);
   Art. 49 vollstaendig nach lit. a bis g und UAbs. 2; DPF-Rechtsbehelf
   zweistufig (CLPO, DPRC); Stripe: Art. 13 Abs. 1 lit. e und f.

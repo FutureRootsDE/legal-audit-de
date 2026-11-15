@@ -225,7 +225,7 @@ schriftlicher Einzelangebote).
   § 20 PAngV mit 25.000 EUR bis 31.12.2026 und 100.000 EUR ab 01.01.2027;
   EuGH C-330/23 inhaltlich berichtigt; Versandkostenhinweis bereits beim
   Angebot (§ 6 PAngV).
-- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Abmahnfaehigkeit ohne "konkretisiert § 1 UKlaG"; fuer § 11 Abs. 1 PAngV
   Beurteilung nach §§ 5a, 5b UWG (BGH I ZR 183/24, LS 2); UVP-Vergleich neutral
   gefasst, Gleichung "(nicht § 11)" gestrichen.

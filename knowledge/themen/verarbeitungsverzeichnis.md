@@ -164,6 +164,6 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
   zu Art. 30 Abs. 5 richtig datiert (COM(2025) 501 vom 21.05.2025);
   BayLDA-Muster als PDF-Vorlagen bezeichnet; nicht belegter Verweis auf den
   BayLDA-Taetigkeitsbericht 2022 gestrichen.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Abmahnrisiko zu C-21/23 im Vermerk vom 2026-11-14 nach dem Tenor
   praezisiert (Art. 30 DSGVO als Marktverhaltensregel ungeklaert).

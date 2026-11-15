@@ -167,6 +167,6 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
   (Art. 111 Abs. 4 n. F.) ergaenzt; Omnibus-Aktenzeichen COM(2025) 837;
   Art. 35 Abs. 9 und Art. 36 Abs. 2 am Wortlaut ausgerichtet. Der obige
   Vermerk, die Aussage zu C-26/22 bleibe korrekt, ist damit ueberholt.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Verbote nach VO (EU) 2026/1744 (Art. 5 Abs. 1 UAbs. 1 lit. ba, bb,
   Abs. 1a, 1b) erst ab 02.12.2026; CNIL PIA-Software ohne Sprachangabe.

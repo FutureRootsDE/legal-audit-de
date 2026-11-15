@@ -178,7 +178,7 @@ Siehe [[themen/dsfa]]. Version 1.1 vom 17.10.2018, 17 Fallgruppen.
   11.02.2026 als PM zur EDSA/EDSB-Stellungnahme; ergaenzt: Pur-Abo
   (29.03.2023), Digital Fitness Check (17.03.2026), DVB-I (11.05.2026),
   ISAC/6G (17.06.2026).
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   DPF-Anwendungshinweise (Weiteruebermittlung, Transparenz, Ausblick)
   nach Wortlaut; Meta-Pixel-Angabe durch Fanpages-Beschluss ersetzt;
   Gastzugang, verhaltensbasierte Werbung, Direktwerbung, E-Mail-Uebermittlung,

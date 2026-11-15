@@ -164,7 +164,7 @@ Nur Verstöße gegen § 30 Abs. 1 und Abs. 2 Satz 1 BDSG (Verbraucherkredite), G
   EuGH C-34/21 praezisiert, § 38 Abs. 1 Satz 2 (DSFA-Kriterium statt Art. 9),
   § 42 (Abs. 2 bis 2 Jahre, Antragsdelikt), § 43 (nur § 30), § 83 (gilt nur
   fuer Teil 3), Videoueberwachung (§ 87 Abs. 1 Nr. 6 BetrVG).
-- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   § 1 (Länder subsidiär, Abs. 5 Vorrang der DSGVO), §§ 5 bis 7 (Überschrift),
   § 26 Abs. 4 (Kollektivvereinbarungen, EuGH C-65/23), § 41 (OWiG ohne §§ 17,
   35, 36; Landgericht), DSK-Dokumente zum Beschäftigtendatenschutz, Kürzel BayLDA.

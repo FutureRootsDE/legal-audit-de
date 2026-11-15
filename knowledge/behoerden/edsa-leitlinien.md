@@ -181,7 +181,7 @@ verifiziert 2026-11-14):
   11.02.2026 (Datum 20.01.2026 gestrichen); Bindender Beschluss 01/2020
   betrifft Twitter; ergaenzt: Leitlinien 1/2024 (lit. f, 10.11.2026),
   03/2022 und 04/2022.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Quell-Links (documents_en, public-consultations_en, Arbeitsprogramm);
   Zusammensetzung des EDSA nach Art. 68 DSGVO; Aufgaben nach Art. 70 Abs. 1
   lit. b und s, Art. 64 Abs. 1 lit. d; Leitlinien 01/2022 und 8/2020 sowie

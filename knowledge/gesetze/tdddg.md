@@ -133,7 +133,7 @@ Nach § 29 Abs. 2 ist der BfDI nur bei Anbietern von TK-Diensten und öffentlich
   der DSK-OH, OH Digitale Dienste Version 1.2, EuGH C-252/21 auf Tenor 8
   beschraenkt, Fallstricke (Consent Mode, Button-Gestaltung, Reload,
   Landingpage, n8n) praezisiert.
-- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   § 1 (Abs. 1 und Abs. 3 nach Wortlaut), § 25 Abs. 2 (alternativ, Normwort
   "Uebertragung einer Nachricht"), Cookie-Wall und "Consent or Pay" (EDSA
   Leitlinien 05/2020, Opinion 08/2024 nur fuer grosse Online-Plattformen).

@@ -142,7 +142,7 @@ Die Kernverpflichtung, die Schrems II für Übermittlungen auf Grundlage von Art
 - **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
   Tenor 1 auf "Art. 2 Abs. 1 und 2 DSGVO" praezisiert; SCC-Rechtsakt als
   "Beschluss 2010/87/EU" (nicht Durchfuehrungsbeschluss) bezeichnet.
-- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Tenor in fuenf Punkten in amtlicher Reihenfolge; Pruefung des
   Schutzniveaus nach Art. 46 DSGVO statt "jede Drittland-Uebermittlung",
   Begriff TIA als Praxisbegriff gekennzeichnet; Garante (IT) 09.06.2022

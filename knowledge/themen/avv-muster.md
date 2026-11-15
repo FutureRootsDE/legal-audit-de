@@ -135,7 +135,7 @@ Wenn beide Parteien Zwecke und Mittel gemeinsam festlegen (z. B. Fashion ID / Fa
   BayLDA-Ausnahme fuer rein statisches Hosting ergaenzt; nicht existente
   "BayLDA Checkliste AVV" durch BayLDA Formulierungshilfe und
   Abgrenzungshilfe ersetzt.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Genehmigungssatz zum Standard-AVV ersetzt (Art. 1 des Beschlusses,
   Art. 28 Abs. 6, 7 DSGVO, ABl.-Fundstelle); EuGH C-683/21 um Tenor 1 und
   Tenor 4 praezisiert; Zahlungsdienstleister als eigene Zeile statt in Ja-

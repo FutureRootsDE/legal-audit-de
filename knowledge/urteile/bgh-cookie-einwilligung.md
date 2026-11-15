@@ -21,7 +21,7 @@ geltungsbereich: [DE]
 
 ## Kurz-Überblick
 
-Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH C-673/17 (Planet49) getroffen. Unter dem Kurznamen „Cookie-Einwilligung II" hat er bestätigt: Voreingestellte Checkboxen sind keine wirksame Einwilligung. § 15 Abs. 3 TMG a.F. (heute § 25 TDDDG) ist richtlinienkonform im Sinne der ePrivacy-Richtlinie auszulegen. Der BGH hat § 15 Abs. 3 Satz 1 TMG a. F. richtlinienkonform dahin ausgelegt, dass Cookies zur Erstellung von Nutzungsprofilen für Werbung oder Marktforschung nur mit Einwilligung eingesetzt werden dürfen; ein voreingestelltes Ankreuzkästchen genügt nicht (LS 2, Rn. 47).
+Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH C-673/17 (Planet49) getroffen. Unter dem Kurznamen „Cookie-Einwilligung II" hat er bestätigt: Voreingestellte Checkboxen sind keine wirksame Einwilligung. Der BGH hat § 15 Abs. 3 Satz 1 TMG a. F. richtlinienkonform dahin ausgelegt, dass Cookies zur Erstellung von Nutzungsprofilen für Werbung oder Marktforschung nur mit Einwilligung eingesetzt werden dürfen; ein voreingestelltes Ankreuzkästchen genügt nicht (LS 2, Rn. 47).
 
 ## Eckdaten
 
@@ -69,7 +69,7 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
 
 ## Folgerechtsprechung / weitere relevante Entscheidungen
 
-- **LG Rostock 3 O 762/19, 15.09.2020** — Ablehnen-Button gleichwertig zu Akzeptieren
+- **LG Rostock 3 O 762/19 <<VERIFIKATION AUSSTEHEND>>, 15.09.2020** — Ablehnen-Button gleichwertig zu Akzeptieren, nach der DSK nur, wenn das Banner Inhalte versperrt oder eine Interaktion erzwingt (OH Digitale Dienste, Rn. 124 f.)
 - **OLG Köln 6 U 185/21, 03.11.2022** — Dark-Pattern-Cookie-Banner wettbewerbswidrig
 - **LG Köln 33 O 376/22, 23.03.2023** (ECLI:DE:LGK:2023:0323.33O376.22.00): Verurteilt wurde nur wegen der Übermittlung in Drittländer (Antrag 1.d). Den Antrag, eine gleichwertige Ablehnungsoption auf der ersten Ebene vorzuschreiben, hat das LG abgewiesen: Eine bestimmte Bannergestaltung sei gesetzlich nicht vorgegeben (Rn. 108 f.). Zugleich hielt es das konkrete Banner nicht für eine tatsächliche und gleichwertige Wahlmöglichkeit (Rn. 106). Nicht als Beleg für eine Pflicht zum Ablehnen-Button auf erster Ebene zitieren.
 - **OLG Köln, Urteil vom 19.01.2024, 6 U 80/23** (ECLI:DE:OLGK:2024:0119.6U80.23.00; Vorinstanz LG Köln, 04.05.2023, 33 O 311/22): Cookie-Banner muss eine der Einwilligung gleichwertige Ablehnungsoption bieten; „Akzeptieren & Schließen" über das „X"-Symbol unzulässig (§ 25 Abs. 1 TTDSG a.F.).
@@ -94,7 +94,7 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
   Leitsaetze woertlich (LS 1 Telefonwerbung, LS 2 Cookies), Zusatz
   "Umsetzungsluecke" gestrichen; Telefonwerbung: konkreter Fall statt
   Freiwilligkeit; Verfahrensart UKlaG/AGB-Kontrolle statt § 3a UWG.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Primaerquelle auf die Bundes-API umgestellt; Tenor ergaenzt; Kurzname
   "Cookie-Einwilligung II"; Aussagen zu Opt-In/Opt-Out belegnah gefasst;
   Nachweis und Widerruf als Folgen der DSGVO gekennzeichnet; LG Koeln

@@ -202,7 +202,7 @@ Hinweis: Das Urteil hat 8 Tenorpunkte; die Aufzählung oben ist eine Auswahl.
   TTDSG; Follow-Up: EuGH hat nur Auslegungsfragen beantwortet, nicht ueber
   die Verfuegung entschieden; C-446/21 nach Tenor 1 neu gefasst ("auch bei
   erteilter Einwilligung" gestrichen), Aussetzung bis C-252/21 (Rn. 35).
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Tenor 6 und 7 ergaenzt (Urteil hat 8 Tenorpunkte); EDSA-Opinion 08/2024
   nach Wortlaut gefasst; DMA-Beschluesse: Betraege Meta 200 Mio. EUR und
   Apple 500 Mio. EUR; Angabe zur Klage T-435/25 bleibt markiert.

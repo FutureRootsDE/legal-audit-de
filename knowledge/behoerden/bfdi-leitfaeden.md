@@ -172,7 +172,7 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
   Abs. 3 BDSG); KI-Orientierungshilfe als DSK-Papier vom 06.05.2024;
   Bussgeldzumessung nach EDSA-Leitlinien 04/2022, DSK-Konzept 2019
   abgeloest; 34. (nicht 35.) Taetigkeitsbericht, BT-Drs. 21/5950.
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Gesundheits-Stellungnahmen auf §§ 341 ff. SGB V (§ 291a SGB V nur noch
   Gesundheitskarte); ReguLab nach Kurzmeldung (23.03.2026, Frist
   15.05.2026); Zustaendigkeit bei mehreren Niederlassungen nach § 40 Abs. 2

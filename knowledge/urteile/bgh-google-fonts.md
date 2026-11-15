@@ -188,7 +188,7 @@ const inter = Inter({ subsets: ["latin"] });
   (ECLI:EU:C:2026:948), Inhalt noch nicht ausgewertet; "erstes"
   Leitentscheidungsverfahren gestrichen; VI ZR 109/23 richtiggestellt
   (Revision zurueckgewiesen, Marker entfernt).
-- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- 2026-11-15: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Feld "Tenor" statt "Streitwert"; DPF-Hinweis (Durchfuehrungsbeschluss
   2023/1795, EuG T-553/23) ergaenzt; unbelegte OLG-Koeln-Angabe gestrichen;
   EuGH C-526/24 (19.03.2026) zur Missbrauchsfrage eingearbeitet; CDN- und

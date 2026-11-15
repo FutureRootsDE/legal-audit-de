@@ -177,7 +177,7 @@ Zwei Stufen:
   20); Art. 82 nach EuGH C-300/21 und BGH VI ZR 10/24 neu gefasst;
   Breyer, Fashion ID, Schrems II praezisiert; App-Zentrum III statt II,
   Mitbewerberbefugnis auf BGH I ZR 223/19 gestuetzt; BfDI-Broschuere Info 1.
-- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+- **2026-11-15**: Korrekturen aus doppelter unabhängiger Prüfung (Runde 2):
   Art. 2 (Dateisystem, Ausnahmen nach Abs. 2), Art. 9 (Katalog nach Abs. 1,
   Ausnahmen abschliessend Abs. 2 lit. a bis j), Art. 22 (ausschliesslich,
   Wirkungsschwelle, Ausnahmen), Google-Fonts-Urteil auf Google Fonts
