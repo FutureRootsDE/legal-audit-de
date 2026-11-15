@@ -67,13 +67,16 @@ survives plugin updates.
 
 ### 📚 Knowledge Base
 
-63 curated KB files with primary-source links:
+65 curated KB files with primary-source links (plus `knowledge/INDEX.md`, 66 files in total):
 
-- **Statutes**: GDPR (DSGVO), BDSG, TDDDG (cookies), UWG (competition), PAngV (pricing), BGB (civil code, T&C), DDG (digital services), DSA, DMA, AI Act, BFSG (accessibility), UrhG (copyright), KUG (image rights), MarkenG (trademark), NIS2-BSIG (IT security)
-- **Topics**: Cookie consent, tracking, privacy policy, T&C, withdrawal, international transfers, DPA, ROPA, TOM, DPIA, AI transparency, social media, image rights, seal-based advertising, quotation right, tool catalog (80+ tools)
-- **Case law**: ECJ Schrems II, Planet49, Fashion ID, Meta/Bundeskartellamt; BGH Cookie Consent, Inbox Advertising; Munich I "Google Fonts"
-- **Authorities**: DSK, EDPB, BfDI, state data protection officers
-- **Checklists** for SaaS, landing pages, e-commerce, n8n, content/blog, pre-launch
+- **Statutes (14)**: GDPR (DSGVO), BDSG, TDDDG (cookies), UWG (competition), PAngV (pricing), BGB (civil code, T&C), DDG (digital services), DSA, DMA, AI Act, BFSG (accessibility), UrhG (copyright), MarkenG (trademark), NIS2-BSIG (IT security)
+- **Topics (25)**: T&C templates, DPA templates, accessibility, order button, cookie consent, privacy policy, international transfers, DPIA, email marketing, images of third parties (KUG), imprint, AI content, AI transparency, data breach notification, price indications, seal-based advertising, social media privacy, TOM, tool catalog (80+ tools), tracking and analytics, copyright and stock photos, ROPA, advertising labelling, withdrawal instructions, quotation right
+- **Case law (9)**: ECJ Schrems II, Planet49, Meta/Bundeskartellamt, C-654/25 (Google Fonts, referral by the BGH); General Court T-553/23 (Latombe, EU-US data privacy framework); BGH Cookie Consent, Inbox Advertising, VI ZR 10/24 (loss of control); Munich I "Google Fonts"
+- **Authorities (4)**: DSK, EDPB, BfDI, state data protection officers
+- **Checklists (6)** for SaaS, landing pages, e-commerce, n8n, content/blog, pre-launch
+- **Attorney and tool recommendations (7)**: IT-law specialist attorneys, data protection officers, SaaS-focused law firms, generators, consent management, scanners, supervisory authorities
+
+**Verification status (as of 2026-11-15):** In each KB file's frontmatter, `verifiziert-am` holds the date of the last verification against primary sources; `teilverifiziert-am` is a state of its own ("partially verified") and never counts as fresh; `aktualisiert` is the fallback when `verifiziert-am` is missing or not a valid date. `python scripts/legal-status.py` sorts the files into the states fresh (under 90 days), stale (90 to 180 days), very stale (over 180 days), partially verified, invalid date and no frontmatter. Currently: 28 fresh, 37 partially verified, 0 stale, 1 without frontmatter (`INDEX.md`). `python scripts/find-placeholders.py` reports 52 open `<<VERIFIKATION AUSSTEHEND>>` markers in 37 files and no `<<UNVERIFIZIERT>>` marker.
 
 ### 🔌 Optional MCP acceleration
 
@@ -81,7 +84,7 @@ If you register the [`rechtsinformationen-bund-de-mcp`](https://github.com/wolfg
 
 ### ⚡ Hook-based context management
 
-The key: the 63 KB files are **not** loaded into every session. Instead:
+The key: the 65 KB files are **not** loaded into every session. Instead:
 
 - **SessionStart hook** loads only `knowledge/INDEX.md` (~1,000 tokens)
 - **UserPromptSubmit hook** matches prompts against regex patterns in `.claude/hooks/triggers.json` and loads up to 3 relevant KB chunks on-demand
@@ -192,7 +195,7 @@ python3 scripts/sync-platforms.py --apply  # generates .codex/, .codex-plugin/, 
 python3 scripts/sync-platforms.py --check  # CI mode: exit 1 on drift
 ```
 
-The `validate.yml` GitHub Action blocks PRs when the sync wasn't run.
+The `validate.yml` GitHub Action blocks PRs when the sync wasn't run. Its jobs: platform adapter sync check, citation check unit tests (no network, run as `python -m unittest discover -s tests`), Pro-Mode agent variant drift check, Pro-Mode toggle smoke test, disclaimer validation, placeholder scan (informational) and Markdown lint (relaxed). Latest run: 415 tests, 7 skipped. In addition, `python3 scripts/sync-pro-variants.py --check` verifies the `-pro` agent variants for drift.
 
 ## Quick Start
 
@@ -219,6 +222,16 @@ Uses browser automation to check which third-party requests fire before and afte
 ```
 
 Individual legal texts (T&C, privacy policy, imprint, withdrawal notice, cookie policy) are reviewed against current law. Produces a finding table + fully corrected version.
+
+### 4. Helper scripts (optional)
+
+```bash
+python scripts/legal-status.py [--verbose] [--json]   # KB age, placeholders, hooks, Pro-Mode
+python scripts/find-placeholders.py [--json] [--group-by-file]
+python scripts/verify-citations.py [options]          # citation check, standard library only
+```
+
+`verify-citations.py` checks federal court case numbers against the German federal legal-information API and ECJ/General Court case numbers against the Cellar of the EU Publications Office (status `PENDING` for pending cases; `--no-eu` switches the EU check off). With `--check-norms` (a mode of its own), statute citations are checked against gesetze-im-internet.de and BGBl. references against recht.bund.de (`--max-bgbl N`, default 0). Further options: `--path`, `--json`, `--offline`, `--only-pending`, `--today YYYY-MM-DD`, `--strict` (exit 1 on `DATE_MISMATCH`, with `--check-norms` on `NORM_MISSING`, `ABSATZ_MISSING` or `BGBL_MISSING`), `--timeout`, `--rate`, `--eu-rate`, `--norm-rate`, `--no-cache`, `--cache-dir`, `--cache-ttl-days` and `--write-ecli` (with `--dry-run` preview only). A hit counts as a primary-source confirmation, a missing hit is never proof to the contrary.
 
 ## Legal scope
 
@@ -259,16 +272,17 @@ legal-audit-de/
 │   └── marketplace.json            # Marketplace metadata
 │
 ├── .claude/                        # ★ SOURCE OF TRUTH ★
-│   ├── commands/*.md               # 8 slash commands
-│   ├── agents/*.md                 # 3 custom agents
+│   ├── commands/*.md               # 9 slash commands
+│   ├── agents/*.md                 # 6 custom agents (3 plus 3 -pro variants)
 │   ├── skills/*/SKILL.md           # 4 skills
-│   ├── hooks/*.py                  # 3 hooks (SessionStart / PromptSubmit / PostToolUse)
+│   ├── hooks/*.py                  # 3 hooks (SessionStart / PromptSubmit / PostToolUse), registered in .claude-plugin/plugin.json
+│   ├── hooks/triggers.json         # 35 trigger patterns (keyword to KB chunk)
 │   └── settings.json               # Permissions, WebFetch whitelist
 │
 ├── .codex/                         # ⚙ generated by scripts/sync-platforms.py
 │   ├── config.toml                 # Codex configuration
-│   ├── prompts/*.md                # 8 prompts
-│   ├── agents/*.md                 # 3 agents
+│   ├── prompts/*.md                # 9 prompts
+│   ├── agents/*.md                 # 6 agents
 │   └── skills/*/SKILL.md           # 4 skills (with auto-routing)
 │
 ├── .codex-plugin/
@@ -280,20 +294,25 @@ legal-audit-de/
 ├── .github/
 │   ├── copilot-instructions.md     # Top-level for Copilot CLI
 │   ├── workflows/                  # GitHub Actions (validate.yml, release.yml)
-│   ├── prompts/<name>/PROMPT.md    # ⚙ 8 prompts (generated)
-│   ├── agents/*.md                 # ⚙ 3 agents (generated)
+│   ├── prompts/<name>/PROMPT.md    # ⚙ 9 prompts (generated)
+│   ├── agents/*.md                 # ⚙ 6 agents (generated)
 │   └── skills/*/SKILL.md           # ⚙ 4 skills (generated)
 │
-├── knowledge/                      # 63 KB files
+├── knowledge/                      # 65 KB files plus INDEX.md (statutes, topics, case law, authorities, checklists, attorney and tool recommendations)
 │   └── INDEX.md                    # only always-loaded file (Claude Code via hook)
 │
-├── templates/                      # LegalAudit, clean, disclaimer templates
+├── templates/                      # LegalAudit, clean, disclaimer templates, git-hooks/, mcp/
+├── docs/                           # documentation site (GitHub Pages)
+├── tests/                          # offline unit tests (citation check, legal-status.py, placeholder detection)
 └── scripts/
     ├── sync-platforms.py           # Codex / Copilot adapter generator
+    ├── sync-pro-variants.py        # generate -pro agent variants from the 1M variants
+    ├── legal-audit-pro-mode.py     # set, clear and query the Pro-Mode marker
     ├── legal-status.py             # plugin health check
     ├── audit-compare.py            # audit diff tool
     ├── find-placeholders.py        # placeholder scanner
-    ├── verify-citations.py         # citation check against the federal legal-data API (optional)
+    ├── placeholder_check.py        # module for placeholder detection
+    ├── verify-citations.py         # citation check: federal courts, EU Cellar, norms (optional)
     ├── citation_check/             # modules of the citation check
     └── legal-audit-pdf.py          # PDF bundling
 ```

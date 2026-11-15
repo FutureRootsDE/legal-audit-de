@@ -103,7 +103,7 @@ Diff-Report ausgeben:
 === legal-audit-de Update Report ===
 Datum:        <YYYY-MM-DD HH:MM>
 Plugin:       v1.0.0 → v1.0.1  (oder: bereits aktuell)
-KB:           63 Dateien geprüft
+KB:           65 Dateien geprüft
               7 aktualisiert, 1 neue VERIFIKATION-AUSSTEHEND-Stelle
               5 Dateien älter als 180 Tage — empfohlen: manuelle Review
 

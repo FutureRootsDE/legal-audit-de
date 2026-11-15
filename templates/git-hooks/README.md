@@ -25,7 +25,7 @@ Das `pre-commit.sh` in diesem Verzeichnis ist ein Template, das du in **jedem Pr
 
 ```bash
 cd <zielprojekt>
-cp <anwalt_claude>/templates/git-hooks/pre-commit.sh .git/hooks/pre-commit
+cp <legal-audit-de>/templates/git-hooks/pre-commit.sh .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
 
@@ -43,7 +43,7 @@ echo 'bash "$(git rev-parse --show-toplevel)"/scripts/legal-precommit.sh' > .hus
 
 # Skript ins Projekt uebernehmen:
 mkdir -p scripts
-cp <anwalt_claude>/templates/git-hooks/pre-commit.sh scripts/legal-precommit.sh
+cp <legal-audit-de>/templates/git-hooks/pre-commit.sh scripts/legal-precommit.sh
 chmod +x scripts/legal-precommit.sh
 
 git add scripts/legal-precommit.sh .husky/pre-commit package.json

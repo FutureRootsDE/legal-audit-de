@@ -52,13 +52,15 @@ Verbindlich fuer jede Zitat-Verifikation.
 ```text
 knowledge/
 ├── INDEX.md                # einzige immer-geladene Datei
-├── gesetze/                # Vollabdeckung des Scope
-├── themen/                 # quer-laufende Compliance-Themen
-├── urteile/                # Schluessel-Rechtsprechung
-├── behoerden/              # Aufsichts-Leitlinien
-├── checklisten/            # Audit-Checklisten pro Codebase-Typ
-└── anwaelte-tools/         # Verifikations-Empfehlungen
+├── gesetze/                # 14 Dateien, Vollabdeckung des Scope
+├── themen/                 # 25 Dateien, quer-laufende Compliance-Themen
+├── urteile/                # 9 Dateien, Schluessel-Rechtsprechung
+├── behoerden/              # 4 Dateien, Aufsichts-Leitlinien
+├── checklisten/            # 6 Dateien, Audit-Checklisten pro Codebase-Typ
+└── anwaelte-tools/         # 7 Dateien, Verifikations-Empfehlungen
 ```
+
+Zusammen 65 Dateien plus `INDEX.md` (66 Dateien insgesamt).
 
 ## Abgedeckte Gesetze
 
@@ -83,35 +85,43 @@ knowledge/
 
 Quer-laufende Compliance-Themen, die mehrere Gesetze beruehren:
 
-- Cookie-Consent und Tracking
-- Datenschutzerklaerung, Impressum, AGB
+- Cookie-Consent und Tracking (`tracking-analytics`)
+- Datenschutzerklaerung, Impressum, AGB-Muster
 - Widerrufsbelehrung, Button-Loesung
-- Newsletter und Inbox-Werbung
+- E-Mail-Marketing (Newsletter, Inbox-Werbung)
 - Drittland-Transfer, AVV-Muster, Verarbeitungsverzeichnis, TOM
 - DSFA, KI-Transparenz, KI-Content-Kennzeichnung
 - Barrierefreiheit (BFSG), Werbekennzeichnung, Preisangaben
-- Stockfoto, Fotos Dritter (KUG)
-- Datenpannen-Meldepflicht, Social-Media-Datenschutz
+- Urheberrecht und Stockfotos, Fotos Dritter (KUG)
+- Meldepflicht bei Datenpannen, Social-Media-Datenschutz
 - Siegel-Werbung, Zitatrecht, Tool-Katalog (80+ Tools)
 
 ## Schluessel-Urteile
+
+Neun Dateien unter `knowledge/urteile/`:
 
 EuGH:
 
 - **Schrems II** (C-311/18) — Drittland-Transfer ohne Angemessenheits-Beschluss
 - **Planet49** (C-673/17) — wirksame Cookie-Einwilligung
-- **Fashion ID** (C-40/17) — gemeinsame Verantwortlichkeit fuer Social-Plugins
 - **Meta gegen Bundeskartellamt** (C-252/21) — kartellrechtliche Datenschutz-Pruefung
-- **IAB Europe / TCF** (C-604/22) — TCF-String als personenbezogenes Datum
+- **C-654/25** (anhaengig): Vorlage des BGH (VI ZR 258/24) zu Google Fonts
+
+EuG:
+
+- **Latombe** (T-553/23): Angemessenheitsbeschluss zum Datenschutzrahmen EU-USA (Rechtsmittel C-703/25 P anhaengig)
 
 BGH:
 
-- **Cookie-Einwilligung I** (I ZR 7/16, fortgefuehrt nach Planet49)
+- **Cookie-Einwilligung II** (I ZR 7/16, Folgeurteil zu Planet49)
 - **Inbox-Werbung II** (I ZR 25/19)
+- **Kontrollverlust** (VI ZR 10/24): immaterieller Schaden nach Artikel 82 DSGVO
 
 LG Muenchen I:
 
 - **Google Fonts** (3 O 17493/20)
+
+Fashion ID (C-40/17) und IAB Europe (C-604/22) werden in Themen- und Checklisten-Dateien behandelt, haben aber keine eigene Urteilsdatei.
 
 ## Behoerden-Material
 
@@ -119,6 +129,12 @@ LG Muenchen I:
 - **EDSA** (European Data Protection Board) — Guidelines, Recommendations
 - **BfDI** — Bundes-Aufsicht
 - Landes-Datenschutzbeauftragte (Bayern, NRW, Berlin u. a.)
+
+Vier Dateien unter `knowledge/behoerden/`.
+
+## Anwalts- und Tool-Empfehlungen
+
+Sieben Dateien unter `knowledge/anwaelte-tools/`: Fachanwaelte IT-Recht, Datenschutzbeauftragte, spezialisierte Kanzleien, Generatoren, Consent-Management, Scanner und Aufsichtsbehoerden.
 
 ## Checklisten pro Codebase-Typ
 
@@ -156,7 +172,7 @@ Die optionalen `eli`- und `ecli`-Felder ueberleben URL-Reshuffles der Portale un
 
 ## Kontext-Management
 
-Die 63 KB-Dateien werden **nicht** in jede Claude-Session geladen. Stattdessen:
+Die 65 KB-Dateien (plus `INDEX.md`) werden **nicht** in jede Claude-Session geladen. Stattdessen:
 
 - `SessionStart`-Hook laedt nur `knowledge/INDEX.md` (ca. 1.000 Tokens)
 - `UserPromptSubmit`-Hook matcht den User-Prompt gegen Regex-Trigger in `.claude/hooks/triggers.json` und laedt bis zu drei passende Chunks als `additionalContext`
@@ -178,3 +194,7 @@ Vollstaendiger Trigger-Katalog: `.claude/hooks/triggers.json`.
 Alle 90 Tage `/legal-update --stale-only` ausfuehren. Halbjaehrlich `/legal-update anwaelte-tools`, weil sich Fachanwalts-Profile und Tool-Landschaft langsamer aendern.
 
 `/legal-status` beurteilt die Frische nach `verifiziert-am` (ersatzweise `aktualisiert`, wenn `verifiziert-am` fehlt oder kein gueltiges Datum ist): aelter als 90 Tage gilt als stale, aelter als 180 Tage als "sehr stale" (Vorschlag `/legal-update --fix-pending`). Eine Datei mit `teilverifiziert-am` ist ein eigener Zustand "teilverifiziert" und nie frisch. Hat eine Datei Frontmatter mit Datumsfeldern, aber kein brauchbares (ungueltiges oder in der Zukunft liegendes) Datum, erscheint sie als "ungueltiges Datum" statt als "ohne Frontmatter". Anfuehrungszeichen um das Datum werden toleriert.
+
+### Verifikationsstand (Stand 2026-11-15)
+
+Das Feld `verifiziert-am` haelt das Datum der letzten Verifikation gegen Primaerquellen fest, `teilverifiziert-am` ist ein eigener Zustand "teilverifiziert" (nie frisch), `aktualisiert` ersetzt `verifiziert-am`, wenn dieses fehlt oder kein gueltiges Datum ist. Aktuell laut `python scripts/legal-status.py --json`: 66 Dateien (65 plus `INDEX.md`), davon 28 frisch (unter 90 Tage), 37 teilverifiziert, 0 stale, 0 sehr stale, 1 ohne Frontmatter (`INDEX.md`). `python scripts/find-placeholders.py` meldet 52 offene Marker `<<VERIFIKATION AUSSTEHEND>>` in 37 Dateien und keinen Marker `<<UNVERIFIZIERT>>`; abweichende oder defekte Marker gibt es derzeit nicht.

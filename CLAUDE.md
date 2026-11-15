@@ -39,11 +39,15 @@ Jede vom Plugin erzeugte Output-Datei trägt diesen Disclaimer am Kopf. Der `Pos
 | `/legal-pro-mode enable\|disable\|status` | Pro-Mode-Toggle (Standard-Kontext statt 1M) für Claude-Pro-Abonnenten |
 
 Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
-- `legal-status.py` — Status-Report; Frische nach `verifiziert-am` (ersatzweise `aktualisiert`, auch bei ungueltigem `verifiziert-am`), ungueltiges oder zukuenftiges Datum als eigener Zustand "ungueltiges Datum", `teilverifiziert-am` als eigener Zustand "teilverifiziert" (nie frisch), Warnung bei abweichenden Platzhalter-Formen
+- `legal-status.py` (`--verbose`, `--json`): Status-Report; Frische nach `verifiziert-am` (ersatzweise `aktualisiert`, auch bei ungueltigem `verifiziert-am`), ungueltiges oder zukuenftiges Datum als eigener Zustand "ungueltiges Datum", `teilverifiziert-am` als eigener Zustand "teilverifiziert" (nie frisch), Warnung bei abweichenden Platzhalter-Formen
 - `audit-compare.py` — Diff zwischen zwei Audits (`--auto <pfad>` findet vorheriges)
-- `find-placeholders.py` — listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen; abweichende oder defekte Marker (Zusatztext, einfaches `>`, ueber zwei Zeilen, nicht geschlossen) erscheinen als WARNUNG auf stderr, Marker in Backticks werden ignoriert
+- `find-placeholders.py` (`--json`, `--group-by-file`): listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen; abweichende oder defekte Marker (Zusatztext, einfaches `>`, ueber zwei Zeilen, nicht geschlossen) erscheinen als WARNUNG auf stderr, Marker in Backticks werden ignoriert
 - `legal-audit-pdf.py` — bundled HTML/PDF-Briefing aus Audit-Ordner
-- `verify-citations.py` — prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--only-pending`, `--json`, `--offline`, `--today`, `--write-ecli --dry-run`); duenner Einstiegspunkt, Logik im Paket `citation_check/` daneben (nur Standardbibliothek); Cache-Treffer sind im Bericht und JSON gekennzeichnet (`source: cache`) und gelten als ungeprueft; Exit 3 bei Schreibfehlern von `--write-ecli`; bekannte Grenzen: Datumsbindung nur bei klarem Bezug (Daten nach Vermerkwoertern wie Stand/geprueft/eingelegt und Daten ab dem Lauftag (`--today`, Standard heute) sind keine Entscheidungsdaten, ein Datum in einer Klammer hinter einem Aktenzeichen gehoert nie zum nachfolgenden, im Zweifel kein Datum), Kurzform-Aufzaehlungen wie `I ZR 90/20, 125/20 und 126/20` werden aufgeloest (Folgeglieder `NNN/JJ` direkt per Komma, und oder sowie angeschlossen; ein Datum vor oder nach der Liste gilt fuer alle Glieder), BVerwG-Aktenzeichen ohne Gerichtsnamen in der Zeile werden nur in `knowledge/urteile/` erkannt, wenn Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen, die Zeile kein Vorinstanz-Signal (Vorinstanz, vorgehend, LG, OLG, VG, EuGH usw.) enthaelt und das Registerzeichen zum BVerwG passt (sonst NOT_COVERED); Netzwerkfehler erscheinen nur als feste Kategorie ohne Text aus der Ausnahme. EU-Rechtsprechung (EuGH/EuG) wird standardmaessig gegen den Cellar des Amts fuer Veroeffentlichungen der EU geprueft (SPARQL, hoechstens 1 Anfrage pro Sekunde, eine Zeitueberschreitung wird nicht wiederholt, `--no-eu` schaltet ab; zusaetzlicher Status `PENDING` fuer anhaengige Verfahren oder nur Schlussantraege; Beschluesse im vorlaeufigen Rechtsschutz zaehlen nur fuer Aktenzeichen mit Suffix R, `name_hint` als reiner Hinweis); `--check-norms` ist ein eigener Modus und prueft Normzitate gegen gesetze-im-internet.de (Paragraph, Ueberschrift, Absatz, Stand) sowie BGBl.-Fundstellen gegen recht.bund.de (`--max-bgbl N`, Standard 0, 30 Sekunden Abstand laut robots.txt); je Zitat weisen `checked`/`unchecked` (JSON) bzw. `[nicht geprueft: ...]` (Text) aus, welche Teile verglichen wurden: Grenzen sind, dass Nr. und lit. (sowie Halbsatz, Alternative) nie geprueft werden, Saetze nur bei eindeutiger Zuordnung zur Absatzmarke (auch eingeschobene Absaetze wie (1a)) und Absaetze mit Buchstaben nur gegen vorhandene Absatzmarken; Gesetzesdaten aus dem Cache stehen im Bericht als "Quelle: Cache (ungeprueft)"; `--strict` liefert hier Exit 1 bei NORM_MISSING, ABSATZ_MISSING oder BGBL_MISSING, `--timeout` gilt fuer beide Backends; beide Backends schreiben nie in die KB (ausser `--write-ecli`, das jetzt auch EU-ECLI eintraegt).
+- `legal-audit-pro-mode.py`: Pro-Mode-Marker setzen, löschen, abfragen (Quelle für `/legal-pro-mode`)
+- `sync-pro-variants.py`: `-pro`-Agentenvarianten aus den 1M-Varianten erzeugen (`--apply`, `--check`)
+- `sync-platforms.py`: Codex- und Copilot-Adapter aus `.claude/` erzeugen (`--apply`, `--check`)
+- `placeholder_check.py`: gemeinsames Modul für die Platzhalter-Erkennung (von `find-placeholders.py` und `legal-status.py` genutzt)
+- `verify-citations.py`: prueft Bundesgerichts-Aktenzeichen der KB gegen die Rechtsinformations-API des Bundes (optional; `--path`, `--only-pending`, `--json`, `--offline`, `--today`, `--strict` (Exit 1 bei DATE_MISMATCH), `--timeout`, `--rate`, `--eu-rate`, `--norm-rate`, `--no-cache`, `--cache-dir`, `--cache-ttl-days` (Standard 7), `--write-ecli --dry-run`); duenner Einstiegspunkt, Logik im Paket `citation_check/` daneben (nur Standardbibliothek); Cache-Treffer sind im Bericht und JSON gekennzeichnet (`source: cache`) und gelten als ungeprueft; Exit 3 bei Schreibfehlern von `--write-ecli`; bekannte Grenzen: Datumsbindung nur bei klarem Bezug (Daten nach Vermerkwoertern wie Stand/geprueft/eingelegt und Daten ab dem Lauftag (`--today`, Standard heute) sind keine Entscheidungsdaten, ein Datum in einer Klammer hinter einem Aktenzeichen gehoert nie zum nachfolgenden, im Zweifel kein Datum), Kurzform-Aufzaehlungen wie `I ZR 90/20, 125/20 und 126/20` werden aufgeloest (Folgeglieder `NNN/JJ` direkt per Komma, und oder sowie angeschlossen; ein Datum vor oder nach der Liste gilt fuer alle Glieder), BVerwG-Aktenzeichen ohne Gerichtsnamen in der Zeile werden nur in `knowledge/urteile/` erkannt, wenn Gericht-Zeile, Frontmatter, Dateiname oder Ueberschrift das BVerwG nennen, die Zeile kein Vorinstanz-Signal (Vorinstanz, vorgehend, LG, OLG, VG, EuGH usw.) enthaelt und das Registerzeichen zum BVerwG passt (sonst NOT_COVERED); Netzwerkfehler erscheinen nur als feste Kategorie ohne Text aus der Ausnahme. EU-Rechtsprechung (EuGH/EuG) wird standardmaessig gegen den Cellar des Amts fuer Veroeffentlichungen der EU geprueft (SPARQL, hoechstens 1 Anfrage pro Sekunde, eine Zeitueberschreitung wird nicht wiederholt, `--no-eu` schaltet ab; zusaetzlicher Status `PENDING` fuer anhaengige Verfahren oder nur Schlussantraege; Beschluesse im vorlaeufigen Rechtsschutz zaehlen nur fuer Aktenzeichen mit Suffix R, `name_hint` als reiner Hinweis); `--check-norms` ist ein eigener Modus und prueft Normzitate gegen gesetze-im-internet.de (Paragraph, Ueberschrift, Absatz, Stand) sowie BGBl.-Fundstellen gegen recht.bund.de (`--max-bgbl N`, Standard 0, 30 Sekunden Abstand laut robots.txt); je Zitat weisen `checked`/`unchecked` (JSON) bzw. `[nicht geprueft: ...]` (Text) aus, welche Teile verglichen wurden: Grenzen sind, dass Nr. und lit. (sowie Halbsatz, Alternative) nie geprueft werden, Saetze nur bei eindeutiger Zuordnung zur Absatzmarke (auch eingeschobene Absaetze wie (1a)) und Absaetze mit Buchstaben nur gegen vorhandene Absatzmarken; Gesetzesdaten aus dem Cache stehen im Bericht als "Quelle: Cache (ungeprueft)"; `--strict` liefert hier Exit 1 bei NORM_MISSING, ABSATZ_MISSING oder BGBL_MISSING, `--timeout` gilt fuer beide Backends; beide Backends schreiben nie in die KB (ausser `--write-ecli`, das jetzt auch EU-ECLI eintraegt).
 
 ## Integration in Zielprojekte
 
@@ -58,20 +62,27 @@ Für Projekte, die regelmäßig rechts-relevante Änderungen durchmachen: instal
 ```
 legal-audit-de/
 ├── CLAUDE.md                           # diese Datei
-├── plugin.json                         # Plugin-Manifest
-├── README.md                           # Repo-README
+├── AGENTS.md                           # Einstieg für Codex und andere Agent-CLIs
+├── README.md / README.en.md            # Repo-README (DE / EN)
+├── CHANGELOG.md, CONTRIBUTING.md       # Änderungshistorie, Mitwirkung
 ├── LICENSE                             # MIT
+├── .claude-plugin/
+│   ├── plugin.json                     # Plugin-Manifest inkl. Hook-Registrierung
+│   └── marketplace.json                # Marketplace-Metadaten
 ├── .claude/
-│   ├── settings.json                   # Hook-Registrierung, Permissions
-│   ├── commands/{legal-audit,legal-audit-live,legal-doc-check,legal-kb,legal-verify,legal-update,legal-status}.md
-│   ├── agents/{legal-auditor,legal-researcher,legal-text-writer}.md
+│   ├── settings.json                   # Permissions
+│   ├── commands/{legal-audit,legal-audit-live,legal-doc-check,legal-kb,legal-verify,legal-update,legal-audit-de-update,legal-status,legal-pro-mode}.md
+│   ├── agents/{legal-auditor,legal-researcher,legal-text-writer}.md   # plus je eine -pro-Variante
 │   ├── skills/{legal-audit-codebase,legal-kb-lookup,legal-verify-experts,legal-update-sources}/SKILL.md
 │   └── hooks/
 │       ├── session_start.py
 │       ├── prompt_submit.py
 │       ├── post_write.py
-│       └── triggers.json               # Schlagwort-zu-KB-Mapping
-├── knowledge/                          # KB-Vault, on-demand geladen
+│       ├── *.sh                        # Shell-Wrapper je Hook
+│       └── triggers.json               # Schlagwort-zu-KB-Mapping (35 Muster)
+├── .codex/, .codex-plugin/, .agents/   # generiert von scripts/sync-platforms.py (Codex)
+├── .github/                            # Copilot-Adapter (generiert), workflows/ (validate.yml, release.yml), Issue-Templates
+├── knowledge/                          # KB-Vault, on-demand geladen: 65 Dateien plus INDEX.md (gesetze 14, themen 25, urteile 9, behoerden 4, checklisten 6, anwaelte-tools 7)
 │   ├── INDEX.md                        # einzige immer-geladene Datei
 │   ├── gesetze/                        # DSGVO, BDSG, TDDDG, UWG, BGB-AGB, DDG,
 │   │                                   # DSA, DMA, AI-Act, BFSG, UrhG, MarkenG,
@@ -84,13 +95,15 @@ legal-audit-de/
 │   │                                   # Datenpanne-Meldepflicht, Social-Media,
 │   │                                   # Fotos-Dritter-KUG, Siegel-Werbung,
 │   │                                   # Zitatrecht, Tool-Katalog
-│   ├── urteile/                        # EuGH + BGH + OLG Schlüsselurteile
+│   ├── urteile/                        # EuGH, EuG, BGH und LG Schlüsselurteile
 │   ├── behoerden/                      # DSK, EDSA, BfDI, Landesbeauftragte
 │   ├── checklisten/                    # Audit-Checklisten pro Codebase-Typ
 │   └── anwaelte-tools/                 # Verifikations-Empfehlungen
 ├── audits/                             # Schatten-Archiv aller Audits (lokal, .gitignored)
-├── templates/                          # LegalAudit-, Clean-, Disclaimer-Templates
-└── scripts/                            # Python-Hilfsskripte
+├── templates/                          # LegalAudit-, Clean-, Disclaimer-Templates, git-hooks/, mcp/
+├── docs/                               # Doku-Site (GitHub Pages)
+├── tests/                              # Offline-Unit-Tests (`python -m unittest discover -s tests`)
+└── scripts/                            # Python-Hilfsskripte und Paket citation_check/
 ```
 
 ### Hook-Mechanik (Kern-Innovation)
@@ -231,3 +244,6 @@ KB-Frontmatter unterstuetzt seit dieser Integration die optionalen Felder `eli:`
 - **Trigger-Katalog:** `.claude/hooks/triggers.json` erweitern, wenn häufige Prompts keine passenden KB-Chunks laden.
 - **Checklisten-Evolution:** Nach jedem Audit prüfen, ob neue Muster in die Checklisten aufgenommen werden müssen.
 - **Anwalts-/Tool-Liste:** Halbjährlich per `/legal-update anwaelte-tools` prüfen.
+- **Release:** Nach dem Merge eines Release-PR läuft der Workflow `release.yml` (Auslöser: Tag `vX.Y.Z`) und baut Bundles sowie GitHub-Release selbst; Tag, GitHub-Release und Bundles nicht von Hand anlegen.
+- **Verifikationsstand (Stand 2026-11-15):** `python scripts/legal-status.py --json` meldet 66 KB-Dateien (65 plus `INDEX.md`): 28 frisch, 37 teilverifiziert (`teilverifiziert-am`, nie frisch), 0 stale, 1 ohne Frontmatter; `python scripts/find-placeholders.py` zählt 52 offene Marker `<<VERIFIKATION AUSSTEHEND>>` in 37 Dateien, keinen `<<UNVERIFIZIERT>>`.
+- **CI:** `validate.yml` mit den Jobs Platform-Adapter Sync-Check, Zitatprüfung Unit-Tests (`python -m unittest discover -s tests`, zuletzt 415 Tests, 7 übersprungen), Pro-Mode Agent-Variant Drift-Check, Pro-Mode Toggle Smoke-Test, Disclaimer-Validation, Platzhalter-Scan (informativ) und Markdown-Lint (relaxed).

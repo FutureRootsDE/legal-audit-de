@@ -56,13 +56,16 @@ Marker liegt im offiziellen Plugin-Data-Verzeichnis (`${CLAUDE_PLUGIN_DATA}`) un
 
 ### 📚 Knowledge Base
 
-63 kuratierte KB-Dateien mit Primärquellen-Links:
+65 kuratierte KB-Dateien mit Primärquellen-Links (plus `knowledge/INDEX.md`, insgesamt 66 Dateien):
 
-- **Gesetze**: DSGVO, BDSG, TDDDG, UWG, PAngV, BGB/AGB, DDG, DSA, DMA, AI Act, BFSG, UrhG, MarkenG, NIS2-BSIG
-- **Themen**: Cookie-Consent, Tracking, Datenschutzerklärung, AGB, Widerruf, Drittland, AVV, DSFA, KI-Transparenz, Social Media, KUG, Siegel-Werbung, Zitatrecht, Tool-Katalog (80+ Tools)
-- **Urteile**: EuGH Schrems II, Planet49, Fashion ID, Meta-Bundeskartellamt; BGH Cookie-Einwilligung, Inbox-Werbung; LG München I „Google Fonts"
-- **Behörden**: DSK, EDSA, BfDI, Landesbeauftragte
-- **Checklisten** für SaaS, Landingpage, E-Commerce, n8n, Content/Blog, Pre-Launch
+- **Gesetze (14)**: DSGVO, BDSG, TDDDG, UWG, PAngV, BGB/AGB, DDG, DSA, DMA, AI Act, BFSG, UrhG, MarkenG, NIS2-BSIG
+- **Themen (25)**: AGB-Muster, AVV-Muster, Barrierefreiheit, Button-Lösung, Cookie-Consent, Datenschutzerklärung, Drittland-Transfer, DSFA, E-Mail-Marketing, Fotos Dritter (KUG), Impressum, KI-Content, KI-Transparenz, Meldepflicht bei Datenpannen, Preisangaben, Siegel-Werbung, Social-Media-Datenschutz, TOM, Tool-Katalog (80+ Tools), Tracking und Analytics, Urheberrecht und Stockfotos, Verarbeitungsverzeichnis, Werbekennzeichnung, Widerrufsbelehrung, Zitatrecht
+- **Urteile (9)**: EuGH Schrems II, Planet49, Meta/Bundeskartellamt, C-654/25 (Google Fonts, Vorlage des BGH); EuG T-553/23 (Latombe, Datenschutzrahmen EU-USA); BGH Cookie-Einwilligung, Inbox-Werbung, VI ZR 10/24 (Kontrollverlust); LG München I „Google Fonts"
+- **Behörden (4)**: DSK, EDSA, BfDI, Landesbeauftragte
+- **Checklisten (6)** für SaaS, Landingpage, E-Commerce, n8n, Content/Blog, Pre-Launch
+- **Anwalts- und Tool-Empfehlungen (7)**: Fachanwälte IT-Recht, Datenschutzbeauftragte, spezialisierte Kanzleien, Generatoren, Consent-Management, Scanner, Aufsichtsbehörden
+
+**Verifikationsstand (Stand 2026-11-15):** Im Frontmatter jeder KB-Datei hält `verifiziert-am` das Datum der letzten Verifikation gegen Primärquellen fest; `teilverifiziert-am` ist ein eigener Zustand "teilverifiziert" und gilt nie als frisch; `aktualisiert` ersetzt `verifiziert-am`, wenn dieses fehlt oder kein gültiges Datum ist. `python scripts/legal-status.py` ordnet die Dateien den Zuständen frisch (unter 90 Tage), stale (90 bis 180 Tage), sehr stale (über 180 Tage), teilverifiziert, ungültiges Datum und ohne Frontmatter zu. Aktuell: 28 frisch, 37 teilverifiziert, 0 stale, 1 ohne Frontmatter (`INDEX.md`). `python scripts/find-placeholders.py` meldet 52 offene Marker `<<VERIFIKATION AUSSTEHEND>>` in 37 Dateien und keinen Marker `<<UNVERIFIZIERT>>`.
 
 ### 🔌 Optionale MCP-Beschleunigung
 
@@ -70,7 +73,7 @@ Wer den MCP-Server [`rechtsinformationen-bund-de-mcp`](https://github.com/wolfga
 
 ### ⚡ Hook-basiertes Context-Management
 
-Der Clou: die 63 KB-Dateien werden **nicht** komplett in jede Session geladen. Stattdessen:
+Der Clou: die 65 KB-Dateien werden **nicht** komplett in jede Session geladen. Stattdessen:
 
 - **SessionStart-Hook** lädt nur `knowledge/INDEX.md` (~1.000 Tokens)
 - **UserPromptSubmit-Hook** matcht den Prompt gegen Regex-Patterns in `.claude/hooks/triggers.json` und lädt bis zu 3 passende KB-Chunks on-demand
@@ -181,7 +184,7 @@ python3 scripts/sync-platforms.py --apply  # generiert .codex/, .codex-plugin/ u
 python3 scripts/sync-platforms.py --check  # CI-Modus: exit 1 bei Drift
 ```
 
-Die GitHub-Action `validate.yml` blockiert PRs, wenn der Sync nicht durchgeführt wurde.
+Die GitHub-Action `validate.yml` blockiert PRs, wenn der Sync nicht durchgeführt wurde. Ihre Jobs: Platform-Adapter Sync-Check, Zitatprüfung Unit-Tests (ohne Netzwerk, Aufruf `python -m unittest discover -s tests`), Pro-Mode Agent-Variant Drift-Check, Pro-Mode Toggle Smoke-Test, Disclaimer-Validation, Platzhalter-Scan (informativ) und Markdown-Lint (relaxed). Der letzte Lauf: 415 Tests, 7 übersprungen. Zusätzlich prüft `python3 scripts/sync-pro-variants.py --check` die `-pro`-Agentenvarianten auf Drift.
 
 ## Quick Start
 
@@ -208,6 +211,16 @@ Prüft per Browser-Automation, welche Drittanbieter-Requests VOR und NACH Cookie
 ```
 
 Einzelne Rechtstexte (AGB, DSE, Impressum, Widerrufsbelehrung, Cookie-Policy) werden gegen aktuelle Rechtslage geprüft. Liefert Finding-Tabelle + vollständige korrigierte Fassung.
+
+### 4. Hilfsskripte (optional)
+
+```bash
+python scripts/legal-status.py [--verbose] [--json]   # KB-Alter, Platzhalter, Hooks, Pro-Mode
+python scripts/find-placeholders.py [--json] [--group-by-file]
+python scripts/verify-citations.py [Optionen]         # Zitatprüfung, nur Standardbibliothek
+```
+
+`verify-citations.py` prüft Bundesgerichts-Aktenzeichen gegen die Rechtsinformations-API des Bundes und EuGH/EuG-Aktenzeichen gegen den Cellar des Amts für Veröffentlichungen der EU (Status `PENDING` für anhängige Verfahren; `--no-eu` schaltet die EU-Prüfung ab). Mit `--check-norms` (eigener Modus) werden Normzitate gegen gesetze-im-internet.de und BGBl.-Fundstellen gegen recht.bund.de geprüft (`--max-bgbl N`, Standard 0). Weitere Optionen: `--path`, `--json`, `--offline`, `--only-pending`, `--today YYYY-MM-DD`, `--strict` (Exit 1 bei `DATE_MISMATCH`, mit `--check-norms` bei `NORM_MISSING`, `ABSATZ_MISSING` oder `BGBL_MISSING`), `--timeout`, `--rate`, `--eu-rate`, `--norm-rate`, `--no-cache`, `--cache-dir`, `--cache-ttl-days` und `--write-ecli` (mit `--dry-run` nur Vorschau). Treffer sind Primärbelege, ein fehlender Treffer ist nie ein Gegenbeweis.
 
 ## Rechtsgebiete (Scope)
 
@@ -250,16 +263,17 @@ legal-audit-de/
 │   └── marketplace.json            # Marketplace-Metadaten
 │
 ├── .claude/                        # ★ SOURCE OF TRUTH ★
-│   ├── commands/*.md               # 8 Slash-Commands
-│   ├── agents/*.md                 # 3 Custom-Agents
+│   ├── commands/*.md               # 9 Slash-Commands
+│   ├── agents/*.md                 # 6 Custom-Agents (3 plus 3 -pro-Varianten)
 │   ├── skills/*/SKILL.md           # 4 Skills
-│   ├── hooks/*.py                  # 3 Hooks (SessionStart / PromptSubmit / PostToolUse)
+│   ├── hooks/*.py                  # 3 Hooks (SessionStart / PromptSubmit / PostToolUse), registriert in .claude-plugin/plugin.json
+│   ├── hooks/triggers.json         # 35 Trigger-Muster (Schlagwort zu KB-Chunk)
 │   └── settings.json               # Permissions, WebFetch-Whitelist
 │
 ├── .codex/                         # ⚙ generiert von scripts/sync-platforms.py
 │   ├── config.toml                 # Codex-Konfiguration
-│   ├── prompts/*.md                # 8 Prompts
-│   ├── agents/*.md                 # 3 Agents
+│   ├── prompts/*.md                # 9 Prompts
+│   ├── agents/*.md                 # 6 Agents
 │   └── skills/*/SKILL.md           # 4 Skills (mit Auto-Routing)
 │
 ├── .codex-plugin/
@@ -271,19 +285,24 @@ legal-audit-de/
 ├── .github/
 │   ├── copilot-instructions.md     # Top-Level für Copilot CLI
 │   ├── workflows/                  # GitHub Actions (validate.yml, release.yml)
-│   ├── prompts/<name>/PROMPT.md    # ⚙ 8 Prompts (generiert)
-│   ├── agents/*.md                 # ⚙ 3 Agents (generiert)
+│   ├── prompts/<name>/PROMPT.md    # ⚙ 9 Prompts (generiert)
+│   ├── agents/*.md                 # ⚙ 6 Agents (generiert)
 │   └── skills/*/SKILL.md           # ⚙ 4 Skills (generiert)
 │
-├── knowledge/                      # 63 KB-Dateien (Gesetze, Themen, Urteile, Behörden, Checklisten)
+├── knowledge/                      # 65 KB-Dateien plus INDEX.md (Gesetze, Themen, Urteile, Behörden, Checklisten, Anwalts- und Tool-Empfehlungen)
 │   └── INDEX.md                    # einzige immer-geladene Datei (Claude Code via Hook)
 │
-├── templates/                      # LegalAudit-, Clean-, Disclaimer-Templates
+├── templates/                      # LegalAudit-, Clean-, Disclaimer-Templates, git-hooks/, mcp/
+├── docs/                           # Doku-Site (GitHub Pages)
+├── tests/                          # Offline-Unit-Tests (Zitatprüfung, legal-status.py, Platzhalter-Erkennung)
 └── scripts/
     ├── sync-platforms.py           # Codex/Copilot-Adapter-Generator
+    ├── sync-pro-variants.py        # -pro-Agentenvarianten aus den 1M-Varianten erzeugen
+    ├── legal-audit-pro-mode.py     # Pro-Mode-Marker setzen, löschen, abfragen
     ├── legal-status.py             # Plugin-Health-Check
     ├── audit-compare.py            # Audit-Diff-Tool
     ├── find-placeholders.py        # Platzhalter-Scanner
+    ├── placeholder_check.py        # Modul der Platzhalter-Erkennung
     ├── verify-citations.py         # Zitatpruefung: Bundesgerichte, EU-Cellar, Normen (optional)
     ├── citation_check/             # Module der Zitatpruefung
     └── legal-audit-pdf.py          # PDF-Bundling

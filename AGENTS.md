@@ -49,7 +49,9 @@ Jede vom Plugin erzeugte Output-Datei muss diesen Disclaimer am Kopf tragen. Auf
 | `legal-kb <slug>` | KB-Artikel gezielt laden | Claude / Codex / Copilot |
 | `legal-verify <thema>` | Fachanwalts-/Tool-Empfehlungen | Claude / Codex / Copilot |
 | `legal-update [slug\|--stale-only\|--all\|--fix-pending]` | KB gegen Primaerquellen aktualisieren | Claude (voll) / Codex+Copilot (eingeschraenkt — kein WebSearch, nur WebFetch/http.get auf whitelist-Domains) |
+| `legal-audit-de-update [--plugin-only\|--kb-only\|--dry-run]` | Plugin und KB gemeinsam aktualisieren | Claude (voll) / Codex+Copilot (eingeschraenkt) |
 | `legal-status [--verbose\|--json]` | Plugin-Health-Check | Claude / Codex / Copilot |
+| `legal-pro-mode enable\|disable\|status` | Pro-Mode-Toggle (Standard-Kontext statt 1M) | Claude / Codex / Copilot |
 
 ---
 
