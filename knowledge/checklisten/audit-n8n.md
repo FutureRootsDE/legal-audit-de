@@ -168,7 +168,7 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 
 - [ ] n8n-Container-Logs (docker logs) — Rotation konfiguriert
 - [ ] **Fehler-Alerting**: bei Cron-Job-Fehler Admin-Benachrichtigung (Slack, E-Mail, Discord)
-  - Referenz: ksk-automation OPS-01 Anti-Pattern — "stille" Cron-Fehler sind DSGVO-relevant (Art. 32 DSGVO Integritaet/Verfuegbarkeit)
+  - Typisches Anti-Pattern: "stille" Cron-Fehler sind DSGVO-relevant (Art. 32 DSGVO Integritaet/Verfuegbarkeit)
 - [ ] **Workflow-Audit-Log** wer hat welchen Workflow geaendert, als risikoangemessene Massnahme (Art. 32 Abs. 1 lit. b) und zur regelmaessigen Ueberpruefung (lit. d); n8n-User-Management mit Rollen bei mehreren Entwicklern empfohlen
 - [ ] **Execution-Limits** (Timeout, Memory) konfiguriert — verhindert DoS
 - [ ] **Disaster Recovery**: regelmaessiger PostgreSQL-Restore-Test (Art. 32 Abs. 1 lit. c und d DSGVO); Intervall risikobasiert festlegen (interne Vorgabe z. B. quartalsweise)
@@ -183,11 +183,11 @@ n8n-Workflows sind Backend — keine direkte WCAG-Pruefung. Aber:
 ## Typ-spezifische Besonderheiten
 
 - **n8n Cloud** (n8n.io SaaS) — Vertragspartner laut aktuellem n8n-DPA pruefen, AVV anfordern
-- **Self-hosted** (wie SmarteHuette42): AVV mit dem Hoster abschliessen, volle Kontrolle ueber Logs/Retention
+- **Self-hosted** (eigener Server oder VPS): AVV mit dem Hoster abschliessen, volle Kontrolle ueber Logs/Retention
 - **n8n auf Vercel/AWS** — Drittland-Pruefung Hosting-Provider zusaetzlich
 - **Mehrere Workflows als Sub-Workflows**: Datenfluesse zwischen Workflows dokumentieren (ein Workflow-Aufruf = interne Verarbeitung, kein neuer Drittanbieter-Transfer)
 
-## Typische Findings (ksk-automation / SmarteHuette42-Stil-Workflows)
+## Typische Findings (Next.js-SaaS mit Automatisierung und n8n-Content-Pipelines)
 
 ### CRIT
 

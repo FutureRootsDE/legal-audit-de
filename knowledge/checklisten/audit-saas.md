@@ -151,7 +151,7 @@ BFSG ist seit **28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Angebote (O
   - **Anonymisierung** statt Loeschung bei Daten mit Aufbewahrungspflicht
   - **Aufbewahrungsfristen**: Rechnungen/Buchungsbelege 8 Jahre (§ 257 Abs. 1 Nr. 4, Abs. 4 HGB; § 147 Abs. 1 Nr. 4, Abs. 3 AO; § 14b Abs. 1 UStG); Buecher, Inventare, Abschluesse 10 Jahre; Handels- und Geschaeftsbriefe (auch steuerrelevante E-Mails) 6 Jahre; Ausnahme 10 Jahre fuer Kredit-, Versicherungs- und Wertpapierinstitute (§ 257 Abs. 4 Satz 2 HGB)
 - [ ] **Retention-Tabelle** im Verarbeitungsverzeichnis dokumentiert (fuer jede Kategorie)
-- [ ] **Automatisierte Loesch-Jobs** (Cron/Scheduler) mit Fehler-Alert (siehe OPS-01 Anti-Pattern in ksk-automation)
+- [ ] **Automatisierte Loesch-Jobs** (Cron/Scheduler) mit Fehler-Alert (typisches Anti-Pattern: stille Cron-Fehler)
 - [ ] **Data Act (EU) 2023/2854**: Ist das SaaS selbst Datenverarbeitungsdienst (Art. 2 Nr. 8 Data Act), treffen den Anbieter seit 12.09.2025 die Pflichten nach Kapitel VI (Art. 23 ff.); Pruefpunkt auf die eigenen Kundenvertraege richten. Zeitliche Staffelung pruefen (Art. 50 i. d. F. der konsolidierten Fassung, per Cellar CELEX:32023R2854 verifiziert):
   - **Kapitel VI** (Art. 23 ff., Wechsel zwischen Datenverarbeitungsdiensten) **gilt seit 12.09.2025**. SaaS-/Cloud-Vertraege auf Pflichten zum erleichterten Anbieterwechsel pruefen (Portabilitaet, Kuendigungs- und Uebergangsfristen).
   - **Art. 29** (schrittweise Abschaffung der Wechselentgelte): vom 11.01.2024 bis **12.01.2027** nur ermaessigte Wechselentgelte (max. Selbstkosten); **ab 12.01.2027** sind Wechselentgelte vollstaendig verboten.
@@ -193,7 +193,7 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 - **API-Keys / Webhooks**: Geheimhaltungspflicht, Rotation, kein Logging im Klartext
 - **Betroffenen-Rechte-Portal**: Self-Service fuer Auskunft (Art. 15), Loeschung (Art. 17), Datenuebertragbarkeit (Art. 20)
 - **Impersonate-Feature** (Admin loggt sich als Kunde ein): Sonder-Log, Einwilligung, Missbrauchs-Sperren
-- **KI-Klassifikation** auf Kunden-Inhalten (siehe ksk-automation GA-5): DSFA nach Art. 35 Abs. 3 lit. a DSGVO nur bei systematischer und umfassender Bewertung persoenlicher Aspekte als Grundlage fuer Entscheidungen mit Rechtswirkung oder aehnlich erheblicher Beeintraechtigung; sonst Schwellwertpruefung (Art. 35 Abs. 1) dokumentieren
+- **KI-Klassifikation** auf Kunden-Inhalten (Beispiel: ein Next.js-SaaS mit KI-Auswertung von Kundendokumenten): DSFA nach Art. 35 Abs. 3 lit. a DSGVO nur bei systematischer und umfassender Bewertung persoenlicher Aspekte als Grundlage fuer Entscheidungen mit Rechtswirkung oder aehnlich erheblicher Beeintraechtigung; sonst Schwellwertpruefung (Art. 35 Abs. 1) dokumentieren
 
 ## Typische Findings (Erwartungswerte bei SaaS-Audit)
 
@@ -214,7 +214,7 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 - Datenschutzerklaerung nennt nicht alle Drittanbieter
 - PII im Sentry-Stacktrace (User-E-Mail im Breadcrumb)
 - Keine DSFA bei KI-gestuetzter Nutzer-Klassifikation
-- Keine Fachanwalt-Pruefung vor Launch (Kosten vorab erfragen, siehe ksk-automation GA-6)
+- Keine Fachanwalt-Pruefung vor Launch (Kosten vorab erfragen)
 - Sub-Prozessor-Liste im AVV nicht aktuell
 
 ### MED
@@ -223,7 +223,7 @@ Code allein reicht nicht — laufe zusaetzlich `/legal-audit-live <production-ur
 - Cookie-Kategorie-Beschreibungen zu generisch ("Marketing-Cookies" statt konkret)
 - Speicherdauer in der Datenschutzerklaerung nicht angegeben (Art. 13 Abs. 2 lit. a DSGVO) bzw. Loeschfristen nicht im Verarbeitungsverzeichnis (Art. 30 Abs. 1 Satz 2 lit. f DSGVO)
 - DSB nicht benannt, obwohl in der Regel mindestens 20 Personen staendig mit der automatisierten Verarbeitung personenbezogener Daten beschaeftigt sind oder unabhaengig davon eine DSFA-pflichtige Verarbeitung vorliegt (§ 38 Abs. 1 BDSG)
-- Keine Admin-Benachrichtigung bei Cron-Job-Fehlern (OPS-01 aus ksk-automation)
+- Keine Admin-Benachrichtigung bei Cron-Job-Fehlern (typisches Anti-Pattern in Abo-SaaS)
 
 ### LOW
 
