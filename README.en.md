@@ -302,6 +302,7 @@ Directories marked ⚙ are automatically generated from `.claude/`. Direct edits
 
 ## Roadmap
 
+- [x] **v1.4.1** Corrections in 65 KB files after a double independent review (round 1, placeholders 53 to 50), citation check extended to EU case law via Cellar (status `PENDING`) and norm check `--check-norms`; local file paths removed from shipped files
 - [x] **v1.4.0** Citation check against the German federal legal-information API (`scripts/verify-citations.py` with offline tests and CI job), optional MCP integration (`rechtsinformationen`), documentation site under `docs/`, large KB update (65 KB files, AI Omnibus Regulation (EU) 2026/1744, § 356a BGB as amended, three new landmark rulings) and 35 trigger patterns
 - [x] **v1.3.2** Pro-Mode for Claude Pro subscribers (standard context instead of 1M): `/legal-pro-mode enable`, six permanent agent variants, `${CLAUDE_PLUGIN_DATA}` marker
 - [x] **v1.3.1** Native Codex plugin manifest + frontmatter-order fix ([@AllstarGER](https://github.com/AllstarGER))
