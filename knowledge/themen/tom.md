@@ -1,10 +1,9 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/it-grundschutz_node.html
   - https://www.iso.org/standard/27001
-praxis-beispiel: C:/Users/Philip/SaaS_Project/projects/ksk-automation/docs/ISMS-CONCEPT.md
 verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
 ---
@@ -42,7 +41,7 @@ Risiken müssen bewertet werden für: unbefugter Zugriff, Verlust, Zerstörung, 
 
 ### Abs. 3 — Verhaltensregeln / Zertifizierungen
 
-Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als Nachweis dienen.
+Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als Faktor für den Nachweis herangezogen werden.
 
 ## Strukturierung der TOM (praxisbewährt)
 
@@ -77,7 +76,7 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 | **BSI IT-Grundschutz** | BSI | Deutsche Behörden-Standards | Bausteine für konkrete Maßnahmen |
 | **ISO/IEC 27001** | ISO | Information Security Management System | Globaler Gold-Standard |
 | **ISO/IEC 27018** | ISO | Schutz von PII in Cloud | Cloud-Anbieter-Prüfung |
-| **BSI C5** | BSI | Cloud Computing | Für deutsche Cloud-Anbieter |
+| **BSI C5** | BSI | Cloud Computing | Cloud-Anbieter aller Herkunft (Testat); Version 2025/26 beachten |
 | **SOC 2 Type II** | AICPA | Security, Availability, Confidentiality | US-lastige SaaS |
 | **TISAX** | VDA | Automotive | Automotive-Lieferketten |
 | **CCM** | Cloud Security Alliance | Cloud Controls | Cross-Framework-Mapping |
@@ -118,7 +117,7 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 - **E-Commerce:**
   - PCI-DSS wenn Karteninhaber-Daten durchlaufen (Stripe-Checkout reduziert Scope)
   - Fraud-Detection / 3DS2
-  - Bestelldaten-Retention nach § 147 AO (steuerlich 6–10 Jahre, abgewogen gegen Löschanspruch)
+  - Bestelldaten-Retention nach § 147 Abs. 3 AO (10 Jahre für Bücher und Jahresabschlüsse, 8 Jahre für Buchungsbelege, 6 Jahre für sonstige Unterlagen; abgewogen gegen Löschanspruch)
 - **Content/Blog:**
   - WordPress: Updates, starke Admin-Passwörter, Login-Schutz (Limit Login Attempts)
   - Backup-Routine (Updraft, BackWPup)
@@ -127,7 +126,7 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 ## Behörden-Hinweise
 
 - **BSI Leitfaden „Stand der Technik"** (jährlich aktualisiert)
-- **DSK Kurzpapier Nr. 2** — Grundlagen für TOM
+- **DSK Kurzpapier Nr. 18** — Risiko für die Rechte und Freiheiten natürlicher Personen (Grundlage der Risikobewertung nach Art. 32)
 - **ENISA Guidelines for SMEs on the Security of Personal Data Processing**
 - **BSI C5 Kriterienkatalog** (für Cloud-Anbieter)
 - **TeleTrusT Handreichung „Stand der Technik in der IT-Sicherheit"** (inoffiziell, häufig zitiert)
@@ -135,7 +134,7 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 ## Zitierbare Urteile
 
 - **LG Köln 28 O 1/20, 18.03.2020** — Datenverlust durch fehlende Backups = Ersatzpflicht <<VERIFIKATION AUSSTEHEND>>
-- **EuGH C-340/21 (Natsionalna agentsia), 14.12.2023** — Auch nicht-absichtliche Offenlegung = DSGVO-Verstoß; Beweislast für angemessene TOM liegt beim Verantwortlichen
+- **EuGH C-340/21 (Natsionalna agentsia), 14.12.2023**: Unbefugte Offenlegung bzw. unbefugter Zugang durch Dritte belegt für sich keine ungeeigneten TOM (Tenor 1); die Beweislast für die Geeignetheit trägt der Verantwortliche (Tenor 3)
 - **LAG Hamm 14 Sa 545/21, 23.02.2022** — Schadenersatz bei unzureichender Zugriffskontrolle <<VERIFIKATION AUSSTEHEND>>
 - **BGH VI ZR 10/24, 18.11.2024** — Leitentscheidung Facebook-Scraping: Kontrollverlust als immaterieller Schaden; verstaerkt den Druck auf dokumentierte TOM
 
@@ -149,12 +148,15 @@ Genehmigte Verhaltensregeln (Art. 40) und Zertifizierungen (Art. 42) können als
 
 ## Aenderungsvermerk 2026-11-14
 
-- NIS2-Hinweis: Die deutsche Umsetzung ("NIS2UmsuCG") war Stand 2026-11-14
-  weiterhin nicht verkuendet; der juengste Referentenentwurf stammt aus dem
-  BMI. Pflichten aus der NIS2-Richtlinie (EU 2022/2555) gelten unmittelbar nur
-  fuer die Mitgliedstaaten; Unternehmenspflichten in Deutschland leben erst
-  mit Verkuendung des Umsetzungsgesetzes auf. Detail in
+- NIS2-Hinweis: Das BSI-Gesetz (BSIG) gilt in der Fassung des
+  NIS-2-Umsetzungsgesetzes (gesetze-im-internet.de/bsig_2025). Detail in
   [[gesetze/nis2-bsig]].
 - BGH VI ZR 10/24 ergaenzt.
 - Zwei LG-/LAG-Aktenzeichen mit Verifikationsmarker versehen.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  NIS2-Hinweis berichtigt (BSIG in der Fassung des NIS-2-Umsetzungsgesetzes
+  gilt); EuGH C-340/21 an Tenor 1 und 3 ausgerichtet; § 147 Abs. 3 AO
+  Fristen aufgeschluesselt; Fehlverweis DSK Kurzpapier Nr. 2 durch Nr. 18
+  ersetzt; BSI C5 nicht auf deutsche Anbieter beschraenkt; Art. 32 Abs. 3
+  am Wortlaut ausgerichtet.

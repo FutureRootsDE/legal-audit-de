@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/ddg/__5.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/ddg/__33.html
@@ -31,7 +31,8 @@ Bei redaktionell-journalistischen Angeboten zusaetzlich ein **Verantwortlicher
 nach § 18 Abs. 2 MStV**.
 
 Impressum muss **leicht erkennbar, unmittelbar erreichbar, staendig
-verfuegbar** sein (BGH I ZR 151/02: Zwei-Klick-Regel).
+verfuegbar** sein (Zwei-Klick-Regel: BGH, Urteil vom 20.07.2006, I ZR 228/03,
+Anbieterkennzeichnung im Internet).
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -43,8 +44,8 @@ verfuegbar** sein (BGH I ZR 151/02: Zwei-Klick-Regel).
 2. **Ladungsfaehige Anschrift** (keine Postfach-Adresse)
 3. **E-Mail** + **zweiter Kommunikationsweg** (Telefonnummer oder
    Online-Formular)
-4. ggf. **Umsatzsteuer-ID** (§ 27a UStG) — nur Pflicht, wenn vorhanden,
-   aber dann MUSS angegeben werden
+4. ggf. **USt-IdNr.** (§ 27a UStG) oder **Wirtschafts-Identifikationsnummer**
+   (§ 139c AO), jeweils Pflicht, wenn vorhanden
 5. bei Kleinunternehmern: Hinweis gemaess § 19 UStG sinnvoll, aber nicht
    zwingend
 
@@ -55,8 +56,8 @@ verfuegbar** sein (BGH I ZR 151/02: Zwei-Klick-Regel).
 8. **Vertretungsberechtigte** (Geschaeftsfuehrer, Vorstand) mit Namen
 9. **Register + Registernummer** (Handelsregister HRB/HRA, Vereinsregister VR)
 10. **Registergericht** (z.B. Amtsgericht Charlottenburg)
-11. ggf. gezeichnetes Kapital und ausstehende Einlagen (bei AG/KGaA mit
-    freiwilliger Angabe)
+11. Werden Kapitalangaben gemacht (jede juristische Person): Stamm-/
+    Grundkapital und ggf. ausstehende Einlagen (§ 5 Abs. 1 Nr. 1 DDG)
 12. ggf. Liquidations-/Abwicklungshinweis
 
 **Bei reglementierten Berufen (Anwalt, Arzt, Steuerberater, Architekt etc.):**
@@ -67,7 +68,8 @@ verfuegbar** sein (BGH I ZR 151/02: Zwei-Klick-Regel).
 
 **Bei Aufsichtsbehoerde-Pflicht:**
 
-16. **Aufsichtsbehoerde** einschliesslich Anschrift (z.B. IHK, BaFin)
+16. Angaben zur zustaendigen **Aufsichtsbehoerde**, wenn die Taetigkeit
+    einer behoerdlichen Zulassung bedarf (§ 5 Abs. 1 Nr. 3 DDG)
 
 ### § 18 MStV — Verantwortlicher fuer redaktionelle Inhalte
 
@@ -83,7 +85,8 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
 
 - **OS-Plattform-Link ENTFALLEN:** Die Pflicht nach Art. 14 Abs. 1 VO (EU) 524/2013 ist mit Wirkung **20.07.2025** entfallen — Aufhebung der VO 524/2013 durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 (CELEX 32024R3228; am 2026-11-14 am Cellar-Volltext verifiziert); die EU-OS-Plattform wurde eingestellt. Links auf https://ec.europa.eu/consumers/odr/ aus Impressum/AGB entfernen.
 - **VSBG-Hinweis** (§ 36 VSBG): Information zur Verbraucherschlichtung
-  bleibt bestehen
+  bleibt bestehen; nicht fuer Unternehmer mit hoechstens zehn Beschaeftigten
+  am 31.12. des Vorjahres (§ 36 Abs. 3 VSBG)
 
 ### Erreichbarkeit
 
@@ -131,8 +134,9 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
 
 ## Behoerden-Hinweise
 
-- **Bundesnetzagentur (BNetzA)** — Digital Services Coordinator (DSA-Durch-
-  setzung seit 17.02.2024).
+- **Bundesnetzagentur (BNetzA)** — zustaendige Behoerde nach Art. 49 DSA
+  seit Inkrafttreten des DDG am 14.05.2024 (§ 12 Abs. 1 DDG); der DSA gilt
+  seit 17.02.2024.
 - **Landesmedienanstalten** — Kontrolle bei redaktionellen Inhalten nach MStV.
 - **Gewerbeaufsicht** — gewerberechtliche Flankierung.
 - **Ordnungswidrigkeiten** nach § 33 DDG (Bussgeldvorschriften, Teil 8 DDG):
@@ -181,3 +185,10 @@ Mehrere Verantwortliche fuer unterschiedliche Rubriken moeglich.
   Markenschutz-Teilloeschung. Gegenstand passt nicht zum Impressum; Zitat
   entfernt und in Hinweisblock "Nicht zitieren" dokumentiert, Aussage mit
   Verifikationsmarker belassen.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  Zwei-Klick-Regel im Kurz-Ueberblick einheitlich auf BGH I ZR 228/03
+  (20.07.2006) gestellt (statt I ZR 151/02); Wirtschafts-Identifikations-
+  nummer (§ 139c AO) ergaenzt; Kapitalangaben (§ 5 Abs. 1 Nr. 1 DDG) und
+  Aufsichtsbehoerde (§ 5 Abs. 1 Nr. 3 DDG) praezisiert; VSBG-Ausnahme fuer
+  hoechstens zehn Beschaeftigte (§ 36 Abs. 3 VSBG) ergaenzt; Rolle der
+  BNetzA nach Art. 49 DSA / § 12 Abs. 1 DDG berichtigt.

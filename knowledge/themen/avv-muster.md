@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-072020-concepts-controller-and-processor-gdpr_en
@@ -58,8 +58,8 @@ EU-Kommission hat Standard-Vertragsklauseln (SCC) für AVV veröffentlicht: **Du
 
 ### Abgrenzung: Wer ist Auftragsverarbeiter?
 
-**Ja — AVV nötig:**
-- Hosting (AWS, Hetzner, IONOS, Vercel)
+**In der Regel Auftragsverarbeitung (AVV nach Art. 28 Abs. 3 DSGVO), sofern der Anbieter nur weisungsgebunden verarbeitet; Rolle je Dienst prüfen:**
+- Hosting (AWS, Hetzner, IONOS, Vercel); Ausnahme nach BayLDA: Hosting rein statischer Websites ohne Datenfluss zum Betreiber und ohne Tracking ist keine Auftragsverarbeitung
 - Mail-Versand (Postmark, SendGrid, Resend, Mailchimp)
 - CRM (HubSpot, Salesforce, Pipedrive)
 - Analytics (Google Analytics, Matomo)
@@ -110,7 +110,7 @@ Wenn beide Parteien Zwecke und Mittel gemeinsam festlegen (z. B. Fashion ID / Fa
 - **DSK Kurzpapier Nr. 13** — Auftragsverarbeitung
 - **EDSA Leitlinie 07/2020** — Konzepte Verantwortlicher / Auftragsverarbeiter
 - **EU-Kommission Durchführungsbeschluss 2021/915** — Standard-AVV
-- **BayLDA Checkliste AVV** (jährlich aktualisiert)
+- **BayLDA Formulierungshilfe für einen Vertrag zur Auftragsverarbeitung** und **Abgrenzungshilfe Auftragsverarbeitung/Verantwortlichkeit** (https://www.lda.bayern.de/de/thema_auftragsverarbeitung.html)
 
 ## Zitierbare Urteile
 
@@ -130,6 +130,11 @@ Wenn beide Parteien Zwecke und Mittel gemeinsam festlegen (z. B. Fashion ID / Fa
 - Standard-AVV (Durchfuehrungsbeschluss 2021/915/EU vom 04.06.2021) gegen
   eur-lex.europa.eu verifiziert (CELEX 32021D0915).
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Abgrenzungsliste als Regelfall mit Rollenpruefung je Dienst formuliert,
+  BayLDA-Ausnahme fuer rein statisches Hosting ergaenzt; nicht existente
+  "BayLDA Checkliste AVV" durch BayLDA Formulierungshilfe und
+  Abgrenzungshilfe ersetzt.
 
 ## Siehe auch
 

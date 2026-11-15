@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/bfsg/
 quellen-sekundaer:
   - https://www.bundesfachstelle-barrierefreiheit.de/DE/Fachwissen/Produkte-und-Dienstleistungen/Barrierefreiheitsstaerkungsgesetz/FAQ/faq_node.html
@@ -26,13 +26,13 @@ Das BFSG setzt die **EU-Richtlinie 2019/882** (European Accessibility Act, EAA) 
 
 **Kernaussage:** Wer B2C-Produkte (z. B. Notebooks, Smartphones, Geldautomaten) oder B2C-Dienstleistungen (insb. **E-Commerce, SaaS, Banking, Messenger, E-Book-Reader**) anbietet, muss WCAG-konforme Barrierefreiheit gewaehrleisten — ausser er faellt unter die Kleinstunternehmen-Ausnahme.
 
-**Stand 2026-11-14:** Aktive Marktueberwachung laeuft in den Laendern. **Abmahnwellen** seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH) und weitere Wellen im Herbst 2025 / Fruehjahr 2026. Bussgelder bis **100.000 EUR** moeglich. Ob UWG-Abmahnungen (§ 3a UWG i.V.m. BFSG) dogmatisch haltbar sind, ist **weiterhin nicht hoechstrichterlich geklaert**; eine einschlaegige BGH- oder OLG-Leitentscheidung zur BFSG-Abmahnfaehigkeit ueber § 3a UWG ist Stand 2026-11-14 nicht dokumentiert.
+**Stand 2026-11-14:** Aktive Marktueberwachung laeuft in den Laendern. **Abmahnwellen** seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH) und weitere Wellen im Herbst 2025 / Fruehjahr 2026. Bussgelder bis **100.000 EUR** (Faelle des § 37 Abs. 1 Nr. 1, 7, 8, 9, 10), in den uebrigen Faellen bis 10.000 EUR moeglich (§ 37 Abs. 2 BFSG). Ob UWG-Abmahnungen (§ 3a UWG i.V.m. BFSG) dogmatisch haltbar sind, ist **weiterhin nicht hoechstrichterlich geklaert**; eine einschlaegige BGH- oder OLG-Leitentscheidung zur BFSG-Abmahnfaehigkeit ueber § 3a UWG ist Stand 2026-11-14 nicht dokumentiert.
 
 ## Schluesselparagraphen / Kernaussagen
 
 ### § 1 BFSG — Anwendungsbereich
 
-**Produkte** (§ 1 Abs. 2): Hardwaresysteme/Betriebssysteme fuer Universalrechner, Selbstbedienungsterminals (Geldautomaten, Fahrkartenautomaten, Check-in-Automaten), Verbraucherendgeraete fuer Telekommunikation/audiovisuelle Medien, E-Book-Lesegeraete.
+**Produkte** (§ 1 Abs. 2): Hardwaresysteme/Betriebssysteme fuer Universalrechner, Zahlungsterminals und zu diesen gehoerige Hardware und Software (Nr. 2 Buchst. a), Selbstbedienungsterminals (Geldautomaten, Fahrkartenautomaten, Check-in-Automaten, interaktive Selbstbedienungsterminals zur Bereitstellung von Informationen), Verbraucherendgeraete fuer Telekommunikation/audiovisuelle Medien (Endgeraete fuer audiovisuelle Mediendienste: § 1 Abs. 2 Nr. 4), E-Book-Lesegeraete.
 
 **Dienstleistungen** (§ 1 Abs. 3):
 - Telekommunikationsdienste
@@ -40,13 +40,14 @@ Das BFSG setzt die **EU-Richtlinie 2019/882** (European Accessibility Act, EAA) 
 - Bankdienstleistungen fuer Verbraucher
 - **E-Books und dafuer bestimmte Software**
 - **Dienstleistungen im elektronischen Geschaeftsverkehr (E-Commerce)** — Websites, mobile Apps, elektronische Bestellvorgaenge **gegenueber Verbrauchern**
-- **Zugang zu audiovisuellen Medien**
+
+**Nicht erfasste Inhalte** (§ 1 Abs. 4 Nr. 1 bis 5 BFSG): bestimmte Inhalte sind vom Anwendungsbereich ausgenommen; Einzelheiten im Normtext.
 
 ### § 3 BFSG — Barrierefreiheit; Grundanforderungen
 
 Definition Barrierefreiheit: "**Auffindbarkeit, Zugaenglichkeit und Nutzbarkeit** fuer Menschen mit Behinderungen in der allgemein ueblichen Weise, ohne besondere Erschwernis und grundsaetzlich ohne fremde Hilfe."
 
-Konkrete Anforderungen: **BFSGV (Durchfuehrungsverordnung)** verweist auf **harmonisierte Normen**, insbesondere **EN 301 549** (die ihrerseits auf **WCAG 2.1 Level AA** verweist). Praktisch gilt fuer Websites also **WCAG 2.1 AA** (ab WCAG 2.2 empfohlen).
+Konkrete Anforderungen: Die **BFSGV (Durchfuehrungsverordnung)** nennt weder EN 301 549 noch WCAG. Konformitaet wird vermutet, wenn harmonisierte Normen eingehalten werden, deren Fundstellen im ABl. EU veroeffentlicht sind (§ 4 BFSG); in der Praxis dient **EN 301 549** (mit **WCAG 2.1 AA**) als Massstab (ab WCAG 2.2 empfohlen).
 
 ### Kleinstunternehmen-Ausnahme (§ 3 Abs. 3 BFSG)
 
@@ -57,30 +58,37 @@ Kleinstunternehmen = weniger als **10 Beschaeftigte UND** Jahresumsatz **hoechst
 **Beide Bedingungen** muessen **gleichzeitig** erfuellt sein.
 
 Beispiele:
-- 3 Mitarbeiter, 3 Mio. EUR Umsatz → **NICHT befreit**
+- 3 Mitarbeiter, 3 Mio. EUR Umsatz → **befreit**, wenn die Jahresbilanzsumme hoechstens 2 Mio. EUR betraegt; sonst **nicht befreit** (§ 2 Nr. 17 BFSG)
 - 15 Mitarbeiter, 1 Mio. EUR Umsatz → **NICHT befreit**
 - 4 Mitarbeiter, 500.000 EUR Umsatz → **befreit**
 
 **Wichtig**: Kleinstunternehmen, die **Produkte** in Verkehr bringen, sind **nie** befreit.
 
-### § 14/15 BFSG — Pflichten der Dienstleister
+### § 14 BFSG — Pflichten der Dienstleister
 
-Dienstleister muessen:
-- Barrierefreie Gestaltung nach Grundanforderungen
-- **Informationen ueber Funktionsweise der Barrierefreiheit** bereitstellen
-- Informationen **gemeinsam mit oder in der Dienstleistung** verfuegbar
-- Bei Verstoessen: **Abhilfe schaffen** oder Dienstleistung einstellen
+- Dienstleistung nur anbieten, wenn barrierefrei und Informationen nach Anlage 3 barrierefrei zugaenglich (Abs. 1)
+- Aufbewahrung (Abs. 2)
+- laufende Einhaltung (Abs. 3)
+- bei Nichtkonformitaet **Korrekturmassnahmen** und unverzuegliche Unterrichtung der Marktueberwachungsbehoerde (Abs. 4)
+- Auskunft (Abs. 5)
 
-### § 16/17 BFSG — Barrierefreiheitserklaerung (sinngemaess, exakter §-Bezug je nach Fassung)
+### § 14 Abs. 1 Nr. 2 BFSG i. V. m. Anlage 3 Nr. 1: Informationen zur Barrierefreiheit
 
-Pflicht zur Veroeffentlichung einer **Barrierefreiheitserklaerung** mit:
-- Beschreibung, wie Barrierefreiheit erreicht wird
-- Kontaktmoeglichkeit fuer Barrierefreiheitsbeschwerden
-- Hinweis auf Marktueberwachungsbehoerde
+Informationen in AGB oder auf andere deutlich wahrnehmbare Weise, barrierefrei:
+- a) allgemeine Beschreibung der Dienstleistung
+- b) Beschreibungen und Erlaeuterungen zur Durchfuehrung
+- c) Beschreibung, wie die Barrierefreiheitsanforderungen erfuellt werden
+- d) Angabe der zustaendigen Marktueberwachungsbehoerde
+
+§§ 16, 17 BFSG betreffen die Ausnahmen "grundlegende Veraenderung" und "unverhaeltnismaessige Belastung".
 
 ### § 37 BFSG — Bussgelder
 
-Bis **100.000 EUR** pro Verstoss. Zustaendig: Marktueberwachungsbehoerden der Laender.
+§ 37 Abs. 2 BFSG: Geldbusse bis **100.000 EUR** (Faelle des Abs. 1 Nr. 1, 7, 8, 9, 10; u. a. Nr. 8 Dienstleistung entgegen § 14 Abs. 1), in den uebrigen Faellen (z. B. Informations- und Auskunftspflichten) bis **10.000 EUR**. Zustaendig: MLBF (siehe Behoerden-Hinweise).
+
+### § 38 BFSG: Uebergang
+
+Weiterbetrieb mit vor dem 28.06.2025 eingesetzten Produkten und Fortbestand von Altvertraegen bis 27.06.2030.
 
 ## Typische Fallstricke in Codebases
 
@@ -94,7 +102,7 @@ Bis **100.000 EUR** pro Verstoss. Zustaendig: Marktueberwachungsbehoerden der La
 - **Video ohne Untertitel/Transkript** (WCAG 1.2.2, 1.2.3)
 - **ARIA-Rollen falsch verwendet** (eigene Widgets ohne korrektes ARIA)
 - **Sprache nicht deklariert** (`<html lang="de">`; WCAG 3.1.1)
-- **Keine Barrierefreiheitserklaerung** im Footer
+- **Informationen zur Barrierefreiheit fehlen** (§ 14 Abs. 1 Nr. 2 i. V. m. Anlage 3 Nr. 1 BFSG: in den AGB oder auf andere deutlich wahrnehmbare Weise, z. B. per Footer-Link; mit Angabe der zustaendigen Marktueberwachungsbehoerde)
 - **Checkout-Prozess** nicht screenreader-tauglich (bei E-Commerce)
 
 ## Relevanz fuer Codebase-Typen
@@ -109,17 +117,14 @@ Bis **100.000 EUR** pro Verstoss. Zustaendig: Marktueberwachungsbehoerden der La
 ## Behoerden-Hinweise
 
 - **Bundesfachstelle Barrierefreiheit**: https://www.bundesfachstelle-barrierefreiheit.de/ — offizielle FAQ und Praxishilfen
-- **Marktueberwachung**: In den Bundeslaendern (z. B. in Bayern: Regierung von Mittelfranken; in NRW: Bezirksregierung Arnsberg). Adressenliste bei BMAS.
+- **Marktueberwachung**: bundesweit die Marktueberwachungsstelle der Laender fuer die Barrierefreiheit von Produkten und Dienstleistungen (MLBF), Anstalt des oeffentlichen Rechts mit Sitz in Magdeburg, taetig seit Inkrafttreten des Staatsvertrags am 26.09.2025. Diese Behoerde ist in den Informationen nach Anlage 3 Nr. 1 Buchst. d BFSG anzugeben.
 - **BMAS**: https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html
 
 ## Zitierbare Urteile
 
-**Stand 2026-11-14: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Erste Abmahnwellen sind seit Sommer 2025 aktenkundig (u. a. CLAIM Rechtsanwalts GmbH; zweite Welle Herbst 2025). Marktueberwachungsbehoerden der Laender pruefen seit Januar 2026 aktiv; Bussgelder bis 100.000 EUR moeglich.
+**Stand 2026-11-14: weiterhin keine hoechstrichterliche BFSG-Rechtsprechung** zur UWG-Abmahnfaehigkeit dokumentiert. Erste Abmahnwellen sind seit Sommer 2025 aktenkundig (u. a. CLAIM Rechtsanwalts GmbH; zweite Welle Herbst 2025). Marktueberwachungsbehoerden der Laender pruefen seit Januar 2026 aktiv; Bussgelder bis 100.000 EUR (§ 37 Abs. 2 BFSG; in den uebrigen Faellen bis 10.000 EUR) moeglich.
 
-Bisher keine BGH/OLG-Leitentscheidung zur UWG-Abmahnfaehigkeit von BFSG-Verstoessen (§ 3a UWG als Marktverhaltensregelung?) gegen Tier-1-Quellen belegbar. <<VERIFIKATION AUSSTEHEND>>
-
-Hintergrund aus EU-Ebene:
-- **EuGH, Urt. v. 19.10.2023, C-660/21** (betrifft EAA-Ausstrahlung, nicht BFSG direkt)
+Bisher keine BGH/OLG-Leitentscheidung zur UWG-Abmahnfaehigkeit von BFSG-Verstoessen (§ 3a UWG als Marktverhaltensregelung?) gegen Tier-1-Quellen belegbar; Volltextsuche in der Rechtsprechungsdatenbank des Bundes am 2026-11-14 ohne Treffer (kein Treffer ist kein Gegenbeweis). <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
 
@@ -134,3 +139,11 @@ Hintergrund aus EU-Ebene:
   Schreibweise des Verifikationsmarkers vereinheitlicht; eine
   BGH/OLG-Leitentscheidung zur BFSG-Abmahnfaehigkeit ist auch nach
   erneuter Recherche nicht belegbar.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Bussgeldrahmen nach § 37 Abs. 2 (100.000 / 10.000 EUR); "Zugang zu
+  audiovisuellen Medien" als Dienstleistung gestrichen; Zahlungs- und
+  Informationsterminals ergaenzt; BFSGV nennt EN 301 549/WCAG nicht (§ 4
+  BFSG); Kleinstunternehmen-Beispiel berichtigt; § 14 statt §§ 14/15;
+  Informationspflicht nach Anlage 3 statt "Barrierefreiheitserklaerung nach
+  §§ 16/17"; Marktueberwachung durch MLBF; EuGH C-660/21 gestrichen
+  (Strafverfahren, RL 2012/13/EU); § 38 und § 1 Abs. 4 ergaenzt.

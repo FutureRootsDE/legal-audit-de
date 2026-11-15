@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/__25.html
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
@@ -55,7 +55,7 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 ### Microsoft Clarity / Hotjar / Session Recording
 
 - **Besonders einwilligungspflichtig** — nicht nur § 25 TDDDG, auch Art. 6 DSGVO
-- Aufsichtsbehörden sehen Session-Recording als eingriffsintensiv (DSFA-pflichtig bei breitem Einsatz)
+- Aufsichtsbehörden sehen Session-Recording als eingriffsintensiv; DSFA-Pflicht nach Art. 35 Abs. 1 DSGVO im Einzelfall prüfen (kein eigener Tatbestand der DSK-Muss-Liste; Nr. 11 bei Verknüpfung mit weiteren Datenquellen)
 - Zwingend: Maskierung von Formularfeldern, PII, Zahlungsdaten
 
 ## Typische Fallstricke in Codebases
@@ -85,7 +85,7 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 
 ## Behörden-Hinweise
 
-- **DSK Orientierungshilfe Digitale Dienste** (2023, ehem. OH Telemedien)
+- **DSK OH Digitale Dienste, Version 1.2, Stand November 2024**
 - **EDSA Leitlinien 05/2020** zur Einwilligung
 - **CNIL (FR)** Sanktion 150 Mio. € gegen Google (2022) wegen Cookie-Banner
 - **Garante (IT) Bescheid 09.06.2022** — Google Analytics (Universal) rechtswidrig (vor DPF)
@@ -96,8 +96,8 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 
 - **EuGH C-40/17 (Fashion ID), 29.07.2019** — Betreiber mit Social-Plugin ist Mitverantwortlicher
 - **LG München I 3 O 17493/20, 20.01.2022** — Google Fonts dynamisch = 100 EUR Schadenersatz
-- **EuGH C-252/21 (Meta/Bundeskartellamt), 04.07.2023** — Personalisierte Werbung nur mit Einwilligung
-- **EuGH C-604/22 (IAB Europe), 07.03.2024** — TC-String ist personenbezogenes Datum; IAB ist (Mit-)Verantwortlicher für TCF
+- **EuGH C-252/21 (Meta Platforms/Bundeskartellamt), 04.07.2023**: Art. 6 Abs. 1 lit. f DSGVO trägt die Zusammenführung von Off-Site- und Konzerndaten nur unter engen Voraussetzungen (Tenor 5); für die Personalisierung von Werbung durch den Betreiber eines sozialen Netzwerks überwiegen die Interessen der Nutzer (Rn. 117). Das TCF war nicht Gegenstand; dazu EuGH C-604/22.
+- **EuGH C-604/22 (IAB Europe), 07.03.2024**: TC-String ist personenbezogenes Datum, soweit er mit vertretbarem Aufwand einer Kennung (insbesondere der IP-Adresse) zugeordnet werden kann; IAB Europe ist unter den Voraussetzungen des Tenors 2 gemeinsam Verantwortlicher, nicht automatisch für die Weiterverarbeitung durch Dritte
 - **EuGH C-21/23 (Lindenapotheke), 04.10.2024** — DSGVO-Verstoesse (inkl. fehlender Tracking-Consent) koennen durch Mitbewerber per UWG abgemahnt werden
 - **BGH VI ZR 10/24, 18.11.2024** — Kontrollverlust als immaterieller Schaden (Facebook-Scraping); relevant fuer Risiko-Einordnung bei undichter Tracking-Pipeline
 
@@ -119,5 +119,9 @@ Web-Tracking ist unter DSGVO + TDDDG nur mit wirksamer Einwilligung zulässig. B
 - EuGH C-21/23 und BGH VI ZR 10/24 als Abmahn-/Haftungsrisiken ergaenzt.
 - Google Consent Mode v2 als technischer Mechanismus beschrieben; keine
   Einwilligungsersatz-Funktion. Diese Einordnung entspricht weiterhin DSK OH
-  Digitale Dienste (2023).
+  Digitale Dienste, Version 1.2, Stand November 2024.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  DSK OH Digitale Dienste als Version 1.2 (November 2024) zitiert;
+  EuGH C-252/21 und C-604/22 praezisiert; DSFA-Aussage zu Session-Recording
+  auf Einzelfallpruefung umgestellt.

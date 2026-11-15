@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-10-24
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/uwg_2004/__5.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/uwg_2004/__5a.html
@@ -51,10 +51,11 @@ Kernsaetze:
 
 Typische Irrefuehrungstatbestaende (Abs. 2):
 
-- Nr. 1: wesentliche Merkmale der Ware/Dienstleistung (Beschaffenheit, Vorteile,
-  Auszeichnungen)
+- Nr. 1: wesentliche Merkmale der Ware/Dienstleistung einschliesslich der
+  Ergebnisse oder wesentlichen Bestandteile von Tests
 - Nr. 3: Art, Eigenschaften und Rechte des Unternehmers (einschliesslich
-  Befaehigungsnachweise, Auszeichnungen, Preise)
+  Befaehigungsnachweise, Auszeichnungen oder Ehrungen)
+- Nr. 4: Aussagen oder Symbole zu Sponsoring oder Zulassung
 
 ### § 5a UWG — Irrefuehrung durch Unterlassen
 
@@ -67,14 +68,23 @@ unverstaendliche/zweideutige Bereitstellung, nicht rechtzeitige Bereitstellung.
 **Kernaussage fuer Siegel:** Das Vorenthalten der Fundstelle, Ausgabe oder
 Pruefgrundlage ist ein Verstoss nach § 5a UWG — auch unabhaengig von § 5.
 
-### Anlage zu § 3 Abs. 3 UWG (Schwarze Liste, Nr. 2, 4)
+### Anlage zu § 3 Abs. 3 UWG (Schwarze Liste, Nr. 2, 2a, 4, 4a bis 4c)
 
 Immer unzulaessig (ohne Abwaegung):
 
 - Nr. 2: Verwenden von **Guetezeichen, Qualitaetskennzeichen** ohne die
   erforderliche Genehmigung
+- Nr. 2a (seit 27.09.2026): **Nachhaltigkeitssiegel** sind stets
+  unzulaessig, wenn sie weder auf einem Zertifizierungssystem (§ 2 Abs. 2
+  Nr. 6 UWG) beruhen noch staatlich festgesetzt sind. Fuer vor dem
+  27.09.2026 in Verkehr gebrachte Waren gilt § 15b UWG (bis 26.09.2028).
 - Nr. 4: Unwahre Behauptung, ein Unternehmer/eine Ware sei von einer
   oeffentlichen/privaten Stelle bestaetigt/genehmigt/zugelassen
+- Nrn. 4a bis 4c (Umweltaussagen, seit 27.09.2026): Nr. 4a allgemeine
+  Umweltaussage ohne anerkannte hervorragende Umweltleistung im Sinne des
+  § 2 Abs. 2 Nr. 2 UWG; Nr. 4b Umweltaussage, die nur einen Teilaspekt
+  betrifft; Nr. 4c "klimaneutral"-/"CO2-kompensiert"-Badge am Produkt
+  (stets unzulaessig bei Kompensation).
 
 ## Pflichtangaben bei Siegel-Verwendung (Checkliste aus Rspr.)
 
@@ -98,7 +108,7 @@ Klick-Kaskaden erreichbar sein.
 | "Testsieger" ohne Ausgabe / Datum / Fundstelle | § 5 / § 5a UWG | Direkt am Siegel: "Stiftung Warentest, Heft 11/2024, Note 'Gut'" |
 | TUEV-Logo ohne genaues Pruefprodukt + Datum | § 5 UWG | Pruefzertifikat-Nr. + Ablaufdatum neben Siegel |
 | "Trusted Shops zertifiziert" mit abgelaufenem Zertifikat | § 5 UWG | Automatisierter Check gegen TS-API |
-| Eigene "5-Sterne-Bewertung" auf Homepage | Schwarze Liste Nr. 2/4 | Nur echte Bewertungen (ggf. von Google Reviews, Trustpilot) |
+| Eigene "5-Sterne-Bewertung" auf Homepage | Anhang Nr. 23b, 23c; § 5b Abs. 3 UWG | Nur echte Bewertungen (ggf. von Google Reviews, Trustpilot) |
 | Self-branded "Nr. 1"-Badges ohne Quelle | § 5 UWG | Seriöse Studie mit Datum und Vergleichsbasis nennen |
 | Siegel-Verlinkung auf Homepage der Pruefstelle statt Pruefbericht | § 5a UWG | Deeplink auf konkreten Pruefbericht |
 | Vorlauefige / abgelaufene TUEV-Gutachten | § 5 UWG | Expiration-Monitoring |
@@ -144,8 +154,9 @@ Klick-Kaskaden erreichbar sein.
 
 ### BGH I ZR 134/20 (Testsiegel auf Produktabbildung), 15.04.2021
 
-KORREKTUR (war: faelschlich "I ZR 93/20"). Tier-1-verifiziert ueber dejure.org
-und medien-internet-und-recht.de.
+KORREKTUR (war: faelschlich "I ZR 93/20"). Bisher nur ueber dejure.org und
+medien-internet-und-recht.de geprueft; das sind keine Tier-1-Quellen, eine
+Tier-1-Verifikation steht aus.
 
 > Bei Werbung mit einem Testsiegel muss eine **Fundstelle der konkreten
 > Testveroeffentlichung** klar erkennbar angegeben werden — auch wenn das
@@ -155,10 +166,15 @@ und medien-internet-und-recht.de.
 Kernfolge: Auch unauffaellige "Testsieger"-Siegel auf Verpackung/Produktbild
 loesen die volle Fundstellen-Pflicht aus.
 
-### BGH I ZR 50/14 (Testsiegel), 05.11.2015
+### Fundstelle bei Web-Darstellung
 
-Kernsatz: Bei Werbung mit einem Testsiegel muss die Fundstelle des Tests leicht
+Aussage: Bei Werbung mit einem Testsiegel muss die Fundstelle des Tests leicht
 auffindbar sein; auf einer Web-Darstellung reicht kein versteckter Link.
+<<VERIFIKATION AUSSTEHEND>>
+
+Nicht zitieren: Das frueher hier genannte BGH I ZR 50/14 ist das Urteil vom
+05.11.2015 "ConText" (Unterlassungsantrag, Firmenbestandteil) und traegt
+diese Aussage nicht.
 
 ### OLG Frankfurt 6 U 12/22 "Ausgezeichnete Matratze", 09.06.2022
 

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
@@ -27,9 +27,9 @@ Das Verzeichnis von Verarbeitungstätigkeiten (VVT) ist die interne Datenschutz-
 
 ### Pflicht zur Führung (Art. 30 Abs. 5)
 
-**Grundsätzlich pflichtig**, außer wenn ALLE drei Kriterien erfüllt:
+**Grundsätzlich pflichtig**, außer wenn ALLE vier Voraussetzungen erfüllt sind:
 1. Unternehmen mit weniger als 250 Mitarbeitern, UND
-2. Verarbeitung ist **nicht** risikoreich für Betroffene, UND
+2. Verarbeitung birgt **kein** Risiko für die Rechte und Freiheiten der Betroffenen, UND
 3. Verarbeitung ist **gelegentlich**, UND
 4. **keine** besonderen Kategorien (Art. 9) oder strafrechtlichen Daten (Art. 10)
 
@@ -94,7 +94,7 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
 - **VVT ist Word-Dokument ohne Versionierung:** Datenquellen ändern sich ständig; Pflege muss organisiert sein.
 - **Neues Feature / neuer Service ohne VVT-Update:** Gängiger DevOps-Gap. Lösung: VVT-Update in Definition-of-Done für Features mit PII.
 - **Drittanbieter-Liste nicht synchron mit AVV-Ordner:** VVT nennt Dienst X, aber kein AVV vorhanden — oder umgekehrt.
-- **Löschfristen nur vage („solange erforderlich"):** konkrete Trigger benennen (z. B. „3 Jahre nach Vertragsende gemäß § 147 AO").
+- **Löschfristen nur vage („solange erforderlich"):** konkrete Trigger benennen (z. B. „Buchungsbelege 8 Jahre ab Schluss des Kalenderjahrs gemäß § 147 Abs. 3, 4 AO"; § 147 AO kennt keine Drei-Jahres-Frist).
 - **Fehlende Mitarbeiter-Verarbeitung:** Fokus auf Kundendaten, aber HR wird übersehen.
 - **Keine Zuordnung zu Datenbank-Tabellen / API-Endpoints:** VVT lebt losgelöst vom tatsächlichen Code. Empfehlung: technische Referenzen (z. B. DB-Schema, Tabelle `users`, Spalten `email`, `name`) im VVT ergänzen.
 
@@ -109,7 +109,7 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
 ## Tools zur VVT-Führung
 
 **Open Source / kostenlos:**
-- CSV/Excel-Templates (z. B. BayLDA Muster)
+- Muster-Verzeichnisse der Aufsicht (z. B. BayLDA, branchenbezogene PDF-Muster: https://www.lda.bayern.de/de/muster.html) als Vorlage für eigene CSV/Excel-Tabellen
 - Markdown-Tabellen im Git-Repo (empfehlenswert für Dev-Teams — versioniert!)
 - Obsidian + Datenbank-Plugin
 - OneTrust Community Edition
@@ -132,8 +132,6 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
   SCHUFA-Meldung (Art. 82 DSGVO). _Korrektur: Frueherer Eintrag verwies faelschlich auf
   einen 1,24-Mio.-Bussgeld-Fall fuer VVT-Maengel; das Aktenzeichen 3 O 12/20 ist tatsaechlich
   ein Schufa-Schadensersatz-Fall, nicht VVT-spezifisch._
-- **Bayerisches LDA-Taetigkeitsbericht 2022** — Schwerpunkt Dokumentationsmaengel,
-  einschliesslich VVT-Pflichten
 - **OVG Lueneburg 11 LA 104/22, 19.03.2024** — VVT-Einsicht durch Aufsichtsbehoerde rechtmaessig <<VERIFIKATION AUSSTEHEND>>
 
 ## Siehe auch
@@ -147,11 +145,19 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
 
 - Marker-Variante am OVG-Lueneburg-Eintrag auf die vereinheitlichte Form
   des Verifikationsmarkers gebracht.
-- Digital-Omnibus-Hinweis: Die Kommission hat am 19.11.2025 einen Vorschlag
-  zur Lockerung der VVT-Pflicht (Art. 30 DSGVO) fuer KMU vorgelegt. Status
+- Digital-Omnibus-Hinweis: Die Kommission hat am 21.05.2025 (COM(2025) 501)
+  vorgeschlagen, die Ausnahme in Art. 30 Abs. 5 DSGVO auf Unternehmen mit
+  weniger als 750 Beschaeftigten auszudehnen; nur bei hohem Risiko bleibt die
+  Pflicht. Status
   2026-11-14: **nur Kommissionsvorschlag**, noch nicht verkuendet. Bis zur
   Verkuendung bleibt Art. 30 Abs. 5 DSGVO mit der bestehenden
   250-Mitarbeiter-Schwelle und den kumulativen Zusatzkriterien verbindlich.
 - EuGH C-21/23 (Lindenapotheke, 04.10.2024) in [[datenschutzerklaerung]]
   ergaenzt; relevant auch fuer VVT-Mangel-Abmahnungen.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Art. 30 Abs. 5 mit vier Voraussetzungen (Zaehlfehler korrigiert);
+  Loeschfrist-Beispiel auf § 147 Abs. 3, 4 AO umgestellt; Omnibus-Vorschlag
+  zu Art. 30 Abs. 5 richtig datiert (COM(2025) 501 vom 21.05.2025);
+  BayLDA-Muster als PDF-Vorlagen bezeichnet; nicht belegter Verweis auf den
+  BayLDA-Taetigkeitsbericht 2022 gestrichen.

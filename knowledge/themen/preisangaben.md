@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/pangv_2022/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/pangv_2022/__11.html
@@ -25,15 +25,22 @@ geltungsbereich: [DE, EU]
 Seit **28.05.2022** gilt die neu gefasste Preisangabenverordnung (PAngV).
 Wichtigste Praxisaenderung: **§ 11 PAngV** verpflichtet zur Angabe des
 **niedrigsten Preises der letzten 30 Tage** als Referenz bei jeder
-Rabattbewerbung.
+Bekanntgabe einer Preisermaessigung fuer eine Ware gegenueber Verbrauchern
+(nicht fuer Dienstleistungen und digitale Leistungen).
 
 Dazu treten unveraendert:
 
 - Gesamtpreis inkl. USt. (§ 3)
-- Grundpreis (§ 4) je 1 kg / 1 l / 1 m / 1 m²
+- Grundpreis (§ 4) mit Mengeneinheit nach § 5 Abs. 1 PAngV: je 1 kg / 1 l /
+  1 m³ / 1 m / 1 m²
 - Versandkosten-Hinweis (§ 6)
 
-Verstoss = Bussgeld bis 100.000 EUR (§ 19 PAngV) + UWG-Abmahnung ueber § 3a UWG.
+Verstoss = Ordnungswidrigkeit nach § 20 PAngV; Bussgeld bis 31.12.2026 nach
+dem WiStG 1954 (Betragsrahmen <<VERIFIKATION AUSSTEHEND>>), ab 01.01.2027 bis
+100.000 EUR (§ 3 Abs. 3 PAngG n. F., BGBl. 2026 I Nr. 314). Daneben
+UWG-Abmahnung; bei Verstoessen gegen § 11 PAngV lauterkeitsrechtlich ueber
+§§ 5a, 5b UWG, nicht ueber § 3a UWG (BGH I ZR 183/24, Leitsatz 2, zu § 11
+PAngV; in Fortfuehrung von I ZR 69/21 zur Grundpreisangabe).
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -57,7 +64,8 @@ Ermaessigungen (z.B. "Letzte Woche 10 %, jetzt 20 %, bald 30 %") darf
 durchgehend der Preis vor Beginn der ersten Ermaessigung als Vergleich genannt
 werden.
 
-**Abs. 3:** Regel gilt entsprechend fuer Grundpreise.
+**Abs. 3:** Regel gilt entsprechend, wenn nur ein Grundpreis anzugeben ist
+(lose Ware, § 4 Abs. 2 PAngV).
 
 **Abs. 4 (Ausnahmen):**
 
@@ -76,27 +84,26 @@ werden.
 
 Pflicht bei **Fertigpackungen**, offene Packungen, Verkaufseinheiten:
 
-- Waren nach Gewicht: je 1 kg / 100 g (bei < 250 g)
-- Fluessige: je 1 l / 100 ml
-- Laenge: je 1 m
-- Flaeche: je 1 m²
+- Mengeneinheit nach § 5 Abs. 1 PAngV: je 1 kg, 1 l, 1 m³, 1 m oder 1 m²
+- 100 g oder 100 ml nur bei loser Ware (§ 5 Abs. 2 PAngV)
 
-Ausnahmen:
+Ein gesonderter Grundpreis entfaellt, wenn er mit dem Gesamtpreis identisch
+ist (§ 4 Abs. 1 Satz 2 PAngV).
 
-- Gastronomie
-- Waren unter 10 g/10 ml
-- gleiche Nenn- und Fuellmengen (MessEinhG-Anlagen)
+Ausnahmen: abschliessend in § 4 Abs. 3 Nr. 1 bis 8 PAngV geregelt.
 
 ### § 6 PAngV — Versandkosten
 
-Bei elektronischem Geschaeftsverkehr: Hinweis vor Vertragsabschluss, dass und
-in welcher Hoehe zusaetzliche Kosten anfallen. Pflicht auch bei
-Versand-Freigrenzen ("ab 50 EUR versandkostenfrei").
+Bei Angeboten zum Abschluss eines Fernabsatzvertrags: Angabe, dass die Preise
+die Umsatzsteuer enthalten, und ob zusaetzlich Fracht-, Liefer- oder
+Versandkosten anfallen; deren Hoehe, soweit im Voraus berechenbar (§ 6
+Abs. 1, 2 PAngV). Pflicht auch bei Versand-Freigrenzen ("ab 50 EUR
+versandkostenfrei").
 
 ### § 12 PAngV — Dienstleistungen
 
-Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
-(Stundensatz + Pauschalen).
+Preisverzeichnis ueber die wesentlichen Leistungen oder Verrechnungssaetze
+am Ort des Leistungsangebots (§ 12 Abs. 1, 2 PAngV).
 
 ## Typische Fallstricke in Codebases
 
@@ -114,17 +121,18 @@ Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
 6. **Dynamic Pricing / A/B Tests:** Wenn unterschiedlichen Nutzergruppen
    unterschiedliche Preise angezeigt werden, muss die 30-Tage-Berechnung auf
    **alle** gezeigten Preise zurueckgreifen — nicht nur "der offizielle Preis".
-7. **"Unser Preis" vs. "Mindestpreis 30 Tage":** Bei Kombination von UVP-
-   Vergleich UND § 11-Angabe Transparenz gefordert (EuGH C-330/23 Aldi Sued,
-   26.09.2024).
+7. **Rabatt-Prozentsatz und Vorteilshervorhebung:** Eine in Prozent oder als
+   Werbeaussage bekannt gegebene Ermaessigung ist am 30-Tage-Preis zu
+   bemessen (EuGH C-330/23 Aldi Sued, 26.09.2024).
 8. **Grundpreis bei Mengenrabatten:** Kauf 3 zahle 2 → Grundpreis je Stueck
    bleibt angegeben.
 
 ## Relevanz fuer Codebase-Typen
 
-- **Next.js SaaS:** Abo-Preise meist keine "Waren" → § 4 nicht relevant; aber
-  § 11 gilt auch fuer DL-Preisreduzierungen ("statt 99 EUR, jetzt 79 EUR") ueber
-  § 12.
+- **Next.js SaaS:** Abo-Preise meist keine "Waren" → § 4 nicht relevant;
+  § 11 PAngV gilt nur fuer Waren, nicht fuer Dienstleistungen und
+  SaaS-Abos. Rabattwerbung fuer Leistungen ("statt 99 EUR, jetzt 79 EUR")
+  an § 5 Abs. 2 Nr. 2, Abs. 5 UWG messen.
 - **Landingpage:** Bei Aktion-Pricing "50 % statt 100 EUR" Price-Log-Endpoint
   (DB-Tabelle `price_history` mit timestamp, valid_from, valid_to) Pflicht.
 - **n8n-Workflows:** Product-Sync-Workflows (Shopify/Shopware) sollten
@@ -140,20 +148,24 @@ Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
 ## Behoerden-Hinweise
 
 - **Gewerbeaufsicht / Marktueberwachung** der Bundeslaender: Ordnungs-
-  widrigkeiten gemaess § 19 PAngV — bis 100.000 EUR.
+  widrigkeiten nach § 20 PAngV (Bussgeldrahmen siehe Kurz-Ueberblick).
 - **Eichbehoerden** (Preis- und Grundpreis-Pruefungen).
 - **Wettbewerbszentrale / vzbv / IDO** — haeufige Abmahner.
 
 ## Zitierbare Urteile
 
-- **BGH I ZR 183/24** (09.10.2025, "Streichpreis-Werbung"): NEU — Werbung
-  mit einer Preisermaessigung ist unlauter, wenn der niedrigste Gesamtpreis
-  der letzten 30 Tage **nicht eindeutig, klar erkennbar und gut lesbar**
-  angegeben wird. (Quelle: bundesgerichtshof.de Pressemitteilung 184/2025).
-- **EuGH C-330/23** (26.09.2024, "Aldi Sued"): Der Referenzpreis nach § 11
-  PAngV / Art. 6a UGP-Richtlinie muss sich auch in **Werbemassnahmen**
-  (Prospekte, Online-Ads) auf den 30-Tage-Tiefstpreis beziehen, nicht nur am
-  Regal.
+- **BGH, Urteil vom 09.10.2025, I ZR 183/24** ("Jacobs Kroenung",
+  ECLI:DE:BGH:2025:091025UIZR183.24.0): Bei Bekanntgabe einer
+  Preisermaessigung fuer eine Ware ist der niedrigste Gesamtpreis der letzten
+  30 Tage in einer fuer den angesprochenen Verbraucher **eindeutigen, klaren
+  und verstaendlichen Weise** anzugeben (§ 11 Abs. 1 i. V. m. § 1 Abs. 3
+  Satz 2 PAngV; Leitsatz 1). Verstoesse sind nach §§ 5a, 5b UWG zu
+  beurteilen, nicht nach § 3a UWG (Leitsatz 2). (Hinweis, kein Beleg:
+  Pressemitteilung des BGH 184/2025.)
+- **EuGH C-330/23** (26.09.2024, "Aldi Sued"): Art. 6a Abs. 1, 2 der
+  Preisangabenrichtlinie 98/6/EG (nicht UGP-Richtlinie) verlangt, dass eine
+  in Prozent oder als Werbeaussage bekannt gegebene Ermaessigung auf
+  Grundlage des vorherigen (30-Tage-)Preises berechnet wird.
 - **OLG Hamm 4 U 85/22** (unzulaessiger Streichpreis ohne 30-Tage-Basis) <<VERIFIKATION AUSSTEHEND>>
 - **BGH I ZR 85/21** (Angabe "inkl. MwSt." bei B2B-/Hybrid-Angeboten) <<VERIFIKATION AUSSTEHEND>>
 
@@ -207,7 +219,18 @@ Bei DL gelten entsprechende Pflichten: entweder Festpreis oder Preisliste
   Preisangabenrechts vom 19.10.2026 (BGBl. 2026 I Nr. 314, Inkrafttreten
   01.01.2027) ergaenzt. Die Aenderung betrifft die PAngV selbst nur in
   § 20 (Sanktionsverweis); § 11 (30-Tage-Streichpreis), § 4 (Grundpreis)
-  und § 6 (Versandkosten) bleiben unveraendert. Neu ist das eigenstaendige
-  Preisangabengesetz (PAngG) mit Bussgeldrahmen bis 100.000 EUR, in das
-  die bisher im WiStG geregelte Sanktionsnorm verlagert wird. Siehe
+  und § 6 (Versandkosten) bleiben unveraendert. Das seit 1984 bestehende
+  Preisangabengesetz erhaelt einen eigenen Bussgeldtatbestand (bis
+  100.000 EUR); § 20 PAngV verweist ab 01.01.2027 darauf statt auf das
+  WiStG (berichtigt 2026-11-15, zuvor "neu ... eigenstaendiges PAngG"). Siehe
   [[gesetze/pangv]]. Quelle: recht.bund.de/bgbl/1/2026/314/VO.html.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  Sanktionsnorm § 20 PAngV (statt § 19) mit Bussgeldrahmen ab 01.01.2027
+  nach § 3 Abs. 3 PAngG n. F.; Rahmen bis 31.12.2026 mit
+  Verifikationsmarker; Lauterkeit bei § 11-Verstoessen ueber §§ 5a, 5b UWG
+  (BGH I ZR 183/24, Leitsatz 2); § 11 nur fuer Waren gegenueber
+  Verbrauchern (auch im SaaS-Abschnitt); Mengeneinheiten nach § 5 PAngV,
+  250-g-Regel gestrichen; Grundpreis-Ausnahmen auf § 4 Abs. 3 PAngV
+  verwiesen; § 6, § 11 Abs. 3 und § 12 praezisiert; BGH I ZR 183/24 mit
+  Leitsatzwortlaut und ECLI; EuGH C-330/23 auf Art. 6a RL 98/6/EG
+  umgestellt, Fallstrick 7 neu gefasst.

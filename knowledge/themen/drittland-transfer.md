@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/eu-us-data-transfers_en
@@ -23,7 +23,7 @@ geltungsbereich: [DE, EU]
 
 ## Kurz-Überblick
 
-Übermittlungen personenbezogener Daten in Drittländer (außerhalb EWR) sind nach Art. 44–50 DSGVO nur unter strengen Voraussetzungen zulässig. Zentrale Instrumente: Angemessenheitsbeschluss (Art. 45), geeignete Garantien wie Standardvertragsklauseln (Art. 46), Ausnahmen (Art. 49). Seit dem EuGH-Urteil Schrems II (16.07.2020) ist eine Transfer Impact Assessment (TIA) Pflicht. Für USA gilt seit 10.07.2023 der EU-US Data Privacy Framework (DPF) — jedoch nur für DPF-zertifizierte Organisationen.
+Übermittlungen personenbezogener Daten in Drittländer (außerhalb EWR) sind nach Art. 44–50 DSGVO nur unter strengen Voraussetzungen zulässig. Zentrale Instrumente: Angemessenheitsbeschluss (Art. 45), geeignete Garantien wie Standardvertragsklauseln (Art. 46), Ausnahmen (Art. 49). Seit dem EuGH-Urteil Schrems II (16.07.2020) muss der Exporteur das Schutzniveau im Drittland im Einzelfall prüfen (in der Praxis: Transfer Impact Assessment, TIA; vgl. Klausel 14 SCC 2021/914). Für USA gilt seit 10.07.2023 der EU-US Data Privacy Framework (DPF) — jedoch nur für DPF-zertifizierte Organisationen.
 
 ## Kernaussagen
 
@@ -33,7 +33,7 @@ geltungsbereich: [DE, EU]
 Übermittlung nur zulässig, wenn Schutzniveau im Drittland „nicht unterlaufen" wird.
 
 **Art. 45** — Angemessenheitsbeschluss:
-EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derzeit (Stand November 2026) u. a.: Andorra, Argentinien, Färöer, Guernsey, Isle of Man, Israel, Japan, Jersey, Kanada (kommerziell), Neuseeland, Schweiz, Südkorea, Uruguay, UK, **USA (DPF-zertifizierte Unternehmen)**.
+EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derzeit (Stand November 2026) u. a.: Andorra, Argentinien, Färöer, Guernsey, Isle of Man, Israel, Japan, Jersey, Kanada (kommerziell), Neuseeland, Schweiz, Südkorea, Uruguay, UK (einschließlich Verlängerung Dezember 2025), Brasilien, Europäische Patentorganisation, **USA (DPF-zertifizierte Unternehmen)**.
 
 **Art. 46** — Geeignete Garantien (ohne Angemessenheitsbeschluss):
 - Standardvertragsklauseln (Standard Contractual Clauses, SCCs) — aktuelle Fassung 2021/914/EU vom 04.06.2021
@@ -59,6 +59,8 @@ EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derz
 
 ### Transfer Impact Assessment (TIA) — Pflicht seit Schrems II
 
+Seit Schrems II muss der Exporteur das Schutzniveau im Drittland im Einzelfall prüfen (in der Praxis: Transfer Impact Assessment, vgl. Klausel 14 SCC 2021/914). Der Begriff „TIA" stammt nicht aus dem Urteil.
+
 Dokumentierte Bewertung mit mindestens folgenden Punkten:
 1. **Kategorie der Daten** (Art. 4, 9 DSGVO — sensible Daten? Massendaten?)
 2. **Empfänger und Zweck**
@@ -77,7 +79,7 @@ Vier Module:
 - **Modul 3:** Processor → Processor (Sub-Auftragsverarbeiter)
 - **Modul 4:** Processor → Controller (Rückfluss)
 
-Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (technische und organisatorische Maßnahmen).
+Pflicht-Bestandteile: **Klausel 14** (Erklärung zur TIA), **Anhang II** (technische und organisatorische Maßnahmen), **Anhang III** (Liste der Unterauftragsverarbeiter, Module 2 und 3).
 
 ## Typische Fallstricke in Codebases
 
@@ -88,7 +90,7 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
 - **Sentry/Datadog (Error-Monitoring):** Sentry EU-Region verfügbar; User-Context (E-Mail, User-ID) filtern.
 - **ChatGPT/Anthropic-API:** OpenAI ist DPF-zertifiziert; Anthropic ebenfalls. Aber: API-Eingaben dürfen keine personenbezogenen Daten enthalten ohne Rechtsgrundlage.
 - **Google Fonts dynamisch:** Load zieht IP nach USA — LG München I 3 O 17493/20: 100 EUR immat. Schaden. **Lösung:** selbst hosten (`@fontsource`).
-- **reCAPTCHA v3:** unbeschränkt IP-übermittlung an Google. Alternative: hCaptcha (Cloudflare EU), Turnstile.
+- **reCAPTCHA v3:** unbeschränkt IP-übermittlung an Google. Alternativen: Cloudflare Turnstile; hCaptcha (Intuition Machines, Inc., USA); Friendly Captcha. Für alle Drittlandbezug, Datenfluss und Endgerätezugriff prüfen.
 - **Zapier/Make/n8n-Cloud:** US-Hosting — prüfen, ob DPF + AVV + TIA vorliegen.
 
 ## Relevanz für Codebase-Typen
@@ -102,14 +104,14 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
 ## Behörden-Hinweise
 
 - **EDSA Empfehlungen 01/2020** zu ergänzenden Maßnahmen nach Schrems II
-- **EDSA Empfehlungen 02/2020** zur Festlegung ausreichender Garantien
+- **EDSA Empfehlungen 02/2020** zu den wesentlichen europäischen Garantien in Bezug auf Überwachungsmaßnahmen
 - **DSK Anwendungshinweise zum DPF vom 04.09.2023**
 - **EU-Kommission:** Liste der Angemessenheitsbeschlüsse
 - **BfDI FAQ Drittland-Transfer** (aktualisiert 2023/2024)
 
 ## Zitierbare Urteile
 
-- **EuGH C-311/18 (Schrems II), 16.07.2020** — Privacy Shield ungültig; SCCs nur mit TIA
+- **EuGH C-311/18 (Schrems II), 16.07.2020** — Privacy Shield ungültig; SCCs nur, wenn das Schutzniveau im Drittland im Einzelfall geprüft ist (in der Praxis: Transfer Impact Assessment, vgl. Klausel 14 SCC 2021/914)
 - **EuGH C-362/14 (Schrems I), 06.10.2015** — Safe Harbor ungültig
 - **EuG T-553/23 (Latombe), 03.09.2025** — Nichtigkeitsklage gegen den DPF-Angemessenheitsbeschluss abgewiesen; DPF bleibt in Kraft (Rechtsmittel C-703/25 P am 31.10.2025 eingelegt, anhaengig)
 - **DSB Österreich, 22.04.2022** — GA Universal unvereinbar (vor DPF)
@@ -128,7 +130,7 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
 
 - EuG-Urteil T-553/23 (Latombe, 03.09.2025) ergaenzt (Quelle: curia.europa.eu und mehrere Kanzleimeldungen).
 - Formulierung "Schrems III anhaengig" entfernt; stattdessen klarer Hinweis, dass EuG entschieden hat und weitere Klagen moeglich sind (verifikationsoffen markiert).
-- Stand und Verifizierung auf 2026-11-14 gesetzt. Kein Hinweis auf Digital Omnibus im Drittland-Abschnitt noetig: Der Kommissions-Vorschlag vom 19.11.2025 beruehrt primaer Art. 30/33 DSGVO, nicht Art. 44 ff.
+- Stand und Verifizierung auf 2026-11-14 gesetzt. Kein Hinweis auf Digital Omnibus im Drittland-Abschnitt noetig: Die Kommissions-Vorschlaege betreffen Art. 33 DSGVO (COM(2025) 837 vom 19.11.2025) und Art. 30 Abs. 5 DSGVO (COM(2025) 501 vom 21.05.2025), nicht Art. 44 ff.
 - **2026-11-14 (Abgleich)**: Rechtsmittel **C-703/25 P (Latombe/Kommission)**
   mit Einlegungsdatum **31.10.2025** ergaenzt; Primaerbeleg ist die
   Mitteilung ueber das Rechtsmittel im Amtsblatt der EU (EUR-Lex ELI
@@ -138,3 +140,11 @@ Pflicht-Bestandteil: **Klausel 14** (Erklärung zur TIA), **Anhang III** (techni
   "Rechtsmittel zum EuGH moeglich" in der Urteilsliste durch die belegte
   Verfahrenslage ersetzt (C-703/25 P eingelegt am 31.10.2025, anhaengig);
   wortgleich zum Fliesstext weiter oben in dieser Datei.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  Liste der Angemessenheitsbeschluesse um Brasilien, Europaeische
+  Patentorganisation und UK-Verlaengerung (Dezember 2025) ergaenzt; SCC-
+  Anhaenge richtig zugeordnet (Anhang II TOM, Anhang III
+  Unterauftragsverarbeiter); Titel EDSA Empfehlungen 02/2020 korrigiert;
+  TIA-Aussagen am Tenor von C-311/18 ausgerichtet; Omnibus-Zuordnung
+  (Art. 33: COM(2025) 837; Art. 30 Abs. 5: COM(2025) 501) korrigiert;
+  hCaptcha-Anbieter berichtigt (Intuition Machines, Inc., USA).

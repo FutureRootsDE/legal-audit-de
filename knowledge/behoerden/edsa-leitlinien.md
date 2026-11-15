@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.edpb.europa.eu/
 quellen-sekundaer:
   - https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en
@@ -43,7 +43,7 @@ Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection 
 
 ### Consent-or-Pay-Modelle
 
-- **Stellungnahme 08/2024 zu „Consent or Pay"-Modellen großer Online-Plattformen** (November 2024)
+- **Stellungnahme 08/2024 zu „Consent or Pay"-Modellen großer Online-Plattformen** (17.04.2024)
   - Binäre Modelle oft unzulässig
   - Dritte Option (keine personalisierte Werbung, ggf. gegen Gebühr) empfohlen
   - Abwägungskriterien
@@ -66,7 +66,7 @@ Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection 
 ### Datenpannen
 
 - **Leitlinien 01/2021 zu Beispielen für Datenschutzverletzungen** (Januar 2022 finalisiert)
-- **Leitlinien 9/2022 zu Meldung von Datenschutzverletzungen** (Februar 2023)
+- **Leitlinien 9/2022 zu Meldung von Datenschutzverletzungen** (final 04.04.2023)
 
 ### Drittlandtransfer & ergänzende Maßnahmen (Post-Schrems-II)
 
@@ -76,7 +76,7 @@ Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection 
 
 ### Tracking
 
-- **Leitlinien 02/2023 zur Anwendung von Artikel 6 Abs. 1 Buchst. b DSGVO** (Online-Dienste)
+- **Leitlinien 2/2019 zur Verarbeitung personenbezogener Daten gemäß Art. 6 Abs. 1 lit. b DSGVO im Zusammenhang mit der Erbringung von Online-Diensten** (final 16.10.2019)
 - **Leitlinien 02/2020 zu Art. 46 Abs. 2 lit. a und Art. 46 Abs. 3 lit. b** (Behörden-Datenaustausch)
 
 ### KI / automatisierte Entscheidungen
@@ -89,42 +89,48 @@ Der Europäische Datenschutzausschuss (EDSA, englisch: European Data Protection 
 - **Leitlinien 07/2022 zu Zertifizierung als Instrument für Datenübermittlungen**
 - **Leitlinien 04/2021 zu Verhaltensregeln als Garantien für Übermittlungen**
 
+### Deceptive Design Patterns / Geldbußen
+
+- **Leitlinien 03/2022 zu Deceptive Design Patterns** (final 24.02.2023)
+- **Leitlinien 04/2022 zur Berechnung von Geldbußen** (final 24.05.2023)
+
 ### Neue Leitlinien & Empfehlungen 2024-2026 (Stand 2026-05-08, Quelle: edpb.europa.eu)
 
 **FINAL / ADOPTED:**
 - **Guidelines 2/2023 on Technical Scope of Art. 5(3) ePrivacy Directive** (final 16.10.2024) — Reichweite des Cookie-/Tracker-Begriffs
 - **Guidelines 02/2024 on Article 48 GDPR** (final 05.06.2025) — Drittlandsanordnungen / Behoerdenanfragen aus Drittstaaten
 - **Recommendations 1/2025 on the 2027 WADA World Anti-Doping Code** (final 13.02.2025)
+- **Guidelines 02/2025 on Blockchain Technologies** (final 07.07.2026)
+- **Guidelines 3/2025 on DSA-GDPR Interplay** (final 17.09.2026)
+- **Leitlinien 1/2024 zu Art. 6 Abs. 1 lit. f DSGVO** (Fassung vom 10.11.2026)
 
 **Public Consultation abgeschlossen, finalisiert/in Finalisierung:**
 - **Guidelines 01/2025 on Pseudonymisation** (17.01.2025)
-- **Guidelines 02/2025 on Blockchain Technologies** (14.04.2025)
-- **Guidelines 3/2025 on DSA-GDPR Interplay** (12.09.2025)
 - **Joint Guidelines on DMA-GDPR Interplay** (09.10.2025)
 - **Recommendations 2/2025 on E-commerce User Accounts** (04.12.2025)
 
-**Laufende Public Consultation (Stand 2026-05-08):**
-- **Recommendations 1/2026 on Processor Binding Corporate Rules** (eroeffnet 19.01.2026)
-- **Guidelines 1/2026 on Scientific Research Data Processing** (eroeffnet 16.04.2026)
+**Public Consultations 2026:**
+- **Recommendations 1/2026 on Processor Binding Corporate Rules**: Konsultation 19.01. bis 02.03.2026, Fassung vom 10.11.2026 veroeffentlicht
+- **Guidelines 1/2026 on Scientific Research Data Processing**: Konsultation 16.04. bis 25.06.2026 abgeschlossen
 
 **Arbeitsprogramm 2026-2027 und Neues ab Mitte 2026** (Quelle:
 edpb.europa.eu/system/files/2026-02/edpb_work-programme_2026-2027_en.pdf;
 verifiziert 2026-11-14):
 
 - **Guidelines 02/2026 on Anonymisation** — angenommen im Plenum 07/2026,
-  Version 1.0 in oeffentlicher Konsultation.
+  Version 1.0; Konsultation 08.07. bis 30.10.2026 abgeschlossen.
 - **Guidelines 03/2026 on Web Scraping in the Context of Generative AI** —
   angenommen 07.07.2026, Konsultation bis 30.10.2026. Kernaussage: Einwilligung
   als Rechtsgrundlage fuer Massen-Scraping von Drittdaten praktisch
   unzureichend (fehlende direkte Beziehung zu Betroffenen).
-- **Guidelines 04/2026 on Administrative Fines (Art. 83 DSGVO)** — Entwurf in
-  Konsultation.
+- **Guidelines 04/2026 zur Bussgeldbefugnis im Verhaeltnis zu anderen
+  Abhilfebefugnissen**: Konsultation 21.09. bis 13.11.2026 beendet.
 - **„Consent or Pay"-Guidelines** — im Arbeitsprogramm 2026-2027 als anstehend
   gelistet; zum Stand 2026-11-14 noch nicht als eigenstaendige Guideline
   verabschiedet. Fuer grosse Online-Plattformen bleibt bis dahin
   **Opinion 08/2024** (17.04.2024) massgeblich.
-- **EDSA-Stellungnahme zum „digitalen Omnibus" / AI-Act-Anpassungen** vom
-  **20.01.2026** (Plenum).
+- **Gemeinsame Stellungnahme von EDSA und EDSB zum „Digitalen Omnibus"**,
+  veroeffentlicht **11.02.2026**.
 
 > Hinweis: Die in Vorgaengerversion erwaehnte "Stellungnahme 08/2024 zu Consent or Pay" ist eine **Opinion** (nicht Guideline) gemaess Art. 64(2) DSGVO; offizielle EDPB-Bezeichnung: "Opinion 08/2024 on Consent or Pay models implemented by large online platforms" (verabschiedet 17.04.2024).
 
@@ -136,7 +142,7 @@ verifiziert 2026-11-14):
 
 ## Bindende Beschlüsse (Art. 65) — Beispiele
 
-- **Bindender Beschluss 1/2020** (TikTok) — Kohärenzverfahren
+- **Bindender Beschluss 01/2020** (Twitter International Company), 09.11.2020
 - **Bindender Beschluss 3/2022** (Meta Ireland) — Legal-Basis für Personalisierung
 - **Bindender Beschluss 2/2023** (TikTok) — Fehlende Informationspflichten für Minderjährige
 
@@ -163,3 +169,12 @@ verifiziert 2026-11-14):
   Omnibus (20.01.2026) ergaenzt. Status „Consent or Pay"-Guidelines
   klargestellt (noch nicht verabschiedet, Opinion 08/2024 bleibt
   massgeblich).
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Opinion 08/2024 auf 17.04.2024 datiert; Leitlinien 9/2022 final
+  04.04.2023; Art. 6 Abs. 1 lit. b richtig als Leitlinien 2/2019 (final
+  16.10.2019); 02/2025 und 3/2025 als final gefuehrt; Konsultationsstand
+  Empf. 1/2026, Leitlinien 1/2026, 02/2026, 04/2026 nachgezogen;
+  Omnibus-Stellungnahme als gemeinsame EDSA/EDSB-Stellungnahme vom
+  11.02.2026 (Datum 20.01.2026 gestrichen); Bindender Beschluss 01/2020
+  betrifft Twitter; ergaenzt: Leitlinien 1/2024 (lit. f, 10.11.2026),
+  03/2022 und 04/2022.

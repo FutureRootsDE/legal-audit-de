@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/__25.html
 quellen-sekundaer:
   - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en
@@ -33,9 +33,9 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 |------------|---------------|-----------------|
 | Session-Cookie (Login, Warenkorb) | Nein | § 25 Abs. 2 Nr. 2 TDDDG |
 | CSRF-Token | Nein | § 25 Abs. 2 Nr. 2 TDDDG |
-| Load-Balancer | Nein | § 25 Abs. 2 Nr. 1 TDDDG |
+| Load-Balancer | Nein, nur ohne langfristig gespeicherte eindeutige ID (DSK, OH Digitale Dienste) | § 25 Abs. 2 Nr. 1 TDDDG |
 | Cookie-Consent-State selbst | Nein | § 25 Abs. 2 Nr. 2 TDDDG (unbedingt erforderlich für Consent-Funktion) |
-| Sprach-/Theme-Präferenz | Grauzone, eher ja bei Drittanbieter | § 25 Abs. 1 TDDDG |
+| Sprach-/Theme-Präferenz | Nein, wenn nur ein nicht identifizierender Wert gespeichert wird (z. B. „language: de“) und erst nach Nutzerwahl; Ja bei UID oder Drittanbieter | § 25 Abs. 2 Nr. 2 TDDDG; DSK OH Digitale Dienste Rn. 81 |
 | Analytics (GA4, Matomo, Plausible\*) | Ja (\*Plausible im Cookie-losen Modus: nein) | § 25 Abs. 1 TDDDG + Art. 6 Abs. 1 lit. a DSGVO |
 | Marketing-Pixel (Meta, TikTok, LinkedIn) | Ja | dito |
 | Retargeting (Google Ads, Criteo) | Ja | dito |
@@ -47,7 +47,7 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 
 1. **Freiwillig** — keine Nachteile bei Ablehnung, gleichwertige Ablehnen-Möglichkeit auf erster Ebene
 2. **Für bestimmten Fall** — granular pro Zweck / Anbieter-Kategorie
-3. **Informiert** — vor Setzen der Einwilligung müssen die Infos aus Art. 13 DSGVO bereitstehen
+3. **Informiert**: vor Erteilung mindestens Identität des Verantwortlichen, Zweck jedes Vorgangs, Art der Daten, Widerrufsrecht, ggf. automatisierte Entscheidung und Drittlandrisiken (EDSA Leitlinien 05/2020 Rn. 64); die vollständigen Art.-13-Informationen zusätzlich leicht erreichbar
 4. **Unmissverständlich** — aktive Handlung: Klick auf „Akzeptieren", NICHT Scrollen, NICHT Weitersurfen, NICHT vorausgewählte Checkbox
 5. **Nachweisbar** — Protokollierung (Zeitpunkt, Text-Version, Auswahl)
 6. **Widerrufbar** — genauso einfach wie Erteilung (z. B. „Cookie-Einstellungen"-Link im Footer)
@@ -60,14 +60,14 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 - Keine Dark Patterns (Farbgebung, Platzierung, Textmanipulation)
 - Consent-Log serverseitig speicherbar
 - Versionierung bei Änderungen der CMP-Konfiguration
-- Speicherdauer Consent-Cookie: DSK empfiehlt ~12 Monate Max
+- Speicherdauer Consent-Cookie: Die DSK nennt keine feste Höchstdauer; Laufzeit begrenzt nach dem Grundsatz der Speicherbegrenzung (Art. 5 Abs. 1 lit. e DSGVO; DSK OH Digitale Dienste, Version 1.2)
 
 ### Problematische Pattern
 
-- **„Akzeptieren" grün/groß vs. „Ablehnen" grau/klein** → Nudging-Problem (EDSA Opinion 08/2024)
+- **„Akzeptieren" grün/groß vs. „Ablehnen" grau/klein** → Nudging-Problem
 - **„Nur essenzielle" nur im Zwei-Klick** während „Alle akzeptieren" im Ein-Klick → unausgewogen
 - **Ablehnen nur über „Einstellungen"-Menü** → unzulässig (vgl. Noyb-Beschwerden, CNIL-Bußgelder gegen Google/Facebook 2022)
-- **„Legitimes Interesse" als Vorauswahl** im TCF-Standard → EuGH C-252/21 (Meta): reicht nicht
+- **„Legitimes Interesse" als Vorauswahl** im TCF-Standard → EuGH C-252/21 (Meta Platforms/Bundeskartellamt), 04.07.2023: Art. 6 Abs. 1 lit. f DSGVO trägt die Zusammenführung von Off-Site- und Konzerndaten nur unter engen Voraussetzungen (Tenor 5); für die Personalisierung von Werbung durch den Betreiber eines sozialen Netzwerks überwiegen die Interessen der Nutzer (Rn. 117). Das TCF war nicht Gegenstand; dazu EuGH C-604/22.
 - **Cookie-Wall** (Zugang nur bei Consent) → grundsätzlich unfreiwillig (EDSA 05/2020)
 
 ## Typische Fallstricke in Codebases
@@ -78,7 +78,7 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 - **Server-Side GTM mit First-Party-Cookie:** § 25 TDDDG bleibt anwendbar — Kernfrage ist nicht, wo der Server steht, sondern dass Infos auf Endgerät gespeichert werden.
 - **Consent-Mode v2 ohne Basic/Advanced-Unterscheidung:** Google sendet auch ohne Consent pingbacks — prüfen, was tatsächlich gesendet wird.
 - **A/B-Test vor Consent (Optimize, Varify):** DOM-Manipulation + clientseitiger Storage → einwilligungspflichtig.
-- **LocalStorage als „Cookie-Bypass":** EuGH C-673/17 gilt technikneutral.
+- **LocalStorage als „Cookie-Bypass":** § 25 Abs. 1 TDDDG erfasst jede Speicherung von Informationen in der Endeinrichtung, auch Web-Storage (so auch DSK OH Digitale Dienste).
 
 ## Relevanz für Codebase-Typen
 
@@ -90,9 +90,9 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 
 ## Behörden-Hinweise
 
-- **DSK Orientierungshilfe für Anbieter:innen digitaler Dienste (ehem. OH Telemedien)** — aktualisiert 2023
+- **DSK Orientierungshilfe für Anbieter:innen von digitalen Diensten (OH Digitale Dienste), Version 1.2, Stand November 2024**
 - **EDSA Leitlinien 05/2020 zur Einwilligung** (v1.1, Mai 2020) — Scrollen, Cookie-Walls, klares Opt-In
-- **EDSA Opinion 08/2024** — „Consent or Pay"-Modelle
+- **EDSA Stellungnahme 08/2024 vom 17.04.2024** zu „Consent or Pay"-Modellen großer Online-Plattformen
 - **CNIL-Bußgelder gegen Google (150 Mio. €) und Facebook (60 Mio. €) 2022** — Paradefälle mangelhafter Ablehnungsmöglichkeit
 
 ## Zitierbare Urteile
@@ -100,8 +100,8 @@ Immer, wenn der Speichervorgang oder Zugriff **nicht unbedingt erforderlich** f�
 - **EuGH C-673/17 (Planet49), 01.10.2019** — Keine wirksame Einwilligung durch vorausgewählte Checkbox
 - **BGH I ZR 7/16 (Cookie II), 28.05.2020** — Umsetzung Planet49 in deutschem Recht
 - **LG Rostock 3 O 762/19, 15.09.2020** — „Cookie-Einstellungen"-Button gleichwertig zu „Akzeptieren"
-- **EuGH C-252/21 (Meta/Bundeskartellamt), 04.07.2023** — Personalisierte Werbung nicht auf „berechtigtes Interesse" stützbar
-- **EuGH C-604/22 (IAB Europe), 07.03.2024** — TC-String ist personenbezogenes Datum; IAB ist (Mit-)Verantwortlicher fuer TCF
+- **EuGH C-252/21 (Meta Platforms/Bundeskartellamt), 04.07.2023**: Art. 6 Abs. 1 lit. f DSGVO trägt die Zusammenführung von Off-Site- und Konzerndaten nur unter engen Voraussetzungen (Tenor 5); für die Personalisierung von Werbung durch den Betreiber eines sozialen Netzwerks überwiegen die Interessen der Nutzer (Rn. 117). Das TCF war nicht Gegenstand; dazu EuGH C-604/22.
+- **EuGH C-604/22 (IAB Europe), 07.03.2024**: TC-String ist personenbezogenes Datum, soweit er mit vertretbarem Aufwand einer Kennung (insbesondere der IP-Adresse) zugeordnet werden kann; IAB Europe ist unter den Voraussetzungen des Tenors 2 gemeinsam Verantwortlicher, nicht automatisch für die Weiterverarbeitung durch Dritte
 - **LG München I 3 O 17493/20, 20.01.2022** — Google Fonts als Beispiel für Drittanbieter-Tracking ohne Consent
 
 ## Einwilligungsverwaltungsverordnung (EinwV) — seit 01.04.2025
@@ -121,11 +121,18 @@ zu verwalten.
 - EinwV-Abschnitt ergaenzt (Quelle: BGBl. 2025 I Nr. 32, § 26 TDDDG auf
   gesetze-im-internet.de). Teilnahme bleibt freiwillig; keine Pflicht fuer
   Audit-Scope.
-- Hinweis zum Digital-Omnibus-Vorschlag (COM(2025) 501 vom 19.11.2025): Der
+- Hinweis zum Digital-Omnibus-Vorschlag (COM(2025) 837 final vom 19.11.2025): Der
   Entwurf ist bislang **Kommissionsvorschlag** im ordentlichen
   Gesetzgebungsverfahren, **noch nicht verkuendet**. Bis zur Verkuendung
   gelten § 25 TDDDG und Art. 6/7 DSGVO unveraendert fort.
 - Datum und Verifizierung auf 2026-11-14 vereinheitlicht.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  keine feste DSK-Hoechstdauer fuer das Consent-Cookie; Fehlbeleg EDSA
+  Opinion 08/2024 beim Nudging entfernt; OH Digitale Dienste Version 1.2
+  (November 2024); Omnibus-Aktenzeichen COM(2025) 837; C-252/21 und
+  C-604/22 praezisiert; Technikneutralitaet auf § 25 Abs. 1 TDDDG gestuetzt;
+  Load-Balancer-Vorbehalt, Sprach-/Theme-Praeferenz und Informationspflicht
+  vor Einwilligung praezisiert.
 
 ## Siehe auch
 

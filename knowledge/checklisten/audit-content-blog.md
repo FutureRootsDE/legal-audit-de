@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 gilt-fuer: Blog, Corporate-Blog, YouTube-Channel, Podcast, Social-Media-Content, Newsletter
 verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
@@ -73,7 +73,7 @@ Content-Produktion beruehrt:
 
 ### Werbekennzeichnung
 
-- [ ] **§ 5a Abs. 4 UWG** + **§ 22 MStV** — bezahlte Inhalte als **"Werbung"** / **"Anzeige"** / **"bezahlte Partnerschaft"** klar erkennbar (BGH I ZR 90/20, I ZR 125/20, I ZR 126/20 v. 09.09.2021 — "Influencer-Trilogie")
+- [ ] **§ 5a Abs. 4 UWG** + **§ 22 MStV**: kommerziellen Zweck kenntlich machen, z. B. als **"Werbung"** / **"Anzeige"** / **"bezahlte Partnerschaft"**. Bei Handlungen zugunsten eines fremden Unternehmens liegt ein kommerzieller Zweck nicht vor, wenn der Handelnde kein Entgelt und keine aehnliche Gegenleistung erhaelt oder sich versprechen laesst; die Gegenleistung wird vermutet, es sei denn, er macht glaubhaft, dass er keine erhalten hat (§ 5a Abs. 4 Saetze 2 und 3 UWG). Eigenwerbung ist regelmaessig eine geschaeftliche Handlung zugunsten des eigenen Unternehmens. Die BGH-Urteile vom 09.09.2021 (I ZR 90/20, I ZR 125/20, I ZR 126/20) ergingen zu § 5a Abs. 6 UWG a. F.; Einordnung siehe [[themen/werbekennzeichnung]]
 - [ ] Affiliate-Links → Kennzeichnung als solche (auch wenn nicht bezahlt, aber Provisionsbasiert)
 - [ ] Pressemuster / PR-Samples → Offenlegung ("PR-Sample", "kostenlos erhalten")
 - [ ] YouTube: zusaetzlich "Paid Promotion"-Toggle von Google aktivieren (nicht statt, sondern zusaetzlich)
@@ -85,10 +85,10 @@ Content-Produktion beruehrt:
 Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI): Verbotene Praktiken (Art. 5) und KI-Kompetenz (Art. 4) seit **02.02.2025** (Art. 4 seit 27.07.2026 Verhaltenspflicht; zwei neue Verbote NCII/CSAM ab 02.12.2026), GPAI-Pflichten seit **02.08.2025**, **Art. 50 (Transparenz) seit 02.08.2026 anwendbar** mit maschinenlesbarer Markierung (Altbestand vor 02.08.2026 nachzuruesten bis 02.12.2026, Art. 111 Abs. 4).
 
 - [ ] **KI-Kompetenz** Art. 4 KI-VO n. F. (seit 27.07.2026 i. d. F. VO (EU) 2026/1744): "Massnahmen ergreifen" zur Unterstuetzung der KI-Kompetenz; **keine Pflicht** zur **Garantie** eines bestimmten Niveaus (Art. 4 Abs. 1 Satz 2 n. F.) — Nachweis geeigneter Foerdermassnahmen fuer alle Redakteure mit KI-Einsatz dennoch dokumentieren
-- [ ] **KI-generierter Text** zu Angelegenheiten von oeffentlichem Interesse → Kennzeichnungspflicht nach Art. 50 Abs. 4 S. 2 KI-VO, ausser menschliche Redaktion hat uebernommen
+- [ ] **KI-generierter Text** zu Angelegenheiten von oeffentlichem Interesse → Offenlegungspflicht nach Art. 50 Abs. 4 UAbs. 2 KI-VO; Ausnahme nur, wenn der Text einer menschlichen Ueberpruefung oder redaktionellen Kontrolle unterzogen wurde und eine natuerliche oder juristische Person die redaktionelle Verantwortung traegt
 - [ ] **KI-generierter Text** sonstig → Kennzeichnung empfohlen ("Dieser Artikel wurde mit Unterstuetzung von KI erstellt")
-- [ ] **KI-generierte Bilder/Audio/Video** im Artikel → Kennzeichnung Pflicht (Art. 50 Abs. 2 AI Act) seit 02.08.2026; Altbestand nachzuruesten bis 02.12.2026
-- [ ] **KI-Stimmen** im Podcast → Transparenzpflicht (Hoerer hat Recht zu wissen, dass keine menschliche Stimme)
+- [ ] **KI-generierte Bilder/Audio/Video** im Artikel → Als Betreiber Offenlegungspflicht nur bei Deepfakes (Art. 50 Abs. 4 UAbs. 1 AI Act); sonst Kennzeichnung empfohlen. Die maschinenlesbare Markierung nach Art. 50 Abs. 2 AI Act trifft den Anbieter des KI-Systems
+- [ ] **KI-Stimmen** im Podcast → Offenlegungspflicht nur, wenn es sich um einen Deepfake handelt (Art. 50 Abs. 4 UAbs. 1 AI Act); sonst Kennzeichnung empfohlen
 - [ ] **Deepfakes** von realen Personen → zwingend als kuenstlich erzeugt kennzeichnen (Art. 50 Abs. 4 AI Act) UND Einwilligung der Person noetig (Persoenlichkeitsrecht / KUG)
 - [ ] **Synthetische Avatare** als Sprecher → Kennzeichnung
 - [ ] **Verbotene Praktiken** Art. 5: keine manipulativen Subliminal-Techniken, kein Social-Scoring-Content
@@ -96,7 +96,7 @@ Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI):
 
 ## Pass 6: Barrierefreiheit (BFSG — seit 28.06.2025 anwendbar)
 
-BFSG ist seit **28.06.2025 in Anwendung**. Reine redaktionelle Inhalte sind oft nicht direkter BFSG-Anwendungsbereich (siehe Ausnahmen § 1 Abs. 3 BFSG fuer Medieninhalte), aber **kommerzielle Content-Sites mit Newsletter-Verkauf, Online-Kurs-Verkauf, Webshops** sind erfasst.
+BFSG ist seit **28.06.2025 in Anwendung**. Reine redaktionelle Inhalte sind oft nicht direkter BFSG-Anwendungsbereich (siehe Ausnahmen § 1 Abs. 4 BFSG fuer Medieninhalte; neue Videos und Podcasts sind davon nicht ausgenommen), aber **kommerzielle Content-Sites mit Newsletter-Verkauf, Online-Kurs-Verkauf, Webshops** sind erfasst.
 
 - [ ] **Anwendungsbereich** § 1 BFSG geprueft
 - [ ] YouTube: **Untertitel** (automatisch + korrigiert) fuer alle Videos
@@ -161,7 +161,7 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 
 - [ ] Instagram / TikTok / X / LinkedIn / YouTube: Impressum-Link in Bio / Info / Kanal-Details
 - [ ] DSE-Link ebenfalls verlinkt (Joint-Controller-Info mit Plattform)
-- [ ] Bei automatisiertem Crossposting (n8n, Zapier): Hinweis nach § 18 Abs. 3 MStV ("automatisiert erstellt")
+- [ ] Bei automatisiertem Crossposting (n8n, Zapier): Hinweis nach § 18 Abs. 3 MStV ("automatisiert erstellt"), wenn das Nutzerkonto seinem aeusseren Erscheinungsbild nach fuer die Nutzung durch natuerliche Personen bereitgestellt wurde
 - [ ] Eingebettete Posts auf eigenem Blog (Twitter-Blockquote, Instagram-Embed): 2-Klick-Loesung oder Consent-Gate
 
 ## Pass 11: Live-Browser-Check
@@ -193,12 +193,12 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 
 ### Newsletter
 
-- [ ] Double-Opt-In mit Bestaetigungs-Mail (BGH "Double-Opt-In II" I ZR 218/07)
+- [ ] Double-Opt-In mit Bestaetigungs-Mail (BGH, Urt. v. 10.02.2011, I ZR 164/09 (Double-opt-in-Verfahren))
 - [ ] Abmelde-Link in JEDER Mail (§ 7 Abs. 2 Nr. 2 UWG i.V.m. Abs. 3 — bei Bestandskundenausnahme)
-- [ ] Impressum in jeder Mail (§ 5 DDG)
+- [ ] Absenderidentitaet in jeder Mail erkennbar (§ 6 Abs. 1 DDG, § 7 Abs. 2 Nr. 3 UWG)
 - [ ] Personalisierung nur nach Einwilligung
 - [ ] BGH "Inbox-Werbung II" I ZR 25/19 (13.01.2022) — Inbox-Werbung in E-Mail-Postfaechern bedarf Einwilligung
-- [ ] **Paid Newsletter / Abo-Modell**: Kuendigungsschaltflaeche § 312k BGB (Wortlaut "Vertraege hier kuendigen" + "jetzt kuendigen" auf Bestaetigungsseite, staendig verfuegbar; Folge bei Verstoss: fristlose Kuendigung jederzeit, § 312k Abs. 6 BGB) — Severity HIGH
+- [ ] **Paid Newsletter / Abo-Modell**: Kuendigungsschaltflaeche § 312k BGB (Wortlaut "Vertraege hier kuendigen" + "jetzt kuendigen" auf Bestaetigungsseite, staendig verfuegbar; Folge bei Verstoss: fristlose Kuendigung jederzeit, § 312k Abs. 6 BGB) — Severity CRIT
 - [ ] [[themen/email-marketing]], [[urteile/bgh-inbox-werbung]], [[gesetze/uwg]]
 
 ### Social Media
@@ -206,7 +206,7 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 - [ ] Plattform-AGB einhalten (Meta, TikTok, X)
 - [ ] Keine trademarked Hashtags als Post-Marker
 - [ ] **Jede Plattform** eigenes Impressum / "Link in Bio"
-- [ ] User-Reaktionen moderieren bei beleidigenden Kommentaren — **DSA** Verordnung (EU) 2022/2065 vollanwendbar seit 17.02.2024 (NetzDG aufgehoben durch DDG-Begleitgesetzgebung); Notice-and-Action-Mechanismus fuer Hostingdienste
+- [ ] User-Reaktionen moderieren bei beleidigenden Kommentaren — **DSA** Verordnung (EU) 2022/2065 vollanwendbar seit 17.02.2024 (NetzDG besteht fort: §§ 2 bis 3f weggefallen, §§ 1, 4, 4a, 5, 6 gelten fort); Notice-and-Action-Mechanismus fuer Hostingdienste
 - [ ] [[gesetze/dsa]]
 
 ## Typische Findings
@@ -262,5 +262,9 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 
 - Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
 - Pass 4 (Newsletter) um Kuendigungsschaltflaeche § 312k BGB erweitert; Tier-1-belegt gegen gesetze-im-internet.de/bgb/__312k.html.
-- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate und Aktenzeichen bestaetigt — § 5 DDG, § 18 Abs. 2+3/§ 22 MStV, Art. 6/26 DSGVO, § 22/§ 23 KUG, § 26 BDSG, § 5a Abs. 4 UWG, § 7 Abs. 2 Nr. 2/Abs. 3 UWG, § 51 UrhG, § 59 UrhG, §§ 87f ff. UrhG, § 1/§ 14 BFSG, DSA VO (EU) 2022/2065 (anwendbar seit 17.02.2024), § 312k BGB. BGH-Aktenzeichen I ZR 90/20, 125/20, 126/20 (09.09.2021 — Influencer-Trilogie) und I ZR 218/07 (10.02.2011 — Double-Opt-In II), I ZR 25/19 (13.01.2022 — Inbox-Werbung II) konsistent zu KB. Keine offenen Marker in dieser Datei.
+- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate und Aktenzeichen bestaetigt — § 5 DDG, § 18 Abs. 2+3/§ 22 MStV, Art. 6/26 DSGVO, § 22/§ 23 KUG, § 26 BDSG, § 5a Abs. 4 UWG, § 7 Abs. 2 Nr. 2/Abs. 3 UWG, § 51 UrhG, § 59 UrhG, §§ 87f ff. UrhG, § 1/§ 14 BFSG, DSA VO (EU) 2022/2065 (anwendbar seit 17.02.2024), § 312k BGB. BGH-Aktenzeichen I ZR 90/20, 125/20, 126/20 (09.09.2021 — Influencer-Trilogie) und I ZR 218/07 (10.02.2011 — Double-Opt-In II), I ZR 25/19 (13.01.2022 — Inbox-Werbung II) konsistent zu KB. Keine offenen Marker in dieser Datei. Berichtigt am 2026-11-15: Diese Bestaetigung traf nicht zu. I ZR 218/07 ist kein Double-Opt-In-Urteil (richtig: I ZR 164/09 vom 10.02.2011); ferner waren § 1 Abs. 3 BFSG, § 5 DDG fuer Newsletter, Art. 50 Abs. 4 "S. 2" KI-VO und die Aussage zur Aufhebung des NetzDG ungenau oder falsch.
 - Pass 5 (KI) und Datumsangaben zum AI Act durch anderen Agent am selben Tag separat aktualisiert; hier nicht angetastet.
+
+## Aenderungsvermerk (2026-11-15)
+
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Werbekennzeichnung an § 5a Abs. 4 Saetze 2 und 3 UWG und [[themen/werbekennzeichnung]] angeglichen (keine allgemeine Kennzeichnungspflicht); KI-Texte Art. 50 Abs. 4 UAbs. 2 mit vollstaendiger Ausnahme; KI-Bilder/Audio/Video und KI-Stimmen: Betreiberpflicht nur bei Deepfakes, Art. 50 Abs. 2 trifft den Anbieter; BFSG-Ausnahmen § 1 Abs. 4; Crossposting-Hinweis § 18 Abs. 3 MStV nur bei personenaehnlichen Konten; Double-Opt-In mit I ZR 164/09; Absenderidentitaet statt Impressum in jeder Mail; Paid Newsletter § 312k auf CRIT; NetzDG besteht fort.

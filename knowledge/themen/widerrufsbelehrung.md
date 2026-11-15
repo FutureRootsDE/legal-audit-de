@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/egbgb/anlage_1.html
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__355.html
@@ -32,8 +32,10 @@ Die Widerrufsbelehrung muss den gesetzlichen Anforderungen entsprechen —
 sicherster Weg: **Muster-Widerrufsbelehrung nach Anlage 1 EGBGB** + Muster-
 Widerrufsformular nach Anlage 2 EGBGB ("Gesetzlichkeitsfiktion").
 
-Fehlt die Belehrung → Widerrufsfrist verlaengert sich auf **12 Monate + 14 Tage**
-(§ 356 Abs. 3 BGB).
+Die Widerrufsfrist beginnt nicht vor ordnungsgemaesser Unterrichtung (§ 356
+Abs. 3 Satz 1 BGB); das Widerrufsrecht erlischt spaetestens **zwoelf Monate
+und 14 Tage** nach dem regulaeren Fristbeginn (§ 356 Abs. 4 Satz 1 BGB,
+Fassung seit 19.06.2026; bis 18.06.2026: § 356 Abs. 3 Satz 2 BGB a. F.).
 
 ## Schluesselparagraphen / Kernaussagen
 
@@ -49,29 +51,40 @@ anderes gilt).
 
 - **Abs. 2 Nr. 1:** Beim Warenkauf beginnt die Frist erst, wenn der
   Verbraucher die Ware erhalten hat.
-- **Abs. 2 Nr. 2:** Bei mehreren Waren, Teillieferungen, wiederkehrender
-  Lieferung gelten abweichende Startzeitpunkte.
-- **Abs. 3:** Frist beginnt erst mit **ordnungsgemaesser Belehrung**. Ohne
-  Belehrung erlischt Widerrufsrecht spaetestens **12 Monate + 14 Tage** nach
-  Fristbeginn.
+- **Abs. 2 Nr. 1 Buchst. b bis d:** Bei mehreren Waren, Teillieferungen und
+  wiederkehrender Lieferung gelten abweichende Startzeitpunkte.
+- **Abs. 2 Nr. 2:** Bei Wasser, Gas, Strom, Fernwaerme und digitalen Inhalten
+  ohne koerperlichen Datentraeger beginnt die Frist mit Vertragsschluss.
+- **Abs. 3 Satz 1:** Die Widerrufsfrist beginnt nicht vor **ordnungsgemaesser
+  Unterrichtung**.
+- **Abs. 4 Satz 1 (Fassung seit 19.06.2026; bis 18.06.2026: Abs. 3 Satz 2
+  a. F.):** Das Widerrufsrecht erlischt spaetestens **zwoelf Monate und
+  14 Tage** nach dem regulaeren Fristbeginn.
 
 ### § 312g Abs. 2 BGB — Ausnahmen vom Widerrufsrecht
 
 Kein Widerrufsrecht u.a. bei:
 
-1. **individuell angefertigten Waren** (Konfigurator, personalisiert)
-2. schnell verderblichen Waren
-3. **versiegelten Hygieneartikeln** nach Oeffnung (Masken, Kosmetik)
-4. untrennbar mit anderen Waren vermischt
-5. **versiegelter Software / DVD / Musik** nach Oeffnung
-6. Zeitungen / Zeitschriften (ausser Abos)
-7. **digitale Inhalte** ohne koerperlichen Traeger — Widerrufsrecht erlischt
-   bei Zustimmung + Hinweis + Bestaetigung (§ 356 Abs. 5)
-8. Dienstleistungen, die vollstaendig erbracht wurden (bei ausdruecklicher
-   Zustimmung)
-9. Beherbergung / Befoerderung / Mietwagen / Verpflegung / Freizeit mit
-   festem Termin
-10. Notariell beurkundete Vertraege
+- **Nr. 1:** **individuell angefertigte Waren** (Konfigurator, personalisiert)
+- **Nr. 2:** schnell verderbliche Waren
+- **Nr. 3:** **versiegelte Hygieneartikel** nach Oeffnung (Masken, Kosmetik)
+- **Nr. 4:** Waren, die untrennbar mit anderen Waren vermischt wurden
+- **Nr. 6:** **versiegelte Ton-/Videoaufnahmen / Software** nach Oeffnung
+- **Nr. 7:** Zeitungen / Zeitschriften (ausser Abos)
+- **Nr. 9:** Beherbergung / Befoerderung / Mietwagen / Verpflegung / Freizeit
+  mit festem Termin
+- **Nr. 13:** Notariell beurkundete Vertraege
+
+### Vorzeitiges Erloeschen (§ 356 Abs. 5 und 6 BGB)
+
+Kein Ausnahmetatbestand des § 312g Abs. 2 BGB, sondern Erloeschensgruende:
+
+- **Digitale Inhalte** ohne koerperlichen Datentraeger: Das Widerrufsrecht
+  erlischt nach § 356 Abs. 6 BGB (seit 19.06.2026; zuvor Abs. 5) nur, wenn
+  kumulativ: Beginn der Vertragserfuellung, ausdrueckliche Zustimmung,
+  bestaetigte Kenntnis vom Verlust des Widerrufsrechts und Bestaetigung nach
+  § 312f BGB.
+- **Dienstleistungen**, die vollstaendig erbracht wurden (§ 356 Abs. 5 BGB).
 
 ### § 356a BGB — Elektronische Widerrufsfunktion / Widerrufs-Button
 
@@ -108,7 +121,9 @@ jeweils "oder [eine] andere gleichbedeutende eindeutige Formulierung"
 zugelassen; die Eingangsbestaetigung muss "Datum und Uhrzeit ihres Eingangs"
 enthalten (Abs. 4). Die Muster-Widerrufsbelehrung in Anlage 1 EGBGB ist durch
 **Art. 2 Nr. 7 Buchst. a** desselben Gesetzes (BGBl. 2026 I Nr. 28) angepasst
-worden: **Gestaltungshinweis 33 n. F.** sieht einen Pflicht-Einschub
+worden: **Gestaltungshinweis 3 n. F.** sieht, "wenn Sie dazu verpflichtet
+sind, eine Funktion bereitzustellen, mit der der Verbraucher den online
+geschlossenen Vertrag widerrufen kann", einen Einschub
 "Sie koennen Ihr Widerrufsrecht auch online unter ... [Internetadresse oder
 anderen geeigneten Hinweis darueber eingeben, wo die Widerrufsfunktion
 verfuegbar ist] ausueben. Wenn Sie diese Online-Funktion nutzen, uebermitteln
@@ -122,10 +137,13 @@ Widerrufserklaerung sowie dem Datum und der Uhrzeit ihres Eingangs." vor.
 - **Abs. 3:** Unternehmer muss **dasselbe Zahlungsmittel** verwenden.
 - **Abs. 4:** Unternehmer kann Rueckzahlung **zurueckhalten, bis Ware
   zurueck** oder Nachweis des Versands.
-- **Abs. 6:** Rueckversandkosten zu Lasten des Verbrauchers NUR bei
-  ordnungsgemaesser Belehrung.
-- **Abs. 7:** Wertersatz nur bei Wertverlust durch nicht zur Pruefung
-  notwendigen Umgang (z.B. Benutzung).
+- **Abs. 5:** Der Verbraucher traegt die unmittelbaren Ruecksendekosten nur,
+  wenn er nach Art. 246a § 1 Abs. 2 Satz 1 Nr. 2 EGBGB darueber unterrichtet
+  wurde und der Unternehmer sie nicht uebernommen hat.
+- **§ 357a Abs. 1 BGB:** Wertersatz nur bei Wertverlust durch nicht zur
+  Pruefung notwendigen Umgang (z.B. Benutzung) und nur nach Belehrung. Fuer
+  Dienstleistungen gilt § 357a Abs. 2, fuer digitale Inhalte § 357a Abs. 3
+  BGB. (§ 357 Abs. 7 BGB betrifft heute die Abholpflicht.)
 
 ### Anlage 1 EGBGB — Muster-Widerrufsbelehrung
 
@@ -143,26 +161,34 @@ welchen Vertragstyp einzusetzen sind. Bei sachgerechter Verwendung:
 ### Anlage 2 EGBGB — Muster-Widerrufsformular
 
 Muss dem Verbraucher zur Verfuegung gestellt werden (Pflicht der Zurverfuegung-
-stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
+stellung, § 312d Abs. 1 BGB i. V. m. Art. 246a § 1 Abs. 2 Satz 1 Nr. 1
+EGBGB).
 
 ## Typische Fallstricke in Codebases
 
 1. **Widerrufsbelehrung nur als Text auf /widerruf-Seite**, nicht im
    Bestellprozess / nicht per E-Mail nach Bestellung: Verstoss gegen
-   § 312f BGB (Bestaetigung in Textform PFLICHT).
+   § 312f Abs. 2 BGB (Vertragsbestaetigung auf dauerhaftem Datentraeger mit
+   den Angaben nach Art. 246a EGBGB, spaetestens bei Lieferung bzw. vor
+   Beginn der Dienstleistung).
 2. **Platzhalter im Template nicht ersetzt** ("[Firma einfuegen]"): sofortige
    Unwirksamkeit, Frist verlaengert sich.
 3. **Fristberechnung falsch** in Code ("14 Werktage" statt "14 Kalendertage"):
    materieller Rechtsverlust-Risiko.
-4. **Digitale Inhalte ohne Verzichtserklaerung + Bestaetigung:** Widerrufsrecht
-   bleibt bestehen; Checkbox "Ich verzichte auf mein Widerrufsrecht, wenn
-   Download beginnt" + Bestaetigungs-Mail erforderlich.
+4. **Kein Verzicht:** Bei digitalen Inhalten erlischt das Widerrufsrecht
+   unter den vier Voraussetzungen des § 356 Abs. 6 Nr. 2 BGB; bei
+   (digitalen) Dienstleistungen wie SaaS-Abos erlischt es erst mit
+   vollstaendiger Erbringung (§ 356 Abs. 5 Nr. 2 BGB).
 5. **Widerrufs-Button nicht implementiert:** Seit 19.06.2026 ist der
    elektronische Widerrufs-Button nach **§ 356a BGB n.F.** (Umsetzung
    Richtlinie (EU) 2023/2673) fuer Online-abgeschlossene Fernabsatzvertraege
-   **Pflicht** — zusaetzlich zum Widerrufsformular. Fehlender Button loest
-   zwar nicht automatisch die 12-Monats-Verlaengerung aus (Belehrung bleibt
-   wirksam), ist aber eigenstaendig wettbewerbsrechtlich abmahnbar.
+   **Pflicht** — zusaetzlich zum Widerrufsformular. Informiert die Belehrung
+   nicht ueber Bestehen und Platzierung der geschuldeten Widerrufsfunktion,
+   beginnt die Widerrufsfrist nach dem Wortlaut von § 356 Abs. 3 Satz 1 BGB
+   nicht; das Widerrufsrecht erlischt dann erst nach zwoelf Monaten und
+   14 Tagen (§ 356 Abs. 4 BGB). Fehlt nur die Funktion, waehrend die
+   Belehrung vollstaendig ist, ist die Folge fuer den Fristlauf noch nicht
+   hoechstrichterlich geklaert. Anwaltlich pruefen.
 6. **Rueckversand-Tracking + 14-Tage-Rueckzahlungsfrist:** Oft laeuft Frist
    bei Haendlern aus, bevor Ware zurueck ist — § 357 Abs. 4 erlaubt
    Zurueckbehaltung, aber Prozess muss konfiguriert sein.
@@ -193,16 +219,21 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
 
 ## Zitierbare Urteile
 
-- **EuGH C-649/17** (10.07.2019, "Amazon EU"): Informationen zur
-  Widerrufsmoeglichkeit muessen leicht zugaenglich sein.
+- **EuGH C-649/17** (10.07.2019, "Amazon EU"): keine generelle Pflicht zur
+  Angabe einer Telefonnummer; geschuldet ist ein Kommunikationsmittel fuer
+  direkte und effiziente Kommunikation (Art. 6 Abs. 1 Buchst. c
+  RL 2011/83/EU).
 - Aussage: Widerrufsbelehrung muss Fristbeginn eindeutig bezeichnen. <<VERIFIKATION AUSSTEHEND>> (vgl. Abschnitt "Nicht zitieren")
 - **BGH I ZR 123/16** (15.11.2017): Fehlende/fehlerhafte Belehrung ist
   wettbewerbsrechtlich relevant.
-- **EuGH C-641/19** (03.09.2020): Wertersatz bei Widerruf von
-  Dienstleistungen.
+- **EuGH C-641/19** (08.10.2020, "PE Digital"): Wertersatz bei Widerruf von
+  Dienstleistungen grundsaetzlich zeitanteilig auf Basis des vereinbarten
+  (Gesamt-)Preises.
 - **BGH VIII ZR 242/20** (27.04.2022): Belehrung im Video-Commerce.
-- **EuGH C-529/19** (21.10.2020, "Moebel Kraft"): Ausnahme "individuelle
-  Anfertigung" eng auszulegen.
+- **EuGH C-529/19** (21.10.2020, "Moebel Kraft"): Die Ausnahme fuer nach
+  Verbraucherspezifikation herzustellende Waren (§ 312g Abs. 2 Nr. 1 BGB)
+  greift unabhaengig davon, ob der Unternehmer mit der Herstellung bereits
+  begonnen hat.
 
 ## Nicht zitieren: falsch zugeordnete Aktenzeichen
 
@@ -249,7 +280,8 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
   § 356a-Wortlaut und zur Muster-Widerrufsbelehrung aufgeloest. Die
   konsolidierte Fassung auf gesetze-im-internet.de zeigt die neue
   Paragraphenueberschrift und den vollstaendigen Absatztext; die
-  Anpassung von Gestaltungshinweis 33 der Muster-Widerrufsbelehrung
+  Anpassung von Gestaltungshinweis 3 (berichtigt 2026-11-15, zuvor
+  faelschlich "33") der Muster-Widerrufsbelehrung
   (Anlage 1 EGBGB) ergibt sich aus Art. 2 Nr. 7 Buchst. a des
   Umsetzungsgesetzes (BGBl. 2026 I Nr. 28 vom 05.02.2026).
 - **2026-11-14 (Review-Korrekturlauf PR #17)**: ECLI-Endung fuer VIII ZR
@@ -258,3 +290,13 @@ stellung, § 312d Abs. 1 BGB iVm Art. 246a § 1 Abs. 2 Nr. 1 EGBGB).
   (`…BVIIIZR19.21.0`) gehoert zu **BGH VIII ZR 19/21** und wurde
   entsprechend abgegrenzt. Belege aus der Rechtsinformations-API des
   Bundes.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  Erloeschen nach zwoelf Monaten und 14 Tagen auf § 356 Abs. 4 Satz 1 BGB
+  n. F. umgestellt; § 356 Abs. 2 Nr. 1 Buchst. b bis d / Nr. 2 richtig
+  zugeordnet; Ausnahmekatalog an die Nummern des § 312g Abs. 2 BGB
+  angeglichen, digitale Inhalte und erbrachte Dienstleistungen in eigenen
+  Abschnitt "Vorzeitiges Erloeschen (§ 356 Abs. 5 und 6 BGB)"; Gestaltungs-
+  hinweis 3 (nicht 33) mit Bedingung "wenn Sie dazu verpflichtet sind";
+  Ruecksendekosten auf § 357 Abs. 5, Wertersatz auf § 357a BGB; § 312f
+  Abs. 2 BGB praezisiert; Fallstricke 4 und 5 neu gefasst; EuGH C-649/17,
+  C-641/19 (Datum 08.10.2020) und C-529/19 inhaltlich berichtigt.

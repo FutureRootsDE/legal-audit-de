@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62018CJ0311
 ecli: ECLI:EU:C:2020:559
 quellen-sekundaer:
@@ -41,11 +41,11 @@ Der EuGH hat am 16. Juli 2020 in der Rechtssache C-311/18 (Data Protection Commi
 
 ## Tenor (zusammengefasst)
 
-1. **Art. 2 und 4 DSGVO** sind so auszulegen, dass Übermittlungen personenbezogener Daten zu kommerziellen Zwecken durch einen EU-Wirtschaftsakteur an einen anderen Wirtschaftsakteur in einem Drittland in den Anwendungsbereich der DSGVO fallen — **unabhängig davon**, ob die Daten von den Behörden des Drittlands zu Zwecken der nationalen Sicherheit weiterverarbeitet werden.
+1. **Art. 2 Abs. 1 und 2 DSGVO** sind so auszulegen, dass Übermittlungen personenbezogener Daten zu kommerziellen Zwecken durch einen EU-Wirtschaftsakteur an einen anderen Wirtschaftsakteur in einem Drittland in den Anwendungsbereich der DSGVO fallen — **unabhängig davon**, ob die Daten von den Behörden des Drittlands zu Zwecken der nationalen Sicherheit weiterverarbeitet werden.
 
 2. **Durchführungsbeschluss 2016/1250 (Privacy Shield) ist ungültig.**
 
-3. **Durchführungsbeschluss 2010/87 (Standardvertragsklauseln Controller-to-Processor) ist gültig**, aber Datenexporteur und -importeur müssen **vor Übermittlung prüfen**, ob im Drittland ein Schutzniveau gewährleistet ist, das dem EU-Niveau im Wesentlichen gleichwertig ist. Andernfalls sind ergänzende Maßnahmen erforderlich oder die Übermittlung ist auszusetzen.
+3. **Beschluss 2010/87/EU (Standardvertragsklauseln Controller-to-Processor) ist gültig**, aber Datenexporteur und -importeur müssen **vor Übermittlung prüfen**, ob im Drittland ein Schutzniveau gewährleistet ist, das dem EU-Niveau im Wesentlichen gleichwertig ist. Andernfalls sind ergänzende Maßnahmen erforderlich oder die Übermittlung ist auszusetzen.
 
 4. **Aufsichtsbehörden sind verpflichtet**, eine SCC-gestützte Übermittlung zu untersagen oder auszusetzen, wenn kein angemessenes Schutzniveau gewährleistet werden kann.
 
@@ -137,3 +137,6 @@ Die Kernverpflichtung, die Schrems II für jede Drittland-Übermittlung etablier
   Richtig: T-553/23 hat das EuG am 03.09.2025 entschieden (Klage
   abgewiesen); anhaengig beim EuGH ist nur das Rechtsmittel C-703/25 P
   (31.10.2025). Wortlaut mit themen/drittland-transfer.md synchronisiert.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Tenor 1 auf "Art. 2 Abs. 1 und 2 DSGVO" praezisiert; SCC-Rechtsakt als
+  "Beschluss 2010/87/EU" (nicht Durchfuehrungsbeschluss) bezeichnet.

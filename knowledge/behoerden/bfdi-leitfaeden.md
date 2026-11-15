@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.bfdi.bund.de/
 quellen-sekundaer:
   - https://www.bfdi.bund.de/DE/Fachthemen/Inhalte/fachthemen_node.html
@@ -19,7 +19,7 @@ geltungsbereich: [DE]
 >
 > **Stand:** 2026-11-14
 
-# BfDI — Bundesbeauftragte für den Datenschutz und die Informationsfreiheit
+# BfDI — Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit
 
 ## Aktueller Leitungsstand (2026-11-14)
 
@@ -39,7 +39,7 @@ geltungsbereich: [DE]
 
 ## Kurz-Überblick
 
-Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) ist die unabhängige Bundesaufsichtsbehörde für Datenschutz in Deutschland. Zuständig für: öffentliche Stellen des Bundes, Telekommunikations- und Postunternehmen, Bankenaufsicht (BaFin-Bereich teils), sowie — besonders wichtig für Codebases — die Überwachung von § 29 TDDDG (Aufsicht über § 25 TDDDG = Cookie-/Tracker-Regeln auf Websites, soweit TK-bezogen). Die BfDI ist Mitglied der DSK und des EDSA und vertritt Deutschland international.
+Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) ist die unabhängige Bundesaufsichtsbehörde für Datenschutz in Deutschland. Zuständig für öffentliche Stellen des Bundes (§ 9 Abs. 1 BDSG), für Telekommunikationsunternehmen, soweit sie Telekommunikationsdienste erbringen (§ 29 Abs. 1 TDDDG, § 9 Abs. 1 BDSG), und für Postdienstleister, soweit sie Postdienstleistungen erbringen (§ 71 Abs. 1 PostG). Besonders wichtig für Codebases: Der BfDI überwacht § 25 TDDDG (Cookie-/Tracker-Regeln) nur, wenn Anbieter von Telekommunikationsdiensten oder öffentliche Stellen des Bundes speichern oder zugreifen (§ 29 Abs. 2 TDDDG); bei Websites und Apps privater Anbieter sind die Landesbehörden zuständig. Der BfDI ist Mitglied der DSK und des EDSA und vertritt Deutschland international.
 
 ## Rolle und Zuständigkeit
 
@@ -48,8 +48,8 @@ Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) i
 - Untersuchung von Beschwerden
 - Kontrolle / Audits bei Verantwortlichen
 - Beratung (Behörden, Parlament, Wirtschaft)
-- Bußgelder gegen TK-Anbieter, Bundesbehörden, Post
-- Zuständigkeit für § 29 TDDDG (Aufsicht über § 25 TDDDG)
+- Bußgelder gegen TK-Anbieter und Post; gegen Bundesbehörden keine Geldbußen (§ 43 Abs. 3 BDSG)
+- Aufsicht über § 25 TDDDG nur, wenn TK-Diensteanbieter oder öffentliche Stellen des Bundes speichern oder zugreifen (§ 29 Abs. 2 TDDDG); bei Websites und Apps privater Anbieter die Landesbehörden
 
 ### Nicht zuständig (meistens Länderbehörden):
 
@@ -62,7 +62,7 @@ Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) i
 ### Allgemeine Leitfäden
 
 - **„Datenschutz im Arbeitsverhältnis"** — Basiswissen § 26 BDSG
-- **„Orientierungshilfe Künstliche Intelligenz und Datenschutz"** (2024)
+- **DSK-Orientierungshilfe „Künstliche Intelligenz und Datenschutz"** vom 06.05.2024 (BfDI als DSK-Mitglied)
 - **„Infoblatt zu Betroffenenrechten"** (regelmäßig aktualisiert)
 
 ### Drittland-Transfer
@@ -88,8 +88,8 @@ Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) i
 
 ### Bußgeldkatalog der DSK
 
-- BfDI ist Mitherausgeber des **Konzepts der DSK zur Bußgeldzumessung bei Verstößen gegen die DSGVO** (Oktober 2019, laufend ergänzt)
-- Berechnungsformel: Jahresumsatz × Schwere-Faktor × Tatmodifikator
+- Maßgeblich für die Bußgeldzumessung sind die **EDSA-Leitlinien 04/2022 zur Berechnung von Geldbußen** (final 24.05.2023)
+- Das **Konzept der DSK zur Bußgeldzumessung** vom 14.10.2019 (BfDI als Mitherausgeber) ist dadurch abgelöst und nur noch historisch
 
 ## Tätigkeitsberichte
 
@@ -102,8 +102,7 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
 **Aktuelle Tätigkeitsberichte:**
 - 32. Tätigkeitsbericht (2023) — Fokus AI / ePA
 - 33. Tätigkeitsbericht (2024) — Fokus DSA / DMA / Daten-Raum
-- 34. Tätigkeitsbericht (2025) — Fokus AI Act / NIS 2
-- **35. Tätigkeitsbericht (Berichtsjahr 2025)** — übergeben an Bundestag in KW 19/2026 (Quelle: bundestag.de/dokumente/textarchiv/2026/kw19-datenschutzbericht-1174220)
+- **34. Tätigkeitsbericht (Berichtsjahr 2025)**, BT-Drs. 21/5950, übergeben am 06.05.2026 (Quelle: bundestag.de/dokumente/textarchiv/2026/kw19-datenschutzbericht-1174220)
 
 ## Aktuelle Initiativen 2026
 
@@ -166,3 +165,10 @@ Jährlich erscheinender Tätigkeitsbericht (ca. 200–300 Seiten), frei verfügb
   verifiziert (Antrittspressekonferenz 06.10.2026); Marker zur formalen
   Ernennung/Amtsantritt entfernt. Quellen: bundestag.de KW26/2026-Textarchiv,
   bfdi.bund.de (Startseite/Amtsleitung).
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Bezeichnung "Der Bundesbeauftragte"; Zustaendigkeit nach § 9 Abs. 1 BDSG,
+  § 29 Abs. 1 TDDDG und § 71 Abs. 1 PostG; Aufsicht ueber § 25 TDDDG nur
+  nach § 29 Abs. 2 TDDDG; keine Geldbussen gegen Bundesbehoerden (§ 43
+  Abs. 3 BDSG); KI-Orientierungshilfe als DSK-Papier vom 06.05.2024;
+  Bussgeldzumessung nach EDSA-Leitlinien 04/2022, DSK-Konzept 2019
+  abgeloest; 34. (nicht 35.) Taetigkeitsbericht, BT-Drs. 21/5950.

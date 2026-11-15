@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/bgb/
 quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__305.html
@@ -92,8 +92,10 @@ Klauseln sind unwirksam bei:
 Bedarf Einzelfallabwaegung:
 
 - Nr. 1: uebermaessige Annahmefristen
-- Nr. 1a: Zahlungsfristen > 30 Tage
-- Nr. 1b: Pruefungsfristen > 15 Tage
+- Nr. 1a: unangemessen lange Zahlungsfrist; ist der Verwender kein
+  Verbraucher, im Zweifel mehr als 30 Tage
+- Nr. 1b: Ueberpruefungs- und Abnahmefrist, im Zweifel mehr als 15 Tage
+- Nr. 1a und 1b gelten auch im B2B (§ 310 Abs. 1 Satz 1 BGB)
 - Nr. 4: Einseitige Leistungsaenderungsvorbehalte
 - Nr. 5: Fingierte Erklaerungen
 - Nr. 6: Fingierte Zugangsfiktionen
@@ -102,17 +104,25 @@ Bedarf Einzelfallabwaegung:
 
 Immer unwirksam:
 
-- **Nr. 1** — Preiserhoehung binnen 4 Monaten nach Abschluss
+- **Nr. 1** — Preiserhoehung binnen 4 Monaten nach Abschluss; gilt nicht
+  bei Waren oder Leistungen im Rahmen von Dauerschuldverhaeltnissen (also
+  nicht fuer SaaS-Abos, dort Kontrolle ueber § 307 BGB)
 - **Nr. 2** — Leistungsverweigerung / Zurueckbehaltung ausschliessen
 - **Nr. 3** — Aufrechnungsverbot (bei unbestrittener/rechtskraeftiger
   Forderung)
-- **Nr. 5** — Pauschalierter Schadensersatz
-- **Nr. 6** — Vertragsstrafen in AGB (B2C ausgeschlossen)
+- **Nr. 5** — Pauschalierter Schadensersatz, wenn die Pauschale den
+  gewoehnlichen Schaden uebersteigt oder der Gegenbeweis nicht ausdruecklich
+  gestattet wird
+- **Nr. 6** — Vertragsstrafe fuer Nichtabnahme, verspaetete Abnahme,
+  Zahlungsverzug oder Loesung vom Vertrag
 - **Nr. 7** — Haftung fuer Leben/Koerper/Gesundheit + grobe Fahrlaessigkeit /
   Vorsatz ausschliessen
 - **Nr. 8** — Maengelrechte abkuerzen / ausschliessen bei neuen Sachen
-- **Nr. 9** — Vertragsbindung > 2 Jahre, automatische Verlaengerung > 1 Jahr,
-  Kuendigungsfrist > 3 Monate (B2C, Dauerschuld-Vertraege)
+- **Nr. 9** — Laufzeit > 2 Jahre; stillschweigende Verlaengerung nur auf
+  unbestimmte Zeit mit jederzeitiger Kuendigung (Frist hoechstens 1 Monat);
+  Kuendigungsfrist > 1 Monat (B2C, Dauerschuld-Vertraege; geltende Fassung
+  fuer Vertraege seit 01.03.2022, Art. 229 § 60 EGBGB; fuer Altvertraege
+  gilt die Fassung bis 28.02.2022)
 - **Nr. 13** — Formerfordernis strenger als Textform (§ 126b BGB); in AGB
   darf nur Textform verlangt werden
 
@@ -129,8 +139,13 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
    (Kopplung), getrennte Checkboxen erforderlich.
 3. **Haftungsausschluss "fuer leichte Fahrlaessigkeit ausgeschlossen":**
    Muss ausnehmen: Leben/Koerper/Gesundheit, Kardinalpflichten.
-4. **Gewaehrleistungsausschluss > 6 Monate** (bei neuen Sachen): nicht
-   zulaessig (§ 309 Nr. 8 iVm § 438 BGB).
+4. **Verkuerzung der Gewaehrleistung:** Im Verbrauchsgueterkauf bei neuen
+   Waren keine Verjaehrung unter zwei Jahren, bei gebrauchten nicht unter
+   einem Jahr, und nur nach gesondertem Hinweis und ausdruecklicher,
+   gesonderter Vereinbarung (§ 476 Abs. 2 BGB); ein Ausschluss ist
+   unbeachtlich (§ 476 Abs. 1 BGB). Ausserhalb des Verbrauchsgueterkaufs
+   in AGB keine Frist unter einem Jahr (§ 309 Nr. 8 Buchst. b
+   Doppelbuchst. ff BGB).
 5. **Automatische Verlaengerung "um 12 Monate":** Seit 01.03.2022 nur noch
    **unbestimmte Zeit + 1-Monats-Kuendigung** zulaessig (§ 309 Nr. 9 BGB n.F.).
 6. **"Aenderungsvorbehalt der AGB":** Muss klare Aenderungsvoraussetzungen,
@@ -243,3 +258,9 @@ In B2B gelten §§ 305c, 307 BGB; §§ 308, 309 BGB nicht direkt, aber oft ueber
   (`…BVIIIZR19.21.0`) als zu **BGH VIII ZR 19/21** gehoerig ausgewiesen.
   Beide Treffer primaer ueber die Rechtsinformations-API des Bundes
   belegt.
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**:
+  § 308 Nr. 1a/1b praezisiert (Zweifelsregeln, Geltung im B2B); § 309 Nr. 1
+  um die Ausnahme fuer Dauerschuldverhaeltnisse ergaenzt; § 309 Nr. 5 und 6
+  mit ihren Tatbestaenden statt pauschalem Verbot; § 309 Nr. 9 auf die
+  Fassung seit 01.03.2022 umgestellt; Fallstrick 4 ("> 6 Monate") durch
+  § 476 BGB / § 309 Nr. 8 Buchst. b Doppelbuchst. ff BGB ersetzt.

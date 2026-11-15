@@ -2,7 +2,9 @@
 >
 > Dieses Audit wurde von einer KI (Claude, Anthropic) auf Basis oeffentlicher
 > Rechtsquellen und der angegebenen Codebase erstellt. Es ist **ausdruecklich
-> keine Rechtsberatung** im Sinne des § 2 RDG. Eine Pruefung durch einen
+> keine Rechtsberatung** und soll keine Rechtsdienstleistung im Sinne des
+> § 2 Abs. 1 RDG erbringen; es ersetzt keine rechtliche Pruefung des
+> Einzelfalls. Eine Pruefung durch einen
 > zugelassenen Rechtsanwalt (insbesondere Fachanwalt fuer IT-Recht oder
 > spezialisierten Datenschutz-Experten) ist **zwingend erforderlich**, bevor
 > Inhalte produktiv eingesetzt werden. Gesetze und Rechtsprechung aendern sich —
@@ -19,7 +21,7 @@
 | **Git-Commit** | `<sha>` |
 | **Codebase-Typ** | Next.js SaaS / Landingpage / n8n / E-Commerce / Content |
 | **Geprueft auf** | DSGVO · BDSG · TDDDG · UWG · PAngV · BGB/AGB · DDG · DSA · DMA · AI Act · BFSG · UrhG · MarkenG · NIS2 |
-| **NICHT geprueft** | Strafrecht, Arbeitsrecht, Steuerrecht (ausser HGB § 257), Gesellschaftsrecht, Nicht-EU-Rechtsordnungen |
+| **NICHT geprueft** | Strafrecht, Arbeitsrecht, Steuerrecht (ausser Aufbewahrungsfristen § 257 HGB, § 147 AO, § 14b UStG), Gesellschaftsrecht, Nicht-EU-Rechtsordnungen |
 | **Gesamt-Severity** | CRIT: N · HIGH: N · MED: N · LOW: N |
 | **Audit-Engine** | legal-audit-de v1.0 / legal-auditor (haiku) + legal-researcher (sonnet) + legal-text-writer (sonnet) |
 | **Zitat-Verifikations-Log** | `.claude/logs/zitate-verifikation-<YYYY-MM-DD>.log` |

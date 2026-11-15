@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.gesetze-im-internet.de/ddg/__5.html
 quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0040
@@ -24,13 +24,15 @@ geltungsbereich: [DE, EU]
 
 Jedes geschaeftlich genutzte Social-Media-Profil (Facebook-Seite, Instagram-Business,
 TikTok-Business, X-Company, LinkedIn Company Page, YouTube-Kanal, Pinterest-Business)
-ist ein **Telemedium** im Sinne des DDG und unterliegt damit:
+ist ein **digitaler Dienst** im Sinne des DDG (und ein Telemedium im Sinne des MStV) und unterliegt damit:
 
 1. **Impressumspflicht** (§ 5 DDG; bei journalistisch-redaktionellen Inhalten zusaetzlich § 18 MStV)
 2. **Datenschutzerklaerungspflicht** (Art. 13 DSGVO) — trotz technischer Einschraenkungen
    der Plattform (kein eigenes Dokument? dann als Link in Bio/Info/Verknuepfung)
-3. **Gemeinsame Verantwortlichkeit** mit Plattform-Betreiber gemaess Art. 26 DSGVO
-   (Joint-Controller-Agreement mit Meta/TikTok/X/LinkedIn/Google ist zwingend)
+3. **Gemeinsame Verantwortlichkeit** mit Plattform-Betreiber gemaess Art. 26 DSGVO:
+   fuer Facebook-Fanpages entschieden (EuGH C-210/16); fuer andere Plattformen
+   im Einzelfall zu pruefen. Soweit sie besteht, ist eine Vereinbarung nach
+   Art. 26 DSGVO Pflicht.
 
 Ebenso fallen **eingebettete Social-Media-Plugins** (Like-Button, Share-Button,
 YouTube-Embed, Instagram-Feed-Widget) auf der eigenen Website unter diese Regeln.
@@ -59,21 +61,30 @@ erreichbar und staendig verfuegbar"** halten:
 > […] haben zusaetzlich einen Verantwortlichen mit Angabe des Namens und der
 > Anschrift zu benennen."
 
-**Trifft zu**, wenn die Seite regelmaessig Nachrichten, Meinungsbeitraege oder
-Analysen veroeffentlicht — also bei fast jedem Content-Marketing-Account.
+**Trifft nur zu** bei journalistisch-redaktionell gestalteten Angeboten (etwa
+regelmaessige Nachrichten, Meinungsbeitraege oder Analysen). Content-Marketing
+ist nicht pauschal erfasst; Einzelfallpruefung.
 
 ### § 18 Abs. 3 MStV (Social Bots / KI-Content)
 
 > "Anbieter von Telemedien in sozialen Netzwerken sind verpflichtet, bei mittels
 > eines Computerprogramms automatisiert erstellten Inhalten […] den Umstand der
-> Automatisierung kenntlich zu machen."
+> Automatisierung kenntlich zu machen, […] sofern das hierfuer verwandte
+> Nutzerkonto seinem aeusseren Erscheinungsbild nach fuer die Nutzung durch
+> natuerliche Personen bereitgestellt wurde."
+
+Die Kennzeichnungspflicht greift also nur, wenn das Konto nach seinem aeusseren
+Erscheinungsbild fuer natuerliche Personen bereitgestellt ist; ein erkennbares
+Unternehmensprofil ist nicht erfasst.
 
 Siehe dazu ausfuehrlich [[ki-transparenz]].
 
 ### Art. 26 DSGVO (Gemeinsam Verantwortliche)
 
-Fanpage-Betreiber und Plattform-Betreiber sind **gemeinsam** verantwortlich.
-Das verlangt:
+Fuer Facebook-Fanpages ist entschieden, dass Fanpage-Betreiber und
+Plattform-Betreiber **gemeinsam** verantwortlich sind (EuGH C-210/16); fuer
+andere Plattformen ist das im Einzelfall zu pruefen. Soweit gemeinsame
+Verantwortlichkeit besteht, verlangt das:
 
 - Joint-Controller-Vereinbarung (wird von Meta, LinkedIn etc. bereitgestellt)
 - Transparente Information der Betroffenen (Art. 26 Abs. 2 DSGVO)
@@ -87,7 +98,7 @@ Das verlangt:
 | `<iframe src="youtube.com/...">` ohne Einwilligung | YouTube setzt Cookies + traegt IP an Google US | `youtube-nocookie.com` + Consent-Gate |
 | Instagram-Feed-Widget (embed) | Meta-Tracking aktiv | Serverseitiger Feed-Proxy oder Consent-Gate |
 | Fehlendes Impressum im TikTok-Profil (nur Link in Bio) | § 5 DDG-Verstoss, Abmahnrisiko | Impressum-Link in Bio (Linktree, eigene Domain) |
-| Datenschutzerklaerung fehlt auf Fanpage | EuGH C-210/16 | DSE auf eigener Website + Verlinkung im "Info"-Bereich |
+| Datenschutzinformation fehlt auf Fanpage | Verstoss gegen Art. 13 DSGVO (i. V. m. Art. 26 Abs. 2 S. 2); Fanpage-Betreiber ist (Mit-)Verantwortlicher (EuGH C-210/16, Tenor 1) | DSE auf eigener Website + Verlinkung im "Info"-Bereich |
 | Kein Joint-Controller-Agreement mit Meta unterzeichnet | Art. 26 DSGVO-Verstoss | Meta-Anhang "Informationen zu Page Insights" akzeptieren + referenzieren |
 
 ## Relevanz fuer Codebase-Typen
@@ -119,7 +130,9 @@ Siehe [[cookie-consent]] fuer Consent-Management.
 ### n8n
 
 - Wenn n8n-Workflows automatisiert Social-Media-Posts erstellen: § 18 Abs. 3 MStV
-  verlangt Kennzeichnung als automatisiert erstellter Inhalt
+  verlangt Kennzeichnung als automatisiert erstellter Inhalt nur, wenn das
+  genutzte Konto nach seinem aeusseren Erscheinungsbild fuer natuerliche
+  Personen bereitgestellt ist (nicht bei erkennbarem Unternehmensprofil)
 
 ## Behoerden-Hinweise / Gerichtspraxis
 
@@ -135,21 +148,26 @@ Siehe [[cookie-consent]] fuer Consent-Management.
 
 ### EuGH C-210/16 (Wirtschaftsakademie Schleswig-Holstein), 05.06.2018
 
-> Der Betreiber einer auf Facebook unterhaltenen Fanpage ist gemeinsam mit
-> Facebook fuer die Verarbeitung der personenbezogenen Daten der Besucher seiner
-> Seite i.S.v. Art. 2 Buchst. d der Richtlinie 95/46/EG verantwortlich.
+> […] dass der Begriff des „fuer die Verarbeitung Verantwortlichen“ […] den
+> Betreiber einer bei einem sozialen Netzwerk unterhaltenen Fanpage umfasst.
+
+(Tenor 1, zu Art. 2 Buchst. d der Richtlinie 95/46/EG)
 
 Kernfolge: Joint-Controller-Pflicht auch ohne Zugriff auf die Rohdaten.
 
 ### EuGH C-40/17 (Fashion ID), 29.07.2019
 
-> Der Betreiber einer Website, der in diese ein Social-Plugin [Facebook Like-Button]
-> einbindet, […] ist fuer die Verarbeitungsvorgaenge der Erhebung und
-> Uebermittlung der personenbezogenen Daten der Besucher seiner Website an
-> Facebook gemeinsam mit diesem Anbieter verantwortlich.
+Zum Website-Betreiber, der ein Social-Plugin einbindet (Tenor 2):
 
-Kernfolge: Pflicht zur Einwilligung **vor** Laden des Plugins; Shariff-/2-Klick-
-Loesung praxisueblich.
+> […] kann als fuer die Verarbeitung Verantwortlicher […] angesehen werden.
+> Diese Verantwortlichkeit ist jedoch […] beschraenkt, […] d. h. das Erheben
+> […] und deren Weitergabe durch Uebermittlung.
+
+Kernfolge: Der Website-Betreiber ist fuer Erhebung und Uebermittlung
+mitverantwortlich und muss dafuer informieren und eine erforderliche
+Einwilligung selbst einholen (Tenor 2, 4). Die Einwilligungspflicht vor dem
+Laden folgt in Deutschland aus § 25 Abs. 1 TDDDG. Shariff-/2-Klick-Loesung
+praxisueblich.
 
 ### OVG Schleswig-Holstein, 4 LB 20/13, 25.11.2021 (Anordnung zur Deaktivierung einer Fanpage rechtmaessig)
 
@@ -157,7 +175,7 @@ Verifiziert ueber Pressemitteilung des ULD (Unabhaengiges Landeszentrum fuer
 Datenschutz Schleswig-Holstein). Das OVG bestaetigte rueckwirkend, dass die
 ULD-Anordnung aus 2011 rechtmaessig war. <<VERIFIKATION AUSSTEHEND>>
 
-### BVerwG, 6 C 15.18, 11.09.2019 (Facebook-Fanpages, Vorinstanz nach EuGH C-210/16)
+### BVerwG, 6 C 15.18, 11.09.2019 (Facebook-Fanpages, Revisionsentscheidung nach Vorabentscheidung EuGH C-210/16)
 
 Pressemitteilung Nr. 62/2019: Eine Datenschutzaufsichtsbehoerde kann den
 Betreiber einer Facebook-Fanpage zur Deaktivierung verpflichten, wenn von der
@@ -175,8 +193,10 @@ Fanpage aus Datenschutzverstoesse begangen werden.
       laden **vor** Consent
 - [ ] Fuer YouTube-Embeds: `youtube-nocookie.com`-Domain verwendet
 - [ ] Fuer Instagram-Embeds: serverseitiger Proxy oder Consent-Gate
-- [ ] Automatisierte Posts sind als "automatisiert erstellt" gekennzeichnet
-      (§ 18 Abs. 3 MStV)
+- [ ] Automatisierte Posts sind als "automatisiert erstellt" gekennzeichnet,
+      sofern das Konto nach seinem aeusseren Erscheinungsbild fuer natuerliche
+      Personen bereitgestellt ist (§ 18 Abs. 3 MStV; nicht bei erkennbarem
+      Unternehmensprofil)
 - [ ] Netzwerk-Analyse (DevTools) zeigt **keine** Requests an Drittdienste
       vor Klick auf "Akzeptieren"
 
@@ -231,3 +251,11 @@ Siehe [[datenschutzerklaerung]] fuer vollstaendige Struktur.
   Datenschutzerklaerung — Formulierung im DSE-Passus entsprechend vorsichtig
   halten.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Profil als digitaler Dienst (DDG) bzw. Telemedium (MStV); gemeinsame
+  Verantwortlichkeit nur fuer Facebook-Fanpages entschieden, sonst
+  Einzelfallpruefung; § 18 Abs. 2 MStV nicht pauschal fuer Content-Marketing;
+  § 18 Abs. 3 MStV um den Bedingungssatz (Erscheinungsbild natuerliche
+  Person) ergaenzt; Tenorzitate C-210/16 und C-40/17 am Tenorwortlaut
+  ausgerichtet; Kernfolge Fashion ID praezisiert; BVerwG 6 C 15.18 als
+  Revisionsentscheidung bezeichnet.

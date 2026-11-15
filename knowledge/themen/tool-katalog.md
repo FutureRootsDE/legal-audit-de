@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
 quellen-sekundaer:
   - https://www.edpb.europa.eu/
@@ -48,19 +48,19 @@ Katalog von rund 100 verbreiteten Web-/SaaS-Tools mit Einordnung nach Einwilligu
 | Plausible Analytics | Plausible Insights OÜ (Estland) | ✅ | 🇪🇺 EU (Hetzner DE) | `plausible.io/api/event`, `@plausible.io/tracker` | Cookie-frei, keine PII, laut Anbieter ohne Banner nutzbar; Self-Host (MIT) verfügbar |
 | Matomo (Self-Host) | InnoCraft Ltd (NZ, Software) | ⚠️ | 🇪🇺 EU (wenn selbst gehostet) | `matomo.js`, `piwik.js`, `_paq.push` | Cookie-less-Mode + IP-Anonymisierung + respectDoNotTrack → einwilligungsfrei möglich laut Aufsichtsbehörden |
 | Matomo Cloud | InnoCraft Ltd | ❌ | 🇪🇺 EU (Frankreich) | `*.matomo.cloud` | Cloud-Variante setzt Cookies standardmäßig |
-| Fathom Analytics | Conva Ventures Inc. (Kanada) | ✅ | 🇺🇸 US-DPF (EU-isolated Pipeline) | `usefathom.com/script.js`, `cdn.usefathom.com` | Cookie-frei; EU-Besucher-IPs nach Schrems II auf EU-Infrastruktur isoliert |
+| Fathom Analytics | Conva Ventures Inc. (Kanada) | ✅ | 🌐 Drittland Kanada (Angemessenheitsbeschluss für PIPEDA-unterworfene Stellen prüfen); kein DPF-Teilnehmer (Abruf DPF-Liste 14.11.2026) | `usefathom.com/script.js`, `cdn.usefathom.com` | Cookie-frei; EU-Besucher-IPs nach Schrems II auf EU-Infrastruktur isoliert |
 | Simple Analytics | Simple Analytics B.V. (NL) | ✅ | 🇪🇺 EU (Niederlande) | `scripts.simpleanalyticscdn.com`, `queue.simpleanalyticscdn.com` | Cookie-frei, kein persönlicher Identifier |
 | PostHog | PostHog Inc. (US) | ❌ (Default) / ⚠️ (Self-Host, cookieless) | 🔀 US-DPF oder 🇪🇺 EU (Frankfurt) | `posthog-js`, `app.posthog.com`, `eu.i.posthog.com` | PostHog Cloud EU seit 2023; Self-Host + Cookieless möglich; sonst einwilligungspflichtig |
 | Mixpanel | Mixpanel Inc. | ❌ | 🇺🇸 US-DPF | `mixpanel-browser`, `api.mixpanel.com`, `api-eu.mixpanel.com` | EU-Residency via "EU Data Residency"-Tier buchbar |
 | Amplitude | Amplitude Inc. | ❌ | 🇺🇸 US-DPF | `@amplitude/analytics-browser`, `api2.amplitude.com`, `api.eu.amplitude.com` | EU-Endpoint verfügbar; trotzdem Einwilligung nötig |
-| Heap | Heap Inc. (Contentsquare) | ❌ | 🇺🇸 US-DPF | `heap.js`, `heapanalytics.com` | Session-Recording möglich → ggf. DSFA nötig |
+| Heap | Contentsquare (Heap integriert) | ❌ | 🇺🇸 US-DPF über Contentsquare aktiv (Abruf 14.11.2026); ob Heap erfasst ist, am DPA prüfen | `heap.js`, `heapanalytics.com` | Session-Recording möglich → ggf. DSFA nötig |
 | Pirsch Analytics | Emvi Software GmbH (DE) | ✅ | 🇪🇺 EU (Deutschland) | `pirsch.io/pirsch.js`, `api.pirsch.io` | Deutsches Unternehmen, Hetzner-Hosting, cookie-frei |
 
 ### Werbe- / Tracking-Pixel (10 Tools)
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| Meta Pixel (Facebook) | Meta Platforms Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `fbq(`, `connect.facebook.net/.../fbevents.js` | Gemeinsame Verantwortlichkeit (C-210/16 Fashion ID); Joint-Controller-Vertrag nötig |
+| Meta Pixel (Facebook) | Meta Platforms Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `fbq(`, `connect.facebook.net/.../fbevents.js` | Gemeinsame Verantwortlichkeit (EuGH C-40/17 Fashion ID, 29.07.2019); Joint-Controller-Vertrag nötig |
 | Google Ads Conversion | Google Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `gtag('event', 'conversion'`, `googleadservices.com`, `google.com/pagead` | Consent Mode v2 seit 2024 Pflicht für EU-Traffic |
 | LinkedIn Insight Tag | LinkedIn Ireland | ❌ | 🇺🇸 US-DPF | `_linkedin_partner_id`, `snap.licdn.com/li.lms-analytics/insight.min.js` | |
 | TikTok Pixel | TikTok Technology Ltd. (IE) / ByteDance | ❌ | 🌐 Drittland (CN-Verbindung kritisch) | `ttq.`, `analytics.tiktok.com/i18n/pixel/events.js` | TikTok-Nutzung für Behörden z. T. untersagt; DSFA ratsam |
@@ -68,8 +68,8 @@ Katalog von rund 100 verbreiteten Web-/SaaS-Tools mit Einordnung nach Einwilligu
 | Reddit Pixel | Reddit Inc. | ❌ | 🇺🇸 US-DPF | `rdt(`, `redditstatic.com/ads/pixel.js` | |
 | Microsoft Clarity | Microsoft Corp. | ❌ | 🇺🇸 US-DPF | `clarity.ms/tag/`, `clarity('set'` | Session-Replay → DSFA-Verdacht |
 | Microsoft Advertising UET | Microsoft Corp. | ❌ | 🇺🇸 US-DPF | `uetq`, `bat.bing.com/bat.js` | |
-| X / Twitter Pixel | X Corp. | ❌ | 🇺🇸 US-kritisch (DPF-Status umstritten) | `twq(`, `static.ads-twitter.com/uwt.js` | |
-| Outbrain Pixel | Outbrain Inc. | ❌ | 🇺🇸 US-DPF | `OB_ADV_ID`, `widgets.outbrain.com/outbrain.js` | |
+| X / Twitter Pixel | X Corp. (US) | ❌ | 🇺🇸 US-DPF aktiv (Stand 14.11.2026) | `twq(`, `static.ads-twitter.com/uwt.js` | Einwilligungspflicht bleibt |
+| Outbrain Pixel | Outbrain Inc. | ❌ | 🇺🇸 USA: DPF-Status nicht gesichert, aktuell auf dataprivacyframework.gov/list prüfen; Transfergrundlage im Einzelfall prüfen (DPF oder SCC) | `OB_ADV_ID`, `widgets.outbrain.com/outbrain.js` | |
 
 ### Tag-Manager (3 Tools)
 
@@ -112,7 +112,7 @@ Eine CMP selbst ist zur Einwilligungs-Erfüllung "unbedingt erforderlich" (§ 25
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
 | Intercom | Intercom Inc. (US) / Intercom R&D Ltd. (IE) | ❌ | 🔀 US-DPF / 🇪🇺 EU (EU-Data-Hosting buchbar) | `widget.intercom.io`, `Intercom(` | Cookies werden vor Chat-Nutzung gesetzt → Consent |
-| Drift | Drift.com Inc. (Salesloft, US) | ❌ | 🇺🇸 US-DPF | `js.driftt.com/include/*.js`, `drift.load` | |
+| Drift | Drift.com Inc. (Salesloft, US) | ❌ | 🇺🇸 USA: Transfergrundlage im Einzelfall prüfen (DPF oder SCC) | `js.driftt.com/include/*.js`, `drift.load` | DPF-Liste (Abruf 14.11.2026): Drift.com, Inc. "Inactive - Lapse", Salesloft "Active"; Vertragspartner und Abdeckung über Salesloft prüfen |
 | Crisp | Crisp IM SAS (FR) | ❌ | 🇪🇺 EU (Frankreich) | `client.crisp.chat/l.js`, `CRISP_WEBSITE_ID` | Französischer Anbieter |
 | Userlike | Userlike UG (DE) | ❌ | 🇪🇺 EU (Deutschland) | `userlike-cdn-widgets.s3-eu-west-1.amazonaws.com` | Deutscher Anbieter |
 | tawk.to | tawk.to inc. (US) | ❌ | 🇺🇸 US-DPF | `embed.tawk.to/*/default` | Kostenlos, aber Daten in US |
@@ -133,7 +133,7 @@ Meist serverseitig → § 25 TDDDG nicht einschlägig. Einwilligung **für den N
 | ActiveCampaign | ActiveCampaign LLC (US) | ❌ | 🇺🇸 US-DPF | `trackcmp.net`, `activehosted.com` | Site-Tracking setzt Cookies |
 | HubSpot Marketing | HubSpot Inc. (US) | ❌ | 🇺🇸 US-DPF | `js.hs-scripts.com`, `js.hs-analytics.net`, `forms.hubspot.com` | EU-Region über `-eu1` verfügbar |
 | Klaviyo | Klaviyo Inc. (US) | ❌ | 🇺🇸 US-DPF | `static.klaviyo.com/onsite/js/klaviyo.js`, `_learnq` | E-Commerce-Fokus |
-| ConvertKit / Kit | Kit.com Inc. (US) | ❌ | 🇺🇸 US-DPF | `ck.convertkit.com/*`, `f.convertkit.com` | |
+| ConvertKit / Kit | Kit, Inc. (US) | ❌ | 🇺🇸 US-DPF aktiv (Abruf 14.11.2026) | `ck.convertkit.com/*`, `f.convertkit.com` | |
 | SendGrid | Twilio Inc. (US) | ⚠️ (serverseitig primär) | 🇺🇸 US-DPF | `sendgrid.net`, Mail-Header `X-SG-EID` | Transaktional; Open-Tracking deaktivierbar |
 | Resend | Resend Inc. (US) | ⚠️ (serverseitig) | 🇺🇸 US-DPF | `resend.com/api`, npm `resend` | Neuer Anbieter, AVV vorhanden |
 
@@ -143,11 +143,11 @@ Payment-Provider sind üblicherweise "zur Vertragsanbahnung unbedingt erforderli
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| Stripe | Stripe Inc. (US) / Stripe Payments Europe (IE) | ✅ (Checkout) / ❌ (Stripe Radar vor Checkout) | 🇺🇸 US-DPF | `js.stripe.com/v3/`, `@stripe/stripe-js`, `@stripe/react-stripe-js` | Stripe.js lädt Fraud-Detection-Fingerprint — LG Münster 016 O 103/24 (2024) zur Einwilligungsfrage beachten |
+| Stripe | Stripe, LLC (US) / Stripe Payments Europe (IE) | ✅ (Checkout) / ❌ (Stripe Radar vor Checkout) | 🇺🇸 US-DPF (Stripe, LLC aktiv, Abruf 14.11.2026) | `js.stripe.com/v3/`, `@stripe/stripe-js`, `@stripe/react-stripe-js` | Stripe.js lädt Fraud-Detection-Fingerprint — LG Münster 016 O 103/24 (2024) zur Einwilligungsfrage beachten |
 | PayPal | PayPal (Europe) S.à r.l. (LU) | ✅ (Checkout) / ❌ (Button-Tracking) | 🇪🇺 EU (Luxemburg, Transfers an US-Mutter) | `paypal.com/sdk/js`, `@paypal/react-paypal-js` | SDK lädt Tracking, vor Checkout-Klick Einwilligung empfohlen |
 | Mollie | Mollie B.V. (NL) | ✅ | 🇪🇺 EU (Niederlande) | `api.mollie.com`, Composer `mollie/mollie-api-php` | EU-Anbieter, DSGVO-freundlich |
 | Adyen | Adyen N.V. (NL) | ✅ | 🇪🇺 EU (Niederlande) | `checkoutshopper-live.adyen.com`, `@adyen/adyen-web` | EU-Anbieter |
-| Braintree | Braintree (PayPal, US) | ✅ (Checkout) / ❌ (Fraud-Pixel) | 🇺🇸 US-DPF | `js.braintreegateway.com/web/*`, `braintree-web` | |
+| Braintree | Braintree (PayPal, US) | ✅ (Checkout) / ❌ (Fraud-Pixel) | 🇺🇸 US-kritisch (kein DPF-Eintrag gefunden, Abruf 14.11.2026; SCCs prüfen) | `js.braintreegateway.com/web/*`, `braintree-web` | |
 | Klarna | Klarna Bank AB (SE) | ✅ (Checkout) / ❌ (On-Site-Messaging-Widget) | 🇪🇺 EU (Schweden) | `x.klarnacdn.net/kp/lib/*.js`, `klarna-payments` | Klarna Messaging → Cookies & Einwilligung |
 
 ### Fonts / CDN (6 Tools)
@@ -180,7 +180,7 @@ Payment-Provider sind üblicherweise "zur Vertragsanbahnung unbedingt erforderli
 | Typeform | Typeform S.L. (ES) | ❌ | 🇪🇺 EU (Spanien) | `embed.typeform.com/next/embed.js`, `@typeform/embed` | EU-Anbieter; Form-Embed setzt Cookies |
 | Jotform | Jotform Inc. (US) | ❌ | 🇺🇸 US-DPF | `form.jotform.com/jsform/*`, `cdn.jotfor.ms` | EU-Safe-Mode mit EU-Servern buchbar |
 | Tally | Tally Forms bvba (BE) | ✅ (Basic) | 🇪🇺 EU (Belgien) | `tally.so/embed/*`, `tally.so/widgets/embed.js` | Cookie-frei-Default |
-| Formspree | Formspree Inc. (US) | ⚠️ (serverseitig) | 🇺🇸 US-DPF | `formspree.io/f/*` als `<form action>` | Nur Form-Submit → serverseitig, keine Client-Cookies |
+| Formspree | Formspree Inc. (US) | ⚠️ (serverseitig) | 🇺🇸 US-kritisch (DPF-Teilnahme zurückgezogen/beendet, Abruf 14.11.2026) | `formspree.io/f/*` als `<form action>` | Nur Form-Submit → serverseitig, keine Client-Cookies |
 | Google Forms | Google Ireland Ltd. | ❌ | 🇺🇸 US-DPF | `docs.google.com/forms/*`, `<iframe src="docs.google.com/forms` | Lädt Google-Cookies |
 
 ### Error / Monitoring (6 Tools)
@@ -190,18 +190,18 @@ Payment-Provider sind üblicherweise "zur Vertragsanbahnung unbedingt erforderli
 | Sentry | Functional Software Inc. (US) / Sentry GmbH (DE, EU-Tenant) | ⚠️ | 🔀 US-DPF / 🇪🇺 EU (de.sentry.io) | `@sentry/browser`, `@sentry/nextjs`, `Sentry.init` | Error-Monitoring kann als "unbedingt erforderlich" eingeordnet werden (Sicherheit), wenn `sendDefaultPii: false` und Session-Replay aus |
 | Datadog RUM | Datadog Inc. (US) | ❌ | 🇺🇸 US-DPF | `@datadog/browser-rum`, `datadoghq.com`, `datadoghq.eu` | EU-Site als `.eu`-Domain |
 | Rollbar | Rollbar Inc. (US) | ⚠️ | 🇺🇸 US-DPF | `rollbar.com/rollbar.js`, `@rollbar/browser` | |
-| Bugsnag | SmartBear / Insight Hub | ⚠️ | 🇺🇸 US-DPF | `@bugsnag/js`, `notify.bugsnag.com` | |
+| Bugsnag | SmartBear / Insight Hub | ⚠️ | 🇺🇸 US-kritisch (DPF-Eintrag SmartBear erloschen, Abruf 14.11.2026) | `@bugsnag/js`, `notify.bugsnag.com` | |
 | LogRocket | LogRocket Inc. (US) | ❌ | 🇺🇸 US-DPF | `cdn.logrocket.io/LogRocket.min.js` | Session-Replay → Einwilligung zwingend |
 | Raygun | Raygun Ltd. (NZ) | ⚠️ | 🌐 Drittland (Neuseeland hat EU-Angemessenheitsbeschluss) | `cdn.raygun.io/*.js`, `Raygun.init` | Neuseeland Angemessenheits-Level |
 
 ### Social-Media-Embeds (8 Tools)
 
-Alle Social Plugins setzen Cookies beim Laden und übertragen IP + User-Agent an den Plattform-Betreiber (C-210/16 "Fashion ID"). Konsequenz: Einwilligung + 2-Klick-Lösung. Alternative: statische Vorschau-Bilder + Deep-Link.
+Alle Social Plugins setzen Cookies beim Laden und übertragen IP + User-Agent an den Plattform-Betreiber (EuGH C-40/17 "Fashion ID", 29.07.2019; C-210/16 "Wirtschaftsakademie", 05.06.2018, betrifft nur Fanpages). Konsequenz: Einwilligung + 2-Klick-Lösung. Alternative: statische Vorschau-Bilder + Deep-Link.
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| Facebook Like / Share | Meta Platforms Ireland | ❌ | 🇺🇸 US-DPF | `connect.facebook.net/*/sdk.js`, `fb-root`, `fb:like` | Joint-Controller (C-210/16) |
-| X / Twitter Embed | X Corp. | ❌ | 🇺🇸 US-kritisch | `platform.twitter.com/widgets.js`, `<blockquote class="twitter-tweet">` | DPF-Status umstritten |
+| Facebook Like / Share | Meta Platforms Ireland | ❌ | 🇺🇸 US-DPF | `connect.facebook.net/*/sdk.js`, `fb-root`, `fb:like` | Joint-Controller (C-40/17 Fashion ID) |
+| X / Twitter Embed | X Corp. (US) | ❌ | 🇺🇸 US-DPF aktiv (Stand 14.11.2026) | `platform.twitter.com/widgets.js`, `<blockquote class="twitter-tweet">` | Einwilligungspflicht bleibt |
 | Instagram Embed | Meta Platforms Ireland | ❌ | 🇺🇸 US-DPF | `www.instagram.com/embed.js`, `<blockquote class="instagram-media">` | |
 | LinkedIn Embed | LinkedIn Ireland | ❌ | 🇺🇸 US-DPF | `platform.linkedin.com/in.js`, `<script type="IN/*">` | |
 | YouTube Embed | Google Ireland | ❌ | 🇺🇸 US-DPF | s. Video/Media | nocookie-Variante erlaubt, trotzdem Einwilligung |
@@ -233,8 +233,8 @@ Alle AI-APIs sind **serverseitig** — § 25 TDDDG greift nur bei clientseitigem
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| OpenAI API | OpenAI LLC (US) | ⚠️ (serverseitig) | 🇺🇸 US-DPF | `openai` (npm/pip), `api.openai.com/v1/*` | AVV-Vorlage unter `openai.com/policies/data-processing-addendum`; EU-Residency Okt. 2024 angekündigt |
-| Anthropic Claude | Anthropic PBC (US) | ⚠️ (serverseitig) | 🇺🇸 US-DPF | `@anthropic-ai/sdk`, `anthropic` (pip), `api.anthropic.com` | DPA vorhanden; Default: 30 Tage Retention (Zero-Retention auf Antrag) |
+| OpenAI API | OpenAI LLC (US) | ⚠️ (serverseitig) | 🇺🇸 US-kritisch / Drittland, kein DPF-Eintrag (Stand 14.11.2026), SCC-Basis | `openai` (npm/pip), `api.openai.com/v1/*` | AVV-Vorlage unter `openai.com/policies/data-processing-addendum`; EU-Residency Okt. 2024 angekündigt |
+| Anthropic Claude | Anthropic PBC (US) | ⚠️ (serverseitig) | 🌐 Drittland, kein DPF-Eintrag (Stand 14.11.2026), SCCs | `@anthropic-ai/sdk`, `anthropic` (pip), `api.anthropic.com` | DPA vorhanden; Default: 30 Tage Retention (Zero-Retention auf Antrag) |
 | Mistral AI | Mistral AI SAS (FR) | ⚠️ (serverseitig) | 🇪🇺 EU (Frankreich) | `@mistralai/mistralai`, `api.mistral.ai` | EU-Anbieter |
 | Azure OpenAI | Microsoft Ireland (EU-Region) | ⚠️ (serverseitig) | 🔀 🇪🇺 EU / 🇺🇸 US-DPF (Region-Wahl) | `openai.azure.com`, `@azure/openai` | EU-Regionen (`westeurope`, `germanywestcentral`) verfügbar |
 | Google Gemini / Vertex AI | Google Ireland | ⚠️ (serverseitig) | 🔀 🇪🇺 EU / 🇺🇸 US-DPF | `generativelanguage.googleapis.com`, `@google/generative-ai` | Vertex AI mit EU-Region; Gemini-API meist US |
@@ -340,3 +340,12 @@ Zu Tools, die nicht hier gelistet sind: Einordnung per ad-hoc-Check. Ein Tool is
   (DPF-Status, Anbieter-Sitz, EU-Residency-Optionen, AVV-Links) im Rahmen
   dieses Batches nicht erfolgen konnte. Spot-Checks ohne Befund von
   Aenderungen; naechste Vollpruefung empfohlen zu Q1/2027.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Fashion ID richtig als C-40/17 (C-210/16 Wirtschaftsakademie nur
+  Fanpages); DPF-Angaben mit Abrufdatum 14.11.2026 berichtigt fuer X Corp.
+  (aktiv), Fathom (Kanada, kein DPF), Heap (ueber Contentsquare), Kit,
+  Stripe, LLC, OpenAI und Anthropic (kein DPF-Eintrag, SCCs), Braintree
+  (kein Eintrag), Formspree (zurueckgezogen), Bugsnag/SmartBear
+  (erloschen), Drift (Drift.com erloschen, Salesloft aktiv); Outbrain:
+  widerspruechlicher Befund, Status gestrichen und Verweis auf
+  dataprivacyframework.gov.

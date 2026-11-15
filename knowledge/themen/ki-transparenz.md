@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 quellen-sekundaer:
   - http://data.europa.eu/eli/reg/2026/1744/oj
@@ -27,7 +27,8 @@ eli-aendvo: http://data.europa.eu/eli/reg/2026/1744/oj
 > **Status-Hinweis:** Art. 50 KI-VO ist seit **02.08.2026 anwendbar**. Chatbot-
 > Hinweise, Deepfake-Kennzeichnung und maschinenlesbare Markierung synthetischer
 > Inhalte sind damit bereits seit ueber drei Monaten geltendes Recht. Der
-> Digital Omnibus on AI (VO (EU) 2026/1744, in Kraft seit 27.07.2026) hat die
+> Digital Omnibus on AI (VO (EU) 2026/1744, in Kraft seit 27.07.2026 nach ihrem
+> Art. 4) hat die
 > Transparenzpflichten des Art. 50 Abs. 1 bis 4 inhaltlich **nicht entschaerft**;
 > er fuehrt lediglich in Art. 111 Abs. 4 eine Uebergangsfrist bis 02.12.2026 fuer
 > die maschinenlesbare Markierung durch generative KI-Systeme ein, die bereits
@@ -67,9 +68,9 @@ Die am **08.05.2026** veröffentlichten **Entwurf-Leitlinien der Kommission zu A
 
 ### Art. 50 Abs. 2 — Wasserzeichen / maschinenlesbare Kennzeichnung
 
-**Adressat:** Anbieter von KI-Systemen, die **synthetische Audio-, Bild-, Video- oder Textinhalte** erzeugen oder manipulieren.
+**Adressat:** ausdruecklich der **Anbieter des KI-Systems** (einschliesslich KI-Systemen mit allgemeinem Verwendungszweck), das **synthetische Audio-, Bild-, Video- oder Textinhalte** erzeugt. Nicht Adressat ist, wer mit einem fremden System erzeugte Inhalte nur verwendet (Betreiber); Betreiber treffen nur die Pflichten nach Art. 50 Abs. 3 und 4.
 
-**Pflicht:** Outputs muessen in einem **maschinenlesbaren Format** markiert und als kuenstlich erzeugt/manipuliert erkennbar gemacht werden.
+**Pflicht:** Der Anbieter stellt sicher, dass die Ausgaben "in einem maschinenlesbaren Format gekennzeichnet und als künstlich erzeugt oder manipuliert erkennbar sind" (Art. 50 Abs. 2 Satz 1).
 
 **Übergangsfrist nach Art. 111 Abs. 4 KI-VO n. F. (eingefügt durch Art. 1 Nr. 39 Buchst. b Omnibus-VO, in Kraft 27.07.2026):** Anbieter von KI-Systemen (einschließlich GPAI), die synthetische Audio-, Bild-, Video- oder Textinhalte erzeugen und vor dem **02.08.2026** in Verkehr gebracht wurden, treffen die erforderlichen Maßnahmen, um Art. 50 Abs. 2 bis zum **02.12.2026** nachzukommen. Für Neuprodukte ab 02.08.2026 gilt die Pflicht sofort.
 
@@ -79,15 +80,17 @@ Die am **08.05.2026** veröffentlichten **Entwurf-Leitlinien der Kommission zu A
 - Audio-Wasserzeichen
 - Text-Wasserzeichen (noch nicht ausgereift; der Code of Practice akzeptiert alternative Nachweise)
 
-**Ausnahmen:**
-- Assistenzfunktionen mit Standardbearbeitung (z.B. Rechtschreibkorrektur)
-- Strafverfolgung, Forschung (eng)
+**Ausnahmen (Art. 50 Abs. 2 Satz 3):**
+- unterstuetzende Funktion fuer die Standardbearbeitung
+- keine wesentliche Veraenderung der vom Betreiber bereitgestellten Eingabedaten oder ihrer Semantik
+- gesetzlich zugelassene Aufdeckung, Verhuetung, Ermittlung oder Verfolgung von Straftaten
+- eine Forschungsausnahme sieht Abs. 2 nicht vor
 
 ### Art. 50 Abs. 3 — Emotions- / biometrische Kategorisierungssysteme
 
 **Adressat:** **Betreiber** eines Emotionserkennungs- oder biometrischen Kategorisierungssystems.
 
-**Pflicht:** Betroffene Personen **vor der Verarbeitung** ueber den Einsatz informieren.
+**Pflicht:** Betroffene Personen ueber den Betrieb des Systems informieren, spaetestens bei der ersten Interaktion oder Aussetzung (Art. 50 Abs. 5).
 
 DSGVO-Anforderungen (Art. 9 DSGVO, besondere Kategorien personenbezogener Daten) bleiben unberuehrt. Einsatz am Arbeitsplatz und in Bildungseinrichtungen ist bereits nach Art. 5 Abs. 1 lit. f KI-VO weitgehend verboten.
 
@@ -101,7 +104,7 @@ DSGVO-Anforderungen (Art. 9 DSGVO, besondere Kategorien personenbezogener Daten)
 - kuenstlerische, kreative, satirische, fiktionale oder analoge Werke: Kennzeichnung in einer Weise, die Darstellung und Genuss nicht stoert, aber die Existenz des manipulierten Inhalts erkennen laesst
 - Strafverfolgung
 
-Fuer Texte zu Angelegenheiten von oeffentlichem Interesse: Kennzeichnungspflicht, ausser menschliche Redaktion hat uebernommen.
+**Texte (Art. 50 Abs. 4 Unterabs. 2):** Betreiber eines KI-Systems, das Text erzeugt oder manipuliert, "der veröffentlicht wird, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren", muessen offenlegen, dass der Text kuenstlich erzeugt oder manipuliert wurde. Ausnahme (Wortlaut): "Diese Pflicht gilt nicht, wenn die Verwendung zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten gesetzlich zugelassen ist oder wenn die durch KI erzeugten Inhalte einem Verfahren der menschlichen Überprüfung oder redaktionellen Kontrolle unterzogen wurden und wenn eine natürliche oder juristische Person die redaktionelle Verantwortung für die Veröffentlichung der Inhalte trägt."
 
 **Zusatz-Verbote ab 02.12.2026 (Art. 113 Abs. 3 Buchst. a KI-VO n. F.):** Durch Art. 1 Nr. 7 VO (EU) 2026/1744 wird Art. 5 Abs. 1 Unterabs. 1 KI-VO um die Buchstaben **ba** (nicht einvernehmliche intime Bildnisse, NCII) und **bb** (Material i. S. v. Art. 2 Buchst. c und e RL 2011/93/EU, CSAM) ergänzt. Die neuen Abs. 1a und 1b konkretisieren die Voraussetzungen: Inverkehrbringen/Inbetriebnahme eines solchen KI-Systems ist **nur** verboten, wenn (i) die Erzeugung oder Manipulation die **Zweckbestimmung** des Systems ist oder (ii) sie aufgrund Gestaltung, Training, Architektur, Fähigkeiten oder nutzerseitiger Funktionen ein nach vernünftigem Ermessen absehbares und reproduzierbares Ergebnis ist **und** das System nicht über zumutbare technische Schutzvorkehrungen verfügt. **Verwendung** ist nur verboten, wenn der Betreiber das System zu genau diesem Zweck einsetzt. Die Buchstaben ba und bb erfassen damit nicht jeden nicht-einvernehmlichen intimen Deepfake pauschal, sondern knüpfen an die Systemgestaltung bzw. Zweckbestimmung an.
 
@@ -109,7 +112,9 @@ Fuer Texte zu Angelegenheiten von oeffentlichem Interesse: Kennzeichnungspflicht
 
 Transparenzpflichten muessen **wahrnehmbar und barrierefrei** umgesetzt werden (Schnittmenge mit BFSG).
 
-### Art. 50 Abs. 6/7 — Leitlinien und Code of Practice
+### Art. 50 Abs. 7: Praxisleitfäden
+
+(Art. 50 Abs. 6 regelt nur das Verhältnis zu den Anforderungen und Pflichten nach Kapitel III und zu anderen Transparenzpflichten.)
 
 Die Kommission veröffentlicht Leitlinien und fördert einen Praxisleitfaden (Code of Practice). Befolgung kann als Konformitätsnachweis dienen. **Abs. 7 wurde durch Art. 1 Nr. 20 VO (EU) 2026/1744 neu gefasst** (nicht bloß redaktionell): Die Kommission prüft "unter weitestgehender Berücksichtigung der Stellungnahme des KI-Gremiums nach dem Verfahren des Artikels 56 Absatz 6 Unterabsatz 1, ob die Befolgung dieser Praxisleitfäden angemessen ist, um die Einhaltung der in den Absätzen 2 und 4 dieses Artikels festgelegten Pflichten zu gewährleisten". Nur wenn sie den Praxisleitfaden für **unangemessen** hält, kann sie einen Durchführungsrechtsakt nach dem Prüfverfahren des Art. 98 Abs. 2 erlassen. Die bisherige unbedingte Durchführungsrechtsakt-Befugnis entfällt damit.
 
@@ -117,8 +122,8 @@ Die Kommission veröffentlicht Leitlinien und fördert einen Praxisleitfaden (Co
 
 - **Kein "Du sprichst mit KI"-Hinweis** bei Chatbot (seit 02.08.2026 anwendbar, nicht mehr "in Vorbereitung")
 - **Chatbot-Hinweis zu tief versteckt** (nur in AGB, nicht vor Interaktion sichtbar)
-- **KI-generierte Marketing-Bilder ohne maschinenlesbare Markierung / C2PA-Metadaten**
-- **KI-generierte Blog-Artikel** ohne Kennzeichnung, besonders bei Themen von oeffentlichem Interesse
+- **Eigenes generatives KI-System ohne maschinenlesbare Markierung / C2PA-Metadaten der Ausgaben**: Pflicht nur fuer den Anbieter des generierenden Systems (Art. 50 Abs. 2); wer fremd erzeugte Marketing-Bilder nur verwendet, ist Betreiber und muss nur Deepfakes offenlegen (Abs. 4)
+- **KI-generierte Blog-Artikel** zu Angelegenheiten von oeffentlichem Interesse ohne Offenlegung, wenn keine menschliche Ueberpruefung oder redaktionelle Kontrolle mit redaktioneller Verantwortung erfolgt (Abs. 4 Unterabs. 2)
 - **Deepfake-artige Produktvideos** ohne Disclaimer (z.B. generierte Personen im Testimonial)
 - **Emotionserkennung in Sales-Tools** (Call-Center-Analyse) — oft verboten oder mind. transparenzpflichtig
 - **KI-Kompetenz Art. 4** nicht dokumentiert: Pflicht bleibt bestehen, nur Formulierung durch Omnibus von "stellen sicher" zu "ergreifen Massnahmen" entschaerft — Schulungsdokumentation bleibt faktisch notwendig
@@ -142,7 +147,7 @@ Fuer **LLM-Chat-Integrationen** (typischer SaaS-Fall):
 
 Fuer **KI-Bildgenerierung**:
 - C2PA-Metadaten in EXIF schreiben
-- sichtbare Wasserzeichen oder zumindest maschinenlesbare Markierung (Pflicht seit 02.08.2026)
+- maschinenlesbare Markierung: Pflicht seit 02.08.2026 fuer den Anbieter des generierenden KI-Systems (Art. 50 Abs. 2); wer nur fremd erzeugte Bilder verwendet (Betreiber), hat keine allgemeine Markierungspflicht, sondern muss nur Deepfakes offenlegen (Abs. 4)
 - Audit-Log, wer wann welche KI genutzt hat
 - Hinweis in Dateinamen (z.B. `-ai-generated.png`)
 
@@ -152,17 +157,17 @@ Fuer **KI-generierten Text im CMS**:
 
 ## Relevanz fuer Codebase-Typen
 
-- **Next.js SaaS**: Art. 50 Abs. 1 bei Chatbot; Abs. 2 bei Bild-/Textgenerierung. Hohe Relevanz. Altbestand bis 02.12.2026 nachruesten.
+- **Next.js SaaS**: Art. 50 Abs. 1 bei Chatbot; Abs. 2 bei Bild-/Textgenerierung nur, soweit die SaaS als Anbieter selbst das generierende KI-System bereitstellt. Hohe Relevanz. Altbestand bis 02.12.2026 nachruesten.
 - **Landingpage**: Art. 50 Abs. 1 bei LandingPage-Chatbot. Oft uebersehen.
-- **n8n Automation**: bei Content-Automation Abs. 2 und 4 bei Bildern und Videos; Abs. 1 wenn n8n-Bot auf Social Media antwortet.
-- **E-Commerce**: KI-Produktempfehlungen regelmaessig NICHT Art. 50; KI-generierte Produktfotos aber Abs. 2.
-- **Content/Blog**: Kennzeichnungspflicht fuer KI-Artikel seit 02.08.2026, insbesondere bei Themen von oeffentlichem Interesse.
+- **n8n Automation**: bei Content-Automation als Betreiber Abs. 4 (Deepfake-Bilder und -Videos; Texte zu Angelegenheiten von oeffentlichem Interesse); Abs. 2 nur, wer selbst Anbieter des generierenden Systems ist; Abs. 1 wenn n8n-Bot auf Social Media antwortet.
+- **E-Commerce**: KI-Produktempfehlungen regelmaessig NICHT Art. 50; fuer KI-generierte Produktfotos trifft die Markierungspflicht nach Abs. 2 den Anbieter des Bildgenerators, nicht den Shop; der Shop als Betreiber muss nur Deepfakes offenlegen (Abs. 4).
+- **Content/Blog**: keine allgemeine Kennzeichnungspflicht fuer KI-Artikel; Offenlegung nach Abs. 4 Unterabs. 2 bei Texten zu Angelegenheiten von oeffentlichem Interesse, soweit die Ausnahme fuer menschliche Ueberpruefung oder redaktionelle Kontrolle mit redaktioneller Verantwortung nicht greift.
 
 ## Behoerden-Hinweise
 
 - **Büro für Künstliche Intelligenz (EU AI Office)**: federführend für Leitlinien und Code of Practice; seit 27.07.2026 eigenständige Durchsetzungsbefugnisse nach Art. 75a bis 75d KI-VO n. F. gegenüber den Akteuren nach Art. 75 Abs. 1 (bestimmte GPAI-basierte KI-Systeme sowie VLOP/VLOSE-integrierte Systeme), nicht pauschal gegenüber allen GPAI-Anbietern.
 - **AI Act Service Desk**: https://ai-act-service-desk.ec.europa.eu/
-- **Bundesnetzagentur**: nach § 2 Abs. 1 **KI-MIG** (ausgefertigt 22.07.2026, BGBl. 2026 I Nr. 223 vom 28.07.2026, in Kraft seit 29.07.2026) **koordinierende Marktüberwachungsbehörde und Auffangbehörde** für die KI-VO, soweit das Gesetz nichts anderes bestimmt. Sektorale Sonderzuständigkeiten bleiben bestehen: Produkte nach Anhang I bei den jeweils zuständigen Marktüberwachungsbehörden (§ 2 Abs. 2), BaFin für Finanzdienstleistungen (§ 2 Abs. 3 und 4), Landesbehörden für Landeseinrichtungen und bestimmte Medienangebote (§ 2 Abs. 6 und 8), eigene Aufsicht für die Deutsche Welle. Die KI-Marktüberwachungskammer nach § 2 Abs. 5 KI-MIG ist für bestimmte Hochrisiko-Felder zuständig (Strafverfolgung, Migration, Justiz, Demokratie, Beschäftigung, kritische Infrastruktur, Zugang zu wesentlichen Diensten). Bußgeldzuständigkeit folgt der jeweiligen Marktüberwachungszuständigkeit. Primärquellen: https://www.gesetze-im-internet.de/ki-mig/ und https://recht.bund.de/bgbl/1/2026/223. Die BNetzA betreibt zusätzlich eine englischsprachige Zusammenfassungsseite zum Code of Practice on Transparency unter bundesnetzagentur.de/EN/Areas/Digitalisation/AI/04_Transparency/.
+- **Bundesnetzagentur**: nach § 2 Abs. 1 **KI-MIG** (ausgefertigt 22.07.2026, BGBl. 2026 I Nr. 223 vom 28.07.2026, in Kraft seit 29.07.2026) **koordinierende Marktüberwachungsbehörde und Auffangbehörde** für die KI-VO, soweit das Gesetz nichts anderes bestimmt. Sektorale Sonderzuständigkeiten bleiben bestehen: Produkte nach Anhang I bei den jeweils zuständigen Marktüberwachungsbehörden (§ 2 Abs. 2), BaFin für Finanzdienstleistungen (§ 2 Abs. 3 und 4), Landesbehörden für Landeseinrichtungen und bestimmte Medienangebote (§ 2 Abs. 6 und 8), eigene Aufsicht für die Deutsche Welle. Die KI-Marktüberwachungskammer nach § 2 Abs. 5 KI-MIG ist zuständig für Hochrisiko-Systeme nach Anhang III Nr. 1 (Biometrie), soweit sie in Strafverfolgung, Grenzmanagement, Justiz und Demokratie eingesetzt werden, sowie nach Anhang III Nr. 6, 7 und 8. Bußgeldzuständigkeit folgt der jeweiligen Marktüberwachungszuständigkeit. Primärquellen: https://www.gesetze-im-internet.de/ki-mig/ und https://recht.bund.de/bgbl/1/2026/223. Die BNetzA betreibt zusätzlich eine englischsprachige Zusammenfassungsseite zum Code of Practice on Transparency unter bundesnetzagentur.de/EN/Areas/Digitalisation/AI/04_Transparency/.
 
 ## Zitierbare Urteile
 
@@ -177,6 +182,7 @@ Keine bisher. Art. 50 ist erst seit 02.08.2026 anwendbar; Rechtsprechung entsteh
 
 ## Aenderungsvermerk
 
+- **2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1)**: Art. 50 Abs. 2 Adressat ausdruecklich Anbieter des generierenden KI-Systems, Ausnahmen nach dem Normtext (keine Forschungsausnahme); Aussagen, die Verwendern/Betreibern eine allgemeine Markierungspflicht nach Abs. 2 zuschrieben, berichtigt (Fallstricke, KI-Bildgenerierung, Codebase-Typen); Abs. 3 Zeitpunkt nach Abs. 5; Abs. 4 Unterabs. 2 mit Voraussetzungen und Ausnahme im Wortlaut; Überschrift Abs. 7 (Abs. 6 betrifft nur Kapitel III); Zuständigkeit der KI-Marktüberwachungskammer nach § 2 Abs. 5 KI-MIG berichtigt; Inkrafttreten der VO (EU) 2026/1744 nach Art. 4.
 - **2026-11-14 (Korrekturlauf nach Gegenprobe am Volltext VO 2026/1744)**: Art. 111 Abs. 4 KI-VO n. F. im Wortlaut übernommen (Platzhalter aufgelöst). Chronologie Code of Practice on Transparency präzisiert (Finalfassung 10.06.2026, Opinion C(2026) 4839 vom 08.07.2026, Angemessenheitsstellungnahme KI-Gremium 09.07.2026); finale Art.-50-Leitlinien der Kommission vom 20.07.2026 ergänzt (vorheriger Marker aufgelöst). Formulierung "vollständig verboten" für NCII/CSAM durch die am Verordnungs-Wortlaut orientierten Voraussetzungen des Art. 5 Abs. 1a/1b ersetzt. Art. 50 Abs. 7 KI-VO n. F. nicht mehr als "redaktionell", sondern als Neufassung mit bedingter Durchführungsrechtsakt-Befugnis dargestellt. BNetzA-Rolle nach § 2 KI-MIG als "koordinierende Marktüberwachungsbehörde und Auffangbehörde" präzisiert.
 - **2026-11-14 (Voraufnahme)**: Status umgestellt von "ab 02.08.2026" auf "seit 02.08.2026 anwendbar".
 - **2026-10-24**: BNetzA-Zuständigkeit nach KI-MIG ergänzt.

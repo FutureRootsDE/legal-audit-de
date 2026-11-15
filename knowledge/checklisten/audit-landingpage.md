@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 gilt-fuer: statische Marketing-Sites (Astro, Next.js-SSG, HTML, WordPress, Jekyll, Hugo)
 verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
@@ -24,7 +24,7 @@ Im Vergleich zu SaaS: Weniger Backend-PII, aber **gleichzeitig hoeheres Tracking
 ## Pass 1: PII-Identifikation
 
 - [ ] Kontaktformular vorhanden? Welche Felder (Name, E-Mail, Telefon, Nachricht, Firma)?
-- [ ] Newsletter-Anmeldung? Double-Opt-In korrekt (§ 7 Abs. 2 Nr. 2 UWG; BGH "Double-Opt-In II" I ZR 218/07 v. 10.02.2011 zur Bestaetigungs-Mail; vgl. BGH "Inbox-Werbung II" I ZR 25/19 v. 13.01.2022)?
+- [ ] Newsletter-Anmeldung? Double-Opt-In korrekt (§ 7 Abs. 2 Nr. 2 UWG; BGH, Urt. v. 10.02.2011, I ZR 164/09 (Double-opt-in-Verfahren))?
 - [ ] Webinar-/Event-Registrierung?
 - [ ] Chat-Tool (Intercom, Tawk.to, Crisp)?
 - [ ] Cookie-basiertes Tracking (GA4, GTM, Meta Pixel, TikTok Pixel, LinkedIn Insight)?
@@ -64,7 +64,7 @@ Landingpages stehen im Fokus der Aufsichtsbehoerden wegen **Cookie-Banner-Muster
 
 Landingpages sind hier typisch schlampig — teuerster Abmahn-Vektor.
 
-- [ ] **Impressum** nach § 5 DDG (geaendert 14.05.2024 — DDG ersetzt TMG) + § 18 MStV: Firma/Name, ladungsfaehige Anschrift (KEIN Postfach), Kontakt (Telefon + E-Mail), Vertretungsberechtigte, Registergericht + HRB, USt-ID, Aufsichtsbehoerde bei regulierten Berufen, journalistisch-redaktionelle Verantwortliche (bei Blog)
+- [ ] **Impressum** nach § 5 DDG (geaendert 14.05.2024 — DDG ersetzt TMG) + § 18 MStV: Firma/Name, ladungsfaehige Anschrift (KEIN Postfach), E-Mail-Adresse und ein weiterer Weg zur schnellen unmittelbaren Kommunikation (z. B. Telefon), § 5 Abs. 1 Nr. 2 DDG, Vertretungsberechtigte, Registergericht + HRB, USt-ID, Aufsichtsbehoerde bei regulierten Berufen, journalistisch-redaktionelle Verantwortliche (bei Blog)
 - [ ] **Datenschutzerklaerung** nach Art. 13 DSGVO: jede Drittanbieter-Kategorie genannt, Rechtsgrundlagen, Speicherdauer, Betroffenenrechte, Beschwerderecht an Aufsichtsbehoerde
 - [ ] **Werbekennzeichnung** § 5a Abs. 4 UWG bei kommerziellen Inhalten ohne klare Werbe-Indizes
 - [ ] **Barrierefreiheitserklaerung** falls B2C-Online-Dienstleistung im Anwendungsbereich des BFSG (seit 28.06.2025 anwendbar)
@@ -78,16 +78,16 @@ Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI):
 
 - [ ] **KI-Kompetenz** Art. 4 KI-VO n. F. (seit 27.07.2026 i. d. F. VO (EU) 2026/1744): "Massnahmen ergreifen" zur Unterstuetzung der KI-Kompetenz; **keine Pflicht** zur **Garantie** eines bestimmten Niveaus (Art. 4 Abs. 1 Satz 2 n. F.) — Nachweis geeigneter Foerdermassnahmen fuer Mitarbeiter mit KI-Beruehrung dennoch dokumentieren
 - [ ] KI-Chatbot eingebunden? → Art. 50 Abs. 1 AI Act Transparenzpflicht gilt seit 02.08.2026 ("Sie interagieren mit einer KI")
-- [ ] KI-Text-/Bild-Generierung im Content (Blog)? → Kennzeichnung als KI-Content (Art. 50 Abs. 2 seit 02.08.2026 Pflicht; Altbestand bis 02.12.2026 nachruesten) — siehe [[themen/ki-content]] und [[themen/ki-transparenz]]
+- [ ] KI-Text-/Bild-Generierung im Content (Blog)? → Als Betreiber Offenlegung nur bei Deepfakes (Art. 50 Abs. 4 UAbs. 1) und bei KI-Texten zu Angelegenheiten von oeffentlichem Interesse ohne menschliche Ueberpruefung und redaktionelle Verantwortung (Art. 50 Abs. 4 UAbs. 2); die Markierung nach Art. 50 Abs. 2 und Art. 111 Abs. 4 trifft den Anbieter des KI-Systems. Siehe [[themen/ki-content]] und [[themen/ki-transparenz]]
 - [ ] KI-gesteuerter Produktempfehlungs-Widget? → DSFA pruefen bei Personalisierung
 - [ ] [[gesetze/ai-act]]
 
 ## Pass 6: Barrierefreiheit (BFSG — seit 28.06.2025 anwendbar)
 
-BFSG ist seit **28.06.2025 in Anwendung**. Gilt fuer B2C-Online-Dienstleistungen ueber Kleinstunternehmen-Grenze (>= 10 MA ODER >= 2 Mio EUR Jahresumsatz/Bilanzsumme).
+BFSG ist seit **28.06.2025 in Anwendung**. Gilt fuer B2C-Online-Dienstleistungen ueber Kleinstunternehmen-Grenze (ab 10 Beschaeftigten oder Jahresumsatz und Bilanzsumme jeweils ueber 2 Mio EUR).
 
 - [ ] **Anwendungsbereich** (§ 1 BFSG): B2C-Online-Dienstleistung? Kleinstunternehmen-Ausnahme dokumentiert?
-- [ ] WCAG 2.1 AA als Standard (BFSGV § 3 setzt EN 301 549 um)
+- [ ] WCAG 2.1 AA als Pruefraster: § 3 BFSGV verweist auf den Stand der Technik; Konformitaetsvermutung nach § 4 BFSG, EN 301 549 / WCAG 2.1 AA nur darueber; Anforderungen §§ 12, 19 BFSGV
 - [ ] Farbkontrast, Alt-Texte, Keyboard-Navigation, Screen-Reader (NVDA/JAWS/VoiceOver)
 - [ ] **Barrierefreiheitserklaerung** veroeffentlicht (§ 14 BFSG)
 - [ ] Feedback-Kanal fuer Barrieren
@@ -139,7 +139,7 @@ Auf Landingpages stehen Team-, Kunden- und Testimonial-Fotos im Mittelpunkt — 
 Gerade B2C-LPs werben stark mit Siegeln — haeufig abmahnbar. Siehe [[themen/siegel-werbung]].
 
 - [ ] "TUeV-geprueft" / "DEKRA-zertifiziert" / "ISO 27001": Siegel **aktuell** (nicht abgelaufen), pruefbare Zertifikat-Nummer verlinkt
-- [ ] "Testsieger Stiftung Warentest 03/2024": Jahr + Heft angegeben, Vergleichstest-Feld erkennbar (BGH I ZR 163/19)
+- [ ] "Testsieger Stiftung Warentest 03/2024": Jahr + Heft angegeben, Vergleichstest-Feld erkennbar <<VERIFIKATION AUSSTEHEND>>
 - [ ] Trusted Shops / eKomi / Trustpilot: Widget laedt **vor** Consent? → Finding; nach Consent erlaubt
 - [ ] Branchen-Siegel / "Ausgezeichnet.org" / "ProvenExpert": Verlinkung auf Zertifizierungsseite Pflicht
 - [ ] Selbst erstellte "Premium"-/"Top"-Siegel ohne externe Pruefung: irrefuehrende Werbung (§ 5 UWG)
@@ -176,11 +176,11 @@ Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht k
 ### CRIT
 
 - Google Fonts direkt via fonts.googleapis.com (ohne Consent, ohne Self-Hosting; LG Muenchen I 3 O 17493/20)
-- GA4 oder Meta Pixel laden vor Consent (BGH I ZR 91/21 "Cookie-Einwilligung II")
+- GA4 oder Meta Pixel laden vor Consent (§ 25 Abs. 1 TDDDG; zur Einwilligung vgl. BGH, Urt. v. 28.05.2020, I ZR 7/16 (Cookie-Einwilligung II), Gegenstand: vorangekreuzte Checkbox)
 - Impressum fehlt oder hat Postfach statt Anschrift (§ 5 DDG)
 - Meta Pixel ohne Joint Controller Agreement mit Meta Platforms Ireland (Art. 26 DSGVO; EuGH C-40/17 Fashion ID)
-- Newsletter ohne Double-Opt-In — Verstoss gegen § 7 Abs. 2 Nr. 2 UWG
-- BFSG-Pflichten komplett ignoriert bei B2C-Angebot mit > 10 MA (seit 28.06.2025 anwendbar)
+- Newsletter-Versand ohne nachweisbare vorherige ausdrueckliche Einwilligung (§ 7 Abs. 2 Nr. 2 UWG); fehlendes Double-Opt-In = Nachweisrisiko
+- BFSG-Pflichten komplett ignoriert bei B2C-Angebot ab 10 Beschaeftigten oder Jahresumsatz und Bilanzsumme jeweils ueber 2 Mio EUR (seit 28.06.2025 anwendbar)
 
 ### HIGH
 
@@ -234,5 +234,9 @@ Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht k
 - Frontmatter und Disclaimer-Stand auf 2026-11-14 aktualisiert.
 - Pass 4 um Kuendigungsbutton § 312k BGB erweitert (greift, wenn eine LP zu Abo-Abschluss fuehrt); Tier-1-belegt gegen gesetze-im-internet.de/bgb/__312k.html.
 - **Pass 4 neu:** Elektronische Widerrufsfunktion § 356a BGB bei Landingpages mit Verbraucher-Online-Vertragsschluss (Tier-1 gesetze-im-internet.de/bgb/__356a.html; RL (EU) 2023/2673 per Cellar CELEX:32023L2673 verifiziert, Anwendung ab 19.06.2026).
-- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate bestaetigt — § 5 DDG, § 18 MStV, Art. 13/26 DSGVO, § 25 TDDDG, § 7 Abs. 2 Nr. 2 UWG, § 5a Abs. 4 UWG, § 5 UWG, § 6 UWG, § 312k BGB, § 1/§ 14/§ 37 BFSG, § 22/§ 23 KUG, § 26 BDSG, § 51 UrhG, § 59 UrhG. BGH I ZR 218/07 (10.02.2011), I ZR 25/19 (13.01.2022), I ZR 91/21, I ZR 163/19; EuGH C-40/17 (Fashion ID), C-673/17 (Planet49); LG Muenchen I 3 O 17493/20 — konsistent zu KB. Keine offenen Marker in dieser Datei.
+- Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate bestaetigt — § 5 DDG, § 18 MStV, Art. 13/26 DSGVO, § 25 TDDDG, § 7 Abs. 2 Nr. 2 UWG, § 5a Abs. 4 UWG, § 5 UWG, § 6 UWG, § 312k BGB, § 1/§ 14/§ 37 BFSG, § 22/§ 23 KUG, § 26 BDSG, § 51 UrhG, § 59 UrhG. BGH I ZR 218/07 (10.02.2011), I ZR 25/19 (13.01.2022), I ZR 91/21, I ZR 163/19; EuGH C-40/17 (Fashion ID), C-673/17 (Planet49); LG Muenchen I 3 O 17493/20 — konsistent zu KB. Keine offenen Marker in dieser Datei. Berichtigt am 2026-11-15: Diese Bestaetigung traf nicht zu. I ZR 218/07 ist kein Double-Opt-In-Urteil (richtig: I ZR 164/09 vom 10.02.2011), "I ZR 91/21" ist nicht belegt (Cookie-Einwilligung II ist I ZR 7/16 vom 28.05.2020), I ZR 25/19 betrifft Inbox-Werbung, I ZR 163/19 betrifft geografische Herkunftsangaben.
 - Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.
+
+## Aenderungsvermerk (2026-11-15)
+
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Double-Opt-In mit BGH I ZR 164/09 statt I ZR 218/07, I ZR 25/19 dort gestrichen; Impressum-Kontaktangaben nach § 5 Abs. 1 Nr. 2 DDG; KI-Content: Betreiber nur Art. 50 Abs. 4, Abs. 2 trifft den Anbieter; BFSG-Schwelle und BFSGV § 3 berichtigt; Cookie-Einwilligung II ist I ZR 7/16; Newsletter-Finding auf nachweisbare Einwilligung umgestellt; I ZR 163/19 gestrichen und mit Marker versehen.

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://testphase.rechtsinformationen.bund.de/v1/rechtsprechung/KORE710342024.html
 ecli: ECLI:DE:BGH:2024:181124UVIZR10.24.0
 quellen-sekundaer:
@@ -28,8 +28,8 @@ geltungsbereich: [DE, EU]
 - **ECLI:** ECLI:DE:BGH:2024:181124UVIZR10.24.0
 - **Vorinstanz:** OLG Koeln, 15. Zivilsenat, Urteil vom 07.12.2023
 - **Verfahrenstyp:** Leitentscheidungsverfahren nach § 552b ZPO zum sog.
-  **Facebook-Scraping-Komplex** (Vorfall April 2021, ca. 533 Mio.
-  Nutzerdaten).
+  **Facebook-Scraping-Komplex** (Scraping bis September 2019; Veroeffentlichung
+  der Daten von ca. 533 Mio. Nutzern im April 2021).
 
 Der 6. Zivilsenat hat erstmals hoechstrichterlich klargestellt, dass bereits
 der **kurzzeitige Kontrollverlust ueber eigene personenbezogene Daten**
@@ -52,11 +52,14 @@ muessten.
 
 - **Rn. 23 f.** — Der Scraping-Vorfall ist bereits dem Verarbeitungsbegriff
   des Art. 4 Nr. 2 DSGVO zu unterstellen (Speichern, Abfragen, Offenlegung
-  durch Uebermittlung, Bereitstellung, Verknuepfung); der raeumliche und
-  zeitliche Anwendungsbereich der DSGVO ist eroeffnet (Rn. 19 f.).
+  durch Uebermittlung, Bereitstellung, Verknuepfung); der Anwendungsbereich
+  der DSGVO ist raeumlich, sachlich und zeitlich eroeffnet (Rn. 19); die
+  internationale Zustaendigkeit der deutschen Gerichte folgt aus Art. 82
+  Abs. 6 i.V.m. Art. 79 Abs. 2 Satz 2 DSGVO (Rn. 20).
 - **Rn. 30 (Leitsatz)** — Kontrollverlust als immaterieller Schaden i. S. v.
   Art. 82 Abs. 1 DSGVO. Die Auslegung folgt der Linie des EuGH
-  (insb. C-300/21, C-340/21, C-687/21, C-456/22, NJW 2024, 1561).
+  (insb. EuGH C-200/23, C-590/22, C-741/21 [NJW 2024, 1561], C-687/21,
+  C-456/22, C-340/21).
 - **Rn. 35 f.** — Zu den **Darlegungsanforderungen**: Werden konkret
   erlebte Folgen vorgetragen (Flut unerwuenschter SMS/Anrufe, Zeit- und
   Muehe-Aufwand beim Umgang mit dem Scraping-Vorfall, Schutz vor
@@ -88,10 +91,11 @@ Uebrigen wird die Revision zurueckgewiesen.
 ## Bedeutung fuer Audits
 
 - **Scraping-/Datenleck-Faelle**: Bereits der Kontrollverlust kann einen
-  Schadensersatzanspruch nach Art. 82 DSGVO tragen. Betreiber muessen bei
-  Datenlecks mit **Massen-Schadensersatzforderungen in Groessenordnung
-  rund 100 EUR pro betroffener Person** rechnen (zuzueglich moeglicher
-  psychischer Beeintraechtigungen und Aufwands).
+  Schadensersatzanspruch nach Art. 82 DSGVO tragen. Fuer den blossen
+  Kontrollverlust haelt der BGH in einem Fall wie dem entschiedenen rund
+  100 EUR fuer unbedenklich (Rn. 100); das ist kein Regelsatz. Bei
+  weitergehenden psychischen Beeintraechtigungen kann der Betrag hoeher
+  liegen (Rn. 101).
 - **Scraping-Vorbeugung**: Standardeinstellungen zur Suchbarkeit nach
   Telefonnummer, Rate-Limits, Bot-Erkennung und Monitoring werden zu
   Audit-Kriterien bei Diensten mit grossen Nutzer-Verzeichnissen.
@@ -105,19 +109,20 @@ Uebrigen wird die Revision zurueckgewiesen.
 
 ## Abgrenzung
 
-- **Keine Strafsanktion**: Der Senat betont (Rn. 18 und Rn. 25, unter
+- **Keine Strafsanktion**: Der Senat betont (Rn. 25, unter
   Bezugnahme auf EuGH, Urteil vom 11.04.2024, C-741/21, NJW 2024, 1561
   Rn. 59 f., 64 f.), dass Art. 82 DSGVO **ausschliesslich Ausgleichs-
   funktion** hat, keine Abschreckungs- oder Straffunktion. Schadensersatzhoehe folgt der
   Kompensationslogik, nicht der Bussgeldlogik.
-- **Konkurrenz zum gesetzlichen Unterlassungsanspruch**: Zu Antrag 3a
-  (Unterlassung unbefugter Offenlegung) weist der Senat auf die bislang
-  offene unionsrechtliche Frage hin, ob die DSGVO einen Rueckgriff auf
-  § 1004 BGB analog erlaubt (Rn. 56 ff.); Unterlassungsanspruch kann
-  zudem aus dem Nutzungsvertrag folgen (§ 280 Abs. 1, § 241 Abs. 2 BGB).
-- **Abgrenzung zur bloss abstrakten Gefahr**: Der Kontrollverlust muss
-  tatsaechlich eingetreten sein; eine abstrakt-generelle Verletzungsangst
-  genuegt nicht.
+- **Konkurrenz zum gesetzlichen Unterlassungsanspruch**: Der BGH liess
+  offen, ob neben der DSGVO auf § 1004 Abs. 1 Satz 2 i.V.m. § 823 BGB
+  analog zurueckgegriffen werden darf (Rn. 83), und verwies auf den
+  vertraglichen Anspruch aus § 280 Abs. 1, § 241 Abs. 2 BGB.
+- **Abgrenzung zur bloss abstrakten Gefahr**: Ein nachgewiesener
+  Kontrollverlust ist selbst der Schaden (Rn. 31); ohne Nachweis kann eine
+  begruendete Befuerchtung missbraeuchlicher Verwendung genuegen; eine bloss
+  behauptete Befuerchtung oder ein rein hypothetisches Risiko genuegt nicht
+  (Rn. 32).
 
 ## Siehe auch
 
@@ -148,3 +153,10 @@ Uebrigen wird die Revision zurueckgewiesen.
   **Rn. 18 und Rn. 25** sowie die tatsaechlich zitierte EuGH-Entscheidung
   **C-741/21, NJW 2024, 1561 Rn. 59 f., 64 f.** gefuellt (vorher
   unspezifische "Rn. unter Bezugnahme auf EuGH C-340/21").
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Zeitangaben Scraping/Veroeffentlichung; Anwendungsbereich (Rn. 19) und
+  internationale Zustaendigkeit (Rn. 20) getrennt; EuGH-Liste zu Rn. 30
+  berichtigt (C-300/21 entfernt); 100 EUR als unbedenklich im Einzelfall,
+  kein Regelsatz (Rn. 100 f.); Ausgleichsfunktion nur Rn. 25 (Rn. 18
+  betrifft den Streitgegenstand); § 1004 BGB analog offen gelassen in
+  Rn. 83 (statt Rn. 56 ff.); Kontrollverlust/Befuerchtung nach Rn. 31, 32.

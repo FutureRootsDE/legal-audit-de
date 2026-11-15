@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quellen-sekundaer:
   - https://usercentrics.com/de/
   - https://www.cookiebot.com/de/
@@ -29,9 +29,11 @@ erfuellt dabei zwei Pflichten gleichzeitig:
 - **§ 25 TDDDG** — Speicherung/Abruf von Informationen in Endgeraeten nur nach Einwilligung
 - **DSGVO Art. 6 Abs. 1 lit. a** — Einwilligung fuer PII-Verarbeitung
 
-Eine CMP ist **Pflicht** bei jeder Website, die Tracking, Analytics, Marketing-
-Pixel, Embeds mit Tracking (YouTube, Vimeo ohne Nocookie, Maps) oder Fonts
-von Drittanbietern einsetzt.
+Wer Tracking, Analytics, Marketing-Pixel oder Embeds mit Tracking (YouTube,
+Vimeo ohne Nocookie, Maps) einsetzt, muss die Einwilligung (§ 25 Abs. 1 TDDDG)
+vorab einholen und nachweisen koennen. Eine CMP ist dafuer das uebliche Mittel,
+aber nicht gesetzlich vorgeschrieben. Fonts von Drittanbietern lassen sich
+durch Selbst-Hosten ohne Einwilligung einbinden.
 
 ## Tier 1: Enterprise-CMPs
 
@@ -42,7 +44,7 @@ von Drittanbietern einsetzt.
 | URL | https://usercentrics.com/de/ |
 | Sitz | Muenchen, Deutschland |
 | Zielgruppe | KMUs bis Enterprise; Publisher, E-Commerce, Mobile App, Connected TV |
-| TCF-Unterstuetzung | **IAB TCF 2.3** (verifiziert 2026-04-19) |
+| TCF-Unterstuetzung | IAB TCF laut Anbieter; unterstuetzte Version und Zertifizierungsstatus in der IAB-CMP-Liste pruefen |
 | Reichweite | 2.4 Mio Websites/Apps, 195 Laender, 8.8 Mrd. Consents/Monat |
 | Pricing Web CMP (Stand 2026-05-08) | **Free** (bis 1.000 Sitzungen/Monat, 1 Domain) / **Essential** 7 EUR/Monat (bis 1.500 Sessions) / **Plus** 15 EUR/Monat (bis 3.000) / **Pro** 30 EUR/Monat (bis 15.000) / **Business** 50 EUR/Monat (bis 50.000) / **Corporate** auf Anfrage (ab 1 Mio Sessions). App-CMP: ab 50 EUR/Monat. Quelle: usercentrics.com/de/preise/ |
 | Besonderheit | **TCF-v2.2/v2.3-zertifiziert** — Pflicht bei Ausspielung programmatischer Werbung |
@@ -87,7 +89,7 @@ von Drittanbietern einsetzt.
 | Zielgruppe | Entwickler mit Fokus auf Datenschutz-Design und Flexibilitaet |
 | Besonders gut | eigene Website-/SaaS-Kontrolle, ohne Drittanbieter-Abhaengigkeit |
 | TCF-Unterstuetzung | Nicht primaer als TCF-Provider ausgerichtet; Klaro unterstuetzt Google Consent Mode v2; eine offizielle IAB-TCF-Zertifizierung ist auf klaro.org nicht ausgewiesen (Stand 2026-05-08). |
-| Pricing | Open-Source-Edition kostenlos; Cloud-Service: konkretes Pricing nicht oeffentlich auf klaro.org (Anfrage erforderlich) |
+| Pricing | Open-Source-Edition kostenlos; Cloud-Service: Tarife oeffentlich unter klaro.org/pricing |
 
 ## Tier 3: WordPress-spezifische CMPs
 
@@ -99,10 +101,10 @@ von Drittanbietern einsetzt.
 | Produktname | Borlabs Cookie(R) 3.0 |
 | Hersteller | Borlabs GmbH (Deutschland) |
 | Plattform | WordPress-Plugin (Premium, lizenzpflichtig) |
-| Aktuelle Version | 3.4 (veroeffentlicht Februar 2026, verifiziert 2026-05-08); Live-Abruf am 2026-11-14 zeigte auf der Produktseite nur noch den Changelog-Link, keine konkrete Versionsnummer — Versionsangabe gegen borlabs.io/borlabs-cookie/changelog/ gegenpruefen. <<VERIFIKATION AUSSTEHEND>> |
-| Pricing (Stand 2026-05-08) | **Personal** 49 EUR/Jahr (1 Website) / **Business Medium** 109 EUR/Jahr (5 Websites) / **Agency Small** 229 EUR/Jahr (25 Websites) / **Agency** 499 EUR/Jahr (99 Websites). Inklusive 1 Jahr Updates und Support. Quelle: borlabs.io/pricing/. Keine Sonderaktionen. Live-Abruf am 2026-11-14 zeigte auf borlabs.io/borlabs-cookie/ nur noch den Einstiegspreis "ab 49 EUR" — detaillierte Staffel nur unter borlabs.io/borlabs-cookie/prices/. <<VERIFIKATION AUSSTEHEND>> |
+| Aktuelle Version | Aktuelle Versionsnummer laut Changelog des Herstellers (borlabs.io/borlabs-cookie/changelog/) |
+| Pricing | Jahreslizenzen in sechs Stufen (49 / 79 / 109 / 179 / 229 / 499 EUR/Jahr, netto), inklusive 1 Jahr Updates und Support; Staffel und Leistungsumfang laut Anbieterseite borlabs.io/borlabs-cookie/prices/ |
 | Besonders gut bei | WordPress-Sites mit komplexem Content (Videos, Maps, externe Widgets) |
-| Geo-Blocking | kein TCF-Provider, fuer Small-/Mid-Market ausreichend |
+| Geo-Blocking | unterstuetzt IAB TCF 2.4 laut Hersteller |
 
 ### Complianz
 
@@ -138,7 +140,7 @@ Pflicht seit 2024 fuer Google Ads in Europa. Muss mit jeder CMP zusammenarbeiten
 ## Auswahl-Kriterien
 
 - [ ] **Plattform**: WordPress → Borlabs/Complianz; Headless/SaaS → Usercentrics/Cookiebot/Klaro
-- [ ] **TCF-Zertifizierung noetig?** (wenn programmatische Werbung ueber TCF-Vendoren) → Usercentrics, Cookiebot
+- [ ] **TCF-Zertifizierung noetig?** (wenn programmatische Werbung ueber TCF-Vendoren) → Usercentrics, Cookiebot, Borlabs (Zertifizierungsstatus jeweils in der IAB-CMP-Liste pruefen)
 - [ ] **Open-Source-Praeferenz** → Klaro (selbst hosten)
 - [ ] **DPF/Drittland-Problematik minimieren** → EU-Anbieter bevorzugen (Usercentrics, Cookiebot, Klaro, Complianz, Borlabs)
 - [ ] **Traffic-Volumen** — kleine Sites profitieren von Free-Tiers (Cookiebot, Complianz Free)
@@ -151,7 +153,7 @@ Pflicht seit 2024 fuer Google Ads in Europa. Muss mit jeder CMP zusammenarbeiten
 ### CRIT (macht die gesamte CMP wertlos)
 
 - **Pre-Tick** bei Marketing-Kategorien → EuGH Planet49 C-673/17 verletzt
-- **Kein Ablehnen-Button** oder nur im Untermenue → BGH Cookie-Einwilligung verletzt
+- **Kein gleichwertiger Ablehnen-Weg auf der ersten Ebene**: Risiko fuer die Freiwilligkeit der Einwilligung (Art. 4 Nr. 11, Art. 7 DSGVO i. V. m. § 25 Abs. 1 TDDDG). BGH I ZR 7/16 betrifft das voreingestellte Haekchen und traegt diese Aussage nicht.
 - **Tracking-Scripts im `<head>` vor CMP-Init** (GA4 laedt vor Consent-Check)
 - **Consent-Mode nicht aktiviert** trotz Google-Services
 - **Widerruf schwieriger als Einwilligung** (Button versteckt)
@@ -160,7 +162,7 @@ Pflicht seit 2024 fuer Google Ads in Europa. Muss mit jeder CMP zusammenarbeiten
 
 - **Cookie-Kategorien zu grob** ("Marketing-Cookies" ohne Erklaerung welcher Anbieter)
 - **Third-Party-Embeds vor Consent** (YouTube-iframe ohne Nocookie)
-- **Google Fonts direkt** (LG Muenchen I 3 O 17493/20)
+- **Google Fonts direkt** (LG Muenchen I 3 O 17493/20, Endurteil vom 20.01.2022)
 - **Fonts per CDN geladen** (selbst wenn Google Consent Mode aktiv)
 
 ### MED
@@ -193,3 +195,4 @@ Wenn ein Wechsel ansteht:
 ## Aenderungsvermerk
 
 - **2026-11-14** (Batch E3, Live-Pruefung): Jeden CMP-Eintrag live abgerufen. Usercentrics-Preisstaffel (Free / 7 / 15 / 30 / 50 EUR + Corporate) gegen usercentrics.com/de/preise/ bestaetigt. Cookiebot-Staffel (Free / 7 / 15 / 30 / 50 / 90 EUR, Premium Small aufwaerts je Domain) gegen cookiebot.com/de/pricing/ bestaetigt; Zugehoerigkeit zu Usercentrics A/S erneut bestaetigt. Osano-Sitz prazisiert: osano.com/plans nennt nur "Osano, Inc., Public Benefit Corp" plus UK- und International-Compliance-Gesellschaft, keine Stadt mehr (alte Angabe "Austin, Texas" entfernt). Klaro (klaro.org): BSD-3-Lizenz, Maintainer KIProtect, keine IAB-TCF-Zertifizierung bestaetigt. Borlabs-Produktseite zeigt aktuell weder konkrete Version noch die Jahres-Staffel, nur "ab 49 EUR" — Markierung als VERIFIKATION AUSSTEHEND gesetzt. Complianz (complianz.io): Firmensitz Groningen bestaetigt, neu Zugehoerigkeit zu iubenda eingetragen. Consent-O-Matic (consentomatic.au.dk): erreichbar, Aarhus-University-Entwicklung bestaetigt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): CMP als uebliches Mittel statt Pflicht (§ 25 Abs. 1 TDDDG); Klaro-Tarife oeffentlich; Borlabs unterstuetzt IAB TCF 2.4 laut Hersteller und ist in der TCF-Auswahl ergaenzt; Borlabs-Versionsnummer durch Verweis auf den Changelog ersetzt, Preisstaffel auf sechs Stufen netto, beide Verifikationsmarker entfernt; Usercentrics-TCF-Version durch Verweis auf die IAB-CMP-Liste ersetzt; Ablehnen-Button nicht mehr BGH I ZR 7/16 zugeordnet; Datum zu LG Muenchen I 3 O 17493/20 ergaenzt.

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://www.datenschutzkonferenz-online.de/
 quellen-sekundaer:
   - https://www.bfdi.bund.de/
@@ -32,8 +32,8 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 
 **Besonderheiten:**
 - **Bayern** trennt sauber: **BayLfD** (oeffentlich) vs. **BayLDA** (nicht-oeffentlich, als einziges Bundesland eine eigene Behoerde)
-- **Hamburg, Bremen, Saarland, Sachsen-Anhalt** fassen oeffentlich + nicht-oeffentlich in einer Behoerde zusammen
-- Telekommunikation (TK-Anbieter i.S.v. § 3 TKG) → grundsaetzlich **BfDI**, auch wenn der Anbieter Unternehmen ist
+- **Alle Laender ausser Bayern** haben eine gemeinsame Behoerde fuer oeffentlichen und nicht-oeffentlichen Bereich
+- Telekommunikation → **BfDI**, soweit Daten fuer die geschaeftsmaessige Erbringung von Telekommunikationsdiensten verarbeitet werden (§ 29 Abs. 1 TDDDG, § 9 Abs. 1 BDSG); fuer sonstige Verarbeitungen desselben Unternehmens bleibt die Landesbehoerde zustaendig
 
 ## Bundesbehoerde (BfDI)
 
@@ -225,7 +225,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Postanschrift | Postfach 1947, 39009 Magdeburg |
 | Telefon | +49 391 81803-0 |
 | Fax | +49 391 81803-33 |
-| Leitung | Maria Christina Rost (Amtsantritt 02.08.2024; vorher Albert Cohaus kommissarisch ab 01.01.2021) |
+| Leitung | Maria Christina Rost (Amtsantritt 01.08.2024; vorher Albert Cohaus kommissarisch ab 01.01.2021) |
 
 ### Schleswig-Holstein — ULD
 
@@ -235,7 +235,7 @@ Deutschland hat ein **foederales Datenschutz-Aufsichtssystem**. Fuer jede verant
 | Adresse | Holstenstrasse 98, 24103 Kiel |
 | Telefon | +49 431 988-1200 |
 | E-Mail | mail@datenschutzzentrum.de |
-| Leitung | Dr. h.c. Marit Hansen (zweite Amtszeit seit 18.06.2020, Stand 2026-11-14 noch im Amt). Nachfolger: Jens Ambrock vom Landtag Schleswig-Holstein einstimmig gewaehlt (Bekanntgabe 07.10.2026 laut dpa/t-online); Amtsantritt mit Ernennung durch Ministerpraesident Daniel Guenther laut Staatskanzlei Ende Januar 2027 vorgesehen. Hansen durfte nach zwei Amtszeiten nicht erneut antreten. <<VERIFIKATION AUSSTEHEND>> (offizielle ULD-/Landtags-Primaerquelle zum Wahldatum von Ambrock im Abruf nicht erreicht; t-online/dpa ist Sekundaerquelle). |
+| Leitung | Dr. h.c. Marit Hansen (zweite Amtszeit seit 18.06.2020, Stand 2026-11-14 noch im Amt). Nachfolger: Dr. Jens Ambrock, vom Landtag am 07.10.2026 einstimmig gewaehlt; Wechsel im Januar 2027 vorgesehen (Quelle: ULD-Pressemitteilung vom 07.10.2026). Hansen durfte nach zwei Amtszeiten nicht erneut antreten. |
 
 ### Thueringen — TLfDI
 
@@ -330,7 +330,7 @@ Im Gegensatz zu Bayern fasst Hamburg oeffentlich + nicht-oeffentlich in einer Be
 
 ## Datenschutzkonferenz (DSK) — Dachstruktur
 
-Die 18 Behoerden (16 Laender + BfDI + evtl. Kirche als Gast) koordinieren sich in der DSK. Siehe [[behoerden/dsk-beschluesse]] fuer Kurzpapiere, Orientierungshilfen, gemeinsame Beschluesse. Die DSK ist keine eigene Aufsichtsbehoerde, sondern ein Koordinations-Gremium.
+Die 18 Behoerden (BfDI und 17 Landesbehoerden, Bayern mit zwei) koordinieren sich in der DSK. Siehe [[behoerden/dsk-beschluesse]] fuer Kurzpapiere, Orientierungshilfen, gemeinsame Beschluesse. Die DSK ist keine eigene Aufsichtsbehoerde, sondern ein Koordinations-Gremium.
 
 ## Siehe auch
 
@@ -365,3 +365,9 @@ Die 18 Behoerden (16 Laender + BfDI + evtl. Kirche als Gast) koordinieren sich i
 - 2026-11-14 (Vorlauf): Hinweis in „Siehe auch" zur Datenpannen-Fundstelle in
   DSK-Kurzpapieren korrigiert (zuvor „Nr. 19"; die 2026-05-08-Korrektur in
   dsk-beschluesse.md stellte klar: Datenpannen regelt nicht Kurzpapier 19).
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  gemeinsame Behoerde in allen Laendern ausser Bayern; TK-Zustaendigkeit des
+  BfDI auf "soweit" nach § 29 Abs. 1 TDDDG eingeschraenkt; Amtsantritt Rost
+  01.08.2024; Schleswig-Holstein: Wahl Dr. Jens Ambrock am 07.10.2026 ueber
+  ULD-Pressemitteilung belegt, Marker entfernt, dpa/t-online-Verweis und
+  Angabe zur Ernennung ersetzt; DSK: BfDI und 17 Landesbehoerden.

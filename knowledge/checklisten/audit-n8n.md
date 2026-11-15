@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 gilt-fuer: n8n-Workflow-Exports (JSON), self-hosted und Cloud
 verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
@@ -20,7 +20,7 @@ geltungsbereich: [DE, EU]
 
 n8n-Workflows orchestrieren Datenfluesse zwischen Systemen (APIs, Datenbanken, Webhooks). DSGVO-Risiko entsteht durch:
 1. **Versteckte Drittanbieter-Aufrufe** (oft US-APIs in `httpRequest`-Nodes ohne AVV)
-2. **PII in Execution-Logs** (n8n speichert Payloads per Default lang)
+2. **PII in Execution-Logs** (n8n speichert vollstaendige Payloads; Standard-Pruning nach 336 Stunden bzw. 10.000 Executions, pruefen, ob ueberschrieben)
 3. **Webhook-Endpunkte ohne Auth** (DSGVO Art. 32 — Integritaet/Vertraulichkeit)
 4. **Cron-gesteuerte Batch-Verarbeitung** ohne Fehler-Alerting
 
@@ -92,7 +92,7 @@ n8n speichert Workflow-Executions in PostgreSQL — **jede Execution enthaelt di
 - [ ] **Execution-Data-Retention** konfiguriert?
   - Environment: `EXECUTIONS_DATA_PRUNE=true`
   - `EXECUTIONS_DATA_MAX_AGE=336` (Stunden, z.B. 14 Tage)
-  - Standard n8n ist "behalte alles" — das ist i.d.R. DSGVO-widrig
+  - Standard n8n: Pruning aktiv, 336 Stunden bzw. 10.000 Executions; pruefen, ob diese Werte ueberschrieben (z. B. Pruning abgeschaltet) wurden
 - [ ] **Execution-Data-Save-On-Success** — bei erfolgreichen Durchlaeufen: Full / Minimal / None
 - [ ] **Execution-Data-Save-On-Error** — bei Fehlern: Full empfohlen fuer Debug, aber Retention kurz halten
 - [ ] **Execution-Data-Save-Manual-Executions** — Dev-Runs im Produktiv-DB: abschalten
@@ -140,10 +140,10 @@ Bei KI-lastigen Workflows (Claude/GPT fuer Content-Generierung, Flux/Ideogram fu
 - [ ] **Prompt-Inhalte** ohne PII (oder mit Consent)
 - [ ] **Output-Verantwortlichkeit**: KI-Halluzinationen erkennen, manueller Review-Schritt
 - [ ] **Bias in AI-Entscheidungen** bei Klassifikation (z.B. Content-Kategorisierung)
-- [ ] **Kennzeichnung** bei KI-generiertem Output (Art. 50 Abs. 2 AI Act); maschinenlesbare Markierung seit 02.08.2026 Pflicht fuer Neuprodukte; Altbestand (vor 02.08.2026 in Verkehr gebracht) bis 02.12.2026 nachzuruesten (Art. 111 Abs. 4 i.d.F. VO (EU) 2026/1744)
+- [ ] **Kennzeichnung** bei KI-generiertem Output: Die maschinenlesbare Markierung nach Art. 50 Abs. 2 AI Act (Altbestand bis 02.12.2026, Art. 111 Abs. 4 i.d.F. VO (EU) 2026/1744) trifft den Anbieter des KI-Systems. Der Workflow-Betreiber hat die Pflichten nach Art. 50 Abs. 4 AI Act (Deepfakes; Texte zu Angelegenheiten von oeffentlichem Interesse ohne menschliche Ueberpruefung und redaktionelle Verantwortung). Eigene Anbieterrolle nur, wenn ein eigenes KI-System unter eigenem Namen bereitgestellt wird
 - [ ] Bei Chatbot-artigen Workflows (n8n Bot auf Social/Discord/Slack mit Nutzerinteraktion): **Art. 50 Abs. 1** Chatbot-Hinweis sicherstellen
 - [ ] **Verbotene Praktiken** Art. 5 AI Act ausgeschlossen (Social Scoring, Subliminal-Manipulation in Marketing-Workflows!)
-- [ ] **DSFA** bei systematischer Bewertung von Menschen (Art. 35 Abs. 3 lit. a DSGVO)
+- [ ] **DSFA** bei systematischer und umfassender Bewertung persoenlicher Aspekte natuerlicher Personen auf Grundlage automatisierter Verarbeitung einschliesslich Profiling, die als Grundlage fuer Entscheidungen mit Rechtswirkung oder aehnlich erheblicher Beeintraechtigung dient (Art. 35 Abs. 3 lit. a DSGVO)
 - [ ] **Training auf Nutzerdaten** bei Provider ausschalten (OpenAI Business-Tier / API ist Default-Out, Consumer-ChatGPT ist Default-In; Anthropic API ist Default-Out)
 - [ ] **GPAI-Modell-Provider-Compliance**: Pruefen, dass Anbieter (OpenAI, Anthropic, Mistral, Google) GPAI-Pflichten Art. 53 ff. erfuellen (Trainings-Daten-Summary, Copyright-Konformitaet). Hinweis: Die direkten Durchsetzungsbefugnisse des **Bueros fuer Kuenstliche Intelligenz** nach Art. 75a bis 75d KI-VO n. F. treffen **nicht pauschal alle GPAI-Anbieter**, sondern **nur Akteure nach Art. 75 Abs. 1 KI-VO n. F.** (Anbieter bestimmter GPAI-basierter KI-Systeme, bei denen Modell und System aus derselben Hand stammen, sowie KI-Systeme, die eine VLOP/VLOSE i. S. v. VO (EU) 2022/2065 bilden oder darin integriert sind). Fuer alle uebrigen GPAI-Pflichtverletzungen bleibt die allgemeine Aufsicht zustaendig.
 - [ ] [[gesetze/ai-act]], [[themen/ki-transparenz]]
@@ -256,3 +256,7 @@ jq '.nodes[] | select(.type == "n8n-nodes-base.webhook") | .parameters' workflow
 - Pass 8 (Data Act): Darstellung an Art. 50 VO (EU) 2023/2854 (Cellar CELEX:32023R2854, am 2026-11-14 geprueft) angeglichen — Kapitel VI gilt seit 12.09.2025, Art. 29 reduziert bis 12.01.2027 und ab 12.01.2027 Wechselentgelt-Verbot, Kapitel IV fuer Neuvertraege seit 12.09.2025 und fuer bestimmte Altvertraege ab 12.09.2027. Die zuvor Kapitel VI zugeordnete Altvertrags-Frist war falsch zugeordnet.
 - Bestandspruefung (ausserhalb Pass 5): alle Pflicht-Normzitate bestaetigt — Art. 6/13/26/28/30/32/33/35/46 DSGVO, § 59 UrhG (nicht zitiert, aber Kontext), § 38 BDSG; EuGH C-311/18 (Schrems II). Keine Aktenzeichen ausserhalb bestehender KB-Belege. Pass 5 unberuehrt.
 - Pass 5 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.
+
+## Aenderungsvermerk (2026-11-15)
+
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): n8n-Standard-Pruning (336 Stunden bzw. 10.000 Executions) statt "behalte alles"; Art. 50 Abs. 2 KI-VO als Anbieterpflicht, Workflow-Betreiber Art. 50 Abs. 4; DSFA-Tatbestand Art. 35 Abs. 3 lit. a vollstaendig.

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://juris.bundesgerichtshof.de/cgi-bin/rechtsprechung/document.py?Gericht=bgh&Art=en&nr=107623&pos=0&anz=1
 quellen-sekundaer:
   - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2020/2020067.html
@@ -30,16 +30,14 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
 | **Aktenzeichen** | I ZR 7/16 |
 | **Datum** | 28.05.2020 |
 | **Gericht** | BGH, I. Zivilsenat |
-| **Vorgeschichte** | OLG Frankfurt a.M. 6 U 30/15; zuvor LG Frankfurt; Vorlage an EuGH C-673/17 |
+| **Vorgeschichte** | LG Frankfurt a.M., Urt. v. 10.12.2014, 2-6 O 30/14; OLG Frankfurt a.M., Urt. v. 17.12.2015, 6 U 30/15; BGH, Vorlagebeschluss v. 05.10.2017; EuGH C-673/17 |
 | **Parteien** | Bundesverband der Verbraucherzentralen (vzbv) gegen Planet49 GmbH |
 
-## Leitsätze (sinngemäß zusammengefasst, da nicht amtlich durchnummeriert)
+## Leitsätze (amtlich, zwei, nummeriert)
 
-1. **Für die Einwilligung in das Setzen von Cookies** zur Erstellung von Nutzerprofilen zu Werbezwecken ist keine wirksame Einwilligung i.S.v. § 15 Abs. 3 Satz 1 TMG a.F. (= § 25 TDDDG heute) gegeben, wenn die Einwilligung durch ein vorausgewähltes Kontrollkästchen erteilt wird, das der Nutzer zur Verweigerung seiner Einwilligung abwählen muss.
+1. **Telefonwerbung:** „Eine wirksame Einwilligung in telefonische Werbung im Sinne von § 7 Abs. 2 Nr. 2 Fall 1 UWG liegt nicht vor, wenn der Verbraucher bei der Erklärung der Einwilligung mit einem aufwendigen Verfahren der Abwahl von in einer Liste aufgeführten Partnerunternehmen konfrontiert wird, das ihn dazu veranlassen kann, von der Ausübung dieser Wahl Abstand zu nehmen und stattdessen dem Unternehmer die Wahl der Werbepartner zu überlassen. Weiß der Verbraucher mangels Kenntnisnahme vom Inhalt der Liste und ohne Ausübung des Wahlrechts nicht, die Produkte oder Dienstleistungen welcher Unternehmer die Einwilligung erfasst, liegt keine Einwilligung für den konkreten Fall vor." (Rn. 27 f.; § 7 Abs. 2 Nr. 2 Fall 1 UWG a.F., heute § 7 Abs. 2 Nr. 1 UWG)
 
-2. **Richtlinienkonforme Auslegung:** § 15 Abs. 3 Satz 1 TMG ist richtlinienkonform als Umsetzung der Art. 5 Abs. 3, Art. 2 lit. f der Richtlinie 2002/58/EG (ePrivacy) zu verstehen — trotz ursprünglicher nationaler Umsetzungslücke.
-
-3. **Telefonwerbung:** Auch die Einwilligung in Werbeanrufe von zahlreichen Partnerunternehmen ist nur wirksam, wenn der Nutzer das Gewinnspiel wirklich eigenverantwortlich zur Einwilligung nutzt und klar erkennt, was er erlaubt.
+2. **Cookies:** „§ 15 Abs. 3 Satz 1 TMG ist mit Blick auf Art. 5 Abs. 3 Satz 1 der Richtlinie 2002/58/EG dahin richtlinienkonform auszulegen, dass der Diensteanbieter Cookies zur Erstellung von Nutzungsprofilen für Zwecke der Werbung oder Marktforschung nur mit Einwilligung des Nutzers einsetzen darf. Eine elektronisch zu erklärende Einwilligung des Nutzers, die den Abruf von auf seinem Endgerät gespeicherten Informationen mithilfe von Cookies im Wege eines voreingestellten Ankreuzkästchens gestattet, genügt diesem Einwilligungserfordernis nicht." (Rn. 47)
 
 ## Kernaussagen
 
@@ -51,15 +49,15 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
 
 ### Zur Telefonwerbung (zusätzlich)
 
-- Einwilligung zu Werbeanrufen „von Partnerunternehmen" ist intransparent, wenn Partner nicht bestimmt oder bestimmbar sind
+- Die Einwilligung war unwirksam, weil sie nicht für den konkreten Fall und nicht in Kenntnis der Sachlage erteilt wurde (Liste von 57 Unternehmen; ohne Abwahl wählte der Veranstalter bis zu 30 Werbepartner nach freiem Ermessen aus, Rn. 5, 24, 27 f.)
 - Der konkrete Umfang („wer darf anrufen, wofür") muss für den Nutzer erkennbar sein
-- Liste von 57 Partnern wie im Fall war für die Freiwilligkeit der Einwilligung problematisch
+- Die Begründung ist nicht die Freiwilligkeit der Einwilligung
 
 ## Rechtliche Bedeutung
 
 - **Deutsche Cookie-Rechtsprechung-Wende:** Vor Cookie II wurde § 15 Abs. 3 TMG weit ausgelegt; Aufsichtsbehörden hatten bereits 2019 eine Positionierung vorgenommen, die BGH bestätigte
 - **Grundlage für § 25 TTDSG (seit Dezember 2021) / § 25 TDDDG (seit Mai 2024):** Gesetzgeber hat Rechtsunsicherheit formell beendet
-- **Wettbewerbsrechtliche Sanktionierung:** vzbv-Klage nach § 3a UWG i.V.m. § 7 Abs. 2 Nr. 2 UWG
+- **Verfahrensart:** Verbandsklage nach §§ 1, 3 Abs. 1 Satz 1 Nr. 1 UKlaG i.V.m. § 307 Abs. 1, Abs. 2 Nr. 1 BGB (AGB-Kontrolle); Maßstab für die Telefonwerbungsklausel § 7 Abs. 2 Nr. 2 Fall 1 UWG a.F., für die Cookie-Klausel § 15 Abs. 3 Satz 1 TMG a.F. (Rn. 23, 41); kein § 3a UWG
 
 ## Praktische Folgen für Codebases
 
@@ -90,3 +88,8 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
   bestaetigt, Vorlagebeschluss vom 05.10.2017 (ECLI:DE:BGH:2017:051017BIZR7.16.0)
   als Zwischenstufe ergaenzt. Inhalt unveraendert — keine neuen
   BGH-Entscheidungen zu dieser Rechtsfrage seit 2026-05-08 bekannt.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Vorgeschichte mit LG-/OLG-Daten und Vorlagebeschluss; die zwei amtlichen
+  Leitsaetze woertlich (LS 1 Telefonwerbung, LS 2 Cookies), Zusatz
+  "Umsetzungsluecke" gestrichen; Telefonwerbung: konkreter Fall statt
+  Freiwilligkeit; Verfahrensart UKlaG/AGB-Kontrolle statt § 3a UWG.

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 gilt-fuer: generische Pre-Launch-Pruefung (jedes Web-Projekt in DE/EU)
 verifiziert-am: 2026-11-14
 geltungsbereich: [DE, EU]
@@ -34,7 +34,7 @@ Pflichtenkatalog.
 - [ ] **Projekt-Typ**: SaaS / Landingpage / E-Commerce / Content-Site / API / Mobile App / n8n / Mixed
 - [ ] **Zielgruppe**: B2B / B2C / Mixed
 - [ ] **Marktgebiete**: DE / EU / weltweit
-- [ ] **Unternehmensgroesse**: Kleinstunternehmen (< 10 MA und < 2 Mio EUR) / Mittel / Gross
+- [ ] **Unternehmensgroesse**: Kleinstunternehmen (weniger als 10 Beschaeftigte und Jahresumsatz oder Jahresbilanzsumme hoechstens 2 Mio EUR, § 2 Nr. 17 BFSG; BFSG-Ausnahme nur fuer Dienstleistungen, § 3 Abs. 3 BFSG) / Mittel / Gross
 - [ ] **Rechtsform**: Einzelunternehmer / GbR / GmbH / UG / AG / Verein
 - [ ] **USt-pflichtig**: ja / nein (Kleinunternehmer-Regelung § 19 UStG)
 - [ ] **Branche mit Sonder-Compliance**: Finanz / Gesundheit / Kinder / Glueck / Recht
@@ -55,7 +55,7 @@ Pflichtenkatalog.
 - [ ] **TOM-Dokument** (Art. 32 DSGVO) erstellt — [[themen/tom]]
 - [ ] **AVVs** fuer alle aktiven Drittanbieter unterschrieben — [[themen/avv-muster]]
 - [ ] **Datenschutzerklaerung** nach Art. 13 DSGVO fertig — [[themen/datenschutzerklaerung]]
-- [ ] **DSB** benannt falls Pflicht (§ 38 BDSG: > 20 Personen mit PII-Arbeit ODER Kerngeschaeft Scoring/Profiling/Artikel-9-Daten) — siehe [[anwaelte-tools/datenschutzbeauftragte]]
+- [ ] **DSB** benannt falls Pflicht (§ 38 Abs. 1 Satz 1 BDSG: in der Regel mindestens 20 Personen staendig mit automatisierter Verarbeitung personenbezogener Daten beschaeftigt; Satz 2: unabhaengig davon bei DSFA-pflichtiger Verarbeitung; ODER Kerntaetigkeit Scoring/Profiling/Artikel-9-Daten nach Art. 37 Abs. 1 lit. b, c DSGVO) — siehe [[anwaelte-tools/datenschutzbeauftragte]]
 - [ ] **DSFA** fuer risikoreiche Verarbeitungen (Art. 35) — [[themen/dsfa]]
 - [ ] **Drittland-Pruefung** fuer jeden US-/Nicht-EU-Provider — [[themen/drittland-transfer]]
 - [ ] **Melde-Prozess** fuer Datenpannen (Art. 33 / 34) definiert — [[themen/meldepflicht-datenpanne]]
@@ -75,11 +75,11 @@ Pflichtenkatalog.
 
 - [ ] **AGB** (falls Leistungsabgabe) mit Einbeziehungs-Mechanismus, AGB-Kontrolle §§ 305-309 BGB — [[themen/agb-muster]]
 - [ ] **Widerrufsbelehrung** bei B2C nach § 355 BGB + Art. 246a EGBGB — [[themen/widerrufsbelehrung]]
-- [ ] **Button-Loesung** (§ 312j Abs. 3 BGB) bei entgeltlichen Services — Pflichtwortlaut auf finalem Button (BGH I ZR 159/24 v. 09.10.2025) — [[themen/button-loesung]]
+- [ ] **Button-Loesung** (§ 312j Abs. 3 BGB) bei entgeltlichen Services: Pflichtwortlaut nach § 312j Abs. 3 Satz 2 BGB; bei Verstoss ist der Vertrag endgueltig unwirksam (§ 312j Abs. 4 BGB; BGH, Urt. v. 09.10.2025, I ZR 159/24) — [[themen/button-loesung]]
 - [ ] **Kuendigungsbutton § 312k BGB** bei entgeltlichen Dauerschuldverhaeltnissen mit Verbrauchern: Schaltflaeche "Vertraege hier kuendigen" + Bestaetigungsseite mit "jetzt kuendigen", staendig verfuegbar; Folge bei Verstoss: fristlose Kuendigung jederzeit (§ 312k Abs. 6 BGB) — Severity CRIT
 - [ ] **Elektronische Widerrufsfunktion / "Widerrufsbutton" nach § 356a BGB** (gesetze-im-internet.de/bgb/__356a.html) bei **allen** Fernabsatzvertraegen, die ueber eine Online-Benutzeroberflaeche geschlossen werden (nicht nur Finanzdienstleistungen): Schaltflaeche "Vertrag widerrufen" (oder eine andere gleichbedeutende eindeutige Formulierung), waehrend der gesamten Widerrufsfrist erreichbar, mit Bestaetigungsschaltflaeche "Widerruf bestaetigen" (oder eine andere gleichbedeutende eindeutige Formulierung) und Eingangsbestaetigung auf dauerhaftem Datentraeger inkl. Datum und Uhrzeit (§ 356a Abs. 1 bis 4 BGB); anzuwenden seit **19.06.2026** (Umsetzung der RL (EU) 2023/2673, CELEX:32023L2673 — Umsetzung bis 19.12.2025, Anwendung ab 19.06.2026) — Severity HIGH
-- [ ] **Preisangaben** transparent (PAngV; § 11 PAngV: 30-Tage-Tiefstpreis bei Reduzierungen; BGH I ZR 183/22) — [[themen/preisangaben]]
-- [ ] **VSBG-Hinweis** bei Online-Verkauf (§ 36 VSBG); die **Pflicht zur Verlinkung der EU-OS-Plattform** nach Art. 14 Abs. 1 VO (EU) 524/2013 ist mit Wirkung vom **20.07.2025** entfallen — Aufhebung durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 (CELEX 32024R3228; verifiziert am Cellar-Volltext 2026-11-14). Die OS-Plattform wurde eingestellt; vorhandene Hinweise/Links auf https://ec.europa.eu/consumers/odr/ entfernen.
+- [ ] **Preisangaben** transparent (PAngV; § 11 PAngV: 30-Tage-Tiefstpreis bei Reduzierungen; EuGH, Urt. v. 26.09.2024, C-330/23 (Aldi Sued); BGH, Urt. v. 09.10.2025, I ZR 183/24 (Jacobs Kroenung)) — [[themen/preisangaben]]
+- [ ] **VSBG-Hinweis** bei Online-Verkauf (§ 36 VSBG; Ausnahme fuer die Hinweispflicht nach § 36 Abs. 1 Nr. 1 bei hoechstens zehn Beschaeftigten am 31.12. des Vorjahres, § 36 Abs. 3 VSBG; darunter Hinweispflicht nur bei Teilnahmepflicht, § 36 Abs. 1 Nr. 2 VSBG); die **Pflicht zur Verlinkung der EU-OS-Plattform** nach Art. 14 Abs. 1 VO (EU) 524/2013 ist mit Wirkung vom **20.07.2025** entfallen — Aufhebung durch **VO (EU) 2024/3228** vom 19.12.2024, Art. 1 (CELEX 32024R3228; verifiziert am Cellar-Volltext 2026-11-14). Die OS-Plattform wurde eingestellt; vorhandene Hinweise/Links auf https://ec.europa.eu/consumers/odr/ entfernen.
 - [ ] **SLA** bei B2B-Services (optional, aber empfohlen)
 
 ## 5. Marketing / Kommunikation
@@ -89,9 +89,9 @@ Pflichtenkatalog.
 - [ ] **Telefon-Werbung** an Verbraucher nur mit ausdruecklicher (vorheriger) Einwilligung — § 7 Abs. 2 Nr. 1 UWG
 - [ ] **SMS / Push** als "elektronische Post" — Opt-In noetig (§ 7 Abs. 2 Nr. 2 UWG)
 - [ ] **Kennzeichnung bezahlter Inhalte** (§ 5a Abs. 4 UWG) — [[themen/werbekennzeichnung]]
-- [ ] **Influencer-Kooperationen** mit klarer Werbe-Kennzeichnung (BGH I ZR 90/20, 125/20, 126/20 v. 09.09.2021)
+- [ ] **Influencer-Kooperationen**: kommerziellen Zweck kenntlich machen, wenn der Handelnde fuer die Handlung zugunsten eines fremden Unternehmens ein Entgelt oder eine aehnliche Gegenleistung erhaelt oder sich versprechen laesst; die Gegenleistung wird vermutet, es sei denn, er macht glaubhaft, dass er keine erhalten hat (§ 5a Abs. 4 Saetze 2 und 3 UWG), ferner bei eigenem kommerziellen Zweck (Eigenwerbung). Die BGH-Urteile vom 09.09.2021 (I ZR 90/20, 125/20, 126/20) ergingen zu § 5a Abs. 6 UWG a. F.; siehe [[themen/werbekennzeichnung]]
 - [ ] **Bewertungen-Echtheit** (§ 5b Abs. 3 UWG) — bei Aggregat-Anzeigen Methode der Verifikation transparent
-- [ ] **Umweltaussagen / Nachhaltigkeitssiegel** — EmpCo-Richtlinie (EU) 2024/825 (CELEX:32024L0825): Mitgliedstaaten erlassen bis 27.03.2026, Anwendung ab **27.09.2026** (per Cellar verifiziert); deutsche Umsetzung durch Art. 6 Gesetz vom 22.10.2026 (BGBl. 2026 I Nr. 322), UWG-Uebergang ueber § 15b UWG Stichtag 27.09.2026 (siehe [[gesetze/uwg]]): Verbot vager/pauschaler Umweltaussagen (§ 5 Abs. 2 Nr. 1, Abs. 3 Nr. 3/4 UWG), Einschraenkungen bei nicht-zertifizierten Nachhaltigkeitssiegeln (Anhang Nrn. 2a, 4a-4c, 10a, 23d), ergaenzte Informationspflichten § 5b Abs. 3a UWG — Severity HIGH
+- [ ] **Umweltaussagen / Nachhaltigkeitssiegel** — EmpCo-Richtlinie (EU) 2024/825 (CELEX:32024L0825): Mitgliedstaaten erlassen bis 27.03.2026, Anwendung ab **27.09.2026** (per Cellar verifiziert); umgesetzt durch G v. 12.02.2026 (BGBl. 2026 I Nr. 43, Drittes UWG-Aenderungsgesetz), in Kraft seit 27.09.2026; Uebergangsvorschrift § 15b UWG (Art. 5 G v. 22.10.2026, BGBl. 2026 I Nr. 322) (siehe [[gesetze/uwg]]): Verbot vager/pauschaler Umweltaussagen (§ 5 Abs. 2 Nr. 1, Abs. 3 Nr. 3/4 UWG), Einschraenkungen bei nicht-zertifizierten Nachhaltigkeitssiegeln (Anhang Nrn. 2a, 4a-4c, 10a, 23d), ergaenzte Informationspflichten § 5b Abs. 3a UWG — Severity HIGH
 
 ## 6. Geistiges Eigentum
 
@@ -121,7 +121,7 @@ Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI):
 - [ ] **Verbotene Praktiken** (Art. 5) ausgeschlossen (inkl. NCII/CSAM-Generatoren ab 02.12.2026)
 - [ ] **KI-Kompetenz** Art. 4 KI-VO n. F. (seit 27.07.2026 i. d. F. VO (EU) 2026/1744): Anbieter und Betreiber ergreifen **Massnahmen zur Unterstuetzung** der KI-Kompetenz; **keine Pflicht**, ein bestimmtes Kompetenzniveau zu **garantieren** (Art. 4 Abs. 1 Satz 2 n. F.) — Foerdermassnahmen und Schulungsnachweise dennoch dokumentieren
 - [ ] KI-Komponenten klassifiziert (Verboten / Hoch / Begrenzt / Minimal)
-- [ ] Transparenzpflichten erfuellt (Art. 50 AI Act); maschinenlesbare Markierung seit 02.08.2026; Altbestand bis 02.12.2026
+- [ ] Transparenzpflichten erfuellt (Art. 50 AI Act), getrennt nach Rolle: maschinenlesbare Markierung nach Art. 50 Abs. 2 seit 02.08.2026 (Altbestand bis 02.12.2026) ist Pflicht des Anbieters; Betreiber treffen die Pflichten nach Art. 50 Abs. 4 (Deepfakes; Texte zu Angelegenheiten von oeffentlichem Interesse ohne menschliche Ueberpruefung und redaktionelle Verantwortung)
 - [ ] High-Risk: Konformitaetsbewertung eingeleitet
 - [ ] GPAI-Provider-Compliance bei verwendeten Modellen
 - [ ] [[gesetze/ai-act]], [[themen/ki-transparenz]], [[themen/ki-content]]
@@ -130,8 +130,8 @@ Anwendbarkeit (Stand 2026-11-14, inkl. VO (EU) 2026/1744 Digital Omnibus on AI):
 
 BFSG ist **seit 28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Online-Dienstleistungen.
 
-- [ ] Pruefen ob BFSG-pflichtig (B2C-Online-Dienstleistung; Kleinstunternehmen-Ausnahme: < 10 MA UND < 2 Mio EUR)
-- [ ] WCAG 2.1 AA eingehalten (BFSGV § 3 setzt EN 301 549 um)
+- [ ] Pruefen ob BFSG-pflichtig (B2C-Online-Dienstleistung; Kleinstunternehmen-Ausnahme: weniger als 10 Beschaeftigte und Jahresumsatz oder Jahresbilanzsumme hoechstens 2 Mio EUR, § 2 Nr. 17 BFSG; BFSG-Ausnahme nur fuer Dienstleistungen, § 3 Abs. 3 BFSG)
+- [ ] WCAG 2.1 AA als Pruefraster: § 3 BFSGV verweist auf den Stand der Technik; Konformitaetsvermutung nach § 4 BFSG, EN 301 549 / WCAG 2.1 AA nur darueber; Anforderungen §§ 12, 19 BFSGV
 - [ ] **Barrierefreiheitserklaerung** veroeffentlicht (§ 14 BFSG)
 - [ ] **Feedback-Kanal** fuer Barrieren
 - [ ] Bussgeldrahmen bis 100.000 EUR (§ 37 BFSG)
@@ -150,7 +150,7 @@ BFSG ist **seit 28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Online-Dien
 
 - [ ] Buchhaltungs-System eingerichtet (DATEV, Lexoffice, sevDesk)
 - [ ] Rechnungs-Template nach § 14 UStG
-- [ ] Archivierung 10 Jahre (§ 257 HGB, § 147 AO)
+- [ ] Archivierung: Rechnungen/Buchungsbelege 8 Jahre (§ 257 Abs. 1 Nr. 4, Abs. 4 HGB; § 147 Abs. 1 Nr. 4, Abs. 3 AO; § 14b Abs. 1 UStG); Buecher, Inventare, Abschluesse 10 Jahre; Handels- und Geschaeftsbriefe 6 Jahre; Ausnahme 10 Jahre fuer Kredit-, Versicherungs- und Wertpapierinstitute (§ 257 Abs. 4 Satz 2 HGB)
 - [ ] GoBD-konforme Speicherung
 
 ## 12. Rechtsanwalt-/DSB-Review
@@ -174,7 +174,7 @@ Code-Analyse alleine deckt NICHT auf, was der Browser tatsaechlich laedt. Vor Go
 - [ ] Impressum-Link in jedem aktiven Social-Profil (LinkedIn, Instagram, TikTok, X, YouTube, Pinterest)
 - [ ] DSE-Link ebenfalls verlinkt
 - [ ] Joint-Controller-Addendum mit Meta fuer Facebook-Page akzeptiert
-- [ ] Automatisiertes Crossposting (n8n, Zapier): Kennzeichnung nach § 18 Abs. 3 MStV
+- [ ] Automatisiertes Crossposting (n8n, Zapier): Kennzeichnung nach § 18 Abs. 3 MStV, wenn das Nutzerkonto seinem aeusseren Erscheinungsbild nach fuer die Nutzung durch natuerliche Personen bereitgestellt wurde
 - [ ] Details: [[themen/social-media-datenschutz]]
 
 ## 15. Trust-Signale / Werbung mit Siegeln
@@ -235,3 +235,7 @@ das Abmahn-Risiko auf ein beherrschbares Niveau.
 - Abschnitt 5 um EmpCo-RL (EU) 2024/825 (ab 27.09.2026) ergaenzt; nun Cellar-verifiziert (CELEX:32024L0825, Mitgliedstaaten erlassen bis 27.03.2026, Anwendung ab 27.09.2026). Deutsche Umsetzung Tier-1-belegt via knowledge/gesetze/uwg.md (Art. 6 Gesetz vom 22.10.2026, BGBl. 2026 I Nr. 322, § 15b UWG). Marker aufgeloest.
 - Bestandspruefung (11 Pflicht-Normzitate ausserhalb Abschnitt 8): alle bestaetigt — § 5 DDG, § 18 MStV, Art. 30/32/33/35/5/13/17 DSGVO, § 38 BDSG, § 7 Abs. 2 Nr. 2/Abs. 3 UWG, § 5a Abs. 4 UWG, § 5b Abs. 3 UWG, § 312j Abs. 3 BGB, § 312k BGB, § 11 PAngV, § 51 UrhG, § 22 KUG, § 14/§ 37 BFSG, § 257 HGB, § 147 AO. BGH-Aktenzeichen I ZR 159/24 (09.10.2025), I ZR 25/19 (13.01.2022), I ZR 90/20, 125/20, 126/20 (09.09.2021), I ZR 7/16 (28.05.2020, "Cookie-Einwilligung II"), EuGH C-673/17 (Planet49), C-40/17 (Fashion ID) — konsistent zu KB.
 - Abschnitt 8 (KI) wurde am selben Tag von einem anderen Agent aktualisiert; hier nicht angetastet.
+
+## Aenderungsvermerk (2026-11-15)
+
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1): Kleinstunternehmen-Definition (§ 2 Nr. 17 BFSG) und BFSGV § 3 berichtigt; DSB-Pflicht nach § 38 Abs. 1 BDSG und Art. 37 Abs. 1 lit. b, c DSGVO; I ZR 159/24 nur fuer die endgueltige Unwirksamkeit nach § 312j Abs. 4 BGB; 30-Tage-Tiefstpreis mit EuGH C-330/23 und BGH I ZR 183/24 statt I ZR 183/22; VSBG-Ausnahme § 36 Abs. 3; Influencer-Kennzeichnung nur bei Gegenleistung bzw. eigenem kommerziellen Zweck; EmpCo-Umsetzung durch G v. 12.02.2026 (BGBl. 2026 I Nr. 43), § 15b UWG nur Uebergangsvorschrift (berichtigt den EmpCo-Vermerk oben); Art. 50 KI-VO nach Anbieter und Betreiber getrennt; Aufbewahrungsfristen 8/10/6 Jahre; Crossposting-Hinweis nur bei personenaehnlichen Konten. Die Bestandspruefung oben ("alle bestaetigt", "konsistent zu KB") traf insoweit nicht zu.

@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/
@@ -46,7 +46,7 @@ Eine Datenschutzerklärung ist die öffentliche Informationspflicht gegenüber a
 - (f) Automatisierte Entscheidungen / Profiling — Logik, Tragweite, Folgen
 
 ### Art. 14 DSGVO — Ergänzende Angaben bei Fremderhebung
-Zusätzlich: Datenkategorien + Quelle (Abs. 2 lit. f). Frist: innerhalb eines Monats, spätestens bei erster Kommunikation.
+Zusätzlich: Datenkategorien (Art. 14 Abs. 1 lit. d) und Quelle (Art. 14 Abs. 2 lit. f). Frist: innerhalb eines Monats, spätestens bei erster Kommunikation.
 
 ### Formatvorgaben (Art. 12 DSGVO)
 - Präzise, transparent, verständlich
@@ -76,16 +76,16 @@ Zusätzlich: Datenkategorien + Quelle (Abs. 2 lit. f). Frist: innerhalb eines Mo
 ## Behörden-Hinweise
 
 - **DSK Kurzpapier Nr. 10** — Informationspflichten bei Dritt- und Direkterhebung
-- **EDSA Leitlinien zur Transparenz (WP260 rev.01)** — Kriterien für „klar und einfach"
+- **Art.-29-Gruppe, Leitlinien für Transparenz (WP260 rev.01)**, vom EDSA am 25.05.2018 übernommen (Endorsement 1/2018): Kriterien für „klar und einfach"
 - **BayLDA-Prüfschema** Datenschutzerklärungen (aktualisiert 2023)
 
 ## Zitierbare Urteile
 
 - **EuGH C-154/21 (RW / Österreichische Post), 12.01.2023** — Auskunftsanspruch umfasst konkrete Empfänger, nicht nur Kategorien, wenn möglich
-- **EuGH C-21/23 (Lindenapotheke), 04.10.2024** — DSGVO-Verstoesse koennen von Mitbewerbern per UWG verfolgt werden; nationale Klagebefugnis bleibt zulaessig. Daten zu rezeptfreien Arzneimitteln sind Gesundheitsdaten nach Art. 9 DSGVO.
-- **BGH, Folgeentscheidung zu C-21/23 (Lindenapotheke) in 2025** — BGH setzt C-21/23 um: fehlerhafte Datenschutzerklaerung/Einwilligung ist abmahnfaehig durch Mitbewerber nach § 8 Abs. 3 Nr. 1 UWG. Exaktes Aktenzeichen und Datum nicht gegen Tier-1-Quelle verifiziert <<VERIFIKATION AUSSTEHEND>>
-- **LG München I 3 O 17493/20, 20.01.2022** — 100 EUR immaterieller Schaden bei Google Fonts ohne Transparenz
-- **BGH VI ZR 10/24, 18.11.2024 (Leitentscheidung Facebook-Scraping)** — Blosser und kurzzeitiger Kontrollverlust kann bereits immaterieller Schaden nach Art. 82 DSGVO sein; Groessenordnung im Streitwert ca. 100 EUR
+- **EuGH C-21/23 (Lindenapotheke), 04.10.2024** — DSGVO-Verstoesse koennen von Mitbewerbern per UWG verfolgt werden; nationale Klagebefugnis bleibt zulaessig. Daten zu apothekenpflichtigen, nicht verschreibungspflichtigen Arzneimitteln sind Gesundheitsdaten nach Art. 9 DSGVO.
+- **BGH, Urteile vom 27.03.2025, I ZR 223/19 (Arzneimittelbestelldaten II) und I ZR 222/19 (Arzneimittelbestelldaten III)** — Folgeentscheidungen zu C-21/23: Verarbeitung von Gesundheitsdaten ohne ausdrückliche Einwilligung (Art. 9 Abs. 2 lit. a DSGVO) ist Verstoß gegen eine Marktverhaltensregelung (§ 3a UWG); Mitbewerber sind klagebefugt.
+- **LG München I 3 O 17493/20, 20.01.2022** — 100 EUR immaterieller Schaden bei Weitergabe der IP-Adresse an Google (Google Fonts) ohne Einwilligung und ohne Rechtfertigungsgrund
+- **BGH VI ZR 10/24, 18.11.2024 (Leitentscheidung Facebook-Scraping)** — Blosser und kurzzeitiger Kontrollverlust kann bereits immaterieller Schaden nach Art. 82 DSGVO sein; fuer den blossen Kontrollverlust haette der Senat keine Bedenken gegen einen Ausgleich in einer Groessenordnung von 100 EUR (Rn. 100)
 - **EuGH C-319/22, 09.11.2023** — Fahrzeug-Identifizierungsnummer als personenbezogenes Datum (Implikation für Erklärungs-Schema)
 
 ## Siehe auch
@@ -106,3 +106,10 @@ Zusätzlich: Datenkategorien + Quelle (Abs. 2 lit. f). Frist: innerhalb eines Mo
 - EuGH C-21/23 (04.10.2024) und BGH-Umsetzung sowie BGH VI ZR 10/24 (18.11.2024,
   Kontrollverlust als immaterieller Schaden) ergaenzt.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  BGH-Folgeentscheidungen zu C-21/23 belegt (I ZR 223/19 und I ZR 222/19
+  vom 27.03.2025, § 3a UWG), Marker entfernt; C-21/23 Tenor
+  ("apothekenpflichtige, nicht verschreibungspflichtige" Arzneimittel);
+  LG Muenchen I 3 O 17493/20 praezisiert; BGH VI ZR 10/24 Rn. 100
+  (Schadenshoehe, nicht Streitwert); Art. 14 Abs. 1 lit. d ergaenzt;
+  WP260 rev.01 als Art.-29-Leitlinie mit EDSA-Endorsement bezeichnet.

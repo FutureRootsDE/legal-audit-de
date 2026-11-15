@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://curia.europa.eu/juris/liste.jsf?num=C-252/21
 quellen-sekundaer:
   - https://curia.europa.eu/jcms/upload/docs/application/pdf/2023-07/cp230113de.pdf
@@ -40,7 +40,7 @@ ecli: ECLI:EU:C:2023:537
 
 Das Bundeskartellamt hatte mit Entscheidung vom **06.02.2019** Meta
 (Facebook) missbraeuchliches Verhalten einer marktbeherrschenden Stellung
-vorgeworfen (§§ 19, 32 GWB i.V.m. Art. 102 AEUV):
+vorgeworfen (§ 19 Abs. 1, § 32 GWB):
 
 - Facebook verknuepfte Nutzerdaten aus dem Kernnetzwerk (facebook.com) mit
   Daten von **Instagram**, **WhatsApp**, **externen Webseiten** (ueber
@@ -99,7 +99,7 @@ Der EuGH entschied:
    blanket-AGB-Zustimmung.
 2. **Social-Plugins (Like-Button, Share-Button, Facebook Login, Google
    Maps, YouTube Embed)** uebermitteln Daten an Drittanbieter — Einwilligung
-   nach § 25 TTDSG / Art. 6 DSGVO erforderlich; Consent-Banner-Loesung Pflicht.
+   nach § 25 TDDDG / Art. 6 DSGVO erforderlich; Consent-Banner-Loesung Pflicht.
 3. **Personalized Ads als "Vertragsleistung" ausweisen** ist unzureichend —
    Trennung Kernleistung / Werbung erforderlich.
 4. **Berechtigtes Interesse als Fallback** bei Tracking: nach Meta-Urteil
@@ -121,19 +121,20 @@ Der EuGH entschied:
 
 ## Follow-Up
 
-- **BKartA-Entscheidung vom 06.02.2019** wurde durch EuGH-Urteil bestaetigt
-  im Rahmen des Rechtsstreits.
+- **BKartA-Entscheidung vom 06.02.2019:** Der EuGH hat nur die vorgelegten
+  Auslegungsfragen beantwortet, nicht ueber die Verfuegung selbst entschieden.
 - **Verfahrensende OLG Duesseldorf (10.10.2024):** Meta hat seine Beschwerde
   gegen die BKartA-Entscheidung **zurueckgenommen**. Das BKartA-Verfahren ist
   damit bestandskraeftig abgeschlossen. Quelle: BKartA-Pressemitteilung vom
   10.10.2024 (https://www.bundeskartellamt.de/SharedDocs/Meldung/DE/Pressemitteilungen/2024/10_10_2024_Facebook.html).
-- **EuGH C-446/21 (Schrems/Meta, 04.10.2024):** Grundsatz der Datenminimierung
-  (Art. 5 Abs. 1 lit. c DSGVO) begrenzt die Aggregation personenbezogener Daten
-  fuer personalisierte Werbung auch bei erteilter Einwilligung zeitlich und
-  sachlich; zudem Praezisierung zu Art. 9 DSGVO (Hinweis auf sexuelle
+- **EuGH C-446/21 (Schrems/Meta, Vierte Kammer, 04.10.2024; Vorlage des
+  oesterreichischen OGH):** Der Grundsatz der Datenminimierung (Art. 5 Abs. 1
+  lit. c DSGVO) steht einer zeitlich unbegrenzten und nicht nach Art der Daten
+  unterscheidenden Aggregation saemtlicher Daten fuer zielgerichtete Werbung
+  entgegen (Tenor 1); zudem Praezisierung zu Art. 9 DSGVO (Hinweis auf sexuelle
   Orientierung durch Nutzer macht nicht alle Daten zu „offensichtlich oeffentlich
-  gemacht"). Verfahren war nach Vorlage des Bundeskartellamt-Verfahrens
-  ausgesetzt. Beleg: curia.europa.eu, Rechtssache C-446/21.
+  gemacht"). Das Verfahren war bis zur Entscheidung in C-252/21 ausgesetzt
+  (Rn. 35). Beleg: curia.europa.eu, Rechtssache C-446/21.
 - **EDSA-Opinion 08/2024 vom 17.04.2024 („Consent or Pay")**: Auf gemeinsame
   Anfrage NL/NO/HmbBfDI; Kernaussage: „Consent or Pay"-Modelle grosser Online-
   Plattformen koennen in der Regel keine freiwillige Einwilligung i.S.v.
@@ -185,3 +186,8 @@ Der EuGH entschied:
   Marker fuer die DMA-Entscheidung gesetzt, weil die Kommissions-Press-Corner-
   URL (IP/25/1085) im Abruf nicht den Volltext lieferte und der genaue Fundstellen-
   Anker der Klage T-435/25 im eur-lex-Amtsblatt noch zu verifizieren ist.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Normen der BKartA-Entscheidung (§ 19 Abs. 1, § 32 GWB); § 25 TDDDG statt
+  TTDSG; Follow-Up: EuGH hat nur Auslegungsfragen beantwortet, nicht ueber
+  die Verfuegung entschieden; C-446/21 nach Tenor 1 neu gefasst ("auch bei
+  erteilter Einwilligung" gestrichen), Aussetzung bis C-252/21 (Rn. 35).

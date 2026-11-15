@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0673
 ecli: ECLI:EU:C:2019:801
 quellen-sekundaer:
@@ -22,7 +22,7 @@ geltungsbereich: [DE, EU]
 
 ## Kurz-Überblick
 
-Der EuGH hat am 1. Oktober 2019 in der Rechtssache C-673/17 (Bundesverband der Verbraucherzentralen gegen Planet49 GmbH) entschieden, dass eine Einwilligung zum Setzen von Cookies nicht wirksam ist, wenn sie über ein vorausgewähltes Kontrollkästchen erfolgt. Die Einwilligung muss aktiv und informiert sein. Das Urteil ist das zentrale europäische Cookie-Einwilligungs-Urteil und Grundlage für § 25 TDDDG sowie den BGH-Folgebeschluss Cookie II (I ZR 7/16).
+Der EuGH hat am 1. Oktober 2019 in der Rechtssache C-673/17 (Bundesverband der Verbraucherzentralen gegen Planet49 GmbH) entschieden, dass eine Einwilligung zum Setzen von Cookies nicht wirksam ist, wenn sie über ein vorausgewähltes Kontrollkästchen erfolgt. Die Einwilligung muss aktiv und informiert sein. Das Urteil ist das zentrale europäische Cookie-Einwilligungs-Urteil und Grundlage für § 25 TDDDG sowie das BGH-Folgeurteil „Cookie-Einwilligung II" (I ZR 7/16).
 
 ## Eckdaten
 
@@ -40,8 +40,10 @@ Der EuGH hat am 1. Oktober 2019 in der Rechtssache C-673/17 (Bundesverband der V
 
 Planet49 veranstaltete ein Online-Gewinnspiel. Nach Eingabe von Postleitzahl, Name und Adresse fanden Nutzer zwei Einwilligungs-Checkboxen:
 
-1. Einwilligung in Werbeanrufe durch Drittunternehmen
-2. Einwilligung in Cookies zur Reichweitenmessung / Webanalyse — **vorausgewählt**
+1. Einwilligung in Werbung von Sponsoren und Kooperationspartnern per Post, Telefon, E-Mail/SMS (nicht vorangekreuzt; Voraussetzung für die Teilnahme)
+2. Einwilligung in den Webanalysedienst Remintrex mittels Cookies für interessengerichtete Werbung (**vorangekreuzt**)
+
+(Rn. 26 bis 28)
 
 Der vzbv hielt beide Einwilligungen für unwirksam.
 
@@ -68,13 +70,13 @@ Muss mindestens enthalten (Rn. 75–81):
 - Zugriffsmöglichkeiten Dritter
 - Vor der Einwilligung bereitgestellt
 
-### Koppelungsverbot (implizit)
+### Koppelung (nicht entschieden)
 
-Die Einwilligung zur Cookie-Nutzung darf nicht in einer Weise mit der Teilnahme am Gewinnspiel gekoppelt sein, die Zweifel an der Freiwilligkeit weckt.
+Die Frage, ob die Koppelung der Gewinnspielteilnahme an eine Werbeeinwilligung mit der Freiwilligkeit vereinbar ist, hat der EuGH ausdrücklich offengelassen (Rn. 64). Planet49 ist kein Beleg für ein Koppelungsverbot; Maßstab ist Art. 7 Abs. 4 DSGVO.
 
 ## Praktische Folgen
 
-- **BGH I ZR 7/16 (Cookie II), 28.05.2020** — Umsetzung in deutsches Recht mit richtlinienkonformer Auslegung
+- **BGH I ZR 7/16 („Cookie-Einwilligung II"), 28.05.2020** — Umsetzung in deutsches Recht mit richtlinienkonformer Auslegung
 - Alle Cookie-Banner müssen **aktives Anklicken** fordern (kein Vorhaken, kein Scrollen)
 - Deutscher Gesetzgeber hat Anlass genommen, den (damaligen) § 25 TTDSG einzuführen (heute TDDDG)
 - Wettbewerbsrechtliche Abmahnbarkeit bestätigt
@@ -82,7 +84,7 @@ Die Einwilligung zur Cookie-Nutzung darf nicht in einer Weise mit der Teilnahme 
 ## Folgerechtsprechung
 
 - **LG Rostock 3 O 762/19, 15.09.2020** — Ablehnen-Button gleichwertig zu Akzeptieren
-- **EuGH C-252/21 (Meta Platforms), 04.07.2023** — Personalisierte Werbung nur mit Einwilligung
+- **EuGH C-252/21 (Meta Platforms/Bundeskartellamt), 04.07.2023:** Art. 6 Abs. 1 lit. f DSGVO trägt die Zusammenführung von Off-Site- und Konzerndaten nur unter engen Voraussetzungen (Tenor 5); für die Personalisierung von Werbung durch den Betreiber eines sozialen Netzwerks überwiegen die Interessen der Nutzer (Rn. 117).
 - **EuGH C-604/22 (IAB Europe), 07.03.2024** — TC-String als personenbezogenes Datum
 
 ## Anwendung auf Codebases
@@ -109,3 +111,8 @@ Die Einwilligung zur Cookie-Nutzung darf nicht in einer Weise mit der Teilnahme 
   Buchst. f ePrivacy-RL i.V.m. Art. 4 Nr. 11 DSGVO bestaetigt. ECLI in
   Frontmatter aufgenommen. Inhaltlich keine neuen EuGH-Entscheidungen zur
   Planet49-Linie seit 2026-05-08 bekannt.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  BGH-Folgeurteil "Cookie-Einwilligung II" statt "Folgebeschluss Cookie II";
+  Sachverhalt der beiden Kaestchen nach Rn. 26 bis 28 (Remintrex,
+  interessengerichtete Werbung statt Reichweitenmessung); Koppelung als vom
+  EuGH ausdruecklich nicht entschieden gekennzeichnet (Rn. 64).

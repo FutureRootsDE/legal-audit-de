@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://publications.europa.eu/resource/celex/62023TJ0553
 ecli: ECLI:EU:T:2025:831
 quellen-sekundaer:
@@ -57,12 +57,10 @@ C-703/25 P beim EuGH anhaengig (eingelegt am 31.10.2025).
   identifizierte zentrale Mangel des Privacy Shield (fehlender effektiver
   Rechtsschutz durch die US-Ombudsperson) ist durch die Neukonstruktion
   nicht fortbestehend.
-- **Verhaeltnismaessigkeit der Bulk-Collection**: Die durch EO 14086
-  normierten Grenzen (zwoelf abschliessend festgelegte Zwecke, Grundsaetze
-  der Erforderlichkeit und Verhaeltnismaessigkeit, Ausuebung durch die
-  Intelligence Community unter Aufsicht) genuegen den unionsrechtlichen
-  Anforderungen an einen unbestimmten, aber kontrollierten Zugriff zur
-  nationalen Sicherheit.
+- **Sammelerhebung (bulk collection)**: Eine vorherige Genehmigung durch
+  eine Justiz- oder Verwaltungsbehoerde ist nicht erforderlich; es genuegt
+  die nachtraegliche gerichtliche Kontrolle durch den DPRC (Rn. 94 ff.,
+  105 f.).
 - **Pruefungsmassstab**: Der Angemessenheitsbeschluss wird nach den im
   Zeitpunkt seines Erlasses (10.07.2023) bestehenden Rechts- und
   Faktenlage geprueft. Spaetere Entwicklungen im US-Rechtsgefuege sind
@@ -124,3 +122,7 @@ C-703/25 P beim EuGH anhaengig (eingelegt am 31.10.2025).
 - **2026-11-14**: Datei neu angelegt; Primaerbeleg ueber EUR-Lex (CELEX
   62023TJ0553). ECLI:EU:T:2025:831 aus Primaerquelle uebernommen.
   Rechtsmittel C-703/25 P anhaengig.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Sammelerhebung neu gefasst (keine vorherige Genehmigung erforderlich,
+  nachtraegliche Kontrolle durch den DPRC, Rn. 94 ff., 105 f.); Angabe
+  "zwoelf Zwecke" gestrichen (im Urteil nicht auffindbar).

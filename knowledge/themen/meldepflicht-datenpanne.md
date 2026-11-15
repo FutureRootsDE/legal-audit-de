@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-14
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/
@@ -23,13 +23,13 @@ geltungsbereich: [DE, EU]
 
 ## Kurz-Überblick
 
-Bei einer Verletzung des Schutzes personenbezogener Daten (Data Breach) muss der Verantwortliche nach Art. 33 DSGVO die zuständige Aufsichtsbehörde **innerhalb von 72 Stunden** melden. Betroffene sind nach Art. 34 DSGVO zusätzlich zu benachrichtigen, wenn ein **hohes Risiko** besteht. Die 72-Stunden-Frist läuft ab „Bekanntwerden" — praktisch: sobald mit hinreichender Wahrscheinlichkeit eine Verletzung feststeht.
+Bei einer Verletzung des Schutzes personenbezogener Daten (Data Breach) muss der Verantwortliche nach Art. 33 DSGVO die zuständige Aufsichtsbehörde **unverzüglich und möglichst binnen 72 Stunden nach Bekanntwerden** melden (Art. 33 Abs. 1 DSGVO). Betroffene sind nach Art. 34 DSGVO zusätzlich zu benachrichtigen, wenn ein **hohes Risiko** besteht. Die 72-Stunden-Frist läuft ab „Bekanntwerden" — praktisch: sobald mit hinreichender Wahrscheinlichkeit eine Verletzung feststeht.
 
 ## Kernaussagen
 
 ### Art. 4 Nr. 12 — Definition „Verletzung des Schutzes personenbezogener Daten"
 
-> Eine Verletzung der Sicherheit, die zur Vernichtung, zum Verlust, zur Veränderung, zur unbefugten Offenlegung oder zum unbefugten Zugang zu personenbezogenen Daten führt.
+> eine Verletzung der Sicherheit, die, ob unbeabsichtigt oder unrechtmäßig, zur Vernichtung, zum Verlust, zur Veränderung, oder zur unbefugten Offenlegung von beziehungsweise zum unbefugten Zugang zu personenbezogenen Daten führt, die übermittelt, gespeichert oder auf sonstige Weise verarbeitet wurden
 
 Drei Kategorien:
 - **Vertraulichkeitsverletzung:** unbefugter Zugang/Offenlegung
@@ -39,7 +39,7 @@ Drei Kategorien:
 ### Art. 33 — Meldung an die Aufsichtsbehörde
 
 **Abs. 1:**
-- **72 Stunden** ab Bekanntwerden
+- **unverzüglich und möglichst binnen 72 Stunden** nach Bekanntwerden
 - Ausnahme: Wenn „voraussichtlich nicht zu einem Risiko" für Betroffene → keine Meldepflicht (aber Dokumentation, Abs. 5)
 - Bei Verspätung: Begründung für Verzögerung
 
@@ -105,7 +105,7 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
 
 - **BfDI:** Online-Formular unter bfdi.bund.de
 - **LfDI BW:** https://www.baden-wuerttemberg.datenschutz.de/datenpanne-melden
-- **LDA Bayern:** https://www.lda.bayern.de/de/datenpannen.html
+- **LDA Bayern:** https://www.lda.bayern.de/de/datenpanne.html
 - **BlnBDI:** https://www.datenschutz-berlin.de
 - **LDI NRW, LfDI RLP, HmbBfDI**: jeweils eigene Formulare
 
@@ -121,7 +121,7 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
   - Credentials-Rotation-Plan wenn Zugriff kompromittiert
   - Workflow-Audit-Log analysieren
 - **E-Commerce:**
-  - Zahlungsdaten-Leaks = immer hohes Risiko → Art. 34 zusätzlich PCI-Meldepflichten
+  - Zahlungsdaten-Leaks = immer hohes Risiko → Art. 34; zusätzlich vertragliche Meldepflichten aus PCI DSS gegenüber Acquirer/Kartenorganisation
   - PSD2/BaFin-Meldungen parallel
 - **Content/Blog:**
   - WP-Hack (häufig): Datenbank-Analyse erforderlich (wp_users, wp_comments)
@@ -131,17 +131,17 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
 - **EDSA Leitlinien 9/2022** zu Benachrichtigungen bei Datenschutzverletzungen
 - **EDSA Leitlinien 01/2021** (Beispiele für Datenschutzverletzungen)
 - **DSK Kurzpapier Nr. 18** — Risikobewertung (verwandtes Thema)
-- **Art.-29-Gruppe WP 250 rev.01** (weiterhin relevant für Einstufung)
+- **EDSA Leitlinien 9/2022 zur Meldung von Verletzungen des Schutzes personenbezogener Daten, Version 2.0 vom 28.03.2023** (ersetzen WP 250 rev.01)
 - **BfDI Infoblatt „Meldung einer Datenschutzverletzung"**
 
 ## Zitierbare Urteile
 
 - **EuGH C-340/21 (Natsionalna agentsia), 14.12.2023** — Cyberangriff führt nicht automatisch zu TOM-Verstoß; Beweislast liegt aber beim Verantwortlichen
-- **EuGH C-687/21 (MediaMarktSaturn), 25.01.2024** — Bloßer Kontrollverlust allein nicht automatisch immaterieller Schaden, aber Befürchtungen können genügen
-- **BGH VI ZR 10/24 (Facebook-Scraping), 18.11.2024** — Erste Leitentscheidung des BGH nach § 552b ZPO: bereits der kurzzeitige Verlust der Kontrolle ueber personenbezogene Daten kann einen immateriellen Schaden nach Art. 82 DSGVO begruenden; Groessenordnung im Ausgangsverfahren ca. 100 EUR
-- **EuGH C-655/23 (Quirin Privatbank/XING), 04.09.2025** — Auch negative Gefuehle nach unbefugter Weitergabe von Daten koennen immateriellen Schaden begruenden <<VERIFIKATION AUSSTEHEND>>
-- **OLG Düsseldorf 16 U 275/20, 28.10.2021** — Schadenersatz bei unverschlüsseltem USB-Stick-Verlust <<VERIFIKATION AUSSTEHEND>>
-- **LG Köln 28 O 328/21, 15.06.2022** — Bußgeld-Risiko bei verspäteter Meldung <<VERIFIKATION AUSSTEHEND>>
+- **EuGH C-687/21, 25.01.2024**: Irrtümliche Weitergabe an Dritte belegt für sich keine ungeeigneten TOM; hat der Dritte die Daten nachweislich nicht zur Kenntnis genommen, ist die bloße Befürchtung künftigen Missbrauchs kein immaterieller Schaden (Tenor 5). Befürchtung als möglicher Schaden: EuGH C-340/21, Tenor 6.
+- **BGH VI ZR 10/24 (Facebook-Scraping), 18.11.2024** — Urteil im nach § 552b ZPO bestimmten Leitentscheidungsverfahren: bereits der kurzzeitige Verlust der Kontrolle ueber personenbezogene Daten kann einen immateriellen Schaden nach Art. 82 DSGVO begruenden; Groessenordnung im Ausgangsverfahren ca. 100 EUR
+- **EuGH C-655/23 (IP/Quirin Privatbank), 04.09.2025** — Auch negative Gefuehle nach unbefugter Weitergabe von Daten koennen immateriellen Schaden begruenden <<VERIFIKATION AUSSTEHEND>>
+- **OLG Düsseldorf 16 U 275/20, 28.10.2021**: 2.000 EUR immaterieller Schadensersatz für unverschlüsselten Versand von Gesundheitsdaten an eine falsche E-Mail-Adresse
+- **LG Köln 28 O 328/21, 18.05.2022**: 1.200 EUR Schadensersatz nach Art. 82 DSGVO
 
 ## Siehe auch
 
@@ -164,3 +164,12 @@ T+n   Nachbericht, Lessons Learned, Maßnahmen-Update
   72-Stunden-Frist aus Art. 33 Abs. 1 DSGVO unveraendert.
 - Zwei OLG-/LG-Aktenzeichen mit Verifikationsmarker versehen.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
+  Meldefrist nach Wortlaut Art. 33 Abs. 1 ("unverzueglich und moeglichst
+  binnen 72 Stunden"); Art. 4 Nr. 12 im Wortlaut; EuGH C-687/21 (Tenor 5)
+  berichtigt, C-340/21 Tenor 6 ergaenzt; BGH VI ZR 10/24 als Urteil im
+  Leitentscheidungsverfahren bezeichnet; Parteibezeichnung C-655/23
+  berichtigt; OLG Duesseldorf 16 U 275/20 (Gegenstand) und LG Koeln
+  28 O 328/21 (Datum 18.05.2022, Gegenstand) berichtigt, Marker dort
+  entfernt; PCI-DSS-Pflichten als vertraglich gekennzeichnet; EDSA
+  Leitlinien 9/2022 v2.0 statt WP 250; URL LDA Bayern korrigiert.

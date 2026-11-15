@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-10-24
+aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32022R1925
 quellen-sekundaer:
   - https://digital-markets-act.ec.europa.eu/gatekeepers-portal_en
@@ -24,31 +24,31 @@ geltungsbereich: [DE, EU]
 
 ## Kurz-Ueberblick
 
-Die Verordnung (EU) 2022/1925 ueber bestreitbare und faire Maerkte im digitalen Sektor (Digital Markets Act, DMA) richtet sich an **"Gatekeeper"** — grosse Plattformen mit erheblicher Marktmacht. Sie ist am **02.05.2023 in Kraft getreten**; die operativen Pflichten fuer benannte Gatekeeper gelten seit **07.03.2024**.
+Die Verordnung (EU) 2022/1925 ueber bestreitbare und faire Maerkte im digitalen Sektor (Digital Markets Act, DMA) richtet sich an **"Gatekeeper"** — grosse Plattformen mit erheblicher Marktmacht. Sie ist am **01.11.2022 in Kraft getreten** und gilt seit **02.05.2023**; die operativen Pflichten fuer benannte Gatekeeper gelten seit **07.03.2024**.
 
 Der DMA ist ein ex-ante-Regulierungsinstrument: Er stellt Wettbewerbsregeln **vor** Marktmachtmissbrauch auf, statt wie das kartellrechtliche ex-post-Regime erst nach Missbrauch einzugreifen.
 
-**Fuer kleine und mittlere Unternehmen ist der DMA als Regulierungsadressat irrelevant** — die Schwellen liegen bei Gruppenumsatz (>= 7,5 Mrd. EUR in der EU in 3 Jahren) oder Marktkapitalisierung (>= 75 Mrd. EUR) und min. 45 Mio. monatlichen EU-Endnutzern + 10.000 gewerblichen Nutzern. Er ist jedoch relevant als **Rechteregime fuer gewerbliche Nutzer und Endnutzer**, die gegenueber Gatekeepern Ansprueche haben.
+**Fuer kleine und mittlere Unternehmen ist der DMA als Regulierungsadressat irrelevant** — die Schwellen liegen bei Gruppenumsatz (>= 7,5 Mrd. EUR in der EU in 3 Jahren) oder Marktkapitalisierung (>= 75 Mrd. EUR) und Bereitstellung desselben zentralen Plattformdienstes in mindestens drei Mitgliedstaaten sowie min. 45 Mio. monatlichen EU-Endnutzern + 10.000 jaehrlich aktiven gewerblichen Nutzern. Er ist jedoch relevant als **Rechteregime fuer gewerbliche Nutzer und Endnutzer**, die gegenueber Gatekeepern Ansprueche haben.
 
 ## Schluesselparagraphen / Kernaussagen
 
 ### Art. 3 DMA — Benennung als Gatekeeper
 
 Ein Unternehmen ist Gatekeeper, wenn es:
-1. **Erheblichen Einfluss auf den Binnenmarkt** hat (quantitativ widerlegbar vermutet bei >= 7,5 Mrd. EUR Jahresumsatz in der EU oder >= 75 Mrd. EUR Marktkapitalisierung)
-2. **Einen zentralen Plattformdienst** betreibt, der **wichtiges Zugangstor** fuer gewerbliche Nutzer zu Endnutzern ist (>= 45 Mio. monatliche aktive EU-Endnutzer + >= 10.000 gewerbliche EU-Nutzer)
+1. **Erheblichen Einfluss auf den Binnenmarkt** hat (quantitativ widerlegbar vermutet bei >= 7,5 Mrd. EUR Jahresumsatz in der EU oder >= 75 Mrd. EUR Marktkapitalisierung, jeweils bei Bereitstellung desselben zentralen Plattformdienstes in mindestens drei Mitgliedstaaten)
+2. **Einen zentralen Plattformdienst** betreibt, der **wichtiges Zugangstor** fuer gewerbliche Nutzer zu Endnutzern ist (>= 45 Mio. monatliche aktive EU-Endnutzer + >= 10.000 jaehrlich aktive gewerbliche EU-Nutzer)
 3. Eine **gefestigte und dauerhafte Position** hat (vermutet bei Erfuellung der Schwellen in 3 letzten Geschaeftsjahren)
 
-Benennung durch die EU-Kommission; Widerlegung innerhalb 45 Arbeitstage moeglich.
+Benennung durch die EU-Kommission binnen 45 Arbeitstagen nach vollstaendiger Mitteilung (Art. 3 Abs. 4); Widerlegungsargumente sind mit der Mitteilung vorzubringen (Art. 3 Abs. 5).
 
 ### Aktuell benannte Gatekeeper (Stand 2026-04)
 
-**7 Gatekeeper, 24+ zentrale Plattformdienste:**
-- **Alphabet (Google)**: Google Search, Google Play, Chrome, YouTube, Google Maps, Google Ads, Android
+**7 Gatekeeper, 23 zentrale Plattformdienste (Stand Kommission):**
+- **Alphabet (Google)**: Google Search, Google Play, Chrome, YouTube, Google Maps, Google Shopping, Google Ads, Android
 - **Amazon**: Amazon Marketplace, Amazon Ads
 - **Apple**: App Store, iOS, iPadOS, Safari
 - **ByteDance**: TikTok
-- **Meta**: Facebook, Instagram, WhatsApp, Messenger, Meta Ads, Marketplace
+- **Meta**: Facebook, Instagram, WhatsApp, Messenger, Meta Ads (Marketplace seit 23.04.2025 nicht mehr benannt)
 - **Microsoft**: LinkedIn, Windows (PC-OS)
 - **Booking.com**: Online-Reisevermittlung (spaeter hinzugefuegt)
 
@@ -64,13 +64,16 @@ Quelle: https://digital-markets-act.ec.europa.eu/gatekeepers-portal_en
 
 ### Art. 6 DMA — Handlungspflichten (nach Konkretisierung)
 
-- **Interoperabilitaet** fuer Messaging-Dienste (WhatsApp, Messenger)
 - **App-Sideloading** und alternative App-Stores (iOS)
 - **Browser/Suchmaschinen-Wahlbildschirme**
-- **Fairer und diskriminierungsfreier Zugang** zu App-Stores und Such-Rankings
+- **Faire, zumutbare und diskriminierungsfreie Zugangsbedingungen** zu App-Stores, Online-Suchmaschinen und sozialen Netzwerken (Art. 6 Abs. 12); Ranking nach transparenten, fairen und diskriminierungsfreien Bedingungen (Art. 6 Abs. 5 Satz 2)
 - **Kein Self-Preferencing** eigener Dienste
 - **Datenportabilitaet** fuer Endnutzer
 - **Daten-Zugang** fuer gewerbliche Nutzer (die "ihre" auf der Plattform erzeugten Daten)
+
+### Art. 7 DMA: Interoperabilitaet von Messaging-Diensten
+
+- **Interoperabilitaet** fuer Messaging-Dienste (WhatsApp, Messenger)
 
 ### Durchsetzung
 
@@ -95,12 +98,12 @@ Typische SaaS- und E-Commerce-Codebases sind **nicht direkt DMA-verpflichtet**. 
 
 ## Behoerden-Hinweise
 
-- **Zustaendigkeit zentral bei EU-Kommission (DG COMP)**: https://digital-markets-act.ec.europa.eu/
+- **Zustaendigkeit zentral bei der EU-Kommission (gemeinsames Team von DG COMP und DG CONNECT)**: https://digital-markets-act.ec.europa.eu/
 - Nationale Wettbewerbsbehoerden (Bundeskartellamt) koennen ergaenzend taetig werden, aber primaere DMA-Durchsetzung liegt bruessellastig
 
 ## Zitierbare Urteile
 
-- **EU-Kommission, Non-Compliance Decisions (23.04.2024 / 2025)**: Erste Nichtbefolgungsverfahren gegen Apple (Anti-Steering App Store) und Meta (Pay-or-Consent-Modell)
+- **EU-Kommission, Nichteinhaltungsbeschluesse vom 23.04.2025**: Apple 500 Mio. EUR (Anti-Steering, App Store), Meta 200 Mio. EUR (Pay-or-Consent-Modell)
 - **EuG, Urt. v. 17.07.2024 — T-1077/23, ByteDance / Kommission**: Klage gegen die Gatekeeper-Benennung von ByteDance (TikTok) vom 05.09.2023 im beschleunigten Verfahren **abgewiesen** (CELEX:62023TJ1077).
 - **EuGH, anhaengig: C-627/24 P, ByteDance / Kommission**: Rechtsmittel gegen T-1077/23, eingelegt am 26.09.2024; muendliche Verhandlung vor der Grossen Kammer am 12.05.2026 (curia.europa.eu). Generalanwalt Biondi hat am 15.10.2026 die Zurueckweisung des Rechtsmittels vorgeschlagen (Schlussantraege binden den EuGH nicht). Endurteil Stand 2026-10-24 noch nicht ergangen.
 - **EuG, Urt. v. 03.06.2026 — T-1078/23, Meta Platforms / Kommission** (PM 77/26): Benennung fuer **Messenger aufrechterhalten** (eigenstaendiger nummernunabhaengiger interpersoneller Kommunikationsdienst, getrennt vom sozialen Netzwerk Facebook); Benennung fuer **Marketplace fuer nichtig erklaert**, weil die Kommission nur Daten der letzten drei Jahre vor der Benennung heranzog, ohne Aenderungen von Ende Juli 2023 zu beruecksichtigen, und den Beschluss insoweit unzureichend begruendete.
