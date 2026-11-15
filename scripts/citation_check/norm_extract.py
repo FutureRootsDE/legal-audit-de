@@ -36,9 +36,10 @@ BGBL = re.compile(
     r"BGBl\.?\s*(?:(?P<teil1>I{1,2})\s+)?(?P<y1>[0-9]{4})\s+(?P<teil2>I{1,2})\s+Nr\.\s*(?P<n1>[0-9]{1,4})"
     r"|BGBl\.?\s*(?P<teil3>I{1,2})\s+Nr\.\s*(?P<n2>[0-9]{1,4})\s*/\s*(?P<y2>[0-9]{4})"
     r"|BGBl\.?\s*(?P<teil4>I{1,2})\s+(?P<y3>[0-9]{4})\s+Nr\.\s*(?P<n3>[0-9]{1,4})")
+# numbered issues (Nr.) exist on recht.bund.de since the electronic Bundesgesetzblatt
 MIN_BGBL_YEAR = 2023
 OTHER_PARTS = (("nr", "nummer"), ("lit", "lit"), ("buchst", "lit"), ("alt", "alternative"), ("var", "alternative"),
-               ("hs", "halbsatz"), ("halbs", "halbsatz"))  # numbered issues (Nr.) exist on recht.bund.de since the electronic Bundesgesetzblatt
+               ("hs", "halbsatz"), ("halbs", "halbsatz"))
 
 
 @dataclass(frozen=True)

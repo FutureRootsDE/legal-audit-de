@@ -40,8 +40,12 @@ QUERY_TEMPLATE = (
 
 class EuShapeError(ValueError):
     """The endpoint answered with JSON of an unexpected structure."""
+
+
+# Interim relief: German title wording, or a file number with suffix R ("C-204/21 R", "T-1/20 P R");
+# the trailing word boundary keeps RENV, REC and rev out.
 INTERIM_TITLE = re.compile(r"vorl(?:ä|ae)ufige[rn]? rechtsschutz|einstweilige[rn]? anordnung"
-                           r"|rechtssache [ct]-[0-9]+/[0-9]+(?:\s?p)?\s?r")
+                           r"|(?:\brechtssache\s+)?\b[ct]-[0-9]+/[0-9]+(?:\s?p)?\s?r\b")
 
 
 def build_query(case: EuCase) -> str:
