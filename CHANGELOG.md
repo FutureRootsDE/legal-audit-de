@@ -8,18 +8,15 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
-### Fixed
-
-- **Claude-Marketplace (`.claude-plugin/marketplace.json`):** Die Plugin-Quelle ist jetzt `{"source":"url","url":"https://github.com/FutureRootsDE/legal-audit-de.git"}` statt `{"source":"github","repo":"FutureRootsDE/legal-audit-de"}`. Bei der `github`-Quelle klont Claude Code das Plugin per SSH (`git@github.com:`); ohne hinterlegten GitHub-SSH-Schluessel brach `claude plugin update legal-audit-de@futureroots-legal` mit `Permission denied (publickey)` ab, obwohl das Repo oeffentlich ist. Die `url`-Quelle klont per HTTPS und bleibt ein Objekt-Discriminator, das Verhalten aus Issue #3 (leerer Marketplace bei `"source": "./"`) kehrt also nicht zurueck. Die Codex-Definition (`.agents/plugins/marketplace.json`) bleibt unveraendert.
-
 ---
 
 ## [1.4.3] (2026-11-15)
 
-Patch-Release: Plugin-Manifest.
+Patch-Release: Plugin-Manifest und Marketplace-Quelle.
 
 ### Behoben
 
+- **Claude-Marketplace (`.claude-plugin/marketplace.json`):** Die Plugin-Quelle ist jetzt `{"source":"url","url":"https://github.com/FutureRootsDE/legal-audit-de.git"}` statt `{"source":"github","repo":"FutureRootsDE/legal-audit-de"}`. Bei der `github`-Quelle klont Claude Code das Plugin per SSH (`git@github.com:`); ohne hinterlegten GitHub-SSH-Schluessel brach `claude plugin update legal-audit-de@futureroots-legal` mit `Permission denied (publickey)` ab, obwohl das Repo oeffentlich ist. Die `url`-Quelle klont per HTTPS und bleibt ein Objekt-Discriminator, das Verhalten aus Issue #3 (leerer Marketplace bei `"source": "./"`) kehrt also nicht zurueck. Die Codex-Definition (`.agents/plugins/marketplace.json`) bleibt unveraendert.
 - `.claude-plugin/plugin.json` deklariert jetzt die Komponentenpfade (`commands`, `skills`, `agents`). Claude Code sucht Komponenten standardmäßig nur in `commands/`, `skills/` und `agents/` im Plugin-Root; dieses Repo legt sie unter `.claude/` ab. Ohne die Deklaration wurden nach der Marketplace-Installation keine Slash-Befehle, Skills und Agents geladen. Agents werden einzeln als `.md`-Pfade aufgeführt, weil das Feld keine Verzeichnisse akzeptiert.
 
 ---
