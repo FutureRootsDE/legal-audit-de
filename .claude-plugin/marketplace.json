@@ -12,8 +12,8 @@
     {
       "name": "legal-audit-de",
       "source": {
-        "source": "github",
-        "repo": "FutureRootsDE/legal-audit-de"
+        "source": "url",
+        "url": "https://github.com/FutureRootsDE/legal-audit-de.git"
       },
       "description": "Multi-platform plugin for systematic German/EU legal audits (DSGVO, TDDDG, UWG, AI Act, etc.). Scans codebases, live URLs, and individual legal documents. Produces severity-classified findings + clean corrected versions. NOT legal advice.",
       "version": "1.4.2",
