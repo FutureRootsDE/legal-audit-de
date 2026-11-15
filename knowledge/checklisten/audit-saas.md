@@ -163,7 +163,7 @@ BFSG ist seit **28.06.2025 in Anwendung**. Pflicht-Pruefung fuer B2C-Angebote (O
 Fast jedes SaaS-Produkt hat Marketing-Teile mit Social-Media-Icons, Embeds oder Testimonials. Separat auditieren — siehe [[themen/social-media-datenschutz]].
 
 - [ ] Social-Media-Icons im Footer / Header — **nur** als statische Links ohne Plugin-Scripts (kein Facebook-SDK, keine Twitter-Widgets)
-- [ ] YouTube-/Vimeo-Embeds auf Landing / Docs nur via `youtube-nocookie.com` bzw. `?dnt=1`, alternativ hinter Consent-Gate
+- [ ] YouTube-/Vimeo-Embeds auf Landing / Docs erst nach Einwilligung laden (z. B. Zwei-Klick-Loesung); `youtube-nocookie.com` bzw. `?dnt=1` allein genuegt nicht; Einbindung vor Einwilligung technisch pruefen
 - [ ] LinkedIn Insight Tag / Meta Pixel / TikTok Pixel auf Marketing-Seiten mit Consent? (siehe [[themen/tracking-analytics]])
 - [ ] Unternehmens-Profile (LinkedIn, X, Instagram): Impressum-Link + DSE-Link in Bio gesetzt
 - [ ] Joint-Controller-Agreement mit Meta fuer Page-Insights dokumentiert

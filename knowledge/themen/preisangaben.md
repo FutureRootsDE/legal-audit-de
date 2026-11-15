@@ -130,6 +130,8 @@ am Ort des Leistungsangebots (§ 12 Abs. 1, 2 PAngV).
 8. **Grundpreis bei Mengenrabatten:** Der Grundpreis bezieht sich auf die
    Mengeneinheit nach § 5 Abs. 1 PAngV (1 kg, 1 l, 1 m³, 1 m, 1 m²), nicht
    auf das Stueck; er bleibt bei Mengenaktionen anzugeben.
+9. **Angabe "inkl. MwSt." bei B2B-/Hybrid-Angeboten:** Hinweis zur Angabe bei
+   Angeboten, die sich auch an Unternehmer richten. <<VERIFIKATION AUSSTEHEND>>
 
 ## Relevanz fuer Codebase-Typen
 
@@ -161,10 +163,11 @@ am Ort des Leistungsangebots (§ 12 Abs. 1, 2 PAngV).
 - **Gewerbeaufsicht / Marktueberwachung** der Bundeslaender: Ordnungs-
   widrigkeiten nach § 20 PAngV (Bussgeldrahmen siehe Kurz-Ueberblick).
 - **Eichbehoerden** (Preis- und Grundpreis-Pruefungen).
-- **Wettbewerbszentrale / vzbv:** haeufige Abmahner. Abmahnbefugt sind nur
-  Verbaende, die in der Liste der qualifizierten Wirtschaftsverbaende nach
-  § 8b UWG eingetragen sind (§ 8 Abs. 3 Nr. 2 UWG); die aktuelle Liste
-  fuehrt das Bundesamt fuer Justiz.
+- **Wettbewerbszentrale / vzbv:** haeufige Abmahner. Wirtschaftsverbaende
+  nur, wenn sie in der Liste nach § 8b UWG eingetragen sind (§ 8 Abs. 3 Nr. 2
+  UWG), z. B. die Wettbewerbszentrale; Verbraucherverbaende wie der vzbv als
+  qualifizierte Verbraucherverbaende (§ 8 Abs. 3 Nr. 3 UWG). Die aktuelle
+  Liste nach § 8b UWG fuehrt das Bundesamt fuer Justiz.
 
 ## Zitierbare Urteile
 

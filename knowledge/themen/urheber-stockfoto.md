@@ -25,7 +25,7 @@ geltungsbereich: [DE]
 
 ## Kurz-Ueberblick
 
-Bilder sind einer der **haeufigsten Abmahnungsgegenstaende** in Deutschland. Abmahnungen kommen vor, gerade auch gegen Nutzer von **kostenlosen Stockfoto-Plattformen** (Pexels, Unsplash, Pixabay) um — haeufig Betrugsszenarien, bei denen Fotos **irrtuemlich dort hochgeladen** wurden und der wahre Urheber nun Ansprueche geltend macht.
+Bilder sind einer der **haeufigsten Abmahnungsgegenstaende** in Deutschland. Abmahnungen kommen vor, gerade auch gegen Nutzer von **kostenlosen Stockfoto-Plattformen** (Pexels, Unsplash, Pixabay). Konstellation: Fotos wurden **irrtuemlich dort hochgeladen** und der wahre Urheber macht nun Ansprueche geltend.
 
 Zentrale Regel: **Eine Plattform-Lizenz bindet nur, wenn der Hochladende der wahre Rechteinhaber ist**. Die Plattformen pruefen das in der Regel **nicht**. Haftung des Plattformnutzers (gewerblich!) ist verschuldensunabhaengig auf Unterlassung, schuldhaft auf Schadensersatz (§§ 97, 97a UrhG).
 
@@ -80,7 +80,7 @@ Zentrale Regel: **Eine Plattform-Lizenz bindet nur, wenn der Hochladende der wah
 ### Typische Forderungshoehen
 
 - Abmahnkosten (Anwaltsgebuehr) bei kleineren Faellen: **150–500 EUR** (Erfahrungswert, kein Beleg; Deckel § 97a UrhG bei Privatpersonen 1.000 EUR Gegenstandswert; bei gewerblicher Nutzung kein Deckel)
-- Lizenzanaloger Schadensersatz: **MFM-Tabelle** als Leitplanke; haeufig **300 EUR – 3.000 EUR** pro Bild (Erfahrungswert, kein Beleg; in BGH I ZR 187/17 bemassen die Instanzgerichte die Lizenzgebuehr mit 100 EUR, Rn. 5, also unter dieser Spanne)
+- Lizenzanaloger Schadensersatz: **MFM-Tabelle** als Leitplanke; haeufig **300 EUR – 3.000 EUR** pro Bild (Erfahrungswert, kein Beleg)
 - Wegen fehlender Urhebernennung kann ein Zuschlag auf die fiktive Lizenzgebuehr verlangt werden; 100 % ist Instanzpraxis, keine feste Vorgabe des BGH.
 
 ## Typische Fallstricke in Codebases

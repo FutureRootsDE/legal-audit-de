@@ -35,7 +35,7 @@ Kernsaetze:
 
 1. Jede Siegel-/Testsieger-Werbung ohne **Fundstelle** ist in der Regel
    unlauter nach § 5a Abs. 1 UWG (Vorenthalten einer wesentlichen
-   Information; BGH I ZR 134/20, Leitsatz b, ergangen zu § 5a Abs. 2 UWG
+   Information; BGH I ZR 134/20, Leitsatz 2, ergangen zu § 5a Abs. 2 UWG
    a. F.).
 2. Selbst-erfundene, gekaufte ohne Pruefung, oder laengst abgelaufene Siegel
    sind irrefuehrend.

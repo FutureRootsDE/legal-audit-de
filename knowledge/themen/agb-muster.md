@@ -188,6 +188,8 @@ Klauseln fuehrt (§ 310 Abs. 1 Satz 2 BGB).
    Transparenzverstoss nach Art. 12 Abs. 1 DSGVO ("in praeziser,
    transparenter, verstaendlicher und leicht zugaenglicher Form in einer
    klaren und einfachen Sprache").
+10. **Transparenzgebot in SaaS-AGB:** Klauseln muessen klar und
+   verstaendlich formuliert sein (§ 307 Abs. 1 Satz 2 BGB). <<VERIFIKATION AUSSTEHEND>>
 
 ## Relevanz fuer Codebase-Typen
 
@@ -213,9 +215,10 @@ Klauseln fuehrt (§ 310 Abs. 1 Satz 2 BGB).
 - **vzbv, Verbraucherzentralen:** klagen nach UKlaG gegen unwirksame Klauseln
   (Verbandsklage).
 - **Wettbewerbszentrale:** wettbewerbsrechtliche Abmahnung (§ 3a UWG).
-  Abmahnbefugt sind nur Verbaende, die in der Liste der qualifizierten
-  Wirtschaftsverbaende nach § 8b UWG eingetragen sind (§ 8 Abs. 3 Nr. 2
-  UWG); die aktuelle Liste fuehrt das Bundesamt fuer Justiz.
+  Wirtschaftsverbaende sind nur abmahnbefugt, wenn sie in der Liste nach
+  § 8b UWG eingetragen sind (§ 8 Abs. 3 Nr. 2 UWG); Verbraucherverbaende wie
+  der vzbv als qualifizierte Verbraucherverbaende (§ 8 Abs. 3 Nr. 3 UWG).
+  Die aktuelle Liste nach § 8b UWG fuehrt das Bundesamt fuer Justiz.
 
 ## Zitierbare Urteile
 

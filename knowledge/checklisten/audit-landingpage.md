@@ -40,7 +40,7 @@ Landingpages sind der **Haupt-Angriffspunkt** in DSGVO-Abmahnungen, weil sie typ
 - [ ] **Meta Pixel / Conversion API** — Einwilligung; gemeinsame Verantwortlichkeit mit Meta (Art. 26 DSGVO) — **Joint Controller Agreement** (JCA) noetig
 - [ ] **Google Ads Conversion**: nur nach Einwilligung (§ 25 Abs. 1 TDDDG; Art. 6 Abs. 1 lit. a DSGVO); Consent Mode v2 ist ein Google-Werkzeug zur Signaluebermittlung, keine Rechtsgrundlage
 - [ ] **LinkedIn Insight Tag** — Einwilligung
-- [ ] **YouTube Embed** — nano-cookie-free via youtube-nocookie.com; oder Consent
+- [ ] **YouTube Embed** — YouTube-Einbindung erst nach Einwilligung laden (z. B. Zwei-Klick-Loesung); der Nocookie-Modus allein genuegt nicht; Einbindung vor Einwilligung technisch pruefen
 - [ ] **Google Fonts** — lokal self-hosted (LG Muenchen I 3 O 17493/20)
 - [ ] **reCAPTCHA** — Einwilligung oder Wechsel zu hCaptcha (laut Anbieter US-Unternehmen Intuition Machines, Inc., Stand 2026-11-14; Drittlandtransfer pruefen) / Cloudflare Turnstile
 - [ ] **Calendly / Typeform** — AVV (beide US, Calendly DPF-zertifiziert pruefen)
@@ -185,7 +185,7 @@ Landingpages blenden gern "Wie in der Presse" ein — § 51 UrhG + Markenrecht k
 
 - Cookie-Banner, das Inhalte versperrt, ohne gleichwertige Ablehnen-Moeglichkeit auf erster Ebene
 - Datenschutzerklaerung erwaehnt Provider nicht konkret (nur "ggf. Dritte")
-- YouTube-Embed ohne Consent oder ohne Nocookie-Domain
+- YouTube-Embed vor Einwilligung geladen (der Nocookie-Modus allein genuegt nicht)
 - reCAPTCHA v3 ohne Consent (laedt Google-Scripts)
 - Formular-Daten gehen per HTTP POST ueber US-Service ohne AVV
 

@@ -64,8 +64,8 @@ ls dist/index.js
 ### Option B — Third-Party npm Wrapper
 
 Es existiert ein Drittanbieter-Wrapper auf npm
-(`@iflow-mcp/wolfgangihloff-rechtsinformationen`). Aktuell sehr geringe
-Verbreitung, Single-Maintainer.
+(`@iflow-mcp/wolfgangihloff-rechtsinformationen`). Der Wrapper ist wenig
+verbreitet und wird von einer einzelnen Person gepflegt.
 **Supply-Chain-Risiko abschaetzen**, bevor du das nutzt.
 
 Wenn du dich dafuer entscheidest:

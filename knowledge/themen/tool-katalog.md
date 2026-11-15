@@ -44,7 +44,7 @@ Katalog von rund 100 verbreiteten Web-/SaaS-Tools mit Einordnung nach Einwilligu
 
 | Tool | Anbieter | Einwilligung | Drittland | Code-Spur | Bemerkung |
 |---|---|---|---|---|---|
-| Google Analytics 4 | Google LLC | ❌ | 🇺🇸 US-DPF | `gtag`, `googletagmanager.com/gtag/js`, `@next/third-parties/google` | Einwilligungspflichtig (auch IP-anonymisiert); AVV + SCCs ergänzend; Consent Mode v2 nötig |
+| Google Analytics 4 | Google LLC | ❌ | 🇺🇸 US-DPF | `gtag`, `googletagmanager.com/gtag/js`, `@next/third-parties/google` | Einwilligungspflichtig (auch IP-anonymisiert); AVV + SCCs ergänzend; Consent Mode v2: Vorgabe von Google für bestimmte Werbefunktionen, keine gesetzliche Pflicht; maßgeblich ist die Einwilligung nach § 25 Abs. 1 TDDDG |
 | Plausible Analytics | Plausible Insights OÜ (Estland) | ⚠️ | 🇪🇺 EU (Hetzner DE) | `plausible.io/api/event`, `@plausible.io/tracker` | Laut Anbieter cookie-frei, keine PII, ohne Banner nutzbar; Self-Host (MIT) verfügbar. Nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung |
 | Matomo (Self-Host) | InnoCraft Ltd (NZ, Software) | ⚠️ | 🇪🇺 EU (wenn selbst gehostet) | `matomo.js`, `piwik.js`, `_paq.push` | Cookie-less-Mode + IP-Anonymisierung + respectDoNotTrack; nur einwilligungsfrei, wenn weder Informationen auf dem Endgerät gespeichert noch Eigenschaften des Endgeräts per Skript ausgelesen werden (DSK, OH Digitale Dienste, Rn. 23 f.); Einzelfallprüfung |
 | Matomo Cloud | InnoCraft Ltd | ❌ | 🇪🇺 EU (Frankreich) | `*.matomo.cloud` | Cloud-Variante setzt Cookies standardmäßig |

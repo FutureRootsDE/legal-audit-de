@@ -38,7 +38,7 @@ Content-Produktion beruehrt:
 
 ## Pass 2: Drittland-/Drittanbieter-Transfers
 
-- [ ] **YouTube** — bei eigener Einbettung auf Website: Einbindung vor Einwilligung technisch pruefen (Consent oder YT-Nocookie)
+- [ ] **YouTube** — bei eigener Einbettung auf Website: YouTube-Einbindung erst nach Einwilligung laden (z. B. Zwei-Klick-Loesung); der Nocookie-Modus allein genuegt nicht; Einbindung vor Einwilligung technisch pruefen
 - [ ] **Spotify for Podcasters / Podigee / Libsyn** — Podcast-Hosting mit Analytics
 - [ ] **Apple Podcasts Analytics** — Daten-Austausch mit Apple
 - [ ] **Transcription-Services** (Whisper-API, Descript, Rev) — PII in Transkripten

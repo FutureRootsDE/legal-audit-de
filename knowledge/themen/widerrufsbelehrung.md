@@ -212,6 +212,8 @@ EGBGB).
    auf dauerhaftem Datentraeger (§ 312f Abs. 2 BGB) kann als E-Mail-Text oder
    PDF-Anhang erfolgen; die Inline-Fassung ist zusaetzliche Absicherung, keine
    Pflicht.
+9. **Belehrung im Video-Commerce:** Hinweis zur Widerrufsbelehrung im
+   Video-Commerce. <<VERIFIKATION AUSSTEHEND>>
 
 ## Relevanz fuer Codebase-Typen
 
