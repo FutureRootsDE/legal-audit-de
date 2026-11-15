@@ -3,7 +3,7 @@ aktualisiert: 2026-11-15
 quelle-primaer: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
 quellen-sekundaer:
   - https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DSA/start.html
-  - https://gesetz-digitale-dienste.de/
+  - https://www.gesetze-im-internet.de/ddg/
   - https://www.bfdi.bund.de/DE/Buerger/Inhalte/Telemedien/DDG/Digitale_Dienste_Gesetz.html
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=OLG+N%C3%BCrnberg&Datum=23.07.2024&Aktenzeichen=3+U+2469/23
 verifiziert-am: 2026-10-24
@@ -41,6 +41,10 @@ Anbieter von Vermittlungsdiensten muessen eine **zentrale Kontaktstelle** fuer d
 
 Zusaetzlich (Art. 11) ist eine elektronische Kontaktstelle fuer Behoerden und die Kommission zu benennen.
 
+### Art. 13 DSA: Gesetzlicher Vertreter
+
+Art. 13 DSA: Vermittlungsdienste ohne Niederlassung in der EU, die Dienste in der EU anbieten, muessen schriftlich einen gesetzlichen Vertreter in einem Mitgliedstaat benennen, der fuer Behoerden, Kommission und Gremium in Anspruch genommen werden kann (relevant fuer Nicht-EU-SaaS mit Nutzerinhalten).
+
 ### Art. 14 DSA — Allgemeine Geschaeftsbedingungen
 
 Anbieter muessen in ihren AGB **"klar, einfach, verstaendlich, benutzerfreundlich und eindeutig"** darlegen:
@@ -58,7 +62,7 @@ Hosting-Diensteanbieter muessen **leicht zugaengliche Meldemechanismen** einrich
 - Eine Begruendung der Rechtswidrigkeit enthalten
 
 Der Anbieter muss:
-- Den Eingang bestaetigen
+- Den Eingang unverzueglich bestaetigen, sofern die Meldung eine elektronische Kontaktangabe enthaelt (Art. 16 Abs. 4)
 - **Zeitnah** entscheiden
 - Die Entscheidung und die Begruendung mitteilen (Art. 17)
 
@@ -69,7 +73,7 @@ Der Anbieter muss:
 - **Art. 20**: Internes Beschwerdemanagement bei Plattformen
 - **Art. 21**: Aussergerichtliche Streitbeilegung
 - **Art. 22**: Bevorzugte Behandlung vertrauenswuerdiger Hinweisgeber (Trusted Flagger)
-- **Art. 26–28**: Werbetransparenz, Verbot auf Profiling sensibler Daten, Minderjaehrigenschutz
+- **Art. 26**: Werbetransparenz und Verbot profilingbasierter Werbung mit besonderen Datenkategorien (Abs. 3); **Art. 27**: Transparenz der Empfehlungssysteme; **Art. 28**: Online-Schutz Minderjaehriger
 - **Art. 34/35**: Bewertung systemischer Risiken (Art. 34) und Risikominderung (Art. 35) bei VLOPs und VLOSEs
 
 ## Typische Fallstricke in Codebases
@@ -80,7 +84,7 @@ Der Anbieter muss:
 - **Notice-and-Action-Mechanismus fehlt oder ist zu tief versteckt** (muss leicht zugaenglich sein)
 - **Keine Begruendung bei Content-Entfernung** (Art. 17 "Statement of Reasons")
 - **Transparenzberichte ueberfaellig** (Art. 15, Art. 24)
-- **Dark Patterns in UI** (Art. 25 verbietet irrefuehrendes Design)
+- **Dark Patterns in der UI von Online-Plattformen** (Art. 25 DSA, subsidiaer zu UGP-Richtlinie/UWG und DSGVO; fuer Websites ohne Plattformcharakter gelten UWG und DSGVO)
 - **Werbekennzeichnung unklar** (Art. 26: Erkennbarkeit als Werbung + wer wirbt + warum es dem Nutzer gezeigt wird)
 - **Minderjaehrige**: Profiling-basierte Werbung verboten, wenn mit hinreichender Sicherheit erkennbar (Art. 28)
 
@@ -89,7 +93,7 @@ Der Anbieter muss:
 - **Next.js SaaS**: Pflicht zur Kontaktstelle (Impressum/Kontakt-Route), ggf. Notice-and-Action wenn Nutzer-Content (Kommentare, Uploads, Reviews). AGB anpassen.
 - **Landingpage**: Typischerweise nicht als Vermittlungsdienst einzustufen — Pflichten minimal, aber Kontaktstelle sinnvoll.
 - **n8n**: Wenn n8n-Workflows Inhalte Dritter moderieren/verarbeiten: Protokollierung der Content-Moderation-Entscheidungen sinnvoll.
-- **E-Commerce (Marktplatz-Modell)**: Volle Plattformpflichten (Art. 30 "Know Your Business Customer", Produktrueckverfolgbarkeit, Notice-and-Action)
+- **E-Commerce (Marktplatz-Modell)**: Plattformpflichten (Art. 20 ff.) und Abschnitt 4 (Art. 30 Know-Your-Business-Customer, Art. 31 Compliance by Design, Art. 32 Informationsrecht) plus Notice-and-Action (Art. 16). Achtung: Kleinst- und Kleinunternehmen sind von Abschnitt 3 und 4 ausgenommen (Art. 19, 29), Art. 16 gilt trotzdem.
 - **Content/Blog mit Kommentarfunktion**: Hosting-Dienst → Art. 16 Notice-and-Action Pflicht
 
 ## Behoerden-Hinweise
@@ -98,7 +102,7 @@ Der Anbieter muss:
 - **BfDI**: Zustaendig fuer Art. 26 Abs. 3 und Art. 28 Abs. 2, 3 DSA (§ 12 Abs. 3 DDG)
 - **BzKJ**: Zustaendig fuer Art. 14 Abs. 3 und Art. 28 Abs. 1 DSA (§ 12 Abs. 2 DDG)
 - **EU-Kommission (DG CNECT)**: Direkte Aufsicht ueber VLOPs/VLOSEs
-- **DDG** (nationales Durchfuehrungsgesetz): https://gesetz-digitale-dienste.de/
+- **DDG** (nationales Durchfuehrungsgesetz): https://www.gesetze-im-internet.de/ddg/ (amtlich: BGBl. 2024 I Nr. 149)
 
 ## Zitierbare Urteile
 

@@ -111,7 +111,7 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
 - **DSK Kurzpapier Nr. 18** — Risiko für Rechte und Freiheiten natürlicher Personen
 - **Art.-29-Gruppe WP 248 rev.01** — Leitlinien zur DSFA (vom EDSA übernommen)
 - **Muss-Liste DSK v1.1, 17.10.2018** — 17 Fallgruppen
-- **CNIL PIA-Software** (kostenlos, auch deutschsprachig)
+- **CNIL PIA-Software** (kostenlos, Open Source)
 - **BSI PIA-Leitfaden**
 
 ## Zitierbare Urteile
@@ -136,7 +136,9 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
   gegen rechtsprechung-im-internet.de verifiziert werden; Aktenzeichen bleiben
   stehen mit Verifikationsmarker.
 - AI-Act: Stufenweise Anwendbarkeit ergaenzt — Art. 5 (verbotene Praktiken)
-  seit 02.02.2025, GPAI-Governance seit 02.08.2025, Art. 50 (Transparenz)
+  seit 02.02.2025 (die durch VO (EU) 2026/1744 neu eingefuegten Verbote,
+  Art. 5 Abs. 1 UAbs. 1 lit. ba, bb, Abs. 1a, 1b, erst ab 02.12.2026),
+  GPAI-Governance seit 02.08.2025, Art. 50 (Transparenz)
   anwendbar seit 02.08.2026; Pflichten fuer Hochrisiko-KI nach Anhang III ab
   **02.12.2027**, nach Anhang I ab **02.08.2028** (Art. 113 Abs. 3 Buchst. c
   KI-VO n. F., verschoben durch Art. 1 Nr. 40 Buchst. b der VO (EU) 2026/1744
@@ -165,3 +167,6 @@ Tools: BSI PIA-Tool (kostenlos), CNIL PIA-Tool (kostenlos), OneTrust, Activemind
   (Art. 111 Abs. 4 n. F.) ergaenzt; Omnibus-Aktenzeichen COM(2025) 837;
   Art. 35 Abs. 9 und Art. 36 Abs. 2 am Wortlaut ausgerichtet. Der obige
   Vermerk, die Aussage zu C-26/22 bleibe korrekt, ist damit ueberholt.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Verbote nach VO (EU) 2026/1744 (Art. 5 Abs. 1 UAbs. 1 lit. ba, bb,
+  Abs. 1a, 1b) erst ab 02.12.2026; CNIL PIA-Software ohne Sprachangabe.

@@ -56,7 +56,7 @@ Quelle: https://digital-markets-act.ec.europa.eu/gatekeepers-portal_en
 
 ### Art. 5 DMA — Verbote (unmittelbare Pflichten)
 
-- Verbot der **Zusammenfuehrung personenbezogener Daten** zwischen zentralem Plattformdienst und anderen Diensten ohne Einwilligung
+- Art. 5 Abs. 2: ohne spezifische Wahl und DSGVO-Einwilligung keine Verarbeitung von Drittdienst-Daten fuer Werbung, keine **Zusammenfuehrung** oder Weiterverwendung personenbezogener Daten zwischen zentralem Plattformdienst, anderen Gatekeeper-Diensten und Drittdiensten und kein automatisches Cross-Sign-in
 - Verbot der **Parity-Klauseln** gegenueber gewerblichen Nutzern ("most favored nation")
 - Verbot, gewerbliche Nutzer an **ausserhalb der Plattform erfolgender Kundenansprache** zu hindern (Anti-Steering)
 - Verbot, Endnutzern den **Zugang zu extern erworbenen Inhalten/Abos** zu verwehren
@@ -80,7 +80,7 @@ Quelle: https://digital-markets-act.ec.europa.eu/gatekeepers-portal_en
 - Bussgelder bis **10 %** des weltweiten Jahresumsatzes (Art. 30)
 - Bei Wiederholung bis **20 %**
 - Bei systematischer Nichtbefolgung: **strukturelle Massnahmen** (Unbundling)
-- Laufende Nichtbefolgungsverfahren gegen Apple, Meta, Alphabet (Stand 2025)
+- Nichtbefolgungsbeschluesse: Apple (Anti-Steering, 500 Mio. EUR) und Meta (Pay-or-Consent, 200 Mio. EUR) am 23.04.2025
 
 ## Typische Fallstricke in Codebases
 
@@ -99,9 +99,9 @@ Typische SaaS- und E-Commerce-Codebases sind **nicht direkt DMA-verpflichtet**. 
 ## Behoerden-Hinweise
 
 - **Zustaendigkeit zentral bei der EU-Kommission (gemeinsames Team von DG COMP und DG CONNECT)**: https://digital-markets-act.ec.europa.eu/
-- Nationale Wettbewerbsbehoerden (Bundeskartellamt) koennen ergaenzend taetig werden, aber primaere DMA-Durchsetzung liegt bruessellastig
+- Durchsetzung ausschliesslich durch die EU-Kommission (ErwG 91 DMA); nationale Wettbewerbsbehoerden koennen nur untersuchen und der Kommission berichten (Art. 38 Abs. 7 DMA, in Deutschland § 32g GWB)
 
-## Zitierbare Urteile
+## Zitierbare Entscheidungen (Kommission und Unionsgerichte)
 
 - **EU-Kommission, Nichteinhaltungsbeschluesse vom 23.04.2025**: Apple 500 Mio. EUR (Anti-Steering, App Store), Meta 200 Mio. EUR (Pay-or-Consent-Modell)
 - **EuG, Urt. v. 17.07.2024 — T-1077/23, ByteDance / Kommission**: Klage gegen die Gatekeeper-Benennung von ByteDance (TikTok) vom 05.09.2023 im beschleunigten Verfahren **abgewiesen** (CELEX:62023TJ1077).

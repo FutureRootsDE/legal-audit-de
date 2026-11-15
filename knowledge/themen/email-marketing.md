@@ -59,8 +59,12 @@ Werbemassnahme erfolgen und der Werbende muss sie nachweisen koennen
 
 Vier kumulative Voraussetzungen:
 
-1. E-Mail-Adresse **im Zusammenhang mit dem Verkauf** einer Ware/DL erhalten
-   (nicht: nur Newsletter-Anmeldung, nicht: Lead-Magnet-Download).
+1. E-Mail-Adresse **im Zusammenhang mit dem Verkauf** einer Ware/DL erhalten.
+   Nach EuGH C-654/23 (Inteligo Media, 13.11.2025, Tenor 1) genuegt auch ein
+   kostenloses Nutzerkonto, das Zugang zu Gratisinhalten und einem Newsletter
+   gibt und zugleich kostenpflichtige Zusatzangebote eroeffnet. Eine reine
+   Newsletter-Anmeldung ohne solchen Angebotsbezug oder ein Lead-Magnet-Download
+   genuegen weiterhin nicht (§ 7 Abs. 3 Nr. 1 UWG richtlinienkonform auslegen).
 2. Bewerbung nur fuer **aehnliche eigene** Waren/DL (z.B. Kaffeemaschine
    gekauft → Kaffeekapseln bewerben: OK; Kaffeemaschine gekauft → Waschmaschine
    bewerben: nicht OK).
@@ -107,8 +111,10 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 
 ## Typische Fallstricke in Codebases
 
-1. **Single-Opt-In (nur Formular-Submit):** Reicht NICHT, selbst wenn
-   DSGVO-Checkbox dabei. Beweislast kann nicht erfuellt werden.
+1. **Single-Opt-In (nur Formular-Submit):** hohes Risiko. Die Einwilligung muss
+   fuer jeden Empfaenger vollstaendig dokumentiert und nachweisbar sein (BGH
+   I ZR 164/09, LS 2); ohne Bestaetigungsschritt (DOI) ist der Nachweis, dass
+   der Adressinhaber selbst eingewilligt hat, praktisch kaum zu fuehren.
 2. **Bestaetigungs-Mail = bereits Werbung:** Die Opt-In-Bestaetigungs-Mail
    darf KEINEN Werbe-Inhalt haben (OLG Muenchen 29 U 1563/20).
 3. **Pre-checked Checkbox** bei Signup: nach Planet49 (EuGH C-673/17) unwirksam.
@@ -129,7 +135,12 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
    ist rechtlich Werbung, nicht Transaktion.
 9. **Re-Engagement-Kampagnen an alte Listen:** Eine Einwilligung erlischt
    grundsaetzlich nicht allein durch Zeitablauf (BGH, Urt. v. 01.02.2018,
-   III ZR 196/17, Rn. 31). Eine feste 24-Monats-Frist gibt es nicht.
+   III ZR 196/17, Rn. 31). Eine feste 24-Monats-Frist gibt es nicht. Die DSK
+   haelt es aber fuer moeglich, dass sich Verantwortliche auf eine lange
+   ungenutzte Einwilligung nicht mehr berufen koennen, und empfiehlt, bei
+   laenger als zwei Jahre ungenutzten Einwilligungen vorsorglich die
+   Information oder die Einwilligung zu erneuern (OH Direktwerbung, Februar
+   2022, Ziff. 3.5).
 10. **Purchased Lists / Lead-Boersen:** Nahezu immer rechtswidrig (keine
     direkte Einwilligung gegenueber dem Werbenden).
 
@@ -155,8 +166,11 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - **Landes-Datenschutzbehoerden:** zustaendig fuer DSGVO-Verstoesse; Bussgelder
   bis 20 Mio. EUR / 4 % Jahresumsatz.
 - **Wettbewerbszentrale, IDO, vzbv:** klassische UWG-Abmahner.
-- **BfDI (Bundesbeauftragter):** nur fuer Telekom-/Post-Unternehmen und
-  Bundesbehoerden zustaendig.
+- **BfDI (Bundesbeauftragter):** zustaendig fuer oeffentliche Stellen des
+  Bundes und fuer Unternehmen, soweit sie Daten fuer geschaeftsmaessige
+  Telekommunikationsdienste verarbeiten (§ 9 Abs. 1 BDSG, § 29 TDDDG) sowie
+  spezialgesetzlich fuer Postdienste; fuer uebrige Unternehmen die
+  Landesbehoerde am Sitz.
 - **Konferenz der unabhaengigen Datenschutzaufsichtsbehoerden (DSK):**
   Orientierungshilfe der Aufsichtsbehoerden zur Verarbeitung von
   personenbezogenen Daten fuer Zwecke der Direktwerbung unter Geltung der
@@ -182,6 +196,11 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
 - **EuGH C-102/20** (25.11.2021): Inbox-Werbung ist Verwendung elektronischer
   Post fuer Direktwerbung (Tenor 1).
 - **EuGH C-673/17** (01.10.2019, "Planet49"): Pre-ticked Checkboxen unwirksam.
+- **EuGH C-654/23** (13.11.2025, "Inteligo Media"): E-Mail-Adresse "im
+  Zusammenhang mit dem Verkauf eines Produkts oder einer Dienstleistung"
+  erhalten, wenn der Nutzer ein kostenloses Konto mit Zugang zu einer
+  begrenzten Zahl von Artikeln und einem taeglichen Newsletter einrichtet und
+  gegen Bezahlung auf zusaetzliche Artikel zugreifen kann (Tenor 1).
 - Die Urteile des BGH vom 09.09.2021 (I ZR 90/20 "Influencer I",
   I ZR 125/20 "Influencer II", I ZR 126/20) ergingen zu § 5a Abs. 6
   UWG a. F.; die Regelung steht seit dem 28.05.2022 in § 5a Abs. 4
@@ -276,3 +295,8 @@ Beim Erheben der E-Mail-Adresse muss informiert werden:
   24-Monats-Frist fuer Einwilligungen gestrichen (BGH III ZR 196/17, Rn. 31);
   Art. 7 Abs. 4, Art. 21, Art. 12 Abs. 5 DSGVO praezisiert; DSK OH
   Direktwerbung (18.02.2022) zitiert.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Bestandskundenausnahme um EuGH C-654/23 (Tenor 1) ergaenzt; Single-Opt-In
+  als hohes Risiko mit BGH I ZR 164/09, LS 2 statt "reicht nicht"; DSK-Hinweis
+  zu lange ungenutzten Einwilligungen (OH Direktwerbung, Ziff. 3.5); BfDI-
+  Zustaendigkeit praezisiert.

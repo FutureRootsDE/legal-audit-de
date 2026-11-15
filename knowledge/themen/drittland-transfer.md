@@ -30,7 +30,7 @@ geltungsbereich: [DE, EU]
 ### Rechtsrahmen Art. 44–50 DSGVO
 
 **Art. 44** — Allgemeiner Grundsatz:
-Übermittlung nur zulässig, wenn Schutzniveau im Drittland „nicht unterlaufen" wird.
+Übermittlung nur zulässig, wenn die Bedingungen des Kapitels V und die übrigen Bestimmungen der DSGVO eingehalten werden; das durch die DSGVO gewährleistete Schutzniveau darf „nicht untergraben" werden (Art. 44 S. 2).
 
 **Art. 45** — Angemessenheitsbeschluss:
 EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derzeit (Stand November 2026) u. a.: Andorra, Argentinien, Färöer, Guernsey, Isle of Man, Israel, Japan, Jersey, Kanada (kommerziell), Neuseeland, Schweiz, Südkorea, Uruguay, UK (einschließlich Verlängerung Dezember 2025), Brasilien, Europäische Patentorganisation, **USA (DPF-zertifizierte Unternehmen)**.
@@ -40,18 +40,14 @@ EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derz
 - Binding Corporate Rules (BCR) für Konzerne
 - Genehmigte Verhaltensregeln / Zertifizierungen
 
-**Art. 49** — Ausnahmen für bestimmte Fälle:
-- Einwilligung nach ausdrücklicher Information über Risiken
-- Vertragserfüllung (restriktiv ausgelegt)
-- Wichtige Gründe öffentlichen Interesses
-- Rechtsansprüche
+**Art. 49** — Ausnahmen für bestimmte Fälle: a) ausdrückliche Einwilligung nach Information über die Risiken; b)/c) Vertragserfüllung bzw. Vertrag im Interesse der betroffenen Person; d) wichtige Gründe des öffentlichen Interesses; e) Rechtsansprüche; f) lebenswichtige Interessen; g) öffentliche Register; UAbs. 2: zwingende berechtigte Interessen im Einzelfall (mit Meldung an die Aufsichtsbehörde).
 
 ### EU-US Data Privacy Framework (DPF, seit 10.07.2023)
 
 - **Angemessenheitsbeschluss 2023/1795 vom 10.07.2023**
 - Nachfolger des durch Schrems II gekippten Privacy Shield
 - **Organisations-spezifisch**: nur für Unternehmen, die sich aktiv über das US-Handelsministerium (DoC) unter DPF zertifizieren und auf der offiziellen Liste unter `dataprivacyframework.gov` geführt sind
-- **Rechtsbehelfs-Mechanismus**: Data Protection Review Court (DPRC); Exec. Order 14086/2022 regelt Bulk-Interception-Einschränkungen
+- **Rechtsbehelfs-Mechanismus**: Rechtsbehelf zweistufig: Civil Liberties Protection Officer (CLPO), dann Data Protection Review Court (eingerichtet durch Erlass des US-Justizministers); Grundlage ist die Executive Order 14086, die auch die Sammelerhebung begrenzt.
 - **EuG T-553/23 (Latombe), 03.09.2025**: EuG hat die Nichtigkeitsklage des franzoesischen Abgeordneten Philippe Latombe gegen den DPF-Angemessenheitsbeschluss abgewiesen; DPF bleibt in Kraft.
 - **Rechtsmittel C-703/25 P (Latombe/Kommission), eingelegt am 31.10.2025**: Latombe hat gegen das EuG-Urteil Rechtsmittel beim EuGH eingelegt; Verfahren anhaengig. Primaerbeleg: Amtsblatt der EU, Mitteilung ueber das Rechtsmittel (EUR-Lex ELI `C/2025/6610`). Eine gesonderte "Schrems III"-Klage von noyb gegen den DPF-Angemessenheitsbeschluss ist in der publizierten Curia-Verfahrensliste Stand 2026-11-14 nicht als eigener Verfahrensgegenstand nachgewiesen; die Formulierung "NOYB/Schrems III anhaengig" wurde deshalb gestrichen.
 - Safety-Net: SCCs + TIA parallel pflegen bleibt Best Practice, zumal die US-Rechtslage (Executive Order 14086, DPRC) von jedem Praesidentenwechsel beruehrt werden kann.
@@ -86,7 +82,7 @@ Pflicht-Bestandteile: **Klausel 14** (Erklärung zur TIA), **Anhang II** (techni
 - **AWS/Azure/GCP mit EU-Region gebucht, aber Kontroll-Ebene US:** DSK sieht Zugriffsrisiken durch US-Muttergesellschaft (Cloud Act) — bei Non-DPF-Setup: TIA + ergänzende Maßnahmen.
 - **Vercel-Edge-Functions:** Global replication — Kundendaten möglicherweise außerhalb EU. Vercel ist DPF-zertifiziert, aber Infrastruktur-Bestandteile (z. B. Cloudflare) separat prüfen.
 - **Supabase:** Cloud-Version basiert auf AWS; EU-Region `eu-central-1` (Frankfurt) verfügbar — Check ob DPF relevant oder EU-only ausreicht.
-- **Stripe:** DPF-zertifiziert; Datenverarbeitung dennoch transparent in Datenschutzerklärung aufführen (Art. 13 Abs. 1 lit. f).
+- **Stripe:** DPF-zertifiziert; Datenverarbeitung dennoch transparent in Datenschutzerklärung aufführen (Art. 13 Abs. 1 lit. e und f DSGVO).
 - **Sentry/Datadog (Error-Monitoring):** Sentry EU-Region verfügbar; User-Context (E-Mail, User-ID) filtern.
 - **ChatGPT/Anthropic-API:** OpenAI ist DPF-zertifiziert; Anthropic ebenfalls. Aber: API-Eingaben dürfen keine personenbezogenen Daten enthalten ohne Rechtsgrundlage.
 - **Google Fonts dynamisch:** Load zieht IP nach USA — LG München I 3 O 17493/20: 100 EUR immat. Schaden. **Lösung:** selbst hosten (`@fontsource`).
@@ -148,3 +144,7 @@ Pflicht-Bestandteile: **Klausel 14** (Erklärung zur TIA), **Anhang II** (techni
   TIA-Aussagen am Tenor von C-311/18 ausgerichtet; Omnibus-Zuordnung
   (Art. 33: COM(2025) 837; Art. 30 Abs. 5: COM(2025) 501) korrigiert;
   hCaptcha-Anbieter berichtigt (Intuition Machines, Inc., USA).
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Art. 44 S. 2 wortgetreu (Schutzniveau nach der DSGVO nicht untergraben);
+  Art. 49 vollstaendig nach lit. a bis g und UAbs. 2; DPF-Rechtsbehelf
+  zweistufig (CLPO, DPRC); Stripe: Art. 13 Abs. 1 lit. e und f.

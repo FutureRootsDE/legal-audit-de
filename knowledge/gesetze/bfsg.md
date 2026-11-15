@@ -24,7 +24,7 @@ geltungsbereich: [DE]
 
 Das BFSG setzt die **EU-Richtlinie 2019/882** (European Accessibility Act, EAA) in deutsches Recht um. Es ist am **28.06.2025** in Kraft getreten und verpflichtet Hersteller und Dienstleister, bestimmte Produkte und Dienstleistungen **barrierefrei** zu gestalten.
 
-**Kernaussage:** Wer B2C-Produkte (z. B. Notebooks, Smartphones, Geldautomaten) oder B2C-Dienstleistungen (insb. **E-Commerce, SaaS, Banking, Messenger, E-Book-Reader**) anbietet, muss WCAG-konforme Barrierefreiheit gewaehrleisten — ausser er faellt unter die Kleinstunternehmen-Ausnahme.
+**Kernaussage:** Wer bestimmte B2C-Produkte (§ 1 Abs. 2 BFSG, z. B. Verbraucher-Computer, Smartphones, Geldautomaten, E-Book-Lesegeraete) in Verkehr bringt oder bestimmte Dienstleistungen fuer Verbraucher erbringt (§ 1 Abs. 3: u. a. Telekommunikationsdienste, Bankdienstleistungen, E-Books, Dienstleistungen im elektronischen Geschaeftsverkehr i. S. v. § 2 Nr. 26), muss die Barrierefreiheitsanforderungen der BFSGV erfuellen. Die Kleinstunternehmen-Ausnahme (§ 3 Abs. 3) gilt nur fuer Dienstleistungen, nicht fuer Produkte.
 
 **Stand 2026-11-14:** Aktive Marktueberwachung laeuft in den Laendern. **Abmahnwellen** seit Sommer 2025 (u. a. CLAIM Rechtsanwalts GmbH) und weitere Wellen im Herbst 2025 / Fruehjahr 2026. Bussgelder bis **100.000 EUR** (Faelle des § 37 Abs. 1 Nr. 1, 7, 8, 9, 10), in den uebrigen Faellen bis 10.000 EUR moeglich (§ 37 Abs. 2 BFSG). Ob UWG-Abmahnungen (§ 3a UWG i.V.m. BFSG) dogmatisch haltbar sind, ist **weiterhin nicht hoechstrichterlich geklaert**; eine einschlaegige BGH- oder OLG-Leitentscheidung zur BFSG-Abmahnfaehigkeit ueber § 3a UWG ist Stand 2026-11-14 nicht dokumentiert.
 
@@ -107,12 +107,12 @@ Weiterbetrieb mit vor dem 28.06.2025 eingesetzten Produkten und Fortbestand von 
 
 ## Relevanz fuer Codebase-Typen
 
-- **Next.js SaaS (B2C)**: **Volle BFSG-Pflicht**, wenn nicht Kleinstunternehmen. WCAG 2.1 AA umsetzen, Barrierefreiheitserklaerung pflichtig.
+- **Next.js SaaS (B2C)**: BFSG-pflichtig, soweit ueber die Anwendung Verbrauchervertraege angebahnt oder geschlossen werden (§ 2 Nr. 26 BFSG) und kein Kleinstunternehmen (§ 3 Abs. 3); dann Barrierefreiheitsinformationen nach Anlage 3 bereitstellen.
 - **Next.js SaaS (B2B only)**: BFSG **nicht anwendbar** (keine Verbraucherdienstleistung).
 - **Landingpage** (rein werblich, ohne Transaktion): Typisch **nicht** BFSG-pflichtig — aber: wenn Kontaktformular/Buchung → grenzwertig, lieber barrierefrei.
 - **n8n-Kundenportal** (wenn Kunden = Verbraucher darueber interagieren): BFSG-pflichtig.
 - **E-Commerce**: **Kern-Anwendungsfall** — volle Pflicht. Checkout barrierefrei, Produktseiten, Formulare, Cookie-Banner.
-- **Content/Blog**: BFSG greift nur, wenn gewerblicher Dienst mit B2C-Charakter und nicht Kleinstunternehmen; redaktioneller Medieninhalt ist nicht direkt BFSG-pflichtig, aber WCAG ist Good Practice.
+- **Content/Blog**: BFSG greift nur, soweit ueber die Seite Verbrauchervertraege angebahnt oder geschlossen werden (§ 2 Nr. 26 BFSG, z. B. Shop, Paid-Abo, Buchung) und kein Kleinstunternehmen vorliegt; reine redaktionelle Inhalte ohne Vertragsbezug sind nicht erfasst, WCAG bleibt Good Practice.
 
 ## Behoerden-Hinweise
 
@@ -147,3 +147,7 @@ Bisher keine BGH/OLG-Leitentscheidung zur UWG-Abmahnfaehigkeit von BFSG-Verstoes
   Informationspflicht nach Anlage 3 statt "Barrierefreiheitserklaerung nach
   §§ 16/17"; Marktueberwachung durch MLBF; EuGH C-660/21 gestrichen
   (Strafverfahren, RL 2012/13/EU); § 38 und § 1 Abs. 4 ergaenzt.
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Kernaussage auf Produkte nach § 1 Abs. 2 und Dienstleistungen nach § 1 Abs. 3
+  mit Bezug zu § 2 Nr. 26 gefasst, BFSGV statt "WCAG-konform"; SaaS und
+  Content/Blog nur soweit Verbrauchervertraege angebahnt oder geschlossen werden.

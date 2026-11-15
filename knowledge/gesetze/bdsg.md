@@ -34,7 +34,7 @@ Das Bundesdatenschutzgesetz (BDSG) in der Fassung vom 30.06.2017 (in Kraft seit 
 ## Schlüsselparagraphen
 
 ### § 1 — Anwendungsbereich
-Gilt für die Verarbeitung durch öffentliche und nichtöffentliche Stellen. Bei EU-Recht-Überlagerung gilt DSGVO vorrangig; BDSG ergänzt nur dort, wo Öffnungsklauseln existieren.
+Gilt für öffentliche Stellen des Bundes, für öffentliche Stellen der Länder nur subsidiär (§ 1 Abs. 1 Nr. 2) und für nichtöffentliche Stellen. Soweit die DSGVO unmittelbar gilt, tritt das BDSG zurück (§ 1 Abs. 5); es füllt Öffnungsklauseln aus.
 
 ### § 2 — Begriffsbestimmungen
 Definiert nur öffentliche Stellen (des Bundes und der Länder) und nichtöffentliche Stellen; die übrigen Begriffe gelten unmittelbar aus Art. 4 DSGVO.
@@ -42,7 +42,7 @@ Definiert nur öffentliche Stellen (des Bundes und der Länder) und nichtöffent
 ### § 4 — Videoüberwachung öffentlich zugänglicher Räume
 Nichtöffentliche Stellen dürfen öffentlich zugängliche Räume nur zur Wahrnehmung des Hausrechts oder berechtigter Interessen überwachen. Hinweispflicht: Der Umstand der Beobachtung sowie Name und Kontaktdaten des Verantwortlichen sind erkennbar zu machen (§ 4 Abs. 2); Art. 13 DSGVO gilt daneben. **Achtung:** BVerwG (2019, 6 C 2.18) hat § 4 Abs. 1 BDSG für private Anbieter für unanwendbar erklärt — direkt Art. 6 Abs. 1 lit. f DSGVO anwenden.
 
-### § 5 / § 6 — DSB in öffentlichen Stellen
+### §§ 5 bis 7: DSB öffentlicher Stellen / Benennung (§ 5), Stellung (§ 6), Aufgaben (§ 7)
 Benennung, Stellung, Aufgaben des Datenschutzbeauftragten der Behörde.
 
 ### § 26 — Datenverarbeitung im Beschäftigungskontext
@@ -51,6 +51,7 @@ Zentrale Rechtsgrundlage für HR-Daten:
 - Abs. 2: Einwilligung Beschäftigter muss freiwillig sein (problematisch wegen Abhängigkeit)
 - Abs. 1 Satz 2: Aufdeckung von Straftaten nur bei zu dokumentierenden tatsächlichen Anhaltspunkten
 - Abs. 3: Verarbeitung besonderer Kategorien personenbezogener Daten (Art. 9 DSGVO) für Zwecke des Beschäftigungsverhältnisses
+- Abs. 4: Kollektivvereinbarungen (Betriebs- und Dienstvereinbarungen) können Rechtsgrundlage sein, müssen aber nach EuGH, Urt. v. 19.12.2024, C-65/23, zusätzlich Art. 5, Art. 6 Abs. 1 und Art. 9 Abs. 1, 2 DSGVO wahren; die Erforderlichkeit unterliegt voller gerichtlicher Kontrolle.
 
 **Wichtig:** EuGH C-34/21 (30.03.2023): Nationale Vorschriften, die Art. 88 Abs. 1, 2 DSGVO nicht genügen, bleiben unangewendet, sofern sie nicht Rechtsgrundlage im Sinne des Art. 6 Abs. 3 DSGVO sind. Die Anwendung auf die hessische Parallelvorschrift (§ 23 HDSIG) blieb dem vorlegenden Gericht überlassen. Das Urteil betrifft den wortgleichen § 26 Abs. 1 Satz 1 BDSG. Ein Gesetzentwurf zum Beschäftigtendatenschutzgesetz ist in Diskussion.
 
@@ -63,7 +64,7 @@ Pflicht zur Benennung wenn:
 Das Kriterium umfangreicher Verarbeitung besonderer Datenkategorien (Art. 9) gehört zu Art. 37 Abs. 1 lit. c DSGVO.
 
 ### § 41 — Anwendung der Vorschriften über das Bußgeldverfahren
-OWiG findet Anwendung. Bei Verstößen Art. 83 DSGVO plus Ergänzungen.
+Für Verstöße nach Art. 83 Abs. 4 bis 6 DSGVO gilt das OWiG sinngemäß, jedoch ohne §§ 17, 35, 36 OWiG (Bußgeldhöhe richtet sich allein nach Art. 83 DSGVO); über Einsprüche gegen Geldbußen über 100.000 EUR entscheidet das Landgericht (§ 41 Abs. 1 BDSG).
 
 ### § 42 — Strafvorschriften
 - Abs. 1: **bis zu 3 Jahre Freiheitsstrafe** oder Geldstrafe (wissentlich, nicht allgemein zugängliche Daten einer großen Zahl von Personen, gewerbsmäßig)
@@ -95,8 +96,8 @@ Nur Verstöße gegen § 30 Abs. 1 und Abs. 2 Satz 1 BDSG (Verbraucherkredite), G
 ## Behörden-Hinweise
 
 - **BfDI:** Tätigkeitsberichte und Orientierungshilfe Beschäftigtendatenschutz
-- **LfDI BW / LDA Bayern / LDI NRW:** Länderaufsichtsbehörden für nichtöffentliche Stellen
-- **DSK Orientierungshilfe Beschäftigtendatenschutz** (2023)
+- **LfDI BW / BayLDA / LDI NRW:** Länderaufsichtsbehörden für nichtöffentliche Stellen
+- **DSK Kurzpapier Nr. 14 Beschäftigtendatenschutz**; DSK-Entschließung vom 11.05.2023 "Notwendigkeit spezifischer Regelungen zum Beschäftigtendatenschutz"
 
 ## Zitierbare Urteile
 
@@ -163,3 +164,7 @@ Nur Verstöße gegen § 30 Abs. 1 und Abs. 2 Satz 1 BDSG (Verbraucherkredite), G
   EuGH C-34/21 praezisiert, § 38 Abs. 1 Satz 2 (DSFA-Kriterium statt Art. 9),
   § 42 (Abs. 2 bis 2 Jahre, Antragsdelikt), § 43 (nur § 30), § 83 (gilt nur
   fuer Teil 3), Videoueberwachung (§ 87 Abs. 1 Nr. 6 BetrVG).
+- **2026-11-15**: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  § 1 (Länder subsidiär, Abs. 5 Vorrang der DSGVO), §§ 5 bis 7 (Überschrift),
+  § 26 Abs. 4 (Kollektivvereinbarungen, EuGH C-65/23), § 41 (OWiG ohne §§ 17,
+  35, 36; Landgericht), DSK-Dokumente zum Beschäftigtendatenschutz, Kürzel BayLDA.

@@ -87,7 +87,8 @@ andere Plattformen ist das im Einzelfall zu pruefen. Soweit gemeinsame
 Verantwortlichkeit besteht, verlangt das:
 
 - Joint-Controller-Vereinbarung (wird von Meta, LinkedIn etc. bereitgestellt)
-- Transparente Information der Betroffenen (Art. 26 Abs. 2 DSGVO)
+- Vereinbarung in transparenter Form, wer welche Pflichten (insb. Art. 13/14, Betroffenenrechte) erfuellt (Art. 26 Abs. 1 S. 2 DSGVO)
+- Das Wesentliche der Vereinbarung wird den Betroffenen zur Verfuegung gestellt (Art. 26 Abs. 2 S. 2 DSGVO)
 - Zugaenglichkeit der wesentlichen Inhalte fuer Betroffene
 
 ## Typische Fallstricke in Codebases / Webseiten
@@ -95,7 +96,7 @@ Verantwortlichkeit besteht, verlangt das:
 | Problem | Risiko | Fix |
 |---|---|---|
 | Social-Media-Icons als Hotlink auf Plattform (Facebook-Icon laedt `facebook.com/plugins/...`) | Datenuebermittlung an US-Server **vor Einwilligung** (Drittland-Transfer, siehe [[drittland-transfer]]) | Shariff-Button (lokal) oder 2-Klick-Loesung |
-| `<iframe src="youtube.com/...">` ohne Einwilligung | YouTube setzt Cookies + traegt IP an Google US | `youtube-nocookie.com` + Consent-Gate |
+| `<iframe src="youtube.com/...">` ohne Einwilligung | YouTube setzt Cookies und uebertraegt die IP an Google: Einwilligung nach § 25 Abs. 1 TDDDG erforderlich, fuer die Uebermittlung zudem Rechtsgrundlage nach Art. 6 Abs. 1 DSGVO | `youtube-nocookie.com` + Consent-Gate |
 | Instagram-Feed-Widget (embed) | Meta-Tracking aktiv | Serverseitiger Feed-Proxy oder Consent-Gate |
 | Fehlendes Impressum im TikTok-Profil (nur Link in Bio) | § 5 DDG-Verstoss, Abmahnrisiko | Impressum-Link in Bio (Linktree, eigene Domain) |
 | Datenschutzinformation fehlt auf Fanpage | Verstoss gegen Art. 13 DSGVO (i. V. m. Art. 26 Abs. 2 S. 2); Fanpage-Betreiber ist (Mit-)Verantwortlicher (EuGH C-210/16, Tenor 1) | DSE auf eigener Website + Verlinkung im "Info"-Bereich |
@@ -171,9 +172,9 @@ praxisueblich.
 
 ### OVG Schleswig-Holstein, 4 LB 20/13, 25.11.2021 (Anordnung zur Deaktivierung einer Fanpage rechtmaessig)
 
-Verifiziert ueber Pressemitteilung des ULD (Unabhaengiges Landeszentrum fuer
-Datenschutz Schleswig-Holstein). Das OVG bestaetigte rueckwirkend, dass die
-ULD-Anordnung aus 2011 rechtmaessig war. <<VERIFIKATION AUSSTEHEND>>
+Beleg: Urteilstext veroeffentlicht vom ULD Schleswig-Holstein (Unabhaengiges
+Landeszentrum fuer Datenschutz). Das OVG bestaetigte rueckwirkend, dass die
+ULD-Anordnung aus 2011 rechtmaessig war.
 
 ### BVerwG, 6 C 15.18, 11.09.2019 (Facebook-Fanpages, Revisionsentscheidung nach Vorabentscheidung EuGH C-210/16)
 
@@ -190,7 +191,7 @@ Fanpage aus Datenschutzverstoesse begangen werden.
 - [ ] Joint-Controller-Agreement (Meta "Page Insights Anhang", LinkedIn,
       TikTok Page Insights) dokumentiert abgehakt
 - [ ] Keine Plugin-Scripts (facebook-sdk, twitter-widgets, youtube-embed)
-      laden **vor** Consent
+      laden **vor** Consent (Einwilligung nach § 25 Abs. 1 TDDDG, siehe [[cookie-consent]])
 - [ ] Fuer YouTube-Embeds: `youtube-nocookie.com`-Domain verwendet
 - [ ] Fuer Instagram-Embeds: serverseitiger Proxy oder Consent-Gate
 - [ ] Automatisierte Posts sind als "automatisiert erstellt" gekennzeichnet,
@@ -221,9 +222,12 @@ Fanpage aus Datenschutzverstoesse begangen werden.
 > - YouTube (Google): https://policies.google.com/privacy
 > - Pinterest: https://policy.pinterest.com/de/privacy-policy
 >
-> Rechtsgrundlage der Einbindung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
-> Interesse an Praesenz) bzw. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) beim
-> Laden eingebetteter Plattform-Inhalte.
+> Fuer den Betrieb der Praesenz kommt Art. 6 Abs. 1 lit. f DSGVO in Betracht.
+> Werden beim Laden eingebetteter Plattform-Inhalte Informationen auf dem
+> Endgeraet gespeichert oder ausgelesen (Cookies, Skripte), ist vorab eine
+> Einwilligung nach § 25 Abs. 1 TDDDG noetig; die anschliessende
+> Datenuebermittlung stuetzt sich dann regelmaessig auf Art. 6 Abs. 1 lit. a
+> DSGVO.
 
 Siehe [[datenschutzerklaerung]] fuer vollstaendige Struktur.
 
@@ -241,10 +245,10 @@ Siehe [[datenschutzerklaerung]] fuer vollstaendige Struktur.
 
 - Kernzitate EuGH C-210/16 (Wirtschaftsakademie) und C-40/17 (Fashion ID)
   gegen curia.europa.eu verifiziert.
-- OVG Schleswig-Holstein 4 LB 20/13 mit Verifikationsmarker versehen:
-  Aktenzeichen in rechtsprechung-im-internet.de nicht direkt auffindbar; der
-  Grundgehalt (Fanpage-Deaktivierung als zulaessige Anordnung) folgt aus
-  EuGH C-210/16 und BVerwG 6 C 15.18.
+- Aktenzeichen OVG Schleswig-Holstein 4 LB 20/13 belegt ueber das Rubrum von
+  BVerwG 6 C 15.18 (ECLI:DE:BVerwG:2019:110919U6C15.18.0; Vorinstanzurteil
+  vom 04.09.2014, vom BVerwG aufgehoben und zurueckverwiesen); dasselbe
+  Aktenzeichen traegt die Entscheidung nach Zurueckverweisung vom 25.11.2021.
 - Links zu JCA der Plattformen (Meta Page Controller Addendum, LinkedIn Pages
   JCA) sind Stand 2026-11-14 weiterhin erreichbar; URL-Aktualitaet bestaetigt.
   X (Twitter) stellt kein eigenes JCA mehr bereit, nur eine
@@ -259,3 +263,8 @@ Siehe [[datenschutzerklaerung]] fuer vollstaendige Struktur.
   Person) ergaenzt; Tenorzitate C-210/16 und C-40/17 am Tenorwortlaut
   ausgerichtet; Kernfolge Fashion ID praezisiert; BVerwG 6 C 15.18 als
   Revisionsentscheidung bezeichnet.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Art. 26 Abs. 1 S. 2 und Abs. 2 S. 2 DSGVO getrennt dargestellt; YouTube-
+  Embed und Plugin-Check mit § 25 Abs. 1 TDDDG; Rechtsgrundlagen-Passus in
+  zwei Stufen (TDDDG, dann DSGVO); OVG-Aktenzeichen ueber das BVerwG-Rubrum
+  belegt, Marker beim Urteil vom 25.11.2021 entfernt (Urteilstext vom ULD).

@@ -153,7 +153,10 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
   Verkuendung bleibt Art. 30 Abs. 5 DSGVO mit der bestehenden
   250-Mitarbeiter-Schwelle und den kumulativen Zusatzkriterien verbindlich.
 - EuGH C-21/23 (Lindenapotheke, 04.10.2024) in [[datenschutzerklaerung]]
-  ergaenzt; relevant auch fuer VVT-Mangel-Abmahnungen.
+  ergaenzt. Mitbewerber koennen DSGVO-Verstoesse grundsaetzlich
+  lauterkeitsrechtlich verfolgen (EuGH C-21/23, Tenor 1; BGH I ZR 223/19).
+  Ob Art. 30 DSGVO (internes Verzeichnis) eine Marktverhaltensregel ist, ist
+  nicht geklaert; das Abmahnrisiko gilt als gering.
 - Stand/verifiziert-am auf 2026-11-14 vereinheitlicht.
 - 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 1):
   Art. 30 Abs. 5 mit vier Voraussetzungen (Zaehlfehler korrigiert);
@@ -161,3 +164,6 @@ Quelle der Daten: [Aktive Anmeldung via Double-Opt-In]
   zu Art. 30 Abs. 5 richtig datiert (COM(2025) 501 vom 21.05.2025);
   BayLDA-Muster als PDF-Vorlagen bezeichnet; nicht belegter Verweis auf den
   BayLDA-Taetigkeitsbericht 2022 gestrichen.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Abmahnrisiko zu C-21/23 im Vermerk vom 2026-11-14 nach dem Tenor
+  praezisiert (Art. 30 DSGVO als Marktverhaltensregel ungeklaert).

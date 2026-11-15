@@ -28,14 +28,14 @@ geltungsbereich: [DE, EU]
 
 Die **NIS-2-Richtlinie (EU) 2022/2555** loest die NIS-1-Richtlinie ab und setzt deutlich erweiterte Anforderungen an die **Cybersicherheit von Unternehmen und oeffentlichen Stellen** in der EU. Umsetzungsfrist war **17.10.2024**.
 
-**Deutschland** hat verzoegert umgesetzt: Das **NIS-2-Umsetzungs- und Cybersicherheitsstaerkungsgesetz (NIS2UmsuCG)** wurde
+**Deutschland** hat verzoegert umgesetzt: Das **Gesetz zur Umsetzung der NIS-2-Richtlinie und zur Regelung wesentlicher Grundzuege des Informationssicherheitsmanagements in der Bundesverwaltung** vom 02.12.2025 (BGBl. 2025 I Nr. 301, verkuendet 05.12.2025, in Kraft 06.12.2025; im Entwurf "NIS2UmsuCG") wurde
 - am **13.11.2025** vom Bundestag beschlossen
 - am **21.11.2025** vom Bundesrat gebilligt
 - am **05.12.2025** im Bundesgesetzblatt verkuendet (**BGBl. 2025 I Nr. 301 vom 05.12.2025**) und am **06.12.2025 in Kraft getreten** (ohne Uebergangsfrist)
 
 Quellen: Bundesregierung, Bundestag-Pressearchiv (2025-11), BGBl. 2025 I Nr. 301 (recht.bund.de)
 
-Das NIS2UmsuCG **novelliert das BSI-Gesetz (BSIG)** erheblich. Der gelaeufige Ausdruck "BSIG 2.0" bezeichnet diese novellierte Fassung.
+Art. 1 des Gesetzes erlaesst ein neues BSI-Gesetz (BSIG); das BSI-Gesetz vom 14.08.2009 ist nach Art. 29 am Tag nach der Verkuendung ausser Kraft getreten.
 
 Fassung: BSIG vom 02.12.2025, zuletzt geaendert durch Art. 8 G v. 22.10.2026 (BGBl. 2026 I Nr. 318).
 
@@ -48,13 +48,13 @@ Zwei Kategorien:
 **1. Besonders wichtige Einrichtungen (bwE)** / "essential entities":
 - **Grossunternehmen** (>= 250 Beschaeftigte ODER > 50 Mio. EUR Jahresumsatz UND > 43 Mio. EUR Bilanzsumme)
 - **Groessenunabhaengig** besonders wichtig: Betreiber kritischer Anlagen, qualifizierte Vertrauensdiensteanbieter, TLD-Registries, DNS-Diensteanbieter; TK-Anbieter schon ab mindestens 50 Mitarbeitern oder bei einem Jahresumsatz und einer Jahresbilanzsumme von jeweils ueber 10 Millionen Euro (§ 28 Abs. 1 Nr. 1 bis 3 BSIG)
-- Aus Sektoren nach **Anhang I NIS-2**: Energie, Verkehr, Bankwesen, Finanzmarktinfrastruktur, Gesundheit, Trinkwasser, Abwasser, Digitale Infrastruktur (DNS, TLD-Registries, Cloud-, Rechenzentrums-, CDN-Anbieter), IKT-Dienste, oeffentliche Verwaltung, Raumfahrt
+- Aus Sektoren nach **Anlage 1 BSIG** (setzt Anhang I der NIS-2-Richtlinie um): Energie, Verkehr, Bankwesen, Finanzmarktinfrastruktur, Gesundheit, Trinkwasser, Abwasser, Digitale Infrastruktur (DNS, TLD-Registries, Cloud-, Rechenzentrums-, CDN-Anbieter), IKT-Dienste, Raumfahrt. Einrichtungen der Bundesverwaltung sind gesondert geregelt und von § 28 Abs. 1 und 2 BSIG ausgenommen.
 - **Proaktive BSI-Aufsicht**; eine turnusmaessige Nachweispflicht alle drei Jahre haben nur Betreiber kritischer Anlagen (§ 39 BSIG)
 - Bussgelder bis **10 Mio. EUR**; nur bei Gesamtumsatz ueber 500 Mio. EUR bis **2 %** des weltweiten Jahresumsatzes (§ 65 Abs. 5 bis 7 BSIG)
 
 **2. Wichtige Einrichtungen (wE)** / "important entities":
 - **Mittelgrosse Unternehmen** (>= 50 Beschaeftigte ODER > 10 Mio. EUR Umsatz UND > 10 Mio. EUR Bilanzsumme)
-- Aus Sektoren nach **Anhang II NIS-2**: Post-/Kurierdienste, Abfallwirtschaft, Chemie, Lebensmittel, Verarbeitendes Gewerbe (Medizinprodukte, Elektronik, Maschinenbau, Fahrzeuge), Digitale Dienstleister (Online-Marktplaetze, Online-Suchmaschinen, Plattformen fuer Soziale Netze), Forschung
+- Aus Sektoren nach **Anlage 1 oder Anlage 2 BSIG**: Wichtige Einrichtungen sind auch die Unternehmen der Anlage-1-Sektoren, die die Schwelle fuer besonders wichtige Einrichtungen nicht erreichen (§ 28 Abs. 2 Nr. 3 BSIG); hinzu kommen die Sektoren der Anlage 2: Post-/Kurierdienste, Abfallwirtschaft, Chemie, Lebensmittel, Verarbeitendes Gewerbe (Medizinprodukte, Elektronik, Maschinenbau, Fahrzeuge), Digitale Dienstleister (Online-Marktplaetze, Online-Suchmaschinen, Plattformen fuer Soziale Netze), Forschung
 - **Reaktive Aufsicht** (anlassbezogen)
 - Bussgelder bis **7 Mio. EUR**; nur bei Gesamtumsatz ueber 500 Mio. EUR bis **1,4 %** des weltweiten Jahresumsatzes (§ 65 Abs. 5 bis 7 BSIG)
 
@@ -90,7 +90,7 @@ Pflichten der Geschaeftsleitungen (Geschaeftsfuehrer, Vorstand) nach § 38 BSIG:
 - Risikomanagementmassnahmen **umsetzen und ueberwachen** (Abs. 1)
 - **Innenhaftung** gegenueber der Einrichtung nach den Regeln des Gesellschaftsrechts (Abs. 2)
 - **Regelmaessige Schulungen** zu Cybersicherheit (Abs. 3)
-- Bussgelder und Entzug von Managementverantwortung bei schweren Verstoessen moeglich
+- Bussgelder nach § 65 BSIG; nur bei besonders wichtigen Einrichtungen als letztes Mittel vorruebergehende Untersagung der Leitungstaetigkeit unzuverlaessiger Geschaeftsleitungen (§ 61 Abs. 9 Nr. 2 BSIG)
 
 ### Registrierungspflicht
 
@@ -113,9 +113,9 @@ Betroffene Einrichtungen muessen sich **beim BSI registrieren** (3-Monats-Frist 
 
 **Bitte beachten: NIS-2-Pflicht haengt an UNTERNEHMENSGROESSE + SEKTOR, nicht am Codebase-Typ.**
 
-- **Next.js SaaS als digitaler Dienstleister**: Wenn Online-Marktplatz, Online-Suchmaschine oder Plattform fuer soziale Netze → Anhang II (wichtige Einrichtung), wenn Schwellen erfuellt. Klassischer SaaS (z. B. B2B-Tool) ist oft NICHT sektoral erfasst — aber pruefen!
+- **Next.js SaaS als digitaler Dienstleister**: zuerst pruefen, ob Cloud-Computing-Dienst (Anlage 1 BSIG); sonst als Online-Marktplatz, Online-Suchmaschine oder Plattform fuer soziale Netzwerke → Anlage 2 BSIG (wichtige Einrichtung), jeweils ab den Groessenschwellen. SaaS ist nach Erwaegungsgrund 33 NIS-2 ein Dienstmodell des Cloud-Computing. Ein SaaS-Anbieter ist deshalb regelmaessig 'Anbieter von Cloud-Computing-Diensten' (§ 2 Nr. 4, Anlage 1 Nr. 6.1.4 BSIG), bei Betrieb oder Wartung von Kunden-IT zusaetzlich Managed Service Provider (Nr. 6.1.10). Ab 50 Mitarbeitern oder ueber 10 Mio. EUR Umsatz und Bilanzsumme: wichtige Einrichtung; ab 250 Mitarbeitern oder ueber 50 Mio. EUR Umsatz und 43 Mio. EUR Bilanzsumme: besonders wichtige Einrichtung (§ 28). Darunter keine unmittelbare Pflicht. Vernachlaessigbare Nebentaetigkeiten bleiben ausser Betracht (§ 28 Abs. 3). Zusaetzlich Anlage 2 fuer Marktplaetze, Suchmaschinen, soziale Netzwerke.
 - **Landingpage**: Nicht NIS-2-verpflichtet als solche.
-- **n8n-Automation fuer interne Prozesse**: Keine direkte Pflicht. Wenn n8n-Server der Bundesbehoerde betrieben wird: andere Regelungen fuer oeffentliche Verwaltung (Anhang I Ziff. 8).
+- **n8n-Automation fuer interne Prozesse**: Keine direkte Pflicht. Wenn n8n-Server der Bundesbehoerde betrieben wird: Einrichtungen der Bundesverwaltung sind gesondert geregelt und von § 28 Abs. 1 und 2 BSIG ausgenommen.
 - **E-Commerce als Online-Marktplatz** (B2C Plattform mit Drittanbietern): Anhang II wichtige Einrichtung bei Schwellen.
 - **Content/Blog**: Nicht erfasst.
 - **Cloud-, DNS-, CDN-, Rechenzentrums-Anbieter**: DNS-Diensteanbieter und TLD-Registries sind unabhaengig von der Groesse besonders wichtige Einrichtungen (§ 28 Abs. 1 Nr. 2 BSIG); Cloud-, Rechenzentrums- und CDN-Anbieter sind als mittlere Unternehmen wichtige Einrichtungen (§ 28 Abs. 2 Nr. 3 BSIG), erst als Grossunternehmen besonders wichtige Einrichtungen (§ 28 Abs. 1 Nr. 4 BSIG).
@@ -124,9 +124,9 @@ Betroffene Einrichtungen muessen sich **beim BSI registrieren** (3-Monats-Frist 
 
 ## Behoerden-Hinweise
 
-- **BSI (Bundesamt fuer Sicherheit in der Informationstechnik)**: https://www.bsi.bund.de/ — zentrale Aufsichtsbehoerde und Meldestelle
+- **BSI (Bundesamt fuer Sicherheit in der Informationstechnik)**: https://www.bsi.bund.de/ (zustaendige Aufsichtsbehoerde, § 59 BSIG; nationale Verbindungsstelle sowie zentrale Melde- und Anlaufstelle, § 40 Abs. 1 BSIG)
 - **BSI NIS-2-Informationsseite**: https://www.bsi.bund.de/DE/Themen/Regulierte-Wirtschaft/NIS-2-regulierte-Unternehmen/NIS-2-Pflichten/nis-2-pflichten.html
-- **BMI** (Bundesinnenministerium): Gesetzgebungsverantwortlich
+- **BMI** (Bundesinnenministerium): Ressort, zu dessen Geschaeftsbereich das BSI gehoert (§ 1 BSIG)
 - **Praxisleitfaden**: BSI IT-Grundschutz + BSI-Mindeststandards als Orientierung
 
 ## Zitierbare Urteile

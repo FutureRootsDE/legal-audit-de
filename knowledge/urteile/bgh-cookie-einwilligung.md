@@ -1,6 +1,6 @@
 ---
 aktualisiert: 2026-11-15
-quelle-primaer: https://juris.bundesgerichtshof.de/cgi-bin/rechtsprechung/document.py?Gericht=bgh&Art=en&nr=107623&pos=0&anz=1
+quelle-primaer: https://testphase.rechtsinformationen.bund.de/v1/rechtsprechung/KORE303592020.html
 quellen-sekundaer:
   - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2020/2020067.html
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=28.05.2020&Aktenzeichen=I+ZR+7/16
@@ -21,7 +21,7 @@ geltungsbereich: [DE]
 
 ## Kurz-Überblick
 
-Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH C-673/17 (Planet49) getroffen. Unter dem Kurznamen „Cookie II" hat er bestätigt: Voreingestellte Checkboxen sind keine wirksame Einwilligung. § 15 Abs. 3 TMG a.F. (heute § 25 TDDDG) ist richtlinienkonform im Sinne der ePrivacy-Richtlinie auszulegen. Das Urteil ist die deutsche Umsetzung des EuGH-Spruchs und macht Opt-In-Consent zur bindenden Norm.
+Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH C-673/17 (Planet49) getroffen. Unter dem Kurznamen „Cookie-Einwilligung II" hat er bestätigt: Voreingestellte Checkboxen sind keine wirksame Einwilligung. § 15 Abs. 3 TMG a.F. (heute § 25 TDDDG) ist richtlinienkonform im Sinne der ePrivacy-Richtlinie auszulegen. Der BGH hat § 15 Abs. 3 Satz 1 TMG a. F. richtlinienkonform dahin ausgelegt, dass Cookies zur Erstellung von Nutzungsprofilen für Werbung oder Marktforschung nur mit Einwilligung eingesetzt werden dürfen; ein voreingestelltes Ankreuzkästchen genügt nicht (LS 2, Rn. 47).
 
 ## Eckdaten
 
@@ -32,6 +32,7 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
 | **Gericht** | BGH, I. Zivilsenat |
 | **Vorgeschichte** | LG Frankfurt a.M., Urt. v. 10.12.2014, 2-6 O 30/14; OLG Frankfurt a.M., Urt. v. 17.12.2015, 6 U 30/15; BGH, Vorlagebeschluss v. 05.10.2017; EuGH C-673/17 |
 | **Parteien** | Bundesverband der Verbraucherzentralen (vzbv) gegen Planet49 GmbH |
+| **Tenor** | Die Revision der Beklagten wird mit der Maßgabe zurückgewiesen, dass der Zusatz lautet „(…) wenn diese Bestimmung verwendet wird in Verbindung mit einer Liste wie in Anlage K 1 …". Auf die Revision des Klägers wird das Berufungsurteil (OLG Frankfurt a.M., 17.12.2015, 6 U 30/15) im Kostenpunkt und insoweit aufgehoben, als zum Nachteil des Klägers erkannt wurde; im Umfang der Aufhebung wird die Berufung der Beklagten zurückgewiesen (Unterlassung auch bezüglich der Cookie-Einwilligung, Antrag I 3). |
 
 ## Leitsätze (amtlich, zwei, nummeriert)
 
@@ -44,8 +45,8 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
 ### Zur Cookie-Einwilligung
 
 - Vorausgewählte Checkboxen verletzen sowohl **Planet49 (EuGH)** als auch nationale Vorgaben
-- Der BGH legte § 15 Abs. 3 TMG a.F. erstmals richtlinienkonform aus — vor diesem Urteil war in Deutschland die Opt-Out-Theorie weit verbreitet
-- Konsequenz: **Ab 28.05.2020 ist Opt-In in Deutschland höchstrichterlich geklärt**
+- Der BGH legte § 15 Abs. 3 Satz 1 TMG a. F. richtlinienkonform aus (Rn. 52 ff.); das OLG Frankfurt a.M. hatte das voreingestellte Häkchen noch gebilligt
+- Seit 28.05.2020 ist höchstrichterlich geklärt, dass Cookies zur Profilbildung für Werbung oder Marktforschung eine aktive Einwilligung erfordern
 
 ### Zur Telefonwerbung (zusätzlich)
 
@@ -55,23 +56,23 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
 
 ## Rechtliche Bedeutung
 
-- **Deutsche Cookie-Rechtsprechung-Wende:** Vor Cookie II wurde § 15 Abs. 3 TMG weit ausgelegt; Aufsichtsbehörden hatten bereits 2019 eine Positionierung vorgenommen, die BGH bestätigte
+- **Deutsche Cookie-Rechtsprechung-Wende:** Vor Cookie-Einwilligung II wurde § 15 Abs. 3 TMG weit ausgelegt; Aufsichtsbehörden hatten bereits 2019 eine Positionierung vorgenommen, die BGH bestätigte
 - **Grundlage für § 25 TTDSG (seit Dezember 2021) / § 25 TDDDG (seit Mai 2024):** Gesetzgeber hat Rechtsunsicherheit formell beendet
 - **Verfahrensart:** Verbandsklage nach §§ 1, 3 Abs. 1 Satz 1 Nr. 1 UKlaG i.V.m. § 307 Abs. 1, Abs. 2 Nr. 1 BGB (AGB-Kontrolle); Maßstab für die Telefonwerbungsklausel § 7 Abs. 2 Nr. 2 Fall 1 UWG a.F., für die Cookie-Klausel § 15 Abs. 3 Satz 1 TMG a.F. (Rn. 23, 41); kein § 3a UWG
 
 ## Praktische Folgen für Codebases
 
 - **Keine Cookies vor aktivem Opt-In** (außer unbedingt erforderlich i.S.v. § 25 Abs. 2 TDDDG)
-- **Granulare Einwilligungen** pro Zweck / Anbieter
-- **Dokumentationspflicht** der Einwilligung (Zeitstempel, Version, Auswahl)
-- **Widerruf-Funktion** in der gleichen Qualität wie Erteilung
+- **Aus dem Urteil folgt nur:** kein Opt-out, kein voreingestelltes Kästchen, bestimmte Empfänger.
+- **Aus der DSGVO, nicht aus I ZR 7/16:** Nachweis der Einwilligung (Art. 7 Abs. 1 DSGVO) und Widerruf so einfach wie Erteilung (Art. 7 Abs. 3 DSGVO), jeweils i.V.m. § 25 Abs. 1 Satz 2 TDDDG.
 - **UWG-Relevanz:** Mitbewerber und Verbraucherverbände können abmahnen
 
 ## Folgerechtsprechung / weitere relevante Entscheidungen
 
 - **LG Rostock 3 O 762/19, 15.09.2020** — Ablehnen-Button gleichwertig zu Akzeptieren
 - **OLG Köln 6 U 185/21, 03.11.2022** — Dark-Pattern-Cookie-Banner wettbewerbswidrig
-- **LG Köln 33 O 376/22, 23.03.2023** — Consent-Verweigerung muss genauso leicht sein wie Erteilung
+- **LG Köln 33 O 376/22, 23.03.2023** (ECLI:DE:LGK:2023:0323.33O376.22.00): Verurteilt wurde nur wegen der Übermittlung in Drittländer (Antrag 1.d). Den Antrag, eine gleichwertige Ablehnungsoption auf der ersten Ebene vorzuschreiben, hat das LG abgewiesen: Eine bestimmte Bannergestaltung sei gesetzlich nicht vorgegeben (Rn. 108 f.). Zugleich hielt es das konkrete Banner nicht für eine tatsächliche und gleichwertige Wahlmöglichkeit (Rn. 106). Nicht als Beleg für eine Pflicht zum Ablehnen-Button auf erster Ebene zitieren.
+- **OLG Köln, Urteil vom 19.01.2024, 6 U 80/23** (ECLI:DE:OLGK:2024:0119.6U80.23.00; Vorinstanz LG Köln, 04.05.2023, 33 O 311/22): Cookie-Banner muss eine der Einwilligung gleichwertige Ablehnungsoption bieten; „Akzeptieren & Schließen" über das „X"-Symbol unzulässig (§ 25 Abs. 1 TTDSG a.F.).
 
 ## Siehe auch
 
@@ -93,3 +94,9 @@ Der Bundesgerichtshof hat am 28. Mai 2020 die deutsche Folgeentscheidung zu EuGH
   Leitsaetze woertlich (LS 1 Telefonwerbung, LS 2 Cookies), Zusatz
   "Umsetzungsluecke" gestrichen; Telefonwerbung: konkreter Fall statt
   Freiwilligkeit; Verfahrensart UKlaG/AGB-Kontrolle statt § 3a UWG.
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Primaerquelle auf die Bundes-API umgestellt; Tenor ergaenzt; Kurzname
+  "Cookie-Einwilligung II"; Aussagen zu Opt-In/Opt-Out belegnah gefasst;
+  Nachweis und Widerruf als Folgen der DSGVO gekennzeichnet; LG Koeln
+  33 O 376/22 richtiggestellt (nicht als Beleg fuer Ablehnen-Button);
+  OLG Koeln 6 U 80/23 ergaenzt.

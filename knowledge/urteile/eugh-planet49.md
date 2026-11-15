@@ -77,9 +77,9 @@ Die Frage, ob die Koppelung der Gewinnspielteilnahme an eine Werbeeinwilligung m
 ## Praktische Folgen
 
 - **BGH I ZR 7/16 („Cookie-Einwilligung II"), 28.05.2020** — Umsetzung in deutsches Recht mit richtlinienkonformer Auslegung
-- Alle Cookie-Banner müssen **aktives Anklicken** fordern (kein Vorhaken, kein Scrollen)
+- **Aktive Einwilligung;** vorangekreuzte Kästchen genügen nicht (Tenor 1). Scrollen ist nicht Gegenstand von Planet49 (siehe EDSA-Leitlinien 05/2020; eigene Ableitung aus Rn. 52, „aktives … Verhalten")
 - Deutscher Gesetzgeber hat Anlass genommen, den (damaligen) § 25 TTDSG einzuführen (heute TDDDG)
-- Wettbewerbsrechtliche Abmahnbarkeit bestätigt
+- Durchsetzung im Ausgangsverfahren über das UKlaG (Verbandsklage, BGH I ZR 7/16)
 
 ## Folgerechtsprechung
 
@@ -90,7 +90,7 @@ Die Frage, ob die Koppelung der Gewinnspielteilnahme an eine Werbeeinwilligung m
 ## Anwendung auf Codebases
 
 - **Cookie-Banner:** keine vorausgewählten Kästchen, pro Zweck separat
-- **"Alle akzeptieren" und "Ablehnen"** gleich prominent auf erster Ebene
+- **„Ablehnen" als gleichwertige Option im Banner:** nicht aus Planet49, sondern aus § 25 Abs. 1 TDDDG i.V.m. Art. 4 Nr. 11, Art. 7 DSGVO; so OLG Köln, 19.01.2024, 6 U 80/23 (Tenor 1a), und DSK, OH Digitale Dienste V1.2 (11/2024)
 - **Cookie-Informationen vor Einwilligung** sichtbar (Cookie-Tabelle / Dienste-Liste)
 - **Speicherdauer** jeder einzelnen Cookie-Kategorie dokumentiert
 - **Dritt-Zugriffsmöglichkeiten** (Google, Meta, TikTok etc.) explizit aufgeführt
@@ -116,3 +116,7 @@ Die Frage, ob die Koppelung der Gewinnspielteilnahme an eine Werbeeinwilligung m
   Sachverhalt der beiden Kaestchen nach Rn. 26 bis 28 (Remintrex,
   interessengerichtete Werbung statt Reichweitenmessung); Koppelung als vom
   EuGH ausdruecklich nicht entschieden gekennzeichnet (Rn. 64).
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Praktische Folgen nach Tenor gefasst (aktive Einwilligung, Scrollen nicht
+  Gegenstand); Abmahnbarkeit ersetzt durch UKlaG-Verbandsklage; Ablehnen-
+  Option nicht aus Planet49, sondern aus TDDDG/DSGVO.

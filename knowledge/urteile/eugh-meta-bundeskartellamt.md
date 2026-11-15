@@ -92,6 +92,16 @@ Der EuGH entschied:
    zu pruefen. Marktmacht bedeutet nicht automatisch Unfreiwilligkeit, aber
    sie ist ein gewichtiger Faktor.
 
+6. **Art. 6 Abs. 1 lit. c DSGVO:** nur, wenn zur Erfüllung einer rechtlichen
+   Verpflichtung tatsächlich erforderlich, die Rechtsgrundlage ein im
+   öffentlichen Interesse liegendes Ziel verfolgt, verhältnismäßig ist und die
+   Verarbeitung in den Grenzen des absolut Notwendigen erfolgt.
+
+7. **Art. 6 Abs. 1 lit. d und e DSGVO:** grundsätzlich (vorbehaltlich Prüfung
+   durch das vorlegende Gericht) nicht erfüllt.
+
+Hinweis: Das Urteil hat 8 Tenorpunkte; die Aufzählung oben ist eine Auswahl.
+
 ## Bedeutung fuer Codebases
 
 1. **Cross-Service-Datenverknuepfung** (z.B. SaaS-Suite aus mehreren
@@ -136,21 +146,22 @@ Der EuGH entschied:
   gemacht"). Das Verfahren war bis zur Entscheidung in C-252/21 ausgesetzt
   (Rn. 35). Beleg: curia.europa.eu, Rechtssache C-446/21.
 - **EDSA-Opinion 08/2024 vom 17.04.2024 („Consent or Pay")**: Auf gemeinsame
-  Anfrage NL/NO/HmbBfDI; Kernaussage: „Consent or Pay"-Modelle grosser Online-
-  Plattformen koennen in der Regel keine freiwillige Einwilligung i.S.v.
-  Art. 4 Nr. 11, Art. 7 DSGVO erzeugen; eine gleichwertige Alternative ohne
-  Entgelt ist regelmaessig erforderlich. Beleg: edpb.europa.eu, Opinion
+  Anfrage NL/NO/HmbBfDI; Kernaussage: Bei bloßer Wahl zwischen Einwilligung in
+  verhaltensbezogene Werbung und Entgelt können große Online-Plattformen in den
+  meisten Fällen keine wirksame Einwilligung erlangen; Verantwortliche sollten
+  eine gleichwertige Alternative ohne Entgelt (z. B. mit weniger
+  personalisierter Werbung) erwägen. Eine Pflicht zum kostenlosen Angebot
+  besteht nach dem EDSA nicht (Rn. 76). Beleg: edpb.europa.eu, Opinion
   202408_consentorpay. Eigenstaendige „Consent or Pay"-Guidelines standen zum
   2026-11-14 weiterhin im EDSA-Arbeitsprogramm 2026-2027 und waren nicht final
   verabschiedet.
 - **DMA-Entscheidung der EU-Kommission vom 23.04.2025 gegen Meta** wegen
   „Pay or Consent"-Werbemodell: Verstoss gegen Art. 5 Abs. 2 DMA (Verknuepfung
   personenbezogener Daten ueber Dienste ohne wirksame Einwilligung); Geldbusse
-  **200 Mio. EUR**, erste Nichtkonformitaets-Entscheidung unter dem DMA
-  ueberhaupt. Meta hat Nichtigkeitsklage vor dem EuG erhoben (Rechtssache
+  **200 Mio. EUR**. Am selben Tag erging der erste DMA-Nichtkonformitaetsbeschluss
+  auch gegen Apple (500 Mio. EUR, Anti-Steering). Meta hat Nichtigkeitsklage vor dem EuG erhoben (Rechtssache
   T-435/25, Anhaengigkeit laut Amtsblatt-Veroeffentlichung). <<VERIFIKATION AUSSTEHEND>>
-  (Press-corner-IP-Nummer im Direkt-Abruf nicht geladen; Beleg ueber
-  Sekundaer-Zusammenfassungen, eur-lex-Amtsblatt T-435/25 zu pruefen).
+  (eur-lex-Amtsblatt T-435/25 zu pruefen).
 - **DSGVO-Abaenderungen**: Sowohl DSK-Leitfaeden (2023/2024) als auch EDSA-
   Guidelines wurden entsprechend angepasst (Art. 6 Abs. 1 lit. b enge
   Auslegung, Art. 9 sensible Daten online).
@@ -191,3 +202,7 @@ Der EuGH entschied:
   TTDSG; Follow-Up: EuGH hat nur Auslegungsfragen beantwortet, nicht ueber
   die Verfuegung entschieden; C-446/21 nach Tenor 1 neu gefasst ("auch bei
   erteilter Einwilligung" gestrichen), Aussetzung bis C-252/21 (Rn. 35).
+- 2026-11-15: Korrekturen aus doppelter unabhaengiger Pruefung (Runde 2):
+  Tenor 6 und 7 ergaenzt (Urteil hat 8 Tenorpunkte); EDSA-Opinion 08/2024
+  nach Wortlaut gefasst; DMA-Beschluesse: Betraege Meta 200 Mio. EUR und
+  Apple 500 Mio. EUR; Angabe zur Klage T-435/25 bleibt markiert.

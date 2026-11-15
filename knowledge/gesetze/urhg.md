@@ -47,7 +47,7 @@ Praktische Umsetzungen des Opt-Out:
 - HTTP-Header `tdm-reservation` (TDMRep); `Content-Usage` (IETF-Entwurf, ungeprueft)
 - **C2PA-Metadaten** in Bildern
 - Textuelle AGB-Klauseln (streitig, ob "maschinenlesbar")
-- **TDMRep** (W3C-Entwurf)
+- **TDMRep** (Bericht einer W3C Community Group, kein W3C-Standard)
 
 ### § 60d UrhG — TDM fuer wissenschaftliche Forschung
 
@@ -57,7 +57,7 @@ Das **LG Hamburg (LAION-Urteil)** hat § 60d auf die LAION-Datensatzerstellung a
 
 ### Weitere relevante Normen
 
-- **§ 2 UrhG** — Werkbegriff (Schoepfungshoehe, "kleine Muenze" bei Fotos + § 72 UrhG Lichtbildschutz)
+- **§ 2 UrhG**: Werkbegriff (Schoepfungshoehe, auch "kleine Muenze"); **§ 72 UrhG**: Lichtbildschutz fuer Fotos ohne Werkqualitaet
 - **§ 23 UrhG** — Bearbeitungen / freie Benutzung (durch Reform 2021 reformiert; "hinreichender Abstand")
 - **§ 51 UrhG** — Zitatrecht (fuer Content-Erstellung relevant)
 - **§ 72 UrhG** — Schutz einfacher Lichtbilder (50 Jahre ab Erscheinen; Untergrenze: mehr als bloss technische Reproduktion)
@@ -98,7 +98,7 @@ Das **LG Hamburg (LAION-Urteil)** hat § 60d auf die LAION-Datensatzerstellung a
 
 ## Behoerden-Hinweise
 
-- **Deutsches Patent- und Markenamt (DPMA)**: Nicht fuer Urheberrecht zustaendig, aber fuer angrenzendes IP
+- **Deutsches Patent- und Markenamt (DPMA)**: fuehrt kein Register fuer Urheberrechte (Schutz entsteht ohne Eintragung); zustaendig aber fuer das Register anonymer und pseudonymer Werke (§ 138 UrhG) und als Aufsichtsbehoerde ueber Verwertungsgesellschaften (§ 75 Abs. 1 VGG)
 - **Bundesjustizministerium (BMJ)**: Fuer urheberrechtliche Gesetzgebungsvorhaben
 - **Verwertungsgesellschaften** (VG Wort, GEMA, VG Bild-Kunst): Fuer kollektive Lizenzierung — relevant bei Musik, VG-Bild-Kunst-Nachveroeffentlichung
 
