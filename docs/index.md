@@ -63,7 +63,7 @@ Codex CLI und Copilot CLI sind ebenfalls unterstuetzt. Details unter [Setup](set
 
 ## Architektur in einem Satz
 
-Eine Knowledge Base mit 63 kuratierten Artikeln (Gesetze, Themen, Urteile, Behoerden-Leitlinien, Checklisten) wird **nicht** vollstaendig in die Session geladen, sondern ueber Hooks oder Auto-Routing nur dann gezogen, wenn die Aufgabe sie wirklich braucht. Damit bleibt das Kontextfenster schlank und das Rechtswissen trotzdem zur Hand.
+Eine Knowledge Base mit 65 kuratierten Artikeln (Gesetze, Themen, Urteile, Behoerden-Leitlinien, Checklisten, Anwalts- und Tool-Empfehlungen) wird **nicht** vollstaendig in die Session geladen, sondern ueber Hooks oder Auto-Routing nur dann gezogen, wenn die Aufgabe sie wirklich braucht. Damit bleibt das Kontextfenster schlank und das Rechtswissen trotzdem zur Hand.
 
 ## Naechste Schritte
 
