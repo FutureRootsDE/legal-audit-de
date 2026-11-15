@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.it-recht-kanzlei.de/lg-muenchen-I-webfonts-einwilligung-schadensersatz.html
   - https://curia.europa.eu/site/upload/docs/application/pdf/2026-02/vi_zr_258-24.pdf
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

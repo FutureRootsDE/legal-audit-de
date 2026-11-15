@@ -6,6 +6,7 @@ quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/kurzpapiere.html
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32021D0915
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

@@ -5,6 +5,7 @@ quellen-sekundaer:
   - https://www.lda.bayern.de/de/datenpanne.html
   - https://www.ldi.nrw.de/kontakt/meldepflicht-fuer-verantwortliche-verletzungen-des-schutzes-personenbezogener-daten
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

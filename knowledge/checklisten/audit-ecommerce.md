@@ -2,6 +2,7 @@
 aktualisiert: 2026-11-15
 gilt-fuer: WooCommerce, Shopware 6, Shopify, Magento, PrestaShop, JTL
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

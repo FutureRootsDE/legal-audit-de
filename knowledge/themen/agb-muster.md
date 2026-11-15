@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/bgb/__309.html
   - https://www.ihk.de/themenfelder/recht-steuern/vertrags-und-agb-recht
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

@@ -10,7 +10,7 @@ quellen-sekundaer:
   - https://ai-act-service-desk.ec.europa.eu/
   - https://www.gesetze-im-internet.de/ki-mig/
   - https://recht.bund.de/bgbl/1/2026/223
-verifiziert-am: 2026-11-14
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 eli: http://data.europa.eu/eli/reg/2024/1689/oj
 eli-aendvo: http://data.europa.eu/eli/reg/2026/1744/oj

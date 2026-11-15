@@ -6,6 +6,7 @@ quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
   - https://www.gesetze-im-internet.de/einwv/
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.etsi.org/deliver/etsi_en/301500_301599/301549/
   - https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

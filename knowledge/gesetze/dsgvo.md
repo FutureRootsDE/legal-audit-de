@@ -6,7 +6,7 @@ quellen-sekundaer:
   - https://www.edpb.europa.eu/edpb_de
   - https://www.datenschutzkonferenz-online.de/
   - https://www.bfdi.bund.de/DE/Home/home_node.html
-verifiziert-am: 2026-11-14
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

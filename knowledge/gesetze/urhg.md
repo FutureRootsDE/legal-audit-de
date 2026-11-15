@@ -6,7 +6,7 @@ quellen-sekundaer:
   - https://www.gesetze-im-internet.de/urhg/__60d.html
   - https://www.lto.de/recht/hintergruende/h/kuenstliche-intelligenz-ki-urheberrecht-text-data-mining-lg-hamburg-310o22723
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=OLG+Hamburg&Datum=10.12.2025&Aktenzeichen=5+U+104/24
-verifiziert-am: 2026-10-24
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

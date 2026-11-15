@@ -8,7 +8,7 @@ quellen-sekundaer:
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=25.07.2019&Aktenzeichen=I+ZR+29/18
   - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:62021CJ0148
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=14.07.2022&Aktenzeichen=I+ZR+121/21
-verifiziert-am: 2026-10-24
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

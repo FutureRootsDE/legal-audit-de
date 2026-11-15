@@ -7,6 +7,7 @@ quellen-sekundaer:
   - https://www.bmj.de/DE/themen/verbraucherrecht/lauterkeitsrecht/
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024L0825
 verifiziert-am: 2026-11-14
+teilverifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 
@@ -175,7 +176,7 @@ Nachhaltigkeitsbezug braucht belastbare Belege. Siehe auch
 - **Landingpage:** Auf der eigenen Landingpage ergibt sich der kommerzielle
   Zweck aus den Umstaenden (§ 5a Abs. 4 Satz 1 UWG); bezahlte Testimonials
   offenlegen (Irrefuehrung, § 5 Abs. 1 UWG; Anhang Nr. 23c).
-- **n8n-Workflows (z.B. SmarteHuette42):** YouTube-Description-Generator
+- **n8n-Workflows (z.B. eine Content-Pipeline):** YouTube-Description-Generator
   muss bei Sponsoring-Deals automatisch "Werbung" + Transparenz-Hinweis
   einfuegen; Metadata-Workflow als Gate.
 - **E-Commerce:** Influencer-Marketing-Briefings in das Vertrags-Template
