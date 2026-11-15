@@ -8,31 +8,53 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
-<!-- BEGIN zitatpruefung-eu-und-normen: eigener Block, bei Merge mit dem Release-PR unter den neuen [Unreleased] setzen -->
-
-### Scripts — EU-Rechtsprechung und Normpruefung in der Zitatpruefung
-
-- `scripts/verify-citations.py` — neues Backend EU-Rechtsprechung: EuGH- und EuG-Aktenzeichen (`C-311/18`, `T-553/23`, mit Suffix `P`/`PPU`/`R`, verbundene Rechtssachen, alte Nummern ohne Praefix nur mit genanntem Gericht) werden ueber den SPARQL-Endpunkt des Cellar (Amt fuer Veroeffentlichungen) zu CELEX, ECLI, Datum und Dokumenttyp aufgeloest; feste Abfragevorlage mit streng validierten Parametern, hoechstens 1 Anfrage pro Sekunde, Cache pro Nutzer mit Validierung. Neuer Status `PENDING` (anhaengig oder nur Schlussantraege/Mitteilung), `name_hint` (match, no_match, none) als reiner Hinweis, keine Titel im JSON. `--no-eu` schaltet das Backend ab, `--write-ecli` traegt auch EU-ECLI ein.
-- `scripts/verify-citations.py --check-norms` — eigener Modus: Normzitate gegen die XML-Gesamtausgaben von gesetze-im-internet.de (Paragraph, Ueberschrift, Zahl der Absaetze, Satz nur wenn zuverlaessig zaehlbar, Stand je Gesetz, Hinweisliste "Gesetz nach verifiziert-am geaendert"), BGBl.-Fundstellen gegen recht.bund.de nur mit `--max-bgbl N` und dem Crawl-Delay der robots.txt; EU-Verordnungen werden nur gezaehlt; schreibt nie in die KB.
-- `scripts/citation_check/extract.py` — Datum vor oder nach einer Kurzform-Liste (`I ZR 90/20, 125/20, 126/20 vom 09.09.2021`) gilt fuer alle Glieder; EU-Aktenzeichen mit Suffix `P`, `PPU`, `R`; Kurznamen in Anfuehrungszeichen oder Klammern fuer den Namenshinweis.
-- `scripts/legal-status.py` — ungueltiges oder in der Zukunft liegendes Datum im Frontmatter ist ein eigener Zustand "ungueltiges Datum" (JSON: neuer Schluessel `kb.aktualitaet.invalid_date`, `kb.invalid_date_files` mit `--verbose`); ein ungueltiges `verifiziert-am` faellt auf `aktualisiert` zurueck, Anfuehrungszeichen um das Datum werden toleriert; `build_report` und `render_text` strukturell in kleine Funktionen zerlegt (Ausgabe unveraendert, durch Golden-Tests abgesichert).
-- `docs/knowledge-base.md` — Frische-Kriterium auf `verifiziert-am` (90 Tage stale, 180 Tage sehr stale, `teilverifiziert-am` eigener Zustand) umgestellt.
-- `tests/` — Offline-Tests (Fixtures aus echten, gekuerzten Antworten von Cellar und gesetze-im-internet.de), Grenzwerte-Test fuer Datei- und Funktionslaenge.
-
-<!-- END zitatpruefung-eu-und-normen -->
-
 ---
 
-<!-- BEGIN restpunkte-zitatpruefung: eigener Block, bei Merge mit dem Release-PR unter den neuen [Unreleased] setzen -->
+## [1.4.1] (2026-11-15)
 
-### Scripts — Restpunkte der Zitatpruefung und des Statusskripts
+Patch-Release: Korrekturen der Wissensdatenbank nach doppelter unabhängiger Prüfung (Runde 1), Entfernung lokaler Dateipfade aus ausgelieferten Dateien und Erweiterungen der Zitatprüfung (EU-Rechtsprechung über den Cellar, Normprüfung, Härtungen). Verifikationsmarker `<<VERIFIKATION AUSSTEHEND>>`: 50 (vorher 53).
 
-- `scripts/citation_check/extract.py` — Datum in Klammern hinter einem Aktenzeichen bindet nie an das naechste Aktenzeichen rechts (behebt den letzten DATE_MISMATCH in `knowledge/gesetze/pangv.md`, I ZR 143/19); Kurzform-Aufzaehlungen wie `I ZR 90/20, 125/20 und 126/20` werden als weitere Aktenzeichen erkannt (ein folgendes Datum bindet nur an das letzte Glied); der Gerichts-Fallback in `knowledge/urteile/` greift nur ohne Vorinstanz-Signal und bei passendem BVerwG-Registerzeichen, sonst NOT_COVERED; der Lauftag ist ein Parameter (`today`) statt fest `date.today()`.
-- `scripts/verify-citations.py` — neue Option `--today YYYY-MM-DD` (reproduzierbare Laeufe); Netzwerkfehler erscheinen nur noch als feste Kategorie (`Netzwerkfehler: Zeitueberschreitung`, `Verbindung abgelehnt`, `TLS-Fehler`, `unzulaessige Weiterleitung`, `Antwort zu gross`, `ungueltige Antwort`, sonst Klassenname), nie mit Text aus der Ausnahme.
-- `scripts/legal-status.py` — Frische nach `verifiziert-am` (ersatzweise `aktualisiert`) statt nach `aktualisiert`; `teilverifiziert-am` ist ein eigener Zustand "teilverifiziert" und zaehlt nie als frisch (z. B. `knowledge/themen/tool-katalog.md`); JSON abwaertskompatibel (neu: `kb.aktualitaet.teilverifiziert`, `placeholders.deviant`). Stale-Kriterium in `/legal-status`, `/legal-update`, `/legal-audit-de-update` und im Skill `legal-update-sources` vereinheitlicht.
-- `scripts/find-placeholders.py`, `scripts/legal-status.py` — Warnung (kein Fehler) fuer defekte oder abweichende Platzhalter-Formen (Zusatztext, einfaches `>`, ueber zwei Zeilen, nicht geschlossen); Marker in Backticks zaehlen nicht. Gemeinsame Logik in `scripts/placeholder_check.py`.
+### Wissensdatenbank: Korrekturen aus doppelter unabhängiger Prüfung (Runde 1)
 
-<!-- END restpunkte-zitatpruefung -->
+Jede Datei der Wissensdatenbank wurde von zwei Prüfern unabhängig gegen Primärquellen gelesen (gesetze-im-internet.de, EUR-Lex, curia, amtliche Veröffentlichungen). Korrigiert wurden 65 Dateien. Wo die beiden Prüfer voneinander abwichen, wurde die Stelle an der Primärquelle entschieden. Geänderte Dateien tragen `aktualisiert: 2026-11-15`. Die Zahl der Platzhalter `<<VERIFIKATION AUSSTEHEND>>` sank von 53 auf 50.
+
+Wichtigste inhaltliche Korrekturen:
+
+- UWG: Mitbewerber können DSGVO-Verstöße als Marktverhaltensverstoß nach § 3a UWG verfolgen (BGH I ZR 223/19, Arzneimittelbestelldaten II); App-Zentrum III (I ZR 186/17) richtig wiedergegeben; § 7 Abs. 2 Nr. 3 UWG statt nicht existierender Nummern.
+- E-Mail-Marketing: keine gesetzliche Ein-Klick-Abmeldepflicht; die Abmeldung muss jederzeit möglich sein (Art. 21 Abs. 2 und 3 DSGVO; § 7 Abs. 2 Nr. 3 Buchst. c, Abs. 3 Nr. 4 UWG).
+- BfDI: keine Datenschutzaufsicht über private Banken (Zuständigkeit der Länder, § 40 Abs. 1 BDSG).
+- EuGH C-252/21 (Meta/Bundeskartellamt): Zusammenfassung an Tenor 5 und Rn. 117 ausgerichtet.
+- AI Act: Art. 50 Abs. 2 als Anbieterpflicht, Betreiber nur Art. 50 Abs. 4; Inkrafttreten und gestaffelte Geltung berichtigt; Zuständigkeiten nach dem KI-MIG berichtigt.
+- BFSG: Ausnahme für Kleinstunternehmen nur bei Dienstleistungen (§ 2 Nr. 17, § 3 Abs. 3 BFSG); § 3 BFSGV berichtigt.
+- Button-Lösung: BGH I ZR 159/24 nur für die endgültige Unwirksamkeit nach § 312j Abs. 4 BGB; § 312k Abs. 4 BGB verlangt „sofort“.
+- Preisangaben: 30-Tage-Tiefstpreis mit EuGH C-330/23 und BGH I ZR 183/24 belegt.
+- Aufbewahrungsfristen auf 8, 10 und 6 Jahre berichtigt.
+- Datenpanne: Mindestinhalt der Meldung nach Art. 33 Abs. 3 DSGVO von zusätzlichen Formularfeldern getrennt.
+- Datenschutzbeauftragte: Benennung und Mitteilung nach Art. 37 Abs. 7 DSGVO, Schwelle nach § 38 Abs. 1 BDSG.
+- Aktenzeichen: Double-Opt-In mit BGH I ZR 164/09 belegt; Cookie-Einwilligung II ist BGH I ZR 7/16.
+
+### Entfernt
+
+- Lokale Dateipfade aus drei ausgelieferten Dateien.
+- Tool-Listen: ein nicht mehr erreichbarer Scanner sowie ungenaue Hersteller- und Preisangaben entfernt oder durch Verweise ersetzt.
+
+### Zitatprüfung (`scripts/verify-citations.py`)
+
+- EU-Rechtsprechung: Aktenzeichen von EuGH und EuG (`C-311/18`, `T-553/23`, mit Suffix `P`, `PPU` oder `R`, verbundene Rechtssachen, alte Nummern ohne Präfix nur mit genanntem Gericht) werden über den SPARQL-Endpunkt des Cellar (Amt für Veröffentlichungen der EU) zu CELEX, ECLI, Datum und Dokumenttyp aufgelöst. Standardmäßig aktiv, abschaltbar mit `--no-eu`; `--write-ecli` trägt auch EU-ECLI ein.
+- Neuer Status `PENDING` für anhängige Rechtssachen oder Fundstellen, zu denen nur Schlussanträge oder eine Mitteilung vorliegen. `name_hint` (match, no_match, none) ist ein reiner Hinweis; Titel erscheinen nicht im JSON.
+- Normprüfung `--check-norms` (eigener Modus, standardmäßig aus): Normzitate gegen die XML-Gesamtausgaben von gesetze-im-internet.de (Paragraph, Überschrift, Zahl der Absätze, Satz nur wenn zuverlässig zählbar, Stand je Gesetz, Hinweisliste „Gesetz nach verifiziert-am geändert“). BGBl.-Fundstellen gegen recht.bund.de nur mit `--max-bgbl N` und unter Beachtung von robots.txt und Crawl-Delay. Schreibt nie in die Wissensdatenbank.
+- Extraktion: Ein Datum in Klammern hinter einem Aktenzeichen bindet nie an das nächste Aktenzeichen; Kurzform-Aufzählungen wie `I ZR 90/20, 125/20 und 126/20` werden aufgelöst; der Gerichts-Fallback in `knowledge/urteile/` greift nur ohne Vorinstanz-Signal und bei passendem BVerwG-Registerzeichen. Neue Option `--today YYYY-MM-DD` für reproduzierbare Läufe.
+- Härtungen aus Code- und Security-Review: feste SPARQL-Abfragevorlage mit streng validierten Parametern; XML nur mit Größenlimits, ohne Entity- oder DTD-Deklarationen und nur mit bekanntem DOCTYPE; jede Ausgabe und jeder Cache-Eintrag wird gegen strenge Muster validiert; Netzwerkfehler erscheinen nur als feste Kategorie, nie mit Text aus der Ausnahme; höchstens eine Anfrage pro Sekunde bei Cellar und gesetze-im-internet.de; Grenzwerte-Test für Datei- und Funktionslänge.
+- `scripts/legal-status.py`: Frische nach `verifiziert-am` (ersatzweise `aktualisiert`); `teilverifiziert-am` ist ein eigener Zustand und zählt nie als frisch; ungültige oder in der Zukunft liegende Daten sind ein eigener Zustand „ungültiges Datum“. Das Stale-Kriterium ist in `/legal-status`, `/legal-update`, `/legal-audit-de-update`, im Skill `legal-update-sources` und in `docs/knowledge-base.md` vereinheitlicht. JSON bleibt abwärtskompatibel.
+- `scripts/find-placeholders.py` und `scripts/legal-status.py` warnen bei abweichenden oder defekten Platzhalter-Formen (gemeinsame Logik in `scripts/placeholder_check.py`); Marker in Backticks zählen nicht.
+- Tests: 415 Offline-Tests (7 übersprungen) mit Fixtures aus echten, gekürzten Antworten von Cellar und gesetze-im-internet.de.
+
+### Bekannte Grenzen
+
+- Diese Version enthält nur Korrekturen, die zwei Prüfer übereinstimmend verlangten oder die an der Primärquelle entschieden wurden. Aussagen, die bisher nur ein Prüfer oder keiner geprüft hat, sind noch nicht korrigiert; eine zweite Runde folgt.
+- Das Feld `verifiziert-am` wurde deshalb nicht angehoben.
+- Die Prüfung fand in praktisch jeder Datei unrichtige oder ungenaue Aussagen. Audit-Ergebnisse sind weiterhin vor Verwendung anwaltlich zu prüfen.
+- Die Normprüfung bestätigt Paragraph und Absatz, nicht Nummern und Buchstaben.
 
 ---
 

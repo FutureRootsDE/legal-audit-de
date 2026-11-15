@@ -293,6 +293,7 @@ Verzeichnisse mit ⚙ werden automatisch aus `.claude/` generiert. Direkte Edits
 
 ## Roadmap
 
+- [x] **v1.4.1** Korrekturen in 65 KB-Dateien nach doppelter unabhängiger Prüfung (Runde 1, Platzhalter 53 auf 50), Zitatprüfung erweitert um EU-Rechtsprechung über den Cellar (Status `PENDING`) und Normprüfung `--check-norms`; lokale Dateipfade aus ausgelieferten Dateien entfernt
 - [x] **v1.4.0** Zitatprüfung gegen die Rechtsinformations-API des Bundes (`scripts/verify-citations.py` mit Offline-Tests und CI-Job), optionale MCP-Integration (`rechtsinformationen`), Doku-Site unter `docs/`, großes KB-Update (65 KB-Dateien, KI-Omnibus VO (EU) 2026/1744, § 356a BGB n. F., drei neue Leiturteile) und 35 Trigger-Muster
 - [x] **v1.3.2** Pro-Mode für Claude-Pro-Abonnenten (Standard-Kontext statt 1M): `/legal-pro-mode enable`, sechs permanente Agent-Varianten, `${CLAUDE_PLUGIN_DATA}`-Marker
 - [x] **v1.3.1** Natives Codex-Plugin-Manifest + Frontmatter-Order-Fix ([@AllstarGER](https://github.com/AllstarGER))
