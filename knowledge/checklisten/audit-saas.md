@@ -18,7 +18,7 @@ geltungsbereich: [DE, EU]
 ## Kurz-Ueberblick
 
 Diese Checkliste pruefst Du **vor jedem Production-Launch** und wiederholst sie
-mindestens **halbjaehrlich**. Sie ist generisch — fuer ein konkretes ausgearbeitetes Beispiel mit Thompson-Sampling-Schwierigkeit siehe:
+mindestens **halbjaehrlich**. Sie ist generisch.
 
 ### Kurz-Scope
 

@@ -47,7 +47,7 @@ Zwei Kategorien:
 
 **1. Besonders wichtige Einrichtungen (bwE)** / "essential entities":
 - **Grossunternehmen** (>= 250 Beschaeftigte ODER > 50 Mio. EUR Jahresumsatz UND > 43 Mio. EUR Bilanzsumme)
-- **Groessenunabhaengig** besonders wichtig: Betreiber kritischer Anlagen, qualifizierte Vertrauensdiensteanbieter, TLD-Registries, DNS-Diensteanbieter; TK-Anbieter schon ab 50 Mitarbeitern oder ueber 10 Mio. EUR (§ 28 Abs. 1 Nr. 1 bis 3 BSIG)
+- **Groessenunabhaengig** besonders wichtig: Betreiber kritischer Anlagen, qualifizierte Vertrauensdiensteanbieter, TLD-Registries, DNS-Diensteanbieter; TK-Anbieter schon ab mindestens 50 Mitarbeitern oder bei einem Jahresumsatz und einer Jahresbilanzsumme von jeweils ueber 10 Millionen Euro (§ 28 Abs. 1 Nr. 1 bis 3 BSIG)
 - Aus Sektoren nach **Anhang I NIS-2**: Energie, Verkehr, Bankwesen, Finanzmarktinfrastruktur, Gesundheit, Trinkwasser, Abwasser, Digitale Infrastruktur (DNS, TLD-Registries, Cloud-, Rechenzentrums-, CDN-Anbieter), IKT-Dienste, oeffentliche Verwaltung, Raumfahrt
 - **Proaktive BSI-Aufsicht**; eine turnusmaessige Nachweispflicht alle drei Jahre haben nur Betreiber kritischer Anlagen (§ 39 BSIG)
 - Bussgelder bis **10 Mio. EUR**; nur bei Gesamtumsatz ueber 500 Mio. EUR bis **2 %** des weltweiten Jahresumsatzes (§ 65 Abs. 5 bis 7 BSIG)

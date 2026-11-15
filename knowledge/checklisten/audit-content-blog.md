@@ -194,7 +194,7 @@ Neben eigener Website: jedes Social-Profil ist eigenstaendiges Telemedium. Siehe
 ### Newsletter
 
 - [ ] Double-Opt-In mit Bestaetigungs-Mail (BGH, Urt. v. 10.02.2011, I ZR 164/09 (Double-opt-in-Verfahren))
-- [ ] Abmelde-Link in JEDER Mail (§ 7 Abs. 2 Nr. 2 UWG i.V.m. Abs. 3 — bei Bestandskundenausnahme)
+- [ ] Abmelde-Link in JEDER Mail (§ 7 Abs. 2 Nr. 3 Buchst. c UWG i.V.m. Abs. 3 — bei Bestandskundenausnahme)
 - [ ] Absenderidentitaet in jeder Mail erkennbar (§ 6 Abs. 1 DDG, § 7 Abs. 2 Nr. 3 UWG)
 - [ ] Personalisierung nur nach Einwilligung
 - [ ] BGH "Inbox-Werbung II" I ZR 25/19 (13.01.2022) — Inbox-Werbung in E-Mail-Postfaechern bedarf Einwilligung

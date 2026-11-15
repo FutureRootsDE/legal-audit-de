@@ -57,7 +57,7 @@ EU-Kommission stellt fest, dass Drittland angemessenes Schutzniveau bietet. Derz
 - Safety-Net: SCCs + TIA parallel pflegen bleibt Best Practice, zumal die US-Rechtslage (Executive Order 14086, DPRC) von jedem Praesidentenwechsel beruehrt werden kann.
 - Praktisch: Fuer nicht-DPF-zertifizierte US-Anbieter gelten weiterhin SCCs + TIA + ggf. ergaenzende Massnahmen
 
-### Transfer Impact Assessment (TIA) — Pflicht seit Schrems II
+### Prüfung des Schutzniveaus im Drittland (Transfer Impact Assessment)
 
 Seit Schrems II muss der Exporteur das Schutzniveau im Drittland im Einzelfall prüfen (in der Praxis: Transfer Impact Assessment, vgl. Klausel 14 SCC 2021/914). Der Begriff „TIA" stammt nicht aus dem Urteil.
 

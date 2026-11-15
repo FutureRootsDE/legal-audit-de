@@ -31,7 +31,7 @@ E-Commerce-Shops haben die **hoechste Abmahnfrequenz** — v.a. wegen PAngV, Wid
 - [ ] Bestell-Historie + Bestellpositionen
 - [ ] Zahlungs-Daten (Stripe/PayPal/Klarna — via Token, nicht im Shop gespeichert)
 - [ ] Versand-Adressen (ggf. abweichend von Rechnungs-Adresse)
-- [ ] Rechnungs-Archiv (PDF + Datenbank) — 10 Jahre Retention
+- [ ] Rechnungs-Archiv (PDF + Datenbank) — 8 Jahre Retention (§ 257 Abs. 4 HGB; § 147 Abs. 3 AO; § 14b Abs. 1 UStG)
 - [ ] Wunschliste, Warenkorb-Abbrueche
 - [ ] Tracking-Daten (GA4 Enhanced Ecommerce)
 - [ ] Bewertungen (mit Namen / Nickname)

@@ -62,7 +62,7 @@ Beispiele:
 - 15 Mitarbeiter, 1 Mio. EUR Umsatz → **NICHT befreit**
 - 4 Mitarbeiter, 500.000 EUR Umsatz → **befreit**
 
-**Wichtig**: Kleinstunternehmen, die **Produkte** in Verkehr bringen, sind **nie** befreit.
+**Wichtig**: Die Kleinstunternehmen-Ausnahme gilt nicht fuer **Produkte**. Unabhaengig davon gelten die Barrierefreiheitsanforderungen nicht, soweit ihre Einhaltung eine grundlegende Veraenderung der Wesensmerkmale erfordert (§ 16 BFSG) oder zu einer unverhaeltnismaessigen Belastung nach Anlage 4 fuehrt (§ 17 BFSG). Voraussetzung ist eine eigene Beurteilung, deren Dokumentation fuenf Jahre aufzubewahren ist (§ 17 Abs. 2 BFSG).
 
 ### § 14 BFSG — Pflichten der Dienstleister
 

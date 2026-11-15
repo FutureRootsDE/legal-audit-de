@@ -89,7 +89,7 @@ pflicht fuer kommerzielle Kommunikation ergibt sich daher aus **§ 6 DDG**
 - bei Werbe-Mails zusaetzlich: Kennzeichnungspflicht nach § 6 DDG, Auftraggeber
   identifizierbar
 - keine Verschleierung von Absender oder kommerziellem Charakter in Kopf- und
-  Betreffzeile (§ 6 Abs. 2 DDG; Verstoss zugleich § 7 Abs. 2 Nr. 3 Buchst. a,
+  Betreffzeile (§ 6 Abs. 1 DDG; Verstoss zugleich § 7 Abs. 2 Nr. 3 Buchst. a,
   b UWG)
 
 ### Art. 13 DSGVO — Informationspflichten beim Opt-In
