@@ -11,8 +11,7 @@ quellen-sekundaer:
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=LG+Berlin&Datum=16.03.2023&Aktenzeichen=52+O+333%2F22
   - https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=09.10.2025&Aktenzeichen=I+ZR+159/24
   - https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2021/2021088.html
-verifiziert-am: 2026-10-24
-teilverifiziert-am: 2026-11-15
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

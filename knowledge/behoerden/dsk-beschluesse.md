@@ -6,8 +6,7 @@ quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/beschluesse-dsk.html
   - https://www.datenschutz-bayern.de/ki/OH_KI.pdf
   - https://www.datenschutz.bremen.de/sixcms/media.php/13/DSK_PM_OH-RAG-Systeme.pdf
-verifiziert-am: 2026-11-14
-teilverifiziert-am: 2026-11-15
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE]
 ---
 

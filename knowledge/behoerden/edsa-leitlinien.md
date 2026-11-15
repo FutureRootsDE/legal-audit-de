@@ -5,8 +5,7 @@ quellen-sekundaer:
   - https://www.edpb.europa.eu/documents_en
   - https://www.edpb.europa.eu/public-consultations_en
   - https://www.edpb.europa.eu/system/files/documents/2026-02/edpb_work-programme_2026-2027_en.pdf
-verifiziert-am: 2026-11-14
-teilverifiziert-am: 2026-11-15
+verifiziert-am: 2026-11-15
 geltungsbereich: [EU]
 ---
 

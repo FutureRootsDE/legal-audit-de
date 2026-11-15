@@ -5,8 +5,7 @@ quellen-sekundaer:
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62017CJ0040
   - https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:62016CJ0210
   - https://www.gesetze-bayern.de/Content/Document/MStV-18
-verifiziert-am: 2026-11-14
-teilverifiziert-am: 2026-11-15
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 

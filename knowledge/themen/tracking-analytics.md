@@ -4,8 +4,7 @@ quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/__25.html
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
   - https://www.edpb.europa.eu/
-verifiziert-am: 2026-11-14
-teilverifiziert-am: 2026-11-15
+verifiziert-am: 2026-11-15
 geltungsbereich: [DE, EU]
 ---
 
