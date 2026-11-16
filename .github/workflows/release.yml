@@ -74,7 +74,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "${{ steps.version.outputs.version }}" \
-            --title "${{ steps.version.outputs.version }} — legal-audit-de" \
+            --title "${{ steps.version.outputs.version }} • legal-audit-de" \
             --notes-file release-notes.md \
             dist/legal-audit-de-claude-${{ steps.version.outputs.version }}.zip \
             dist/legal-audit-de-codex-${{ steps.version.outputs.version }}.zip \
