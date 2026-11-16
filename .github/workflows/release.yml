@@ -73,9 +73,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create "${{ steps.version.outputs.version }}" \
-            --title "${{ steps.version.outputs.version }} • legal-audit-de" \
-            --notes-file release-notes.md \
-            dist/legal-audit-de-claude-${{ steps.version.outputs.version }}.zip \
-            dist/legal-audit-de-codex-${{ steps.version.outputs.version }}.zip \
-            dist/legal-audit-de-copilot-${{ steps.version.outputs.version }}.zip
+          TAG="${{ steps.version.outputs.version }}"
+          ASSETS=(
+            "dist/legal-audit-de-claude-${TAG}.zip"
+            "dist/legal-audit-de-codex-${TAG}.zip"
+            "dist/legal-audit-de-copilot-${TAG}.zip"
+          )
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            # Release already exists (e.g. created manually): only add assets, keep title and notes
+            gh release upload "$TAG" "${ASSETS[@]}" --clobber
+          else
+            gh release create "$TAG" \
+              --title "${TAG} • legal-audit-de" \
+              --notes-file release-notes.md \
+              "${ASSETS[@]}"
+          fi
