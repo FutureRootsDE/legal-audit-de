@@ -16,6 +16,7 @@ Minor-Release 1.5.0 (Datum setzt der Release-PR): neuer Befehl `/legal-client-te
 - **`scripts/client-test.py`** mit den Unterbefehlen `check`, `profile`, `init`, `plan`, `render` und `pdf`; Bibliothek `scripts/client_report/`, nur Standardbibliothek.
 - **Vorlage `templates/client-test/`:** Prüfkatalog v1 mit 56 Tests, HTML-Vorlage, CSS, IBM Plex (Lizenz OFL-1.1) und Sperrliste für unzulässige Formulierungen.
 - **RDG-Linie:** Der Report nennt Tatsachen und die betroffene Vorschrift zur Prüfung, enthält bei jedem nicht bestandenen Test den Anwaltshinweis sowie Weitergabe-Satz und Start-Hinweis; Rechtsgrundlagen stammen nur aus dem Katalog. Keine Rechtsberatung.
+- **Gehärtet:** Eingaben (Quelle der Anwendbarkeitsangaben auf `user`, `detected`, `detected+confirmed` begrenzt, Schemaprüfung), Sperrliste (Teilwort-Treffer, Schreibvarianten) und PDF-Druck (feste Texte der Randboxen aus einer Quelle).
 
 ### Behoben
 
