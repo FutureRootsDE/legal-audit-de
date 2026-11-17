@@ -8,6 +8,7 @@ import errno
 import json
 import os
 import re
+import secrets
 import tempfile
 from pathlib import Path
 from typing import Mapping
@@ -30,6 +31,12 @@ ACCENT_RE = re.compile(r"#[0-9A-Fa-f]{6}")  # always used with fullmatch (no tra
 LOGO_FILE_RE = re.compile(rf"{LOGO_BASENAME}\.(?:{'|'.join(LOGO_EXTENSIONS)})")  # fullmatch too
 SVG_START_RE = re.compile(rb"<svg[\s>]", re.IGNORECASE)
 LOGO_HEAD_BYTES = 64 * 1024  # SVG prologs (XML declaration, comments, doctype) can be long
+# Plugin-owned folder in the system temp directory for the profile data file of `profile save`.
+TEMP_DIRNAME = "legal-audit-de-client-test"
+TEMP_DATA_PREFIX = "profile-"
+TEMP_DATA_SUFFIX = ".json"
+TEMP_TOKEN_BYTES = 16
+TEMP_DATA_RE = re.compile(rf"{TEMP_DATA_PREFIX}[0-9a-f]{{{2 * TEMP_TOKEN_BYTES}}}\{TEMP_DATA_SUFFIX}")  # fullmatch
 
 
 def profile_dir(env: Mapping[str, str] | None = None) -> Path:
@@ -200,3 +207,41 @@ def save_profile(data: Mapping, logo_src: Path, env: Mapping[str, str] | None = 
         if other != ext and stale.is_file():
             stale.unlink()
     return target
+
+
+# ---------------------------------------------------------------- temporary profile data
+
+def temp_data_dir() -> Path:
+    """Plugin-owned folder in the system temp directory (outside every working directory)."""
+    return Path(tempfile.gettempdir()) / TEMP_DIRNAME
+
+
+def new_temp_data_path() -> Path:
+    """Fresh, not yet existing path for the profile data file, in a private plugin temp folder.
+
+    The file itself is left to the caller (the Write tool cannot overwrite a file it has not
+    read). The folder is created with mode 0700 and must be a real directory owned by the user.
+    """
+    folder = temp_data_dir()
+    folder.mkdir(mode=0o700, exist_ok=True)
+    if folder.is_symlink() or not folder.is_dir():
+        raise OSError(errno.ENOTDIR, "Temp-Ordner des Plugins ist kein Verzeichnis")
+    if hasattr(os, "getuid") and folder.stat().st_uid != os.getuid():
+        raise PermissionError(errno.EACCES, "Temp-Ordner des Plugins gehört einem anderen Nutzer")
+    return folder / f"{TEMP_DATA_PREFIX}{secrets.token_hex(TEMP_TOKEN_BYTES)}{TEMP_DATA_SUFFIX}"
+
+
+def is_temp_data_file(path: Path) -> bool:
+    """True only for a file name from new_temp_data_path() directly inside the plugin temp folder."""
+    try:
+        resolved = Path(path).resolve()
+        folder = temp_data_dir().resolve()
+    except (OSError, RuntimeError):
+        return False
+    return resolved.parent == folder and TEMP_DATA_RE.fullmatch(resolved.name) is not None
+
+
+def discard_temp_data_file(path: Path) -> None:
+    """Delete a profile data file from the plugin temp folder; any other path is left alone."""
+    if is_temp_data_file(path):
+        Path(path).resolve().unlink(missing_ok=True)

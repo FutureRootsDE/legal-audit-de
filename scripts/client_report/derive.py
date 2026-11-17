@@ -25,7 +25,7 @@ from typing import Any, Mapping
 
 from .catalog import evaluate
 from .models import Catalog, CatalogEntry, DerivedResult, ReportInputError, ReportModel, ValidationIssue
-from .schema import STATUSES, UTC_FORMAT, UTC_RE
+from .schema import STATUSES, UTC_FORMAT, normalize_reference, utc_issue
 from .texts import NOTE_A11Y_VOLUNTARY, NOTE_APPLICABILITY_UNCLEAR, NOTE_VALID_FROM
 
 STATUS_MISSING = "missing"
@@ -57,6 +57,11 @@ def _berlin_offset(utc: datetime) -> timedelta:
     return CEST if start <= utc < end else CET
 
 
+def berlin_date(utc: datetime) -> date:
+    """Calendar day in Europe/Berlin of a naive UTC moment (CET/CEST rule of _berlin_offset)."""
+    return (utc + _berlin_offset(utc)).date()
+
+
 def check_date(findings: Mapping[str, Any]) -> date:
     """Check date of the run: the calendar day of `run.started_utc` in Europe/Berlin.
 
@@ -68,13 +73,10 @@ def check_date(findings: Mapping[str, Any]) -> date:
     """
     run = findings.get("run")
     value = run.get("started_utc") if isinstance(run, Mapping) else None
-    try:
-        if not (isinstance(value, str) and UTC_RE.fullmatch(value)):
-            raise ValueError("not a UTC timestamp")
-        utc = datetime.strptime(value, UTC_FORMAT)
-        return (utc + _berlin_offset(utc)).date()
-    except (TypeError, ValueError) as exc:
-        raise ReportInputError([ValidationIssue("run.started_utc", "Format JJJJ-MM-TTThh:mm:ssZ (UTC)")]) from exc
+    problem = utc_issue(value)
+    if problem is not None:
+        raise ReportInputError([ValidationIssue("run.started_utc", problem)])
+    return berlin_date(datetime.strptime(value, UTC_FORMAT))
 
 
 def _intake(findings: Mapping[str, Any]) -> dict[str, bool | None]:
@@ -98,7 +100,12 @@ def _rows_by_id(findings: Mapping[str, Any]) -> dict[str, Mapping[str, Any]]:
 
 
 def _frozen(row: Mapping[str, Any]) -> Mapping[str, Any]:
-    return MappingProxyType(copy.deepcopy(dict(row)))
+    """Read-only deep copy; reference links get their Punycode form (validated before)."""
+    data = copy.deepcopy(dict(row))
+    refs = data.get("references")
+    if isinstance(refs, list):
+        data["references"] = [normalize_reference(ref) or ref for ref in refs]
+    return MappingProxyType(data)
 
 
 def _open_notes(entry: CatalogEntry, applicable: bool | None, bfsg: bool | None, day: date) -> tuple[str, ...]:

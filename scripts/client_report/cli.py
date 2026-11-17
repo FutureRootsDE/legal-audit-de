@@ -1,4 +1,4 @@
-"""Command line of the website check-up: check, profile, init, plan, render and pdf (spec 6.9).
+"""Command line of the website check-up: check, profile, tempfile, init, plan, render and pdf (spec 6.9).
 
 Exit codes: 0 ok, 1 input error, 2 broken plugin installation, 3 no letterhead profile,
 4 Chrome or Edge not found, 5 accent color unknown (profile save), 6 PDF creation failed.
@@ -9,11 +9,13 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
 import tempfile
 import traceback
+import unicodedata
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Sequence
@@ -21,11 +23,21 @@ from typing import Sequence
 from .accent import DEFAULT_ACCENT, derive_accent, ensure_contrast
 from .catalog import APPLICABILITY_KEYS, evaluate, load_catalog
 from .chrome import ChromeNotFound, PdfError, find_chrome, print_pdf
-from .derive import check_date
+from .derive import berlin_date, check_date
 from .models import ReportInputError
 from .paths import domain_from_url, domain_slug, new_report_dir
 from .pipeline import REPORT_FILENAME, build_report
-from .profile import ACCENT_RE, ensure_writable_dir, load_profile, logo_path, profile_dir, save_profile
+from .profile import (
+    ACCENT_RE,
+    discard_temp_data_file,
+    ensure_writable_dir,
+    is_temp_data_file,
+    load_profile,
+    logo_path,
+    new_temp_data_path,
+    profile_dir,
+    save_profile,
+)
 from .render import CSS_PATH, FONT_FACES, FONTS_DIR, PAGED_JS_ENABLED, TEMPLATE_PATH
 from .schema import FINDINGS_PATH, SCHEMA_VERSION, UTC_FORMAT, load_findings
 from .texts import START_HINT
@@ -39,10 +51,33 @@ NO_PROFILE_MESSAGE = "Kein Briefkopf-Profil gespeichert."
 NO_CHROME_MESSAGE = "Chrome oder Edge nicht gefunden. report.html bleibt das Ergebnis."
 ACCENT_UNKNOWN = "ACCENT_UNKNOWN"
 PDF_PROFILE_KEYS = ("contact", "phone", "email", "website")
+CONSUME_OUTSIDE = ("--consume gilt nur für Dateien aus dem Unterbefehl tempfile. "
+                   "Die Datei wurde nicht gelöscht und kein Profil gespeichert.")
+# Control, format and line/paragraph separator characters: shown as escapes, never sent to the terminal.
+INVISIBLE_CATEGORIES = ("Cc", "Cf", "Zl", "Zp")
+BYTE_LIMIT, BMP_LIMIT = 0x100, 0x10000
+
+
+def _escape_char(char: str) -> str:
+    code = ord(char)
+    if code < BYTE_LIMIT:
+        return f"\\x{code:02x}"
+    return f"\\u{code:04x}" if code < BMP_LIMIT else f"\\U{code:08x}"
+
+
+def visible(text: str) -> str:
+    """`text` with control and format characters (ESC, bidi controls, ...) as visible escapes."""
+    return "".join(_escape_char(c) if unicodedata.category(c) in INVISIBLE_CATEGORIES else c for c in text)
 
 
 def _err(message: str) -> None:
-    print(message, file=sys.stderr)
+    """One message on stderr; each line is escaped so input cannot emit terminal sequences."""
+    print("\n".join(visible(line) for line in str(message).split("\n")), file=sys.stderr)
+
+
+def _utc_now() -> datetime:
+    """Current moment as naive UTC (patched in tests)."""
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
 def _plugin_version() -> str:
@@ -163,6 +198,27 @@ def cmd_profile_show(args: argparse.Namespace) -> int:
 
 
 def cmd_profile_save(args: argparse.Namespace) -> int:
+    if args.consume and not is_temp_data_file(Path(args.data)):
+        _err(CONSUME_OUTSIDE)
+        return EXIT_INPUT
+    try:
+        return _profile_save(args)
+    finally:
+        if args.consume:
+            discard_temp_data_file(Path(args.data))
+
+
+def cmd_tempfile(_args: argparse.Namespace) -> int:
+    """Print a fresh path in the plugin temp folder for the profile data of `profile save`."""
+    try:
+        print(new_temp_data_path())
+    except OSError as exc:
+        _err(f"Temp-Ordner nicht nutzbar: {exc.strerror or type(exc).__name__}")
+        return EXIT_INPUT
+    return EXIT_OK
+
+
+def _profile_save(args: argparse.Namespace) -> int:
     try:
         data = json.loads(Path(args.data).read_text(encoding="utf-8-sig"))
         if not isinstance(data, dict):
@@ -216,9 +272,10 @@ def _skeleton(url: str, domain: str, started: str, profile: dict, logo_rel: str,
     }
 
 
-def _parse_day(value: str | None) -> date:
+def _parse_day(value: str | None, now: datetime) -> date:
+    """Check day from --date, else today in Europe/Berlin (the folder name matches check_date)."""
     if not value:
-        return datetime.now(timezone.utc).date()
+        return berlin_date(now)
     try:
         return date.fromisoformat(value)
     except ValueError:
@@ -232,9 +289,9 @@ def cmd_init(args: argparse.Namespace) -> int:
         return EXIT_NO_PROFILE
     try:
         domain = domain_from_url(args.url)
-        day = _parse_day(args.date)
-        started = (datetime.now(timezone.utc).strftime(UTC_FORMAT) if not args.date
-                   else f"{day.isoformat()}T00:00:00Z")
+        now = _utc_now()
+        day = _parse_day(args.date, now)
+        started = now.strftime(UTC_FORMAT) if not args.date else f"{day.isoformat()}T00:00:00Z"
         base = Path(args.out or DEFAULT_BASE)
         catalog = load_catalog()
         report_dir = new_report_dir(base, day, domain)
@@ -364,14 +421,32 @@ def cmd_pdf(args: argparse.Namespace) -> int:
 
 # ---------------------------------------------------------------- entry
 
+# argparse error texts (Python 3.9 to 3.13) and their German form; groups are filled in.
 USAGE_ERRORS = (
-    ("the following arguments are required", "Pflichtangabe fehlt"),
-    ("unrecognized arguments", "Unbekannte Angabe"),
-    ("invalid choice", "Unbekannter Befehl"),
-    ("expected one argument", "Dem Schalter fehlt ein Wert"),
-    ("ignored explicit argument", "Dem Schalter darf kein Wert folgen"),
-    ("not allowed with argument", "Diese Angaben schließen sich aus"),
+    (re.compile(r"invalid choice: (?P<value>.*?) \(choose from (?P<choices>.*)\)"),
+     "Unbekannter Befehl {value}, möglich: {choices}"),
+    (re.compile(r"argument (?P<arg>\S+): expected one argument"), "Dem Schalter {arg} fehlt ein Wert"),
+    (re.compile(r"argument (?P<arg>\S+): expected at most one argument"),
+     "Dem Schalter {arg} darf höchstens ein Wert folgen"),
+    (re.compile(r"argument (?P<arg>\S+): ignored explicit argument (?P<value>.*)"),
+     "Dem Schalter {arg} darf kein Wert folgen: {value}"),
+    (re.compile(r"argument (?P<arg>\S+): not allowed with argument (?P<other>.*)"),
+     "Die Angaben {arg} und {other} schließen sich aus"),
+    (re.compile(r"the following arguments are required: (?P<args>.*)"), "Pflichtangabe fehlt: {args}"),
+    (re.compile(r"unrecognized arguments: (?P<args>.*)"), "Unbekannte Angabe: {args}"),
+    (re.compile(r"ambiguous option: (?P<opt>\S+) could match (?P<matches>.*)"),
+     "Mehrdeutige Angabe {opt}, möglich: {matches}"),
 )
+USAGE_FALLBACK = "Ungültiger Aufruf"
+
+
+def german_usage_error(message: str) -> str:
+    """German text for an argparse error message; unknown messages give a generic German text."""
+    for pattern, german in USAGE_ERRORS:
+        match = pattern.search(message)
+        if match:
+            return german.format(**{k: v or "" for k, v in match.groupdict().items()})
+    return USAGE_FALLBACK
 DEBUG_ENV = "LEGAL_AUDIT_DEBUG"
 EXIT_INTERRUPTED = 130
 
@@ -393,10 +468,8 @@ class _GermanParser(argparse.ArgumentParser):
         self.add_argument("-h", "--help", action="help", help="Diese Hilfe anzeigen")
 
     def error(self, message: str) -> None:  # type: ignore[override]
-        detail = next((f"{de}: {message.split(':', 1)[-1].strip()}" for key, de in USAGE_ERRORS
-                       if key in message), "Ungültiger Aufruf")
         self.print_usage(sys.stderr)
-        self.exit(EXIT_INPUT, f"{self.prog}: {detail}. Hilfe mit --help.\n")
+        self.exit(EXIT_INPUT, f"{self.prog}: {visible(german_usage_error(message))}. Hilfe mit --help.\n")
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -412,7 +485,11 @@ def _parser() -> argparse.ArgumentParser:
     save.add_argument("--data", required=True, help="JSON-Datei mit den Absenderdaten")
     save.add_argument("--logo", required=True, help="Logo als PNG, JPG oder SVG")
     save.add_argument("--accent", help="Akzentfarbe als Hex-Wert (#1F4E79) oder default")
+    save.add_argument("--consume", action="store_true",
+                      help="Datendatei nach dem Aufruf löschen (nur Dateien aus tempfile)")
     save.set_defaults(func=cmd_profile_save)
+    sub.add_parser("tempfile", help="Pfad für die Profildaten im Temp-Ordner des Plugins ausgeben"
+                   ).set_defaults(func=cmd_tempfile)
     init = sub.add_parser("init", help="Report-Ordner anlegen")
     init.add_argument("url", help="Adresse der geprüften Website")
     init.add_argument("--out", help="Basisordner für Reports (Standard: client-reports)")

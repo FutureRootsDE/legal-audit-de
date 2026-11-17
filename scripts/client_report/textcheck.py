@@ -44,7 +44,8 @@ WHITESPACE_RE = re.compile(r"\s+")
 HYPHEN_CHARS = "-‐‑−﹣－"
 # Hyphens removed for phrase matching, so "rechts-widrig" or "rechts−widrig" still match.
 HYPHENS_RE = re.compile(f"[{HYPHEN_CHARS}]")
-PERCENT_RE = re.compile(r"\s*%\s*")
+# Applied after whitespace runs are collapsed to one space, so it never backtracks over a run.
+PERCENT_RE = re.compile(" ?% ?")
 UMLAUT_FOLD = str.maketrans({"ä": "a", "ö": "o", "ü": "u"})
 DIGRAPH_RE = re.compile("([aou])e")
 # Frequent Cyrillic and Greek look-alikes of Latin letters (applied before casefolding,
@@ -115,6 +116,7 @@ def normalize(text: str) -> str:
     """
     text = _clean(text).translate(HOMOGLYPHS).casefold()
     text = HYPHENS_RE.sub("", text)
+    text = WHITESPACE_RE.sub(" ", text)
     text = PERCENT_RE.sub(" % ", text)
     text = text.translate(UMLAUT_FOLD)
     text = DIGRAPH_RE.sub(r"\1", text)
@@ -146,12 +148,25 @@ def find_forbidden(text: str, phrases: Sequence[str]) -> list[str]:
             if occurrences:
                 spans[phrase] = occurrences
 
-    def covered(span: tuple[int, int], phrase: str) -> bool:
-        return any(other != phrase and s <= span[0] and span[1] <= e and (e - s) > (span[1] - span[0])
-                   for other, others in spans.items() for s, e in others)
-
+    covered = _covered_spans(spans.values())
     return [phrase for phrase, occurrences in spans.items()
-            if not all(covered(span, phrase) for span in occurrences)]
+            if not all(span in covered for span in occurrences)]
+
+
+def _covered_spans(groups: Iterable[list[tuple[int, int]]]) -> set[tuple[int, int]]:
+    """Spans lying inside a different, strictly longer span (sweep line, O(n log n)).
+
+    Inside and strictly longer means the other span starts no later and ends no earlier and is
+    not the identical span. Sorting the distinct spans by start ascending and end descending puts
+    every such container before the span, so the running maximum end decides coverage.
+    """
+    covered: set[tuple[int, int]] = set()
+    max_end = -1
+    for start, end in sorted({span for group in groups for span in group}, key=lambda s: (s[0], -s[1])):
+        if max_end >= end:
+            covered.add((start, end))
+        max_end = max(max_end, end)
+    return covered
 
 
 def _dash_matches(text: str) -> list[re.Match[str]]:

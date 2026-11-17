@@ -16,7 +16,7 @@ import unicodedata
 from datetime import datetime
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterator, Sequence
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urlunsplit
 
 from .catalog import APPLICABILITY_KEYS
 from .models import Catalog, CatalogEntry, ReportInputError, ValidationIssue
@@ -38,6 +38,17 @@ MAX_FINDINGS_BYTES = 20 * 1024 * 1024
 UTC_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 # ASCII digits only and always used with fullmatch: `$` would accept a trailing newline.
 UTC_RE = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z")
+# Plausible years of a check run; also keeps the Berlin offset away from datetime.max.
+MIN_YEAR, MAX_YEAR = 2000, 2100
+UTC_FORMAT_MESSAGE = "Format JJJJ-MM-TTThh:mm:ssZ (UTC)"
+UTC_YEAR_MESSAGE = f"Jahr muss zwischen {MIN_YEAR} und {MAX_YEAR} liegen"
+# Field length limits (characters). Checked before every other rule, so a huge value is rejected
+# without running the text rules on it and without quoting it in a message.
+MAX_PROSE_CHARS = 4_000
+MAX_VERBATIM_CHARS = 20_000
+MAX_OTHER_CHARS = 4_000
+MAX_KEY_CHARS = 200
+MAX_PORT = 65_535
 ACCENT_RE = re.compile(r"#[0-9A-Fa-f]{6}")
 # Characters that never belong in a reference link (attribute break-out, whitespace, controls).
 UNSAFE_LINK_RE = re.compile(r"[\s\x00-\x1f\x7f\"'<>`\\]")
@@ -126,13 +137,19 @@ def _text_list(value: Any, path: str, min_items: int = 0) -> list[ValidationIssu
             for i, item in enumerate(value) if not _non_empty(item)]
 
 
-def _parse_utc(value: Any) -> datetime | None:
+def utc_issue(value: Any) -> str | None:
+    """German message when `value` is no UTC timestamp of a plausible year, else None."""
     if not isinstance(value, str) or not UTC_RE.fullmatch(value):
-        return None
+        return UTC_FORMAT_MESSAGE
     try:
-        return datetime.strptime(value, UTC_FORMAT)
+        parsed = datetime.strptime(value, UTC_FORMAT)
     except ValueError:
-        return None
+        return UTC_FORMAT_MESSAGE
+    return None if MIN_YEAR <= parsed.year <= MAX_YEAR else UTC_YEAR_MESSAGE
+
+
+def _parse_utc(value: Any) -> datetime | None:
+    return None if utc_issue(value) else datetime.strptime(value, UTC_FORMAT)
 
 
 def _url_issue(value: Any, path: str) -> tuple[list[ValidationIssue], str | None]:
@@ -143,12 +160,28 @@ def _url_issue(value: Any, path: str) -> tuple[list[ValidationIssue], str | None
         return [ValidationIssue(path, f"keine gültige http- oder https-URL ({exc})")], None
 
 
-def _is_https_link(value: Any) -> bool:
+def normalize_reference(value: Any) -> str | None:
+    """Reference link with its host in Punycode (IDNA), or None when it is no valid https link.
+
+    Rejected: other schemes, unsafe characters, userinfo (`https://bank.de@evil.de/` disguises
+    the real host), IPv6 literals, ports outside 1 to 65535 and hosts that IDNA cannot encode.
+    The report shows the Punycode form, so a look-alike host in another script stays visible.
+    """
     if not isinstance(value, str) or UNSAFE_LINK_RE.search(value):
-        return False
+        return None
     parts = urlsplit(value)
-    # Userinfo (`https://bank.de@evil.de/`) disguises the real host: never a valid reference.
-    return parts.scheme == "https" and bool(parts.hostname) and "@" not in parts.netloc
+    host = parts.hostname
+    if parts.scheme != "https" or not host or "@" in parts.netloc or ":" in host:
+        return None
+    try:
+        port = parts.port
+        ascii_host = host.encode("idna").decode("ascii")
+    except (ValueError, UnicodeError):
+        return None
+    if port is not None and not 1 <= port <= MAX_PORT:
+        return None
+    netloc = ascii_host if port is None else f"{ascii_host}:{port}"
+    return urlunsplit((parts.scheme, netloc, parts.path, parts.query, parts.fragment))
 
 
 def _file_issues(rel: Any, path: str, report_dir: Path, suffixes: Sequence[str] | None) -> list[ValidationIssue]:
@@ -340,6 +373,32 @@ def _control_issues(findings: dict) -> list[ValidationIssue]:
     return issues
 
 
+# ---------------------------------------------------------------- field lengths
+
+def _max_chars(path: str) -> int:
+    pattern = _INDEX_RE.sub("[]", path)
+    if pattern in PROSE_PATHS:
+        return MAX_PROSE_CHARS
+    if pattern in MULTILINE_VERBATIM_PATHS:
+        return MAX_VERBATIM_CHARS
+    return MAX_OTHER_CHARS
+
+
+def _length_issues(findings: dict) -> list[ValidationIssue]:
+    """Overlong strings and keys. A key issue is reported at its object, never quoting the key."""
+    issues: list[ValidationIssue] = []
+    for path, node, _ in _iter_nodes(findings):
+        where = path or "findings"
+        if isinstance(node, dict):
+            if any(len(str(key)) > MAX_KEY_CHARS for key in node):
+                issues.append(ValidationIssue(where, f"Schlüssel länger als {MAX_KEY_CHARS} Zeichen"))
+        elif isinstance(node, str):
+            limit = _max_chars(path)
+            if len(node) > limit:
+                issues.append(ValidationIssue(where, f"zu lang: {len(node)} Zeichen, höchstens {limit}"))
+    return issues
+
+
 # ---------------------------------------------------------------- blocks
 
 def _validate_run_times(run: dict) -> list[ValidationIssue]:
@@ -348,7 +407,7 @@ def _validate_run_times(run: dict) -> list[ValidationIssue]:
     for key in ("started_utc", "finished_utc"):
         times[key] = _parse_utc(run.get(key))
         if key in run and times[key] is None:
-            issues.append(ValidationIssue(f"run.{key}", "Format JJJJ-MM-TTThh:mm:ssZ (UTC)"))
+            issues.append(ValidationIssue(f"run.{key}", utc_issue(run[key]) or UTC_FORMAT_MESSAGE))
     if times["started_utc"] and times["finished_utc"] and times["finished_utc"] < times["started_utc"]:
         issues.append(ValidationIssue("run.finished_utc", "liegt vor started_utc"))
     return issues
@@ -575,8 +634,10 @@ def _validate_result_parts(result: dict, path: str, report_dir: Path) -> list[Va
     if references is not None and not isinstance(references, list):
         issues.append(ValidationIssue(f"{path}.references", "muss eine Liste sein"))
     for j, ref in enumerate(references if isinstance(references, list) else []):
-        if not _is_https_link(ref):
-            issues.append(ValidationIssue(f"{path}.references[{j}]", "nur https-Links ohne Leer- oder Sonderzeichen"))
+        if normalize_reference(ref) is None:
+            issues.append(ValidationIssue(f"{path}.references[{j}]",
+                                          "nur https-Links ohne Leer- oder Sonderzeichen, Port 1 bis 65535, "
+                                          "Hostname als gültiger Domainname"))
     if result.get("checklist") is not None:
         issues += _text_list(result["checklist"], f"{path}.checklist")
     return issues
@@ -608,9 +669,16 @@ def _validate_results(results: Any, catalog: Catalog, report_dir: Path) -> list[
 
 def validate_input(findings: dict, catalog: Catalog, report_dir: Path, *,
                    phrases: Sequence[str] | None = None) -> list[ValidationIssue]:
-    """Every rule violation of the raw findings.json; an empty list means step 1 passed."""
+    """Every rule violation of the raw findings.json; an empty list means step 1 passed.
+
+    Field lengths come first: when a string or key is too long, only those issues are returned,
+    because later rules would quote the value or run the text rules over it.
+    """
     if not isinstance(findings, dict):
         return [ValidationIssue("findings", "muss ein JSON-Objekt sein")]
+    too_long = _length_issues(findings)
+    if too_long:
+        return too_long
     issues, _ = _shape(findings, "", TOP_REQUIRED, TOP_OPTIONAL)
     if "schema_version" in findings and findings["schema_version"] != SCHEMA_VERSION:
         issues.append(ValidationIssue("schema_version", f"erwartet {SCHEMA_VERSION}"))
