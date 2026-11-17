@@ -73,9 +73,11 @@ Website-CheckUp fuer Agenturen und Freelancer. Prueft eine oeffentliche Website 
 Ablauf:
 
 1. **Briefkopf-Profil:** Beim ersten Aufruf werden Name, Anschrift und Kontakt der Agentur erfasst und lokal gespeichert (`--edit-profile` erfasst neu).
-2. **Intake:** Kurze Fragen zur Website (Shop, Newsletter, Abo-Vertraege, Verbraucherstreitbeilegung, Zielgruppe), danach legt das Skript fest, welche Tests anwendbar sind.
+2. **Intake:** Kurze Fragen zur Website (Angebot an Verbraucherinnen und Verbraucher, Pflicht nach dem Barrierefreiheitsstaerkungsgesetz, Online-Shop, Abo- oder Mitgliedschaftsvertraege, mehr als zehn Beschaeftigte, Haltbarkeitsgarantie des Herstellers ueber mehr als 2 Jahre, Funktionen fuer Inhalte von Nutzern, Chat), danach legt das Skript fest, welche Tests anwendbar sind.
 3. **Passive Pruefung** ueber chrome-devtools-mcp: Consent und Cookiebanner, Drittanbieter vor Einwilligung, Sicherheitsheader, Barrierefreiheit, Pflichtangaben. Nicht geprueft werden Speed, SEO und GEO.
 4. **Report:** `report.html` als eigenstaendige Datei plus getaggtes PDF ueber headless Chrome oder Edge (`--no-pdf` laesst das PDF aus).
+
+**Skriptaufrufe:** Der Befehl gibt die Shell nicht vorab frei. Claude Code fragt vor jedem Skriptaufruf nach; erlaube nur Aufrufe von client-test.py. Unter Codex CLI und GitHub Copilot CLI gibt es kein vorab freigegebenes Shell-Werkzeug mehr; wie sich der Befehl dort verhaelt, ist ungeprueft.
 
 Ausgabe: ein Unterordner von `client-reports/` im Arbeitsverzeichnis (oder von `--out`) mit `findings.json`, `report.html`, PDF samt Kopie fuer den Versand und `evidence/`.
 
@@ -198,5 +200,5 @@ Grundsatz: im Zweifel eine Stufe hoeher klassifizieren. Abmahnkosten sind asymme
 | `legal-audit-pro-mode.py` | Pro-Mode-Marker setzen, loeschen, abfragen |
 | `verify-citations.py` | Prueft Aktenzeichen der KB: Bundesgerichte gegen die Rechtsinformations-API des Bundes, EuGH/EuG gegen den Cellar des Amts fuer Veroeffentlichungen (Status `PENDING` fuer anhaengige Verfahren, `name_hint` nur als Hinweis; `--no-eu` schaltet ab). Eigener Modus `--check-norms`: Normzitate gegen gesetze-im-internet.de (Paragraph, Ueberschrift, Absatz, Stand) und BGBl.-Fundstellen gegen recht.bund.de (`--max-bgbl N`, 30 Sekunden Abstand laut robots.txt). Je Zitat zeigen `checked`/`unchecked` (JSON) bzw. `[nicht geprueft: ...]` (Text), was verglichen wurde; Grenzen: Nr. und lit. werden nie geprueft, Saetze nur bei eindeutiger Zuordnung zur Absatzmarke, Absaetze mit Buchstaben (2a) nur gegen vorhandene Absatzmarken. Gesetzesdaten aus dem Cache sind als "Quelle: Cache (ungeprueft)" gekennzeichnet; `--strict` gibt Exit 1 bei DATE_MISMATCH, mit `--check-norms` bei NORM_MISSING, ABSATZ_MISSING oder BGBL_MISSING. Optional, nur Standardbibliothek; `--path`, `--only-pending`, `--json`, `--offline`, `--today YYYY-MM-DD`, `--write-ecli --dry-run` (auch EU-ECLI). Tempo und Cache: `--rate`, `--eu-rate`, `--norm-rate` (Anfragen pro Sekunde), `--timeout`, `--no-cache`, `--cache-dir`, `--cache-ttl-days` (Standard 7) |
 | `sync-pro-variants.py` | `-pro`-Agentenvarianten deterministisch aus den 1M-Varianten generieren |
-| `client-test.py` | Einstieg fuer `/legal-client-test` (Unterbefehle `check`, `profile`, `init`, `plan`, `render`, `pdf`; Bibliothek `client_report/`, nur Standardbibliothek) |
+| `client-test.py` | Einstieg fuer `/legal-client-test` (Unterbefehle `check`, `profile`, `tempfile`, `init`, `plan`, `render`, `pdf`; `tempfile` gibt einen Pfad im Temp-Ordner des Plugins fuer die Profildaten aus, `profile save --consume` loescht die Datei danach; Bibliothek `client_report/`, nur Standardbibliothek) |
 | `sync-platforms.py` | Codex- und Copilot-Adapter aus `.claude/` portieren |

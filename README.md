@@ -185,7 +185,7 @@ python3 scripts/sync-platforms.py --apply  # generiert .codex/, .codex-plugin/ u
 python3 scripts/sync-platforms.py --check  # CI-Modus: exit 1 bei Drift
 ```
 
-Die GitHub-Action `validate.yml` blockiert PRs, wenn der Sync nicht durchgeführt wurde. Ihre Jobs: Platform-Adapter Sync-Check, Zitatprüfung Unit-Tests (ohne Netzwerk, Aufruf `python -m unittest discover -s tests`), Pro-Mode Agent-Variant Drift-Check, Pro-Mode Toggle Smoke-Test, Disclaimer-Validation, Platzhalter-Scan (informativ) und Markdown-Lint (relaxed). Der letzte Lauf: 676 Tests, 8 übersprungen. Zusätzlich prüft `python3 scripts/sync-pro-variants.py --check` die `-pro`-Agentenvarianten auf Drift.
+Die GitHub-Action `validate.yml` blockiert PRs, wenn der Sync nicht durchgeführt wurde. Ihre Jobs: Platform-Adapter Sync-Check, Zitatprüfung Unit-Tests (ohne Netzwerk, Aufruf `python -m unittest discover -s tests`), Pro-Mode Agent-Variant Drift-Check, Pro-Mode Toggle Smoke-Test, Disclaimer-Validation, Platzhalter-Scan (informativ) und Markdown-Lint (relaxed). Der letzte Lauf: 797 Tests, 11 übersprungen. Zusätzlich prüft `python3 scripts/sync-pro-variants.py --check` die `-pro`-Agentenvarianten auf Drift.
 
 ## Quick Start
 
@@ -306,7 +306,7 @@ legal-audit-de/
     ├── placeholder_check.py        # Modul der Platzhalter-Erkennung
     ├── verify-citations.py         # Zitatpruefung: Bundesgerichte, EU-Cellar, Normen (optional)
     ├── citation_check/             # Module der Zitatpruefung
-    ├── client-test.py              # Einstieg fuer /legal-client-test (check, profile, init, plan, render, pdf)
+    ├── client-test.py              # Einstieg fuer /legal-client-test (check, profile, tempfile, init, plan, render, pdf)
     ├── client_report/              # Bibliothek des Website-CheckUps (nur Standardbibliothek)
     └── legal-audit-pdf.py          # PDF-Bundling
 ```

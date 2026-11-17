@@ -196,7 +196,7 @@ python3 scripts/sync-platforms.py --apply  # generates .codex/, .codex-plugin/, 
 python3 scripts/sync-platforms.py --check  # CI mode: exit 1 on drift
 ```
 
-The `validate.yml` GitHub Action blocks PRs when the sync wasn't run. Its jobs: platform adapter sync check, citation check unit tests (no network, run as `python -m unittest discover -s tests`), Pro-Mode agent variant drift check, Pro-Mode toggle smoke test, disclaimer validation, placeholder scan (informational) and Markdown lint (relaxed). Latest run: 676 tests, 8 skipped. In addition, `python3 scripts/sync-pro-variants.py --check` verifies the `-pro` agent variants for drift.
+The `validate.yml` GitHub Action blocks PRs when the sync wasn't run. Its jobs: platform adapter sync check, citation check unit tests (no network, run as `python -m unittest discover -s tests`), Pro-Mode agent variant drift check, Pro-Mode toggle smoke test, disclaimer validation, placeholder scan (informational) and Markdown lint (relaxed). Latest run: 797 tests, 11 skipped. In addition, `python3 scripts/sync-pro-variants.py --check` verifies the `-pro` agent variants for drift.
 
 ## Quick Start
 
@@ -315,7 +315,7 @@ legal-audit-de/
     ├── placeholder_check.py        # module for placeholder detection
     ├── verify-citations.py         # citation check: federal courts, EU Cellar, norms (optional)
     ├── citation_check/             # modules of the citation check
-    ├── client-test.py              # entry point for /legal-client-test (check, profile, init, plan, render, pdf)
+    ├── client-test.py              # entry point for /legal-client-test (check, profile, tempfile, init, plan, render, pdf)
     ├── client_report/              # library of the website check-up (standard library only)
     └── legal-audit-pdf.py          # PDF bundling
 ```

@@ -13,7 +13,7 @@ Minor-Release 1.5.0 (Datum setzt der Release-PR): neuer Befehl `/legal-client-te
 ### Neu
 
 - **`/legal-client-test <url>`:** Website-CheckUp für Agenturen und Freelancer. Briefkopf-Profil, passive Prüfung (Consent und Cookiebanner, Drittanbieter, Sicherheit, Barrierefreiheit, Pflichtangaben; ohne Speed, SEO und GEO) und Report als eigenständiges HTML plus getaggtes PDF über headless Chrome oder Edge. Codex- und Copilot-Adapter werden generiert.
-- **`scripts/client-test.py`** mit den Unterbefehlen `check`, `profile`, `init`, `plan`, `render` und `pdf`; Bibliothek `scripts/client_report/`, nur Standardbibliothek.
+- **`scripts/client-test.py`** mit den Unterbefehlen `check`, `profile`, `tempfile`, `init`, `plan`, `render` und `pdf` (`tempfile` gibt einen Pfad im Temp-Ordner des Plugins für die Profildaten aus, `profile save --consume` löscht die Datei danach); Bibliothek `scripts/client_report/`, nur Standardbibliothek.
 - **Vorlage `templates/client-test/`:** Prüfkatalog v1 mit 56 Tests, HTML-Vorlage, CSS, IBM Plex (Lizenz OFL-1.1) und Sperrliste für unzulässige Formulierungen.
 - **RDG-Linie:** Der Report nennt Tatsachen und die betroffene Vorschrift zur Prüfung, enthält bei jedem nicht bestandenen Test den Anwaltshinweis sowie Weitergabe-Satz und Start-Hinweis; Rechtsgrundlagen stammen nur aus dem Katalog. Keine Rechtsberatung.
 - **Gehärtet:** Eingaben (Quelle der Anwendbarkeitsangaben auf `user`, `detected`, `detected+confirmed` begrenzt, Schemaprüfung), Sperrliste (Teilwort-Treffer, Schreibvarianten) und PDF-Druck (feste Texte der Randboxen aus einer Quelle).
@@ -31,6 +31,8 @@ Minor-Release 1.5.0 (Datum setzt der Release-PR): neuer Befehl `/legal-client-te
 - Copilot bildet `${CLAUDE_PLUGIN_ROOT}` auf `${GITHUB_WORKSPACE}` ab; `/legal-client-test` läuft dort nur, wenn das Plugin-Repo selbst der Workspace ist.
 - chrome-devtools-mcp steht unter Codex und Copilot nur bei eigener MCP-Konfiguration zur Verfügung.
 - Das PDF entsteht nur mit installiertem Chrome oder Edge.
+- `/legal-client-test` gibt die Shell nicht vorab frei: Claude Code fragt vor jedem Skriptaufruf nach; erlaube nur Aufrufe von client-test.py.
+- Unter Codex CLI und GitHub Copilot CLI gibt es für `/legal-client-test` kein vorab freigegebenes Shell-Werkzeug mehr; das Verhalten dort ist ungeprüft.
 - Das Inhaltsverzeichnis des PDF hat keine Seitenzahlen (Spike-Ergebnis: kein Paged.js).
 
 ---
