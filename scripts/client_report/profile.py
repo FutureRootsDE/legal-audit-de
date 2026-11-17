@@ -4,6 +4,7 @@ Only the issuer is stored here. Client data never goes into the profile (spec A4
 """
 from __future__ import annotations
 
+import errno
 import json
 import os
 import re
@@ -18,15 +19,17 @@ FALLBACK_DIRNAME = "legal-audit-de-client-test"
 HOME_OVERRIDE_ENV = "LEGAL_AUDIT_CLIENT_TEST_HOME"
 LOGO_BASENAME = "client-test-logo"
 LOGO_EXTENSIONS = ("png", "jpg", "jpeg", "svg")
+WRITE_PROBE_NAME = ".legal-audit-write-probe"
 MAX_LOGO_BYTES = 5 * 1024 * 1024
 MAX_FIELD_CHARS = 300
 MAX_ADDRESS_LINES = 8
 
 REQUIRED_KEYS = ("company", "contact", "address", "logo_file", "accent_color")
 OPTIONAL_KEYS = ("phone", "website", "email")
-ACCENT_RE = re.compile(r"^#[0-9A-Fa-f]{6}$")
-LOGO_FILE_RE = re.compile(rf"^{LOGO_BASENAME}\.(?:{'|'.join(LOGO_EXTENSIONS)})$")
+ACCENT_RE = re.compile(r"#[0-9A-Fa-f]{6}")  # always used with fullmatch (no trailing newline)
+LOGO_FILE_RE = re.compile(rf"{LOGO_BASENAME}\.(?:{'|'.join(LOGO_EXTENSIONS)})")  # fullmatch too
 SVG_START_RE = re.compile(rb"<svg[\s>]", re.IGNORECASE)
+LOGO_HEAD_BYTES = 64 * 1024  # SVG prologs (XML declaration, comments, doctype) can be long
 
 
 def profile_dir(env: Mapping[str, str] | None = None) -> Path:
@@ -83,7 +86,7 @@ def validate_profile(data: Mapping) -> list[ValidationIssue]:
         issues.append(ValidationIssue("profile", "mindestens eines von email, phone, website ist nötig"))
     if "logo_file" in data:
         logo = data["logo_file"]
-        if not (isinstance(logo, str) and LOGO_FILE_RE.match(logo)):
+        if not (isinstance(logo, str) and LOGO_FILE_RE.fullmatch(logo)):
             issues.append(
                 ValidationIssue(
                     "profile.logo_file",
@@ -92,7 +95,7 @@ def validate_profile(data: Mapping) -> list[ValidationIssue]:
             )
     if "accent_color" in data:
         accent = data["accent_color"]
-        if not (isinstance(accent, str) and ACCENT_RE.match(accent)):
+        if not (isinstance(accent, str) and ACCENT_RE.fullmatch(accent)):
             issues.append(ValidationIssue("profile.accent_color", "muss ein Hex-Wert wie #1F4E79 sein"))
     return issues
 
@@ -135,13 +138,33 @@ def _read_logo(logo_src: Path) -> tuple[bytes, str]:
     if src.stat().st_size > MAX_LOGO_BYTES:
         raise ValueError(f"Logo ist größer als {MAX_LOGO_BYTES // (1024 * 1024)} MB")
     content = src.read_bytes()
-    if not _logo_kind_matches(ext, content[:2048]):
+    if not _logo_kind_matches(ext, content[:LOGO_HEAD_BYTES]):
         raise ValueError("Logo-Inhalt passt nicht zur Dateiendung")
     return content, ext
 
 
+def ensure_writable_dir(directory: Path) -> None:
+    """Fail fast with OSError when files cannot be created in `directory`.
+
+    tempfile.mkstemp retries for minutes on Windows when the folder is not writable, so every
+    atomic write probes once with a fixed name first.
+    """
+    probe = Path(directory) / WRITE_PROBE_NAME
+    for _attempt in range(2):
+        try:
+            fd = os.open(probe, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except FileExistsError:
+            probe.unlink(missing_ok=True)  # left over from an interrupted run
+            continue
+        os.close(fd)
+        probe.unlink(missing_ok=True)
+        return
+    raise PermissionError(errno.EACCES, "Verzeichnis nicht beschreibbar")
+
+
 def _atomic_write_bytes(path: Path, payload: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    ensure_writable_dir(path.parent)
     fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=str(path.parent))
     try:
         with os.fdopen(fd, "wb") as fh:
@@ -167,12 +190,13 @@ def save_profile(data: Mapping, logo_src: Path, env: Mapping[str, str] | None = 
         raise ReportInputError(issues)
     base = profile_dir(env)
     base.mkdir(parents=True, exist_ok=True)
-    for old in LOGO_EXTENSIONS:
-        stale = base / f"{LOGO_BASENAME}.{old}"
-        if old != ext and stale.is_file():
-            stale.unlink()
     _atomic_write_bytes(base / record["logo_file"], content)
     text = json.dumps(record, ensure_ascii=False, indent=2) + "\n"
     target = base / PROFILE_FILENAME
     _atomic_write_bytes(target, text.encode("utf-8"))
+    # Other-format logo copies go only after the new logo and profile are safely written.
+    for other in LOGO_EXTENSIONS:
+        stale = base / f"{LOGO_BASENAME}.{other}"
+        if other != ext and stale.is_file():
+            stale.unlink()
     return target

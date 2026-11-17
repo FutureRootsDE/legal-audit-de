@@ -9,6 +9,7 @@ from __future__ import annotations
 import os
 import platform
 import shutil
+import signal
 import subprocess
 import tempfile
 import time
@@ -29,15 +30,18 @@ LINUX_NAMES = (
     "chromium",
     "chromium-browser",
     "microsoft-edge",
+    "microsoft-edge-stable",
 )
+KILL_WAIT_SECONDS = 10
 WIN_CHROME = Path("Google") / "Chrome" / "Application" / "chrome.exe"
 WIN_EDGE = Path("Microsoft") / "Edge" / "Application" / "msedge.exe"
 WIN_ROOT_VARS = ("ProgramFiles", "ProgramFiles(x86)", "LocalAppData")
-MAC_PATHS = (
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-    "/Applications/Chromium.app/Contents/MacOS/Chromium",
-    "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+MAC_APPS = (
+    "Google Chrome.app/Contents/MacOS/Google Chrome",
+    "Chromium.app/Contents/MacOS/Chromium",
+    "Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
 )
+MAC_PATHS = tuple(f"/Applications/{app}" for app in MAC_APPS)
 
 
 class ChromeNotFound(Exception):
@@ -56,7 +60,8 @@ def candidate_paths(system: str, env: Mapping[str, str]) -> list[Path]:
         edges = [Path(root) / WIN_EDGE for root in roots]
         return chromes + edges
     if system == "Darwin":
-        return [Path(p) for p in MAC_PATHS]
+        user_apps = Path.home() / "Applications"
+        return [Path(p) for p in MAC_PATHS] + [user_apps / app for app in MAC_APPS]
     return []
 
 
@@ -66,16 +71,24 @@ def find_chrome(
     which: Callable[[str], str | None] = shutil.which,
     exists: Callable[[Path], bool] = Path.is_file,
 ) -> Path | None:
-    """Return the browser to use: env override first, then known paths, then PATH lookup."""
+    """Return the browser to use: env override first, then known paths, then PATH lookup.
+
+    A set LEGAL_AUDIT_CHROME that does not point to a file raises ChromeNotFound instead of
+    silently falling back to another browser.
+    """
     env = os.environ if env is None else env
     system = platform.system() if system is None else system
     override = env.get(CHROME_ENV)
     if override:
+        if not exists(Path(override)):
+            raise ChromeNotFound(
+                f"Die Umgebungsvariable {CHROME_ENV} zeigt auf keine vorhandene Datei: {override}"
+            )
         return Path(override)
     for path in candidate_paths(system, env):
         if exists(path):
             return path
-    if system not in ("Windows", "Darwin"):
+    if system != "Windows":
         for name in LINUX_NAMES:
             found = which(name)
             if found:
@@ -128,6 +141,36 @@ def _wait_for_pdf(pdf: Path, wait: float, interval: float) -> bool:
         time.sleep(interval)
 
 
+def _kill_tree(proc: subprocess.Popen) -> None:
+    """Terminate the browser and every child it started (Chrome spawns several processes)."""
+    try:
+        if os.name == "nt":
+            subprocess.run(
+                ["taskkill", "/T", "/F", "/PID", str(proc.pid)], capture_output=True, timeout=KILL_WAIT_SECONDS
+            )
+        else:
+            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+    except (OSError, subprocess.SubprocessError):
+        proc.kill()
+    try:
+        proc.wait(timeout=KILL_WAIT_SECONDS)
+    except subprocess.TimeoutExpired:
+        pass
+
+
+def _run_browser(args: list[str], timeout: float) -> int:
+    """Run the browser without capturing output; on timeout the whole process tree is killed."""
+    extra = {} if os.name == "nt" else {"start_new_session": True}
+    proc = subprocess.Popen(
+        args, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, **extra
+    )
+    try:
+        return proc.wait(timeout=timeout)
+    except subprocess.TimeoutExpired:
+        _kill_tree(proc)
+        raise
+
+
 def print_pdf(
     html: Path,
     pdf: Path,
@@ -146,7 +189,7 @@ def print_pdf(
     with tempfile.TemporaryDirectory(prefix="legal-audit-chrome-", ignore_cleanup_errors=True) as profile:
         args = pdf_args(chrome, html, pdf, Path(profile))
         try:
-            result = subprocess.run(args, timeout=timeout, capture_output=True)
+            returncode = _run_browser(args, timeout)
         except subprocess.TimeoutExpired as exc:
             raise PdfError(f"Der Browser hat nach {timeout} Sekunden nicht geantwortet.") from exc
         except OSError as exc:
@@ -155,6 +198,6 @@ def print_pdf(
         if _wait_for_pdf(pdf, wait, interval):
             return pdf
         raise PdfError(
-            f"Die PDF-Datei wurde nicht erzeugt (Exit-Code {result.returncode}, "
-            f"Wartezeit {int(wait)} Sekunden). Bitte Chrome oder Edge pruefen."
+            f"Die PDF-Datei wurde nicht erzeugt (Exit-Code {returncode}, "
+            f"Wartezeit {int(wait)} Sekunden). Bitte Chrome oder Edge prüfen."
         )

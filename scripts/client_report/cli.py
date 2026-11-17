@@ -13,6 +13,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import traceback
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Sequence
@@ -24,7 +25,7 @@ from .derive import check_date
 from .models import ReportInputError
 from .paths import domain_from_url, domain_slug, new_report_dir
 from .pipeline import REPORT_FILENAME, build_report
-from .profile import ACCENT_RE, load_profile, logo_path, profile_dir, save_profile
+from .profile import ACCENT_RE, ensure_writable_dir, load_profile, logo_path, profile_dir, save_profile
 from .render import CSS_PATH, FONT_FACES, FONTS_DIR, PAGED_JS_ENABLED, TEMPLATE_PATH
 from .schema import FINDINGS_PATH, SCHEMA_VERSION, UTC_FORMAT, load_findings
 from .texts import START_HINT
@@ -53,6 +54,7 @@ def _plugin_version() -> str:
 
 
 def _write_json_atomic(path: Path, data: object) -> None:
+    ensure_writable_dir(path.parent)
     fd, tmp = tempfile.mkstemp(prefix=".findings-", suffix=".tmp", dir=path.parent)
     try:
         with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as handle:
@@ -114,19 +116,25 @@ def cmd_check(_args: argparse.Namespace) -> int:
 # ---------------------------------------------------------------- profile
 
 def _ask_accent() -> str | None:
-    """One prompt on a terminal; an empty answer or a bad value means the default."""
+    """One prompt on a terminal: a hex value, "" for Enter (default), None when unknown.
+
+    End of input, an unreadable stdin and an invalid value all give None, never the default.
+    """
     try:
         answer = input("Akzentfarbe als Hex-Wert (z. B. #1F4E79), Enter für Standard: ").strip()
-    except EOFError:
+    except (EOFError, OSError, ValueError):
         return None
-    return answer if ACCENT_RE.match(answer) else None
+    if answer and not ACCENT_RE.fullmatch(answer):
+        _err("Ungültiger Hex-Wert. Erwartet wird zum Beispiel #1F4E79.")
+        return None
+    return answer
 
 
 def _resolve_accent(option: str | None, logo: Path) -> str | None:
     if option == "default":
         return DEFAULT_ACCENT
     if option is not None:
-        if not ACCENT_RE.match(option):
+        if not ACCENT_RE.fullmatch(option):
             raise ValueError("--accent muss ein Hex-Wert wie #1F4E79 oder default sein")
         return ensure_contrast(option)
     derived = derive_accent(logo)
@@ -134,6 +142,8 @@ def _resolve_accent(option: str | None, logo: Path) -> str | None:
         return derived
     if sys.stdin.isatty():
         asked = _ask_accent()
+        if asked is None:
+            return None
         return ensure_contrast(asked) if asked else DEFAULT_ACCENT
     return None
 
@@ -206,6 +216,15 @@ def _skeleton(url: str, domain: str, started: str, profile: dict, logo_rel: str,
     }
 
 
+def _parse_day(value: str | None) -> date:
+    if not value:
+        return datetime.now(timezone.utc).date()
+    try:
+        return date.fromisoformat(value)
+    except ValueError:
+        raise ValueError("--date muss ein gültiges Datum im Format JJJJ-MM-TT sein") from None
+
+
 def cmd_init(args: argparse.Namespace) -> int:
     profile = load_profile()
     if profile is None:
@@ -213,12 +232,13 @@ def cmd_init(args: argparse.Namespace) -> int:
         return EXIT_NO_PROFILE
     try:
         domain = domain_from_url(args.url)
-        day = date.fromisoformat(args.date) if args.date else datetime.now(timezone.utc).date()
+        day = _parse_day(args.date)
         started = (datetime.now(timezone.utc).strftime(UTC_FORMAT) if not args.date
                    else f"{day.isoformat()}T00:00:00Z")
         base = Path(args.out or DEFAULT_BASE)
         catalog = load_catalog()
         report_dir = new_report_dir(base, day, domain)
+        ensure_writable_dir(report_dir)
         logo_src = logo_path(profile)
         logo_rel = f"assets/logo{logo_src.suffix.lower()}"
         shutil.copyfile(logo_src, report_dir / logo_rel)
@@ -269,13 +289,17 @@ def cmd_plan(args: argparse.Namespace) -> int:
         return EXIT_INPUT
     rows = findings.get("results")
     rows = list(rows) if isinstance(rows, list) else []
-    known = {r.get("id") for r in rows if isinstance(r, dict)}
+    known = {r["id"] for r in rows if isinstance(r, dict) and isinstance(r.get("id"), str)}
     planned = [e for e in catalog.entries if e.always_run or evaluate(e.applies_if, values) is not False]
     for entry in planned:
         if entry.id not in known:
             rows.append({"id": entry.id, "status": ""})
     findings["results"] = rows
-    _write_json_atomic(report_dir / FINDINGS_PATH, findings)
+    try:
+        _write_json_atomic(report_dir / FINDINGS_PATH, findings)
+    except OSError as exc:
+        _err(f"{FINDINGS_PATH} konnte nicht geschrieben werden: {exc.strerror or type(exc).__name__}")
+        return EXIT_INPUT
     titles = {a.prefix: a.title for a in catalog.areas}
     current = None
     for entry in planned:
@@ -290,10 +314,11 @@ def cmd_plan(args: argparse.Namespace) -> int:
 
 def cmd_render(args: argparse.Namespace) -> int:
     try:
+        ensure_writable_dir(Path(args.folder))
         result = build_report(Path(args.folder))
     except ReportInputError as exc:
         return _report_issues(exc)
-    except OSError as exc:
+    except (OSError, RuntimeError) as exc:
         _err(f"render fehlgeschlagen: {exc}")
         return EXIT_INPUT
     for warning in result.warnings:
@@ -314,18 +339,23 @@ def cmd_pdf(args: argparse.Namespace) -> int:
     except (ReportInputError, KeyError, TypeError, ValueError) as exc:
         _err(f"findings.json nicht lesbar: {exc}")
         return EXIT_INPUT
-    chrome = find_chrome()
+    try:
+        chrome = find_chrome()
+    except ChromeNotFound as exc:
+        _err(f"{exc} {NO_CHROME_MESSAGE}")
+        return EXIT_NO_CHROME
     if chrome is None:
         _err(NO_CHROME_MESSAGE)
         return EXIT_NO_CHROME
     pdf = report_dir / "report.pdf"
     try:
+        ensure_writable_dir(report_dir)
         print_pdf(html, pdf, chrome)
         shutil.copyfile(pdf, report_dir / named)
     except ChromeNotFound:
         _err(NO_CHROME_MESSAGE)
         return EXIT_NO_CHROME
-    except (PdfError, OSError) as exc:
+    except (PdfError, OSError, RuntimeError) as exc:
         _err(f"PDF nicht erzeugt: {exc}")
         return EXIT_PDF
     print((report_dir / named).resolve())
@@ -334,28 +364,64 @@ def cmd_pdf(args: argparse.Namespace) -> int:
 
 # ---------------------------------------------------------------- entry
 
+USAGE_ERRORS = (
+    ("the following arguments are required", "Pflichtangabe fehlt"),
+    ("unrecognized arguments", "Unbekannte Angabe"),
+    ("invalid choice", "Unbekannter Befehl"),
+    ("expected one argument", "Dem Schalter fehlt ein Wert"),
+    ("ignored explicit argument", "Dem Schalter darf kein Wert folgen"),
+    ("not allowed with argument", "Diese Angaben schließen sich aus"),
+)
+DEBUG_ENV = "LEGAL_AUDIT_DEBUG"
+EXIT_INTERRUPTED = 130
+
+
+class _GermanHelpFormatter(argparse.HelpFormatter):
+    def _format_usage(self, usage, actions, groups, prefix):  # type: ignore[no-untyped-def]
+        return super()._format_usage(usage, actions, groups, "Aufruf: " if prefix is None else prefix)
+
+
+class _GermanParser(argparse.ArgumentParser):
+    """ArgumentParser with German headings and errors that exit with 1 (2 means broken install)."""
+
+    def __init__(self, *args, **kwargs) -> None:  # type: ignore[no-untyped-def]
+        kwargs.setdefault("formatter_class", _GermanHelpFormatter)
+        kwargs["add_help"] = False
+        super().__init__(*args, **kwargs)
+        self._positionals.title = "Angaben"
+        self._optionals.title = "Optionen"
+        self.add_argument("-h", "--help", action="help", help="Diese Hilfe anzeigen")
+
+    def error(self, message: str) -> None:  # type: ignore[override]
+        detail = next((f"{de}: {message.split(':', 1)[-1].strip()}" for key, de in USAGE_ERRORS
+                       if key in message), "Ungültiger Aufruf")
+        self.print_usage(sys.stderr)
+        self.exit(EXIT_INPUT, f"{self.prog}: {detail}. Hilfe mit --help.\n")
+
+
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="client-test.py", description="Website-CheckUp")
-    sub = parser.add_subparsers(dest="command", required=True)
+    parser = _GermanParser(prog="client-test.py", description="Website-CheckUp")
+    sub = parser.add_subparsers(dest="command", required=True, title="Befehle", metavar="BEFEHL")
     sub.add_parser("check", help="Installation prüfen").set_defaults(func=cmd_check)
     profile = sub.add_parser("profile", help="Briefkopf-Profil")
-    psub = profile.add_subparsers(dest="profile_command", required=True)
-    show = psub.add_parser("show")
-    show.add_argument("--json", action="store_true")
+    psub = profile.add_subparsers(dest="profile_command", required=True, title="Befehle", metavar="BEFEHL")
+    show = psub.add_parser("show", help="Gespeichertes Profil anzeigen")
+    show.add_argument("--json", action="store_true", help="Ausgabe als JSON")
     show.set_defaults(func=cmd_profile_show)
-    save = psub.add_parser("save")
-    save.add_argument("--data", required=True)
-    save.add_argument("--logo", required=True)
-    save.add_argument("--accent")
+    save = psub.add_parser("save", help="Profil und Logo speichern")
+    save.add_argument("--data", required=True, help="JSON-Datei mit den Absenderdaten")
+    save.add_argument("--logo", required=True, help="Logo als PNG, JPG oder SVG")
+    save.add_argument("--accent", help="Akzentfarbe als Hex-Wert (#1F4E79) oder default")
     save.set_defaults(func=cmd_profile_save)
     init = sub.add_parser("init", help="Report-Ordner anlegen")
-    init.add_argument("url")
-    init.add_argument("--out")
-    init.add_argument("--date")
+    init.add_argument("url", help="Adresse der geprüften Website")
+    init.add_argument("--out", help="Basisordner für Reports (Standard: client-reports)")
+    init.add_argument("--date", help="Prüfdatum als JJJJ-MM-TT (Standard: heute)")
     init.set_defaults(func=cmd_init)
-    for name, func in (("plan", cmd_plan), ("render", cmd_render), ("pdf", cmd_pdf)):
-        sp = sub.add_parser(name)
-        sp.add_argument("folder")
+    for name, func, text in (("plan", cmd_plan, "Prüfplan festlegen"), ("render", cmd_render, "report.html erzeugen"),
+                             ("pdf", cmd_pdf, "report.pdf erzeugen")):
+        sp = sub.add_parser(name, help=text)
+        sp.add_argument("folder", help="Report-Ordner")
         sp.set_defaults(func=func)
     return parser
 
@@ -364,5 +430,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8", errors="replace")
-    args = _parser().parse_args(argv)
-    return args.func(args)
+    try:
+        args = _parser().parse_args(argv)
+        return args.func(args)
+    except KeyboardInterrupt:
+        _err("Abgebrochen.")
+        return EXIT_INTERRUPTED
+    except Exception as exc:  # last resort: a German message instead of a traceback with local paths
+        if os.environ.get(DEBUG_ENV):
+            traceback.print_exc()
+        _err(f"Unerwarteter Fehler: {type(exc).__name__}. Bitte Ausgabe melden.")
+        return EXIT_INPUT

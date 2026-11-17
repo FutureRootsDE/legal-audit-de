@@ -15,7 +15,8 @@ DEFAULT_ACCENT = "#2F3E46"
 MIN_CONTRAST = 4.5
 DARKEN_FACTOR = 0.95
 MAX_LOGO_BYTES = 5 * 1024 * 1024
-MAX_PIXELS = 4_000_000
+MAX_PIXELS = 640_000  # pure-Python unfiltering costs about 3 s per 1M pixels; larger logos fall back to asking
+SAMPLE_PIXELS = 250_000  # at most this many pixels are counted (every n-th column)
 MAX_LIGHT_LUMINANCE = 0.85
 ALPHA_THRESHOLD = 128
 
@@ -151,8 +152,9 @@ def dominant_color_png(data: bytes) -> str | None:
     if rows is None:
         return None
     counts: Counter[Rgb] = Counter()
+    step = max(1, -(-width * height // SAMPLE_PIXELS))
     for line in rows:
-        for x in range(width):
+        for x in range(0, width, step):
             if ctype == 2:
                 rgb, alpha = (line[x * 3], line[x * 3 + 1], line[x * 3 + 2]), 255
             elif ctype == 6:

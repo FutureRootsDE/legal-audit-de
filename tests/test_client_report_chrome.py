@@ -4,13 +4,14 @@ from __future__ import annotations
 import subprocess
 import tempfile
 import threading
+import time
 import unittest
 from pathlib import Path
 from unittest import mock
 
 import support  # noqa: F401  (puts scripts/ on sys.path)
 from client_report import chrome as chrome_mod
-from client_report.chrome import PdfError, find_chrome, pdf_args, print_pdf
+from client_report.chrome import ChromeNotFound, PdfError, find_chrome, pdf_args, print_pdf
 
 WIN_ENV = {
     "ProgramFiles": "C:/PF",
@@ -24,6 +25,21 @@ class FindChrome(unittest.TestCase):
         self.assertEqual(
             find_chrome({"LEGAL_AUDIT_CHROME": "C:/x/chrome.exe"}, "Windows", exists=lambda p: True),
             Path("C:/x/chrome.exe"),
+        )
+
+    def test_env_override_must_exist(self):
+        with self.assertRaises(ChromeNotFound) as ctx:
+            find_chrome({"LEGAL_AUDIT_CHROME": "C:/x/missing.exe"}, "Windows", exists=lambda p: False)
+        self.assertIn("LEGAL_AUDIT_CHROME", str(ctx.exception))
+
+    def test_linux_edge_stable_and_macos_user_apps(self):
+        which = lambda name: "/usr/bin/microsoft-edge-stable" if name == "microsoft-edge-stable" else None
+        self.assertEqual(find_chrome({}, "Linux", which=which), Path("/usr/bin/microsoft-edge-stable"))
+        found = find_chrome({}, "Darwin", exists=lambda p: "Applications" in p.parts and "Users" in str(p) or str(p).startswith(str(Path.home())), which=lambda n: None)
+        self.assertTrue(str(found).startswith(str(Path.home())))
+        self.assertEqual(
+            find_chrome({}, "Darwin", exists=lambda p: False, which=lambda n: "/opt/bin/chromium" if n == "chromium" else None),
+            Path("/opt/bin/chromium"),
         )
 
     def test_windows_prefers_chrome_over_edge(self):
@@ -71,13 +87,13 @@ class PrintPdfPolling(unittest.TestCase):
             html.write_text("<p>x</p>", encoding="utf-8")
             profiles: list[Path] = []
 
-            def fake_run(args, **kwargs):
+            def fake_run(args, timeout):
                 flag = next(a for a in args if a.startswith("--user-data-dir="))
                 profiles.append(Path(flag.split("=", 1)[1]))
                 threading.Timer(0.5, lambda: pdf.write_bytes(b"%PDF-1.7 test")).start()
-                return subprocess.CompletedProcess(args, 0, b"", b"")
+                return 0
 
-            with mock.patch.object(chrome_mod.subprocess, "run", fake_run):
+            with mock.patch.object(chrome_mod, "_run_browser", fake_run):
                 out = print_pdf(html, pdf, chrome=Path("edge"), wait=10, interval=0.05)
             self.assertEqual(out, pdf)
             self.assertFalse(profiles[0].exists())
@@ -87,12 +103,13 @@ class PrintPdfPolling(unittest.TestCase):
             tmp = Path(tmp)
             html = tmp / "r.html"
             html.write_text("x", encoding="utf-8")
-            run = lambda args, **kw: subprocess.CompletedProcess(args, 0, b"", b"")
-            with mock.patch.object(chrome_mod.subprocess, "run", run):
+            run = lambda args, timeout: 0
+            with mock.patch.object(chrome_mod, "_run_browser", run):
                 with self.assertRaises(PdfError) as ctx:
                     print_pdf(html, tmp / "r.pdf", chrome=Path("edge"), wait=0.3, interval=0.05)
             message = str(ctx.exception)
             self.assertIn("nicht erzeugt", message)
+            self.assertIn("prüfen", message)
             for dash in ("\u2014", "\u2013", " - "):
                 self.assertNotIn(dash, message)
 
@@ -102,24 +119,56 @@ class PrintPdfPolling(unittest.TestCase):
             html, pdf = tmp / "r.html", tmp / "r.pdf"
             html.write_text("x", encoding="utf-8")
 
-            def run(args, **kw):
+            def run(args, timeout):
                 pdf.write_bytes(b"not a pdf")
-                return subprocess.CompletedProcess(args, 0, b"", b"")
+                return 0
 
-            with mock.patch.object(chrome_mod.subprocess, "run", run):
+            with mock.patch.object(chrome_mod, "_run_browser", run):
                 with self.assertRaises(PdfError):
                     print_pdf(html, pdf, chrome=Path("edge"), wait=0.3, interval=0.05)
 
     def test_process_timeout_raises(self):
-        def run(args, **kw):
-            raise subprocess.TimeoutExpired(args, kw["timeout"])
+        def run(args, timeout):
+            raise subprocess.TimeoutExpired(args, timeout)
 
         with tempfile.TemporaryDirectory() as tmp:
             html = Path(tmp) / "r.html"
             html.write_text("x", encoding="utf-8")
-            with mock.patch.object(chrome_mod.subprocess, "run", run):
+            with mock.patch.object(chrome_mod, "_run_browser", run):
                 with self.assertRaises(PdfError):
                     print_pdf(html, Path(tmp) / "r.pdf", chrome=Path("c"), timeout=1)
+
+
+FAKE_BROWSER = """import subprocess, sys, time
+subprocess.Popen([sys.executable, "-c", "import time; time.sleep(60)"])
+time.sleep(60)
+"""
+
+
+class ProcessTree(unittest.TestCase):
+    def test_timeout_returns_promptly_despite_grandchild(self):
+        import os
+        import stat
+        import sys
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            script = tmp / "fake_browser.py"
+            script.write_text(FAKE_BROWSER, encoding="utf-8")
+            if os.name == "nt":
+                browser = tmp / "fake_browser.cmd"
+                browser.write_text(f'@"{sys.executable}" "{script}"\r\n', encoding="utf-8")
+            else:
+                browser = tmp / "fake_browser.sh"
+                browser.write_text(f'#!/bin/sh\nexec "{sys.executable}" "{script}"\n', encoding="utf-8")
+                browser.chmod(browser.stat().st_mode | stat.S_IEXEC)
+            html = tmp / "r.html"
+            html.write_text("x", encoding="utf-8")
+            start = time.monotonic()
+            with self.assertRaises(PdfError) as ctx:
+                print_pdf(html, tmp / "r.pdf", chrome=browser, timeout=2, wait=0.2, interval=0.05)
+            self.assertLess(time.monotonic() - start, 15)
+            self.assertIn("nicht geantwortet", str(ctx.exception))
 
 
 def _installed_browsers() -> list[Path]:

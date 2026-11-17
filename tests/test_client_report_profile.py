@@ -6,6 +6,7 @@ import tempfile
 import unittest
 import zlib
 from pathlib import Path
+from unittest import mock
 
 import support  # noqa: F401  (puts scripts/ on sys.path)
 from client_report.accent import (
@@ -102,6 +103,21 @@ class Accent(unittest.TestCase):
         self.assertEqual(ensure_contrast("#1F4E79"), "#1F4E79")
         self.assertGreaterEqual(contrast_ratio(ensure_contrast("#FFFFFF")), 4.5)
 
+    def test_large_png_is_fast(self):
+        import time
+
+        side = 2000
+        row = b"\x01" + bytes([31, 78, 121, 255]) * side
+        data = (
+            b"\x89PNG\r\n\x1a\n"
+            + _chunk(b"IHDR", struct.pack(">IIBBBBB", side, side, 8, 6, 0, 0, 0))
+            + _chunk(b"IDAT", zlib.compress(row * side))
+            + _chunk(b"IEND", b"")
+        )
+        start = time.monotonic()
+        dominant_color_png(data)
+        self.assertLess(time.monotonic() - start, 5.0)
+
     def test_default_accent_meets_contrast(self):
         self.assertGreaterEqual(contrast_ratio(DEFAULT_ACCENT), 4.5)
 
@@ -178,6 +194,35 @@ class Profile(unittest.TestCase):
         missing = _profile()
         del missing["company"]
         self.assertTrue(validate_profile(missing))
+
+    def test_trailing_newline_is_rejected(self):
+        self.assertTrue(validate_profile(_profile(accent_color="#1F4E79\n")))
+        self.assertTrue(validate_profile(_profile(logo_file="client-test-logo.png\n")))
+
+    def test_svg_with_long_prolog_is_accepted(self):
+        svg = self.dir / "long.svg"
+        svg.write_text("<?xml version='1.0'?><!-- " + "x" * 5000 + " --><svg xmlns='x'></svg>", encoding="utf-8")
+        save_profile(_profile(), svg, self.env)
+        self.assertEqual(load_profile(self.env)["logo_file"], "client-test-logo.svg")
+
+    def test_old_logo_kept_when_profile_write_fails(self):
+        import client_report.profile as profile_module
+
+        save_profile(_profile(), self.logo, self.env)
+        svg = self.dir / "l.svg"
+        svg.write_text("<svg xmlns='x'></svg>", encoding="utf-8")
+        real = profile_module._atomic_write_bytes
+
+        def flaky(path, payload):
+            if path.name == PROFILE_FILENAME:
+                raise OSError("disk full")
+            real(path, payload)
+
+        with mock.patch.object(profile_module, "_atomic_write_bytes", flaky):
+            with self.assertRaises(OSError):
+                save_profile(_profile(), svg, self.env)
+        self.assertTrue((self.dir / "home" / "client-test-logo.png").is_file())
+        self.assertEqual(load_profile(self.env)["logo_file"], "client-test-logo.png")
 
     def test_logo_file_must_be_bare_name(self):
         for bad in ("../x.png", "..\\x.png", "/etc/passwd", "C:\\x.png", "logo.png", "client-test-logo.exe"):

@@ -294,6 +294,114 @@ class Pdf(CliCase):
         self.assertIn("Website-CheckUp-example-de-2026-11-17.pdf", out)
 
 
+class Robustness(CliCase):
+    def script(self, argv, **kwargs):
+        env = dict(os.environ, LEGAL_AUDIT_CLIENT_TEST_HOME=str(self.home))
+        return subprocess.run([sys.executable, str(support.SCRIPTS / "client-test.py")] + argv,
+                              capture_output=True, text=True, encoding="utf-8", env=env, cwd=self.work, **kwargs)
+
+    def jpg_args(self):
+        logo = self.tmp / "logo.jpg"
+        logo.write_bytes(JPG_BYTES)
+        data = self.tmp / "profile.json"
+        data.write_text(json.dumps(PROFILE), encoding="utf-8")
+        return ["profile", "save", "--data", str(data), "--logo", str(logo)]
+
+    def test_jpg_without_accent_and_devnull_stdin_exits_5_and_writes_nothing(self):
+        r = self.script(self.jpg_args(), stdin=subprocess.DEVNULL)
+        self.assertEqual(r.returncode, 5, r.stdout + r.stderr)
+        self.assertIn("ACCENT_UNKNOWN", r.stdout)
+        self.assertFalse(self.home.exists() and any(self.home.iterdir()))
+
+    def test_eof_and_invalid_answer_on_tty_exit_5(self):
+        for answer in (EOFError(), "blau", "#1F4E79\n#2"):
+            side = {"side_effect": answer} if isinstance(answer, Exception) else {"return_value": answer}
+            with mock.patch("builtins.input", **side):
+                code, out, _ = self.save_profile("logo.jpg", tty=True)
+            self.assertEqual(code, 5, repr(answer))
+            self.assertIn("ACCENT_UNKNOWN", out)
+        self.assertEqual(run_cli(["profile", "show"])[0], 3)
+
+    def test_plan_ignores_non_string_ids(self):
+        d = self.init_report()
+        self.set_applicability(d)
+        data = self.read(d)
+        data["results"] = [{"id": ["x"], "status": ""}, {"id": 5}, "text"]
+        self.write(d, data)
+        code, _, err = run_cli(["plan", str(d)])
+        self.assertEqual((code, err), (0, ""))
+
+    def test_plan_unwritable_folder_exits_1_without_mkstemp_retry(self):
+        d = self.init_report()
+        self.set_applicability(d)
+        with mock.patch("os.open", side_effect=PermissionError(13, "Zugriff verweigert")), \
+                mock.patch("tempfile.mkstemp", side_effect=AssertionError("must not retry")):
+            code, _, err = run_cli(["plan", str(d)])
+        self.assertEqual(code, 1)
+        self.assertIn("konnte nicht geschrieben werden", err)
+        self.assertNotIn("Traceback", err)
+
+    def test_write_error_in_profile_save_exits_1(self):
+        with mock.patch("os.open", side_effect=PermissionError(13, "Zugriff verweigert")):
+            code, _, err = self.save_profile()
+        self.assertEqual(code, 1)
+        self.assertIn("Profil nicht gespeichert", err)
+
+    def test_unexpected_error_gives_short_message(self):
+        with mock.patch.object(cli, "cmd_check", side_effect=RuntimeError(str(self.tmp))):
+            code, _, err = run_cli(["check"])
+        self.assertEqual(code, 1)
+        self.assertEqual(err.strip(), "Unerwarteter Fehler: RuntimeError. Bitte Ausgabe melden.")
+        self.assertNotIn(str(self.tmp), err)
+
+    def test_debug_env_shows_traceback(self):
+        with mock.patch.object(cli, "cmd_check", side_effect=RuntimeError("boom")), \
+                mock.patch.dict(os.environ, {"LEGAL_AUDIT_DEBUG": "1"}):
+            code, _, err = run_cli(["check"])
+        self.assertEqual(code, 1)
+        self.assertIn("Traceback", err)
+
+    def test_keyboard_interrupt_exits_130(self):
+        with mock.patch.object(cli, "cmd_check", side_effect=KeyboardInterrupt()):
+            self.assertEqual(run_cli(["check"])[0], 130)
+
+    def test_render_runtime_error_exits_1(self):
+        d = self.init_report()
+        with mock.patch.object(cli, "build_report", side_effect=RuntimeError("Vorlage kaputt")):
+            code, _, err = run_cli(["render", str(d)])
+        self.assertEqual(code, 1)
+        self.assertIn("Vorlage kaputt", err)
+
+    def test_pdf_invalid_chrome_override_exits_4(self):
+        d = self.valid_report()
+        run_cli(["render", str(d)])
+        with mock.patch.dict(os.environ, {"LEGAL_AUDIT_CHROME": str(self.tmp / "gibt-es-nicht.exe")}):
+            code, _, err = run_cli(["pdf", str(d)])
+        self.assertEqual(code, 4)
+        self.assertIn("LEGAL_AUDIT_CHROME", err)
+
+    def test_invalid_date_has_german_message(self):
+        self.assertEqual(self.save_profile()[0], 0)
+        code, _, err = run_cli(["init", "https://example.de/", "--date", "2026-13-01"])
+        self.assertEqual(code, 1)
+        self.assertIn("JJJJ-MM-TT", err)
+        self.assertNotIn("month must be", err)
+
+    def test_usage_error_exits_1_with_german_text(self):
+        r = self.script(["profile", "save"])
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("Pflichtangabe fehlt", r.stderr)
+        self.assertIn("Aufruf:", r.stderr)
+        self.assertNotIn("required", r.stderr)
+        self.assertEqual(self.script(["gibtsnicht"]).returncode, 1)
+
+    def test_help_is_german_and_exits_0(self):
+        r = self.script(["profile", "save", "--help"])
+        self.assertEqual(r.returncode, 0)
+        self.assertIn("Optionen:", r.stdout)
+        self.assertIn("Akzentfarbe", r.stdout)
+
+
 class Entrypoint(unittest.TestCase):
     def test_entrypoint_runs_as_script_from_other_cwd(self):
         with tempfile.TemporaryDirectory() as tmp:
