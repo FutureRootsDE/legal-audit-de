@@ -405,6 +405,7 @@ Begründung: Auf dem Rohmodell würden die Invarianten herabgestufte Befunde fal
 
 1. **Anwaltliche Prüfung vor Release: entfällt** nach Umsetzung der zwingenden RDG-Anpassungen 1 bis 5 (Statuslabels, Befundsprache und Sperrliste, keine ✕ aus Rechtswertung, Titel, Anwaltsempfehlung je ✕; Abschnitt 10). **Optional** bleibt eine kurze anwaltliche Prüfung, falls das Feature öffentlich beworben wird (Werbeaussagen, § 5 UWG; Positionierung gegenüber Agenturen, § 5 RDG).
 2. Bleibende Restunklarheiten der RDG-Bewertung (Abschnitt 10): keine Rechtsprechung zu Website-Audits oder KI-Prüfberichten; der inhaltliche Abgleich der Datenschutzerklärung ist möglicherweise schon Subsumtion; ob § 5 RDG die Agentur trägt, entscheidet der Einzelfall.
+3. **Rechtsgrundlagen je Ergebnis (Call des Orchestrators, 2026-11-17, korrigierbar):** v1: nur Katalog-Normen. Ein Ergebnis in `findings.json` bringt kein eigenes `legal_basis` mit (unbekanntes Feld, Validierungsfehler), damit keine unbelegten Normen in den Report gelangen (RDG-Schutz). Das in 6.3 vorgesehene Ergänzen je Befund ist Kandidat für v2.
 
 Erledigt und aus dieser Liste entfernt: Die drei früher „zu verifizierenden“ Rechtsfakten (Garantie-Label mit Stichtag 27.09.2026, PPWR ab 12.08.2026, Geltung § 312k BGB) sind belegt (Faktenprüfung 2026-11-17, 6.4); die KB-Ergänzung ist Umsetzungspunkt 2 in Abschnitt 7. Der Werkzeugnamen-Fix in `.claude/commands/legal-audit-live.md:4` ist keine Randnotiz mehr, sondern Umsetzungspunkt 1 in Abschnitt 7.
 
