@@ -117,6 +117,11 @@ class ClientTestCommand(unittest.TestCase):
         for item in names + domains:
             self.assertIn(f"`{item}`", rule)
 
+    def test_ck05_uses_ck02_lists(self):
+        rule = next(line for line in self.text.splitlines() if line.startswith("- **CK-05"))
+        self.assertIn("Listen (a) und (b) aus CK-02", rule)
+        self.assertIn("höchstens `notice`", rule)
+
     def test_button_and_notice_only_rules(self):
         self.assertIn("**SHOP-02 (Bestellbutton), SHOP-04 (Widerrufsfunktion), SHOP-05 (Kündigungsschaltfläche):** "
                       "`defect` nur, wenn die Schaltfläche fehlt.", self.text)

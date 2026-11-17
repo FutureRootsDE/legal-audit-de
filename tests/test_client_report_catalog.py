@@ -155,6 +155,10 @@ class CatalogFile(unittest.TestCase):
         self.assertIn("Art. 6 Abs. 1 DSGVO", [b.norm for b in by["DRT-01"].legal_basis])
         self.assertNotIn("nicht notwendig", by["CK-02"].title)
         self.assertIn("eindeutig", by["CK-02"].description)
+        # CK-05 (after rejecting) attributes by the same fixed name and domain list as CK-02.
+        self.assertIn("wie bei CK-02", by["CK-05"].description)
+        self.assertIn("eindeutig", by["CK-05"].description)
+        self.assertIn("höchstens als Hinweis", by["CK-05"].description)
         self.assertIn("§ 7 Abs. 2 Nr. 2 UWG", [b.norm for b in by["FRM-05"].legal_basis])
         self.assertNotIn("themen/email-marketing.md:192", [b.kb_ref for b in by["FRM-05"].legal_basis])
         self.assertIn("öffentlichem Interesse", by["KI-02"].description)

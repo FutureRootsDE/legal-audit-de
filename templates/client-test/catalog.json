@@ -233,7 +233,7 @@
       "id": "CK-05",
       "area": "CK",
       "title": "Nach dem Ablehnen Verhalten wie beim Erstbesuch",
-      "description": "Wir lehnen im Banner ab und prüfen, ob danach Verbindungen zu Analyse- oder Werbediensten aufgebaut oder entsprechende Cookies gesetzt werden.",
+      "description": "Wir lehnen im Banner ab und prüfen, ob danach Verbindungen zu Analyse- oder Werbediensten aufgebaut oder entsprechende Cookies oder Speichereinträge gesetzt werden. Als auffällig werten wir nur, was nach derselben festen Namens- und Domainliste wie bei CK-02 eindeutig einem Analyse- oder Werbedienst zuzuordnen ist. Alles andere erscheint höchstens als Hinweis.",
       "legal_basis": [
         {
           "norm": "§ 25 TDDDG",
