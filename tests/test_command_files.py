@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib.util
+import re
 import unittest
 from pathlib import Path
 
@@ -46,6 +47,70 @@ class ChromeDevtoolsToolNames(unittest.TestCase):
         self.assertEqual(len(mcp), 24)
         self.assertEqual({t[len(RIGHT_PREFIX):] for t in plugin},
                          {t[len(DIRECT_PREFIX):] for t in direct})
+
+
+CLIENT_TEST_TOOLS = {
+    "new_page", "navigate_page", "select_page", "list_pages", "close_page", "wait_for",
+    "take_screenshot", "take_snapshot", "evaluate_script", "list_network_requests",
+    "get_network_request", "list_console_messages", "click", "hover", "press_key",
+    "emulate", "resize_page", "lighthouse_audit",
+}
+# Tools that enter data, confirm dialogs or profile the browser: never allowed (passive check).
+CLIENT_TEST_FORBIDDEN = ("fill", "fill_form", "type_text", "upload_file", "handle_dialog", "drag",
+                         "performance_start_trace", "performance_stop_trace",
+                         "performance_analyze_insight", "take_heapsnapshot")
+QUOTE_RE = re.compile("„([^“”]*)“")
+
+
+class ClientTestCommand(unittest.TestCase):
+    def setUp(self):
+        self.path = ROOT / ".claude/commands/legal-client-test.md"
+        self.text = self.path.read_text(encoding="utf-8")
+        self.fm = command_frontmatter(self.path)
+        self.tools = [t.strip() for t in self.fm["allowed-tools"].split(",") if t.strip()]
+
+    def test_uses_both_prefix_variants_and_lighthouse(self):
+        mcp = [t for t in self.tools if t.startswith("mcp__")]
+        plugin = {t[len(RIGHT_PREFIX):] for t in mcp if t.startswith(RIGHT_PREFIX)}
+        direct = {t[len(DIRECT_PREFIX):] for t in mcp if t.startswith(DIRECT_PREFIX)}
+        self.assertEqual(len(mcp), 36)
+        self.assertEqual(plugin, CLIENT_TEST_TOOLS)
+        self.assertEqual(direct, CLIENT_TEST_TOOLS)
+        self.assertIn(RIGHT_PREFIX + "lighthouse_audit", mcp)
+
+    def test_no_input_tools(self):
+        for name in CLIENT_TEST_FORBIDDEN:
+            self.assertNotIn(RIGHT_PREFIX + name, self.tools)
+            self.assertNotIn(DIRECT_PREFIX + name, self.tools)
+
+    def test_core_tools_exact(self):
+        core = [t for t in self.tools if not t.startswith("mcp__")]
+        self.assertEqual(core, ["Bash", "Read", "Write", "Glob", "Grep"])
+
+    def test_scripts_addressed_via_plugin_root(self):
+        self.assertIn('python "${CLAUDE_PLUGIN_ROOT}/scripts/client-test.py"', self.text)
+        self.assertNotIn("${CLAUDE_PROJECT_DIR}/scripts/client-test.py", self.text)
+
+    def test_user_facing_quotes_dash_free(self):
+        from client_report.textcheck import find_dashes, find_forbidden, load_forbidden_phrases
+        phrases = load_forbidden_phrases()
+        quotes = QUOTE_RE.findall(self.text)
+        self.assertGreater(len(quotes), 10)
+        offenders = [(q, find_dashes(q), find_forbidden(q, phrases)) for q in quotes
+                     if find_dashes(q) or find_forbidden(q, phrases)]
+        self.assertEqual(offenders, [])
+
+    def test_body_has_no_dashes(self):
+        body = self.text.split("\n---\n", 1)[1]
+        self.assertNotIn("—", body)
+        self.assertNotIn("–", body)
+
+    def test_adapters_exist(self):
+        codex = ROOT / ".codex/prompts/legal-client-test.md"
+        copilot = ROOT / ".github/prompts/legal-client-test/PROMPT.md"
+        self.assertTrue(codex.is_file())
+        self.assertTrue(copilot.is_file())
+        self.assertIn("${GITHUB_WORKSPACE}/scripts/client-test.py", copilot.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":
