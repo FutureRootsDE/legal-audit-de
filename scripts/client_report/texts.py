@@ -90,6 +90,38 @@ METHOD_TEXT = (
     "Der Bericht ist eine Momentaufnahme zum Prüfdatum und enthält keine rechtliche Bewertung des Einzelfalls."
 )
 
+# Further fixed labels of the rendered report (Task 8): cover, overview table, part B, appendix A.
+LABEL_SITE = "Geprüfte Website"
+LABEL_CLIENT = "Erstellt für"
+LABEL_CHECK_DATE = "Prüfdatum"
+LABEL_REPORT_ID = "Report-Kennung"
+LABEL_ISSUER = "Erstellt von"
+LABEL_COUNTS = "Ergebnisse nach Status"
+LOGO_ALT = "Logo {company}"
+COLUMN_ID = "ID"
+COLUMN_TEST = "Test"
+COLUMN_STATUS = "Status"
+COLUMN_RESULT = "Ergebnis"
+LABEL_PRIORITIES = "Prioritätenliste"
+LABEL_CHECKLIST = "Checkliste"
+LABEL_SNIPPETS = "Beispielcode"
+LABEL_COMMAND = "Befehl"
+LABEL_EXPECTED = "Erwartete Ausgabe"
+EFFORT_FORMAT = "{level}, etwa {minutes} Minuten"
+PROTOCOL_LABELS = {
+    "target_url": "Aufgerufene Adresse",
+    "final_url": "Adresse nach Weiterleitung",
+    "started_utc": "Beginn",
+    "finished_utc": "Ende",
+    "user_agent": "User-Agent",
+    "viewports": "Ansichten",
+    "tools": "Werkzeuge und Versionen",
+    "pages_visited": "Besuchte Seiten",
+    "catalog_version": "Version des Prüfkatalogs",
+    "plugin_version": "Version des Plugins",
+}
+UTC_DISPLAY_FORMAT = "%d.%m.%Y, %H:%M:%S UTC"
+
 ALL_FIXED_STRINGS: tuple[str, ...] = (
     TITLE,
     SUBTITLE,
@@ -120,4 +152,22 @@ ALL_FIXED_STRINGS: tuple[str, ...] = (
     NOTE_A11Y_VOLUNTARY,
     *SECTION_TITLES.values(),
     METHOD_TEXT,
+    LABEL_SITE,
+    LABEL_CLIENT,
+    LABEL_CHECK_DATE,
+    LABEL_REPORT_ID,
+    LABEL_ISSUER,
+    LABEL_COUNTS,
+    LOGO_ALT,
+    COLUMN_ID,
+    COLUMN_TEST,
+    COLUMN_STATUS,
+    COLUMN_RESULT,
+    LABEL_PRIORITIES,
+    LABEL_CHECKLIST,
+    LABEL_SNIPPETS,
+    LABEL_COMMAND,
+    LABEL_EXPECTED,
+    EFFORT_FORMAT,
+    *PROTOCOL_LABELS.values(),
 )
