@@ -9,6 +9,7 @@ import json
 import os
 import re
 import secrets
+import stat
 import tempfile
 from pathlib import Path
 from typing import Mapping
@@ -36,6 +37,7 @@ TEMP_DIRNAME = "legal-audit-de-client-test"
 TEMP_DATA_PREFIX = "profile-"
 TEMP_DATA_SUFFIX = ".json"
 TEMP_TOKEN_BYTES = 16
+REDIRECTED_TEMP_MESSAGE = "Temp-Ordner des Plugins ist eine Verknüpfung (Symlink oder Junction)"
 TEMP_DATA_RE = re.compile(rf"{TEMP_DATA_PREFIX}[0-9a-f]{{{2 * TEMP_TOKEN_BYTES}}}\{TEMP_DATA_SUFFIX}")  # fullmatch
 
 
@@ -223,25 +225,68 @@ def new_temp_data_path() -> Path:
     read). The folder is created with mode 0700 and must be a real directory owned by the user.
     """
     folder = temp_data_dir()
+    if os.path.lexists(folder) and _is_redirected(folder):
+        raise OSError(errno.ENOTDIR, REDIRECTED_TEMP_MESSAGE)
     folder.mkdir(mode=0o700, exist_ok=True)
-    if folder.is_symlink() or not folder.is_dir():
-        raise OSError(errno.ENOTDIR, "Temp-Ordner des Plugins ist kein Verzeichnis")
-    if hasattr(os, "getuid") and folder.stat().st_uid != os.getuid():
-        raise PermissionError(errno.EACCES, "Temp-Ordner des Plugins gehört einem anderen Nutzer")
+    _check_temp_folder(folder)
     return folder / f"{TEMP_DATA_PREFIX}{secrets.token_hex(TEMP_TOKEN_BYTES)}{TEMP_DATA_SUFFIX}"
 
 
-def is_temp_data_file(path: Path) -> bool:
-    """True only for a file name from new_temp_data_path() directly inside the plugin temp folder."""
+def _is_link(path: Path) -> bool:
+    """Symlink, junction or any other reparse point; never follows the link (os.lstat)."""
     try:
-        resolved = Path(path).resolve()
-        folder = temp_data_dir().resolve()
-    except (OSError, RuntimeError):
+        st = os.lstat(path)
+    except OSError:
         return False
-    return resolved.parent == folder and TEMP_DATA_RE.fullmatch(resolved.name) is not None
+    # Windows junctions are reparse points but not symlinks, so is_symlink() misses them.
+    return stat.S_ISLNK(st.st_mode) or bool(getattr(st, "st_file_attributes", 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT)
+
+
+def _is_redirected(folder: Path) -> bool:
+    """True when the last component of `folder` leads elsewhere. Links in its ancestors
+    (macOS /var -> /private/var, 8.3 short names) are ignored on purpose."""
+    if _is_link(folder):
+        return True
+    try:
+        real = os.path.realpath(folder)
+        expected = os.path.join(os.path.realpath(folder.parent), folder.name)
+    except (OSError, ValueError):
+        return True
+    return os.path.normcase(real) != os.path.normcase(expected)
+
+
+def _check_temp_folder(folder: Path) -> None:
+    """Raise OSError unless `folder` is a real directory of the current user, not a link of any kind."""
+    if _is_redirected(folder):
+        raise OSError(errno.ENOTDIR, REDIRECTED_TEMP_MESSAGE)
+    if not folder.is_dir():
+        raise OSError(errno.ENOTDIR, "Temp-Ordner des Plugins ist kein Verzeichnis")
+    if hasattr(os, "getuid") and folder.stat().st_uid != os.getuid():
+        raise PermissionError(errno.EACCES, "Temp-Ordner des Plugins gehört einem anderen Nutzer")
+
+
+def checked_temp_data_file(path: Path) -> Path | None:
+    """`path` made absolute when it names a file from new_temp_data_path() directly inside the
+    plugin temp folder, else None.
+
+    The check is lexical plus link checks on the folder and the file; the file is never
+    resolved, so the caller reads and deletes exactly the returned path (no second lookup).
+    """
+    candidate = Path(os.path.abspath(path))
+    folder = Path(os.path.abspath(temp_data_dir()))
+    if os.path.normcase(str(candidate.parent)) != os.path.normcase(str(folder)):
+        return None
+    if TEMP_DATA_RE.fullmatch(candidate.name) is None or _is_link(candidate):
+        return None
+    try:
+        _check_temp_folder(folder)
+    except OSError:
+        return None
+    return candidate
 
 
 def discard_temp_data_file(path: Path) -> None:
-    """Delete a profile data file from the plugin temp folder; any other path is left alone."""
-    if is_temp_data_file(path):
-        Path(path).resolve().unlink(missing_ok=True)
+    """Delete exactly `path`, a value returned by checked_temp_data_file(); anything else is left
+    alone. OSError from the deletion (locked file, missing rights) goes to the caller."""
+    if checked_temp_data_file(path) == path:
+        path.unlink(missing_ok=True)

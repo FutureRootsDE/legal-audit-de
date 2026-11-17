@@ -29,9 +29,9 @@ from .paths import domain_from_url, domain_slug, new_report_dir
 from .pipeline import REPORT_FILENAME, build_report
 from .profile import (
     ACCENT_RE,
+    checked_temp_data_file,
     discard_temp_data_file,
     ensure_writable_dir,
-    is_temp_data_file,
     load_profile,
     logo_path,
     new_temp_data_path,
@@ -53,6 +53,8 @@ ACCENT_UNKNOWN = "ACCENT_UNKNOWN"
 PDF_PROFILE_KEYS = ("contact", "phone", "email", "website")
 CONSUME_OUTSIDE = ("--consume gilt nur für Dateien aus dem Unterbefehl tempfile. "
                    "Die Datei wurde nicht gelöscht und kein Profil gespeichert.")
+CONSUME_UNLINK_FAILED = ("Warnung: Die Datendatei wurde nicht gelöscht ({reason}). "
+                         "Bitte von Hand löschen: {path}")
 # Control, format and line/paragraph separator characters: shown as escapes, never sent to the terminal.
 INVISIBLE_CATEGORIES = ("Cc", "Cf", "Zl", "Zp")
 BYTE_LIMIT, BMP_LIMIT = 0x100, 0x10000
@@ -198,14 +200,26 @@ def cmd_profile_show(args: argparse.Namespace) -> int:
 
 
 def cmd_profile_save(args: argparse.Namespace) -> int:
-    if args.consume and not is_temp_data_file(Path(args.data)):
-        _err(CONSUME_OUTSIDE)
-        return EXIT_INPUT
+    data_path = Path(args.data)
+    if args.consume:
+        checked = checked_temp_data_file(data_path)
+        if checked is None:
+            _err(CONSUME_OUTSIDE)
+            return EXIT_INPUT
+        data_path = checked   # checked once; read and deleted under exactly this path
     try:
-        return _profile_save(args)
+        return _profile_save(args, data_path)
     finally:
         if args.consume:
-            discard_temp_data_file(Path(args.data))
+            _discard_data_file(data_path)
+
+
+def _discard_data_file(path: Path) -> None:
+    """Delete the consumed data file; a failure only warns and never changes the exit code."""
+    try:
+        discard_temp_data_file(path)
+    except OSError as exc:
+        _err(CONSUME_UNLINK_FAILED.format(reason=exc.strerror or type(exc).__name__, path=path))
 
 
 def cmd_tempfile(_args: argparse.Namespace) -> int:
@@ -218,9 +232,9 @@ def cmd_tempfile(_args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
-def _profile_save(args: argparse.Namespace) -> int:
+def _profile_save(args: argparse.Namespace, data_path: Path) -> int:
     try:
-        data = json.loads(Path(args.data).read_text(encoding="utf-8-sig"))
+        data = json.loads(data_path.read_text(encoding="utf-8-sig"))
         if not isinstance(data, dict):
             raise ValueError("--data muss ein JSON-Objekt enthalten")
         accent = _resolve_accent(args.accent, Path(args.logo))

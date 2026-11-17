@@ -6,6 +6,8 @@ import contextlib
 import io
 import json
 import os
+import stat
+import subprocess
 import sys
 import tempfile
 import time
@@ -316,6 +318,116 @@ class TempDataFile(unittest.TestCase):
         victim.write_text("{}", encoding="utf-8")
         self._save(folder / ".." / "victim.json", ["--consume"])
         self.assertTrue(victim.exists())
+
+    # -- redirected plugin temp folder (symlink, Windows junction)
+
+    def _redirect_folder(self, kind: str) -> Path:
+        """Replace the plugin temp folder by a link to a foreign folder; returns that target."""
+        target = self.root / "fremd"
+        target.mkdir()
+        link = self.root / profile.TEMP_DIRNAME
+        if kind == "junction":
+            if os.name != "nt":
+                self.skipTest("Junctions gibt es nur unter Windows")
+            done = subprocess.run(["cmd", "/c", "mklink", "/J", str(link), str(target)],
+                                  capture_output=True, timeout=30)
+            if done.returncode != 0:
+                self.skipTest("mklink /J nicht verfügbar")
+            self.assertFalse(link.is_symlink())   # the gap this guards: junctions are no symlinks
+        else:
+            try:
+                os.symlink(target, link, target_is_directory=True)
+            except (OSError, NotImplementedError):
+                self.skipTest("Symlinks hier nicht erlaubt")
+        self.addCleanup(lambda: os.path.lexists(link) and (os.rmdir(link) if os.name == "nt" else os.unlink(link)))
+        return target
+
+    def _assert_redirect_refused(self, target: Path):
+        code, out, err = run_cli(["tempfile"])
+        self.assertEqual(code, 1)
+        self.assertEqual(out, "")
+        self.assertIn("Temp-Ordner nicht nutzbar", err)
+        self.assertIn("Verknüpfung", err)
+        foreign = target / f"profile-{'a' * 32}.json"
+        foreign.write_text(json.dumps({"company": "Muster GmbH", "contact": "E. Muster",
+                                       "address": ["Hauptstraße 1"], "email": "a@b.de"}), encoding="utf-8")
+        via_link = self.root / profile.TEMP_DIRNAME / foreign.name
+        code, _, err = self._save(via_link, ["--consume"])
+        self.assertEqual(code, 1)
+        self.assertIn("nicht gelöscht", err)
+        self.assertTrue(foreign.exists())
+        self.assertFalse((self.root / "home" / profile.PROFILE_FILENAME).exists())
+        self.assertEqual(sorted(p.name for p in target.iterdir()), [foreign.name])
+
+    def test_junction_as_temp_folder_is_refused(self):
+        self._assert_redirect_refused(self._redirect_folder("junction"))
+
+    def test_symlink_as_temp_folder_is_refused(self):
+        self._assert_redirect_refused(self._redirect_folder("symlink"))
+
+    def test_reparse_point_attribute_counts_as_redirect(self):
+        folder = self.root / profile.TEMP_DIRNAME
+        folder.mkdir()
+        real_lstat = os.lstat
+
+        def fake_lstat(path, *args, **kwargs):
+            st = real_lstat(path, *args, **kwargs)
+            if Path(path) == folder:
+                return mock.Mock(st_mode=st.st_mode, st_file_attributes=stat.FILE_ATTRIBUTE_REPARSE_POINT)
+            return st
+
+        with mock.patch.object(profile.os, "lstat", side_effect=fake_lstat):
+            code, _, err = run_cli(["tempfile"])
+        self.assertEqual(code, 1)
+        self.assertIn("Verknüpfung", err)
+
+    # -- --consume deletes exactly the checked file
+
+    def test_consume_unlink_failure_is_only_a_warning(self):
+        path = Path(run_cli(["tempfile"])[1].strip())
+        path.write_text(json.dumps({"company": "Muster GmbH", "contact": "E. Muster",
+                                    "address": ["Hauptstraße 1"], "email": "a@b.de"}), encoding="utf-8")
+        real_unlink = Path.unlink
+        calls = []
+
+        def locked(self_path, *args, **kwargs):
+            if self_path.name == path.name:
+                calls.append(self_path)
+                raise PermissionError(13, "Datei ist gesperrt")
+            return real_unlink(self_path, *args, **kwargs)
+
+        with mock.patch.object(Path, "unlink", autospec=True, side_effect=locked):
+            code, out, err = self._save(path, ["--consume"])
+        self.assertEqual(code, 0, err)
+        self.assertIn("Profil gespeichert", out)
+        self.assertIn("Warnung", err)
+        self.assertIn("nicht gelöscht", err)
+        self.assertTrue((self.root / "home" / profile.PROFILE_FILENAME).is_file())
+        self.assertEqual(calls, [path])   # the checked path itself, unresolved, exactly once
+
+    def test_consume_unlink_failure_keeps_error_exit_code(self):
+        path = Path(run_cli(["tempfile"])[1].strip())
+        path.write_text("kein json", encoding="utf-8")
+        with mock.patch.object(Path, "unlink", autospec=True, side_effect=PermissionError(13, "gesperrt")):
+            code, _, err = self._save(path, ["--consume"])
+        self.assertEqual(code, 1)
+        self.assertIn("Warnung", err)
+
+    def test_consume_symlinked_data_file_is_refused(self):
+        folder = self.root / profile.TEMP_DIRNAME
+        folder.mkdir()
+        victim = self.root / "victim.json"
+        victim.write_text("{}", encoding="utf-8")
+        link = folder / f"profile-{'b' * 32}.json"
+        try:
+            os.symlink(victim, link)
+        except (OSError, NotImplementedError):
+            self.skipTest("Symlinks hier nicht erlaubt")
+        code, _, err = self._save(link, ["--consume"])
+        self.assertEqual(code, 1)
+        self.assertIn("nicht gelöscht", err)
+        self.assertTrue(victim.exists())
+        self.assertTrue(os.path.lexists(link))
 
 
 if __name__ == "__main__":
