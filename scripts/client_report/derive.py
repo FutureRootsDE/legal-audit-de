@@ -19,13 +19,13 @@ Rules 3 to 5 only touch open results (notice, defect). Any of them turns a `defe
 from __future__ import annotations
 
 import copy
-from datetime import date, datetime
+from datetime import date, datetime, time, timedelta
 from types import MappingProxyType
 from typing import Any, Mapping
 
 from .catalog import evaluate
 from .models import Catalog, CatalogEntry, DerivedResult, ReportInputError, ReportModel, ValidationIssue
-from .schema import STATUSES, UTC_FORMAT
+from .schema import STATUSES, UTC_FORMAT, UTC_RE
 from .texts import NOTE_A11Y_VOLUNTARY, NOTE_APPLICABILITY_UNCLEAR, NOTE_VALID_FROM
 
 STATUS_MISSING = "missing"
@@ -34,14 +34,45 @@ DOWNGRADE_CAP = {"CRIT": "MED", "HIGH": "MED"}
 NOTE_DATE_FORMAT = "%d.%m.%Y"
 WARNING_DROPPED = "{id}: Ergebnis verworfen, Test nicht anwendbar"
 EMPTY: Mapping[str, Any] = MappingProxyType({})
+CET = timedelta(hours=1)
+CEST = timedelta(hours=2)
+DST_SWITCH_UTC = time(1, 0)
+SUNDAY = 6
+
+
+def _last_sunday(year: int, month: int) -> date:
+    """Last Sunday of a month with 31 days (March, October)."""
+    last = date(year, month, 31)
+    return last - timedelta(days=(last.weekday() - SUNDAY) % 7)
+
+
+def _berlin_offset(utc: datetime) -> timedelta:
+    """UTC offset of Europe/Berlin at a naive UTC moment: CEST (UTC+2) or CET (UTC+1).
+
+    EU rule since 1996: summer time from the last Sunday of March, 01:00 UTC, to the last
+    Sunday of October, 01:00 UTC.
+    """
+    start = datetime.combine(_last_sunday(utc.year, 3), DST_SWITCH_UTC)
+    end = datetime.combine(_last_sunday(utc.year, 10), DST_SWITCH_UTC)
+    return CEST if start <= utc < end else CET
 
 
 def check_date(findings: Mapping[str, Any]) -> date:
-    """Check date of the run: the UTC date of `run.started_utc`."""
+    """Check date of the run: the calendar day of `run.started_utc` in Europe/Berlin.
+
+    Decision (orchestrator, 2026-11-17): the report is for German clients, so the check date
+    (note "Pflicht gilt ab", valid_from comparison, PDF file name) is the German local day,
+    not the UTC day; a run started at 00:30 local time belongs to that day. Standard library
+    only and without zoneinfo, because Windows ships no tzdata: the CET/CEST rule is computed
+    in _berlin_offset (valid for the current EU rule, i.e. every date from 1996 on).
+    """
     run = findings.get("run")
     value = run.get("started_utc") if isinstance(run, Mapping) else None
     try:
-        return datetime.strptime(value, UTC_FORMAT).date()
+        if not (isinstance(value, str) and UTC_RE.fullmatch(value)):
+            raise ValueError("not a UTC timestamp")
+        utc = datetime.strptime(value, UTC_FORMAT)
+        return (utc + _berlin_offset(utc)).date()
     except (TypeError, ValueError) as exc:
         raise ReportInputError([ValidationIssue("run.started_utc", "Format JJJJ-MM-TTThh:mm:ssZ (UTC)")]) from exc
 

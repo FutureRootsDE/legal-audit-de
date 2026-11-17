@@ -36,9 +36,47 @@ class Base(unittest.TestCase):
         return derive(findings, CAT)
 
 
+def berlin_day(started_utc: str) -> date:
+    return check_date({"run": {"started_utc": started_utc}})
+
+
 class CheckDate(unittest.TestCase):
-    def test_date_from_started_utc(self):
-        self.assertEqual(check_date({"run": {"started_utc": "2026-06-18T23:59:59Z"}}), date(2026, 6, 18))
+    """Check date = calendar day in Europe/Berlin (CET/CEST), computed without tzdata."""
+
+    def test_summer_time_evening_is_next_day(self):
+        self.assertEqual(berlin_day("2026-06-18T21:59:59Z"), date(2026, 6, 18))
+        self.assertEqual(berlin_day("2026-06-18T22:30:00Z"), date(2026, 6, 19))
+        self.assertEqual(berlin_day("2026-06-18T23:59:59Z"), date(2026, 6, 19))
+
+    def test_winter_time_uses_utc_plus_one(self):
+        self.assertEqual(berlin_day("2026-11-17T22:59:59Z"), date(2026, 11, 17))
+        self.assertEqual(berlin_day("2026-11-17T23:00:00Z"), date(2026, 11, 18))
+        self.assertEqual(berlin_day("2026-12-31T23:30:00Z"), date(2027, 1, 1))
+
+    def test_switch_days(self):
+        # 2026: CEST from 29.03. 01:00 UTC to 25.10. 01:00 UTC
+        self.assertEqual(berlin_day("2026-03-28T23:00:00Z"), date(2026, 3, 29))   # 00:00 CET
+        self.assertEqual(berlin_day("2026-03-28T22:59:59Z"), date(2026, 3, 28))
+        self.assertEqual(berlin_day("2026-03-29T00:59:59Z"), date(2026, 3, 29))   # 01:59:59 CET
+        self.assertEqual(berlin_day("2026-03-29T22:00:00Z"), date(2026, 3, 30))   # 00:00 CEST
+        self.assertEqual(berlin_day("2026-10-24T21:59:59Z"), date(2026, 10, 24))
+        self.assertEqual(berlin_day("2026-10-24T22:00:00Z"), date(2026, 10, 25))   # 00:00 CEST
+        self.assertEqual(berlin_day("2026-10-25T00:30:00Z"), date(2026, 10, 25))   # 02:30 CEST
+        self.assertEqual(berlin_day("2026-10-25T22:59:59Z"), date(2026, 10, 25))   # 23:59:59 CET
+        self.assertEqual(berlin_day("2026-10-25T23:00:00Z"), date(2026, 10, 26))
+
+    def test_matches_zoneinfo_when_tzdata_is_available(self):
+        from datetime import datetime, timedelta, timezone
+        try:
+            from zoneinfo import ZoneInfo
+            berlin = ZoneInfo("Europe/Berlin")
+        except Exception:  # noqa: BLE001  (no tzdata on this machine, e.g. Windows)
+            self.skipTest("tzdata für Europe/Berlin nicht verfügbar")
+        moment = datetime(2024, 1, 1, 0, 30, tzinfo=timezone.utc)
+        while moment.year < 2029:
+            stamp = moment.strftime("%Y-%m-%dT%H:%M:%SZ")
+            self.assertEqual(berlin_day(stamp), moment.astimezone(berlin).date(), msg=stamp)
+            moment += timedelta(hours=1)
 
     def test_invalid_started_utc_raises_input_error(self):
         with self.assertRaises(ReportInputError) as ctx:
@@ -97,6 +135,17 @@ class Derive(Base):
         r = by_id(self.derive_valid(f)[0], "SHOP-02")
         self.assertEqual((r.status, r.severity, r.severity_original), ("notice", "MED", "HIGH"))
         self.assertEqual(r.notes, (NOTE_APPLICABILITY_UNCLEAR,))
+
+    def test_valid_from_compares_with_berlin_day(self):
+        # SHOP-04 applies from 19.06.2026; 22:30 UTC on 18.06. is already 00:30 on 19.06. in Berlin.
+        f = valid_findings(CAT, shop=True, started="2026-06-18T22:30:00Z",
+                           results=[open_result("SHOP-04", "defect", "CRIT")])
+        m, _ = self.derive_valid(f)
+        self.assertEqual(m.check_date, date(2026, 6, 19))
+        self.assertEqual((by_id(m, "SHOP-04").status, by_id(m, "SHOP-04").notes), ("defect", ()))
+        g = valid_findings(CAT, shop=True, started="2026-06-18T21:59:59Z",
+                           results=[open_result("SHOP-04", "defect", "CRIT")])
+        self.assertEqual(by_id(self.derive_valid(g)[0], "SHOP-04").status, "notice")
 
     def test_unknown_applicability_keeps_test_applicable(self):
         m, _ = self.derive_valid(valid_findings(CAT, shop=True, b2c=None))
