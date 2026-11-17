@@ -62,6 +62,31 @@ Live-Browser-Check einer oeffentlichen URL. Pruefkriterien:
 
 Setzt `chrome-devtools-mcp` voraus. Setup unter [Setup](setup#optional-chrome-devtools-mcp-fuer-live-browser-checks).
 
+## `/legal-client-test`
+
+Website-CheckUp fuer Agenturen und Freelancer. Prueft eine oeffentliche Website passiv und erzeugt einen Report mit dem eigenen Briefkopf.
+
+```text
+/legal-client-test https://kunde.example [--edit-profile] [--out=<ordner>] [--no-pdf]
+```
+
+Ablauf:
+
+1. **Briefkopf-Profil:** Beim ersten Aufruf werden Name, Anschrift und Kontakt der Agentur erfasst und lokal gespeichert (`--edit-profile` erfasst neu).
+2. **Intake:** Kurze Fragen zur Website (Shop, Newsletter, Abo-Vertraege, Verbraucherstreitbeilegung, Zielgruppe), danach legt das Skript fest, welche Tests anwendbar sind.
+3. **Passive Pruefung** ueber chrome-devtools-mcp: Consent und Cookiebanner, Drittanbieter vor Einwilligung, Sicherheitsheader, Barrierefreiheit, Pflichtangaben. Nicht geprueft werden Speed, SEO und GEO.
+4. **Report:** `report.html` als eigenstaendige Datei plus getaggtes PDF ueber headless Chrome oder Edge (`--no-pdf` laesst das PDF aus).
+
+Ausgabe: ein Unterordner von `client-reports/` im Arbeitsverzeichnis (oder von `--out`) mit `findings.json`, `report.html`, PDF samt Kopie fuer den Versand und `evidence/`.
+
+Die Pruefkriterien stehen im Katalog `templates/client-test/catalog.json` (Version 1, 56 Tests). Rechtsgrundlagen stammen ausschliesslich aus diesem Katalog. Jeder Befund nennt Tatsachen und die betroffene Vorschrift zur Pruefung; bei jedem nicht bestandenen Test steht der Hinweis auf eine anwaltliche Pruefung, der Report enthaelt einen Weitergabe-Satz und einen Start-Hinweis.
+
+**Kundendaten:** Der Ordner `client-reports/` enthaelt Daten Dritter (Screenshots, Netzwerk-Logs). Nicht committen und nur an die Auftraggeberin oder den Auftraggeber weitergeben; `init` weist darauf hin, wenn `client-reports/` nicht in `.gitignore` steht.
+
+**Keine Rechtsberatung:** Der Report ist eine KI-gestuetzte technische Ersteinschaetzung und keine Rechtsberatung im Sinne des § 2 RDG. Eine abschliessende Pruefung durch eine zugelassene Fachanwaeltin oder einen zugelassenen Fachanwalt fuer IT-Recht ist erforderlich.
+
+Voraussetzungen und Grenzen: `chrome-devtools-mcp` (Werkzeugpraefix `mcp__plugin_chrome-devtools-mcp_chrome-devtools__*` oder `mcp__chrome-devtools__*`); PDF nur mit installiertem Chrome oder Edge; keine Seitenzahlen im Inhaltsverzeichnis (Spike-Ergebnis: kein Paged.js); unter Copilot laeuft der Befehl nur, wenn das Plugin-Repo selbst der Workspace ist (`${CLAUDE_PLUGIN_ROOT}` wird dort auf `${GITHUB_WORKSPACE}` abgebildet).
+
 ## `/legal-doc-check`
 
 Einzeldokument-Pruefung. Funktioniert ohne Codebase-Kontext, ideal fuer schnelle Rechtstext-Reviews.
@@ -173,4 +198,5 @@ Grundsatz: im Zweifel eine Stufe hoeher klassifizieren. Abmahnkosten sind asymme
 | `legal-audit-pro-mode.py` | Pro-Mode-Marker setzen, loeschen, abfragen |
 | `verify-citations.py` | Prueft Aktenzeichen der KB: Bundesgerichte gegen die Rechtsinformations-API des Bundes, EuGH/EuG gegen den Cellar des Amts fuer Veroeffentlichungen (Status `PENDING` fuer anhaengige Verfahren, `name_hint` nur als Hinweis; `--no-eu` schaltet ab). Eigener Modus `--check-norms`: Normzitate gegen gesetze-im-internet.de (Paragraph, Ueberschrift, Absatz, Stand) und BGBl.-Fundstellen gegen recht.bund.de (`--max-bgbl N`, 30 Sekunden Abstand laut robots.txt). Je Zitat zeigen `checked`/`unchecked` (JSON) bzw. `[nicht geprueft: ...]` (Text), was verglichen wurde; Grenzen: Nr. und lit. werden nie geprueft, Saetze nur bei eindeutiger Zuordnung zur Absatzmarke, Absaetze mit Buchstaben (2a) nur gegen vorhandene Absatzmarken. Gesetzesdaten aus dem Cache sind als "Quelle: Cache (ungeprueft)" gekennzeichnet; `--strict` gibt Exit 1 bei DATE_MISMATCH, mit `--check-norms` bei NORM_MISSING, ABSATZ_MISSING oder BGBL_MISSING. Optional, nur Standardbibliothek; `--path`, `--only-pending`, `--json`, `--offline`, `--today YYYY-MM-DD`, `--write-ecli --dry-run` (auch EU-ECLI). Tempo und Cache: `--rate`, `--eu-rate`, `--norm-rate` (Anfragen pro Sekunde), `--timeout`, `--no-cache`, `--cache-dir`, `--cache-ttl-days` (Standard 7) |
 | `sync-pro-variants.py` | `-pro`-Agentenvarianten deterministisch aus den 1M-Varianten generieren |
+| `client-test.py` | Einstieg fuer `/legal-client-test` (Unterbefehle `check`, `profile`, `init`, `plan`, `render`, `pdf`; Bibliothek `client_report/`, nur Standardbibliothek) |
 | `sync-platforms.py` | Codex- und Copilot-Adapter aus `.claude/` portieren |

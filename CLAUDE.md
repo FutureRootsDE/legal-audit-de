@@ -30,6 +30,7 @@ Jede vom Plugin erzeugte Output-Datei trägt diesen Disclaimer am Kopf. Der `Pos
 | `/legal-audit <pfad> --compare` | Audit + Diff-Report gegen letztes Audit aus `audits/`-Archiv |
 | `/legal-audit <pfad> --pdf` | Audit + generiert `anwalts-briefing.html` (+ PDF wenn pandoc vorhanden) |
 | `/legal-audit-live <url>` | Live-Browser-Check via chrome-devtools-mcp: Cookie-Banner-Blocking, Google-Fonts-Leak, Pre-/Post-Consent-Verhalten |
+| `/legal-client-test <url>` | Website-CheckUp für Agenturen: passive Prüfung (Consent, Drittanbieter, Sicherheit, Barrierefreiheit, Pflichtangaben) und Report als HTML plus getaggtes PDF mit eigenem Briefkopf; Prüfkatalog v1 mit 56 Tests, Skript `scripts/client-test.py`, ohne Rechtsberatung |
 | `/legal-doc-check <datei>` | Einzel-Dokument-Prüfung (AGB / DSE / Impressum / Widerruf / Cookie-Richtlinie / Social-Bio) ohne Codebase-Kontext |
 | `/legal-kb <slug>` | KB-Artikel gezielt in den Kontext laden |
 | `/legal-verify <thema>` | Fachanwalts-/Tool-Empfehlungen |
@@ -38,7 +39,7 @@ Jede vom Plugin erzeugte Output-Datei trägt diesen Disclaimer am Kopf. Der `Pos
 | `/legal-status [--verbose\|--json]` | Plugin-Gesundheit: KB-Alter, Platzhalter, Hook-Status, Audit-Historie, Pro-Mode-Status |
 | `/legal-pro-mode enable\|disable\|status` | Pro-Mode-Toggle (Standard-Kontext statt 1M) für Claude-Pro-Abonnenten |
 
-Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/`:
+Details in `.claude/commands/*.md`. Hilfs-Skripte unter `scripts/` (u. a. `client-test.py` mit den Unterbefehlen check, profile, init, plan, render, pdf für `/legal-client-test`, nur Standardbibliothek; Bibliothek `scripts/client_report/`). Bekannte Einschränkung: Copilot bildet `${CLAUDE_PLUGIN_ROOT}` auf `${GITHUB_WORKSPACE}` ab, `/legal-client-test` läuft dort nur, wenn das Plugin-Repo selbst der Workspace ist:
 - `legal-status.py` (`--verbose`, `--json`): Status-Report; Frische nach `verifiziert-am` (ersatzweise `aktualisiert`, auch bei ungueltigem `verifiziert-am`), ungueltiges oder zukuenftiges Datum als eigener Zustand "ungueltiges Datum", `teilverifiziert-am` als eigener Zustand "teilverifiziert" (nie frisch), Warnung bei abweichenden Platzhalter-Formen
 - `audit-compare.py` — Diff zwischen zwei Audits (`--auto <pfad>` findet vorheriges)
 - `find-placeholders.py` (`--json`, `--group-by-file`): listet alle `<<VERIFIKATION AUSSTEHEND>>`/`<<UNVERIFIZIERT>>`-Stellen; abweichende oder defekte Marker (Zusatztext, einfaches `>`, ueber zwei Zeilen, nicht geschlossen) erscheinen als WARNUNG auf stderr, Marker in Backticks werden ignoriert
@@ -71,7 +72,7 @@ legal-audit-de/
 │   └── marketplace.json                # Marketplace-Metadaten
 ├── .claude/
 │   ├── settings.json                   # Permissions
-│   ├── commands/{legal-audit,legal-audit-live,legal-doc-check,legal-kb,legal-verify,legal-update,legal-audit-de-update,legal-status,legal-pro-mode}.md
+│   ├── commands/{legal-audit,legal-audit-live,legal-client-test,legal-doc-check,legal-kb,legal-verify,legal-update,legal-audit-de-update,legal-status,legal-pro-mode}.md
 │   ├── agents/{legal-auditor,legal-researcher,legal-text-writer}.md   # plus je eine -pro-Variante
 │   ├── skills/{legal-audit-codebase,legal-kb-lookup,legal-verify-experts,legal-update-sources}/SKILL.md
 │   └── hooks/
@@ -100,10 +101,10 @@ legal-audit-de/
 │   ├── checklisten/                    # Audit-Checklisten pro Codebase-Typ
 │   └── anwaelte-tools/                 # Verifikations-Empfehlungen
 ├── audits/                             # Schatten-Archiv aller Audits (lokal, .gitignored)
-├── templates/                          # LegalAudit-, Clean-, Disclaimer-Templates, git-hooks/, mcp/
+├── templates/                          # LegalAudit-, Clean-, Disclaimer-Templates, git-hooks/, mcp/, client-test/ (Katalog, HTML-Vorlage, CSS, IBM Plex OFL-1.1)
 ├── docs/                               # Doku-Site (GitHub Pages)
 ├── tests/                              # Offline-Unit-Tests (`python -m unittest discover -s tests`)
-└── scripts/                            # Python-Hilfsskripte und Paket citation_check/
+└── scripts/                            # Python-Hilfsskripte, Pakete citation_check/ und client_report/, Einstieg client-test.py
 ```
 
 ### Hook-Mechanik (Kern-Innovation)
@@ -246,4 +247,4 @@ KB-Frontmatter unterstuetzt seit dieser Integration die optionalen Felder `eli:`
 - **Anwalts-/Tool-Liste:** Halbjährlich per `/legal-update anwaelte-tools` prüfen.
 - **Release:** Nach dem Merge eines Release-PR läuft der Workflow `release.yml` (Auslöser: Tag `vX.Y.Z`) und baut Bundles sowie GitHub-Release selbst; Tag, GitHub-Release und Bundles nicht von Hand anlegen.
 - **Verifikationsstand (Stand 2026-11-15):** `python scripts/legal-status.py --json` meldet 66 KB-Dateien (65 plus `INDEX.md`): 28 frisch, 37 teilverifiziert (`teilverifiziert-am`, nie frisch), 0 stale, 1 ohne Frontmatter; `python scripts/find-placeholders.py` zählt 52 offene Marker `<<VERIFIKATION AUSSTEHEND>>` in 37 Dateien, keinen `<<UNVERIFIZIERT>>`.
-- **CI:** `validate.yml` mit den Jobs Platform-Adapter Sync-Check, Zitatprüfung Unit-Tests (`python -m unittest discover -s tests`, zuletzt 415 Tests, 7 übersprungen), Pro-Mode Agent-Variant Drift-Check, Pro-Mode Toggle Smoke-Test, Disclaimer-Validation, Platzhalter-Scan (informativ) und Markdown-Lint (relaxed).
+- **CI:** `validate.yml` mit den Jobs Platform-Adapter Sync-Check, Zitatprüfung Unit-Tests (`python -m unittest discover -s tests`, zuletzt 676 Tests, 8 übersprungen), Pro-Mode Agent-Variant Drift-Check, Pro-Mode Toggle Smoke-Test, Disclaimer-Validation, Platzhalter-Scan (informativ) und Markdown-Lint (relaxed).

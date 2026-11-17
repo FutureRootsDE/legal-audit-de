@@ -45,6 +45,7 @@ Jede vom Plugin erzeugte Output-Datei muss diesen Disclaimer am Kopf tragen. Auf
 |----|----|----|
 | `legal-audit <pfad>` | Vollstaendiger Codebase-Audit → LegalAudit.md + clean/ + SUMMARY.md | Claude / Codex / Copilot |
 | `legal-audit-live <url>` | Live-Browser-Check via chrome-devtools-mcp (Cookie-Banner, Google-Fonts-Leak, Tracking) | Claude (voll) / Codex+Copilot (nur wenn MCP konfiguriert) |
+| `legal-client-test <url>` | Website-CheckUp fuer Agenturen: passive Pruefung, Report als HTML und PDF mit eigenem Briefkopf (keine Rechtsberatung) | Claude (voll) / Codex+Copilot (nur mit MCP; Copilot nur mit Plugin im Workspace) |
 | `legal-doc-check <datei>` | Einzeldokument-Pruefung (AGB, DSE, Impressum, Widerruf, Cookie-Policy) | Claude / Codex / Copilot |
 | `legal-kb <slug>` | KB-Artikel gezielt laden | Claude / Codex / Copilot |
 | `legal-verify <thema>` | Fachanwalts-/Tool-Empfehlungen | Claude / Codex / Copilot |
