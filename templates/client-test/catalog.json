@@ -176,7 +176,7 @@
       "id": "CK-02",
       "area": "CK",
       "title": "Keine Analyse- oder Werbe-Cookies oder Speichereinträge vor Einwilligung",
-      "description": "Wir prüfen, welche Cookies und Einträge im Browserspeicher vor einer Auswahl im Banner gesetzt werden. Als auffällig werten wir nur Einträge, die eindeutig einem bekannten Analyse- oder Werbedienst zuzuordnen sind; Einträge, die sich keinem Dienst sicher zuordnen lassen, erscheinen höchstens als Hinweis.",
+      "description": "Wir prüfen, welche Cookies und Einträge im Browserspeicher vor einer Auswahl im Banner gesetzt werden. Als auffällig werten wir nur Einträge, die eindeutig einem bekannten Analyse- oder Werbedienst zuzuordnen sind, und zwar nach dem Namen (_ga, _ga_*, _gid, _gat*, _gcl_au, _gcl_*, _fbp, _fbc, _hjSession*, _hjid, _hj*, _uetsid, _uetvid, _ttp, _pin_unauth, li_fat_id, IDE, test_cookie, MUID, _clck, _clsk) oder nach der Domain (google-analytics.com, googletagmanager.com, doubleclick.net, googleadservices.com, facebook.com, facebook.net, connect.facebook.net, hotjar.com, bing.com, clarity.ms, tiktok.com, pinterest.com, linkedin.com, licdn.com, matomo.cloud). Alle anderen Einträge erscheinen höchstens als Hinweis.",
       "legal_basis": [
         {
           "norm": "§ 25 TDDDG",
@@ -498,7 +498,7 @@
       "applies_if": [],
       "always_run": false,
       "basis": "measurable",
-      "max_status": null,
+      "max_status": "notice",
       "not_applicable_reason": "",
       "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach Strict-Transport-Security suchen."
     },
@@ -642,7 +642,7 @@
       "applies_if": [],
       "always_run": false,
       "basis": "measurable",
-      "max_status": null,
+      "max_status": "notice",
       "not_applicable_reason": "",
       "retest_default": "In den Entwicklerwerkzeugen unter Anwendung die Cookies ansehen und die Spalten Secure, HttpOnly und SameSite prüfen."
     },
@@ -910,7 +910,7 @@
       "id": "SHOP-02",
       "area": "SHOP",
       "title": "Beschriftung des Bestellbuttons",
-      "description": "Wir prüfen, ob die Schaltfläche, mit der eine Bestellung abgeschickt wird, auf die Zahlungspflicht hinweist, etwa mit „zahlungspflichtig bestellen“. Liegt sie hinter Anmeldung oder Eingaben, ist sie passiv nicht prüfbar.",
+      "description": "Wir prüfen, ob es am Ende des Bestellablaufs eine Schaltfläche zum Abschicken der Bestellung gibt, und notieren ihre Beschriftung. Als auffällig werten wir nur eine fehlende Schaltfläche. Lautet die Beschriftung anders als „zahlungspflichtig bestellen“, ist es eine Rechtsfrage, ob sie entsprechend eindeutig ist; das erscheint höchstens als Hinweis mit Prüffrage für die Rechtsberatung. Liegt die Schaltfläche hinter Anmeldung oder Eingaben, ist sie passiv nicht prüfbar.",
       "legal_basis": [
         {
           "norm": "§ 312j Abs. 3 BGB",
@@ -954,7 +954,7 @@
       "id": "SHOP-04",
       "area": "SHOP",
       "title": "Widerrufsfunktion „Vertrag widerrufen“",
-      "description": "Wir prüfen, ob eine Schaltfläche zum Widerrufen von Verträgen vorhanden ist, beschriftet mit „Vertrag widerrufen“ oder gleichbedeutend. Den Bestätigungsschritt können wir passiv meist nicht prüfen.",
+      "description": "Wir prüfen, ob eine Schaltfläche zum Widerrufen von Verträgen vorhanden ist, und notieren ihre Beschriftung. Als auffällig werten wir nur eine fehlende Schaltfläche. Lautet die Beschriftung anders als „Vertrag widerrufen“, ist es eine Rechtsfrage, ob sie gleichbedeutend und eindeutig ist; das erscheint höchstens als Hinweis mit Prüffrage für die Rechtsberatung. Den Bestätigungsschritt können wir passiv meist nicht prüfen.",
       "legal_basis": [
         {
           "norm": "§ 356a BGB",
@@ -976,7 +976,7 @@
       "id": "SHOP-05",
       "area": "SHOP",
       "title": "Kündigungsschaltfläche für Abo-Verträge",
-      "description": "Wir prüfen, ob für Abo-Verträge eine Schaltfläche „Verträge hier kündigen“ oder gleichbedeutend leicht auffindbar ist. Für Finanzdienstleistungen gilt eine Ausnahme.",
+      "description": "Wir prüfen, ob für Abo-Verträge eine Kündigungsschaltfläche vorhanden ist, und notieren ihre Beschriftung und wo sie steht. Als auffällig werten wir nur eine fehlende Schaltfläche. Lautet die Beschriftung anders als „Verträge hier kündigen“, ist es eine Rechtsfrage, ob sie gleichbedeutend und eindeutig ist; das erscheint höchstens als Hinweis mit Prüffrage für die Rechtsberatung. Für Finanzdienstleistungen gilt eine Ausnahme.",
       "legal_basis": [
         {
           "norm": "§ 312k BGB",

@@ -51,7 +51,7 @@
     "bfsg": {
       "value": false,
       "source": "user",
-      "note": "Kleinstunternehmen, weniger als 10 Beschäftigte laut Auskunft."
+      "note": "Angabe des Kunden ohne weitere Erläuterung."
     },
     "subscription": {
       "value": false,
@@ -78,14 +78,14 @@
   },
   "summary": {
     "sentences": [
-      "Die Prüfung der lokalen Testseite fand vier Auffälligkeiten und sieben Hinweise.",
-      "Am wichtigsten sind die Schriften von einem fremden Server, das fehlende Ablehnen im Cookie-Banner und der fehlende Strict-Transport-Security-Header.",
-      "Ein Schritt war bei der lokalen http-Adresse nicht prüfbar."
+      "Die Prüfung der lokalen Testseite fand drei Auffälligkeiten und sieben Hinweise.",
+      "Am wichtigsten sind die Schriften von einem fremden Server und das fehlende Ablehnen im Cookie-Banner.",
+      "Zwei Prüfschritte zur Verschlüsselung waren bei der lokalen http-Adresse nicht prüfbar."
     ],
     "top_actions": [
       "CK-01",
-      "CK-03",
-      "SEC-02"
+      "DRT-01",
+      "CK-03"
     ]
   },
   "results": [
@@ -204,8 +204,8 @@
       "reason": null,
       "one_liner": "Das Cookie-Banner bietet auf der ersten Ebene nur die Schaltfläche „Alle akzeptieren“.",
       "client_text": "Im Cookie-Banner der Startseite gibt es nur die Schaltfläche „Alle akzeptieren“. Eine Schaltfläche zum Ablehnen ist auf der ersten Ebene nicht vorhanden.",
-      "client_action": "Bitten Sie Ihre Webagentur, im Banner eine gleichwertige Schaltfläche „Alle ablehnen“ auf der ersten Ebene zu ergänzen.",
-      "risk": "Ohne gleichwertige Ablehnen-Schaltfläche kann die Einwilligung datenschutzrechtlich in Frage gestellt werden.",
+      "client_action": "Bitten Sie Ihre Webagentur, im Banner eine Schaltfläche „Alle ablehnen“ auf der ersten Ebene zu ergänzen.",
+      "risk": "Wie leicht sich Cookies ablehnen lassen, ist bei Einwilligungen ein häufiger Prüfpunkt der Datenschutzaufsicht.",
       "evidence": [
         {
           "kind": "screenshot",
@@ -221,7 +221,7 @@
       "fix": {
         "steps": [
           "Im Banner eine Schaltfläche „Alle ablehnen“ ergänzen.",
-          "Die Schaltfläche optisch gleichwertig zu „Alle akzeptieren“ gestalten."
+          "Die Schaltfläche in Größe und Farbe ähnlich wie „Alle akzeptieren“ gestalten."
         ],
         "effort": {
           "level": "gering",
@@ -333,40 +333,9 @@
     },
     {
       "id": "SEC-02",
-      "status": "defect",
-      "severity": "MED",
-      "severity_original": null,
-      "reason_kind": null,
-      "reason": null,
-      "one_liner": "Die Antwort der Startseite enthält keinen Strict-Transport-Security-Header.",
-      "client_text": "Die Antwortköpfe der Startseite enthalten keine Angabe zu Strict-Transport-Security.",
-      "client_action": "Bitten Sie Ihren Hosting-Anbieter, den Header Strict-Transport-Security zu setzen.",
-      "risk": "Ohne diesen Header kann ein Browser eine Verbindung leichter auf unverschlüsseltes HTTP herabstufen.",
-      "evidence": [
-        {
-          "kind": "header",
-          "excerpt": "HTTP/1.0 200 OK\nServer: SimpleHTTP/0.6 Python/3.10\nContent-Type: text/html"
-        }
-      ],
-      "fix": {
-        "steps": [
-          "Im Webserver den Header Strict-Transport-Security mit einer Laufzeit von mindestens einem Jahr setzen."
-        ],
-        "effort": {
-          "level": "gering",
-          "minutes": 15
-        }
-      },
-      "retest": {
-        "how": "Die Antwortköpfe der Startseite abrufen und auf Strict-Transport-Security prüfen.",
-        "command": "curl -sI http://127.0.0.1:8765/"
-      },
-      "references": [
-        "https://developer.mozilla.org/de/docs/Web/HTTP/Headers/Strict-Transport-Security"
-      ],
-      "checklist": [
-        "Antwort enthält Strict-Transport-Security"
-      ]
+      "status": "none",
+      "reason_kind": "not_checkable",
+      "reason": "Der Testlauf erfolgte gegen eine lokale http-Adresse. Browser beachten den Header Strict-Transport-Security nur bei verschlüsselten https-Verbindungen, über http wird er nicht ausgewertet. Er lässt sich hier deshalb nicht prüfen."
     },
     {
       "id": "SEC-03",
@@ -627,7 +596,7 @@
       "one_liner": "Ob der Hinweis zur Verbraucherschlichtung hier gilt, ist noch offen.",
       "client_text": "Es ist bisher nicht geklärt, ob das Unternehmen mehr als zehn Beschäftigte hat. Im Impressum steht kein Hinweis zur Verbraucherschlichtung.",
       "client_action": "Klären Sie mit Ihrem Kunden die Zahl der Beschäftigten am 31.12. des Vorjahres.",
-      "risk": "Fehlt ein vorgeschriebener Hinweis, kann das Abmahnungen auslösen.",
+      "risk": "Das Verbraucherstreitbeilegungsgesetz sieht für Unternehmen ab einer bestimmten Zahl von Beschäftigten einen Hinweis zur Verbraucherschlichtung auf der Website vor.",
       "evidence": [
         {
           "kind": "dom",
