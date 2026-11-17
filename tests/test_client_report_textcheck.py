@@ -47,11 +47,58 @@ SPEC_MINIMUM = (
     "rechtswidrig", "Verstoß", "verstößt", "unzulässig", "illegal", "abmahnfähig",
 )
 
+# Review extension (RDG line, spec 6.8/6.10): words that state a legal verdict.
+RDG_EXTENSION = (
+    "konform", "widrig", "nicht zulässig", "nicht erlaubt", "verboten", "verletzt", "unwirksam",
+    "nichtig", "rechtmäßig", "verstieß", "abmahnbar", "abmahngefährdet", "abmahnfest",
+    "Abmahnung droht", "Bußgeld droht", "strafbar", "garantieren",
+)
+
 
 class ForbiddenPhrasesFile(unittest.TestCase):
     def test_contains_spec_minimum_and_a1_words(self):
         for phrase in SPEC_MINIMUM + ("bestanden", "Mangel"):
             self.assertIn(phrase, PHRASES)
+
+    def test_contains_rdg_extension(self):
+        for phrase in RDG_EXTENSION:
+            self.assertIn(phrase, PHRASES)
+
+    def test_verdict_words_in_sentences_are_found(self):
+        cases = {
+            "Die Seite ist DSGVO-konform.": "konform",
+            "Das Banner ist widrig gestaltet.": "widrig",
+            "Das Tracking ist nicht zulässig.": "nicht zulässig",
+            "Das ist so nicht erlaubt.": "nicht erlaubt",
+            "Das Einbinden ist verboten.": "verboten",
+            "Damit wird die DSGVO verletzt.": "verletzt",
+            "Die Klausel ist unwirksam.": "unwirksam",
+            "Der Vertrag ist nichtig.": "nichtig",
+            "Die Verarbeitung ist rechtmäßig.": "rechtmäßig",
+            "Die Seite verstieß gegen Vorgaben.": "verstieß",
+            "Das ist abmahnbar.": "abmahnbar",
+            "Die Seite ist ABMAHNGEFÄHRDET.": "abmahngefährdet",
+            "Danach ist die Seite abmahnfest.": "abmahnfest",
+            "Eine Abmahnung droht.": "Abmahnung droht",
+            "Ein Bussgeld droht.": "Bußgeld droht",
+            "Das ist strafbar.": "strafbar",
+            "Wir garantieren nichts.": "garantieren",
+        }
+        for text, phrase in cases.items():
+            self.assertIn(phrase, find_forbidden(text, PHRASES), text)
+
+    def test_shorter_phrase_inside_longer_one_is_reported_once(self):
+        self.assertEqual(find_forbidden("Das ist rechtswidrig.", PHRASES), ["rechtswidrig"])
+        self.assertEqual(find_forbidden("100 % konform", PHRASES), ["100 % konform"])
+        # a separate occurrence of the shorter word is still reported
+        self.assertEqual(find_forbidden("rechtswidrig und sonst widrig", PHRASES), ["rechtswidrig", "widrig"])
+        self.assertEqual(find_forbidden("100 % konform, also konform", PHRASES), ["100 % konform", "konform"])
+
+    def test_known_false_alarms_are_strict_on_purpose(self):
+        # Substring matching is intentionally strict (documented in the textcheck docstring).
+        self.assertIn("konform", find_forbidden("Konformitätserklärung", PHRASES))
+        self.assertIn("widrig", find_forbidden("widrigenfalls", PHRASES))
+        self.assertEqual(find_forbidden("Das wird berücksichtigt.", PHRASES), [])
 
     def test_default_path_does_not_depend_on_cwd(self):
         old = os.getcwd()
@@ -105,6 +152,54 @@ class Normalize(unittest.TestCase):
         self.assertEqual(normalize("Straße  ÄRGER x"), normalize("strasse aerger x"))
 
 
+class Bypasses(unittest.TestCase):
+    """Review findings: invisible characters, compatibility forms, minus signs, homoglyphs."""
+
+    def test_invisible_format_and_filler_characters_are_removed(self):
+        invisible = [
+            "‎", "‏", "‪", "‮", "⁡", "⁤", "⁦", "⁩",
+            "؜", "\U000e0041", "\U000e0001", "᠎", "­", "͏", "ᅟ",
+            "ᅠ", "ㅤ", "︀", "️", "﻿", "​",
+        ]
+        for ch in invisible:
+            text = f"Das ist ver{ch}boten und Ver{ch}stoß und il{ch}legal."
+            found = find_forbidden(text, PHRASES)
+            for phrase in ("verboten", "Verstoß", "illegal"):
+                self.assertIn(phrase, found, f"U+{ord(ch):04X}")
+
+    def test_fullwidth_letters_are_recognised(self):
+        self.assertIn("illegal", find_forbidden("Das ist ｉｌｌｅｇａｌ.", PHRASES))
+        self.assertIn("rechtssicher", find_forbidden("ＲＥＣＨＴＳＳＩＣＨＥＲ", PHRASES))
+
+    def test_minus_like_characters_inside_word_count_as_hyphen(self):
+        for ch in ("−", "－", "﹣"):
+            self.assertIn("rechtswidrig", find_forbidden(f"rechts{ch}widrig", PHRASES), f"U+{ord(ch):04X}")
+            self.assertIn("unzulässig", find_forbidden(f"un{ch}zulässig", PHRASES), f"U+{ord(ch):04X}")
+
+    def test_homoglyphs_of_latin_letters_are_folded(self):
+        cases = {
+            "Vеrstoß": "Verstoß",            # Cyrillic e
+            "іllegal": "illegal",                  # Cyrillic i
+            "ıllegal": "illegal",                  # dotless i
+            "gаrantiert": "garantiert",            # Cyrillic a
+            "reсhtssiсher": "rechtssicher",   # Cyrillic c
+            "verbоten": "verboten",                # Cyrillic o
+            "ΑBMAHNFÄHIG": "abmahnfähig",     # Greek capital alpha
+            "ILLΕGAL": "illegal",                  # Greek capital epsilon
+            "ΜΑΝGEL": "Mangel",          # Greek capitals mu, alpha, nu
+            "VERSTΟẞ": "Verstoß",             # Greek omicron, capital sharp s
+            "abmahnfähig р": "abmahnfähig",        # Cyrillic er (looks like p) does not break
+            "aрр strаfbаr": "strafbar",
+            "Χ garantіeren": "garantieren",   # Greek capital chi, Cyrillic i
+        }
+        for text, phrase in cases.items():
+            self.assertIn(phrase, find_forbidden(text, PHRASES), text)
+
+    def test_line_break_inside_word_is_not_joined(self):
+        # Joining lines would merge separate words and cause false alarms (decision in the review).
+        self.assertNotIn("Verstoß", find_forbidden("Ver\nstoß", PHRASES))
+
+
 class Dashes(unittest.TestCase):
     def test_em_en_and_spaced_hyphen(self):
         self.assertEqual(len(find_dashes("A — B")), 1)
@@ -122,6 +217,26 @@ class Dashes(unittest.TestCase):
 
     def test_compound_hyphen_allowed(self):
         self.assertEqual(find_dashes("Cookie-Banner, E-Mail, Website-CheckUp"), [])
+
+    def test_double_and_triple_hyphen_as_dash(self):
+        for text in ("A -- B", "A --- B", "A--B", "Banner--fehlt", "Banner---fehlt", "A ‐‐ B",
+                     "A −− B", "A －－ B", "A ﹣ B", "A ---- B", "Banner​--fehlt", "Banner -- fehlt."):
+            self.assertEqual(len(find_dashes(text)), 1, repr(text))
+
+    def test_each_spaced_hyphen_counts(self):
+        self.assertEqual(len(find_dashes("A - B - C")), 2)
+
+    def test_no_false_alarm_for_compounds_and_ranges(self):
+        for text in ("E-Mail", "DSGVO-Hinweis", "01.01.2026-31.12.2026", "Cookie-Banner-Text",
+                     "Seiten 3-5", "Hinweis (z. B. Opt-in)"):
+            self.assertEqual(find_dashes(text), [], text)
+
+    def test_double_hyphen_message_is_dash_free(self):
+        issues = check_texts([("x", "Banner--fehlt und A --- B")], PHRASES)
+        self.assertEqual(len(issues), 2)
+        for issue in issues:
+            self.assertEqual(find_dashes(issue.message), [], issue.message)
+            self.assertIn("U+002D", issue.message)
 
     def test_bullet_allowed(self):
         self.assertEqual(find_dashes(TITLE), [])
@@ -163,6 +278,17 @@ class FixedStrings(unittest.TestCase):
         for s in ALL_FIXED_STRINGS:
             self.assertEqual(find_forbidden(s, PHRASES), [], s)
             self.assertEqual(find_dashes(s.replace(STATUS_SYMBOL["none"], "")), [], s)
+
+    def test_fixed_strings_pass_full_list_and_dash_check(self):
+        # Only documented exception: the status symbol "–" for "Nicht prüfbar / nicht anwendbar".
+        # It is a stand-alone template element, never part of a sentence.
+        self.assertEqual(find_dashes(STATUS_SYMBOL["none"]), ["–"])
+        for s in ALL_FIXED_STRINGS:
+            self.assertEqual(find_forbidden(s, PHRASES), [], s)
+            if s != STATUS_SYMBOL["none"]:
+                self.assertEqual(find_dashes(s), [], s)
+        for word in RDG_EXTENSION:
+            self.assertIn(word, PHRASES)
 
     def test_disclaimers_contain_required_parts(self):
         for s in (DISCLAIMER_SHORT, DISCLAIMER_FULL):
