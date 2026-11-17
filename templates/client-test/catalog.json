@@ -1,0 +1,1295 @@
+{
+  "catalog_version": "2026.11-1",
+  "areas": [
+    {
+      "prefix": "IMP",
+      "title": "Impressum",
+      "intro": "Das Impressum zeigt, wer hinter der Website steht und wie man das Unternehmen erreicht."
+    },
+    {
+      "prefix": "DSE",
+      "title": "Datenschutzerklärung",
+      "intro": "Die Datenschutzerklärung informiert Besucherinnen und Besucher darüber, welche Daten die Website verarbeitet."
+    },
+    {
+      "prefix": "CK",
+      "title": "Cookies und Einwilligung",
+      "intro": "Hier geht es darum, was die Website vor und nach einer Auswahl im Cookie-Banner lädt und speichert."
+    },
+    {
+      "prefix": "DRT",
+      "title": "Drittanbieter und Drittland",
+      "intro": "Viele Websites laden Inhalte von fremden Servern, zum Beispiel Schriften, Videos oder Karten; dabei wird die IP-Adresse der Besucher übertragen."
+    },
+    {
+      "prefix": "SEC",
+      "title": "Sicherheit",
+      "intro": "Hier geht es um technische Schutzmaßnahmen, die sich von außen beobachten lassen, etwa Verschlüsselung und Sicherheits-Header."
+    },
+    {
+      "prefix": "FRM",
+      "title": "Formulare",
+      "intro": "Formulare wie Kontakt- oder Newsletter-Formulare erheben personenbezogene Daten; wir prüfen sie nur von außen und senden nichts ab."
+    },
+    {
+      "prefix": "A11Y",
+      "title": "Barrierefreiheit",
+      "intro": "Barrierefreiheit heißt, dass auch Menschen mit Einschränkungen die Website nutzen können; automatische Tests erfassen davon nur einen Teil."
+    },
+    {
+      "prefix": "SHOP",
+      "title": "Verbraucher- und Shop-Pflichten",
+      "intro": "Diese Punkte betreffen Online-Shops und Verträge mit Verbraucherinnen und Verbrauchern."
+    },
+    {
+      "prefix": "UWG",
+      "title": "Werbung, Umweltaussagen und Bewertungen",
+      "intro": "Hier geht es um Werbeaussagen, für die besondere Regeln gelten, etwa Umweltaussagen und Kundenbewertungen."
+    },
+    {
+      "prefix": "KI",
+      "title": "KI-Transparenz",
+      "intro": "Hier geht es um Hinweise, wenn auf der Website künstliche Intelligenz eingesetzt wird, etwa in einem Chat."
+    },
+    {
+      "prefix": "DSA",
+      "title": "Plattform-Funktionen",
+      "intro": "Diese Punkte betreffen Websites, auf denen Nutzerinnen und Nutzer eigene Inhalte veröffentlichen können, etwa Foren oder Bewertungsbereiche."
+    }
+  ],
+  "entries": [
+    {
+      "id": "IMP-01",
+      "area": "IMP",
+      "title": "Impressum vorhanden und mit einem Klick erreichbar",
+      "description": "Wir prüfen, ob auf den besuchten Seiten ein Link zum Impressum vorhanden ist und das Impressum mit einem Klick erreichbar ist.",
+      "legal_basis": [
+        {
+          "norm": "§ 5 DDG",
+          "valid_from": "2024-05-14",
+          "kb_ref": "gesetze/ddg.md:39"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Startseite und zwei Unterseiten öffnen und prüfen, ob der Link zum Impressum sichtbar ist und mit einem Klick zum Impressum führt."
+    },
+    {
+      "id": "IMP-02",
+      "area": "IMP",
+      "title": "Anschrift und Kontaktweg im Impressum",
+      "description": "Wir prüfen, ob das Impressum eine Anschrift und einen schnellen elektronischen Kontaktweg wie eine E-Mail-Adresse enthält.",
+      "legal_basis": [
+        {
+          "norm": "§ 5 DDG",
+          "valid_from": "2024-05-14",
+          "kb_ref": "gesetze/ddg.md:39"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Impressum öffnen und nachsehen, ob Anschrift und E-Mail-Adresse angegeben sind."
+    },
+    {
+      "id": "IMP-03",
+      "area": "IMP",
+      "title": "Register-, Steuer- und Vertretungsangaben",
+      "description": "Wir prüfen, ob im Impressum Angaben zu Registereintrag, Umsatzsteuer-Identifikationsnummer und vertretungsberechtigten Personen zu finden sind. Welche Angaben im Einzelfall nötig sind, hängt unter anderem von der Rechtsform ab.",
+      "legal_basis": [
+        {
+          "norm": "§ 5 DDG",
+          "valid_from": "2024-05-14",
+          "kb_ref": "gesetze/ddg.md:39"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Impressum öffnen und die gefundenen Angaben mit dem Registereintrag und den Unterlagen des Unternehmens abgleichen."
+    },
+    {
+      "id": "DSE-01",
+      "area": "DSE",
+      "title": "Datenschutzerklärung vorhanden und erreichbar",
+      "description": "Wir prüfen, ob eine Datenschutzerklärung vorhanden ist und von jeder besuchten Seite mit einem Klick erreichbar ist.",
+      "legal_basis": [
+        {
+          "norm": "Art. 13 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/datenschutzerklaerung.md:30"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Mehrere Seiten öffnen und prüfen, ob der Link zur Datenschutzerklärung sichtbar ist und funktioniert."
+    },
+    {
+      "id": "DSE-02",
+      "area": "DSE",
+      "title": "Beobachtete Dienste in der Datenschutzerklärung",
+      "description": "Wir gleichen die beim Besuch beobachteten Dienste, etwa für Analyse oder Karten, mit der Datenschutzerklärung ab und notieren, welche Dienste wir dort nicht gefunden haben.",
+      "legal_basis": [
+        {
+          "norm": "Art. 13 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/datenschutzerklaerung.md:30"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Die Liste der beobachteten Dienste mit der aktuellen Datenschutzerklärung abgleichen."
+    },
+    {
+      "id": "CK-01",
+      "area": "CK",
+      "title": "Keine Analyse- oder Werbe-Requests vor Einwilligung",
+      "description": "Wir prüfen im Netzwerkprotokoll, ob beim ersten Aufruf vor einer Auswahl im Banner Verbindungen zu Analyse- oder Werbediensten aufgebaut werden.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite im privaten Fenster öffnen, im Banner nichts anklicken und im Netzwerkprotokoll der Entwicklerwerkzeuge nach Analyse- und Werbediensten suchen."
+    },
+    {
+      "id": "CK-02",
+      "area": "CK",
+      "title": "Keine nicht notwendigen Cookies oder Speichereinträge vor Einwilligung",
+      "description": "Wir prüfen, welche Cookies und Einträge im Browserspeicher vor einer Auswahl im Banner gesetzt werden, und notieren solche von Analyse- oder Werbediensten.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite im privaten Fenster öffnen, im Banner nichts anklicken und in den Entwicklerwerkzeugen unter Anwendung die Cookies und den lokalen Speicher ansehen."
+    },
+    {
+      "id": "CK-03",
+      "area": "CK",
+      "title": "Ablehnen auf der ersten Ebene des Banners",
+      "description": "Wir prüfen, ob das Banner Inhalte verdeckt oder eine Auswahl erzwingt und ob man dann schon auf der ersten Ebene ablehnen kann.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG (Auslegungshilfe: DSK, OH Digitale Dienste, Rn. 124 f.)",
+          "valid_from": "2021-12-01",
+          "kb_ref": "themen/cookie-consent.md:59"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite im privaten Fenster öffnen und zählen, wie viele Klicks zum Ablehnen nötig sind."
+    },
+    {
+      "id": "CK-04",
+      "area": "CK",
+      "title": "Keine vorausgewählten Kästchen im Banner",
+      "description": "Wir prüfen, ob im Banner oder in seinen Einstellungen Kästchen für nicht notwendige Zwecke bereits angekreuzt sind.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Banner im privaten Fenster öffnen, die Einstellungen aufklappen und prüfen, ob Kästchen für Statistik oder Marketing schon aktiviert sind."
+    },
+    {
+      "id": "CK-05",
+      "area": "CK",
+      "title": "Nach dem Ablehnen Verhalten wie beim Erstbesuch",
+      "description": "Wir lehnen im Banner ab und prüfen, ob danach Verbindungen zu Analyse- oder Werbediensten aufgebaut oder entsprechende Cookies gesetzt werden.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Im privaten Fenster im Banner ablehnen, eine Unterseite aufrufen und Netzwerkprotokoll sowie Cookies ansehen."
+    },
+    {
+      "id": "CK-06",
+      "area": "CK",
+      "title": "Einwilligung jederzeit widerrufbar",
+      "description": "Wir prüfen, ob sich die Cookie-Einstellungen nach der Auswahl wieder aufrufen lassen, etwa über einen Link in der Fußzeile.",
+      "legal_basis": [
+        {
+          "norm": "Art. 7 Abs. 3 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/cookie-consent.md:54"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Nach einer Auswahl im Banner den Link zu den Cookie-Einstellungen suchen und die Auswahl ändern."
+    },
+    {
+      "id": "CK-07",
+      "area": "CK",
+      "title": "Gestaltung von Annehmen und Ablehnen im Vergleich",
+      "description": "Wir beschreiben, wie die Schaltflächen zum Annehmen und zum Ablehnen gestaltet sind, etwa Farbe, Größe und Platzierung.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG (Auslegungshilfe: DSK, OH Digitale Dienste, Rn. 124 f.)",
+          "valid_from": "2021-12-01",
+          "kb_ref": "themen/cookie-consent.md:59"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Banner im privaten Fenster öffnen und die Gestaltung beider Schaltflächen vergleichen."
+    },
+    {
+      "id": "CK-08",
+      "area": "CK",
+      "title": "Banner auf dem Mobilgerät bedienbar",
+      "description": "Wir prüfen in der mobilen Ansicht, ob das Banner vollständig sichtbar ist und sich Annehmen, Ablehnen und Einstellungen bedienen lassen.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite auf dem Smartphone oder in der mobilen Ansicht der Entwicklerwerkzeuge öffnen und das Banner bedienen."
+    },
+    {
+      "id": "DRT-01",
+      "area": "DRT",
+      "title": "Schriften nicht von Google-Servern vor Einwilligung",
+      "description": "Wir prüfen, ob beim ersten Aufruf vor einer Auswahl im Banner Schriften von Servern von Google geladen werden.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        },
+        {
+          "norm": "Art. 44 ff. DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/drittland-transfer.md:88"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite im privaten Fenster öffnen, im Banner nichts anklicken und im Netzwerkprotokoll nach fonts.googleapis.com und fonts.gstatic.com suchen."
+    },
+    {
+      "id": "DRT-02",
+      "area": "DRT",
+      "title": "Videos erst nach Einwilligung",
+      "description": "Wir prüfen, ob eingebundene Videos, etwa von YouTube oder Vimeo, vor einer Einwilligung Verbindungen zu den Anbietern aufbauen.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        },
+        {
+          "norm": "Art. 44 ff. DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/cookie-consent.md:45"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite mit Video im privaten Fenster öffnen und vor jedem Klick im Netzwerkprotokoll nach youtube.com, ytimg.com oder vimeo.com suchen."
+    },
+    {
+      "id": "DRT-03",
+      "area": "DRT",
+      "title": "Karten erst nach Einwilligung",
+      "description": "Wir prüfen, ob eingebundene Karten, etwa von Google Maps, vor einer Einwilligung Verbindungen zum Anbieter aufbauen.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        },
+        {
+          "norm": "Art. 44 ff. DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/cookie-consent.md:90"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite mit Karte im privaten Fenster öffnen und vor jedem Klick im Netzwerkprotokoll nach maps.google.com oder maps.googleapis.com suchen."
+    },
+    {
+      "id": "DRT-04",
+      "area": "DRT",
+      "title": "Social-Media-Einbindungen erst nach Einwilligung",
+      "description": "Wir prüfen, ob Einbindungen sozialer Netzwerke, etwa Teilen-Schaltflächen oder eingebettete Beiträge, vor einer Einwilligung Verbindungen zu den Netzwerken aufbauen.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        },
+        {
+          "norm": "Art. 44 ff. DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/cookie-consent.md:90"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite im privaten Fenster öffnen, im Banner nichts anklicken und im Netzwerkprotokoll nach Anfragen an soziale Netzwerke suchen."
+    },
+    {
+      "id": "DRT-05",
+      "area": "DRT",
+      "title": "Externe Skripte und Ressourcen von CDNs",
+      "description": "Wir prüfen, welche Skripte und Ressourcen vor einer Einwilligung von fremden Servern wie Content Delivery Networks geladen werden.",
+      "legal_basis": [
+        {
+          "norm": "§ 25 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
+        },
+        {
+          "norm": "Art. 44 ff. DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/drittland-transfer.md:98"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite im privaten Fenster öffnen, im Banner nichts anklicken und das Netzwerkprotokoll nach Anfragen an fremde Domains filtern."
+    },
+    {
+      "id": "DRT-06",
+      "area": "DRT",
+      "title": "Dienste mit Sitz in Drittländern",
+      "description": "Wir listen beobachtete Dienste auf, deren Anbieter ihren Sitz außerhalb der EU und des EWR haben, und vermerken, ob der Anbieter unter dem EU-US Data Privacy Framework gelistet ist.",
+      "legal_basis": [
+        {
+          "norm": "Art. 44 ff. DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/drittland-transfer.md:112"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Die Liste der Dienste mit der Datenschutzerklärung und den Verträgen mit den Anbietern abgleichen."
+    },
+    {
+      "id": "SEC-01",
+      "area": "SEC",
+      "title": "HTTPS wird erzwungen",
+      "description": "Wir prüfen, ob Aufrufe über http automatisch auf eine verschlüsselte https-Verbindung umgeleitet werden.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:27"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Die http-Adresse mit dem angegebenen curl-Befehl abrufen und prüfen, ob auf https umgeleitet wird."
+    },
+    {
+      "id": "SEC-02",
+      "area": "SEC",
+      "title": "HSTS gesetzt",
+      "description": "Wir prüfen, ob der Server den Header Strict-Transport-Security sendet, der den Browser anweist, nur noch verschlüsselt zu verbinden.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:27"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach Strict-Transport-Security suchen."
+    },
+    {
+      "id": "SEC-03",
+      "area": "SEC",
+      "title": "Content-Security-Policy gesetzt",
+      "description": "Wir prüfen, ob der Server eine Content-Security-Policy sendet, die festlegt, von welchen Quellen die Seite Inhalte laden darf.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:27"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach Content-Security-Policy suchen."
+    },
+    {
+      "id": "SEC-04",
+      "area": "SEC",
+      "title": "Schutz vor Einbettung in fremde Seiten",
+      "description": "Wir prüfen, ob der Header X-Frame-Options oder die Angabe frame-ancestors in der Content-Security-Policy das Einbetten der Seite in fremde Seiten begrenzt.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:27"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach X-Frame-Options oder frame-ancestors suchen."
+    },
+    {
+      "id": "SEC-05",
+      "area": "SEC",
+      "title": "Referrer-Policy gesetzt",
+      "description": "Wir prüfen, ob der Server eine Referrer-Policy sendet, die regelt, welche Adressangaben beim Klick auf Links an andere Websites weitergegeben werden.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:27"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach Referrer-Policy suchen."
+    },
+    {
+      "id": "SEC-06",
+      "area": "SEC",
+      "title": "X-Content-Type-Options gesetzt",
+      "description": "Wir prüfen, ob der Server den Header X-Content-Type-Options mit dem Wert nosniff sendet.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:27"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach X-Content-Type-Options suchen."
+    },
+    {
+      "id": "SEC-07",
+      "area": "SEC",
+      "title": "Kein gemischter Inhalt",
+      "description": "Wir prüfen, ob verschlüsselte Seiten einzelne Inhalte wie Bilder oder Skripte über unverschlüsselte Verbindungen nachladen.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:27"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite öffnen und in der Konsole der Entwicklerwerkzeuge nach Meldungen zu Mixed Content suchen."
+    },
+    {
+      "id": "SEC-08",
+      "area": "SEC",
+      "title": "Sicherheitsmerkmale von Cookies",
+      "description": "Wir prüfen, ob gesetzte Cookies die Merkmale Secure, HttpOnly und SameSite tragen, soweit sie zur jeweiligen Funktion passen.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "themen/tom.md:96"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "In den Entwicklerwerkzeugen unter Anwendung die Cookies ansehen und die Spalten Secure, HttpOnly und SameSite prüfen."
+    },
+    {
+      "id": "FRM-01",
+      "area": "FRM",
+      "title": "Formulare verschlüsselt übertragen",
+      "description": "Wir prüfen, ob Formulare auf verschlüsselten Seiten stehen und ihre Daten an eine https-Adresse senden würden.",
+      "legal_basis": [
+        {
+          "norm": "Art. 32 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:95"
+        },
+        {
+          "norm": "§ 19 Abs. 4 TDDDG",
+          "valid_from": "2021-12-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:27"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Formularseite öffnen und im Quelltext das Ziel des Formulars prüfen, ohne es abzusenden."
+    },
+    {
+      "id": "FRM-02",
+      "area": "FRM",
+      "title": "Datenschutzhinweis am Formular",
+      "description": "Wir prüfen, ob am Formular ein Hinweis auf die Datenschutzerklärung oder eine kurze Information zur Verarbeitung der Daten steht.",
+      "legal_basis": [
+        {
+          "norm": "Art. 13 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/datenschutzerklaerung.md:30"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Formularseite öffnen und den Bereich um die Absenden-Schaltfläche lesen."
+    },
+    {
+      "id": "FRM-03",
+      "area": "FRM",
+      "title": "Einwilligungskästchen nicht vorausgewählt",
+      "description": "Wir prüfen, ob Kästchen für Einwilligungen, etwa für einen Newsletter, beim Aufruf bereits angekreuzt sind.",
+      "legal_basis": [
+        {
+          "norm": "Art. 4 Nr. 11, Art. 7 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/cookie-consent.md:52"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Formularseite im privaten Fenster neu laden und prüfen, ob Kästchen für Einwilligungen leer sind."
+    },
+    {
+      "id": "FRM-04",
+      "area": "FRM",
+      "title": "Pflichtfelder in Formularen",
+      "description": "Wir notieren, welche Felder als Pflichtfelder markiert sind, damit Sie prüfen können, ob jede Angabe für den Zweck des Formulars nötig ist.",
+      "legal_basis": [
+        {
+          "norm": "Art. 5 Abs. 1 lit. c DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:54"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Formularseite öffnen und die markierten Pflichtfelder mit dem Zweck des Formulars vergleichen."
+    },
+    {
+      "id": "FRM-05",
+      "area": "FRM",
+      "title": "Bestätigung der Newsletter-Anmeldung",
+      "description": "Wir prüfen, ob auf der Website ein Bestätigungsverfahren für die Newsletter-Anmeldung beschrieben ist (Double-Opt-in). Ob es tatsächlich abläuft, lässt sich ohne Absenden nicht prüfen.",
+      "legal_basis": [
+        {
+          "norm": "Art. 7 Abs. 1 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "themen/email-marketing.md:192"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Mit einer eigenen Test-Adresse anmelden und prüfen, ob vor dem ersten Newsletter eine Bestätigungs-E-Mail kommt."
+    },
+    {
+      "id": "A11Y-01",
+      "area": "A11Y",
+      "title": "Automatische Barrierefreiheitsprüfung mit Lighthouse",
+      "description": "Wir lassen die automatische Barrierefreiheitsprüfung von Lighthouse auf ausgewählten Seiten laufen und notieren die gemeldeten Punkte.",
+      "legal_basis": [
+        {
+          "norm": "BFSG",
+          "valid_from": "2025-06-28",
+          "kb_ref": "themen/barrierefreiheit.md:167"
+        }
+      ],
+      "applies_if": [],
+      "always_run": true,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "In Chrome die Entwicklerwerkzeuge öffnen, unter Lighthouse die Kategorie Barrierefreiheit wählen und die Prüfung starten."
+    },
+    {
+      "id": "A11Y-02",
+      "area": "A11Y",
+      "title": "Farbkontrast von Texten",
+      "description": "Wir messen Stichproben des Kontrasts zwischen Text und Hintergrund und vergleichen sie mit dem Richtwert 4,5 zu 1 für normalen Text.",
+      "legal_basis": [
+        {
+          "norm": "BFSG",
+          "valid_from": "2025-06-28",
+          "kb_ref": "themen/barrierefreiheit.md:91"
+        }
+      ],
+      "applies_if": [],
+      "always_run": true,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Den Kontrast mit einem Kontrastprüfer nachmessen, etwa mit dem in den Chrome-Entwicklerwerkzeugen."
+    },
+    {
+      "id": "A11Y-03",
+      "area": "A11Y",
+      "title": "Alternativtexte für Bilder",
+      "description": "Wir prüfen, ob Bilder mit Inhalt einen Alternativtext haben, den Screenreader vorlesen können.",
+      "legal_basis": [
+        {
+          "norm": "BFSG",
+          "valid_from": "2025-06-28",
+          "kb_ref": "themen/barrierefreiheit.md:85"
+        }
+      ],
+      "applies_if": [],
+      "always_run": true,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Im Quelltext oder in Lighthouse prüfen, ob Bilder ein aussagekräftiges alt-Attribut haben."
+    },
+    {
+      "id": "A11Y-04",
+      "area": "A11Y",
+      "title": "Bedienung mit der Tastatur und sichtbarer Fokus",
+      "description": "Wir prüfen in Stichproben, ob sich Menü, Links und Banner mit der Tabulatortaste erreichen lassen und ob der Fokus sichtbar ist.",
+      "legal_basis": [
+        {
+          "norm": "BFSG",
+          "valid_from": "2025-06-28",
+          "kb_ref": "themen/barrierefreiheit.md:99"
+        }
+      ],
+      "applies_if": [],
+      "always_run": true,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seite ohne Maus nur mit Tabulator- und Eingabetaste bedienen und auf die sichtbare Markierung achten."
+    },
+    {
+      "id": "A11Y-05",
+      "area": "A11Y",
+      "title": "Seitensprache angegeben",
+      "description": "Wir prüfen, ob im Quelltext die Sprache der Seite angegeben ist, damit Screenreader richtig vorlesen.",
+      "legal_basis": [
+        {
+          "norm": "BFSG",
+          "valid_from": "2025-06-28",
+          "kb_ref": "themen/barrierefreiheit.md:110"
+        }
+      ],
+      "applies_if": [],
+      "always_run": true,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Im Quelltext der Startseite prüfen, ob das html-Element ein lang-Attribut mit dem Wert de trägt."
+    },
+    {
+      "id": "A11Y-06",
+      "area": "A11Y",
+      "title": "Informationen zur Barrierefreiheit",
+      "description": "Wir prüfen, ob die Website Informationen zur Barrierefreiheit bereitstellt, etwa als eigene Seite mit Link in der Fußzeile.",
+      "legal_basis": [
+        {
+          "norm": "§ 14 Abs. 1 Nr. 2 BFSG i. V. m. Anlage 3",
+          "valid_from": "2025-06-28",
+          "kb_ref": "gesetze/bfsg.md:76"
+        }
+      ],
+      "applies_if": [],
+      "always_run": true,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "In der Fußzeile und im Impressum nach einem Link zu Informationen zur Barrierefreiheit suchen."
+    },
+    {
+      "id": "A11Y-07",
+      "area": "A11Y",
+      "title": "Beschriftung von Formularfeldern",
+      "description": "Wir prüfen, ob Formularfelder eine Beschriftung haben, die Hilfsmittel wie Screenreader auslesen können.",
+      "legal_basis": [
+        {
+          "norm": "BFSG",
+          "valid_from": "2025-06-28",
+          "kb_ref": "themen/barrierefreiheit.md:89"
+        }
+      ],
+      "applies_if": [],
+      "always_run": true,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "In Lighthouse oder im Quelltext prüfen, ob jedes Formularfeld ein zugeordnetes label-Element oder eine gleichwertige Beschriftung hat."
+    },
+    {
+      "id": "SHOP-01",
+      "area": "SHOP",
+      "title": "Preisangaben",
+      "description": "Wir prüfen auf Produktseiten, ob Gesamtpreise, Hinweise zu Versandkosten und, wo vorhanden, Grundpreise angegeben sind.",
+      "legal_basis": [
+        {
+          "norm": "PAngV",
+          "valid_from": "2022-05-28",
+          "kb_ref": "checklisten/audit-ecommerce.md:81"
+        }
+      ],
+      "applies_if": [
+        "shop",
+        "b2c"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website gibt es dort keinen Online-Shop für Verbraucherinnen und Verbraucher.",
+      "retest_default": "Mehrere Produktseiten öffnen und die Preisangaben mit den Vorgaben der PAngV abgleichen."
+    },
+    {
+      "id": "SHOP-02",
+      "area": "SHOP",
+      "title": "Beschriftung des Bestellbuttons",
+      "description": "Wir prüfen, ob die Schaltfläche, mit der eine Bestellung abgeschickt wird, auf die Zahlungspflicht hinweist, etwa mit „zahlungspflichtig bestellen“. Liegt sie hinter Anmeldung oder Eingaben, ist sie passiv nicht prüfbar.",
+      "legal_basis": [
+        {
+          "norm": "§ 312j Abs. 3 BGB",
+          "valid_from": "2012-08-01",
+          "kb_ref": "themen/button-loesung.md:27"
+        }
+      ],
+      "applies_if": [
+        "shop",
+        "b2c"
+      ],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website gibt es dort keinen Online-Shop für Verbraucherinnen und Verbraucher.",
+      "retest_default": "Im Bestellablauf bis zur letzten Seite gehen, ohne zu bestellen, und die Beschriftung der Schaltfläche lesen."
+    },
+    {
+      "id": "SHOP-03",
+      "area": "SHOP",
+      "title": "Widerrufsbelehrung",
+      "description": "Wir prüfen, ob auf der Website eine Widerrufsbelehrung zu finden ist, und notieren, wo sie steht.",
+      "legal_basis": [
+        {
+          "norm": "Art. 246a § 1 Abs. 2 EGBGB (Fassung seit 19.06.2026)",
+          "valid_from": "2026-06-19",
+          "kb_ref": "checklisten/audit-ecommerce.md:95"
+        }
+      ],
+      "applies_if": [
+        "shop",
+        "b2c"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website gibt es dort keinen Online-Shop für Verbraucherinnen und Verbraucher.",
+      "retest_default": "Fußzeile, Bestellablauf und AGB nach der Widerrufsbelehrung durchsuchen und den Inhalt mit dem gesetzlichen Muster abgleichen."
+    },
+    {
+      "id": "SHOP-04",
+      "area": "SHOP",
+      "title": "Widerrufsfunktion „Vertrag widerrufen“",
+      "description": "Wir prüfen, ob eine Schaltfläche zum Widerrufen von Verträgen vorhanden ist, beschriftet mit „Vertrag widerrufen“ oder gleichbedeutend. Den Bestätigungsschritt können wir passiv meist nicht prüfen.",
+      "legal_basis": [
+        {
+          "norm": "§ 356a BGB",
+          "valid_from": "2026-06-19",
+          "kb_ref": "checklisten/audit-ecommerce.md:100"
+        }
+      ],
+      "applies_if": [
+        "shop",
+        "b2c"
+      ],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website gibt es dort keinen Online-Shop für Verbraucherinnen und Verbraucher.",
+      "retest_default": "Startseite, Fußzeile und Kundenbereich nach der Schaltfläche „Vertrag widerrufen“ durchsuchen."
+    },
+    {
+      "id": "SHOP-05",
+      "area": "SHOP",
+      "title": "Kündigungsschaltfläche für Abo-Verträge",
+      "description": "Wir prüfen, ob für Abo-Verträge eine Schaltfläche „Verträge hier kündigen“ oder gleichbedeutend leicht auffindbar ist. Für Finanzdienstleistungen gilt eine Ausnahme.",
+      "legal_basis": [
+        {
+          "norm": "§ 312k BGB",
+          "valid_from": "2022-07-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:114"
+        }
+      ],
+      "applies_if": [
+        "b2c",
+        "subscription"
+      ],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website werden dort keine Abo-Verträge mit Verbraucherinnen und Verbrauchern geschlossen.",
+      "retest_default": "Startseite und Fußzeile nach der Schaltfläche „Verträge hier kündigen“ durchsuchen und prüfen, ob sie ohne Anmeldung erreichbar ist."
+    },
+    {
+      "id": "SHOP-06",
+      "area": "SHOP",
+      "title": "Produktsicherheitsangaben",
+      "description": "Wir prüfen auf Produktseiten, ob Angaben zum Hersteller, zur verantwortlichen Person in der EU und zur Identifikation des Produkts zu finden sind.",
+      "legal_basis": [
+        {
+          "norm": "Art. 19 VO (EU) 2023/988 (GPSR)",
+          "valid_from": "2024-12-13",
+          "kb_ref": "checklisten/audit-ecommerce.md:134"
+        }
+      ],
+      "applies_if": [
+        "shop",
+        "b2c"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website gibt es dort keinen Online-Shop für Verbraucherinnen und Verbraucher.",
+      "retest_default": "Mehrere Produktseiten öffnen und nach Herstellerangaben, Kontaktanschrift und Produktkennung suchen."
+    },
+    {
+      "id": "SHOP-07",
+      "area": "SHOP",
+      "title": "Veralteter Link zur OS-Plattform",
+      "description": "Wir prüfen, ob die Website noch auf die Plattform der EU zur Online-Streitbeilegung verweist, die am 20.07.2025 eingestellt wurde.",
+      "legal_basis": [
+        {
+          "norm": "Art. 1 VO (EU) 2024/3228",
+          "valid_from": "2025-07-20",
+          "kb_ref": "checklisten/audit-ecommerce.md:122"
+        }
+      ],
+      "applies_if": [
+        "shop",
+        "b2c"
+      ],
+      "always_run": false,
+      "basis": "measurable",
+      "max_status": "notice",
+      "not_applicable_reason": "Laut den Angaben zur Website gibt es dort keinen Online-Shop für Verbraucherinnen und Verbraucher.",
+      "retest_default": "Impressum, AGB und Fußzeile nach Links auf ec.europa.eu/consumers/odr durchsuchen."
+    },
+    {
+      "id": "SHOP-08",
+      "area": "SHOP",
+      "title": "Mitteilung zur gesetzlichen Gewährleistung",
+      "description": "Wir prüfen, ob bei den Informationen vor der Bestellung die harmonisierte Mitteilung zur gesetzlichen Gewährleistung zu finden ist.",
+      "legal_basis": [
+        {
+          "norm": "Art. 1 mit Anhang I DVO (EU) 2025/1960",
+          "valid_from": "2026-09-27",
+          "kb_ref": "checklisten/audit-ecommerce.md:101"
+        },
+        {
+          "norm": "Art. 246a § 1 Abs. 1 S. 1 Nr. 11 EGBGB",
+          "valid_from": "2026-09-27",
+          "kb_ref": "checklisten/audit-ecommerce.md:101"
+        }
+      ],
+      "applies_if": [
+        "shop",
+        "b2c"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website gibt es dort keinen Online-Shop für Verbraucherinnen und Verbraucher.",
+      "retest_default": "Produktseiten und Bestellablauf bis vor die Bestellung nach der farbigen Mitteilung zur gesetzlichen Gewährleistung durchsuchen."
+    },
+    {
+      "id": "SHOP-09",
+      "area": "SHOP",
+      "title": "Garantie-Label für Haltbarkeitsgarantien",
+      "description": "Wir prüfen, ob bei Waren mit kostenloser Haltbarkeitsgarantie des Herstellers über mehr als 2 Jahre das harmonisierte Garantie-Label zu finden ist. Die Platzierung direkt vor dem Bestellbutton liegt meist im Bestellablauf und ist dann passiv nicht prüfbar.",
+      "legal_basis": [
+        {
+          "norm": "Art. 2 mit Anhang II DVO (EU) 2025/1960",
+          "valid_from": "2026-09-27",
+          "kb_ref": "checklisten/audit-ecommerce.md:101"
+        },
+        {
+          "norm": "Art. 246a § 1 Abs. 1 S. 1 Nr. 11a EGBGB",
+          "valid_from": "2026-09-27",
+          "kb_ref": "checklisten/audit-ecommerce.md:103"
+        },
+        {
+          "norm": "§ 312j Abs. 2 BGB (Fassung seit 27.09.2026)",
+          "valid_from": "2026-09-27",
+          "kb_ref": "checklisten/audit-ecommerce.md:103"
+        }
+      ],
+      "applies_if": [
+        "shop",
+        "b2c",
+        "durability_guarantee"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website werden dort keine Waren mit kostenloser Haltbarkeitsgarantie des Herstellers über mehr als 2 Jahre an Verbraucherinnen und Verbraucher verkauft.",
+      "retest_default": "Produktseiten der betroffenen Waren und den Bestellablauf bis vor die Bestellung nach dem Garantie-Label durchsuchen."
+    },
+    {
+      "id": "SHOP-10",
+      "area": "SHOP",
+      "title": "Hinweis zur Verbraucherschlichtung",
+      "description": "Wir prüfen, ob die Website angibt, ob das Unternehmen bereit oder verpflichtet ist, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+      "legal_basis": [
+        {
+          "norm": "§ 36 VSBG",
+          "valid_from": "2017-02-01",
+          "kb_ref": "checklisten/audit-ecommerce.md:123"
+        }
+      ],
+      "applies_if": [
+        "b2c",
+        "more_than_10_employees"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website richtet sie sich nicht an Verbraucherinnen und Verbraucher, oder das Unternehmen beschäftigt höchstens 10 Personen.",
+      "retest_default": "Impressum, AGB und Fußzeile nach einem Hinweis zur Verbraucherschlichtung durchsuchen."
+    },
+    {
+      "id": "UWG-01",
+      "area": "UWG",
+      "title": "Umweltaussagen",
+      "description": "Wir notieren Umweltaussagen wie „klimaneutral“ oder „umweltfreundlich“, die wir auf der Website beobachtet haben, und ob auf der Seite ein Nachweis dazu zu finden ist.",
+      "legal_basis": [
+        {
+          "norm": "§ 5 Abs. 2 Nr. 1, Abs. 3 Nr. 3 und 4 UWG (Fassung seit 27.09.2026)",
+          "valid_from": "2026-09-27",
+          "kb_ref": "checklisten/audit-ecommerce.md:139"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Die notierten Aussagen auf der Website aufrufen und prüfen, ob Nachweise verlinkt sind."
+    },
+    {
+      "id": "UWG-02",
+      "area": "UWG",
+      "title": "Nachhaltigkeitssiegel",
+      "description": "Wir notieren Nachhaltigkeitssiegel, die wir auf der Website beobachtet haben, und ob Angaben zum dahinterstehenden Zertifizierungssystem zu finden sind.",
+      "legal_basis": [
+        {
+          "norm": "Anhang zu § 3 Abs. 3 Nr. 2a UWG",
+          "valid_from": "2026-09-27",
+          "kb_ref": "gesetze/uwg.md:62"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Die notierten Siegel auf der Website aufrufen und prüfen, ob die vergebende Stelle und ihr System genannt sind."
+    },
+    {
+      "id": "UWG-03",
+      "area": "UWG",
+      "title": "Hinweis zur Echtheit von Kundenbewertungen",
+      "description": "Wir prüfen, ob bei angezeigten Kundenbewertungen angegeben ist, ob und wie sichergestellt wird, dass die Bewertungen von Kundinnen und Kunden stammen.",
+      "legal_basis": [
+        {
+          "norm": "§ 5b Abs. 3 UWG",
+          "valid_from": "2022-05-28",
+          "kb_ref": "gesetze/uwg.md:160"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Seiten mit Bewertungen öffnen und in deren Umfeld nach einem Hinweis zur Herkunft der Bewertungen suchen."
+    },
+    {
+      "id": "KI-01",
+      "area": "KI",
+      "title": "Chat als KI erkennbar",
+      "description": "Wir prüfen, ob ein Chat auf der Website erkennbar macht, dass Besucherinnen und Besucher mit einem KI-System schreiben.",
+      "legal_basis": [
+        {
+          "norm": "Art. 50 Abs. 1 KI-VO",
+          "valid_from": "2026-08-02",
+          "kb_ref": "gesetze/ai-act.md:147"
+        }
+      ],
+      "applies_if": [
+        "ai_chat"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website gibt es dort keinen Chat mit künstlicher Intelligenz.",
+      "retest_default": "Den Chat öffnen und prüfen, ob vor der ersten Nachricht ein Hinweis auf den Einsatz von KI erscheint."
+    },
+    {
+      "id": "KI-02",
+      "area": "KI",
+      "title": "Kennzeichnung KI-erzeugter Inhalte",
+      "description": "Wir notieren Bilder, Videos oder Texte, die nach den Angaben der Website oder erkennbar mit KI erzeugt oder verändert wurden, und ob sie als solche gekennzeichnet sind.",
+      "legal_basis": [
+        {
+          "norm": "Art. 50 Abs. 4 KI-VO",
+          "valid_from": "2026-08-02",
+          "kb_ref": "themen/ki-transparenz.md:99"
+        }
+      ],
+      "applies_if": [],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "",
+      "retest_default": "Die notierten Inhalte aufrufen und prüfen, ob in ihrer Nähe ein Hinweis auf den Einsatz von KI steht."
+    },
+    {
+      "id": "DSA-01",
+      "area": "DSA",
+      "title": "Kontaktstellen für Behörden und Nutzer",
+      "description": "Wir prüfen, ob die Website eine Kontaktstelle für Behörden und eine Kontaktstelle für Nutzerinnen und Nutzer benennt.",
+      "legal_basis": [
+        {
+          "norm": "Art. 11 DSA",
+          "valid_from": "2024-02-17",
+          "kb_ref": "gesetze/dsa.md:43"
+        },
+        {
+          "norm": "Art. 12 DSA",
+          "valid_from": "2024-02-17",
+          "kb_ref": "gesetze/dsa.md:39"
+        }
+      ],
+      "applies_if": [
+        "platform_features"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website können Nutzerinnen und Nutzer dort keine eigenen Inhalte veröffentlichen.",
+      "retest_default": "Impressum und Hilfeseiten nach den benannten Kontaktstellen durchsuchen."
+    },
+    {
+      "id": "DSA-02",
+      "area": "DSA",
+      "title": "Melde- und Abhilfeverfahren",
+      "description": "Wir prüfen, ob es auf der Website einen Weg gibt, Inhalte anderer Nutzerinnen und Nutzer zu melden.",
+      "legal_basis": [
+        {
+          "norm": "Art. 16 DSA",
+          "valid_from": "2024-02-17",
+          "kb_ref": "gesetze/dsa.md:58"
+        }
+      ],
+      "applies_if": [
+        "platform_features"
+      ],
+      "always_run": false,
+      "basis": "legal_judgment",
+      "max_status": null,
+      "not_applicable_reason": "Laut den Angaben zur Website können Nutzerinnen und Nutzer dort keine eigenen Inhalte veröffentlichen.",
+      "retest_default": "Bei einem Beitrag anderer Nutzer nach einer Melden-Funktion suchen, ohne eine Meldung abzuschicken."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Consent (Einwilligung)",
+      "text": "Zustimmung der Besucherin oder des Besuchers, meist über das Cookie-Banner, bevor nicht notwendige Cookies gesetzt oder Dienste geladen werden."
+    },
+    {
+      "term": "Content-Security-Policy (CSP)",
+      "text": "Header, mit dem eine Website festlegt, von welchen Quellen Skripte, Bilder und andere Inhalte geladen werden dürfen."
+    },
+    {
+      "term": "CDN (Content Delivery Network)",
+      "text": "Netz von Servern, das Dateien wie Skripte oder Schriften schnell ausliefert, oft von Anbietern außerhalb der EU."
+    },
+    {
+      "term": "Data Privacy Framework (DPF)",
+      "text": "Angemessenheitsbeschluss der EU-Kommission für Datenübermittlungen an US-Unternehmen, die sich dafür haben listen lassen."
+    },
+    {
+      "term": "Drittland",
+      "text": "Staat außerhalb der Europäischen Union und des Europäischen Wirtschaftsraums, zum Beispiel die USA."
+    },
+    {
+      "term": "Header",
+      "text": "Zusatzangaben, die der Server mit jeder Seite an den Browser sendet und die zum Beispiel Sicherheitsregeln festlegen."
+    },
+    {
+      "term": "HSTS (Strict-Transport-Security)",
+      "text": "Header, der Browser anweist, die Website für eine festgelegte Zeit nur noch verschlüsselt aufzurufen."
+    },
+    {
+      "term": "Lighthouse",
+      "text": "Prüfwerkzeug in Google Chrome, das unter anderem automatische Tests zur Barrierefreiheit ausführt. Es erfasst nur einen Teil der Anforderungen."
+    },
+    {
+      "term": "Netzwerkprotokoll",
+      "text": "Liste aller Verbindungen, die der Browser beim Laden einer Seite aufbaut; sie lässt sich in den Entwicklerwerkzeugen des Browsers einsehen."
+    },
+    {
+      "term": "Ausblick: EU-Verordnung über Verpackungen (PPWR)",
+      "text": "Die Verordnung (EU) 2025/40 gilt seit dem 12.08.2026. Kennzeichnungsinformationen zu Verpackungen, die online bereitzustellen sind, werden erst ab dem 12.08.2028 oder später verlangt. Der Website-CheckUp enthält dazu deshalb noch keinen Prüfpunkt."
+    }
+  ]
+}
