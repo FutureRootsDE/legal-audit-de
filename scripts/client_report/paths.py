@@ -5,6 +5,7 @@ from findings.json, which the model writes from content of the audited website.
 """
 from __future__ import annotations
 
+import ipaddress
 import re
 from datetime import date
 from pathlib import Path, PurePosixPath, PureWindowsPath
@@ -22,7 +23,11 @@ WINDOWS_RESERVED = frozenset(
 )
 RESERVED_SUFFIX = "-host"
 
-HOST_RE = re.compile(r"^[a-z0-9-]+(\.[a-z0-9-]+)*$")
+MAX_HOST_CHARS = 253
+MAX_LABEL_CHARS = 63
+
+# Always used with fullmatch: `$` would accept a trailing newline.
+HOST_RE = re.compile(r"[a-z0-9-]+(\.[a-z0-9-]+)*")
 # Whitespace, control characters and the backslash (browsers read it as "/", urlsplit does not).
 UNSAFE_URL_RE = re.compile(r"[\s\x00-\x1f\x7f\\]")
 SLUG_DROP_RE = re.compile(r"[^a-z0-9-]")
@@ -52,9 +57,33 @@ def domain_from_url(url: str) -> str:
         host = host.encode("idna").decode("ascii").lower()
     except UnicodeError as exc:
         raise ValueError("Hostname ist kein gültiger Domainname") from exc
-    if not HOST_RE.match(host):
+    if not HOST_RE.fullmatch(host):
         raise ValueError("Hostname fehlt oder enthält unzulässige Zeichen")
+    _check_host_shape(host)
     return host
+
+
+def _check_host_shape(host: str) -> None:
+    """RFC 1035 limits plus IPv4 handling for an ASCII host that already matches HOST_RE.
+
+    IPv4 addresses are allowed (the spec is silent on them; local fixture runs use 127.0.0.1),
+    but only as a valid dotted quad: an all-numeric last label is never a domain name (RFC 3696
+    section 2), so "256.1.1.1" or "1.2.3" is rejected instead of being read as a host name.
+    IPv6 is rejected earlier.
+    """
+    if len(host) > MAX_HOST_CHARS:
+        raise ValueError(f"Hostname länger als {MAX_HOST_CHARS} Zeichen")
+    labels = host.split(".")
+    for label in labels:
+        if len(label) > MAX_LABEL_CHARS:
+            raise ValueError(f"Abschnitt des Hostnamens länger als {MAX_LABEL_CHARS} Zeichen")
+        if label.startswith("-") or label.endswith("-"):
+            raise ValueError("Abschnitt des Hostnamens beginnt oder endet mit einem Bindestrich")
+    if labels[-1].isdigit():
+        try:
+            ipaddress.IPv4Address(host)
+        except ValueError as exc:
+            raise ValueError("Hostname ist weder Domainname noch gültige IPv4-Adresse") from exc
 
 
 def domain_slug(domain: str) -> str:

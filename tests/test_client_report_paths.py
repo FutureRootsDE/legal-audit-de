@@ -29,6 +29,27 @@ class DomainFromUrl(unittest.TestCase):
             with self.assertRaises(ValueError, msg=repr(url)):
                 domain_from_url(url)  # type: ignore[arg-type]
 
+    def test_label_and_length_rules(self):
+        label63 = "a" * 63
+        self.assertEqual(domain_from_url(f"https://{label63}.de/"), f"{label63}.de")
+        long_ok = ".".join(["a" * 61] * 4)          # 4 * 61 + 3 dots = 247 characters
+        self.assertEqual(domain_from_url(f"https://{long_ok}/"), long_ok)
+        too_long = ".".join(["a" * 50] * 5) + ".de"  # 5 * 50 + 4 + 3 = 257 characters
+        for url in [f"https://{'a' * 64}.de/", f"https://{too_long}/", "https://-shop.de/", "https://shop-.de/",
+                    "https://a.-b.de/", "https://example.de-/", "https://example.123/"]:
+            with self.assertRaises(ValueError, msg=url):
+                domain_from_url(url)
+
+    def test_ipv4_allowed_for_local_runs_but_only_valid_ones(self):
+        self.assertEqual(domain_from_url("http://127.0.0.1:8765/"), "127.0.0.1")
+        for url in ["http://256.1.1.1/", "http://1.2.3/", "http://01.2.3.4/", "http://1.2.3.4.5/"]:
+            with self.assertRaises(ValueError, msg=url):
+                domain_from_url(url)
+
+    def test_trailing_newline_never_passes_host_pattern(self):
+        from client_report.paths import HOST_RE
+        self.assertIsNone(HOST_RE.fullmatch("example.de\n"))
+
 
 class DomainSlug(unittest.TestCase):
     def test_slug_keeps_punycode_and_is_bounded(self):
