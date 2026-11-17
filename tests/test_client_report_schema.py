@@ -253,6 +253,102 @@ class InputValidation(Base):
             self.assertNotRegex(issue.message, "[–—]| - ", msg=issue)
 
 
+class LoadFindingsHardening(Base):
+    """Review fixes: nesting depth, lone surrogates and duplicate keys are rejected at load time."""
+
+    def load_text(self, text: str):
+        p = self.rd / "findings.json"
+        p.write_text(text, encoding="utf-8")
+        return load_findings(p)
+
+    def test_deep_nesting_rejected_without_recursion_error(self):
+        for depth in (100, 100_000):
+            with self.assertRaises(ReportInputError, msg=depth) as ctx:
+                self.load_text('{"x": ' + "[" * depth + "]" * depth + "}")
+            self.assertIn("zu tief verschachtelt", str(ctx.exception))
+
+    def test_lone_surrogate_rejected(self):
+        with self.assertRaises(ReportInputError) as ctx:
+            self.load_text('{"schema_version": "1.0", "run": {"user_agent": "x\\ud800y"}}')
+        self.assertIn("Surrogat", str(ctx.exception))
+        self.assertIn("run.user_agent", str(ctx.exception))
+
+    def test_surrogate_pair_is_fine(self):
+        self.assertEqual(self.load_text('{"a": "\\ud83d\\ude00"}')["a"], "\U0001F600")
+
+    def test_duplicate_keys_rejected_with_path(self):
+        with self.assertRaises(ReportInputError) as ctx:
+            self.load_text('{"run": {"domain": "a.de", "domain": "b.de"}, "results": [{"id": "X", "id": "Y"}]}')
+        issues = [(i.path, i.message) for i in ctx.exception.issues]
+        self.assertEqual(issues, [("run", "doppelter Schlüssel „domain“"), ("results[0]", "doppelter Schlüssel „id“")])
+
+
+class ControlCharacters(Base):
+    def test_bidi_controls_rejected_in_every_field(self):
+        r = open_result("CK-03", "notice", "LOW")
+        r["client_text"] = "Text ‮ mit Umkehrung"
+        r["evidence"][1]["excerpt"] = "Auszug ⁦x⁩"
+        f = valid_findings(CAT, results=[r])
+        f["client"]["company"] = "Firma‏"
+        f["run"]["user_agent"] = "UA؜"
+        self.assertEqual(sorted(self.paths(f)), ["client.company", "results[0].client_text",
+                                                 "results[0].evidence[1].excerpt", "run.user_agent"])
+
+    def test_c0_controls_rejected_and_line_breaks_only_where_multiline(self):
+        r = open_result("CK-03", "notice", "LOW")
+        r["client_text"] = "Zeile eins\nZeile zwei\tmit Tab"           # prose: fine
+        r["evidence"][1]["excerpt"] = "HTTP/1.1 200 OK\r\nServer: x"   # verbatim multi-line: fine
+        r["fix"]["snippets"][0]["code"] = "a {\n\tcolor: red;\n}"      # verbatim multi-line: fine
+        r["one_liner"] = "Kurz\x07"                                     # bell: never
+        f = valid_findings(CAT, results=[r])
+        f["issuer"]["company"] = "Agentur\nGmbH"                        # single line field
+        self.assertEqual(sorted(self.paths(f)), ["issuer.company", "results[0].one_liner"])
+
+    def test_carriage_return_not_allowed_in_prose(self):
+        r = open_result("CK-03", "notice", "LOW")
+        r["risk"] = "a\r\nb"
+        self.assertEqual(self.paths(valid_findings(CAT, results=[r])), ["results[0].risk"])
+
+    def test_other_format_characters(self):
+        r = open_result("CK-03", "notice", "LOW")
+        r["evidence"][1]["excerpt"] = "Daten­schutz \U0001F469‍\U0001F4BB"   # website content: allowed
+        r["client_action"] = "Daten­schutz"                                       # authored: not allowed
+        self.assertEqual(self.paths(valid_findings(CAT, results=[r])), ["results[0].client_action"])
+
+    def test_message_names_code_point(self):
+        f = valid_findings(CAT)
+        f["issuer"]["company"] = "A‮B"
+        issue = validate_input(f, CAT, self.rd)[0]
+        self.assertEqual(issue.path, "issuer.company")
+        self.assertIn("U+202E", issue.message)
+        self.assertNotRegex(issue.message, "[–—]| - ")
+
+    def test_tool_name_keys_checked(self):
+        f = valid_findings(CAT)
+        f["run"]["tools"] = {"chrome‮": "1.0"}
+        self.assertEqual(self.paths(f), ["run.tools"])
+
+
+class ReferenceUserinfo(Base):
+    def test_reference_with_userinfo_rejected(self):
+        r = open_result("CK-03", "notice", "LOW") | {"references": ["https://a@b.de/", "https://u:p@b.de/x",
+                                                                   "https://b.de/@x"]}
+        self.assertEqual(self.paths(valid_findings(CAT, results=[r])),
+                         ["results[0].references[0]", "results[0].references[1]"])
+
+
+class AnchoredPatterns(Base):
+    def test_trailing_newline_and_unicode_digits_rejected(self):
+        f = valid_findings(CAT)
+        f["issuer"]["accent_color"] = "#1F4E79\n"
+        f["run"]["finished_utc"] = "2026-11-17T09:30:00Z\n"
+        self.assertIn("issuer.accent_color", self.paths(f))
+        self.assertIn("run.finished_utc", self.paths(f))
+        g = valid_findings(CAT)
+        g["run"]["finished_utc"] = "２０２６-11-17T09:30:00Z"
+        self.assertEqual(self.paths(g), ["run.finished_utc"])
+
+
 class IterProse(unittest.TestCase):
     def test_concrete_paths(self):
         f = valid_findings(CAT, results=[open_result("CK-03", "notice", "LOW")])

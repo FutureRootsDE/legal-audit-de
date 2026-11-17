@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from datetime import datetime
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterator, Sequence
@@ -34,12 +35,28 @@ EFFORT_LEVELS = ("gering", "mittel", "hoch")
 MAX_PAGES = 25
 MAX_FINDINGS_BYTES = 20 * 1024 * 1024
 UTC_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
-UTC_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
-ACCENT_RE = re.compile(r"^#[0-9A-Fa-f]{6}$")
+# ASCII digits only and always used with fullmatch: `$` would accept a trailing newline.
+UTC_RE = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z")
+ACCENT_RE = re.compile(r"#[0-9A-Fa-f]{6}")
 # Characters that never belong in a reference link (attribute break-out, whitespace, controls).
 UNSAFE_LINK_RE = re.compile(r"[\s\x00-\x1f\x7f\"'<>`\\]")
 DEFECT_NOT_ALLOWED = "defect nicht zulässig: Befund als Tatsache oder Prüffrage fassen"
 FINDINGS_PATH = "findings.json"
+# A valid findings.json is at most about 6 levels deep; anything far deeper is hostile or broken.
+MAX_JSON_DEPTH = 32
+# Bidi controls (Trojan Source): never allowed, not even in verbatim website content.
+BIDI_CONTROLS = frozenset("؜‎‏‪‫‬‭‮⁦⁧⁨⁩")
+PROSE_CONTROLS = frozenset("\n\t")
+MULTILINE_CONTROLS = frozenset("\n\t\r")
+# Verbatim fields that quote website or machine output: line breaks, and invisible format
+# characters of the quoted content (soft hyphen, zero width joiner), are part of the quote.
+MULTILINE_VERBATIM_PATHS: tuple[str, ...] = (
+    "results[].evidence[].excerpt",
+    "results[].fix.snippets[].code",
+    "results[].retest.command",
+    "results[].retest.expected",
+)
+_INDEX_RE = re.compile(r"\[[0-9]+\]")
 
 PROSE_PATHS: tuple[str, ...] = (
     "summary.sentences[]",
@@ -109,7 +126,7 @@ def _text_list(value: Any, path: str, min_items: int = 0) -> list[ValidationIssu
 
 
 def _parse_utc(value: Any) -> datetime | None:
-    if not isinstance(value, str) or not UTC_RE.match(value):
+    if not isinstance(value, str) or not UTC_RE.fullmatch(value):
         return None
     try:
         return datetime.strptime(value, UTC_FORMAT)
@@ -129,7 +146,8 @@ def _is_https_link(value: Any) -> bool:
     if not isinstance(value, str) or UNSAFE_LINK_RE.search(value):
         return False
     parts = urlsplit(value)
-    return parts.scheme == "https" and bool(parts.hostname)
+    # Userinfo (`https://bank.de@evil.de/`) disguises the real host: never a valid reference.
+    return parts.scheme == "https" and bool(parts.hostname) and "@" not in parts.netloc
 
 
 def _file_issues(rel: Any, path: str, report_dir: Path, suffixes: Sequence[str] | None) -> list[ValidationIssue]:
@@ -180,8 +198,68 @@ def _reject_constant(name: str) -> Any:
     raise ValueError(f"{name} ist kein gültiger JSON-Wert")
 
 
+class _DuplicateKeyObject(dict):
+    """JSON object that had repeated keys; only ever seen inside load_findings, which rejects it."""
+
+    duplicates: tuple[str, ...] = ()
+
+
+def _pairs_hook(pairs: list[tuple[str, Any]]) -> dict:
+    """object_pairs_hook: plain dict, or a marked dict listing keys that occurred more than once."""
+    obj: dict[str, Any] = {}
+    duplicates: list[str] = []
+    for key, value in pairs:
+        if key in obj and key not in duplicates:
+            duplicates.append(key)
+        obj[key] = value
+    if not duplicates:
+        return obj
+    marked = _DuplicateKeyObject(obj)
+    marked.duplicates = tuple(duplicates)
+    return marked
+
+
+def _iter_nodes(data: Any) -> Iterator[tuple[str, Any, int]]:
+    """(path, node, depth) of every JSON node in document order; iterative, so depth is no risk."""
+    stack: list[tuple[str, Any, int]] = [("", data, 0)]
+    while stack:
+        path, node, depth = stack.pop()
+        yield path, node, depth
+        if isinstance(node, dict):
+            stack += [(_join(path, str(k)), v, depth + 1) for k, v in reversed(list(node.items()))]
+        elif isinstance(node, list):
+            stack += [(f"{path}[{i}]", v, depth + 1) for i, v in reversed(list(enumerate(node)))]
+
+
+def _has_lone_surrogate(text: str) -> bool:
+    try:
+        text.encode("utf-8")
+    except UnicodeEncodeError:
+        return True
+    return False
+
+
+def _structure_issues(data: Any) -> list[ValidationIssue]:
+    """Duplicate keys and lone surrogates (which would crash the UTF-8 write of report.html)."""
+    issues: list[ValidationIssue] = []
+    for path, node, _ in _iter_nodes(data):
+        where = path or FINDINGS_PATH
+        if isinstance(node, _DuplicateKeyObject):
+            issues += [ValidationIssue(where, f"doppelter Schlüssel „{key}“") for key in node.duplicates]
+        if isinstance(node, dict) and any(_has_lone_surrogate(str(k)) for k in node):
+            issues.append(ValidationIssue(where, "Schlüssel enthält ein einzelnes Surrogat (ungültiges Unicode)"))
+        elif isinstance(node, str) and _has_lone_surrogate(node):
+            issues.append(ValidationIssue(where, "enthält ein einzelnes Surrogat (ungültiges Unicode)"))
+    return issues
+
+
 def load_findings(path: Path) -> dict:
-    """Read findings.json (UTF-8 with or without BOM, as PowerShell writes it)."""
+    """Read findings.json (UTF-8 with or without BOM, as PowerShell writes it).
+
+    Rejected besides invalid JSON: nesting deeper than MAX_JSON_DEPTH (also the RecursionError
+    of the parser), duplicate keys (JSON allows them, the last one would silently win) and lone
+    surrogates such as "\\ud800" (valid JSON, but not encodable as UTF-8).
+    """
     path = Path(path)
 
     def fail(message: str) -> ReportInputError:
@@ -195,15 +273,70 @@ def load_findings(path: Path) -> dict:
         raise fail("keine gültige UTF-8-Datei") from exc
     except OSError as exc:
         raise fail(f"Datei nicht lesbar: {path.name}") from exc
+    too_deep = f"zu tief verschachtelt (höchstens {MAX_JSON_DEPTH} Ebenen)"
     try:
-        data = json.loads(text, parse_constant=_reject_constant)
+        data = json.loads(text, parse_constant=_reject_constant, object_pairs_hook=_pairs_hook)
+    except RecursionError as exc:
+        raise fail(too_deep) from exc
     except json.JSONDecodeError as exc:
         raise fail(f"kein gültiges JSON (Zeile {exc.lineno}, Spalte {exc.colno})") from exc
     except ValueError as exc:
         raise fail(f"kein gültiges JSON ({exc})") from exc
+    if any(depth > MAX_JSON_DEPTH for _, _, depth in _iter_nodes(data)):
+        raise fail(too_deep)
+    issues = _structure_issues(data)
+    if issues:
+        raise ReportInputError(issues)
     if not isinstance(data, dict):
         raise fail("muss ein JSON-Objekt sein")
     return data
+
+
+# ---------------------------------------------------------------- control and format characters
+
+def _allowed_controls(pattern: str) -> tuple[frozenset[str], bool]:
+    """(allowed Cc characters, other Cf allowed) for a field pattern such as `results[].risk`."""
+    if pattern in MULTILINE_VERBATIM_PATHS:
+        return MULTILINE_CONTROLS, True
+    if pattern in PROSE_PATHS:
+        return PROSE_CONTROLS, False
+    return frozenset(), False
+
+
+def _bad_character(text: str, allowed: frozenset[str], format_ok: bool) -> str | None:
+    for char in text:
+        if char in BIDI_CONTROLS:
+            return char
+        category = unicodedata.category(char)
+        if (category == "Cc" and char not in allowed) or (category == "Cf" and not format_ok):
+            return char
+    return None
+
+
+def _control_issues(findings: dict) -> list[ValidationIssue]:
+    """Control (Cc) and format (Cf) characters in every string and key, located by field path.
+
+    Bidi controls are never allowed. Line breaks and tabs only in prose (\\n, \\t) and in
+    multi-line verbatim fields (\\n, \\t, \\r); other format characters only in those verbatim
+    fields, because quoted website content may carry soft hyphens or emoji joiners.
+    """
+    issues: list[ValidationIssue] = []
+    for path, node, _ in _iter_nodes(findings):
+        if isinstance(node, dict):
+            texts = [str(k) for k in node]
+            allowed, format_ok = frozenset(), False
+        elif isinstance(node, str):
+            texts = [node]
+            allowed, format_ok = _allowed_controls(_INDEX_RE.sub("[]", path))
+        else:
+            continue
+        for text in texts:
+            char = _bad_character(text, allowed, format_ok)
+            if char is not None:
+                issues.append(ValidationIssue(path or "findings",
+                                              f"enthält unzulässiges Steuerzeichen U+{ord(char):04X}"))
+                break
+    return issues
 
 
 # ---------------------------------------------------------------- blocks
@@ -269,7 +402,7 @@ def _validate_issuer(issuer: Any, report_dir: Path) -> list[ValidationIssue]:
     if "logo_file" in issuer:
         issues += _file_issues(issuer["logo_file"], "issuer.logo_file", report_dir, LOGO_SUFFIXES)
     accent = issuer.get("accent_color")
-    if accent is not None and not (isinstance(accent, str) and ACCENT_RE.match(accent)):
+    if accent is not None and not (isinstance(accent, str) and ACCENT_RE.fullmatch(accent)):
         issues.append(ValidationIssue("issuer.accent_color", "muss eine Hexfarbe #RRGGBB oder null sein"))
     return issues
 
@@ -492,5 +625,6 @@ def validate_input(findings: dict, catalog: Catalog, report_dir: Path, *,
     for key, check in checks:
         if key in findings:
             issues += check(findings[key])
+    issues += _control_issues(findings)
     issues += check_texts(iter_prose(findings), phrases if phrases is not None else load_forbidden_phrases())
     return issues
