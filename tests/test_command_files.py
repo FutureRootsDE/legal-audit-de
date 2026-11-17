@@ -85,7 +85,9 @@ class ClientTestCommand(unittest.TestCase):
 
     def test_core_tools_exact(self):
         core = [t for t in self.tools if not t.startswith("mcp__")]
-        self.assertEqual(core, ["Bash", "Read", "Write", "Glob", "Grep"])
+        self.assertEqual(core, ["Bash(python:*)", "Bash(python3:*)", "Bash(py:*)", "Bash(curl -sI:*)",
+                                "Read", "Write", "Glob", "Grep"])
+        self.assertNotIn("Bash", core)
 
     def test_scripts_addressed_via_plugin_root(self):
         self.assertIn('python "${CLAUDE_PLUGIN_ROOT}/scripts/client-test.py"', self.text)
