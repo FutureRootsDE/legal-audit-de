@@ -80,6 +80,14 @@ class EndToEndCase(unittest.TestCase):
         return report_dir
 
     @staticmethod
+    def read_findings(report_dir: Path) -> dict:
+        return json.loads((report_dir / "findings.json").read_text(encoding="utf-8"))
+
+    @staticmethod
+    def write_findings(report_dir: Path, findings: dict) -> None:
+        (report_dir / "findings.json").write_text(json.dumps(findings, ensure_ascii=False), encoding="utf-8")
+
+    @staticmethod
     def count_status(report_dir: Path, status: str) -> int:
         rows = json.loads((report_dir / "findings.json").read_text(encoding="utf-8"))["results"]
         return sum(1 for row in rows if row["status"] == status)
@@ -96,13 +104,15 @@ class EndToEnd(EndToEndCase):
         report_dir = self.init_from_fixture()
         code, out, err = run_cli(["plan", str(report_dir)])
         self.assertEqual(code, 0, err)
+        self.assertNotIn("SHOP-01", out)
         self.assertNotIn("SHOP-05", out)
-        self.assertNotIn("SHOP-10", out)
+        self.assertIn("SHOP-10", out)
         code, _, err = run_cli(["render", str(report_dir)])
         self.assertEqual(code, 0, err)
         html = (report_dir / "report.html").read_text(encoding="utf-8")
         defects = self.count_status(report_dir, "defect")
-        self.assertEqual(defects, 3)
+        self.assertEqual(defects, 4)
+        self.assertEqual(self.count_status(report_dir, "notice"), 7)
         self.assertEqual(html.count(LAWYER_SENTENCE), 2 * defects)
         self.assertIn(TITLE.replace("&", "&amp;"), html)
         self.assertIn(PASS_ON_SENTENCE, html)
@@ -125,6 +135,31 @@ class EndToEnd(EndToEndCase):
         self.assertEqual(code, 1)
         self.assertIn(f"results[{index}].client_text", err)
         self.assertFalse((report_dir / "report.html").exists())
+
+    def test_legal_judgment_defect_blocks_render(self):
+        report_dir = self.init_from_fixture()
+        findings = self.read_findings(report_dir)
+        index = next(i for i, row in enumerate(findings["results"]) if row["id"] == "DSE-02")
+        findings["results"][index].update(status="defect", severity="MED")
+        self.write_findings(report_dir, findings)
+        code, _, err = run_cli(["render", str(report_dir)])
+        self.assertEqual(code, 1)
+        self.assertIn(f"results[{index}].status", err)
+        self.assertFalse((report_dir / "report.html").exists())
+
+    def test_defect_before_valid_from_is_downgraded_to_notice(self):
+        report_dir = self.init_from_fixture()
+        findings = self.read_findings(report_dir)
+        findings["run"].update(started_utc="2025-06-01T09:12:03Z", finished_utc="2025-06-01T09:31:40Z")
+        findings["applicability"]["bfsg"] = {"value": True, "source": "user"}
+        row = next(row for row in findings["results"] if row["id"] == "A11Y-03")
+        row.update(status="defect", severity="MED")
+        self.write_findings(report_dir, findings)
+        code, _, err = run_cli(["render", str(report_dir)])
+        self.assertEqual(code, 0, err)
+        html = (report_dir / "report.html").read_text(encoding="utf-8")
+        self.assertIn("28.06.2025", html)
+        self.assertEqual(html.count(LAWYER_SENTENCE), 2 * 4)
 
     def test_missing_result_blocks_render(self):
         report_dir = self.init_from_fixture()
@@ -151,8 +186,23 @@ class EndToEnd(EndToEndCase):
         self.assertEqual(Path(out.strip().splitlines()[-1]).name, PDF_NAME)
         self.assertRegex(PDF_NAME, re.compile(r"^Website-CheckUp-[a-z0-9-]+-\d{4}-\d{2}-\d{2}\.pdf$"))
 
+    @staticmethod
+    def repo_state() -> tuple[str, list[str]]:
+        """Git status (empty when git is unavailable) and the top-level entries of the repository."""
+        try:
+            done = subprocess.run(["git", "status", "--porcelain", "--untracked-files=all"], cwd=REPO_ROOT,
+                                  capture_output=True, text=True, encoding="utf-8", timeout=60)
+            status = done.stdout if done.returncode == 0 else ""
+        except (OSError, subprocess.SubprocessError):
+            status = ""
+        return status, sorted(entry.name for entry in REPO_ROOT.iterdir())
+
     def test_run_leaves_repository_clean(self):
-        self.init_from_fixture()
+        before = self.repo_state()
+        report_dir = self.init_from_fixture()
+        self.assertEqual(run_cli(["plan", str(report_dir)])[0], 0)
+        self.assertEqual(run_cli(["render", str(report_dir)])[0], 0)
+        self.assertEqual(self.repo_state(), before)
         self.assertFalse((REPO_ROOT / "client-reports").exists())
 
 

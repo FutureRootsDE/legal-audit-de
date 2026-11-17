@@ -42,47 +42,49 @@
   "applicability": {
     "b2c": {
       "value": true,
-      "source": "Angabe der Agentur"
+      "source": "user"
     },
     "shop": {
-      "value": true,
-      "source": "Angabe der Agentur"
+      "value": false,
+      "source": "detected+confirmed"
     },
     "bfsg": {
-      "value": true,
-      "source": "Angabe der Agentur"
+      "value": false,
+      "source": "user",
+      "note": "Kleinstunternehmen, weniger als 10 Beschäftigte laut Auskunft."
     },
     "subscription": {
       "value": false,
-      "source": "Angabe der Agentur"
+      "source": "user"
     },
     "more_than_10_employees": {
-      "value": false,
-      "source": "Angabe der Agentur"
+      "value": null,
+      "source": "user",
+      "note": "Der Kunde konnte die Frage noch nicht beantworten."
     },
     "platform_features": {
       "value": false,
-      "source": "Angabe der Agentur"
+      "source": "detected+confirmed"
     },
     "ai_chat": {
       "value": false,
-      "source": "Angabe der Agentur"
+      "source": "detected+confirmed"
     },
     "durability_guarantee": {
       "value": null,
-      "source": "Unklar, Rückfrage offen",
-      "note": "Der Kunde konnte die Frage noch nicht beantworten."
+      "source": "user",
+      "note": "nicht gefragt, kein Online-Shop"
     }
   },
   "summary": {
     "sentences": [
-      "Die Prüfung der lokalen Testseite fand drei Auffälligkeiten und zwei Hinweise.",
-      "Am wichtigsten sind die Schriften von einem fremden Server und der fehlende Sicherheits-Header.",
-      "Zwei Schritte hinter dem Checkout waren bei einer passiven Prüfung nicht erreichbar."
+      "Die Prüfung der lokalen Testseite fand vier Auffälligkeiten und sieben Hinweise.",
+      "Am wichtigsten sind die Schriften von einem fremden Server, das fehlende Ablehnen im Cookie-Banner und der fehlende Strict-Transport-Security-Header.",
+      "Ein Schritt war bei der lokalen http-Adresse nicht prüfbar."
     ],
     "top_actions": [
       "CK-01",
-      "DRT-01",
+      "CK-03",
       "SEC-02"
     ]
   },
@@ -109,8 +111,41 @@
     },
     {
       "id": "DSE-02",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
+      "status": "notice",
+      "severity": "MED",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Die Datenschutzerklärung nennt keinen der beobachteten Dienste.",
+      "client_text": "Die Seite lädt Schriften von fonts.googleapis.com. Die Datenschutzerklärung der Fixture-Seite nennt diesen Dienst nicht.",
+      "client_action": "Bitten Sie Ihre Rechtsberatung zu prüfen, ob die Datenschutzerklärung zu den eingesetzten Diensten passt.",
+      "risk": "Weicht die Datenschutzerklärung von den tatsächlich eingesetzten Diensten ab, kann das Rückfragen auslösen.",
+      "evidence": [
+        {
+          "kind": "dom",
+          "excerpt": "<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Roboto\">"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Die Liste der beobachteten Dienste mit der Datenschutzerklärung abgleichen.",
+          "Fehlende Dienste von der Rechtsberatung beschreiben lassen."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 30
+        }
+      },
+      "retest": {
+        "how": "Die Liste der beobachteten Dienste mit der aktuellen Datenschutzerklärung abgleichen."
+      },
+      "references": [
+        "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"
+      ],
+      "checklist": [
+        "Beobachtete Dienste sind in der Datenschutzerklärung beschrieben"
+      ],
+      "review_question": "Ist die Einbindung von Google Fonts in der Datenschutzerklärung ausreichend beschrieben?"
     },
     {
       "id": "CK-01",
@@ -162,8 +197,46 @@
     },
     {
       "id": "CK-03",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
+      "status": "defect",
+      "severity": "MED",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Das Cookie-Banner bietet auf der ersten Ebene nur die Schaltfläche „Alle akzeptieren“.",
+      "client_text": "Im Cookie-Banner der Startseite gibt es nur die Schaltfläche „Alle akzeptieren“. Eine Schaltfläche zum Ablehnen ist auf der ersten Ebene nicht vorhanden.",
+      "client_action": "Bitten Sie Ihre Webagentur, im Banner eine gleichwertige Schaltfläche „Alle ablehnen“ auf der ersten Ebene zu ergänzen.",
+      "risk": "Ohne gleichwertige Ablehnen-Schaltfläche kann die Einwilligung datenschutzrechtlich in Frage gestellt werden.",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "file": "evidence/shot.png",
+          "caption": "Cookie-Banner auf der Startseite",
+          "alt": "Cookie-Banner mit nur einer Schaltfläche Alle akzeptieren"
+        },
+        {
+          "kind": "dom",
+          "excerpt": "<div id=\"cookie-banner\" role=\"dialog\"><p>Wir verwenden Cookies.</p><button type=\"button\">Alle akzeptieren</button></div>"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Im Banner eine Schaltfläche „Alle ablehnen“ ergänzen.",
+          "Die Schaltfläche optisch gleichwertig zu „Alle akzeptieren“ gestalten."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 45
+        }
+      },
+      "retest": {
+        "how": "Startseite im privaten Fenster öffnen und prüfen, ob das Banner auf der ersten Ebene eine Schaltfläche zum Ablehnen zeigt."
+      },
+      "references": [
+        "https://www.gesetze-im-internet.de/ttdsg/__25.html"
+      ],
+      "checklist": [
+        "Banner zeigt auf der ersten Ebene eine Schaltfläche zum Ablehnen"
+      ]
     },
     {
       "id": "CK-04",
@@ -254,8 +327,9 @@
     },
     {
       "id": "SEC-01",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
+      "status": "none",
+      "reason_kind": "not_checkable",
+      "reason": "Der Testlauf erfolgte gegen eine lokale http-Adresse ohne Zertifikat. Eine Weiterleitung auf https lässt sich dort nicht prüfen."
     },
     {
       "id": "SEC-02",
@@ -296,23 +370,151 @@
     },
     {
       "id": "SEC-03",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
+      "status": "notice",
+      "severity": "LOW",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Die Antwort der Startseite enthält keinen Header Content-Security-Policy.",
+      "client_text": "Die Antwortköpfe der Startseite enthalten keine Angabe zu Content-Security-Policy.",
+      "client_action": "Bitten Sie Ihren Hosting-Anbieter, den Header Content-Security-Policy zu setzen.",
+      "risk": "Zusätzliche Schutz-Header verringern das Risiko von Angriffen auf Besucherinnen und Besucher.",
+      "evidence": [
+        {
+          "kind": "header",
+          "excerpt": "HTTP/1.0 200 OK\nServer: SimpleHTTP/0.6 Python/3.10\nContent-Type: text/html"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Im Webserver den Header Content-Security-Policy mit einem passenden Wert setzen."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 15
+        }
+      },
+      "retest": {
+        "how": "Die Antwortköpfe der Startseite abrufen und auf Content-Security-Policy prüfen.",
+        "command": "curl -sI http://127.0.0.1:8765/"
+      },
+      "references": [
+        "https://developer.mozilla.org/de/docs/Web/HTTP/Headers"
+      ],
+      "checklist": [
+        "Antwort enthält Content-Security-Policy"
+      ]
     },
     {
       "id": "SEC-04",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
+      "status": "notice",
+      "severity": "LOW",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Die Antwort der Startseite enthält keinen Header X-Frame-Options.",
+      "client_text": "Die Antwortköpfe der Startseite enthalten keine Angabe zu X-Frame-Options.",
+      "client_action": "Bitten Sie Ihren Hosting-Anbieter, den Header X-Frame-Options zu setzen.",
+      "risk": "Zusätzliche Schutz-Header verringern das Risiko von Angriffen auf Besucherinnen und Besucher.",
+      "evidence": [
+        {
+          "kind": "header",
+          "excerpt": "HTTP/1.0 200 OK\nServer: SimpleHTTP/0.6 Python/3.10\nContent-Type: text/html"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Im Webserver den Header X-Frame-Options mit einem passenden Wert setzen."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 15
+        }
+      },
+      "retest": {
+        "how": "Die Antwortköpfe der Startseite abrufen und auf X-Frame-Options prüfen.",
+        "command": "curl -sI http://127.0.0.1:8765/"
+      },
+      "references": [
+        "https://developer.mozilla.org/de/docs/Web/HTTP/Headers"
+      ],
+      "checklist": [
+        "Antwort enthält X-Frame-Options"
+      ]
     },
     {
       "id": "SEC-05",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
+      "status": "notice",
+      "severity": "LOW",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Die Antwort der Startseite enthält keinen Header Referrer-Policy.",
+      "client_text": "Die Antwortköpfe der Startseite enthalten keine Angabe zu Referrer-Policy.",
+      "client_action": "Bitten Sie Ihren Hosting-Anbieter, den Header Referrer-Policy zu setzen.",
+      "risk": "Zusätzliche Schutz-Header verringern das Risiko von Angriffen auf Besucherinnen und Besucher.",
+      "evidence": [
+        {
+          "kind": "header",
+          "excerpt": "HTTP/1.0 200 OK\nServer: SimpleHTTP/0.6 Python/3.10\nContent-Type: text/html"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Im Webserver den Header Referrer-Policy mit einem passenden Wert setzen."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 15
+        }
+      },
+      "retest": {
+        "how": "Die Antwortköpfe der Startseite abrufen und auf Referrer-Policy prüfen.",
+        "command": "curl -sI http://127.0.0.1:8765/"
+      },
+      "references": [
+        "https://developer.mozilla.org/de/docs/Web/HTTP/Headers"
+      ],
+      "checklist": [
+        "Antwort enthält Referrer-Policy"
+      ]
     },
     {
       "id": "SEC-06",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
+      "status": "notice",
+      "severity": "LOW",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Die Antwort der Startseite enthält keinen Header X-Content-Type-Options.",
+      "client_text": "Die Antwortköpfe der Startseite enthalten keine Angabe zu X-Content-Type-Options.",
+      "client_action": "Bitten Sie Ihren Hosting-Anbieter, den Header X-Content-Type-Options zu setzen.",
+      "risk": "Zusätzliche Schutz-Header verringern das Risiko von Angriffen auf Besucherinnen und Besucher.",
+      "evidence": [
+        {
+          "kind": "header",
+          "excerpt": "HTTP/1.0 200 OK\nServer: SimpleHTTP/0.6 Python/3.10\nContent-Type: text/html"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Im Webserver den Header X-Content-Type-Options mit einem passenden Wert setzen."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 15
+        }
+      },
+      "retest": {
+        "how": "Die Antwortköpfe der Startseite abrufen und auf X-Content-Type-Options prüfen.",
+        "command": "curl -sI http://127.0.0.1:8765/"
+      },
+      "references": [
+        "https://developer.mozilla.org/de/docs/Web/HTTP/Headers"
+      ],
+      "checklist": [
+        "Antwort enthält X-Content-Type-Options"
+      ]
     },
     {
       "id": "SEC-07",
@@ -416,64 +618,25 @@
       "one_liner": "Im geprüften Umfang nichts beobachtet."
     },
     {
-      "id": "SHOP-01",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
-    },
-    {
-      "id": "SHOP-02",
-      "status": "none",
-      "reason_kind": "not_checkable",
-      "reason": "Der Schritt liegt hinter dem Checkout und wird bei einer passiven Prüfung nicht ausgelöst."
-    },
-    {
-      "id": "SHOP-03",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
-    },
-    {
-      "id": "SHOP-04",
-      "status": "none",
-      "reason_kind": "not_checkable",
-      "reason": "Der Schritt liegt hinter dem Checkout und wird bei einer passiven Prüfung nicht ausgelöst."
-    },
-    {
-      "id": "SHOP-06",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
-    },
-    {
-      "id": "SHOP-07",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
-    },
-    {
-      "id": "SHOP-08",
-      "status": "pass",
-      "one_liner": "Im geprüften Umfang nichts beobachtet."
-    },
-    {
-      "id": "SHOP-09",
+      "id": "SHOP-10",
       "status": "notice",
       "severity": "LOW",
       "severity_original": null,
       "reason_kind": null,
       "reason": null,
-      "one_liner": "Ob die Hinweispflicht zur Haltbarkeitsgarantie hier gilt, ist noch offen.",
-      "client_text": "Es ist bisher nicht geklärt, ob der Shop Waren mit einer Haltbarkeitsgarantie des Herstellers anbietet.",
-      "client_action": "Klären Sie mit Ihrem Kunden, ob solche Waren verkauft werden.",
-      "risk": "Fehlen vorgeschriebene Hinweise, kann das Abmahnungen auslösen.",
+      "one_liner": "Ob der Hinweis zur Verbraucherschlichtung hier gilt, ist noch offen.",
+      "client_text": "Es ist bisher nicht geklärt, ob das Unternehmen mehr als zehn Beschäftigte hat. Im Impressum steht kein Hinweis zur Verbraucherschlichtung.",
+      "client_action": "Klären Sie mit Ihrem Kunden die Zahl der Beschäftigten am 31.12. des Vorjahres.",
+      "risk": "Fehlt ein vorgeschriebener Hinweis, kann das Abmahnungen auslösen.",
       "evidence": [
         {
-          "kind": "screenshot",
-          "file": "evidence/shot.png",
-          "caption": "Produktseite im Shop",
-          "alt": "Produktseite des Shops ohne Hinweis zur Haltbarkeitsgarantie"
+          "kind": "dom",
+          "excerpt": "<p>Fixture Shop GmbH, Marktplatz 2, 50667 Köln.</p>"
         }
       ],
       "fix": {
         "steps": [
-          "Beim Kunden erfragen, ob Waren mit Haltbarkeitsgarantie des Herstellers verkauft werden."
+          "Beim Kunden erfragen, wie viele Personen am 31.12. des Vorjahres beschäftigt waren."
         ],
         "effort": {
           "level": "gering",
@@ -481,15 +644,15 @@
         }
       },
       "retest": {
-        "how": "Produktseiten des Shops auf einen Hinweis zur Haltbarkeitsgarantie prüfen."
+        "how": "Impressum und Fußzeile auf einen Hinweis zur Verbraucherschlichtung prüfen."
       },
       "references": [
-        "https://www.gesetze-im-internet.de/bgb/__479.html"
+        "https://www.gesetze-im-internet.de/vsbg/__36.html"
       ],
       "checklist": [
         "Anwendbarkeit mit dem Kunden geklärt"
       ],
-      "review_question": "Gilt die Hinweispflicht zur Haltbarkeitsgarantie für diesen Shop?"
+      "review_question": "Gilt die Hinweispflicht zur Verbraucherschlichtung für dieses Unternehmen?"
     },
     {
       "id": "UWG-01",
