@@ -261,7 +261,9 @@ def _fields(pairs: Iterable[tuple[str, str]]) -> str:
 
 
 def _review_question(r: DerivedResult) -> str:
-    if r.entry.basis != "legal_judgment":
+    # legal_judgment: required (see invariants); any other notice: shown when the run supplies one,
+    # e.g. a differently labelled button (SHOP-02/04/05) whose equivalence is a question for counsel.
+    if r.entry.basis != "legal_judgment" and r.status != "notice":
         return ""
     return _e(_get(r.data, "review_question") or "")
 

@@ -25,6 +25,7 @@ from client_report.texts import (
     DISCLAIMER_FULL,
     DISCLAIMER_SHORT,
     FOOTER,
+    LABEL_REVIEW_QUESTION,
     LAWYER_SENTENCE,
     PAGE_OF_WORD,
     PAGE_WORD,
@@ -357,13 +358,29 @@ class Render(Base):
         self.assertIn('href="#b-ck-03"', section(html, "part-a"))
         self.assertIn('id="b-ck-03"', section(html, "part-b"))
 
-    def test_review_question_only_for_legal_judgment(self):
-        html = self.build(all_status_mix())
-        part_a = section(html, "part-a")
-        uwg = part_a[part_a.index('id="a-uwg-03"'):part_a.index('id="a-uwg-03"') + 4000]
-        self.assertIn("Prüffrage für Ihre Rechtsberatung", uwg)
-        sec = part_a[part_a.index('id="a-sec-02"'):part_a.index('id="a-sec-03"')]
-        self.assertNotIn("Prüffrage für Ihre Rechtsberatung", sec)
+    def test_review_question_for_legal_judgment_and_any_notice_that_carries_one(self):
+        shop_question = "Ist die Beschriftung „Jetzt kaufen“ gleichbedeutend mit „zahlungspflichtig bestellen“?"
+        silent_notice = open_result("CK-03", "notice", "MED") | {"review_question": None}
+        html = self.build(valid_findings(CAT, shop=True, results=[
+            open_result("SHOP-02", "notice", "MED") | {"review_question": shop_question},
+            open_result("UWG-03", "notice", "MED"),
+            silent_notice,
+            open_result("SEC-01", "defect", "MED"),   # measurable defect: question stays hidden
+        ]))
+
+        def article(name: str, prefix: str, test_id: str) -> str:
+            part = section(html, name)
+            start = part.index(f'id="{prefix}-{test_id}"')
+            return part[start:part.index("</article>", start)]
+
+        for name, prefix in (("part-a", "a"), ("part-b", "b")):
+            shop = article(name, prefix, "shop-02")
+            self.assertIn(LABEL_REVIEW_QUESTION, shop, name)
+            self.assertIn("Jetzt kaufen", shop, name)
+            self.assertIn(LABEL_REVIEW_QUESTION, article(name, prefix, "uwg-03"), name)
+            self.assertNotIn(LABEL_REVIEW_QUESTION, article(name, prefix, "ck-03"), name)
+            self.assertNotIn(LABEL_REVIEW_QUESTION, article(name, prefix, "sec-01"), name)
+        self.assertEqual(LABEL_REVIEW_QUESTION, "Prüffrage für Ihre Rechtsberatung")
 
     def test_no_wall_clock_time(self):
         html = self.build(all_status_mix())
