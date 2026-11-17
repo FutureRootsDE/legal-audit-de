@@ -286,7 +286,7 @@ legal-audit-de/
 ├── .github/
 │   ├── copilot-instructions.md     # Top-Level für Copilot CLI
 │   ├── workflows/                  # GitHub Actions (validate.yml, release.yml)
-│   ├── prompts/<name>/PROMPT.md    # ⚙ 9 Prompts (generiert)
+│   ├── prompts/<name>/PROMPT.md    # ⚙ 10 Prompts (generiert)
 │   ├── agents/*.md                 # ⚙ 6 Agents (generiert)
 │   └── skills/*/SKILL.md           # ⚙ 4 Skills (generiert)
 │
