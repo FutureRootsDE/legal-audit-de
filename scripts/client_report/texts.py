@@ -35,6 +35,9 @@ START_HINT = (
     "Bieten oder bewerben Sie ihn nicht als eigenständigen Rechtscheck (§ 5 RDG)."
 )
 CONFIDENTIAL = "Vertraulich"
+# Page counter of the print margin box ("Seite 2 von 7"); the numbers come from CSS counters.
+PAGE_WORD = "Seite"
+PAGE_OF_WORD = "von"
 
 STATUS_SYMBOL = {"pass": "✓", "notice": "▲", "defect": "✕", "none": "–"}
 STATUS_LABEL = {
@@ -132,6 +135,8 @@ ALL_FIXED_STRINGS: tuple[str, ...] = (
     DISCLAIMER_FULL,
     START_HINT,
     CONFIDENTIAL,
+    PAGE_WORD,
+    PAGE_OF_WORD,
     *STATUS_SYMBOL.values(),
     *STATUS_LABEL.values(),
     *STATUS_SHORT.values(),

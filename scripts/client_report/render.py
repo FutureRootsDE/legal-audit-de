@@ -436,7 +436,9 @@ def _css(model: ReportModel, base_css: str) -> str:
     accent = ensure_contrast(accent if isinstance(accent, str) and re.fullmatch(r"#[0-9A-Fa-f]{6}", accent)
                              else DEFAULT_ACCENT)
     page = (f"@page {{ @top-center {{ content: {_css_string(T.CONFIDENTIAL)}; }} "
-            f"@bottom-left {{ content: {_css_string(T.FOOTER)}; }} }}")
+            f"@bottom-left {{ content: {_css_string(T.FOOTER)}; }} "
+            f"@bottom-right {{ content: {_css_string(T.PAGE_WORD + ' ')} counter(page) "
+            f"{_css_string(' ' + T.PAGE_OF_WORD + ' ')} counter(pages); }} }}")
     return f":root {{ --accent: {accent}; }}\n{base_css}\n{page}"
 
 

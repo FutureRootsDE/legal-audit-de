@@ -35,7 +35,6 @@
     padding-top: 4mm;
   }
   @bottom-right {
-    content: "Seite " counter(page) " von " counter(pages);
     width: 22%;
     font-family: "IBM Plex Sans", Arial, sans-serif;
     font-size: 7.5pt;

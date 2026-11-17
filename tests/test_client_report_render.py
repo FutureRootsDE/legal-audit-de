@@ -26,6 +26,8 @@ from client_report.texts import (
     DISCLAIMER_SHORT,
     FOOTER,
     LAWYER_SENTENCE,
+    PAGE_OF_WORD,
+    PAGE_WORD,
     PASS_ON_SENTENCE,
     STATUS_LABEL,
     STATUS_SHORT,
@@ -244,6 +246,11 @@ class Render(Base):
         self.assertEqual(html.count(LAWYER_SENTENCE), 4)
         self.assertEqual(section(html, "part-a").count(LAWYER_SENTENCE), 2)
         self.assertEqual(section(html, "part-b").count(LAWYER_SENTENCE), 2)
+
+    def test_page_counter_text_comes_from_texts_not_css_file(self):
+        html = self.build(valid_findings(CAT))
+        self.assertIn(f'@bottom-right {{ content: "{PAGE_WORD} " counter(page) " {PAGE_OF_WORD} " counter(pages); }}', html)
+        self.assertNotIn(f'"{PAGE_WORD} "', CSS_PATH.read_text(encoding="utf-8"))
 
     def test_downgraded_defect_has_no_lawyer_sentence(self):
         f = valid_findings(CAT, shop=True, started="2026-06-01T08:00:00Z",
