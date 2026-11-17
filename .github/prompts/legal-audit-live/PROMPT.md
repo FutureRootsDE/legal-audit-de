@@ -1,7 +1,7 @@
 ---
 description: Live-Rechts-Check einer oeffentlichen Website via chrome-devtools-mcp — testet Cookie-Banner-Blocking, Drittanbieter-Leaks VOR Consent, Google-Fonts-Leak, Embed-Verhalten, tatsaechlich gesetzte Cookies. Ergaenzt /legal-audit um die Verhaltens-Dimension.
 argument-hint: <url> [--consent=accept|reject|ignore] [--out=<zielordner>]
-allowed-tools: bash, view, grep, glob, create, edit, web_fetch, task, mcp__plugin_chrome-devtools-mcp__chrome-devtools__navigate_page, mcp__plugin_chrome-devtools-mcp__chrome-devtools__new_page, mcp__plugin_chrome-devtools-mcp__chrome-devtools__close_page, mcp__plugin_chrome-devtools-mcp__chrome-devtools__list_network_requests, mcp__plugin_chrome-devtools-mcp__chrome-devtools__get_network_request, mcp__plugin_chrome-devtools-mcp__chrome-devtools__take_screenshot, mcp__plugin_chrome-devtools-mcp__chrome-devtools__take_snapshot, mcp__plugin_chrome-devtools-mcp__chrome-devtools__evaluate_script, mcp__plugin_chrome-devtools-mcp__chrome-devtools__click, mcp__plugin_chrome-devtools-mcp__chrome-devtools__wait_for, mcp__plugin_chrome-devtools-mcp__chrome-devtools__list_console_messages, mcp__plugin_chrome-devtools-mcp__chrome-devtools__emulate
+allowed-tools: bash, view, grep, glob, create, edit, web_fetch, task, mcp__plugin_chrome-devtools-mcp_chrome-devtools__navigate_page, mcp__plugin_chrome-devtools-mcp_chrome-devtools__new_page, mcp__plugin_chrome-devtools-mcp_chrome-devtools__close_page, mcp__plugin_chrome-devtools-mcp_chrome-devtools__list_network_requests, mcp__plugin_chrome-devtools-mcp_chrome-devtools__get_network_request, mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_screenshot, mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_snapshot, mcp__plugin_chrome-devtools-mcp_chrome-devtools__evaluate_script, mcp__plugin_chrome-devtools-mcp_chrome-devtools__click, mcp__plugin_chrome-devtools-mcp_chrome-devtools__wait_for, mcp__plugin_chrome-devtools-mcp_chrome-devtools__list_console_messages, mcp__plugin_chrome-devtools-mcp_chrome-devtools__emulate, mcp__chrome-devtools__navigate_page, mcp__chrome-devtools__new_page, mcp__chrome-devtools__close_page, mcp__chrome-devtools__list_network_requests, mcp__chrome-devtools__get_network_request, mcp__chrome-devtools__take_screenshot, mcp__chrome-devtools__take_snapshot, mcp__chrome-devtools__evaluate_script, mcp__chrome-devtools__click, mcp__chrome-devtools__wait_for, mcp__chrome-devtools__list_console_messages, mcp__chrome-devtools__emulate
 ---
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.
@@ -21,7 +21,7 @@ Typische Findings, die nur dieser Command aufdeckt:
 
 ## Voraussetzungen
 
-- MCP-Server `chrome-devtools` aktiv (`mcp__plugin_chrome-devtools-mcp__*`-Tools verfuegbar).
+- MCP-Server `chrome-devtools` aktiv (Tools `mcp__plugin_chrome-devtools-mcp_chrome-devtools__*` bei Plugin-Installation, `mcp__chrome-devtools__*` bei Einrichtung per `claude mcp add` laut `docs/setup.md`; je nach Installation ist die eine oder die andere Variante aktiv und wird einzeln bestaetigt).
 - Chrome / Chromium installiert (vom MCP-Server selbst gestartet).
 
 ## Flags
@@ -66,9 +66,11 @@ Alternativer Output-Ordner. Default: `<cwd>/legal-audit-live/<hostname>-<timesta
 
 ### Pass 1 — Pre-Consent-Check
 
-1. `mcp__plugin_chrome-devtools-mcp__chrome-devtools__new_page` — neuer, isolierter Browser-Kontext (keine Vor-Cookies).
-2. `mcp__plugin_chrome-devtools-mcp__chrome-devtools__navigate_page` → URL.
-3. `mcp__plugin_chrome-devtools-mcp__chrome-devtools__wait_for` auf `networkidle` (oder 3s Fallback).
+Hinweis: Die Werkzeugnamen unten gelten fuer die Plugin-Installation; bei direkter Einrichtung per `claude mcp add` heissen sie `mcp__chrome-devtools__<werkzeug>`.
+
+1. `mcp__plugin_chrome-devtools-mcp_chrome-devtools__new_page` — neuer, isolierter Browser-Kontext (keine Vor-Cookies).
+2. `mcp__plugin_chrome-devtools-mcp_chrome-devtools__navigate_page` → URL.
+3. `mcp__plugin_chrome-devtools-mcp_chrome-devtools__wait_for` auf `networkidle` (oder 3s Fallback).
 4. `take_screenshot` → `01-initial.png`.
 5. `list_network_requests` → als `01-pre-consent.json` speichern.
 6. `evaluate_script`:
