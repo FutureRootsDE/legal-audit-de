@@ -1,0 +1,515 @@
+{
+  "schema_version": "1.0",
+  "catalog_version": "2026.11-1",
+  "plugin_version": "1.5.0",
+  "run": {
+    "started_utc": "2026-11-17T09:12:03Z",
+    "finished_utc": "2026-11-17T09:31:40Z",
+    "target_url": "http://127.0.0.1:8765/",
+    "final_url": "http://127.0.0.1:8765/",
+    "domain": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/157.0",
+    "viewports": [
+      "1920x1080",
+      "390x844 (mobil)"
+    ],
+    "tools": {
+      "chrome": "157.0",
+      "chrome_devtools_mcp": "0.10.0"
+    },
+    "pages_visited": [
+      "http://127.0.0.1:8765/",
+      "http://127.0.0.1:8765/impressum.html",
+      "http://127.0.0.1:8765/datenschutz.html"
+    ]
+  },
+  "issuer": {
+    "company": "Muster Webdesign GmbH",
+    "address": [
+      "Hauptstraße 1",
+      "10115 Berlin"
+    ],
+    "logo_file": "assets/logo.png"
+  },
+  "client": {
+    "name": "Max Kunde",
+    "company": "Fixture Shop GmbH",
+    "address": [
+      "Marktplatz 2",
+      "50667 Köln"
+    ]
+  },
+  "applicability": {
+    "b2c": {
+      "value": true,
+      "source": "Angabe der Agentur"
+    },
+    "shop": {
+      "value": true,
+      "source": "Angabe der Agentur"
+    },
+    "bfsg": {
+      "value": true,
+      "source": "Angabe der Agentur"
+    },
+    "subscription": {
+      "value": false,
+      "source": "Angabe der Agentur"
+    },
+    "more_than_10_employees": {
+      "value": false,
+      "source": "Angabe der Agentur"
+    },
+    "platform_features": {
+      "value": false,
+      "source": "Angabe der Agentur"
+    },
+    "ai_chat": {
+      "value": false,
+      "source": "Angabe der Agentur"
+    },
+    "durability_guarantee": {
+      "value": null,
+      "source": "Unklar, Rückfrage offen",
+      "note": "Der Kunde konnte die Frage noch nicht beantworten."
+    }
+  },
+  "summary": {
+    "sentences": [
+      "Die Prüfung der lokalen Testseite fand drei Auffälligkeiten und zwei Hinweise.",
+      "Am wichtigsten sind die Schriften von einem fremden Server und der fehlende Sicherheits-Header.",
+      "Zwei Schritte hinter dem Checkout waren bei einer passiven Prüfung nicht erreichbar."
+    ],
+    "top_actions": [
+      "CK-01",
+      "DRT-01",
+      "SEC-02"
+    ]
+  },
+  "results": [
+    {
+      "id": "IMP-01",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "IMP-02",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "IMP-03",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "DSE-01",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "DSE-02",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "CK-01",
+      "status": "defect",
+      "severity": "HIGH",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Beim ersten Aufruf lädt die Seite Schriften von fonts.googleapis.com, bevor eine Einwilligung vorliegt.",
+      "client_text": "Schon beim ersten Aufruf, noch vor einer Entscheidung im Cookie-Banner, sendet der Browser eine Anfrage an fonts.googleapis.com.",
+      "client_action": "Bitten Sie Ihre Webagentur, die Schriften lokal vom eigenen Server auszuliefern.",
+      "risk": "Anfragen an Drittserver vor einer Einwilligung können Rückfragen von Aufsichtsbehörden auslösen.",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "file": "evidence/shot.png",
+          "caption": "Startseite beim ersten Aufruf",
+          "alt": "Startseite mit Cookie-Banner beim ersten Aufruf"
+        },
+        {
+          "kind": "network",
+          "excerpt": "GET https://fonts.googleapis.com/css2?family=Roboto 200"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Schriftdateien herunterladen.",
+          "Schriften aus dem eigenen Server laden und den Google-Fonts-Link entfernen."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 30
+        }
+      },
+      "retest": {
+        "how": "Startseite im privaten Fenster öffnen und das Netzwerkprotokoll auf Anfragen an fonts.googleapis.com prüfen."
+      },
+      "references": [
+        "https://www.gesetze-im-internet.de/ttdsg/__25.html"
+      ],
+      "checklist": [
+        "Netzwerkprotokoll ohne Anfragen an fonts.googleapis.com"
+      ]
+    },
+    {
+      "id": "CK-02",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "CK-03",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "CK-04",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "CK-05",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "CK-06",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "CK-07",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "CK-08",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "DRT-01",
+      "status": "defect",
+      "severity": "HIGH",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Die Seite bindet Google Fonts von einem fremden Server ein.",
+      "client_text": "Im Quelltext der Startseite steht ein Link auf fonts.googleapis.com. Die Schriften kommen damit nicht vom eigenen Server.",
+      "client_action": "Lassen Sie die Schriften lokal einbinden und den externen Link entfernen.",
+      "risk": "Die Übermittlung der IP-Adresse an einen Drittanbieter kann datenschutzrechtlich relevant sein.",
+      "evidence": [
+        {
+          "kind": "dom",
+          "excerpt": "<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Roboto\">"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Schriften lokal speichern.",
+          "Den externen Link im Kopfbereich der Seite entfernen."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 20
+        }
+      },
+      "retest": {
+        "how": "Quelltext der Startseite öffnen und nach fonts.googleapis.com suchen."
+      },
+      "references": [
+        "https://www.gesetze-im-internet.de/ttdsg/__25.html"
+      ],
+      "checklist": [
+        "Quelltext ohne Verweis auf fonts.googleapis.com"
+      ]
+    },
+    {
+      "id": "DRT-02",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "DRT-03",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "DRT-04",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "DRT-05",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "DRT-06",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SEC-01",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SEC-02",
+      "status": "defect",
+      "severity": "MED",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Die Antwort der Startseite enthält keinen Strict-Transport-Security-Header.",
+      "client_text": "Die Antwortköpfe der Startseite enthalten keine Angabe zu Strict-Transport-Security.",
+      "client_action": "Bitten Sie Ihren Hosting-Anbieter, den Header Strict-Transport-Security zu setzen.",
+      "risk": "Ohne diesen Header kann ein Browser eine Verbindung leichter auf unverschlüsseltes HTTP herabstufen.",
+      "evidence": [
+        {
+          "kind": "header",
+          "excerpt": "HTTP/1.0 200 OK\nServer: SimpleHTTP/0.6 Python/3.10\nContent-Type: text/html"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Im Webserver den Header Strict-Transport-Security mit einer Laufzeit von mindestens einem Jahr setzen."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 15
+        }
+      },
+      "retest": {
+        "how": "Die Antwortköpfe der Startseite abrufen und auf Strict-Transport-Security prüfen.",
+        "command": "curl -sI http://127.0.0.1:8765/"
+      },
+      "references": [
+        "https://developer.mozilla.org/de/docs/Web/HTTP/Headers/Strict-Transport-Security"
+      ],
+      "checklist": [
+        "Antwort enthält Strict-Transport-Security"
+      ]
+    },
+    {
+      "id": "SEC-03",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SEC-04",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SEC-05",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SEC-06",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SEC-07",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SEC-08",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "FRM-01",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "FRM-02",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "FRM-03",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "FRM-04",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "FRM-05",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "A11Y-01",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "A11Y-02",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "A11Y-03",
+      "status": "notice",
+      "severity": "MED",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Ein Bild auf der Startseite hat keinen Alternativtext.",
+      "client_text": "Das Titelbild der Startseite hat kein alt-Attribut. Screenreader können es nicht beschreiben.",
+      "client_action": "Bitten Sie Ihre Webagentur, dem Bild einen kurzen Alternativtext zu geben.",
+      "risk": "Nutzerinnen und Nutzer mit Screenreader erfahren sonst nicht, was das Bild zeigt.",
+      "evidence": [
+        {
+          "kind": "dom",
+          "excerpt": "<img src=\"hero.png\">"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Dem Bild ein alt-Attribut mit einer kurzen Beschreibung geben."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 10
+        }
+      },
+      "retest": {
+        "how": "Startseite mit einem Screenreader oder einem Prüfwerkzeug auf fehlende Alternativtexte untersuchen."
+      },
+      "references": [
+        "https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html"
+      ],
+      "checklist": [
+        "Alle Bilder haben ein alt-Attribut"
+      ]
+    },
+    {
+      "id": "A11Y-04",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "A11Y-05",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "A11Y-06",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "A11Y-07",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SHOP-01",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SHOP-02",
+      "status": "none",
+      "reason_kind": "not_checkable",
+      "reason": "Der Schritt liegt hinter dem Checkout und wird bei einer passiven Prüfung nicht ausgelöst."
+    },
+    {
+      "id": "SHOP-03",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SHOP-04",
+      "status": "none",
+      "reason_kind": "not_checkable",
+      "reason": "Der Schritt liegt hinter dem Checkout und wird bei einer passiven Prüfung nicht ausgelöst."
+    },
+    {
+      "id": "SHOP-06",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SHOP-07",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SHOP-08",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "SHOP-09",
+      "status": "notice",
+      "severity": "LOW",
+      "severity_original": null,
+      "reason_kind": null,
+      "reason": null,
+      "one_liner": "Ob die Hinweispflicht zur Haltbarkeitsgarantie hier gilt, ist noch offen.",
+      "client_text": "Es ist bisher nicht geklärt, ob der Shop Waren mit einer Haltbarkeitsgarantie des Herstellers anbietet.",
+      "client_action": "Klären Sie mit Ihrem Kunden, ob solche Waren verkauft werden.",
+      "risk": "Fehlen vorgeschriebene Hinweise, kann das Abmahnungen auslösen.",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "file": "evidence/shot.png",
+          "caption": "Produktseite im Shop",
+          "alt": "Produktseite des Shops ohne Hinweis zur Haltbarkeitsgarantie"
+        }
+      ],
+      "fix": {
+        "steps": [
+          "Beim Kunden erfragen, ob Waren mit Haltbarkeitsgarantie des Herstellers verkauft werden."
+        ],
+        "effort": {
+          "level": "gering",
+          "minutes": 10
+        }
+      },
+      "retest": {
+        "how": "Produktseiten des Shops auf einen Hinweis zur Haltbarkeitsgarantie prüfen."
+      },
+      "references": [
+        "https://www.gesetze-im-internet.de/bgb/__479.html"
+      ],
+      "checklist": [
+        "Anwendbarkeit mit dem Kunden geklärt"
+      ],
+      "review_question": "Gilt die Hinweispflicht zur Haltbarkeitsgarantie für diesen Shop?"
+    },
+    {
+      "id": "UWG-01",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "UWG-02",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "UWG-03",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    },
+    {
+      "id": "KI-02",
+      "status": "pass",
+      "one_liner": "Im geprüften Umfang nichts beobachtet."
+    }
+  ]
+}
