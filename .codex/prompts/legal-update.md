@@ -1,7 +1,7 @@
 ---
 description: Aktualisiert einen KB-Artikel oder die gesamte Knowledge Base (Primaerquellen-Recherche, YAML-Frontmatter-Update).
 argument-hint: [thema-slug | --all | --stale-only | --fix-pending]
-allowed-tools: shell.exec, file.read, file.write, file.edit, file.glob, search.grep, http.get, http.get, spawn_agent
+allowed-tools: shell.exec, file.read, file.write, file.edit, file.glob, search.grep, http.get, spawn_agent
 ---
 <!--
   AUTO-GENERATED — DO NOT EDIT DIRECTLY.

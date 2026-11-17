@@ -115,5 +115,41 @@ class ClientTestCommand(unittest.TestCase):
         self.assertIn("${GITHUB_WORKSPACE}/scripts/client-test.py", copilot.read_text(encoding="utf-8"))
 
 
+class BashPatternMapping(unittest.TestCase):
+    """Restricted Bash(<pattern>) entries must never silently become full shell access."""
+    TOOLS = "Bash(python:*), Bash(curl -sI:*), Read"
+
+    def setUp(self):
+        self.sp = _load_sync_platforms()
+
+    def test_map_tools_collapses_patterns_to_shell_tool(self):
+        self.assertEqual(self.sp.map_tools(self.TOOLS, "codex"), "shell.exec, file.read")
+        self.assertEqual(self.sp.map_tools(self.TOOLS, "copilot"), "bash, view")
+
+    def test_bare_bash_unchanged(self):
+        self.assertEqual(self.sp.map_tools("Bash, Read", "codex"), "shell.exec, file.read")
+
+    def test_extract_patterns(self):
+        self.assertEqual(self.sp.extract_bash_patterns(self.TOOLS + ", Bash"),
+                         ["python:*", "curl -sI:*"])
+
+    def test_notice_lists_patterns_without_dashes(self):
+        notice = self.sp.restriction_notice(["python:*", "curl -sI:*"])
+        self.assertIn("Erlaubte Shell-Befehle: nur", notice)
+        self.assertIn("`python:*`", notice)
+        self.assertIn("`curl -sI:*`", notice)
+        for bad in ("—", "–", " - "):
+            self.assertNotIn(bad, notice)
+
+    def test_generated_adapters_keep_restriction(self):
+        for path in (ROOT / ".codex/prompts/legal-client-test.md",
+                     ROOT / ".github/prompts/legal-client-test/PROMPT.md"):
+            text = path.read_text(encoding="utf-8")
+            fm_line = next(l for l in text.splitlines() if l.startswith("allowed-tools:"))
+            self.assertNotIn("Bash(", fm_line)
+            self.assertIn("Erlaubte Shell-Befehle: nur", text)
+            self.assertIn("`curl -sI:*`", text)
+
+
 if __name__ == "__main__":
     unittest.main()
