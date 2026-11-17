@@ -15,7 +15,9 @@ from typing import Any, Iterator, Mapping, Sequence
 from .models import AreaInfo, Catalog, CatalogEntry, LegalBasis, ReportInputError, ValidationIssue
 from .textcheck import check_texts, load_forbidden_phrases
 
-DEFAULT_CATALOG_PATH = Path(__file__).resolve().parents[2] / "templates" / "client-test" / "catalog.json"
+PLUGIN_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_CATALOG_PATH = PLUGIN_ROOT / "templates" / "client-test" / "catalog.json"
+KNOWLEDGE_DIR = "knowledge"
 
 APPLICABILITY_KEYS = ("b2c", "shop", "bfsg", "subscription", "more_than_10_employees",
                       "platform_features", "ai_chat", "durability_guarantee")
@@ -81,7 +83,23 @@ def _validate_areas(areas: Any) -> list[ValidationIssue]:
     return issues
 
 
-def _validate_legal_basis(items: Any, path: str) -> list[ValidationIssue]:
+def _kb_ref_target_issue(kb_ref: str, kb_root: Path) -> str | None:
+    """Message when the kb_ref file or one of its line numbers does not exist below kb_root/knowledge."""
+    rel, _, lines = kb_ref.partition(":")
+    path = kb_root / KNOWLEDGE_DIR / rel
+    if not path.is_file():
+        return f"Datei knowledge/{rel} nicht gefunden"
+    try:
+        count = len(path.read_text(encoding="utf-8-sig").splitlines())
+    except (OSError, UnicodeDecodeError):
+        return f"Datei knowledge/{rel} nicht lesbar"
+    bad = [n for n in (int(x) for x in lines.split(",") if x) if not 1 <= n <= count]
+    if bad:
+        return f"Zeile {', '.join(map(str, bad))} gibt es in knowledge/{rel} nicht ({count} Zeilen)"
+    return None
+
+
+def _validate_legal_basis(items: Any, path: str, kb_root: Path | None = None) -> list[ValidationIssue]:
     if not isinstance(items, list) or not items:
         return [ValidationIssue(path, "mindestens eine Rechtsgrundlage nötig")]
     issues: list[ValidationIssue] = []
@@ -96,6 +114,10 @@ def _validate_legal_basis(items: Any, path: str) -> list[ValidationIssue]:
         kb_ref = item.get("kb_ref")
         if "kb_ref" in item and not (isinstance(kb_ref, str) and KB_REF_RE.match(kb_ref)):
             issues.append(ValidationIssue(f"{item_path}.kb_ref", "Format „ordner/datei.md:zeile“ innerhalb von knowledge/"))
+        elif kb_root is not None and isinstance(kb_ref, str):
+            message = _kb_ref_target_issue(kb_ref, kb_root)
+            if message:
+                issues.append(ValidationIssue(f"{item_path}.kb_ref", message))
     return issues
 
 
@@ -121,7 +143,8 @@ def _validate_flags(entry: dict, path: str, area: str | None) -> list[Validation
     return issues
 
 
-def _validate_entry(entry: Any, path: str) -> tuple[list[ValidationIssue], tuple[int, int] | None]:
+def _validate_entry(entry: Any, path: str,
+                    kb_root: Path | None = None) -> tuple[list[ValidationIssue], tuple[int, int] | None]:
     """Issues of one entry plus its sort key (area index, number) when the ID is well formed."""
     issues = _keys_issues(entry, path, ENTRY_KEYS)
     if not isinstance(entry, dict):
@@ -133,13 +156,13 @@ def _validate_entry(entry: Any, path: str) -> tuple[list[ValidationIssue], tuple
         issues.append(ValidationIssue(f"{path}.area", f"muss zum ID-Präfix {match.group(1)} passen"))
     for key in ENTRY_PROSE:
         issues += _text_issue(entry, key, path, allow_empty=key == "not_applicable_reason")
-    issues += _validate_legal_basis(entry.get("legal_basis"), f"{path}.legal_basis")
+    issues += _validate_legal_basis(entry.get("legal_basis"), f"{path}.legal_basis", kb_root)
     issues += _validate_flags(entry, path, match.group(1) if match else None)
     key = (AREA_ORDER.index(match.group(1)), int(match.group(2))) if match else None
     return issues, key
 
 
-def _validate_entries(entries: Any) -> list[ValidationIssue]:
+def _validate_entries(entries: Any, kb_root: Path | None = None) -> list[ValidationIssue]:
     if not isinstance(entries, list) or not entries:
         return [ValidationIssue("entries", "muss eine nicht leere Liste sein")]
     issues: list[ValidationIssue] = []
@@ -147,7 +170,7 @@ def _validate_entries(entries: Any) -> list[ValidationIssue]:
     last_key: tuple[int, int] | None = None
     for i, entry in enumerate(entries):
         path = f"entries[{i}]"
-        entry_issues, key = _validate_entry(entry, path)
+        entry_issues, key = _validate_entry(entry, path, kb_root)
         issues += entry_issues
         entry_id = entry.get("id") if isinstance(entry, dict) else None
         if isinstance(entry_id, str) and entry_id in seen:
@@ -172,37 +195,49 @@ def _validate_glossary(glossary: Any) -> list[ValidationIssue]:
             continue
         for key in GLOSSARY_KEYS:
             issues += _text_issue(item, key, path)
-        if item.get("term") in terms:
+        term = item.get("term")
+        if not isinstance(term, str):
+            continue  # type issue already reported by _text_issue; unhashable values must not reach the set
+        if term in terms:
             issues.append(ValidationIssue(f"{path}.term", "doppelter Begriff"))
-        terms.add(item.get("term"))
+        terms.add(term)
     return issues
+
+
+def _as_list(value: Any) -> list:
+    """The value if it is a list, else an empty list (structure issues are reported elsewhere)."""
+    return value if isinstance(value, list) else []
 
 
 def _iter_prose(raw: dict) -> Iterator[tuple[str, str]]:
     """(field path, text) of every catalog field that appears as authored text in the report."""
-    for i, area in enumerate(raw.get("areas") or []):
+    for i, area in enumerate(_as_list(raw.get("areas"))):
         if isinstance(area, dict):
             for key in ("title", "intro"):
                 if isinstance(area.get(key), str):
                     yield f"areas[{i}].{key}", area[key]
-    for i, entry in enumerate(raw.get("entries") or []):
+    for i, entry in enumerate(_as_list(raw.get("entries"))):
         if not isinstance(entry, dict):
             continue
         for key in ENTRY_PROSE:
             if isinstance(entry.get(key), str):
                 yield f"entries[{i}].{key}", entry[key]
-        for j, item in enumerate(entry.get("legal_basis") or []):
+        for j, item in enumerate(_as_list(entry.get("legal_basis"))):
             if isinstance(item, dict) and isinstance(item.get("norm"), str):
                 yield f"entries[{i}].legal_basis[{j}].norm", item["norm"]
-    for i, item in enumerate(raw.get("glossary") or []):
+    for i, item in enumerate(_as_list(raw.get("glossary"))):
         if isinstance(item, dict):
             for key in GLOSSARY_KEYS:
                 if isinstance(item.get(key), str):
                     yield f"glossary[{i}].{key}", item[key]
 
 
-def validate_catalog(raw: dict, phrases: Sequence[str]) -> list[ValidationIssue]:
-    """All rule violations of a parsed catalog (structure, IDs, flags, dates, text rules)."""
+def validate_catalog(raw: dict, phrases: Sequence[str], kb_root: Path | None = None) -> list[ValidationIssue]:
+    """All rule violations of a parsed catalog (structure, IDs, flags, dates, text rules).
+
+    With `kb_root` (the plugin root that contains knowledge/), every kb_ref must also name an
+    existing file and existing line numbers; without it only the format is checked.
+    """
     if not isinstance(raw, dict):
         return [ValidationIssue("catalog", "muss ein JSON-Objekt sein")]
     issues = _keys_issues(raw, "catalog", TOP_KEYS)
@@ -210,7 +245,7 @@ def validate_catalog(raw: dict, phrases: Sequence[str]) -> list[ValidationIssue]
     if not (isinstance(version, str) and VERSION_RE.match(version)):
         issues.append(ValidationIssue("catalog_version", "Format JJJJ.MM-N"))
     issues += _validate_areas(raw.get("areas"))
-    issues += _validate_entries(raw.get("entries"))
+    issues += _validate_entries(raw.get("entries"), kb_root)
     issues += _validate_glossary(raw.get("glossary"))
     issues += check_texts(_iter_prose(raw), phrases)
     return issues
@@ -243,7 +278,7 @@ def load_catalog(path: Path | None = None) -> Catalog:
         raw = json.loads(source.read_text(encoding="utf-8-sig"))
     except json.JSONDecodeError as exc:
         raise ReportInputError([ValidationIssue("catalog", f"kein gültiges JSON (Zeile {exc.lineno}, Spalte {exc.colno})")]) from exc
-    issues = validate_catalog(raw, load_forbidden_phrases())
+    issues = validate_catalog(raw, load_forbidden_phrases(), kb_root=PLUGIN_ROOT)
     if issues:
         raise ReportInputError(issues)
     return _build(raw)

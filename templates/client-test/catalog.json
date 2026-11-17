@@ -175,8 +175,8 @@
     {
       "id": "CK-02",
       "area": "CK",
-      "title": "Keine nicht notwendigen Cookies oder Speichereinträge vor Einwilligung",
-      "description": "Wir prüfen, welche Cookies und Einträge im Browserspeicher vor einer Auswahl im Banner gesetzt werden, und notieren solche von Analyse- oder Werbediensten.",
+      "title": "Keine Analyse- oder Werbe-Cookies oder Speichereinträge vor Einwilligung",
+      "description": "Wir prüfen, welche Cookies und Einträge im Browserspeicher vor einer Auswahl im Banner gesetzt werden. Als auffällig werten wir nur Einträge, die eindeutig einem bekannten Analyse- oder Werbedienst zuzuordnen sind; Einträge, die sich keinem Dienst sicher zuordnen lassen, erscheinen höchstens als Hinweis.",
       "legal_basis": [
         {
           "norm": "§ 25 TDDDG",
@@ -320,6 +320,11 @@
           "norm": "Art. 44 ff. DSGVO",
           "valid_from": "2018-05-25",
           "kb_ref": "themen/drittland-transfer.md:88"
+        },
+        {
+          "norm": "Art. 6 Abs. 1 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:57,123"
         }
       ],
       "applies_if": [],
@@ -405,22 +410,27 @@
       "id": "DRT-05",
       "area": "DRT",
       "title": "Externe Skripte und Ressourcen von CDNs",
-      "description": "Wir prüfen, welche Skripte und Ressourcen vor einer Einwilligung von fremden Servern wie Content Delivery Networks geladen werden.",
+      "description": "Wir prüfen, welche Skripte und Ressourcen vor einer Einwilligung von fremden Servern wie Content Delivery Networks geladen werden. Ob dabei Daten in ein Drittland gehen oder auf das Endgerät zugegriffen wird, halten wir als Prüffrage für Ihre Rechtsberatung fest.",
       "legal_basis": [
         {
-          "norm": "§ 25 TDDDG",
-          "valid_from": "2021-12-01",
-          "kb_ref": "gesetze/tdddg.md:47"
+          "norm": "Art. 6 Abs. 1 DSGVO",
+          "valid_from": "2018-05-25",
+          "kb_ref": "gesetze/dsgvo.md:57"
         },
         {
-          "norm": "Art. 44 ff. DSGVO",
+          "norm": "Art. 44 ff. DSGVO (bei Übermittlung in ein Drittland)",
           "valid_from": "2018-05-25",
           "kb_ref": "themen/drittland-transfer.md:98"
+        },
+        {
+          "norm": "§ 25 TDDDG (bei Zugriff auf das Endgerät)",
+          "valid_from": "2021-12-01",
+          "kb_ref": "gesetze/tdddg.md:47"
         }
       ],
       "applies_if": [],
       "always_run": false,
-      "basis": "measurable",
+      "basis": "legal_judgment",
       "max_status": null,
       "not_applicable_reason": "",
       "retest_default": "Seite im privaten Fenster öffnen, im Banner nichts anklicken und das Netzwerkprotokoll nach Anfragen an fremde Domains filtern."
@@ -512,7 +522,7 @@
       "applies_if": [],
       "always_run": false,
       "basis": "measurable",
-      "max_status": null,
+      "max_status": "notice",
       "not_applicable_reason": "",
       "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach Content-Security-Policy suchen."
     },
@@ -536,7 +546,7 @@
       "applies_if": [],
       "always_run": false,
       "basis": "measurable",
-      "max_status": null,
+      "max_status": "notice",
       "not_applicable_reason": "",
       "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach X-Frame-Options oder frame-ancestors suchen."
     },
@@ -560,7 +570,7 @@
       "applies_if": [],
       "always_run": false,
       "basis": "measurable",
-      "max_status": null,
+      "max_status": "notice",
       "not_applicable_reason": "",
       "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach Referrer-Policy suchen."
     },
@@ -584,7 +594,7 @@
       "applies_if": [],
       "always_run": false,
       "basis": "measurable",
-      "max_status": null,
+      "max_status": "notice",
       "not_applicable_reason": "",
       "retest_default": "Antwort-Header der Startseite mit dem angegebenen curl-Befehl abrufen und nach X-Content-Type-Options suchen."
     },
@@ -675,7 +685,7 @@
       "applies_if": [],
       "always_run": false,
       "basis": "measurable",
-      "max_status": null,
+      "max_status": "notice",
       "not_applicable_reason": "",
       "retest_default": "Formularseite öffnen und den Bereich um die Absenden-Schaltfläche lesen."
     },
@@ -726,7 +736,12 @@
         {
           "norm": "Art. 7 Abs. 1 DSGVO",
           "valid_from": "2018-05-25",
-          "kb_ref": "themen/email-marketing.md:192"
+          "kb_ref": "themen/email-marketing.md:48"
+        },
+        {
+          "norm": "§ 7 Abs. 2 Nr. 2 UWG",
+          "valid_from": "2004-07-08",
+          "kb_ref": "themen/email-marketing.md:40"
         }
       ],
       "applies_if": [],
@@ -920,8 +935,8 @@
       "description": "Wir prüfen, ob auf der Website eine Widerrufsbelehrung zu finden ist, und notieren, wo sie steht.",
       "legal_basis": [
         {
-          "norm": "Art. 246a § 1 Abs. 2 EGBGB (Fassung seit 19.06.2026)",
-          "valid_from": "2026-06-19",
+          "norm": "Art. 246a § 1 Abs. 2 EGBGB",
+          "valid_from": "2014-06-13",
           "kb_ref": "checklisten/audit-ecommerce.md:95"
         }
       ],
@@ -1035,7 +1050,7 @@
           "kb_ref": "checklisten/audit-ecommerce.md:101"
         },
         {
-          "norm": "Art. 246a § 1 Abs. 1 S. 1 Nr. 11 EGBGB",
+          "norm": "Art. 246a § 1 Abs. 1 S. 1 Nr. 11 EGBGB (in Kraft seit 27.09.2026 nach Art. 10 Abs. 3 des Gesetzes vom 03.02.2026, BGBl. 2026 I Nr. 28)",
           "valid_from": "2026-09-27",
           "kb_ref": "checklisten/audit-ecommerce.md:101"
         }
@@ -1054,7 +1069,7 @@
       "id": "SHOP-09",
       "area": "SHOP",
       "title": "Garantie-Label für Haltbarkeitsgarantien",
-      "description": "Wir prüfen, ob bei Waren mit kostenloser Haltbarkeitsgarantie des Herstellers über mehr als 2 Jahre das harmonisierte Garantie-Label zu finden ist. Die Platzierung direkt vor dem Bestellbutton liegt meist im Bestellablauf und ist dann passiv nicht prüfbar.",
+      "description": "Wir prüfen, ob bei Waren, für die der Hersteller eine gewerbliche Haltbarkeitsgarantie ohne zusätzliche Kosten für die gesamte Ware mit einer Dauer von mehr als 2 Jahren gewährt und diese Informationen dem Händler zur Verfügung stellt, das harmonisierte Garantie-Label zu finden ist. Die Platzierung direkt vor dem Bestellbutton liegt meist im Bestellablauf und ist dann passiv nicht prüfbar.",
       "legal_basis": [
         {
           "norm": "Art. 2 mit Anhang II DVO (EU) 2025/1960",
@@ -1062,12 +1077,12 @@
           "kb_ref": "checklisten/audit-ecommerce.md:101"
         },
         {
-          "norm": "Art. 246a § 1 Abs. 1 S. 1 Nr. 11a EGBGB",
+          "norm": "Art. 246a § 1 Abs. 1 S. 1 Nr. 11a EGBGB (in Kraft seit 27.09.2026 nach Art. 10 Abs. 3 des Gesetzes vom 03.02.2026, BGBl. 2026 I Nr. 28)",
           "valid_from": "2026-09-27",
           "kb_ref": "checklisten/audit-ecommerce.md:103"
         },
         {
-          "norm": "§ 312j Abs. 2 BGB (Fassung seit 27.09.2026)",
+          "norm": "§ 312j Abs. 2 BGB (in Kraft seit 27.09.2026 nach Art. 10 Abs. 3 des Gesetzes vom 03.02.2026, BGBl. 2026 I Nr. 28)",
           "valid_from": "2026-09-27",
           "kb_ref": "checklisten/audit-ecommerce.md:103"
         }
@@ -1080,7 +1095,7 @@
       "always_run": false,
       "basis": "legal_judgment",
       "max_status": null,
-      "not_applicable_reason": "Laut den Angaben zur Website werden dort keine Waren mit kostenloser Haltbarkeitsgarantie des Herstellers über mehr als 2 Jahre an Verbraucherinnen und Verbraucher verkauft.",
+      "not_applicable_reason": "Laut den Angaben zur Website werden dort keine Waren an Verbraucherinnen und Verbraucher verkauft, für die der Hersteller eine gewerbliche Haltbarkeitsgarantie ohne zusätzliche Kosten für die gesamte Ware mit einer Dauer von mehr als 2 Jahren gewährt und diese Informationen dem Händler zur Verfügung stellt.",
       "retest_default": "Produktseiten der betroffenen Waren und den Bestellablauf bis vor die Bestellung nach dem Garantie-Label durchsuchen."
     },
     {
@@ -1090,7 +1105,7 @@
       "description": "Wir prüfen, ob die Website angibt, ob das Unternehmen bereit oder verpflichtet ist, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
       "legal_basis": [
         {
-          "norm": "§ 36 VSBG",
+          "norm": "§ 36 Abs. 1 Nr. 1 VSBG",
           "valid_from": "2017-02-01",
           "kb_ref": "checklisten/audit-ecommerce.md:123"
         }
@@ -1102,7 +1117,7 @@
       "always_run": false,
       "basis": "legal_judgment",
       "max_status": null,
-      "not_applicable_reason": "Laut den Angaben zur Website richtet sie sich nicht an Verbraucherinnen und Verbraucher, oder das Unternehmen beschäftigt höchstens 10 Personen.",
+      "not_applicable_reason": "Laut den Angaben zur Website richtet sie sich nicht an Verbraucherinnen und Verbraucher, oder das Unternehmen hat am 31.12. des Vorjahres höchstens 10 Personen beschäftigt. Dann entfällt nur die Angabe, ob es zur Teilnahme an Schlichtungsverfahren bereit ist (§ 36 Abs. 3 VSBG); hat es sich zur Teilnahme verpflichtet oder ist es dazu gesetzlich verpflichtet, bleibt der Hinweis auf die zuständige Schlichtungsstelle nötig (§ 36 Abs. 1 Nr. 2 VSBG).",
       "retest_default": "Impressum, AGB und Fußzeile nach einem Hinweis zur Verbraucherschlichtung durchsuchen."
     },
     {
@@ -1131,7 +1146,7 @@
       "description": "Wir notieren Nachhaltigkeitssiegel, die wir auf der Website beobachtet haben, und ob Angaben zum dahinterstehenden Zertifizierungssystem zu finden sind.",
       "legal_basis": [
         {
-          "norm": "Anhang zu § 3 Abs. 3 Nr. 2a UWG",
+          "norm": "Nr. 2a des Anhangs zu § 3 Abs. 3 UWG",
           "valid_from": "2026-09-27",
           "kb_ref": "gesetze/uwg.md:62"
         }
@@ -1187,12 +1202,12 @@
       "id": "KI-02",
       "area": "KI",
       "title": "Kennzeichnung KI-erzeugter Inhalte",
-      "description": "Wir notieren Bilder, Videos oder Texte, die nach den Angaben der Website oder erkennbar mit KI erzeugt oder verändert wurden, und ob sie als solche gekennzeichnet sind.",
+      "description": "Wir notieren Bild-, Ton- oder Videoinhalte, die nach den Angaben der Website oder erkennbar mit KI erzeugt oder verändert wurden und echten Personen, Orten oder Ereignissen täuschend ähneln (Deepfakes), sowie mit KI erzeugte Texte, die veröffentlicht werden, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren, und ob diese Inhalte als KI-erzeugt gekennzeichnet sind.",
       "legal_basis": [
         {
           "norm": "Art. 50 Abs. 4 KI-VO",
           "valid_from": "2026-08-02",
-          "kb_ref": "themen/ki-transparenz.md:99"
+          "kb_ref": "themen/ki-transparenz.md:99,111"
         }
       ],
       "applies_if": [],

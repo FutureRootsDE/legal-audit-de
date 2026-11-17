@@ -100,7 +100,7 @@ class CatalogFile(unittest.TestCase):
 
     def test_basis_of_mixed_areas(self):
         judgment = {e.id for e in self.cat.entries if e.basis == "legal_judgment"}
-        expected_mixed = {"IMP-03", "DSE-02", "CK-07", "DRT-06", "FRM-04", "FRM-05",
+        expected_mixed = {"IMP-03", "DSE-02", "CK-07", "DRT-05", "DRT-06", "FRM-04", "FRM-05",
                           "SHOP-01", "SHOP-03", "SHOP-06", "SHOP-08", "SHOP-09", "SHOP-10"}
         self.assertEqual(judgment - {e.id for e in self.cat.entries if e.area in ("UWG", "KI", "DSA")},
                          expected_mixed)
@@ -138,9 +138,33 @@ class CatalogFile(unittest.TestCase):
             if e.applies_if:
                 self.assertTrue(e.not_applicable_reason, e.id)
 
-    def test_max_status_only_for_os_platform_link(self):
-        self.assertEqual({e.id for e in self.cat.entries if e.max_status}, {"SHOP-07"})
-        self.assertEqual(self.cat.by_id["SHOP-07"].max_status, "notice")
+    def test_max_status_notice_entries(self):
+        # SHOP-07: outdated OS platform link; FRM-02 and SEC-03 to SEC-06: Art. 32 DSGVO only asks for
+        # appropriate measures, so a missing header or form notice is a fact, never a ✕ on its own.
+        expected = {"SHOP-07", "FRM-02", "SEC-03", "SEC-04", "SEC-05", "SEC-06"}
+        self.assertEqual({e.id for e in self.cat.entries if e.max_status}, expected)
+        self.assertTrue(all(self.cat.by_id[i].max_status == "notice" for i in expected))
+
+    def test_review_findings_2026_11_17(self):
+        by = self.cat.by_id
+        # SHOP-03: the duty to inform about withdrawal exists since 13.06.2014; only the wording is new.
+        self.assertEqual([b.valid_from for b in by["SHOP-03"].legal_basis], [date(2014, 6, 13)])
+        self.assertEqual(by["DRT-05"].basis, "legal_judgment")
+        self.assertEqual(by["DRT-05"].legal_basis[0].norm, "Art. 6 Abs. 1 DSGVO")
+        self.assertIn("Art. 6 Abs. 1 DSGVO", [b.norm for b in by["DRT-01"].legal_basis])
+        self.assertNotIn("nicht notwendig", by["CK-02"].title)
+        self.assertIn("eindeutig", by["CK-02"].description)
+        self.assertIn("§ 7 Abs. 2 Nr. 2 UWG", [b.norm for b in by["FRM-05"].legal_basis])
+        self.assertNotIn("themen/email-marketing.md:192", [b.kb_ref for b in by["FRM-05"].legal_basis])
+        self.assertIn("öffentlichem Interesse", by["KI-02"].description)
+        self.assertIn("Deepfakes", by["KI-02"].description)
+        self.assertIn("§ 36 Abs. 3 VSBG", by["SHOP-10"].not_applicable_reason)
+        self.assertEqual(by["UWG-02"].legal_basis[0].norm, "Nr. 2a des Anhangs zu § 3 Abs. 3 UWG")
+        for text in (by["SHOP-09"].description, by["SHOP-09"].not_applicable_reason):
+            for part in ("ohne zusätzliche Kosten", "gesamte Ware", "mehr als 2 Jahren", "zur Verfügung stellt"):
+                self.assertIn(part, text)
+        for b in by["SHOP-09"].legal_basis[1:] + by["SHOP-08"].legal_basis[1:]:
+            self.assertIn("Art. 10 Abs. 3", b.norm)
 
     def test_ppwr_is_no_test_but_glossary_outlook(self):
         texts = " ".join(f"{e.title} {e.description}" for e in self.cat.entries)
@@ -258,6 +282,48 @@ class CatalogValidation(unittest.TestCase):
             with self.assertRaises(ReportInputError) as ctx:
                 load_catalog(path)
             self.assertTrue(re.search(r"Zeile 1", str(ctx.exception)))
+
+    def test_unhashable_glossary_term_is_an_issue_not_an_exception(self):
+        raw = minimal_catalog()
+        raw["glossary"][0]["term"] = ["Header"]
+        self.assertIn("glossary[0].term", issue_paths(raw))
+
+    def test_non_list_collections_are_issues_not_exceptions(self):
+        for key in ("areas", "entries", "glossary"):
+            raw = minimal_catalog()
+            raw[key] = 5
+            self.assertIn(key, issue_paths(raw), key)
+
+    def test_non_list_legal_basis_is_an_issue_not_an_exception(self):
+        self.assertIn("entries[0].legal_basis", issue_paths(minimal_catalog(legal_basis=7)))
+
+    def test_kb_ref_existence_checked_only_with_kb_root(self):
+        missing_file = minimal_catalog(legal_basis=[{"norm": "§ 25 TDDDG", "valid_from": "2021-12-01",
+                                                     "kb_ref": "gesetze/gibt-es-nicht.md:3"}])
+        missing_line = minimal_catalog(legal_basis=[{"norm": "§ 25 TDDDG", "valid_from": "2021-12-01",
+                                                     "kb_ref": "gesetze/tdddg.md:47,99999"}])
+        self.assertEqual(issue_paths(missing_file), [])
+        self.assertEqual(issue_paths(missing_line), [])
+        for raw in (missing_file, missing_line):
+            paths = [i.path for i in validate_catalog(raw, PHRASES, kb_root=ROOT)]
+            self.assertEqual(paths, ["entries[0].legal_basis[0].kb_ref"])
+        self.assertEqual(validate_catalog(minimal_catalog(), PHRASES, kb_root=ROOT), [])
+
+    def test_kb_ref_must_stay_inside_knowledge(self):
+        raw = minimal_catalog(legal_basis=[{"norm": "§ 25 TDDDG", "valid_from": "2021-12-01",
+                                            "kb_ref": "gesetze/tdddg.md:0"}])
+        self.assertIn("entries[0].legal_basis[0].kb_ref",
+                      [i.path for i in validate_catalog(raw, PHRASES, kb_root=ROOT)])
+
+    def test_load_catalog_checks_kb_refs(self):
+        raw = minimal_catalog(legal_basis=[{"norm": "§ 25 TDDDG", "valid_from": "2021-12-01",
+                                            "kb_ref": "gesetze/gibt-es-nicht.md"}])
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "catalog.json"
+            path.write_text(json.dumps(raw), encoding="utf-8")
+            with self.assertRaises(ReportInputError) as ctx:
+                load_catalog(path)
+            self.assertIn("entries[0].legal_basis[0].kb_ref", [i.path for i in ctx.exception.issues])
 
     def test_load_catalog_accepts_bom(self):
         with tempfile.TemporaryDirectory() as tmp:

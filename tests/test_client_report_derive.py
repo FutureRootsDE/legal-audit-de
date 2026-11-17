@@ -119,10 +119,10 @@ class Derive(Base):
 
     def test_notice_before_valid_from_gets_note_only(self):
         f = valid_findings(CAT, shop=True, started="2026-06-01T08:00:00Z",
-                           results=[open_result("SHOP-03", "notice", "LOW")])
-        r = by_id(self.derive_valid(f)[0], "SHOP-03")
+                           results=[open_result("SHOP-08", "notice", "LOW")])
+        r = by_id(self.derive_valid(f)[0], "SHOP-08")
         self.assertEqual((r.status, r.severity, r.severity_original), ("notice", "LOW", None))
-        self.assertEqual(r.notes, ("Pflicht gilt ab 19.06.2026.",))
+        self.assertEqual(r.notes, ("Pflicht gilt ab 27.09.2026.",))
 
     def test_earliest_valid_from_counts_with_several_bases(self):
         # DRT-01 has bases from 2018-05-25 and 2021-12-01: one already applies, no downgrade.
