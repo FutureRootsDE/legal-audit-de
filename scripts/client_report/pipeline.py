@@ -15,7 +15,7 @@ from .catalog import load_catalog
 from .derive import derive
 from .embed import SIZE_BUDGET_BYTES
 from .invariants import check_invariants
-from .models import Catalog, ReportInputError
+from .models import Catalog, ReportInputError, ValidationIssue
 from .render import render_html
 from .schema import FINDINGS_PATH, load_findings, validate_input
 
@@ -41,7 +41,11 @@ def _atomic_write_text(path: Path, text: str) -> None:
 
 
 def build_report(report_dir: Path, catalog: Catalog | None = None) -> RenderResult:
-    """Run steps 1 to 5 for `report_dir/findings.json` and write `report_dir/report.html`."""
+    """Run steps 1 to 5 for `report_dir/findings.json` and write `report_dir/report.html`.
+
+    Raises ReportInputError for every rule violation, including a failed post-render check
+    (path `report.html`); OSError only when a file cannot be read or written.
+    """
     report_dir = Path(report_dir)
     catalog = catalog if catalog is not None else load_catalog()
     findings = load_findings(report_dir / FINDINGS_PATH)
@@ -49,10 +53,15 @@ def build_report(report_dir: Path, catalog: Catalog | None = None) -> RenderResu
     if issues:
         raise ReportInputError(issues)
     model, warnings = derive(findings, catalog)                           # steps 2 and 3
-    issues = check_invariants(model)                                      # step 4
+    issues = check_invariants(model, catalog)                             # step 4
     if issues:
         raise ReportInputError(issues)
-    document = render_html(model, catalog, report_dir)                    # step 5
+    try:
+        document = render_html(model, catalog, report_dir)                # step 5
+    except RuntimeError as exc:
+        # Post-render checks (external refs, lawyer sentence count, template text rules) fail
+        # with RuntimeError; callers get the same exception class as for every other step.
+        raise ReportInputError([ValidationIssue(REPORT_FILENAME, f"Bericht nicht erzeugt: {exc}")]) from exc
     if len(document.encode("utf-8")) > SIZE_BUDGET_BYTES:
         warnings.append(WARNING_SIZE)
     html_path = report_dir / REPORT_FILENAME

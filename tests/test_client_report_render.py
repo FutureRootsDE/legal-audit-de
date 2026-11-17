@@ -175,6 +175,11 @@ class Embed(unittest.TestCase):
                 '<img src="data:image/png;base64,AAAA" alt=""><a href="#a-ck-03">CK-03</a>')
         self.assertEqual(find_external_refs(html), [])
 
+    def test_anchor_scheme_check_is_case_insensitive(self):
+        self.assertEqual(find_external_refs('<a href="HTTPS://www.bsi.bund.de/">x</a>'), [])
+        self.assertNotEqual(find_external_refs('<a href="HTTP://plain/">x</a>'), [])
+        self.assertNotEqual(find_external_refs('<a href="JavaScript:alert(1)">x</a>'), [])
+
 
 # ---------------------------------------------------------------- render
 
@@ -220,6 +225,19 @@ class Render(Base):
         self.assertIn("javascript:alert(1)", visible_text(html))
         self.assertIn("data:text/html,&lt;b&gt;x&lt;/b&gt;", html)
         self.assertIn('rel="noreferrer"', html)
+
+    def test_upper_case_https_reference_renders_with_lower_case_scheme(self):
+        row = open_result("CK-03", "notice", "LOW") | {"references": ["HTTPS://www.bsi.bund.de/Pfad"]}
+        html = self.build(valid_findings(CAT, results=[row]))   # full pipeline: validation passes it
+        hrefs = [a.get("href") for t, a in parse(html).tags if t == "a" and "bsi" in a.get("href", "")]
+        self.assertEqual(hrefs, ["https://www.bsi.bund.de/Pfad"])
+
+    def test_reference_with_userinfo_is_text_not_link(self):
+        row = open_result("CK-03", "defect", "HIGH")
+        row["references"] = ["https://bank.de@evil.example/"]
+        model, _ = derive(valid_findings(CAT, results=[row]), CAT)
+        html = render_html(model, CAT, self.rd)
+        self.assertFalse(any(a.get("href", "").startswith("https://bank") for t, a in parse(html).tags if t == "a"))
 
     def test_lawyer_sentence_twice_per_defect(self):
         html = self.build(findings_with_defects(["CK-01", "SEC-02"]))
@@ -411,6 +429,30 @@ class Pipeline(Base):
     def test_missing_findings_file(self):
         with self.assertRaises(ReportInputError):
             build_report(self.rd, CAT)
+
+    def test_render_check_failure_becomes_input_error(self):
+        from unittest import mock
+        with mock.patch("client_report.pipeline.render_html",
+                        side_effect=RuntimeError("report.html enthält externe Referenzen: <a href=x>")):
+            with self.assertRaises(ReportInputError) as ctx:
+                self.run_build(valid_findings(CAT))
+        issue = ctx.exception.issues[0]
+        self.assertEqual(issue.path, "report.html")
+        self.assertIn("externe Referenzen", issue.message)
+        self.assertNotRegex(issue.message, "[–—]| - ")
+        self.assertFalse((self.rd / "report.html").exists())
+
+    def test_pipeline_checks_catalog_completeness(self):
+        from unittest import mock
+        import client_report.pipeline as pipeline
+        seen = {}
+
+        def spy(model, catalog=None):
+            seen["catalog"] = catalog
+            return []
+        with mock.patch.object(pipeline, "check_invariants", side_effect=spy):
+            self.run_build(valid_findings(CAT))
+        self.assertIs(seen["catalog"], CAT)
 
 
 if __name__ == "__main__":

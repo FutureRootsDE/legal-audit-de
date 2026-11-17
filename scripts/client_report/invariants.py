@@ -9,7 +9,7 @@ from __future__ import annotations
 from typing import Any, Mapping
 
 from .derive import STATUS_MISSING
-from .models import DerivedResult, ReportModel, ValidationIssue
+from .models import Catalog, DerivedResult, ReportModel, ValidationIssue
 from .schema import DEFECT_NOT_ALLOWED, SEVERITY_BY_STATUS, STATUSES
 
 OPEN_STATUSES = ("notice", "defect")
@@ -133,6 +133,21 @@ def _top_action_issues(model: ReportModel) -> list[ValidationIssue]:
     return issues
 
 
-def check_invariants(model: ReportModel) -> list[ValidationIssue]:
-    """Every invariant violation of the derived model; an empty list means step 4 passed."""
-    return _result_issues(model) + _count_issues(model) + _top_action_issues(model)
+def _catalog_issues(model: ReportModel, catalog: Catalog) -> list[ValidationIssue]:
+    """Catalog completeness (spec 6.9.2 step 2): exactly one derived row per catalog entry."""
+    model_ids = {r.entry.id for r in model.results}
+    issues = [ValidationIssue("results", f"{test_id} fehlt im abgeleiteten Modell")
+              for test_id in catalog.by_id if test_id not in model_ids]
+    issues += [ValidationIssue("results", f"{test_id} steht nicht im Prüfkatalog")
+               for test_id in sorted(model_ids - set(catalog.by_id))]
+    return issues
+
+
+def check_invariants(model: ReportModel, catalog: Catalog | None = None) -> list[ValidationIssue]:
+    """Every invariant violation of the derived model; an empty list means step 4 passed.
+
+    With `catalog`, the set of derived IDs must also equal the catalog's IDs, so an entry that
+    is missing from the model entirely (not just marked missing) is caught.
+    """
+    issues = _catalog_issues(model, catalog) if catalog is not None else []
+    return issues + _result_issues(model) + _count_issues(model) + _top_action_issues(model)

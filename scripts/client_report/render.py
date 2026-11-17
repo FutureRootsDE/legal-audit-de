@@ -47,6 +47,7 @@ OPEN_STATUSES = ("notice", "defect")
 DATE_FORMAT = "%d.%m.%Y"
 STATUS_COLOR_RE = re.compile(r"--status-(pass|notice|defect|none):\s*(#[0-9A-Fa-f]{6})\s*;")
 UNSAFE_LINK_RE = re.compile(r"[\s\x00-\x1f\x7f\"'<>`\\]")
+HTTPS_PREFIX = "https://"
 PLACEHOLDER_RE = re.compile(r"\$(?:[A-Za-z_][A-Za-z0-9_]*|\{[A-Za-z_][A-Za-z0-9_]*\})")
 # 16x16 status glyphs; {c} is the fixed status color from report.css.
 ICON_SHAPES = {
@@ -90,12 +91,16 @@ def _is_https_link(value: Any) -> bool:
     if not isinstance(value, str) or UNSAFE_LINK_RE.search(value):
         return False
     parts = urlsplit(value)
-    return value.lower().startswith("https://") and parts.scheme == "https" and bool(parts.hostname)
+    return (value.lower().startswith(HTTPS_PREFIX) and parts.scheme == "https" and bool(parts.hostname)
+            and "@" not in parts.netloc)
 
 
 def _link_or_text(value: Any) -> str:
+    """https reference as link, anything else as text. The scheme in href is normalised to lower
+    case (`HTTPS://` is valid input), matching the case-insensitive anchor check in embed."""
     if _is_https_link(value):
-        return f'<a href="{_e(value)}" rel="noreferrer">{_e(value)}</a>'
+        href = HTTPS_PREFIX + value[len(HTTPS_PREFIX):]
+        return f'<a href="{_e(href)}" rel="noreferrer">{_e(value)}</a>'
     return _e(value)
 
 

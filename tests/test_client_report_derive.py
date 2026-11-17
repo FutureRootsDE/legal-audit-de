@@ -281,6 +281,16 @@ class Invariants(Base):
         self.assertIn("UWG-01", messages)
         self.assertIn("Zählung", messages)
 
+    def test_catalog_entry_missing_from_model_detected_with_catalog(self):
+        m, _ = derive(valid_findings(CAT), CAT)
+        rows = tuple(r for r in m.results if r.entry.id != "SEC-02")
+        counts = {s: sum(1 for r in rows if r.status == s) for s in STATUSES}
+        bad = ReportModel(m.findings, m.check_date, rows, counts)
+        self.assertEqual(check_invariants(bad), [])                     # backwards compatible default
+        issues = [(i.path, i.message) for i in check_invariants(bad, CAT)]
+        self.assertEqual(issues, [("results", "SEC-02 fehlt im abgeleiteten Modell")])
+        self.assertEqual(check_invariants(m, catalog=CAT), [])
+
 
 class LegalBasisOnlyFromCatalog(Base):
     """Orchestrator decision (spec 8): v1 results carry no own legal_basis; norms come from the catalog."""

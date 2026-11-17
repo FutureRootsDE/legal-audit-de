@@ -84,7 +84,8 @@ class _RefFinder(HTMLParser):
             if name == "style":
                 self.refs += _css_refs(value)
             elif name == "href" and tag == "a":
-                if value and not value.startswith(SAFE_ANCHOR_PREFIXES):
+                # URL schemes are case-insensitive (RFC 3986 section 3.1): HTTPS:// is https.
+                if value and not value.lower().startswith(SAFE_ANCHOR_PREFIXES):
                     self.refs.append(f"<a href={value}>")
             elif name == "href" or name in FETCH_ATTRS:
                 parts = value.split(",") if name == "srcset" else [value]
