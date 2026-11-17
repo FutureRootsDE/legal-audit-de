@@ -139,9 +139,10 @@ class CatalogFile(unittest.TestCase):
                 self.assertTrue(e.not_applicable_reason, e.id)
 
     def test_max_status_notice_entries(self):
-        # SHOP-07: outdated OS platform link; FRM-02 and SEC-03 to SEC-06: Art. 32 DSGVO only asks for
-        # appropriate measures, so a missing header or form notice is a fact, never a ✕ on its own.
-        expected = {"SHOP-07", "FRM-02", "SEC-03", "SEC-04", "SEC-05", "SEC-06"}
+        # SHOP-07: outdated OS platform link; FRM-02 and SEC-02 to SEC-06 and SEC-08: Art. 32 DSGVO only
+        # asks for appropriate measures, so a missing header, cookie attribute or form notice is a fact,
+        # never a ✕ on its own.
+        expected = {"SHOP-07", "FRM-02", "SEC-02", "SEC-03", "SEC-04", "SEC-05", "SEC-06", "SEC-08"}
         self.assertEqual({e.id for e in self.cat.entries if e.max_status}, expected)
         self.assertTrue(all(self.cat.by_id[i].max_status == "notice" for i in expected))
 

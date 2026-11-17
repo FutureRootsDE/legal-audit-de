@@ -111,7 +111,7 @@ class EndToEnd(EndToEndCase):
         self.assertEqual(code, 0, err)
         html = (report_dir / "report.html").read_text(encoding="utf-8")
         defects = self.count_status(report_dir, "defect")
-        self.assertEqual(defects, 4)
+        self.assertEqual(defects, 3)
         self.assertEqual(self.count_status(report_dir, "notice"), 7)
         self.assertEqual(html.count(LAWYER_SENTENCE), 2 * defects)
         self.assertIn(TITLE.replace("&", "&amp;"), html)
@@ -159,7 +159,7 @@ class EndToEnd(EndToEndCase):
         self.assertEqual(code, 0, err)
         html = (report_dir / "report.html").read_text(encoding="utf-8")
         self.assertIn("28.06.2025", html)
-        self.assertEqual(html.count(LAWYER_SENTENCE), 2 * 4)
+        self.assertEqual(html.count(LAWYER_SENTENCE), 2 * 3)
 
     def test_missing_result_blocks_render(self):
         report_dir = self.init_from_fixture()
