@@ -8,6 +8,30 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ## [Unreleased]
 
+Minor-Release 1.5.0 (Datum setzt der Release-PR): neuer Befehl `/legal-client-test`.
+
+### Neu
+
+- **`/legal-client-test <url>`:** Website-CheckUp für Agenturen und Freelancer. Briefkopf-Profil, passive Prüfung (Consent und Cookiebanner, Drittanbieter, Sicherheit, Barrierefreiheit, Pflichtangaben; ohne Speed, SEO und GEO) und Report als eigenständiges HTML plus getaggtes PDF über headless Chrome oder Edge. Codex- und Copilot-Adapter werden generiert.
+- **`scripts/client-test.py`** mit den Unterbefehlen `check`, `profile`, `init`, `plan`, `render` und `pdf`; Bibliothek `scripts/client_report/`, nur Standardbibliothek.
+- **Vorlage `templates/client-test/`:** Prüfkatalog v1 mit 56 Tests, HTML-Vorlage, CSS, IBM Plex (Lizenz OFL-1.1) und Sperrliste für unzulässige Formulierungen.
+- **RDG-Linie:** Der Report nennt Tatsachen und die betroffene Vorschrift zur Prüfung, enthält bei jedem nicht bestandenen Test den Anwaltshinweis sowie Weitergabe-Satz und Start-Hinweis; Rechtsgrundlagen stammen nur aus dem Katalog. Keine Rechtsberatung.
+
+### Behoben
+
+- `/legal-audit-live`: falscher Werkzeugpräfix korrigiert. Unterstützt werden beide Installationsvarianten (`mcp__plugin_chrome-devtools-mcp_chrome-devtools__*` und `mcp__chrome-devtools__*`).
+
+### Wissensdatenbank
+
+- `knowledge/checklisten/audit-ecommerce.md`: Durchführungsverordnung (EU) 2025/1960 (Gewährleistungsmitteilung, GARAN-Label, ab 27.09.2026), Ausnahme für Finanzdienstleistungen bei § 312k BGB und Fundstelle zu § 356a BGB ergänzt.
+
+### Bekannte Grenzen
+
+- Copilot bildet `${CLAUDE_PLUGIN_ROOT}` auf `${GITHUB_WORKSPACE}` ab; `/legal-client-test` läuft dort nur, wenn das Plugin-Repo selbst der Workspace ist.
+- chrome-devtools-mcp steht unter Codex und Copilot nur bei eigener MCP-Konfiguration zur Verfügung.
+- Das PDF entsteht nur mit installiertem Chrome oder Edge.
+- Das Inhaltsverzeichnis des PDF hat keine Seitenzahlen (Spike-Ergebnis: kein Paged.js).
+
 ---
 
 ## [1.4.3] (2026-11-15)
