@@ -53,7 +53,7 @@ def all_status_mix() -> dict:
     """Every status: two defects, a measurable and a legal_judgment notice, a not_checkable, n/a rows."""
     return valid_findings(CAT, shop=False, results=[
         open_result("CK-03", "defect", "HIGH"),
-        open_result("SEC-02", "defect", "MED"),
+        open_result("SEC-01", "defect", "MED"),
         open_result("UWG-03", "notice", "MED"),
         open_result("A11Y-02", "notice", "LOW"),
         none_result("IMP-03"),
@@ -242,7 +242,7 @@ class Render(Base):
         self.assertFalse(any(a.get("href", "").startswith("https://bank") for t, a in parse(html).tags if t == "a"))
 
     def test_lawyer_sentence_twice_per_defect(self):
-        html = self.build(findings_with_defects(["CK-01", "SEC-02"]))
+        html = self.build(findings_with_defects(["CK-01", "SEC-01"]))
         self.assertEqual(html.count(LAWYER_SENTENCE), 4)
         self.assertEqual(section(html, "part-a").count(LAWYER_SENTENCE), 2)
         self.assertEqual(section(html, "part-b").count(LAWYER_SENTENCE), 2)
@@ -313,7 +313,7 @@ class Render(Base):
         part_a = order[order.index("section:part-a") + 1:order.index("section:part-b")]
         self.assertEqual(part_a, [f"id:{e.id}" for e in CAT.entries])
         part_b = order[order.index("section:part-b") + 1:order.index("section:appendix-a")]
-        self.assertEqual(part_b, ["id:CK-03", "id:SEC-02", "id:UWG-03", "id:A11Y-02"])
+        self.assertEqual(part_b, ["id:CK-03", "id:SEC-01", "id:UWG-03", "id:A11Y-02"])
 
     def test_render_is_deterministic(self):
         f = all_status_mix()
