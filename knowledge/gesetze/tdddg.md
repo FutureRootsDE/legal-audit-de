@@ -1,5 +1,5 @@
 ---
-aktualisiert: 2026-11-15
+aktualisiert: 2026-11-17
 quelle-primaer: https://www.gesetze-im-internet.de/ttdsg/
 quellen-sekundaer:
   - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
@@ -42,7 +42,7 @@ Verweis auf TKG / DDG; „Endeinrichtung" = jedes Gerät mit Verbindung zu öffe
 Inhalte und nähere Umstände der TK unterliegen dem Fernmeldegeheimnis. § 3 ist in § 27 TDDDG nicht genannt; § 27 stellt Verstöße gegen das Abhörverbot (§ 5) und gegen § 8 (getarnte Sendeanlagen) unter Strafe.
 
 ### § 19 — Technische und organisatorische Vorkehrungen
-Anbieter digitaler Dienste haben ihre Pflichten nach § 19 Abs. 1 durch technische und organisatorische Vorkehrungen sicherzustellen; nach Abs. 2 ist die anonyme oder pseudonyme Nutzung zu ermöglichen, soweit dies technisch möglich und zumutbar ist (ergänzt Art. 32 DSGVO für Kommunikations-Kontext).
+Anbieter digitaler Dienste haben ihre Pflichten nach § 19 Abs. 1 durch technische und organisatorische Vorkehrungen sicherzustellen; nach Abs. 2 ist die anonyme oder pseudonyme Nutzung zu ermöglichen, soweit dies technisch möglich und zumutbar ist (ergänzt Art. 32 DSGVO für Kommunikations-Kontext). Nach Abs. 4 Satz 1 haben Anbieter digitaler Dienste, soweit technisch möglich und wirtschaftlich zumutbar, durch technische und organisatorische Vorkehrungen sicherzustellen, dass kein unerlaubter Zugriff auf ihre technischen Einrichtungen möglich ist (Nr. 1) und diese gegen Störungen, auch durch äußere Angriffe, gesichert sind (Nr. 2); die Vorkehrungen müssen den Stand der Technik berücksichtigen (Satz 2). Wortlaut Satz 3: „Eine Vorkehrung nach Satz 1 ist insbesondere die Anwendung eines als sicher anerkannten Verschlüsselungsverfahrens.“ (Quelle: https://www.gesetze-im-internet.de/ttdsg/__19.html, abgerufen 2026-11-17)
 
 ### § 25 — Schutz der Privatsphäre bei Endeinrichtungen (zentrale Norm)
 
@@ -138,3 +138,7 @@ Nach § 29 Abs. 2 ist der BfDI nur bei Anbietern von TK-Diensten und öffentlich
   § 1 (Abs. 1 und Abs. 3 nach Wortlaut), § 25 Abs. 2 (alternativ, Normwort
   "Uebertragung einer Nachricht"), Cookie-Wall und "Consent or Pay" (EDSA
   Leitlinien 05/2020, Opinion 08/2024 nur fuer grosse Online-Plattformen).
+- **2026-11-17**: § 19 um Abs. 4 ergänzt (Sicherungspflicht für technische
+  Einrichtungen, Stand der Technik, Satz 3 im Wortlaut: als sicher anerkanntes
+  Verschlüsselungsverfahren). Beleg: gesetze-im-internet.de/ttdsg/__19.html,
+  am 2026-11-17 abgerufen. Disclaimer-Block unverändert.
