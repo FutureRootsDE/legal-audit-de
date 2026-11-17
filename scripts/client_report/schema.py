@@ -28,6 +28,7 @@ STATUSES = ("pass", "notice", "defect", "none")
 SEVERITIES = ("CRIT", "HIGH", "MED", "LOW")
 SEVERITY_BY_STATUS = {"defect": ("CRIT", "HIGH", "MED"), "notice": ("MED", "LOW")}
 INPUT_REASON_KINDS = ("not_checkable",)
+APPLICABILITY_SOURCES = ("user", "detected", "detected+confirmed")
 EVIDENCE_KINDS = ("screenshot", "network", "header", "dom")
 SCREENSHOT_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
 LOGO_SUFFIXES = (".png", ".jpg", ".jpeg", ".svg")
@@ -433,6 +434,9 @@ def _validate_applicability(app: Any) -> list[ValidationIssue]:
         if "value" in app[key] and not (value is None or isinstance(value, bool)):
             issues.append(ValidationIssue(f"{path}.value", "muss true, false oder null sein"))
         issues += _text(app[key], "source", path) + _optional_text(app[key], "note", path)
+        source = app[key].get("source")
+        if isinstance(source, str) and source.strip() and source not in APPLICABILITY_SOURCES:
+            issues.append(ValidationIssue(f"{path}.source", f"erlaubt: {', '.join(APPLICABILITY_SOURCES)}"))
     return issues
 
 

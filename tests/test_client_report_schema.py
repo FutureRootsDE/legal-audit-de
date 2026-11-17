@@ -157,6 +157,14 @@ class InputValidation(Base):
         self.assertEqual(sorted(self.paths(f)), ["applicability.ai_chat", "applicability.b2c.source",
                                                  "applicability.newsletter", "applicability.shop.value"])
 
+    def test_applicability_source_is_limited_to_known_values(self):
+        f = valid_findings(CAT)
+        for source in ("user", "detected", "detected+confirmed"):
+            f["applicability"]["shop"]["source"] = source
+            self.assertEqual(self.paths(f), [])
+        f["applicability"]["shop"]["source"] = "Angabe der Agentur"
+        self.assertEqual(self.paths(f), ["applicability.shop.source"])
+
     def test_applicability_accepts_null_and_note(self):
         f = valid_findings(CAT, subscription=None)
         f["applicability"]["bfsg"]["note"] = "Kleinstunternehmen"
