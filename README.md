@@ -32,6 +32,7 @@ Ein Claude-Code-Plugin, das wie ein IT-/Datenschutz-Fachaudit agiert. Es analysi
 |---------|-------|
 | `/legal-audit <pfad>` | Vollständiger Rechts-Audit einer Codebase |
 | `/legal-audit-live <url>` | Live-Browser-Check einer öffentlichen URL |
+| `/legal-client-test <url>` | Website-CheckUp für Agenturen: Report als HTML und PDF mit eigenem Briefkopf |
 | `/legal-doc-check <datei>` | Einzel-Dokument-Prüfung (AGB/DSE/Impressum/Widerruf/Cookie) |
 | `/legal-kb <slug>` | KB-Artikel gezielt in den Kontext laden |
 | `/legal-verify <thema>` | Fachanwalts- und Tool-Empfehlungen |
@@ -90,7 +91,7 @@ Damit bleibt dein Kontext schlank und aktuelles Rechtswissen trotzdem parat.
   - [Claude Code](https://claude.com/claude-code) ≥ 2.0 (vollständige Feature-Unterstützung)
   - [OpenAI Codex CLI](https://github.com/openai/codex) (eingeschränkt — siehe Limitationen)
   - [GitHub Copilot CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli) (eingeschränkt — siehe Limitationen)
-- Optional: [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) für `/legal-audit-live`
+- Optional: [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) für `/legal-audit-live` und `/legal-client-test`
 - Optional: [Obsidian](https://obsidian.md/) für visuelle KB-Navigation (Graph-View, Backlinks)
 
 ### Claude Code (empfohlen — vollständige Hook-Architektur)
@@ -184,7 +185,7 @@ python3 scripts/sync-platforms.py --apply  # generiert .codex/, .codex-plugin/ u
 python3 scripts/sync-platforms.py --check  # CI-Modus: exit 1 bei Drift
 ```
 
-Die GitHub-Action `validate.yml` blockiert PRs, wenn der Sync nicht durchgeführt wurde. Ihre Jobs: Platform-Adapter Sync-Check, Zitatprüfung Unit-Tests (ohne Netzwerk, Aufruf `python -m unittest discover -s tests`), Pro-Mode Agent-Variant Drift-Check, Pro-Mode Toggle Smoke-Test, Disclaimer-Validation, Platzhalter-Scan (informativ) und Markdown-Lint (relaxed). Der letzte Lauf: 415 Tests, 7 übersprungen. Zusätzlich prüft `python3 scripts/sync-pro-variants.py --check` die `-pro`-Agentenvarianten auf Drift.
+Die GitHub-Action `validate.yml` blockiert PRs, wenn der Sync nicht durchgeführt wurde. Ihre Jobs: Platform-Adapter Sync-Check, Zitatprüfung Unit-Tests (ohne Netzwerk, Aufruf `python -m unittest discover -s tests`), Pro-Mode Agent-Variant Drift-Check, Pro-Mode Toggle Smoke-Test, Disclaimer-Validation, Platzhalter-Scan (informativ) und Markdown-Lint (relaxed). Der letzte Lauf: 797 Tests, 11 übersprungen. Zusätzlich prüft `python3 scripts/sync-pro-variants.py --check` die `-pro`-Agentenvarianten auf Drift.
 
 ## Quick Start
 
@@ -263,7 +264,7 @@ legal-audit-de/
 │   └── marketplace.json            # Marketplace-Metadaten
 │
 ├── .claude/                        # ★ SOURCE OF TRUTH ★
-│   ├── commands/*.md               # 9 Slash-Commands
+│   ├── commands/*.md               # 10 Slash-Commands
 │   ├── agents/*.md                 # 6 Custom-Agents (3 plus 3 -pro-Varianten)
 │   ├── skills/*/SKILL.md           # 4 Skills
 │   ├── hooks/*.py                  # 3 Hooks (SessionStart / PromptSubmit / PostToolUse), registriert in .claude-plugin/plugin.json
@@ -272,7 +273,7 @@ legal-audit-de/
 │
 ├── .codex/                         # ⚙ generiert von scripts/sync-platforms.py
 │   ├── config.toml                 # Codex-Konfiguration
-│   ├── prompts/*.md                # 9 Prompts
+│   ├── prompts/*.md                # 10 Prompts
 │   ├── agents/*.md                 # 6 Agents
 │   └── skills/*/SKILL.md           # 4 Skills (mit Auto-Routing)
 │
@@ -285,14 +286,14 @@ legal-audit-de/
 ├── .github/
 │   ├── copilot-instructions.md     # Top-Level für Copilot CLI
 │   ├── workflows/                  # GitHub Actions (validate.yml, release.yml)
-│   ├── prompts/<name>/PROMPT.md    # ⚙ 9 Prompts (generiert)
+│   ├── prompts/<name>/PROMPT.md    # ⚙ 10 Prompts (generiert)
 │   ├── agents/*.md                 # ⚙ 6 Agents (generiert)
 │   └── skills/*/SKILL.md           # ⚙ 4 Skills (generiert)
 │
 ├── knowledge/                      # 65 KB-Dateien plus INDEX.md (Gesetze, Themen, Urteile, Behörden, Checklisten, Anwalts- und Tool-Empfehlungen)
 │   └── INDEX.md                    # einzige immer-geladene Datei (Claude Code via Hook)
 │
-├── templates/                      # LegalAudit-, Clean-, Disclaimer-Templates, git-hooks/, mcp/
+├── templates/                      # LegalAudit-, Clean-, Disclaimer-Templates, git-hooks/, mcp/, client-test/
 ├── docs/                           # Doku-Site (GitHub Pages)
 ├── tests/                          # Offline-Unit-Tests (Zitatprüfung, legal-status.py, Platzhalter-Erkennung)
 └── scripts/
@@ -305,6 +306,8 @@ legal-audit-de/
     ├── placeholder_check.py        # Modul der Platzhalter-Erkennung
     ├── verify-citations.py         # Zitatpruefung: Bundesgerichte, EU-Cellar, Normen (optional)
     ├── citation_check/             # Module der Zitatpruefung
+    ├── client-test.py              # Einstieg fuer /legal-client-test (check, profile, tempfile, init, plan, render, pdf)
+    ├── client_report/              # Bibliothek des Website-CheckUps (nur Standardbibliothek)
     └── legal-audit-pdf.py          # PDF-Bundling
 ```
 

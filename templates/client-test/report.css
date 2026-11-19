@@ -1,0 +1,203 @@
+/* Website-CheckUp report: screen and print styles (spec 6.6).
+   Fixed status colors, checked against white by test_status_colors_contrast (>= 4.5:1).
+   The accent color (--accent) and the margin box texts are injected by render.py. */
+
+:root {
+  --status-pass: #1E6B3A;
+  --status-notice: #8A5A00;
+  --status-defect: #A4161A;
+  --status-none: #5A6470;
+  --ink: #1B1F24;
+  --muted: #4A525C;
+  --rule: #C9CED4;
+  --paper: #FFFFFF;
+  --tint: #F3F5F7;
+  --sans: "IBM Plex Sans", Arial, "Helvetica Neue", sans-serif;
+  --mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+
+@page {
+  size: A4;
+  margin: 22mm 18mm 24mm 18mm;
+  @top-center {
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4A525C;
+  }
+  @bottom-left {
+    width: 78%;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    font-size: 7pt;
+    color: #4A525C;
+    vertical-align: top;
+    padding-top: 4mm;
+  }
+  @bottom-right {
+    width: 22%;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    font-size: 7.5pt;
+    color: #4A525C;
+    text-align: right;
+    vertical-align: top;
+    padding-top: 4mm;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 210mm;
+  padding: 16mm 16px 24mm;
+  font-family: var(--sans);
+  font-size: 10pt;
+  line-height: 1.5;
+  orphans: 2;
+  widows: 2;
+  hyphens: manual;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--accent);
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+h1 { font-size: 19pt; margin: 0 0 6mm; padding-bottom: 2.5mm; border-bottom: 1.2pt solid var(--accent); }
+h2 { font-size: 13pt; margin: 9mm 0 3mm; }
+h3 { font-size: 11pt; margin: 6mm 0 2mm; }
+p { margin: 0 0 2.5mm; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 1.5pt; }
+code, pre { font-family: var(--mono); font-size: 8.5pt; }
+strong { font-weight: 600; }
+
+pre {
+  margin: 1mm 0 3mm;
+  padding: 2.5mm 3mm;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--tint);
+  border-left: 2pt solid var(--rule);
+  break-inside: avoid;
+}
+
+/* ---------------------------------------------------------------- status */
+
+.status { display: inline-flex; align-items: center; gap: 1.6mm; font-weight: 600; white-space: nowrap; }
+.status-icon { width: 3.2mm; height: 3.2mm; flex: none; }
+.status-pass { color: var(--status-pass); }
+.status-notice { color: var(--status-notice); }
+.status-defect { color: var(--status-defect); }
+.status-none { color: var(--status-none); }
+
+/* ---------------------------------------------------------------- cover */
+
+.cover { min-height: 240mm; display: flex; flex-direction: column; break-after: page; page-break-after: always; }
+.letterhead { display: flex; justify-content: space-between; align-items: flex-start; gap: 8mm;
+  padding-bottom: 5mm; border-bottom: 0.8pt solid var(--rule); }
+.logo { height: 16mm; width: auto; max-width: 60mm; object-fit: contain; object-position: left top; }
+.issuer-address { font-size: 8.5pt; color: var(--muted); text-align: right; font-style: normal; }
+.cover-title { margin-top: 38mm; }
+.cover-title h1 { font-size: 26pt; border-bottom: 0; margin: 0 0 3mm; padding: 0; }
+.cover-title .subtitle { font-size: 13pt; color: var(--muted); margin: 0 0 12mm; }
+.cover-title::before { content: ""; display: block; width: 24mm; border-top: 3pt solid var(--accent); margin-bottom: 6mm; }
+.facts { display: grid; grid-template-columns: 38mm 1fr; gap: 2mm 6mm; margin: 0; }
+.facts dt { color: var(--muted); font-size: 9pt; padding-top: 0.6mm; }
+.facts dd { margin: 0; }
+.cover-notice { margin-top: auto; padding: 4mm 5mm; border: 0.8pt solid var(--rule); border-left: 3pt solid var(--accent); }
+.cover-notice p { margin: 0 0 1.5mm; font-size: 9pt; }
+.cover-notice p:last-child { margin-bottom: 0; }
+.confidential { margin: 6mm 0 0; font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------------------------------------------------------------- overview */
+
+.counts { list-style: none; padding: 0; margin: 0 0 6mm; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2mm 6mm; }
+.counts li { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm;
+  padding: 2mm 0; border-bottom: 0.6pt solid var(--rule); }
+.counts .num { font-size: 15pt; font-weight: 600; color: var(--ink); }
+.summary p { margin-bottom: 1.5mm; }
+.top-actions { padding-left: 5mm; }
+.top-actions li { margin-bottom: 1.5mm; }
+
+table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 0 0 6mm; font-size: 8.8pt; }
+caption { text-align: left; font-weight: 600; font-size: 10.5pt; color: var(--accent); padding: 3mm 0 1.5mm;
+  break-after: avoid; caption-side: top; }
+thead { display: table-header-group; }
+th { text-align: left; font-weight: 600; color: var(--muted); font-size: 8pt; border-bottom: 1pt solid var(--ink); padding: 1.2mm 2mm 1.2mm 0; }
+td { vertical-align: top; padding: 1.6mm 2mm 1.6mm 0; border-bottom: 0.5pt solid var(--rule); }
+tr { break-inside: avoid; page-break-inside: avoid; }
+.col-id { width: 16mm; white-space: nowrap; }
+.col-status { width: 44mm; }
+td .status { white-space: normal; align-items: flex-start; }
+td .status-icon { margin-top: 0.8mm; }
+.col-result { width: 38%; }
+.overview td .notes { margin: 1mm 0 0; }
+tr.is-na td, tr.is-na td a { color: var(--status-none); }
+
+/* ---------------------------------------------------------------- findings */
+
+.part-a, .part-b, .appendix-a { break-before: page; page-break-before: always; }
+.part-b .finding { break-inside: auto; page-break-inside: auto; }
+.area-intro { color: var(--muted); }
+.finding { margin: 0 0 5mm; padding: 3mm 0 0; border-top: 0.6pt solid var(--rule); break-inside: avoid; page-break-inside: avoid; }
+.finding h3, .finding h2 { margin: 0 0 2mm; font-size: 11pt; }
+.finding .fid { font-family: var(--mono); font-weight: 400; color: var(--muted); margin-right: 2mm; }
+.finding.is-open { border-top: 1.2pt solid var(--accent); }
+.fields { display: grid; grid-template-columns: 42mm 1fr; gap: 1.6mm 5mm; margin: 2mm 0 0; }
+.fields > dt { color: var(--muted); font-size: 8.8pt; padding-top: 0.4mm; }
+.fields > dd { margin: 0; }
+.fields > dd > :last-child { margin-bottom: 0; }
+.notes { list-style: none; padding: 0; margin: 1mm 0 0; font-size: 8.8pt; font-style: italic; color: var(--muted); }
+.lawyer { margin: 3mm 0 0; padding: 2mm 3mm; border-left: 2.5pt solid var(--status-defect); font-weight: 600; break-inside: avoid; }
+.to-part-b { font-size: 9pt; }
+.steps { margin: 0; padding-left: 5mm; }
+.refs { margin: 0; padding-left: 4.5mm; overflow-wrap: anywhere; }
+.file { font-family: var(--mono); font-size: 8.5pt; color: var(--muted); }
+
+figure { margin: 1mm 0 3mm; break-inside: avoid; }
+figure img { display: block; max-width: 100%; max-height: 120mm; border: 0.6pt solid var(--rule); }
+figcaption { font-size: 8.5pt; color: var(--muted); margin-top: 1mm; }
+.snippet figcaption { margin: 0 0 0.5mm; }
+
+/* Checkbox lists: the box is drawn with CSS, the font has no ☐ glyph. */
+.checklist { list-style: none; padding: 0; margin: 0; }
+.checklist li { position: relative; padding-left: 6mm; margin-bottom: 1.2mm; break-inside: avoid; }
+.checklist li::before { content: ""; position: absolute; left: 0; top: 0.9mm; width: 3.2mm; height: 3.2mm;
+  border: 0.9pt solid var(--ink); }
+.priorities li { display: flex; flex-wrap: wrap; gap: 0 3mm; }
+.priorities .effort { color: var(--muted); font-size: 8.8pt; }
+
+/* ---------------------------------------------------------------- appendix */
+
+.protocol th { width: 48mm; color: var(--muted); font-weight: 400; border-bottom: 0.5pt solid var(--rule); vertical-align: top; }
+.protocol ul { margin: 0; padding-left: 4mm; overflow-wrap: anywhere; }
+.glossary { margin: 0; }
+.glossary dt { font-weight: 600; margin-top: 2.5mm; break-after: avoid; }
+.glossary dd { margin: 0.5mm 0 0; }
+.disclaimer { padding: 4mm 5mm; border: 0.8pt solid var(--rule); }
+
+.screen-footer { margin-top: 12mm; padding-top: 3mm; border-top: 0.6pt solid var(--rule); font-size: 8pt; color: var(--muted); }
+
+@media print {
+  body { max-width: none; padding: 0; }
+  .screen-footer { display: none; }
+  a { text-decoration: none; }
+}
+
+@media screen and (max-width: 640px) {
+  .fields, .facts { grid-template-columns: 1fr; }
+  .counts { grid-template-columns: 1fr; }
+  .cover { min-height: 0; }
+  .cover-title { margin-top: 12mm; }
+}

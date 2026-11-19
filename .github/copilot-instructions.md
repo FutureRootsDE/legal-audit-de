@@ -27,6 +27,7 @@ Slash-Prompts liegen unter `.github/prompts/`. Aufruf via `gh copilot suggest "f
 |----|----|
 | `legal-audit` | Vollstaendiger Codebase-Audit |
 | `legal-audit-live` | Live-Browser-Check (benoetigt MCP) |
+| `legal-client-test` | Website-CheckUp als HTML/PDF-Report (benoetigt MCP; nur wenn das Plugin-Repo der Workspace ist) |
 | `legal-doc-check` | Einzeldokument-Pruefung (AGB/DSE/Impressum/...) |
 | `legal-kb` | KB-Artikel laden |
 | `legal-verify` | Anwalts-/Tool-Empfehlungen |

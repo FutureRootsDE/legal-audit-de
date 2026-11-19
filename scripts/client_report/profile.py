@@ -1,0 +1,292 @@
+"""Issuer letterhead profile: company, contact, address, logo copy and accent color.
+
+Only the issuer is stored here. Client data never goes into the profile (spec A4).
+"""
+from __future__ import annotations
+
+import errno
+import json
+import os
+import re
+import secrets
+import stat
+import tempfile
+from pathlib import Path
+from typing import Mapping
+
+from .models import ReportInputError, ValidationIssue
+
+PROFILE_FILENAME = "client-test-profile.json"
+FALLBACK_DIRNAME = "legal-audit-de-client-test"
+HOME_OVERRIDE_ENV = "LEGAL_AUDIT_CLIENT_TEST_HOME"
+LOGO_BASENAME = "client-test-logo"
+LOGO_EXTENSIONS = ("png", "jpg", "jpeg", "svg")
+WRITE_PROBE_NAME = ".legal-audit-write-probe"
+MAX_LOGO_BYTES = 5 * 1024 * 1024
+MAX_FIELD_CHARS = 300
+MAX_ADDRESS_LINES = 8
+
+REQUIRED_KEYS = ("company", "contact", "address", "logo_file", "accent_color")
+OPTIONAL_KEYS = ("phone", "website", "email")
+ACCENT_RE = re.compile(r"#[0-9A-Fa-f]{6}")  # always used with fullmatch (no trailing newline)
+LOGO_FILE_RE = re.compile(rf"{LOGO_BASENAME}\.(?:{'|'.join(LOGO_EXTENSIONS)})")  # fullmatch too
+SVG_START_RE = re.compile(rb"<svg[\s>]", re.IGNORECASE)
+LOGO_HEAD_BYTES = 64 * 1024  # SVG prologs (XML declaration, comments, doctype) can be long
+# Plugin-owned folder in the system temp directory for the profile data file of `profile save`.
+TEMP_DIRNAME = "legal-audit-de-client-test"
+TEMP_DATA_PREFIX = "profile-"
+TEMP_DATA_SUFFIX = ".json"
+TEMP_TOKEN_BYTES = 16
+REDIRECTED_TEMP_MESSAGE = "Temp-Ordner des Plugins ist eine Verknüpfung (Symlink oder Junction)"
+TEMP_DATA_RE = re.compile(rf"{TEMP_DATA_PREFIX}[0-9a-f]{{{2 * TEMP_TOKEN_BYTES}}}\{TEMP_DATA_SUFFIX}")  # fullmatch
+
+
+def profile_dir(env: Mapping[str, str] | None = None) -> Path:
+    """Directory of the profile: test override, plugin data, Codex, Copilot, else ~/.claude."""
+    env = os.environ if env is None else env
+    if env.get(HOME_OVERRIDE_ENV):
+        return Path(env[HOME_OVERRIDE_ENV])
+    if env.get("CLAUDE_PLUGIN_DATA"):
+        return Path(env["CLAUDE_PLUGIN_DATA"])
+    if env.get("CODEX_HOME"):
+        return Path(env["CODEX_HOME"]) / FALLBACK_DIRNAME
+    if env.get("COPILOT_HOME"):
+        return Path(env["COPILOT_HOME"]) / FALLBACK_DIRNAME
+    return Path.home() / ".claude" / FALLBACK_DIRNAME
+
+
+def _text_issue(path: str, value: object) -> ValidationIssue | None:
+    if not isinstance(value, str) or not value.strip():
+        return ValidationIssue(path, "muss ein nicht leerer Text sein")
+    if len(value) > MAX_FIELD_CHARS:
+        return ValidationIssue(path, f"zu lang (höchstens {MAX_FIELD_CHARS} Zeichen)")
+    return None
+
+
+def validate_profile(data: Mapping) -> list[ValidationIssue]:
+    """Blocking problems of a profile; unknown keys (for example client data) are rejected."""
+    if not isinstance(data, Mapping):
+        return [ValidationIssue("profile", "muss ein Objekt sein")]
+    issues: list[ValidationIssue] = []
+    allowed = set(REQUIRED_KEYS) | set(OPTIONAL_KEYS)
+    for key in data:
+        if key not in allowed:
+            issues.append(ValidationIssue(f"profile.{key}", "unbekanntes Feld (nur Absenderdaten erlaubt)"))
+    for key in REQUIRED_KEYS:
+        if key not in data:
+            issues.append(ValidationIssue(f"profile.{key}", "Pflichtfeld fehlt"))
+    for key in ("company", "contact") + OPTIONAL_KEYS:
+        if key in data:
+            issue = _text_issue(f"profile.{key}", data[key])
+            if issue:
+                issues.append(issue)
+    if "address" in data:
+        address = data["address"]
+        if not isinstance(address, list) or not address or len(address) > MAX_ADDRESS_LINES:
+            issues.append(
+                ValidationIssue("profile.address", f"muss eine Liste mit 1 bis {MAX_ADDRESS_LINES} Zeilen sein")
+            )
+        else:
+            for i, line in enumerate(address):
+                issue = _text_issue(f"profile.address[{i}]", line)
+                if issue:
+                    issues.append(issue)
+    if not any(data.get(k) for k in OPTIONAL_KEYS):
+        issues.append(ValidationIssue("profile", "mindestens eines von email, phone, website ist nötig"))
+    if "logo_file" in data:
+        logo = data["logo_file"]
+        if not (isinstance(logo, str) and LOGO_FILE_RE.fullmatch(logo)):
+            issues.append(
+                ValidationIssue(
+                    "profile.logo_file",
+                    f"muss ein Dateiname {LOGO_BASENAME}.<png|jpg|jpeg|svg> ohne Pfad sein",
+                )
+            )
+    if "accent_color" in data:
+        accent = data["accent_color"]
+        if not (isinstance(accent, str) and ACCENT_RE.fullmatch(accent)):
+            issues.append(ValidationIssue("profile.accent_color", "muss ein Hex-Wert wie #1F4E79 sein"))
+    return issues
+
+
+def load_profile(env: Mapping[str, str] | None = None) -> dict | None:
+    """The stored profile, or None when missing, unreadable, invalid or without its logo file."""
+    base = profile_dir(env)
+    try:
+        data = json.loads((base / PROFILE_FILENAME).read_text(encoding="utf-8-sig"))
+    except (OSError, ValueError):
+        return None
+    if not isinstance(data, dict) or validate_profile(data):
+        return None
+    if not (base / data["logo_file"]).is_file():
+        return None
+    return data
+
+
+def logo_path(profile: Mapping, env: Mapping[str, str] | None = None) -> Path:
+    """Absolute path of the stored logo copy of a validated profile."""
+    return profile_dir(env) / profile["logo_file"]
+
+
+def _logo_kind_matches(ext: str, head: bytes) -> bool:
+    if ext == "png":
+        return head.startswith(b"\x89PNG\r\n\x1a\n")
+    if ext in ("jpg", "jpeg"):
+        return head.startswith(b"\xff\xd8\xff")
+    return bool(SVG_START_RE.search(head))
+
+
+def _read_logo(logo_src: Path) -> tuple[bytes, str]:
+    """Read a user-supplied logo: regular file, known extension, size cap, matching content."""
+    src = Path(logo_src)
+    ext = src.suffix.lower().lstrip(".")
+    if ext not in LOGO_EXTENSIONS:
+        raise ValueError(f"Logo-Format nicht unterstützt: .{ext} (erlaubt: png, jpg, jpeg, svg)")
+    if not src.is_file():
+        raise ValueError("Logo ist keine Datei")
+    if src.stat().st_size > MAX_LOGO_BYTES:
+        raise ValueError(f"Logo ist größer als {MAX_LOGO_BYTES // (1024 * 1024)} MB")
+    content = src.read_bytes()
+    if not _logo_kind_matches(ext, content[:LOGO_HEAD_BYTES]):
+        raise ValueError("Logo-Inhalt passt nicht zur Dateiendung")
+    return content, ext
+
+
+def ensure_writable_dir(directory: Path) -> None:
+    """Fail fast with OSError when files cannot be created in `directory`.
+
+    tempfile.mkstemp retries for minutes on Windows when the folder is not writable, so every
+    atomic write probes once with a fixed name first.
+    """
+    probe = Path(directory) / WRITE_PROBE_NAME
+    for _attempt in range(2):
+        try:
+            fd = os.open(probe, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except FileExistsError:
+            probe.unlink(missing_ok=True)  # left over from an interrupted run
+            continue
+        os.close(fd)
+        probe.unlink(missing_ok=True)
+        return
+    raise PermissionError(errno.EACCES, "Verzeichnis nicht beschreibbar")
+
+
+def _atomic_write_bytes(path: Path, payload: bytes) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ensure_writable_dir(path.parent)
+    fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "wb") as fh:
+            fh.write(payload)
+            fh.flush()
+            os.fsync(fh.fileno())
+        os.replace(tmp_name, path)
+    except Exception:
+        try:
+            os.unlink(tmp_name)
+        except OSError:
+            pass
+        raise
+
+
+def save_profile(data: Mapping, logo_src: Path, env: Mapping[str, str] | None = None) -> Path:
+    """Validate, copy the logo as client-test-logo.<ext> and write the profile atomically."""
+    content, ext = _read_logo(logo_src)
+    record = dict(data)
+    record["logo_file"] = f"{LOGO_BASENAME}.{ext}"
+    issues = validate_profile(record)
+    if issues:
+        raise ReportInputError(issues)
+    base = profile_dir(env)
+    base.mkdir(parents=True, exist_ok=True)
+    _atomic_write_bytes(base / record["logo_file"], content)
+    text = json.dumps(record, ensure_ascii=False, indent=2) + "\n"
+    target = base / PROFILE_FILENAME
+    _atomic_write_bytes(target, text.encode("utf-8"))
+    # Other-format logo copies go only after the new logo and profile are safely written.
+    for other in LOGO_EXTENSIONS:
+        stale = base / f"{LOGO_BASENAME}.{other}"
+        if other != ext and stale.is_file():
+            stale.unlink()
+    return target
+
+
+# ---------------------------------------------------------------- temporary profile data
+
+def temp_data_dir() -> Path:
+    """Plugin-owned folder in the system temp directory (outside every working directory)."""
+    return Path(tempfile.gettempdir()) / TEMP_DIRNAME
+
+
+def new_temp_data_path() -> Path:
+    """Fresh, not yet existing path for the profile data file, in a private plugin temp folder.
+
+    The file itself is left to the caller (the Write tool cannot overwrite a file it has not
+    read). The folder is created with mode 0700 and must be a real directory owned by the user.
+    """
+    folder = temp_data_dir()
+    if os.path.lexists(folder) and _is_redirected(folder):
+        raise OSError(errno.ENOTDIR, REDIRECTED_TEMP_MESSAGE)
+    folder.mkdir(mode=0o700, exist_ok=True)
+    _check_temp_folder(folder)
+    return folder / f"{TEMP_DATA_PREFIX}{secrets.token_hex(TEMP_TOKEN_BYTES)}{TEMP_DATA_SUFFIX}"
+
+
+def _is_link(path: Path) -> bool:
+    """Symlink, junction or any other reparse point; never follows the link (os.lstat)."""
+    try:
+        st = os.lstat(path)
+    except OSError:
+        return False
+    # Windows junctions are reparse points but not symlinks, so is_symlink() misses them.
+    return stat.S_ISLNK(st.st_mode) or bool(getattr(st, "st_file_attributes", 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT)
+
+
+def _is_redirected(folder: Path) -> bool:
+    """True when the last component of `folder` leads elsewhere. Links in its ancestors
+    (macOS /var -> /private/var, 8.3 short names) are ignored on purpose."""
+    if _is_link(folder):
+        return True
+    try:
+        real = os.path.realpath(folder)
+        expected = os.path.join(os.path.realpath(folder.parent), folder.name)
+    except (OSError, ValueError):
+        return True
+    return os.path.normcase(real) != os.path.normcase(expected)
+
+
+def _check_temp_folder(folder: Path) -> None:
+    """Raise OSError unless `folder` is a real directory of the current user, not a link of any kind."""
+    if _is_redirected(folder):
+        raise OSError(errno.ENOTDIR, REDIRECTED_TEMP_MESSAGE)
+    if not folder.is_dir():
+        raise OSError(errno.ENOTDIR, "Temp-Ordner des Plugins ist kein Verzeichnis")
+    if hasattr(os, "getuid") and folder.stat().st_uid != os.getuid():
+        raise PermissionError(errno.EACCES, "Temp-Ordner des Plugins gehört einem anderen Nutzer")
+
+
+def checked_temp_data_file(path: Path) -> Path | None:
+    """`path` made absolute when it names a file from new_temp_data_path() directly inside the
+    plugin temp folder, else None.
+
+    The check is lexical plus link checks on the folder and the file; the file is never
+    resolved, so the caller reads and deletes exactly the returned path (no second lookup).
+    """
+    candidate = Path(os.path.abspath(path))
+    folder = Path(os.path.abspath(temp_data_dir()))
+    if os.path.normcase(str(candidate.parent)) != os.path.normcase(str(folder)):
+        return None
+    if TEMP_DATA_RE.fullmatch(candidate.name) is None or _is_link(candidate):
+        return None
+    try:
+        _check_temp_folder(folder)
+    except OSError:
+        return None
+    return candidate
+
+
+def discard_temp_data_file(path: Path) -> None:
+    """Delete exactly `path`, a value returned by checked_temp_data_file(); anything else is left
+    alone. OSError from the deletion (locked file, missing rights) goes to the caller."""
+    if checked_temp_data_file(path) == path:
+        path.unlink(missing_ok=True)

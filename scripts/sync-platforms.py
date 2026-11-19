@@ -141,19 +141,77 @@ def render_frontmatter(fm: Dict[str, str]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def render_ported_markdown(source: Path, fm: Dict[str, str], body: str) -> str:
+def render_ported_markdown(source: Path, fm: Dict[str, str], body: str, notice: str = "") -> str:
     """Rendert generierte Markdown-Dateien mit YAML-Frontmatter an Dateianfang."""
     source_rel = source.relative_to(SOURCE_DIR).as_posix()
-    return render_frontmatter(fm) + PORT_HEADER.format(source_rel=source_rel) + body
+    return render_frontmatter(fm) + PORT_HEADER.format(source_rel=source_rel) + notice + body
+
+
+def split_tools(tools_str: str) -> List[str]:
+    """Splits a tool list on commas, ignoring commas inside parentheses."""
+    parts: List[str] = []
+    depth = 0
+    current: List[str] = []
+    for ch in tools_str:
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth = max(depth - 1, 0)
+        if ch == "," and depth == 0:
+            parts.append("".join(current).strip())
+            current = []
+        else:
+            current.append(ch)
+    parts.append("".join(current).strip())
+    return [p for p in parts if p]
+
+
+def bash_pattern(tool: str) -> str:
+    """Returns the pattern of a restricted `Bash(<pattern>)` entry, else ''."""
+    if tool.startswith("Bash(") and tool.endswith(")"):
+        return tool[len("Bash("):-1].strip()
+    return ""
+
+
+def extract_bash_patterns(tools_str: str) -> List[str]:
+    """Collects all restricted Bash patterns (in order, without duplicates)."""
+    patterns: List[str] = []
+    for tool in split_tools(tools_str or ""):
+        pattern = bash_pattern(tool)
+        if pattern and pattern not in patterns:
+            patterns.append(pattern)
+    return patterns
+
+
+def restriction_notice(patterns: List[str]) -> str:
+    """Instruction block that keeps a Bash restriction on platforms without patterns."""
+    if not patterns:
+        return ""
+    listed = "\n".join(f"- `{p}`" for p in patterns)
+    return (
+        "\n**Erlaubte Shell-Befehle: nur** Aufrufe, die zu einem dieser Muster passen "
+        "(`:*` steht fuer beliebige weitere Argumente). Fuehre keine anderen "
+        "Shell-Befehle aus. Diese Plattform kann die Einschraenkung nicht technisch "
+        "erzwingen, sie gilt daher als verbindliche Anweisung.\n\n"
+        f"{listed}\n\n"
+    )
 
 
 def map_tools(tools_str: str, target: str) -> str:
-    """Mappt Tool-Namen aus Frontmatter `allowed-tools` oder `tools`."""
+    """Mappt Tool-Namen aus Frontmatter `allowed-tools` oder `tools`.
+
+    Restricted `Bash(<pattern>)` entries collapse to the platform shell tool
+    (deduplicated); the pattern itself is preserved via restriction_notice().
+    """
     if not tools_str:
         return tools_str
     table = TOOL_MAP_CODEX if target == "codex" else TOOL_MAP_COPILOT
-    parts = [p.strip() for p in tools_str.split(",") if p.strip()]
-    mapped = [table.get(p, p) for p in parts]
+    mapped: List[str] = []
+    for part in split_tools(tools_str):
+        name = "Bash" if bash_pattern(part) else part
+        out = table.get(name, name)
+        if out not in mapped:
+            mapped.append(out)
     return ", ".join(mapped)
 
 
@@ -170,11 +228,13 @@ def port_command(source: Path, target_platform: str) -> str:
     raw = source.read_text(encoding="utf-8")
     fm, body = parse_frontmatter(raw)
 
+    notice = ""
     if "allowed-tools" in fm:
+        notice = restriction_notice(extract_bash_patterns(fm["allowed-tools"]))
         fm["allowed-tools"] = map_tools(fm["allowed-tools"], target_platform)
 
     body = replace_path_vars(body, target_platform)
-    return render_ported_markdown(source, fm, body)
+    return render_ported_markdown(source, fm, body, notice)
 
 
 def port_agent(source: Path, target_platform: str) -> str:
@@ -182,7 +242,9 @@ def port_agent(source: Path, target_platform: str) -> str:
     raw = source.read_text(encoding="utf-8")
     fm, body = parse_frontmatter(raw)
 
+    notice = ""
     if "tools" in fm:
+        notice = restriction_notice(extract_bash_patterns(fm["tools"]))
         fm["tools"] = map_tools(fm["tools"], target_platform)
 
     if target_platform == "codex":
@@ -194,7 +256,7 @@ def port_agent(source: Path, target_platform: str) -> str:
             fm["original-model"] = original_model
 
     body = replace_path_vars(body, target_platform)
-    return render_ported_markdown(source, fm, body)
+    return render_ported_markdown(source, fm, body, notice)
 
 
 def port_skill(source: Path, target_platform: str) -> str:

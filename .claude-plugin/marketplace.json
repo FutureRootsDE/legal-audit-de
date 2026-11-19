@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Marketplace for German/EU legal audit tooling — multi-platform plugins (Claude Code, Codex CLI, GitHub Copilot CLI) focused on DSGVO, TDDDG, UWG, AI Act compliance.",
-    "version": "1.4.3"
+    "version": "1.5.0"
   },
   "plugins": [
     {
@@ -16,7 +16,7 @@
         "url": "https://github.com/FutureRootsDE/legal-audit-de.git"
       },
       "description": "Multi-platform plugin for systematic German/EU legal audits (DSGVO, TDDDG, UWG, AI Act, etc.). Scans codebases, live URLs, and individual legal documents. Produces severity-classified findings + clean corrected versions. NOT legal advice.",
-      "version": "1.4.3",
+      "version": "1.5.0",
       "author": {
         "name": "FutureRoots DE",
         "url": "https://github.com/FutureRootsDE"
