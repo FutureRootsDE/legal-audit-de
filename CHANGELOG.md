@@ -6,9 +6,9 @@ Alle nennenswerten Aenderungen am Plugin **legal-audit-de** werden in diesem Dok
 
 ---
 
-## [Unreleased]
+## [1.5.0] (2026-11-19)
 
-Minor-Release 1.5.0 (Datum setzt der Release-PR): neuer Befehl `/legal-client-test`.
+Minor-Release: neuer Befehl `/legal-client-test`.
 
 ### Neu
 
